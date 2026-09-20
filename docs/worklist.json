@@ -35,20 +35,6 @@
       "issue": 7
     },
     {
-      "id": "m1-menu-checkpoints",
-      "milestone": "M1",
-      "labels": [
-        "verify"
-      ],
-      "issue": 9,
-      "title": "選單檢查點",
-      "body": "穩定標題、主選單、第一個可操作畫面三個狀態檔＋恢復驗證；按鍵腳本要調（space 太密會提早退出）。",
-      "acceptance": "states.sh 一次產出三個檢查點；--check 通過。",
-      "verify": [
-        "三個狀態檔存在"
-      ]
-    },
-    {
       "id": "m1-determinism",
       "milestone": "M1",
       "labels": [
@@ -255,6 +241,22 @@
         "dosgolem master 缺 spec 194 或 CI 紅"
       ],
       "evidence": "dosgolem master 3c21907（cherry-pick 重放到現行線；上游歷史曾被重寫，merge 路線已排除）；internal/dos 測試綠",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m1-menu-checkpoints",
+      "milestone": "M1",
+      "labels": [
+        "verify"
+      ],
+      "issue": 9,
+      "title": "選單檢查點",
+      "body": "穩定標題、主選單、第一個可操作畫面三個狀態檔＋恢復驗證；按鍵腳本要調（space 太密會提早退出）。",
+      "acceptance": "states.sh 一次產出三個檢查點；--check 通過。",
+      "verify": [
+        "三個狀態檔存在"
+      ],
+      "evidence": "docs/re/009：menu.state(940M) 可點擊推進五列；--check 恢復＋點擊→PCVW 綠；DOSBox-X 正對照遮罩差異 0",
       "done": "2026-09-20"
     }
   ],
