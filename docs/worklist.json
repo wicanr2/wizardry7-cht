@@ -35,20 +35,6 @@
       "issue": 7
     },
     {
-      "id": "m1-determinism",
-      "milestone": "M1",
-      "labels": [
-        "verify"
-      ],
-      "issue": 11,
-      "title": "決定性",
-      "body": "同輸入兩次：狀態檔／畫面／記憶體 dump 雜湊全同。",
-      "acceptance": "三種產物 SHA-256 相同。",
-      "verify": [
-        "有成對比較紀錄"
-      ]
-    },
-    {
       "id": "m1-opl2-parity",
       "milestone": "M1",
       "labels": [
@@ -257,6 +243,22 @@
         "三個狀態檔存在"
       ],
       "evidence": "docs/re/009：menu.state(940M) 可點擊推進五列；--check 恢復＋點擊→PCVW 綠；DOSBox-X 正對照遮罩差異 0",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m1-determinism",
+      "milestone": "M1",
+      "labels": [
+        "verify"
+      ],
+      "issue": 11,
+      "title": "決定性",
+      "body": "同輸入兩次：狀態檔／畫面／記憶體 dump 雜湊全同。",
+      "acceptance": "三種產物 SHA-256 相同。",
+      "verify": [
+        "有成對比較紀錄"
+      ],
+      "evidence": "docs/re/009 §決定性：pairA.state==pairB.state、drv dump 同、跨 run 幀雜湊同；dosgolem de5e2d2 修快照 map 編碼",
       "done": "2026-09-20"
     }
   ],
