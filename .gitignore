@@ -1,0 +1,20 @@
+# 原版素材由使用者自備，不進版控
+*.zip
+*.rar
+/wizar7/
+*.jpg
+*.jpeg
+Thumbs.db
+
+# 相關 repo 的本地 clone
+/worktrees/
+
+# 解開的原版、快照、暫存輸出
+/workplace/
+/.out/
+
+# Python 快取
+__pycache__/
+
+# 發行包產物
+/dist-all/
