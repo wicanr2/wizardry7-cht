@@ -35,9 +35,7 @@ def main(vram_path, pal_path, out_path):
     rgb = bytearray(W * H * 3)
     for i, c in enumerate(idx):
         p = c * 3
-        rgb[i * 3] = (pal[p] << 2) | (pal[p] >> 4)
-        rgb[i * 3 + 1] = (pal[p + 1] << 2) | (pal[p + 1] >> 4)
-        rgb[i * 3 + 2] = (pal[p + 2] << 2) | (pal[p + 2] >> 4)
+        rgb[i * 3:i * 3 + 3] = pal[p:p + 3]  # probe 已輸出 8-bit RGB
     write_png(out_path, W, H, bytes(rgb))
     nz = sum(1 for x in idx if x)
     print(f"{out_path}: 非零像素 {nz}/{W * H}，使用色彩 {len(set(idx))}")

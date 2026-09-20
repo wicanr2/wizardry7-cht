@@ -20,34 +20,6 @@
   },
   "items": [
     {
-      "id": "m0-states",
-      "milestone": "M0",
-      "labels": [
-        "verify"
-      ],
-      "title": "狀態檢查點產生器",
-      "body": "依重播輸入產出數個檢查點狀態檔（標題、主選單、第一個可操作畫面等，實際項目依 m0-golem-boot 能走多遠調整），每個附解幀畫面與到達指令數。",
-      "acceptance": "tools/states.sh（或等價物）一次產出全部檢查點；從檢查點載入到可做實驗是秒級。",
-      "verify": [
-        "workplace/ 有檢查點狀態檔與解幀畫面"
-      ],
-      "issue": 5
-    },
-    {
-      "id": "m0-dosboxx-ref",
-      "milestone": "M0",
-      "labels": [
-        "verify"
-      ],
-      "title": "DOSBox-X 參照與對拍",
-      "body": "同組檢查點在 DOSBox-X 的畫面擷取與 dosgolem 逐像素比對，結果進 docs/re/。顏色差異屬 M1，這裡先比版面。",
-      "acceptance": "docs/re/ 有對拍結果（不一致像素數與位置）。",
-      "verify": [
-        "docs/re/ 有 DOSBox-X 對拍文件"
-      ],
-      "issue": 6
-    },
-    {
       "id": "readme",
       "milestone": "M6",
       "labels": [
@@ -128,6 +100,38 @@
       ],
       "issue": 3,
       "evidence": "docs/re/004-ida-census.md（843 函式普查、INT 全在 resident、overlay 名表、種子方法）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m0-states",
+      "milestone": "M0",
+      "labels": [
+        "verify"
+      ],
+      "title": "狀態檢查點產生器",
+      "body": "依重播輸入產出數個檢查點狀態檔（標題、主選單、第一個可操作畫面等，實際項目依 m0-golem-boot 能走多遠調整），每個附解幀畫面與到達指令數。",
+      "acceptance": "tools/states.sh（或等價物）一次產出全部檢查點；從檢查點載入到可做實驗是秒級。",
+      "verify": [
+        "workplace/ 有檢查點狀態檔與解幀畫面"
+      ],
+      "issue": 5,
+      "evidence": "docs/re/005-dosboxx-parity.md §檢查點（banner/title 狀態檔＋恢復驗證通過；主選單檢查點待按鍵腳本，列 M1）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m0-dosboxx-ref",
+      "milestone": "M0",
+      "labels": [
+        "verify"
+      ],
+      "title": "DOSBox-X 參照與對拍",
+      "body": "同組檢查點在 DOSBox-X 的畫面擷取與 dosgolem 逐像素比對，結果進 docs/re/。顏色差異屬 M1，這裡先比版面。",
+      "acceptance": "docs/re/ 有對拍結果（不一致像素數與位置）。",
+      "verify": [
+        "docs/re/ 有 DOSBox-X 對拍文件"
+      ],
+      "issue": 6,
+      "evidence": "docs/re/005-dosboxx-parity.md §對拍（穩定標題遮罩差異 0；顏色屬 M1）",
       "done": "2026-09-20"
     }
   ],
