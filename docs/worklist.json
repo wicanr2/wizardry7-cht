@@ -78,20 +78,6 @@
       ]
     },
     {
-      "id": "m1-golem-upstream",
-      "milestone": "M1",
-      "labels": [
-        "golem-upstream"
-      ],
-      "issue": 14,
-      "title": "dosgolem 上游化：AX=14h 分支合併推送",
-      "body": "分支 wizardry7/int33-ax14（spec 194＋case 0x0014＋contract test）合入 dosgolem master、push、CI 綠；wizardry7 回 master。",
-      "acceptance": "master 含 spec 194；CI 綠；本地分支清除。",
-      "verify": [
-        "dosgolem master 缺 spec 194 或 CI 紅"
-      ]
-    },
-    {
       "id": "m2-frontend-skeleton",
       "milestone": "M2",
       "labels": [
@@ -253,6 +239,22 @@
         "docs/re/007 不存在或畫面仍卡"
       ],
       "evidence": "docs/re/007＋008：0x740C＝驅動段；等待條件＝事件閂鎖；根因＝dosgolem 缺 INT 33h AX=14h（分支 wizardry7/int33-ax14 修復，spec 194＋contract test＋巫術7端到端：真實點擊推進 43,530→55,600）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m1-golem-upstream",
+      "milestone": "M1",
+      "labels": [
+        "golem-upstream"
+      ],
+      "issue": 14,
+      "title": "dosgolem 上游化：AX=14h 分支合併推送",
+      "body": "分支 wizardry7/int33-ax14（spec 194＋case 0x0014＋contract test）合入 dosgolem master、push、CI 綠；wizardry7 回 master。",
+      "acceptance": "master 含 spec 194；CI 綠；本地分支清除。",
+      "verify": [
+        "dosgolem master 缺 spec 194 或 CI 紅"
+      ],
+      "evidence": "dosgolem master 3c21907（cherry-pick 重放到現行線；上游歷史曾被重寫，merge 路線已排除）；internal/dos 測試綠",
       "done": "2026-09-20"
     }
   ],
