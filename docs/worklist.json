@@ -76,21 +76,6 @@
       "verify": [
         "docs/re/007 存在"
       ]
-    },
-    {
-      "id": "m1-loader-re",
-      "milestone": "M1",
-      "labels": [
-        "re",
-        "golem-upstream"
-      ],
-      "issue": 13,
-      "title": "Overlay loader 動態逆轉與故事畫面等待條件",
-      "body": "0x740C 模組與磁碟 .OVR 對不上＝loader 有轉換；故事畫面熱點命中仍無反應。用 oracle 攔載入路徑反推。",
-      "acceptance": "docs/re/007 定案轉換與 .tail 語意；故事畫面可前進。",
-      "verify": [
-        "docs/re/007 不存在或畫面仍卡"
-      ]
     }
   ],
   "done": [
@@ -222,6 +207,23 @@
         "docs/re/006 有顏色對拍數字"
       ],
       "evidence": "docs/re/006 §顏色對拍（穩定標題 RGB 嚴格差異 0）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m1-loader-re",
+      "milestone": "M1",
+      "labels": [
+        "re",
+        "golem-upstream"
+      ],
+      "issue": 13,
+      "title": "Overlay loader 動態逆轉與故事畫面等待條件",
+      "body": "0x740C 模組與磁碟 .OVR 對不上＝loader 有轉換；故事畫面熱點命中仍無反應。用 oracle 攔載入路徑反推。",
+      "acceptance": "docs/re/007 定案轉換與 .tail 語意；故事畫面可前進。",
+      "verify": [
+        "docs/re/007 不存在或畫面仍卡"
+      ],
+      "evidence": "docs/re/007＋008：0x740C＝驅動段；等待條件＝事件閂鎖；根因＝dosgolem 缺 INT 33h AX=14h（分支 wizardry7/int33-ax14 修復，spec 194＋contract test＋巫術7端到端：真實點擊推進 43,530→55,600）",
       "done": "2026-09-20"
     }
   ],
