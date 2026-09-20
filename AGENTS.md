@@ -22,6 +22,8 @@
 中文化的目的：**縮短語言隔閡與鴻溝**——讓不諳英文的玩家也能玩到這款經典，
 其他以此為原則取捨。
 
+全景計畫（路線、分層、與 psychic-war 的差異、風險）見 [`PLAN.md`](PLAN.md)。
+
 ### 原版素材（使用者自備）
 
 根目錄的 `Wizardry_VII_-_Crusaders_of_the_Dark_Servant_1992.zip`（已 gitignore）。

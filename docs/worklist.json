@@ -14,45 +14,111 @@
     "re": "反組譯與格式解讀",
     "golem-upstream": "通用機制，做完送回 dosgolem",
     "text": "文本抽取、翻譯與排版",
-    "release": "打包與發行",
-    "doc": "文件"
+    "verify": "對原版驗證",
+    "doc": "文件",
+    "release": "打包與發行"
   },
   "items": [
     {
       "id": "m0-unzip-original",
       "milestone": "M0",
-      "labels": ["re"],
-      "title": "解開原版並建立基線",
-      "body": "把 zip 解到 workplace/original/（gitignore），記錄 250 檔的清單與 SHA-256，寫進 docs/re/001。確認 wizar7/cd/ 子目錄內容。",
-      "acceptance": "清單與雜湊落在 docs/re/001-pw 等價的初探文件；之後的位址表綁這份雜湊。",
-      "verify": ["workplace/original/wizar7/DS.EXE 存在", "docs/re/001-*.md 存在且含全部檔案雜湊"]
+      "labels": [
+        "re"
+      ],
+      "title": "解開原版並建立雜湊基線",
+      "body": "把 zip 解到 workplace/original/wizar7/（gitignore），記錄 250 檔的清單、大小與 SHA-256，寫進 docs/re/001。確認 wizar7/cd/ 子目錄內容與 DSAVANT.BAT／WIZARDRY.BAT 的啟動流程。",
+      "acceptance": "docs/re/001 含全部檔案的雜湊表；之後的位址表與工具綁這份雜湊，不符就停。",
+      "verify": [
+        "workplace/original/wizar7/DS.EXE 存在",
+        "docs/re/001-*.md 存在且含 250 檔雜湊"
+      ],
+      "issue": 1
     },
     {
-      "id": "m0-overlay-first-look",
+      "id": "m0-exe-first-look",
       "milestone": "M0",
-      "labels": ["re"],
-      "title": "DS.EXE 與 .OVR 普查初探",
-      "body": "DS.EXE 檔頭與 overlay 載入機制普查：編譯器家族（是否 Borland）、字型與印字常式線索、顯示模式與音效硬體的 INT 呼叫分布。動手前先讀 borland-tpov-overlay-re 規則。",
-      "acceptance": "docs/re/002 記錄 evidence 等級標籤的初步結論與下一步。",
-      "verify": ["docs/re/002-*.md 存在"]
+      "labels": [
+        "re"
+      ],
+      "title": "DS.EXE 與 overlay 載入機制初探",
+      "body": "DS.EXE 檔頭與 overlay 載入機制普查：編譯器家族（是否 Borland，先讀 borland-tpov-overlay-re 規則再判，不預設）、.OVR 的載入方式、字型與印字常式線索、顯示模式與音效硬體的 INT 呼叫分布、防拷形態線索。",
+      "acceptance": "docs/re/002 記錄帶推論等級標籤（confirmed／強證據／假說／未知）的初步結論與下一步。",
+      "verify": [
+        "docs/re/002-*.md 存在且每項結論帶等級標籤"
+      ],
+      "issue": 2
+    },
+    {
+      "id": "m0-ida-census",
+      "milestone": "M0",
+      "labels": [
+        "re"
+      ],
+      "title": "IDA 建庫與函式普查",
+      "body": "為 DS.EXE 與主要 .OVR（VMAZE、VMEXE、VMNPC 等）建 .i64；產出函式總數、runtime helper 分群、已執行覆蓋、真正的 INT 呼叫點列表。overlay 的 entry point 要自己種，照 tpov 規則的坑清單走。",
+      "acceptance": "普查報告進 docs/re/003，附輸入 SHA-256 與 IDA 專案位置。",
+      "verify": [
+        "workplace/ida/ 有 .i64",
+        "docs/re/003-*.md 存在"
+      ],
+      "issue": 3
     },
     {
       "id": "m0-golem-boot",
       "milestone": "M0",
-      "labels": ["golem-upstream"],
-      "title": "原版在 dosgolem 上開機",
-      "body": "clone dosgolem 到 worktrees/，嘗試跑 DS.EXE（或經 DSAVANT.BAT）到標題畫面。缺的機制照 psychic-war 慣例補進 golem（依據 DOSBox-X 原始碼），不回頭跑 DOSBox。",
-      "acceptance": "dosgolem 產出標題畫面快照，並有 DOSBox-X 同時點參照可對拍。",
-      "verify": ["workplace/ 有標題畫面快照與對拍紀錄"]
+      "labels": [
+        "golem-upstream"
+      ],
+      "title": "原版在 dosgolem 上開機到標題",
+      "body": "clone dosgolem 到 worktrees/，跑 DS.EXE（或經 DSAVANT.BAT）到標題畫面。缺的機制照慣例補進 golem（依據 DOSBox-X 原始碼，不回頭跑 DOSBox），缺口清單逐一記錄。",
+      "acceptance": "dosgolem 產出標題畫面快照；每個補過的機制有一條紀錄（改了什麼、依據哪段 DOSBox-X 原始碼）。",
+      "verify": [
+        "workplace/ 有 golem 標題畫面快照"
+      ],
+      "issue": 4
+    },
+    {
+      "id": "m0-states",
+      "milestone": "M0",
+      "labels": [
+        "verify"
+      ],
+      "title": "狀態檢查點產生器",
+      "body": "依重播輸入產出數個檢查點狀態檔（標題、主選單、第一個可操作畫面等，實際項目依 m0-golem-boot 能走多遠調整），每個附解幀畫面與到達指令數。",
+      "acceptance": "tools/states.sh（或等價物）一次產出全部檢查點；從檢查點載入到可做實驗是秒級。",
+      "verify": [
+        "workplace/ 有檢查點狀態檔與解幀畫面"
+      ],
+      "issue": 5
+    },
+    {
+      "id": "m0-dosboxx-ref",
+      "milestone": "M0",
+      "labels": [
+        "verify"
+      ],
+      "title": "DOSBox-X 參照與對拍",
+      "body": "同組檢查點在 DOSBox-X 的畫面擷取與 dosgolem 逐像素比對，結果進 docs/re/。顏色差異屬 M1，這裡先比版面。",
+      "acceptance": "docs/re/ 有對拍結果（不一致像素數與位置）。",
+      "verify": [
+        "docs/re/ 有 DOSBox-X 對拍文件"
+      ],
+      "issue": 6
     },
     {
       "id": "readme",
       "milestone": "M6",
-      "labels": ["doc", "release"],
+      "labels": [
+        "doc",
+        "release"
+      ],
       "title": "README.md：遊戲介紹與中文化目的",
       "body": "內容：遊戲介紹（Wizardry VII: Crusaders of the Dark Savant，Sir-Tech 1992，DOS 版）；中文化目的＝縮短語言隔閡與鴻溝；做法（dosgolem 轉譯層，原版邏輯不動）；原版自備＋檔案雜湊；授權 RRSAL-1.0。寫法依 rulebook/80，初稿可在 M0 事實齊後先寫。",
       "acceptance": "README 進版控；介紹與目的段落符合 rulebook/80/91 的白話與去 slop 標準。",
-      "verify": ["README.md 存在且含上述五個段落"]
+      "verify": [
+        "README.md 存在且含上述五個段落"
+      ],
+      "issue": 7
     }
   ],
   "done": [],
