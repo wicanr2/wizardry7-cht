@@ -76,6 +76,35 @@
       "verify": [
         "docs/re/007 存在"
       ]
+    },
+    {
+      "id": "m1-golem-upstream",
+      "milestone": "M1",
+      "labels": [
+        "golem-upstream"
+      ],
+      "issue": 14,
+      "title": "dosgolem 上游化：AX=14h 分支合併推送",
+      "body": "分支 wizardry7/int33-ax14（spec 194＋case 0x0014＋contract test）合入 dosgolem master、push、CI 綠；wizardry7 回 master。",
+      "acceptance": "master 含 spec 194；CI 綠；本地分支清除。",
+      "verify": [
+        "dosgolem master 缺 spec 194 或 CI 紅"
+      ]
+    },
+    {
+      "id": "m2-frontend-skeleton",
+      "milestone": "M2",
+      "labels": [
+        "frontend",
+        "golem-upstream"
+      ],
+      "issue": 15,
+      "title": "M2 前端骨架：cmd/wiz7",
+      "body": "視窗（13h 放大）、節拍（步數↔牆上時間）、鍵盤映射、音訊殼。標題→主選單可玩。",
+      "acceptance": "前端從開機玩到主選單；節拍可調；畫面與 probe 快照同源。",
+      "verify": [
+        "前端無法走到主選單或節拍無法調"
+      ]
     }
   ],
   "done": [

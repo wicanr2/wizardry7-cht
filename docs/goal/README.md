@@ -42,6 +42,7 @@ M2–M6 的 goal 文件與細項 issue 等 M1 事實出來再寫（使用者定�
 |---|---|---|
 | 1 | [M0](M0-baseline.md) | 探勘與基線（完成：#1–#6 全關） |
 | 2 | [M1](M1-golem-runs-original.md) | 原版在 golem 上完整可跑 |
+| 3 | [R3](R3-dosgolem-expansion.md) | dosgolem 擴充上游化＋M1 收尾＋M2 前端骨架 |
 
 第 2 輪起依 M0 的結論再定。
 
