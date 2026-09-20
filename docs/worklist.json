@@ -20,21 +20,6 @@
   },
   "items": [
     {
-      "id": "m0-ida-census",
-      "milestone": "M0",
-      "labels": [
-        "re"
-      ],
-      "title": "IDA 建庫與函式普查",
-      "body": "為 DS.EXE 與主要 .OVR（VMAZE、VMEXE、VMNPC 等）建 .i64；產出函式總數、runtime helper 分群、已執行覆蓋、真正的 INT 呼叫點列表。overlay 的 entry point 要自己種，照 tpov 規則的坑清單走。",
-      "acceptance": "普查報告進 docs/re/003，附輸入 SHA-256 與 IDA 專案位置。",
-      "verify": [
-        "workplace/ida/ 有 .i64",
-        "docs/re/003-*.md 存在"
-      ],
-      "issue": 3
-    },
-    {
       "id": "m0-states",
       "milestone": "M0",
       "labels": [
@@ -126,6 +111,23 @@
       ],
       "issue": 4,
       "evidence": "docs/re/003-golem-boot.md（零修改開機到標題美術頁；pfinal.vram 31,997 px；組態全錄）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m0-ida-census",
+      "milestone": "M0",
+      "labels": [
+        "re"
+      ],
+      "title": "IDA 建庫與函式普查",
+      "body": "為 DS.EXE 與主要 .OVR（VMAZE、VMEXE、VMNPC 等）建 .i64；產出函式總數、runtime helper 分群、已執行覆蓋、真正的 INT 呼叫點列表。overlay 的 entry point 要自己種，照 tpov 規則的坑清單走。",
+      "acceptance": "普查報告進 docs/re/003，附輸入 SHA-256 與 IDA 專案位置。",
+      "verify": [
+        "workplace/ida/ 有 .i64",
+        "docs/re/003-*.md 存在"
+      ],
+      "issue": 3,
+      "evidence": "docs/re/004-ida-census.md（843 函式普查、INT 全在 resident、overlay 名表、種子方法）",
       "done": "2026-09-20"
     }
   ],

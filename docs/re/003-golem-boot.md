@@ -48,8 +48,8 @@ tools/go.sh run ./cmd/probe -exe /orig/DS.EXE -root /orig \
 | 計時 | PIT 通道 0 分頻 2376；INT 1Ch ×481（18.2 Hz 族）；動畫推進被計時器閘住 |
 | 輸入 | INT 16h AH=01 鍵盤輪詢 ×2658；INT 33h AH=00 滑鼠初始化 ×1、輪詢 0 次 |
 | 檔案 | AH=3D 開檔 ×34、AH=3F 讀 ×125、AH=42 seek ×30、AH=3E 關 ×32 |
-| 記憶體 | AH=48 ×23、AH=49 ×2、AH=4A ×1 |
-| **自訂中斷** | **INT F6h AH=41/42/43**（各 1 次）——候選：overlay 載入服務（#3 驗證） |
+| 記憶體 | AH=48 ×23、AH=49 ×2、AH=4A ×1；**INT F6h ×3（AH=41/42/43）＝EMS 呼叫**（見下） |
+| **EMS** | **遊戲使用 EMS**。INT F6h 是 golem EMS 驅動（`EMMXXXX0`＋位移 0 的 `CD F6 CF` trampoline，`internal/dos/ems.go`、`internal/machine/machine.go:1409`）的分派；AH=41/42/43 對應 EMM 功能。對上 BAT 的「Virtual Cache」錯誤碼——快取放 EMS。初版把 INT F6h 記成「overlay 載入服務候選」是錯的，已修 |
 
 ## 遇到的坑（給之後的輪次）
 
@@ -64,6 +64,6 @@ tools/go.sh run ./cmd/probe -exe /orig/DS.EXE -root /orig \
 
 ## 下一步
 
-- #3 IDA：追 INT F6h 服務＝overlay loader 反推 `.OVR` 區塊語意；
+- #3 IDA：從 "Error %d loading overlay" 字串的 xref 反推 `.OVR` 區塊語意；
   確認「本安裝用哪個顯示模式」的組態來源（字串只見驅動名）。
 - #5 檢查點：標題頁（~380M 步）存狀態檔；往主選單推進要按鍵腳本。
