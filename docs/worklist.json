@@ -49,20 +49,6 @@
       ]
     },
     {
-      "id": "m1-color-parity",
-      "milestone": "M1",
-      "labels": [
-        "verify"
-      ],
-      "issue": 10,
-      "title": "顏色對拍",
-      "body": "golem 穩定標題 vram+pal 合成 RGB vs DOSBox-X title-09+ 逐像素（容差 0）。",
-      "acceptance": "RGB 差異 0；不為 0 列 DAC entry 差異。",
-      "verify": [
-        "docs/re/006 有顏色對拍數字"
-      ]
-    },
-    {
       "id": "m1-determinism",
       "milestone": "M1",
       "labels": [
@@ -89,6 +75,21 @@
       "acceptance": "docs/re/007 有逐筆比對結果。",
       "verify": [
         "docs/re/007 存在"
+      ]
+    },
+    {
+      "id": "m1-loader-re",
+      "milestone": "M1",
+      "labels": [
+        "re",
+        "golem-upstream"
+      ],
+      "issue": 13,
+      "title": "Overlay loader 動態逆轉與故事畫面等待條件",
+      "body": "0x740C 模組與磁碟 .OVR 對不上＝loader 有轉換；故事畫面熱點命中仍無反應。用 oracle 攔載入路徑反推。",
+      "acceptance": "docs/re/007 定案轉換與 .tail 語意；故事畫面可前進。",
+      "verify": [
+        "docs/re/007 不存在或畫面仍卡"
       ]
     }
   ],
@@ -205,6 +206,22 @@
         "docs/re/006 有退出歸因段落"
       ],
       "evidence": "docs/re/003 勘誤段（-trace 對照：500M 步仍活著；退出=shots off-by-one 誤讀；可寫零寫檔、畫面雜湊同唯讀）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m1-color-parity",
+      "milestone": "M1",
+      "labels": [
+        "verify"
+      ],
+      "issue": 10,
+      "title": "顏色對拍",
+      "body": "golem 穩定標題 vram+pal 合成 RGB vs DOSBox-X title-09+ 逐像素（容差 0）。",
+      "acceptance": "RGB 差異 0；不為 0 列 DAC entry 差異。",
+      "verify": [
+        "docs/re/006 有顏色對拍數字"
+      ],
+      "evidence": "docs/re/006 §顏色對拍（穩定標題 RGB 嚴格差異 0）",
       "done": "2026-09-20"
     }
   ],
