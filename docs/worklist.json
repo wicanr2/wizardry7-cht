@@ -35,20 +35,6 @@
       "issue": 7
     },
     {
-      "id": "m1-writable-cwd",
-      "milestone": "M1",
-      "labels": [
-        "golem-upstream"
-      ],
-      "issue": 8,
-      "title": "可寫執行環境：排除自行退出",
-      "body": "唯讀掛載換可寫複本，驗證遊戲標題後自行退出是否寫檔失敗所致（INSERT SAVEGAME DISK 假說）。",
-      "acceptance": "可寫環境不再退出，或退出原因實錄歸因。",
-      "verify": [
-        "docs/re/006 有退出歸因段落"
-      ]
-    },
-    {
       "id": "m1-menu-checkpoints",
       "milestone": "M1",
       "labels": [
@@ -203,6 +189,22 @@
       ],
       "issue": 6,
       "evidence": "docs/re/005-dosboxx-parity.md §對拍（穩定標題遮罩差異 0；顏色屬 M1）",
+      "done": "2026-09-20"
+    },
+    {
+      "id": "m1-writable-cwd",
+      "milestone": "M1",
+      "labels": [
+        "golem-upstream"
+      ],
+      "issue": 8,
+      "title": "可寫執行環境：排除自行退出",
+      "body": "唯讀掛載換可寫複本，驗證遊戲標題後自行退出是否寫檔失敗所致（INSERT SAVEGAME DISK 假說）。",
+      "acceptance": "可寫環境不再退出，或退出原因實錄歸因。",
+      "verify": [
+        "docs/re/006 有退出歸因段落"
+      ],
+      "evidence": "docs/re/003 勘誤段（-trace 對照：500M 步仍活著；退出=shots off-by-one 誤讀；可寫零寫檔、畫面雜湊同唯讀）",
       "done": "2026-09-20"
     }
   ],
