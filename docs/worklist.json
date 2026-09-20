@@ -33,6 +33,77 @@
         "README.md 存在且含上述五個段落"
       ],
       "issue": 7
+    },
+    {
+      "id": "m1-writable-cwd",
+      "milestone": "M1",
+      "labels": [
+        "golem-upstream"
+      ],
+      "issue": 8,
+      "title": "可寫執行環境：排除自行退出",
+      "body": "唯讀掛載換可寫複本，驗證遊戲標題後自行退出是否寫檔失敗所致（INSERT SAVEGAME DISK 假說）。",
+      "acceptance": "可寫環境不再退出，或退出原因實錄歸因。",
+      "verify": [
+        "docs/re/006 有退出歸因段落"
+      ]
+    },
+    {
+      "id": "m1-menu-checkpoints",
+      "milestone": "M1",
+      "labels": [
+        "verify"
+      ],
+      "issue": 9,
+      "title": "選單檢查點",
+      "body": "穩定標題、主選單、第一個可操作畫面三個狀態檔＋恢復驗證；按鍵腳本要調（space 太密會提早退出）。",
+      "acceptance": "states.sh 一次產出三個檢查點；--check 通過。",
+      "verify": [
+        "三個狀態檔存在"
+      ]
+    },
+    {
+      "id": "m1-color-parity",
+      "milestone": "M1",
+      "labels": [
+        "verify"
+      ],
+      "issue": 10,
+      "title": "顏色對拍",
+      "body": "golem 穩定標題 vram+pal 合成 RGB vs DOSBox-X title-09+ 逐像素（容差 0）。",
+      "acceptance": "RGB 差異 0；不為 0 列 DAC entry 差異。",
+      "verify": [
+        "docs/re/006 有顏色對拍數字"
+      ]
+    },
+    {
+      "id": "m1-determinism",
+      "milestone": "M1",
+      "labels": [
+        "verify"
+      ],
+      "issue": 11,
+      "title": "決定性",
+      "body": "同輸入兩次：狀態檔／畫面／記憶體 dump 雜湊全同。",
+      "acceptance": "三種產物 SHA-256 相同。",
+      "verify": [
+        "有成對比較紀錄"
+      ]
+    },
+    {
+      "id": "m1-opl2-parity",
+      "milestone": "M1",
+      "labels": [
+        "verify",
+        "audio"
+      ],
+      "issue": 12,
+      "title": "OPL2 事件層對拍",
+      "body": "golem 埠寫入紀錄 vs DOSBox-X .dro（DX-CAPTURE /O）逐筆比對。沿用 psychic-war tools/dosboxx-opl.sh＋opl_events.py。",
+      "acceptance": "docs/re/007 有逐筆比對結果。",
+      "verify": [
+        "docs/re/007 存在"
+      ]
     }
   ],
   "done": [
