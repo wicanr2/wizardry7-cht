@@ -100,6 +100,8 @@ workplace/         解開的原版、快照、暫存輸出（gitignore）
 
 - 未完成項的權威：`docs/worklist.json`（一條對應一個 GitHub issue；`verify` 為真＝仍未完成）。
   條目做完改 JSON 並關 issue，不在 markdown 打勾。
+- **每一輪開工前先在 `docs/goal/` 建該輪的 goal markdown**（使用者定案 2026-09-20）；
+  對齊分期的輪次沿用該分期文件，跨分期輪次用 `Rn-<主題>.md`。
 - README.md 已排入工作（`docs/worklist.json` 的 `readme` 條）：遊戲介紹＋中文化目的（縮短語言隔閡與鴻溝）＋原版自備，
   寫法依 `rulebook/80`。
 
