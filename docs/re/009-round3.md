@@ -73,3 +73,21 @@ slice 後狀態檔才可能用雜湊驗決定性。畫面決定性另有跨 run 
 - 五個選單項的**文字名稱**未解（MSG.DBS 壓縮格式，M3）。
 - 從 PCVW 往下走（建隊伍→進遊戲）＝模擬試玩，M2/輪 4。
 - DOSBox-X 輸入送達的正對照已做（本輪）；之後每次換輸入法都要重驗。
+
+## 追記（#12 OPL2 對拍的阻塞點分析）
+
+- golem 端完成：`-dump-ports "388,389"` 匯出 61,140 筆寫入，`tools/re/ports2opl.py`
+  還原 7,835 筆 (索引,值)；psychic-war 的 `opl_events.py`（含 DOSBox-X
+  Adlib::Capture 過濾規則）已複製到 `tools/re/`。
+- DOSBox-X 端：`DX-CAPTURE /O /-D DS.EXE` 管線通（Ctrl+Break 乾淨終止會寫
+  .dro 標頭），但 **commands=0**——三種設定（sb1+opl2+mpu、純 AdLib
+  sbtype=none、sb1+opl2+mpu401=none）都沒有 OPL 寫入。Ctrl+F6 WAV 錄音
+  也沒產出（按鍵送達未驗證）。
+- **判定**：遊戲在 DOSBox-X 裡沒有走 OPL 音樂路徑（不是擷取問題）。
+- PLAY.DRV 讀碼（強證據）：驅動掛 **INT 08h**（`stosw` 寫 IVT 0x20，
+  `byte_B7D` 閘）做節拍；`byte_B9A`（模組 0xB9A）＝樂譜資料段指標，
+  執行期為 0 → **樂譜沒載入** → 0x25D 的 PIT 節拍設定被跳過 → 靜音。
+  樂譜段由 init（file 0x4B5 起）從參數計算——載入路徑（誰該傳 SCORE00.CSF
+  的段位址）是下一輪的 RE 目標。
+- 另：`-dump-mem` 的解析在收尾階段才跑（失敗訊息出現在正常結束之後），
+  已在 dosgolem 回報前先繞道（-dump-vram 部分場次未產出，以幀雜湊替代）。
