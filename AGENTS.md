@@ -102,6 +102,14 @@ workplace/         解開的原版、快照、暫存輸出（gitignore）
   條目做完改 JSON 並關 issue，不在 markdown 打勾。
 - **每一輪開工前先在 `docs/goal/` 建該輪的 goal markdown**（使用者定案 2026-09-20）；
   對齊分期的輪次沿用該分期文件，跨分期輪次用 `Rn-<主題>.md`。
+- **每一項工作的完整循環（使用者定案 2026-09-21）**：
+  1. 登記 GitHub repo issue
+  2. 撰寫 goal markdown（輪次文件或項目）
+  3. 開工
+  4. 測試驗證完成
+  5. push
+  6. 更新 issue 狀態（關閉或進度留言）
+  缺一不可——沒有 issue 的工作不開工，驗證未過不 push。
 - README.md 已排入工作（`docs/worklist.json` 的 `readme` 條）：遊戲介紹＋中文化目的（縮短語言隔閡與鴻溝）＋原版自備，
   寫法依 `rulebook/80`。
 
