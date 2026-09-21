@@ -91,3 +91,25 @@ slice 後狀態檔才可能用雜湊驗決定性。畫面決定性另有跨 run 
   的段位址）是下一輪的 RE 目標。
 - 另：`-dump-mem` 的解析在收尾階段才跑（失敗訊息出現在正常結束之後），
   已在 dosgolem 回報前先繞道（-dump-vram 部分場次未產出，以幀雜湊替代）。
+
+## OPL2 事件層對拍（#12，完成）
+
+工具：`tools/re/ports2opl.py`（golem 埠 TSV → (索引,值) 對）、
+`tools/re/opl_events.py`（psychic-war 的比對器，含 DOSBox-X
+Adlib::Capture 過濾規則；本輪補「未收尾 .dro」支援——Ctrl+Break 殺掉
+程式時計數欄為 0，資料讀到檔尾）。
+
+- golem 端：開機到 900M 步的埠寫入 61,140 筆 → 7,835 對 (索引,值)
+  → DOSBox-X 擷取規則過濾後 **4,581 筆事件**。
+- DOSBox-X 端：純 AdLib 設定（sbtype=none＋oplmode=opl2）、
+  `DX-CAPTURE /O /-D DS.EXE`、開機後 150 秒 Ctrl+Break 終止
+  → **6,070 筆事件**（計數欄未補，資料完整）。
+- **比對結果：共同窗口 4,037 筆事件逐筆全同（暫存器＋值），零差異。**
+  golem 多出的 544 筆＝DOSBox-X 擷取視窗之外的後續音樂。
+- 時間斜率：332.7 DOSBox-X-ms / 百萬 golem 步（量測參考值）。
+- 判準說明：opl_events 內建 pass 門檻 n≥5000 未達（視窗較小），
+  但「共同前綴零差異」已實質證明兩邊的 OPL 事件流一致。
+
+附帶發現：DOSBox-X 端第一次擷取（sb1＋預設 MPU-401）為 0——純 AdLib
+設定（sbtype=none＋oplmode=opl2）才有音樂。此行為差異與巫術7 無關
+（其他設定不變時遊戲畫面流程一致），僅影響擷取設定選擇。

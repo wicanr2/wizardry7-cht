@@ -77,6 +77,9 @@ def read_dro(path):
     pos = 26
     to_reg = list(data[pos:pos + tsize])
     pos += tsize
+    if commands == 0:
+        # 未收尾的檔（Ctrl+Break 殺掉程式，計數欄沒補）：資料讀到檔尾。
+        commands = (len(data) - pos) // 2
     out = []
     t = 0
     for i in range(commands):
