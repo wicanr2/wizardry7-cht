@@ -18,23 +18,7 @@
     "doc": "文件",
     "release": "打包與發行"
   },
-  "items": [
-    {
-      "id": "m1-opl2-parity",
-      "milestone": "M1",
-      "labels": [
-        "verify",
-        "audio"
-      ],
-      "issue": 12,
-      "title": "OPL2 事件層對拍",
-      "body": "golem 埠寫入紀錄 vs DOSBox-X .dro（DX-CAPTURE /O）逐筆比對。沿用 psychic-war tools/dosboxx-opl.sh＋opl_events.py。",
-      "acceptance": "docs/re/007 有逐筆比對結果。",
-      "verify": [
-        "docs/re/007 存在"
-      ]
-    }
-  ],
+  "items": [],
   "done": [
     {
       "id": "m0-unzip-original",
@@ -263,6 +247,23 @@
         "前端無法走到主選單或節拍無法調"
       ],
       "evidence": "cmd/wiz7（goroutine 大塊 Run＋節流＋鍵盤滑鼠）；Xvfb 煙霧測試：開機→主選單、xdotool 點擊推進 PCVW（docs/images/wiz7-pcvw.png）",
+      "done": "2026-09-21"
+    },
+    {
+      "id": "m1-opl2-parity",
+      "milestone": "M1",
+      "labels": [
+        "verify",
+        "audio"
+      ],
+      "issue": 12,
+      "title": "OPL2 事件層對拍",
+      "body": "golem 埠寫入紀錄 vs DOSBox-X .dro（DX-CAPTURE /O）逐筆比對。沿用 psychic-war tools/dosboxx-opl.sh＋opl_events.py。",
+      "acceptance": "docs/re/007 有逐筆比對結果。",
+      "verify": [
+        "docs/re/007 存在"
+      ],
+      "evidence": "docs/re/009 追記：OPL 事件層共同窗口 4,037 筆逐筆全同；golem 4,581 / DOSBox-X 6,070 筆",
       "done": "2026-09-21"
     }
   ],
