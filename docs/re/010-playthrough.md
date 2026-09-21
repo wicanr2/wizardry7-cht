@@ -36,3 +36,19 @@
 
 - `workplace/run/pcvw1.png`（隊伍管理畫面）、`create.png`（CREATE 點擊後）
 - `docs/images/wiz7-menu.png`、`wiz7-pcvw.png`（probe 確定性合成，README 用）
+
+## 追記：鍵盤路徑判定（2026-09-21）
+
+- BDA 環形緩衝驗屍：`-bios-keys` 的第一個鍵（K，word 0x1661）**停在
+  0040:001E 沒被讀走**（head≠tail、後續鍵因 pending 閘沒推）→
+  **名字欄不讀 BIOS 鍵盤佇列（int 16h）**。
+- 遊戲也從未掛 int 09h（VecSets 0 次、IVT[9] 維持 0080:0024）。
+- 判定（強證據）：**遊戲直接輪詢鍵盤控制器 port 60h（掃描碼）**——
+  PLAY.DRV 掛的 INT 08h handler 或主迴圈裡讀。
+- golem 的 `keyTick` 在「int 09h 向量＝stub」時刻意 stall IRQ1
+  （`internal/machine/keyboard.go:105`，理由：stub 不送 EOI 會卡死
+  後續中斷）——對 port 60h 輪詢的程式需要新投遞模式：
+  **寫 kbdData（60h 可讀）但不發 IRQ1**。屬 dosgolem 擴充，需 spec＋
+  EOI 分析，下一輪做。
+- probe 的 `-press` 排程在 `-load-state` 前會被狀態還原覆蓋——已修
+  （dosgolem master `d16f03a`：press 設定移到 load 之後）。
