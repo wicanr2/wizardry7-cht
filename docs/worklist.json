@@ -18,7 +18,52 @@
     "doc": "文件",
     "release": "打包與發行"
   },
-  "items": [],
+  "items": [
+    {
+      "id": "m2-playthrough",
+      "milestone": "M2",
+      "labels": [
+        "verify",
+        "frontend"
+      ],
+      "issue": 16,
+      "title": "模擬試玩：主選單→建隊伍→進遊戲",
+      "body": "真實輸入路徑（Click/Tap/PressKey）從主選單推進到第一個可操作畫面；熱點未知用 -sweep。",
+      "acceptance": "全程截圖＋狀態檔＋轉場記錄（docs/re/010）。",
+      "verify": [
+        "試玩中斷且無法推進"
+      ]
+    },
+    {
+      "id": "m2-recording",
+      "milestone": "M2",
+      "labels": [
+        "frontend"
+      ],
+      "issue": 17,
+      "title": "輸入錄放",
+      "body": "錄製/重播試玩輸入；重播三次畫面雜湊與原跑一致。",
+      "acceptance": "重播一致。",
+      "verify": [
+        "無錄放介面或重播不一致"
+      ]
+    },
+    {
+      "id": "m2-audio",
+      "milestone": "M2",
+      "labels": [
+        "frontend",
+        "audio"
+      ],
+      "issue": 18,
+      "title": "前端音訊：OPL2 事件流→聲音",
+      "body": "OPL 寫入流接合成（或暫替音源），前端可聽；事件↔取樣對齊可量測。",
+      "acceptance": "前端播放音樂；對齊可量測。",
+      "verify": [
+        "前端無聲"
+      ]
+    }
+  ],
   "done": [
     {
       "id": "m0-unzip-original",
