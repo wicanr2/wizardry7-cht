@@ -17,7 +17,7 @@ ARGS=()
 if [[ -n "${WIZ7_FE_SH:-}" ]]; then
   ARGS=(bash -c "$WIZ7_FE_SH")
 else
-  ARGS=("$@")
+  ARGS=(go "$@")
 fi
 exec timeout "${WIZ7_FE_TIMEOUT:-10m}" docker run --rm --network none \
   --memory 2g --cpus 2 --pids-limit 256 \

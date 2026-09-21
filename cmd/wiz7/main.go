@@ -1,18 +1,19 @@
 // wiz7 是《巫術7》的可遊玩前端（#15）：原版 DS.EXE 跑在 dosgolem 上，
-// 開視窗、接鍵盤與滑鼠，速度以「每秒指令數」對齊（預設 10M，
-// 對齊 DOSBox-X cycles=20000 的體感：開機到主選單約 90 秒）。
+// 開視窗、接鍵盤與滑鼠。
 //
-//	wiz7 -root workplace/run [-scale 3] [-ips 10000000]
+// 架構：機器在背景 goroutine 用大塊 Run 推進（probe 同款快路徑——
+// 60fps 小塊 Run 在 credits→主選單轉場會卡死，docs/re/009），
+// 前端執行緒只抓畫面快照與轉發輸入（鎖保護）。
+// 速度以「每秒指令數」節流（預設 24M ≈ DOSBox-X cycles=20000 的體感：
+// 開機到主選單約 30–40 秒）。
 //
-// 畫面是 mode 13h（320×200、256 色、A0000 線性），oracle.ScreenRGB
-// 連 DAC 一起合成；放大用 nearest，不縮字（rulebook/81）。
-// 音訊殼：本版只留介面（Render 取樣流接 Ebiten audio），合成器屬 M2 後續。
+//	wiz7 -root workplace/run [-scale 3] [-ips 24000000]
 package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
+	"sync"
 	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -67,90 +68,65 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 	return sc, ok
 }
 
-// pacer 是 lag 式節拍：目標＝牆上毫秒×每毫秒步數，落後太多就放棄追趕。
-// 巫術7 的動畫由計時器推進，指令數↔計時器的換算固定，所以同一份輸入
-// 在任何速度下逐位元組相同。
-type pacer struct {
-	perMs     float64 // 每毫秒指令數
-	droppedMs float64
-}
-
-func (p *pacer) cycles(wallMs, machineSteps float64) uint64 {
-	lag := wallMs - p.droppedMs - machineSteps/p.perMs
-	if lag <= 0 {
-		return 0
-	}
-	const maxCatchUpMs = 250
-	if lag > maxCatchUpMs {
-		p.droppedMs += lag - maxCatchUpMs
-		lag = maxCatchUpMs
-	}
-	return uint64(lag * p.perMs)
+// 前端 ↔ 機器 goroutine 的共享狀態（mu 保護）。
+type shared struct {
+	mu     sync.Mutex
+	rgba   []byte    // 320×200×4 的畫面快照（Draw 用）
+	keys   []uint8   // 待注入的掃描碼（make＋break 成對排程）
+	mouseX int
+	mouseY int
+	buttons [2]bool // 左、右
 }
 
 type game struct {
-	o      *oracle.Oracle
-	p      pacer
+	sh     *shared
 	scale  int
 	screen *ebiten.Image
-	rgba   []byte
-	start  time.Time
-	startS uint64
-	down   map[ebiten.Key]bool
+	lastMX int
+	lastMY int
+	lbtn   bool
+	rbtn   bool
 }
 
 func (g *game) Update() error {
-	if g.start.IsZero() {
-		g.start, g.startS = time.Now(), g.o.Steps()
-	}
 	for _, k := range inpututil.AppendJustPressedKeys(nil) {
 		if sc, ok := scanCode(k); ok {
-			g.o.PressKey(sc)
-			g.down[k] = true
+			g.sh.mu.Lock()
+			g.sh.keys = append(g.sh.keys, sc, sc|0x80)
+			g.sh.mu.Unlock()
 		}
 	}
-	for _, k := range inpututil.AppendJustReleasedKeys(nil) {
-		if sc, ok := scanCode(k); ok {
-			g.o.PressKey(sc | 0x80) // break code
-			delete(g.down, k)
-		}
-	}
-	// 滑鼠：位置逐幀回報；按住／放開用 PressButton／ReleaseButton。
 	mx, my := ebiten.CursorPosition()
-	_ = g.o.MoveMouse(mx/g.scale, my/g.scale)
+	sx, sy := mx/g.scale, my/g.scale
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
-		g.o.PressButton(0)
+		g.lbtn = true
 	}
 	if inpututil.IsMouseButtonJustReleased(ebiten.MouseButtonLeft) {
-		g.o.ReleaseButton(0)
+		g.lbtn = false
 	}
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonRight) {
-		g.o.PressButton(1)
+		g.rbtn = true
 	}
 	if inpututil.IsMouseButtonJustReleased(ebiten.MouseButtonRight) {
-		g.o.ReleaseButton(1)
+		g.rbtn = false
 	}
-	// 節拍：目標步數＝牆上毫秒×每毫秒步數。
-	wallMs := float64(time.Since(g.start).Microseconds()) / 1000
-	machineSteps := float64(g.o.Steps() - g.startS)
-	if n := g.p.cycles(wallMs, machineSteps); n > 0 {
-		if err := g.o.Run(n); err != nil {
-			log.Printf("機器停止：%v", err)
-			return ebiten.Termination
-		}
+	g.sh.mu.Lock()
+	if sx != g.sh.mouseX || sy != g.sh.mouseY {
+		g.sh.mouseX, g.sh.mouseY = sx, sy
 	}
+	g.sh.buttons[0], g.sh.buttons[1] = g.lbtn, g.rbtn
+	g.sh.mu.Unlock()
 	return nil
 }
 
 func (g *game) Draw(dst *ebiten.Image) {
-	w, h, rgb := g.o.ScreenRGB()
-	if w != 320 || h != 200 {
+	g.sh.mu.Lock()
+	rgba := append([]byte(nil), g.sh.rgba...)
+	g.sh.mu.Unlock()
+	if len(rgba) == 0 {
 		return
 	}
-	for i := 0; i < w*h; i++ {
-		g.rgba[4*i], g.rgba[4*i+1], g.rgba[4*i+2], g.rgba[4*i+3] = rgb[3*i], rgb[3*i+1], rgb[3*i+2], 0xFF
-	}
-	g.screen.WritePixels(g.rgba)
+	g.screen.WritePixels(rgba)
 	var op ebiten.DrawImageOptions
 	op.GeoM.Scale(float64(g.scale), float64(g.scale))
 	op.Filter = ebiten.FilterNearest
@@ -163,7 +139,7 @@ func main() {
 	root := flag.String("root", "workplace/run", "原版素材目錄（可寫複本）")
 	exe := flag.String("exe", "", "執行檔（預設 <root>/DS.EXE）")
 	scale := flag.Int("scale", 3, "畫面放大倍率")
-	ips := flag.Float64("ips", 10_000_000, "每秒指令數（節拍基準）")
+	ips := flag.Float64("ips", 24_000_000, "每秒指令數（節流基準）")
 	flag.Parse()
 
 	program := *exe
@@ -176,16 +152,82 @@ func main() {
 	}
 	ebiten.SetWindowSize(320**scale, 200**scale)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")
-	g := &game{
-		o:     o,
-		p:     pacer{perMs: *ips / 1000},
-		scale: *scale,
-		rgba:  make([]byte, 320*200*4),
-		down:  map[ebiten.Key]bool{},
-	}
-	g.screen = ebiten.NewImage(320, 200)
+
+	sh := &shared{rgba: make([]byte, 320*200*4)}
+	g := &game{sh: sh, scale: *scale, screen: ebiten.NewImage(320, 200)}
+
+	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
+	// ⚠ MoveMouse 只在座標真的變了才送——遊戲把滑鼠活動當「有人在看」，
+	// 每塊都送會重置故事頁的推進計時（docs/re/009 的教訓）。
+	go func() {
+		chunk := uint64(200_000)
+		minWall := time.Duration(float64(chunk) / *ips * float64(time.Second))
+		last := time.Now()
+		lastL, lastR := false, false
+		lastX, lastY := -1, -1
+		for i := 0; ; i++ {
+			sh.mu.Lock()
+			for _, sc := range sh.keys {
+				o.PressKey(oracle.Key(sc))
+			}
+			sh.keys = nil
+			bx, by := sh.mouseX, sh.mouseY
+			l, r := sh.buttons[0], sh.buttons[1]
+			if bx != lastX || by != lastY {
+				o.MoveMouse(bx, by)
+				lastX, lastY = bx, by
+			}
+			if l != lastL {
+				if l {
+					o.PressButton(0)
+				} else {
+					o.ReleaseButton(0)
+				}
+				lastL = l
+			}
+			if r != lastR {
+				if r {
+					o.PressButton(1)
+				} else {
+					o.ReleaseButton(1)
+				}
+				lastR = r
+			}
+			if err := o.Run(chunk); err != nil {
+				sh.mu.Unlock()
+				log.Printf("機器停止於 steps=%d：%v", o.Steps(), err)
+				return
+			}
+			if i%60 == 0 {
+				nz := 0
+				for _, v := range o.Indexed() {
+					if v != 0 {
+						nz++
+					}
+				}
+				_, _, rgb := o.ScreenRGB()
+				nz2 := 0
+				for j := 0; j+2 < len(rgb); j += 3 {
+					if rgb[j] != 0 || rgb[j+1] != 0 || rgb[j+2] != 0 {
+						nz2++
+					}
+				}
+				pal := o.Palette()
+				log.Printf("chunk %d steps=%d mode=%d idxNZ=%d rgbNZ=%d pal[15]=%v", i, o.Steps(), o.VideoMode(), nz, nz2, pal[15])
+			}
+			_, _, rgb := o.ScreenRGB()
+			copy(sh.rgba, rgb)
+			sh.mu.Unlock()
+
+			elapsed := time.Since(last)
+			if elapsed < minWall {
+				time.Sleep(minWall - elapsed)
+			}
+			last = time.Now()
+		}
+	}()
+
 	if err := ebiten.RunGame(g); err != nil {
 		log.Fatal(err)
 	}
-	_ = fmt.Sprint()
 }
