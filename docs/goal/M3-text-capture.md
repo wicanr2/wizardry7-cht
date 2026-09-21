@@ -26,9 +26,15 @@
 - 中文點陣字形烘製（M4，rulebook/81）。
 - SCENARIO.DBS 的非文字資料（數值/地圖——之後按需）。
 
-## 起點
+## 起點（2026-09-21 架構已確立，docs/re/010 追記三＋m3-notes2）
 
-- MSG.DBS 262,144 bytes（=2^18）、開頭非明文（編碼/壓縮）。
-- 印字管線：resident 0110 段字形展開常式 → A0000（非 driver blitter）；
-  字型 VBFONT0-3 已載入 728A/7B0E/7B80/7BB6/7D88 段（docs/re/m3-notes2.md）。
-- 遊戲名字輸入走 `int 21h AH=07h`（DOS stdin）——文字輸入路徑的旁證。
+- 印字管線：resident 0110 段的字形展開常式 → sub_1408D（`call cs:dword_12D8F`）
+  → driver thunk → blit（file 0x4B5）→ A0000。文字字形由 resident 組裝後
+  以 DS:SI 傳給 blit（非 driver 內部展開）。
+- 印字常式位置：sub_10954（輸入+繪圖泵，IDA 0x10954）的呼叫端一帶，
+  IDA 0x12E00-13000（sub_12EA3/sub_1308）。
+- 字型：VBFONT0-3 已載入 728A/7B0E/7B80/7BB6/7D88 段。
+- 名字輸入走 `int 21h AH=07h`（DOS stdin）——`-type` 可注入，
+  probe 的 `-press`（IRQ1）被 int 09h stub stall 擋下（設計使然）。
+- MSG.DBS 262,144 bytes 全程壓縮；解壓後字串（含控制碼前綴）在
+  RAM 0x20E94 起已核對（主選單六項）。
