@@ -52,7 +52,7 @@ psychic-war 是這條路的第一個案例（已完整走完 M0–M6）。本專
 |---|---|---|---|
 | M0 | 探勘與基線 | [M0](docs/goal/M0-baseline.md) | #1–#6 |
 | M1 | 原版在 golem 上完整可跑 | 待 M0 後寫 | 待開 |
-| M2 | 可遊玩前端 | 待 M0 後寫 | 待開 |
+| M2 | 可遊玩前端 | [M2](docs/goal/M2-playable-frontend.md) | #16–#18 |
 | M3 | 文字攔截與文本抽取 | [M3](docs/goal/M3-text-capture.md) | #19–#20 |
 | M4 | 中文繪製與全文翻譯 | 待 M0 後寫 | 待開 |
 | M5 | 輔助功能與作弊 | 待 M0 後寫 | 待開 |
