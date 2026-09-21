@@ -67,3 +67,19 @@
 - probe 工具備忘：`-shots`/`-save-state` 的步數等於 `-steps` 上限時不會
   觸發（off-by-one，勿把缺檔誤讀為程式退出）；`-press` 排程需在
   `-load-state` 之後（dosgolem `d16f03a` 已修）。
+
+## 追記三：繪圖服務架構定案（2026-09-21 深夜）
+
+- **driver 服務分發表**：VGA.DRV file 0x003 起 = `E8 rel16 CB` 序列
+  （near call 服務函式＋retf）——resident 遠呼驅動入口後，dispatcher
+  near-call 對應服務。blit 函式 = file 0x4B5（module 0x5B5）。
+- **sub_10954（輸入+繪圖泵，IDA 0x10954）** 在 +0x94 呼叫 sub_1408D
+  （= `call cs:dword_12D8F` 間接遠呼）——指標表 cs:12D8B/12D8F/12DE3…
+  每槽對應一個 driver 服務 thunk（module 0x103+4k）。
+- **文字字形也經這條路**：blit 的 DS:SI 參數指向「展開後的字形緩衝」
+  （246.885M 的 DS=6289 是底圖案例；文字 blit 的來源＝字形組裝緩衝）。
+- 印字常式（字形組裝＋字元索引來源）＝ sub_10954 的呼叫端一帶
+  （resident 0110，IDA 0x12E00-13000 附近的 sub_12EA3/sub_1308）——
+  下一輪 IDA 細讀目標。
+- 工具備忘：OnCall 是 IP-reach hook（名稱有誤導性）；Caller() 在
+  hook 內讀 [sp]/[sp+2]——near/far 呼叫的語意不同，兩種都要印。
