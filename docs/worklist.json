@@ -20,21 +20,6 @@
   },
   "items": [
     {
-      "id": "readme",
-      "milestone": "M6",
-      "labels": [
-        "doc",
-        "release"
-      ],
-      "title": "README.md：遊戲介紹與中文化目的",
-      "body": "內容：遊戲介紹（Wizardry VII: Crusaders of the Dark Savant，Sir-Tech 1992，DOS 版）；中文化目的＝縮短語言隔閡與鴻溝；做法（dosgolem 轉譯層，原版邏輯不動）；原版自備＋檔案雜湊；授權 RRSAL-1.0。寫法依 rulebook/80，初稿可在 M0 事實齊後先寫。",
-      "acceptance": "README 進版控；介紹與目的段落符合 rulebook/80/91 的白話與去 slop 標準。",
-      "verify": [
-        "README.md 存在且含上述五個段落"
-      ],
-      "issue": 7
-    },
-    {
       "id": "m1-opl2-parity",
       "milestone": "M1",
       "labels": [
@@ -47,21 +32,6 @@
       "acceptance": "docs/re/007 有逐筆比對結果。",
       "verify": [
         "docs/re/007 存在"
-      ]
-    },
-    {
-      "id": "m2-frontend-skeleton",
-      "milestone": "M2",
-      "labels": [
-        "frontend",
-        "golem-upstream"
-      ],
-      "issue": 15,
-      "title": "M2 前端骨架：cmd/wiz7",
-      "body": "視窗（13h 放大）、節拍（步數↔牆上時間）、鍵盤映射、音訊殼。標題→主選單可玩。",
-      "acceptance": "前端從開機玩到主選單；節拍可調；畫面與 probe 快照同源。",
-      "verify": [
-        "前端無法走到主選單或節拍無法調"
       ]
     }
   ],
@@ -260,6 +230,40 @@
       ],
       "evidence": "docs/re/009 §決定性：pairA.state==pairB.state、drv dump 同、跨 run 幀雜湊同；dosgolem de5e2d2 修快照 map 編碼",
       "done": "2026-09-20"
+    },
+    {
+      "id": "readme",
+      "milestone": "M6",
+      "labels": [
+        "doc",
+        "release"
+      ],
+      "title": "README.md：遊戲介紹與中文化目的",
+      "body": "內容：遊戲介紹（Wizardry VII: Crusaders of the Dark Savant，Sir-Tech 1992，DOS 版）；中文化目的＝縮短語言隔閡與鴻溝；做法（dosgolem 轉譯層，原版邏輯不動）；原版自備＋檔案雜湊；授權 RRSAL-1.0。寫法依 rulebook/80，初稿可在 M0 事實齊後先寫。",
+      "acceptance": "README 進版控；介紹與目的段落符合 rulebook/80/91 的白話與去 slop 標準。",
+      "verify": [
+        "README.md 存在且含上述五個段落"
+      ],
+      "issue": 7,
+      "evidence": "README.md（subagent 撰寫）＋LICENSE（RRSAL-1.0）＋docs/images/ 三張實跑截圖",
+      "done": "2026-09-21"
+    },
+    {
+      "id": "m2-frontend-skeleton",
+      "milestone": "M2",
+      "labels": [
+        "frontend",
+        "golem-upstream"
+      ],
+      "issue": 15,
+      "title": "M2 前端骨架：cmd/wiz7",
+      "body": "視窗（13h 放大）、節拍（步數↔牆上時間）、鍵盤映射、音訊殼。標題→主選單可玩。",
+      "acceptance": "前端從開機玩到主選單；節拍可調；畫面與 probe 快照同源。",
+      "verify": [
+        "前端無法走到主選單或節拍無法調"
+      ],
+      "evidence": "cmd/wiz7（goroutine 大塊 Run＋節流＋鍵盤滑鼠）；Xvfb 煙霧測試：開機→主選單、xdotool 點擊推進 PCVW（docs/images/wiz7-pcvw.png）",
+      "done": "2026-09-21"
     }
   ],
   "dropped": []
