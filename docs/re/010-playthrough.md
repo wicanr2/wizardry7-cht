@@ -83,3 +83,23 @@
   下一輪 IDA 細讀目標。
 - 工具備忘：OnCall 是 IP-reach hook（名稱有誤導性）；Caller() 在
   hook 內讀 [sp]/[sp+2]——near/far 呼叫的語意不同，兩種都要印。
+
+## 追記四：UI overlay 載入架構（2026-09-21 深夜）
+
+- segment 0x392A 內容在 450M 與 940M 一致（同一 overlay 駐留）。
+- blit 呼叫端 392A:0146：Caller() 讀到 [sp]=0146, [sp+2]=392A（遠呼返回），
+  但 -regs-at 392a:146 為 0 命中——**far return 從未執行**，代表被呼叫的
+  函式（blit）不會 retf 回來，或 0x392A 段的內容是編碼 UI 資源而非程式碼。
+- seg392a-450.bin（線性 0x392A0-0x42800，38,240 bytes）大小 ≈ VBASE.OVR
+  （38,171 bytes），**確認 0x392A 段＝VBASE.OVR**（UI/選單 overlay）。
+- 段內容有 `5d ee cd ce` 重複模式＋`ff ff ff ff` 分隔線＋`00 00 00` 空白
+  ——**編碼後的 UI 資源**，非直接可反組譯的程式碼。
+- sub_13334（loader）的搬移邏輯（interleave + 段表寫入）需要完整逆向
+  才能把編碼 UI 資源還原為可分析的程式碼。
+
+## #20 剩餘工作（下一輪）
+
+1. 逆向 sub_13334 完整邏輯（loader interleave/relocation 演算法）
+2. 還原 VBASE.OVR 的執行期程式碼（印字常式在其中）
+3. 找到字元索引→VBFONT 字形→A0000 的對應式
+4. 確認 MSG.DBS 的字串如何傳給印字常式
