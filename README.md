@@ -82,6 +82,11 @@ Sound Blaster 與 Roland MT-32/LAPC-1 音效、滑鼠；需要 580K 傳統記憶
 點擊主選單第一列後的畫面（PCVWSCRN 底圖）。dosgolem 實跑輸出：
 滑鼠事件投遞到遊戲自己註冊的 handler 後推進的畫面，與 DOSBox-X 同輸入逐像素一致。
 
+![第一個中文字畫面](docs/images/wiz7-cjk-menu.png)
+
+第一個中文字畫面：以 probe `-poke` 將 PIL 渲染的中文點陣（AR PL UMing 字型）
+寫入 VRAM，主選單畫面即時顯示「巫術7 中文化」。翻譯層（M4）的基礎管線已通。
+
 ## 原版要自備
 
 本 repo 不含 `DS.EXE`、`.OVR`、`.VGA`、`.PIC`、`.HDR`、`.SND` 等任何原版檔案，

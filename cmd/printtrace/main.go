@@ -10,6 +10,7 @@ import (
 	"flag"
 	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/wicanr2/dosgolem/oracle"
 )
@@ -34,9 +35,9 @@ func main() {
 	var order []oracle.Addr
 
 	blit := oracle.Addr{Seg: 0x740C, Off: 0x05B5}
+	stacks := []string{}
 	o.OnCall(blit, func(o *oracle.Oracle) {
 		c := o.Caller()
-		a0, a1, a2, a3 := o.Arg(0), o.Arg(1), o.Arg(2), o.Arg(3)
 		r := callers[c]
 		if r == nil {
 			r = &rec{}
@@ -44,16 +45,17 @@ func main() {
 			order = append(order, c)
 		}
 		r.n++
-		if r.nw < len(r.w) {
-			r.w[r.nw], r.h[r.nh] = a2, a3
-			r.x[r.nx], r.y[r.ny] = a0, a1
-			r.nw++
-			r.nh++
-			r.nx++
-			r.ny++
+		// 每第 100 次傾印一次堆疊（sp 起的 16 words），找 0110 段的返回鏈
+		if r.n%100 == 1 && len(stacks) < 12 {
+			var words []string
+			for n := -12; n <= 14; n += 2 {
+				v := o.Arg(n)
+				words = append(words, fmt.Sprintf("%04X", v))
+			}
+			stacks = append(stacks, fmt.Sprintf("blit#%d caller=%v stack[-12..14]=%s",
+				r.n, c, strings.Join(words, " ")))
 		}
 	})
-
 	total := uint64(0)
 	for total < *steps {
 		n := uint64(2_000_000)
@@ -69,6 +71,10 @@ func main() {
 	}
 
 	sort.Slice(order, func(i, j int) bool { return callers[order[i]].n > callers[order[j]].n })
+	fmt.Println("\n== blit 進入點堆疊樣本 ==")
+	for _, s := range stacks {
+		fmt.Println(s)
+	}
 	fmt.Println("\n== blitter 呼叫端直方圖 ==")
 	for _, c := range order {
 		r := callers[c]
