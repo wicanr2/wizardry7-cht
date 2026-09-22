@@ -49,7 +49,7 @@ func main() {
 	})
 
 	// 主選單 → LOAD SAVEGAME → 防拷框
-	for total := 240_000_000; total < 940_000_000; {
+	for total := uint64(240_000_000); total < 940_000_000; {
 		n := uint64(2_000_000)
 		if rest := 940_000_000 - total; rest < n {
 			n = rest

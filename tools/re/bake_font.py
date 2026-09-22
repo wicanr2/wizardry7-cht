@@ -127,5 +127,8 @@ if __name__ == "__main__":
         ("PLEASE TURN TO PAGE 35 OF YOUR", "請翻開手冊第35頁", 0),
         ("MANUAL AND ENTER THE SECOND WORD", "找出第二個字輸入", 9),
         ("LOCATED IN PARAGRAPH 3  LINE 5", "在第3段第5行", 18),
+        ("LOAD", "載入", 0),
+        ("DIRECTORY", "目錄", 0),
+        ("FILENAME", "檔名", 0),
     ]
     bake(pairs, Path("workplace/bake"))
