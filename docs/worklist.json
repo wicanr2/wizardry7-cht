@@ -89,7 +89,7 @@
       "body": "resident 0110 段的字形展開常式定位；字元索引→VBFONT 字形對應式；OnCall 攔截驗證。",
       "acceptance": "docs/re/012/013 含常式位址與對應式。",
       "verify": [
-        "常式未定位或對應式不符"
+        "OnCall 攔截 sub_13895 未驗證（管線已解碼：013 文件）"
       ]
     }
   ],
