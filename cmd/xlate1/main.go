@@ -24,7 +24,12 @@ import (
 // 譯文表：key = 字串內容（stack 字串無固定位址，內容即 key；rulebook 的
 // 來源位置 key 適用 MSG.DBS 抽取文本，這裡是 UI 組合字串，標 DRAFT）。
 // 值 = 每字 15 個 row（MSB first、15px 寬），由 tools/re/bake_font.py 產出。
-var trans = map[string][][]uint16{}
+type entry struct {
+	Dy int         `json:"dy"`
+	G  [][]uint16  `json:"g"`
+}
+
+var trans = map[string]entry{}
 
 func loadTrans(path string) {
 	b, err := os.ReadFile(path)
@@ -41,6 +46,10 @@ func main() {
 	root := flag.String("root", "", "")
 	stop1 := flag.Uint64("stop1", 240_000_000, "")
 	stop2 := flag.Uint64("stop2", 940_000_000, "")
+	collect := flag.String("collect", "", "無譯文串寫到這個檔（一行一串）")
+	dy := flag.Int("dy", 0, "中文 y 微調像素")
+	clicks := flag.String("clicks", "", "step:x:y 逗號分隔（絕對步數時點擊）")
+	keysAt := flag.String("keys-at", "", "step:key 逗號分隔（Esc=0x1b）")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -67,6 +76,7 @@ func main() {
 	var lastScr uint16 = 0
 	scrs := map[uint16]bool{}
 	drawn := 0
+	collected := map[string]bool{}
 
 	o.OnCall(entry, func(o *oracle.Oracle) {
 		if poked { // 先解除，本字串（無論譯不譯）從乾淨狀態開始
@@ -80,19 +90,25 @@ func main() {
 		if i := strings.IndexByte(s, 0); i >= 0 {
 			s = s[:i]
 		}
-		glyphs, ok := trans[s]
+		ent, ok := trans[s]
 		if !ok {
+			if *collect != "" && !collected[s] {
+				collected[s] = true
+				f, _ := os.OpenFile(*collect, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0o644)
+				f.WriteString(s + "\n")
+				f.Close()
+			}
 			return // 無譯文：放行
 		}
 		// 位置：driver 座標變數；畫到離屏（blit 的來源段）
 		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
-		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
+		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + *dy + ent.Dy
 		scr := lastScr
 		fg := lastFG
-		fmt.Printf("翻譯 %q → %d 字形 @(%d,%d) fg=%02x 離屏=%04x\n", s, len(glyphs), x, y, fg, scr)
+		fmt.Printf("翻譯 %q → %d 字形 @(%d,%d) fg=%02x 離屏=%04x\n", s, len(ent.G), x, y, fg, scr)
 
 		cx := x
-		for _, g := range glyphs {
+		for _, g := range ent.G {
 			for row := 0; row < 15 && row < len(g); row++ {
 				w := g[row]
 				if y+row > 199 {
@@ -129,6 +145,37 @@ func main() {
 		}
 	})
 
+	type clk struct{ at uint64; x, y int }
+	var clicksQ []clk
+	var keysQ []struct {
+		at uint64
+		b  byte
+	}
+	for _, k := range strings.Split(*keysAt, ",") {
+		if k == "" {
+			continue
+		}
+		var at uint64
+		var hb string
+		if _, err := fmt.Sscanf(k, "%d:%s", &at, &hb); err == nil {
+			var v int
+			fmt.Sscanf(hb, "%x", &v)
+			keysQ = append(keysQ, struct {
+				at uint64
+				b  byte
+			}{at, byte(v)})
+		}
+	}
+	for _, c := range strings.Split(*clicks, ",") {
+		if c == "" {
+			continue
+		}
+		var at uint64
+		var x, y int
+		if _, err := fmt.Sscanf(c, "%d:%d:%d", &at, &x, &y); err == nil {
+			clicksQ = append(clicksQ, clk{at, x, y})
+		}
+	}
 	for total := *stop1; total < *stop2; {
 		n := uint64(2_000_000)
 		if rest := *stop2 - total; rest < n {
@@ -139,6 +186,26 @@ func main() {
 			break
 		}
 		total += n
+		for _, kk := range keysQ {
+			if kk.at <= total && kk.at > total-n {
+				fmt.Printf("按鍵 0x%02x @%d\n", kk.b, kk.at)
+				o.Type(string([]byte{kk.b}))
+			}
+		}
+		for _, c := range clicksQ {
+			if c.at <= total && c.at > total-n {
+				fmt.Printf("點擊 (%d,%d) @%d\n", c.x, c.y, c.at)
+				if err := o.Click(c.x, c.y); err != nil {
+					fmt.Println("點擊失敗：", err)
+				}
+				// 推進一點讓畫面穩定，存 PNG
+				_ = o.Run(3_000_000)
+				png := fmt.Sprintf("workplace/bake/click-%d.png", c.at)
+				if err := o.WritePNG(png); err != nil {
+					fmt.Println("PNG：", err)
+				}
+			}
+		}
 	}
 	fmt.Println("畫了", drawn, "串；見過的離屏段：", scrs)
 	if err := o.WritePNG("workplace/bake/xlate1.png"); err != nil {

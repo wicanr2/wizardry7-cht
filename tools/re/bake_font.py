@@ -42,8 +42,8 @@ def glyph_of(b5: bytes) -> list[int]:
     return [int.from_bytes(d[off + r * 2:off + r * 2 + 2], "big") for r in range(HEIGHT)]
 
 
-def bake(pairs: list[tuple[str, str]], outdir: Path):
-    strings = [dst for _, dst in pairs]
+def bake(pairs: list[tuple[str, str, int]], outdir: Path):
+    strings = [dst for _, dst, _ in pairs]
     font = FONT15.read_bytes()
     # 收集字元（按出現序）
     chars: list[str] = []
@@ -98,7 +98,7 @@ def bake(pairs: list[tuple[str, str]], outdir: Path):
 
     # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）
     xlate = {}
-    for src, dst in pairs:
+    for src, dst, dy in pairs:
         entry = []
         for ch in dst:
             b5 = ch.encode("big5")
@@ -106,7 +106,7 @@ def bake(pairs: list[tuple[str, str]], outdir: Path):
                 continue
             rows = glyph_of(b5)
             entry.append([int(w) for w in rows])
-        xlate[src] = entry
+        xlate[src] = {"dy": dy, "g": entry}
     (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))
     print(f"xlate.json：{len(xlate)} 串")
     print(f"字形 {len(chars)} 個；顏色平面 {len(col)}/3584 bytes")
@@ -116,11 +116,16 @@ def bake(pairs: list[tuple[str, str]], outdir: Path):
 
 if __name__ == "__main__":
     pairs = [
-        ("CHARACTER MENU", "角色選單"),
-        ("ADD CHARACTER", "新增角色"),
-        ("LOAD SAVEGAME", "載入紀錄"),
-        ("CONFIGURATION", "系統設定"),
-        ("IMPORT (BANE)", "匯入隊伍"),
-        ("QUIT GAME", "結束遊戲"),
+        ("CHARACTER MENU", "角色選單", 0),
+        ("ADD CHARACTER", "新增角色", 0),
+        ("LOAD SAVEGAME", "載入紀錄", 0),
+        ("CONFIGURATION", "系統設定", 0),
+        ("IMPORT (BANE)", "匯入隊伍", 0),
+        ("QUIT GAME", "結束遊戲", 0),
+        ("CANCEL", "取消", 0),
+        ("SECURITY CLEARANCE", "安全檢查", 0),
+        ("PLEASE TURN TO PAGE 35 OF YOUR", "請翻開手冊第35頁", 0),
+        ("MANUAL AND ENTER THE SECOND WORD", "找出第二個字輸入", 9),
+        ("LOCATED IN PARAGRAPH 3  LINE 5", "在第3段第5行", 18),
     ]
     bake(pairs, Path("workplace/bake"))
