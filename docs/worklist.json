@@ -339,6 +339,24 @@
       ],
       "evidence": "docs/re/009 追記：OPL 事件層共同窗口 4,037 筆逐筆全同；golem 4,581 / DOSBox-X 6,070 筆",
       "done": "2026-09-21"
+    },
+    {
+      "id": "m4-first-cjk",
+      "milestone": "M4",
+      "labels": [
+        "text",
+        "re"
+      ],
+      "issue": 21,
+      "title": "M4：中文字形烘製與印字攔截管線",
+      "body": "原定方案 A（資料替換）證偽後轉方案 B：OnCall 攔印字串、Eten 15x15 寫離屏、poke ret 跳過原印。主選單六項全數中文上屏。",
+      "acceptance": "主選單至少一項以中文字形顯示（原版時序、非 VRAM poke）。",
+      "verify": [
+        "workplace/bake/xlate1.png 六項全中",
+        "寫後即讀驗證一致"
+      ],
+      "evidence": "docs/re/013 追記四＋cmd/xlate1＋f011589",
+      "done": "2026-09-22"
     }
   ],
   "dropped": []
