@@ -50,6 +50,7 @@ func main() {
 	dy := flag.Int("dy", 0, "中文 y 微調像素")
 	clicks := flag.String("clicks", "", "step:x:y 逗號分隔（絕對步數時點擊）")
 	keysAt := flag.String("keys-at", "", "step:key 逗號分隔（Esc=0x1b）")
+	typeAt := flag.String("type-at", "", "step:字串（於指定步數輸入字串+CR）")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -151,6 +152,23 @@ func main() {
 		at uint64
 		b  byte
 	}
+	var typeQ []struct {
+		at uint64
+		s  string
+	}
+	for _, k := range strings.Split(*typeAt, ",") {
+		if k == "" {
+			continue
+		}
+		var at uint64
+		var s string
+		if _, err := fmt.Sscanf(k, "%d:%s", &at, &s); err == nil {
+			typeQ = append(typeQ, struct {
+				at uint64
+				s  string
+			}{at, s})
+		}
+	}
 	for _, k := range strings.Split(*keysAt, ",") {
 		if k == "" {
 			continue
@@ -186,10 +204,18 @@ func main() {
 			break
 		}
 		total += n
+		for _, tq := range typeQ {
+			if tq.at <= total && tq.at > total-n {
+				fmt.Printf("輸入 %q @%d\n", tq.s, tq.at)
+				o.Type(tq.s + "\r")
+			}
+		}
 		for _, kk := range keysQ {
 			if kk.at <= total && kk.at > total-n {
 				fmt.Printf("按鍵 0x%02x @%d\n", kk.b, kk.at)
 				o.Type(string([]byte{kk.b}))
+				_ = o.Run(3_000_000)
+				_ = o.WritePNG(fmt.Sprintf("workplace/bake/key-%d.png", kk.at))
 			}
 		}
 		for _, c := range clicksQ {
