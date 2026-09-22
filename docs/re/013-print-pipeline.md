@@ -229,3 +229,17 @@ OnCall(0110:3895)（印字串入口，near）
 - [ ] oracle 是否支援 callback 內改寫控制流（SetIP/Skip）——決定攔 13895 或 13877
 - [ ] `cs:0x364A` 字形指標表的 runtime 內容 dump（字形描述結構 16 bytes 版式）
 - [ ] MSG.DBS 訊息（#19）與本管線的接點：誰把訊息字串搬到 ds:si
+
+### 追記五（同日）：PCVW 推進、防拷結案、排版殘項
+
+- **防拷結案（confirmed）**：目標單字由遊戲印在框頂（實測 WIZARDRY）；
+  **任意輸入可通過**（XXXX 對照組同樣進 LOAD 畫面）——重印版防拷失效，
+  玩家不會卡死，無需繞過 RE。LOAD 畫面：LOAD/CANCEL/DIRECTORY/
+  C:\DSAVANT\FILENAME/SAVEGAME.DBS（術語已譯：載入/目錄/檔名）。
+- **PCVW 推進**（clicks：ADD CHARACTER→點 THESUS→OK）：THESUS+FIGHTER
+  頭像入隊、選單出現 REVIEW MEMBER/DISMISS MEMBER/START NEW GAME。
+  「新增角色」「系統設定」「結束遊戲」等中文字形在 PCVW 黃條上屏。
+- **排版殘項**：PCVW 黃條高度矮於主選單，15px 字形上下溢出與鄰行疊加
+  （「系」字頭被蓋形似「至」）。待 dy 微調或以 M2 前端放大畫布時一併處理。
+- 對話框關閉用 ESC（AH=07h stdin）可繞過 #16 的對話框點擊消費問題。
+- 譯文表現有 14 串（xlate.json，bake_font.py 烘製；per-string dy 欄位）。
