@@ -18,3 +18,4 @@ __pycache__/
 
 # 發行包產物
 /dist-all/
+fontid
