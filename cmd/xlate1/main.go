@@ -52,6 +52,7 @@ func main() {
 	keysAt := flag.String("keys-at", "", "step:key 逗號分隔（Esc=0x1b）")
 	typeAt := flag.String("type-at", "", "step:字串（於指定步數輸入字串+CR）")
 	shotsAt := flag.String("shots-at", "", "step 逗號分隔（純截圖）")
+	bkeysAt := flag.String("bkeys-at", "", "step:鍵名 逗號分隔（BIOS 緩衝路徑，如 step:Up）")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -163,6 +164,23 @@ func main() {
 			shotsQ = append(shotsQ, at)
 		}
 	}
+	var bkeysQ []struct {
+		at uint64
+		n  string
+	}
+	for _, k := range strings.Split(*bkeysAt, ",") {
+		if k == "" {
+			continue
+		}
+		var at uint64
+		var n string
+		if _, err := fmt.Sscanf(k, "%d:%s", &at, &n); err == nil {
+			bkeysQ = append(bkeysQ, struct {
+				at uint64
+				n  string
+			}{at, n})
+		}
+	}
 	var typeQ []struct {
 		at uint64
 		s  string
@@ -225,6 +243,18 @@ func main() {
 			if sa <= total && sa > total-n {
 				_ = o.Run(1_000_000)
 				_ = o.WritePNG(fmt.Sprintf("workplace/bake/shot-%d.png", sa))
+			}
+		}
+		for _, bq := range bkeysQ {
+			if bq.at <= total && bq.at > total-n {
+				fmt.Printf("BIOS鍵 %q @%d\n", bq.n, bq.at)
+				if bq.n == "w" || bq.n == "a" || bq.n == "s" || bq.n == "d" || bq.n == "x" {
+					if err := o.TypeKeys(bq.n); err != nil {
+						fmt.Println("TypeKeys：", err)
+					}
+				} else if o.SendKeys(bq.n) != nil {
+					fmt.Println("鍵名失敗：", bq.n)
+				}
 			}
 		}
 		for _, kk := range keysQ {

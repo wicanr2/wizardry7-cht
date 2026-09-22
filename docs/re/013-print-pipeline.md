@@ -273,3 +273,16 @@ OnCall(0110:3895)（印字串入口，near）
   int 16h——下一步 RE）。
 - 離屏文字區驗屍法（-dump 離屏 y 區、計數 fg 像素）已入 xlate1
   （offscr-end.bin）。
+
+### 追記八（同日）：迷宮移動輸入 RE（未完，記錄現況）
+
+- **BIOS 鍵盤路徑已通**：oracle.SendKeys/TypeKeys（d.PushKey → BDA 緩衝）
+  送鍵成功（遊戲有讀——旁白被 w 跳過的行為差異實證）。
+- **開場旁白/動畫序列**：AAAA 過防拷 → 迷宮起點 → 星空動畫 → 黑船插圖 →
+  Dark Savant 王座 → Vi Domina → 行星 Guardia 停格頁。頁控制機制不明：
+  w×60 連發全部落在行星停格頁（3800-5200M 四張同畫面）。
+- **待解**：迷宮內移動鍵（W 前進？方向鍵？）與動畫翻頁鍵。下一步：
+  1. 004 的 INT 普查找 int 16h 呼叫者位址（迷宮狀態下 -regs-at 盯著看）。
+  2. 或探討 keyboard.go 的 IRQ1 stall 機制是否擋住掃描碼（probe -keys-at
+     走 IRQ1 硬體路徑，跟 Stdin/BDA 是三條不同的路）。
+- 產物：collectM~collectS（各輪字串）、story-sheet/move-sheet/sweep2-sheet（拼圖）。
