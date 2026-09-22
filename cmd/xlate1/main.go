@@ -107,7 +107,7 @@ func main() {
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + *dy + ent.Dy
 		scr := lastScr
 		fg := lastFG
-		fmt.Printf("翻譯 %q → %d 字形 @(%d,%d) fg=%02x 離屏=%04x\n", s, len(ent.G), x, y, fg, scr)
+		fmt.Printf("翻譯 %d %q → %d 字形 @(%d,%d) fg=%02x 離屏=%04x\n", o.Steps(), s, len(ent.G), x, y, fg, scr)
 
 		cx := x
 		for _, g := range ent.G {
@@ -251,6 +251,10 @@ func main() {
 		}
 	}
 	fmt.Println("畫了", drawn, "串；見過的離屏段：", scrs)
+	if lastScr != 0 { // 驗屍：離屏文字區（y146-170）快照
+		_ = os.WriteFile("workplace/bake/offscr-end.bin",
+			o.Bytes(oracle.Addr{Seg: lastScr, Off: 46720}, 2000), 0o644)
+	}
 	if err := o.WritePNG("workplace/bake/xlate1.png"); err != nil {
 		panic(err)
 	}
