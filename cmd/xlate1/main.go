@@ -51,6 +51,7 @@ func main() {
 	clicks := flag.String("clicks", "", "step:x:y 逗號分隔（絕對步數時點擊）")
 	keysAt := flag.String("keys-at", "", "step:key 逗號分隔（Esc=0x1b）")
 	typeAt := flag.String("type-at", "", "step:字串（於指定步數輸入字串+CR）")
+	shotsAt := flag.String("shots-at", "", "step 逗號分隔（純截圖）")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -152,6 +153,16 @@ func main() {
 		at uint64
 		b  byte
 	}
+	var shotsQ []uint64
+	for _, k := range strings.Split(*shotsAt, ",") {
+		if k == "" {
+			continue
+		}
+		var at uint64
+		if _, err := fmt.Sscanf(k, "%d", &at); err == nil {
+			shotsQ = append(shotsQ, at)
+		}
+	}
 	var typeQ []struct {
 		at uint64
 		s  string
@@ -208,6 +219,12 @@ func main() {
 			if tq.at <= total && tq.at > total-n {
 				fmt.Printf("輸入 %q @%d\n", tq.s, tq.at)
 				o.Type(tq.s + "\r")
+			}
+		}
+		for _, sa := range shotsQ {
+			if sa <= total && sa > total-n {
+				_ = o.Run(1_000_000)
+				_ = o.WritePNG(fmt.Sprintf("workplace/bake/shot-%d.png", sa))
 			}
 		}
 		for _, kk := range keysQ {

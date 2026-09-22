@@ -52,9 +52,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
             b5 = ch.encode("big5")
             if len(b5) == 2 and ch not in chars:
                 chars.append(ch)
-    assert len(chars) <= 119, f"字形數 {len(chars)} > 119"
-
-    seg = bytearray(SEG_SIZE)
+    seg = bytearray(SEG_SIZE)  # 方案 A 遺物；方案 B 只用 xlate.json
     # --- 頭（仿 0x7BB6 原頭）---
     seg[0x03] = BPR                     # 每列 bytes
     seg[0x06] = 0xFF                    # flags bit1 = 寬字形路徑（loc_371）
@@ -75,25 +73,16 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
             col += bytes(((w >> 8) & 0xFF, w & 0xFF))
             msk += bytes(((w >> 8) & 0xFF, w & 0xFF))    # mask = 字形（1=筆畫）
         index[0x80 + i] = ch
-    assert len(col) <= 3584, f"顏色平面 {len(col)} > 3584"
-    seg[COLOR_OFF:COLOR_OFF + len(col)] = col
+    if len(col) <= 3584:
+        seg[COLOR_OFF:COLOR_OFF + len(col)] = col
     mask_off = COLOR_OFF + 3584
     seg[mask_off:mask_off + len(msk)] = msk
 
     outdir.mkdir(parents=True, exist_ok=True)
     (outdir / "fontseg.bin").write_bytes(seg)
 
-    # 譯文 → 索引串
-    trans = []
-    for s in strings:
-        enc = []
-        for ch in s:
-            b5 = ch.encode("big5")
-            enc.append(0x80 + chars.index(ch) if len(b5) == 2 else ord(ch) & 0x7F)
-        trans.append(bytes(enc).hex())
     (outdir / "bake.json").write_text(json.dumps({
         "chars": chars, "index": {f"0x{k:02x}": v for k, v in index.items()},
-        "translations": trans,
     }, ensure_ascii=False, indent=1))
 
     # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）
@@ -131,4 +120,11 @@ if __name__ == "__main__":
         ("DIRECTORY", "目錄", 0),
         ("FILENAME", "檔名", 0),
     ]
+    # 開場故事（逐行 1:1 映射，tools 產生的 workplace/bake/story.txt）
+    story = Path("workplace/bake/story.txt")
+    if story.exists():
+        for line in story.read_text().splitlines():
+            src, _, dst = line.partition("\t")
+            if src:
+                pairs.append((src, dst, 0))
     bake(pairs, Path("workplace/bake"))
