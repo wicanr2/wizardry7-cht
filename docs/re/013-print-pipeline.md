@@ -126,6 +126,44 @@ driver 服務 11 的參數 `ax`＝**字型段號**；driver 內部讓 ds 指向�
 dump 1106:364A 內容（遞增長度＋far ptr 串）不合結構語意，**推翻**。描述頭在
 字型段開頭，`bx=0x364A+ID×2` 只用於 sub_13877 查 cs 段號表。
 
+### 追記四（同日）：方案 B 打通——第一個中文選單（實作完成）
+
+#### 架構勘誤與定案
+
+- **沒有 word_1E5 離屏**：word_1E5（740C:02E5）全程 = 0（閒置標記，先前解讀作廢）。
+- **真正的繪圖架構**：字形展開（sub_293）直接寫**離屏段 0x6289**；
+  blit（sub_4B5）＝離屏 → A0000 同座標搬移。**0x6289 由 blit movsb 的 DS 暫存器
+  實證**（blit hook 讀 Regs().DS）。
+- 印字座標：x=740C:0295、y=740C:0297（driver self-modify 變數、印字前由遊戲設定；
+  x 每字元 += 該字 advance——實測 'W'=11px、'r'=6px ✓ 比例字寬）。
+- 前景色：dl（字元事件 DX 低 byte，選單 = 0x22 黑）；黃條底 = 0xC0。
+
+#### 實作（cmd/xlate1，證據 workplace/bake/xlate1.png）
+
+```
+OnCall(0110:3895)：
+  1. 先 unpoke（寫回 baseline byte 0x55）
+  2. 讀字串（ds:off、NUL 終止）查譯文表（xlate.json：原文→每字 15 rows 位圖）
+  3. 有譯文：從 (x,y) 以 16px 步進把字形寫進離屏 6289（筆畫=0x22、
+     非筆畫=原像素讀回）→ poke 0xC3（ret）到 3895 讓原印失效
+  4. 無譯文：放行＋不 poke
+OnCall(740C:012F)：記前景色 dl
+OnCall(740C:05F5)（blit movsb）：記離屏段 DS
+```
+
+- 執行視窗：240M 掛 hook → 940M 收（主選單印字在 **246.8M**）。
+- **結果：主選單六項全數中文上屏**（角色選單／新增角色／載入紀錄／
+  系統設定／匯入隊伍／結束遊戲），寫後即讀驗證位元一致。
+- 字形來源：stdfont.15 經 `tools/re/bake_font.py` 烘成 xlate.json
+  （Go 側無 BIG5 編碼器，字形位圖在 Python 側烘好）。
+
+#### 已知瑕疵（下輪打磨）
+
+- y 對位微偏（行距 13px vs 字高 15px 輕微重疊）、x 可加置中補正
+- 顏色取「最後字元事件的 dl」，若譯文串先於任何原印會 fallback 0x22
+- 譯文 key 用字串內容（stack 字串無固定位址）——MSG.DBS 文本仍照
+  rulebook 用來源位置 key
+
 ### 攔截點修正（Stub 相容性）
 
 - `Stub()` 只支援 **far** 常式（fireStub 讀 [sp+2] 當 CS）；sub_13895/sub_13877

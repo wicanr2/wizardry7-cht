@@ -42,7 +42,8 @@ def glyph_of(b5: bytes) -> list[int]:
     return [int.from_bytes(d[off + r * 2:off + r * 2 + 2], "big") for r in range(HEIGHT)]
 
 
-def bake(strings: list[str], outdir: Path):
+def bake(pairs: list[tuple[str, str]], outdir: Path):
+    strings = [dst for _, dst in pairs]
     font = FONT15.read_bytes()
     # 收集字元（按出現序）
     chars: list[str] = []
@@ -94,13 +95,32 @@ def bake(strings: list[str], outdir: Path):
         "chars": chars, "index": {f"0x{k:02x}": v for k, v in index.items()},
         "translations": trans,
     }, ensure_ascii=False, indent=1))
+
+    # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）
+    xlate = {}
+    for src, dst in pairs:
+        entry = []
+        for ch in dst:
+            b5 = ch.encode("big5")
+            if len(b5) != 2:
+                continue
+            rows = glyph_of(b5)
+            entry.append([int(w) for w in rows])
+        xlate[src] = entry
+    (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))
+    print(f"xlate.json：{len(xlate)} 串")
     print(f"字形 {len(chars)} 個；顏色平面 {len(col)}/3584 bytes")
     print(f"輸出：{outdir/'fontseg.bin'}、{outdir/'bake.json'}")
     print("索引：", " ".join(f"{0x80+i:02x}={ch}" for i, ch in enumerate(chars)))
 
 
 if __name__ == "__main__":
-    strings = sys.argv[1:] or [
-        "角色選單", "新增角色", "載入紀錄", "系統設定", "匯入隊伍", "結束遊戲",
+    pairs = [
+        ("CHARACTER MENU", "角色選單"),
+        ("ADD CHARACTER", "新增角色"),
+        ("LOAD SAVEGAME", "載入紀錄"),
+        ("CONFIGURATION", "系統設定"),
+        ("IMPORT (BANE)", "匯入隊伍"),
+        ("QUIT GAME", "結束遊戲"),
     ]
-    bake(strings, Path("workplace/bake"))
+    bake(pairs, Path("workplace/bake"))
