@@ -54,6 +54,8 @@ func main() {
 	clicks := flag.String("clicks", "", "step:x:y 逗號分隔（絕對步數時點擊）")
 	keysAt := flag.String("keys-at", "", "step:key 逗號分隔（Esc=0x1b）")
 	typeAt := flag.String("type-at", "", "step:字串（於指定步數輸入字串+CR）")
+	rawAt := flag.String("raw-at", "", "step:hexbytes（原始 bytes 排 Stdin，方向鍵＝00 掃描碼）")
+	irqAt := flag.String("irq-at", "", "step:鍵名（IRQ1 硬體掃描碼路徑：Up/Down/Left/Right/w…）")
 	shotsAt := flag.String("shots-at", "", "step 逗號分隔（純截圖）")
 	bkeysAt := flag.String("bkeys-at", "", "step:鍵名 逗號分隔（BIOS 緩衝路徑，如 step:Up）")
 	eventsFrom := flag.Uint64("events-from", 0, "只合成這個步數之後的文字事件（排除先前畫面的殘影）")
@@ -174,6 +176,47 @@ func main() {
 			}{at, n})
 		}
 	}
+	var irqQ []struct {
+		at  uint64
+		scan byte
+	}
+	for _, k := range strings.Split(*irqAt, ",") {
+		if k == "" {
+			continue
+		}
+		var at uint64
+		var hs string
+		if _, err := fmt.Sscanf(k, "%d:%s", &at, &hs); err == nil {
+			var v int
+			fmt.Sscanf(hs, "%x", &v)
+			irqQ = append(irqQ, struct {
+				at   uint64
+				scan byte
+			}{at, byte(v)})
+		}
+	}
+	var rawQ []struct {
+		at uint64
+		b  []byte
+	}
+	for _, k := range strings.Split(*rawAt, ",") {
+		if k == "" {
+			continue
+		}
+		var at uint64
+		var hs string
+		if _, err := fmt.Sscanf(k, "%d:%s", &at, &hs); err == nil {
+			hexstr := strings.ReplaceAll(hs, " ", "")
+			b := make([]byte, len(hexstr)/2)
+			for i := 0; i < len(b); i++ {
+				fmt.Sscanf(hexstr[i*2:i*2+2], "%02x", &b[i])
+			}
+			rawQ = append(rawQ, struct {
+				at uint64
+				b  []byte
+			}{at, b})
+		}
+	}
 	var typeQ []struct {
 		at uint64
 		s  string
@@ -250,6 +293,18 @@ func main() {
 				}
 			}
 		}
+		for _, rq := range rawQ {
+			if rq.at <= total && rq.at > total-n {
+				fmt.Printf("Raw %x @%d\n", rq.b, rq.at)
+				o.Type(string(rq.b))
+			}
+		}
+		for _, iq := range irqQ {
+			if iq.at <= total && iq.at > total-n {
+				fmt.Printf("IRQ1掃描碼 %02x @%d\n", iq.scan, iq.at)
+				o.PressKey(oracle.Key(iq.scan))
+			}
+		}
 		for _, kk := range keysQ {
 			if kk.at <= total && kk.at > total-n {
 				fmt.Printf("按鍵 0x%02x @%d\n", kk.b, kk.at)
@@ -274,6 +329,30 @@ func main() {
 		}
 	}
 	fmt.Println("畫了", drawn, "串；見過的離屏段：", scrs)
+	// 監看 IVT int08h（linear 0x20-0x23）的寫入——誰拔了 PLAY.DRV 的 tick handler
+	o.OnWrite(0x20, 0x27, func(o *oracle.Oracle, h oracle.WriteHit) {
+		if o.Steps() > 2200000000 {
+			fmt.Printf("IVT08 寫 step=%d 線性=%#x 舊=%02x 新=%02x by IDA %#x\n",
+				o.Steps(), h.Addr, h.Old, h.Val, h.At)
+		}
+	})
+	for _, vs := range o.VecSets() {
+		if vs.Int == 8 || vs.Int == 9 {
+			fmt.Printf("  AH=25h 設 int%02x → %04x:%04x @step %d\n", vs.Int, vs.Seg, vs.Off, vs.Step)
+		}
+	}
+	fmt.Println("== 缺檔 ==", o.Missing())
+	fmt.Println("== 未實作 ==", o.Unimplemented())
+	fmt.Println("== 開過的檔 ==", o.Opened())
+	// IVT 檢查：int 08h/09h/16h/21h 向量現在指哪
+	for _, n := range []struct {
+		v   uint32
+		nam string
+	}{{8, "int08h"}, {9, "int09h"}, {0x10, "int10h"}, {0x16, "int16h"}, {0x21, "int21h"}} {
+		vec := o.Word(oracle.Addr{Seg: 0, Off: uint16(n.v * 4)})
+		seg := o.Word(oracle.Addr{Seg: 0, Off: uint16(n.v*4 + 2)})
+		fmt.Printf("  %s → %04x:%04x\n", n.nam, seg, vec)
+	}
 	// 高解析終幀：A0000（320x200 色號）→ 2x 最近鄰放大（640x400），
 	// 再把翻譯事件以 15x15 原字形畫在 (x*2, y*2)——中文相對畫面變小、
 	// 剛好放進按鈕裡，且不會被遊戲翻頁清掉。

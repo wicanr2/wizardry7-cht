@@ -298,3 +298,20 @@ OnCall(0110:3895)（印字串入口，near）
 - **遊戲內訊息窗**：底部視窗黃色文字（shot-2900000000），走印字管線＝
   可攔截翻譯。遊戲本文的第一批畫面內文字實證。
 - 傳送法陣後的狀態與迷宮移動鍵驗證＝下輪續（從 4050M 接續送鍵/觀察）。
+
+### 追記十（同日）：迷宮卡死根因定位——int08h handler 消失
+
+- **IVT runtime 實證**：動畫期（2300M）int08h＝793D:0BB4（PLAY.DRV tick
+  handler，活著）；法陣期（4200M）int08h＝**0080:0420（golem stub）**——
+  handler 在 2300-4200M 之間被拔。
+- **拔掉的方式**：IVT[08h] 的 OnWrite 監看（linear 0x20-0x27）在 2200M 後
+  **零命中**＝寫入不走 CPU 指令；AH=25h 的 VecSets 紀錄也無 int08h＝
+  不走 DOS 服務。嫌疑＝golem 內部「程式終止還原向量」邏輯
+  （internal/dos 的 AH=00h 路徑直接寫 IVT，繞過 WatchWrites）。
+- **影響**：沒有 timer tick＝遊戲的時間驅動輪詢（讀鍵、動畫）全停＝
+  法陣殭屍畫面。這解釋「所有鍵都沒反應」。
+- **修復方向（dosgolem 上遊）**：找 internal/dos 終止路徑的向量還原碼，
+  查它為何在迷宮載入流程被觸發（AH=00h 被誰呼叫？Exited flag 核對）、
+  或讓 PLAY.DRV handler 的卸載/重裝週期正確。
+- 移動鍵本身的謎已解：**AH=07h Stdin 是唯一活路**（int16h 幾乎不呼叫、
+  IRQ1 因 int09h＝stub 永遠 stall、方向鍵 Stdin＝00+scan 兩 byte）。
