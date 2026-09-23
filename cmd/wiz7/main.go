@@ -11,8 +11,12 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
+	"image"
+	"image/color"
 	"log"
+	"os"
 	"sync"
 	"time"
 
@@ -69,13 +73,28 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 }
 
 // 前端 ↔ 機器 goroutine 的共享狀態（mu 保護）。
+// entry 是譯文表的一筆（xlate.json）：dy＝行距微調、g＝每字 15×15 位圖。
+type entry struct {
+	Dy int        `json:"dy"`
+	G  [][]uint16 `json:"g"`
+}
+
+// glyphEv 是一則待合成的中文字串（15×15 原字形、畫在放大後畫布）。
+type glyphEv struct {
+	x, y          int
+	fgR, fgG, fgB uint8
+	g             [][]uint16
+	img           *ebiten.Image // Draw 時 lazily 預渲染的字形條
+}
+
 type shared struct {
-	mu     sync.Mutex
-	rgba   []byte    // 320×200×4 的畫面快照（Draw 用）
-	keys   []uint8   // 待注入的掃描碼（make＋break 成對排程）
-	mouseX int
-	mouseY int
-	buttons [2]bool // 左、右
+	mu      sync.Mutex
+	rgba    []byte    // 320×200×4 的畫面快照（Draw 用）
+	keys    []uint8   // 待注入的掃描碼（make＋break 成對排程）
+	mouseX  int
+	mouseY  int
+	buttons [2]bool   // 左、右
+	evs     []glyphEv // 翻譯文字事件（機器 goroutine 生產、Draw 消費）
 }
 
 type game struct {
@@ -122,6 +141,7 @@ func (g *game) Update() error {
 func (g *game) Draw(dst *ebiten.Image) {
 	g.sh.mu.Lock()
 	rgba := append([]byte(nil), g.sh.rgba...)
+	evs := g.sh.evs
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
@@ -131,6 +151,44 @@ func (g *game) Draw(dst *ebiten.Image) {
 	op.GeoM.Scale(float64(g.scale), float64(g.scale))
 	op.Filter = ebiten.FilterNearest
 	dst.DrawImage(g.screen, &op)
+
+	// ── 高解析中文合成 ──
+	// 語意（AGENTS.md 高解析中文合成）：原版 320×200 終幀放大後，
+	// 中文字以原字形尺寸畫在對應位置——字相對畫面變小、剛好放進按鈕。
+	// hd＝放大比例的一半：scale 2 時字 15px、scale 3 時 22px。
+	hd := g.scale / 2
+	if hd < 1 {
+		hd = 1
+	}
+	for i := range evs {
+		e := &evs[i]
+		if e.img == nil {
+			// 字形條：整串排成一張（每字 15px＋2px 間距）
+			n := 0
+			for _, gl := range e.g {
+				n += len(gl) + 2
+			}
+			rect := image.Rect(0, 0, n, len(e.g[0]))
+			img := image.NewRGBA(rect)
+			cx := 0
+			for _, glyph := range e.g {
+				for row, w := range glyph {
+					for bit := 0; bit < len(glyph); bit++ {
+						if (w>>(len(glyph)-1-bit))&1 != 0 {
+							img.Set(cx+bit, row, color.RGBA{e.fgR, e.fgG, e.fgB, 255})
+						}
+					}
+				}
+				cx += len(glyph) + 2
+			}
+			e.img = ebiten.NewImageFromImage(img)
+		}
+		op2 := ebiten.DrawImageOptions{}
+		op2.GeoM.Scale(float64(hd), float64(hd))
+		op2.GeoM.Translate(float64(e.x*hd), float64(float64(e.y)*float64(hd)))
+		op2.Filter = ebiten.FilterNearest
+		dst.DrawImage(e.img, &op2)
+	}
 }
 
 func (g *game) Layout(int, int) (int, int) { return 320 * g.scale, 200 * g.scale }
@@ -150,10 +208,64 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	ebiten.SetWindowSize(320**scale, 200**scale)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")
 
 	sh := &shared{rgba: make([]byte, 320*200*4)}
+	// ── xlate 翻譯層 ──────────────────────────────────────────────
+	// 譯文表（原文 → 每字 15×15 位圖，tools/re/bake_font.py 烘製）。
+	xlatePath := *root + "/../bake/xlate.json"
+	trans := map[string]entry{}
+	if b, err := os.ReadFile(xlatePath); err == nil {
+		if err := json.Unmarshal(b, &trans); err != nil {
+			log.Fatal("xlate.json：", err)
+		}
+		log.Printf("xlate：載入 %d 串", len(trans))
+	} else {
+		log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
+	}
+	var evMu sync.Mutex
+	palNow := func() [256][3]uint8 { return o.Palette() }
+	_ = palNow
+	// 印字串入口（runtime 0110:3895）的 hook：unpoke → 查譯文 →
+	// 有譯文就記事件＋poke ret 讓原印失效。沿 cmd/xlate1 的實證邏輯。
+	entry := oracle.Addr{Seg: 0x0110, Off: 0x3895}
+	baseline := o.Byte(entry)
+	poked := false
+	o.OnCall(entry, func(o *oracle.Oracle) {
+		if poked {
+			o.WriteU8(entry, baseline)
+			poked = false
+		}
+		off := o.StackWord(1)
+		ds := o.Regs().DS
+		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
+		s := string(raw)
+		for i := 0; i < len(s); i++ {
+			if s[i] == 0 {
+				s = s[:i]
+				break
+			}
+		}
+		ent, ok := trans[s]
+		if !ok {
+			return // 無譯文：放行原文（不靜默略過——sh.evs 不記，靠原印）
+		}
+		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
+		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + ent.Dy
+		dl := uint8(o.Regs().DX & 0xFF)
+		fg := palNow()[dl]
+		evMu.Lock()
+		sh.evs = append(sh.evs, glyphEv{
+			x: x, y: y,
+			fgR: fg[0], fgG: fg[1], fgB: fg[2],
+			g: ent.G,
+		})
+		evMu.Unlock()
+		o.WriteU8(entry, 0xC3)
+		poked = true
+	})
 	g := &game{sh: sh, scale: *scale, screen: ebiten.NewImage(320, 200)}
 
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
