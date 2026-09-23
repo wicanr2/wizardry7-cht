@@ -15,6 +15,9 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"image"
+	"image/color"
+	"image/png"
 	"os"
 	"strings"
 
@@ -80,6 +83,13 @@ func main() {
 	scrs := map[uint16]bool{}
 	drawn := 0
 	collected := map[string]bool{}
+	type drawEvent struct {
+		x, y int
+		fg   uint8
+		s    string
+		g    [][]uint16
+	}
+	var events []drawEvent
 
 	o.OnCall(entry, func(o *oracle.Oracle) {
 		if poked { // 先解除，本字串（無論譯不譯）從乾淨狀態開始
@@ -110,29 +120,9 @@ func main() {
 		fg := lastFG
 		fmt.Printf("翻譯 %d %q → %d 字形 @(%d,%d) fg=%02x 離屏=%04x\n", o.Steps(), s, len(ent.G), x, y, fg, scr)
 
-		cx := x
-		for _, g := range ent.G {
-			gsz := len(g) // 方形字：行數＝寬（烘製器決定，13 或 15）
-			for row := 0; row < gsz; row++ {
-				w := g[row]
-				if y+row > 199 {
-					continue
-				}
-				offA := uint16(((y + row) * 320 + cx) % 65536)
-				px := o.Bytes(oracle.Addr{Seg: scr, Off: offA}, gsz)
-				for bit := 0; bit < gsz; bit++ {
-					if (w>>(gsz-1-bit))&1 != 0 {
-						px[bit] = fg
-					}
-				}
-				o.WriteBytes(oracle.Addr{Seg: scr, Off: offA}, px)
-				if drawn == 0 && row == 0 { // 首串首列：寫後即讀驗證
-					back := o.Bytes(oracle.Addr{Seg: scr, Off: offA}, 15)
-					fmt.Printf("  驗證 scr=%04x off=%04x 寫=% x 讀=% x\n", scr, offA, px, back)
-				}
-			}
-			cx += gsz + 2
-		}
+		// 高解析模式：不寫進 320x200 遊戲畫面（會被翻頁清掉、字比按鈕大），
+		// 記錄事件，stop2 之後在 2x 放大的終幀上以 15x15 原尺寸合成。
+		events = append(events, drawEvent{x: x, y: y, fg: fg, s: s, g: ent.G})
 		drawn++
 		o.WriteU8(entry, 0xC3) // ret：原印失效
 		poked = true
@@ -282,10 +272,38 @@ func main() {
 		}
 	}
 	fmt.Println("畫了", drawn, "串；見過的離屏段：", scrs)
-	if lastScr != 0 { // 驗屍：離屏文字區（y146-170）快照
-		_ = os.WriteFile("workplace/bake/offscr-end.bin",
-			o.Bytes(oracle.Addr{Seg: lastScr, Off: 46720}, 2000), 0o644)
+	// 高解析終幀：A0000（320x200 色號）→ 2x 最近鄰放大（640x400），
+	// 再把翻譯事件以 15x15 原字形畫在 (x*2, y*2)——中文相對畫面變小、
+	// 剛好放進按鈕裡，且不會被遊戲翻頁清掉。
+	pal := o.Palette()
+	idx := o.Indexed()
+	big := image.NewRGBA(image.Rect(0, 0, 640, 400))
+	for py := 0; py < 400; py++ {
+		for px := 0; px < 640; px++ {
+			c := pal[idx[(py/2)*320+(px/2)]]
+			big.Set(px, py, color.RGBA{c[0], c[1], c[2], 255})
+		}
 	}
+	for _, e := range events {
+		fr := pal[e.fg]
+		fgc := color.RGBA{fr[0], fr[1], fr[2], 255}
+		cx := e.x * 2
+		for _, glyph := range e.g {
+			for row := 0; row < len(glyph); row++ {
+				w := glyph[row]
+				for bit := 0; bit < len(glyph); bit++ {
+					if (w>>(len(glyph)-1-bit))&1 != 0 {
+						big.Set(cx+bit, e.y*2+row, fgc)
+					}
+				}
+			}
+			cx += len(glyph) + 2
+		}
+	}
+	f, _ := os.Create("workplace/bake/xlate1-hd.png")
+	png.Encode(f, big)
+	f.Close()
+	fmt.Println("輸出 workplace/bake/xlate1-hd.png（640x400 高解析合成）")
 	if err := o.WritePNG("workplace/bake/xlate1.png"); err != nil {
 		panic(err)
 	}
