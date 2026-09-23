@@ -6,6 +6,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/wicanr2/dosgolem/oracle"
@@ -73,6 +74,20 @@ func main() {
 	}
 	_ = o.Run(200_000_000)
 	fmt.Println("steps =", o.Steps(), "監看命中：", writes)
+
+	// 樹段：解壓函式讀 cs:[0110:2D4E] 當 es
+	ts := o.Word(oracle.Addr{Seg: 0x0110, Off: 0x2D4E})
+	fmt.Printf("樹段 cs:[2D4E] = %04x\n", ts)
+	if ts != 0 {
+		tree := o.Bytes(oracle.Addr{Seg: ts, Off: 0}, 8192)
+		_ = os.WriteFile("/w/workplace/bake/tree.bin", tree, 0o644)
+		fmt.Println("樹區 8KB → workplace/bake/tree.bin")
+		// 前幾個節點
+		for i := 0; i < 8; i++ {
+			w := uint16(tree[i*2]) | uint16(tree[i*2+1])<<8
+			fmt.Printf("  node[%d] = %04x（bit15=%d）\n", i, w, w>>15)
+		}
+	}
 	fmt.Println("== MSG.DBS 檔案操作 ==")
 	for _, fop := range o.FileOps() {
 		if strings.Contains(strings.ToUpper(fop.Name), "MSG") {

@@ -415,3 +415,18 @@ bit_loop（3E49）：
   重印時）、0x1000（迷宮旁白）
 
 **待做**：dump 樹區（es:[0] 起）＋葉值路徑＋重現解壓器（Go）→ 全文抽取。
+
+### 追記十六（同日）：解壓器初版部分成功、葉語意待精確化
+
+- **Go 初版解壓器**（cmd/msgx）：塊 0x2400 解出大量可辨認字串
+  （LIZARDMAN／ALCHEMIST／VALKYRIE／SAMURAI／NINJA／CANCEL／NEXT LVL／
+  SWORD 殘形）——**樹走訪主體正確**。
+- **殘餘錯位**：部分字元丟失/錯形（SWORD→tH AORD）——**葉處理語意**
+  與推論不同。精讀 sub_13E02 全文：
+  - 外層：`call sub_13E46 → mov [di],bl`——**輸出＝bl**（每 8 bits 一字元）
+  - sub_13E46 每呼叫走 8 bits、**bx 歸零每呼叫**、位元計數跨呼叫延續
+  - **葉（bit15=0）**：`mov bx,es:[bx]`＝**葉值成為新節點**（非輸出！）——
+    葉值兼具「字元與下一節點」雙重語意，精確行為需更長 trace（含葉輸出）
+    或逐指令模擬
+- 樹區已 dump（workplace/bake/tree.bin 8KB，樹段 0x73CB、4687M 時點）。
+- **判定**：主體正確、葉語意精確化＝下輪專注（更長 trace＋樹對照表）。
