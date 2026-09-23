@@ -198,6 +198,7 @@ func main() {
 	exe := flag.String("exe", "", "執行檔（預設 <root>/DS.EXE）")
 	scale := flag.Int("scale", 3, "畫面放大倍率")
 	ips := flag.Float64("ips", 24_000_000, "每秒指令數（節流基準）")
+	xlatePath := flag.String("xlate", "workplace/bake/xlate.json", "譯文表（空字串＝純英文模式）")
 	flag.Parse()
 
 	program := *exe
@@ -215,9 +216,11 @@ func main() {
 	sh := &shared{rgba: make([]byte, 320*200*4)}
 	// ── xlate 翻譯層 ──────────────────────────────────────────────
 	// 譯文表（原文 → 每字 15×15 位圖，tools/re/bake_font.py 烘製）。
-	xlatePath := *root + "/../bake/xlate.json"
+	if *xlatePath == "" {
+		*xlatePath = "/nonexistent.json"
+	}
 	trans := map[string]entry{}
-	if b, err := os.ReadFile(xlatePath); err == nil {
+	if b, err := os.ReadFile(*xlatePath); err == nil {
 		if err := json.Unmarshal(b, &trans); err != nil {
 			log.Fatal("xlate.json：", err)
 		}
@@ -263,6 +266,7 @@ func main() {
 			g: ent.G,
 		})
 		evMu.Unlock()
+		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
 		o.WriteU8(entry, 0xC3)
 		poked = true
 	})
