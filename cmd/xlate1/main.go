@@ -321,8 +321,10 @@ func main() {
 				if err := o.Click(c.x, c.y); err != nil {
 					fmt.Println("點擊失敗：", err)
 				}
-				// 推進一點讓畫面穩定，存 PNG
+				// 推進讓畫面穩定，游標歸位（避免游標污染幀雜湊），存 PNG
 				_ = o.Run(3_000_000)
+				_ = o.MoveMouse(0, 0)
+				_ = o.Run(1_000_000)
 				png := fmt.Sprintf("workplace/bake/click-%d.png", c.at)
 				if err := o.WritePNG(png); err != nil {
 					fmt.Println("PNG：", err)
