@@ -112,15 +112,16 @@ func main() {
 
 		cx := x
 		for _, g := range ent.G {
-			for row := 0; row < 15 && row < len(g); row++ {
+			gsz := len(g) // 方形字：行數＝寬（烘製器決定，13 或 15）
+			for row := 0; row < gsz; row++ {
 				w := g[row]
 				if y+row > 199 {
 					continue
 				}
 				offA := uint16(((y + row) * 320 + cx) % 65536)
-				px := o.Bytes(oracle.Addr{Seg: scr, Off: offA}, 15)
-				for bit := 0; bit < 15; bit++ {
-					if (w>>(15-bit))&1 != 0 {
+				px := o.Bytes(oracle.Addr{Seg: scr, Off: offA}, gsz)
+				for bit := 0; bit < gsz; bit++ {
+					if (w>>(gsz-1-bit))&1 != 0 {
 						px[bit] = fg
 					}
 				}
@@ -130,7 +131,7 @@ func main() {
 					fmt.Printf("  驗證 scr=%04x off=%04x 寫=% x 讀=% x\n", scr, offA, px, back)
 				}
 			}
-			cx += 16
+			cx += gsz + 2
 		}
 		drawn++
 		o.WriteU8(entry, 0xC3) // ret：原印失效

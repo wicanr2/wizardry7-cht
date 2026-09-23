@@ -26,10 +26,33 @@ COLOR_OFF = HDR + WTAB          # 0x110
 COL_MASK = 30                   # 每字形：15 列 × 2 bytes
 HEIGHT = 15
 BPR = 2                         # bytes per row
+SCALE = 15                      # 字高（15＝原版倚天字形，不縮）
 
 
 def big5_bytes(s: str) -> bytes:
     return s.encode("big5")
+
+
+def glyph_scaled(b5: bytes) -> list[int]:
+    """stdfont.15 → SCALE x SCALE 位圖（區間 OR 重採樣：目標像素覆蓋的來源
+    像素任一亮即亮。點陣字筆畫僅 1px，最近鄰取樣會跳過筆畫而破相；OR 重採樣
+    保留筆畫、代價是略粗）。"""
+    rows = glyph_of(b5)
+    out = []
+    for y in range(SCALE):
+        y0, y1 = y * 15 // SCALE, max((y + 1) * 15 // SCALE, y * 15 // SCALE + 1)
+        row = 0
+        for x in range(SCALE):
+            x0, x1 = x * 15 // SCALE, max((x + 1) * 15 // SCALE, x * 15 // SCALE + 1)
+            bit = 0
+            for sy in range(y0, y1):
+                for sx in range(x0, x1):
+                    if (rows[sy] >> (15 - sx)) & 1:
+                        bit = 1
+            if bit:
+                row |= 1 << (SCALE - 1 - x)
+        out.append(row)
+    return out
 
 
 def glyph_of(b5: bytes) -> list[int]:
@@ -69,7 +92,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     index = {}
     for i, ch in enumerate(chars):
         rows = glyph_of(ch.encode("big5"))
-        for w in rows:                                   # 顏色：bit1=前景
+        for w in rows:                                   # 顏色：bit1=前景（方案 A 遺物）
             col += bytes(((w >> 8) & 0xFF, w & 0xFF))
             msk += bytes(((w >> 8) & 0xFF, w & 0xFF))    # mask = 字形（1=筆畫）
         index[0x80 + i] = ch
@@ -93,7 +116,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
             b5 = ch.encode("big5")
             if len(b5) != 2:
                 continue
-            rows = glyph_of(b5)
+            rows = glyph_scaled(b5)
             entry.append([int(w) for w in rows])
         xlate[src] = {"dy": dy, "g": entry}
     (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))

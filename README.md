@@ -5,7 +5,7 @@
 （無頭、決定性的 DOS 執行器）上，轉譯層在原版畫字的那一刻攔下來，
 把中文畫在放大後的畫布上。原版邏輯一行不動。
 
-![片頭標題](docs/images/wiz7-intro.png)
+<img src="docs/images/wiz7-intro.png" width="320" alt="片頭標題">
 
 片頭標題頁（Crusaders of the Dark Savant）。dosgolem 執行原版 `DS.EXE` 的實跑輸出，
 模式 13h（320×200、256 色），照 4:3 顯示比例輸出。
@@ -72,24 +72,24 @@ Sound Blaster 與 Roland MT-32/LAPC-1 音效、滑鼠；需要 580K 傳統記憶
 
 未完成項的權威是 [`docs/worklist.json`](docs/worklist.json)，一條對應一個 GitHub issue。
 
-![主選單](docs/images/wiz7-menu.png)
+<img src="docs/images/wiz7-menu.png" width="320" alt="主選單">
 
 主選單（五列選單項）。dosgolem 執行原版 `DS.EXE` 的實跑輸出，
 從 940M 步的檢查點展開，640×400 ＝ 320×200 整數倍放大 2 倍。
 
-![點擊選單後的畫面](docs/images/wiz7-pcvw.png)
+<img src="docs/images/wiz7-pcvw.png" width="320" alt="點擊選單後的畫面">
 
 點擊主選單第一列後的畫面（PCVWSCRN 底圖）。dosgolem 實跑輸出：
 滑鼠事件投遞到遊戲自己註冊的 handler 後推進的畫面，與 DOSBox-X 同輸入逐像素一致。
 
-![轉譯層中文選單](docs/images/wiz7-menu-xlate.png)
+<img src="docs/images/wiz7-menu-xlate.png" width="320" alt="轉譯層中文選單">
 
 **主選單中文化（轉譯層上線）**：轉譯層攔截遊戲自己的印字呼叫，
 查譯文表後以倚天 15×15 點陣字型畫進離屏緩衝，隨原版 blit 時序上屏——
 不做 VRAM 事後加工，原版程式碼一行未改。選單項：角色選單、新增角色、
 載入紀錄、系統設定、匯入隊伍、結束遊戲。
 
-![角色建立與防拷檢查中文化](docs/images/wiz7-dialog-cjk.png)
+<img src="docs/images/wiz7-dialog-cjk.png" width="320" alt="角色建立與防拷檢查中文化">
 
 進一層的畫面同樣由轉譯層翻譯：角色建立對話框（新增角色／取消）、
 防拷檢查說明（安全檢查、請翻開手冊第35頁……）。沒有譯文的字串
