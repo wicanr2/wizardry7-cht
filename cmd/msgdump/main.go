@@ -1,0 +1,94 @@
+// msgdump — MSG.DBS runtime 對照法：監看 stack 字串區寫入、找旁白明文源頭。
+//
+//	msgdump -exe <DS.EXE> -root <素材目錄>
+package main
+
+import (
+	"flag"
+	"fmt"
+	"strings"
+
+	"github.com/wicanr2/dosgolem/oracle"
+)
+
+func main() {
+	exe := flag.String("exe", "", "")
+	root := flag.String("root", "", "")
+	flag.Parse()
+
+	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
+	if err != nil {
+		panic(err)
+	}
+
+	// 監看 stack 字串區（旁白印字時 ds:off 落在 0x210DC 附近）——
+	// 掛在推進之前，抓「誰把明文搬進來」。
+	writes := 0
+	o.OnWrite(0x20E00, 0x21200, func(o *oracle.Oracle, h oracle.WriteHit) {
+		if o.Steps() < 200_000_000 {
+			return // 開機期雜訊
+		}
+		if h.Val < 0x20 || h.Val > 0x7E {
+			return // 只看 ASCII 明文寫入
+		}
+		if writes >= 200 {
+			return
+		}
+		writes++
+		seg := uint16(h.Addr >> 4)
+		off := uint16(h.Addr & 0xF)
+		fmt.Printf("寫入 #%d step=%d 線性=%#x 舊=%02x 新=%02x by IDA=%#x\n",
+			writes, o.Steps(), h.Addr, h.Old, h.Val, h.At)
+		raw := o.Bytes(oracle.Addr{Seg: seg, Off: off &^ 0xF}, 64)
+		vis := strings.Map(func(r rune) rune {
+			if r < 32 || r > 126 {
+				return '·'
+			}
+			return r
+		}, string(raw))
+		fmt.Printf("   內容 %04x:%04x %q\n", seg, off&^0xF, vis)
+	})
+
+	// 印字明文 log（對齊 FileOps 的 MSG.DBS 讀取 step）
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3895}, func(o *oracle.Oracle) {
+		off := o.StackWord(1)
+		ds := o.Regs().DS
+		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
+		s := string(raw)
+		if i := strings.IndexByte(s, 0); i >= 0 {
+			s = s[:i]
+		}
+		fmt.Printf("PRINT step=%d %q\n", o.Steps(), s)
+	})
+	// 建隊 + START NEW GAME + 防拷 + 旁白
+	seq := []struct{ x, y int }{{160, 62}, {170, 153}, {90, 168}, {90, 168}, {160, 101}}
+	for _, s := range seq {
+		_ = o.Click(s.x, s.y)
+		_ = o.Run(120_000_000)
+	}
+	o.Type("AAAA\r")
+	for i := 0; i < 24; i++ {
+		_ = o.Click(25, 15)
+		_ = o.Run(150_000_000)
+	}
+	_ = o.Run(200_000_000)
+	fmt.Println("steps =", o.Steps(), "監看命中：", writes)
+	fmt.Println("== MSG.DBS 檔案操作 ==")
+	for _, fop := range o.FileOps() {
+		if strings.Contains(strings.ToUpper(fop.Name), "MSG") {
+			fmt.Printf("  step=%d %s %s pos=%#x arg=%#x len=%d\n", fop.Step, fop.Op, fop.Name, fop.Pos, fop.Arg, fop.Len)
+		}
+	}
+
+	// 旁白明文搜尋
+	probes := []string{
+		"Inside the ruins of an abandoned temple",
+		"I am Aletheides",
+		"The Dark Savant...",
+		"CHARACTER MENU",
+	}
+	for _, p := range probes {
+		hits := o.Search([]byte(p))
+		fmt.Printf("%q：%d 命中 %v\n", p, len(hits), hits)
+	}
+}

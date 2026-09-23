@@ -375,3 +375,43 @@ OnCall(0110:3895)（印字串入口，near）
 - **輸入模型總結**：AH=3Fh Stdin＝旁白/防拷/名字文字；滑鼠＝旁白推進、
   移動、轉向、UI；鍵盤快捷鍵不存在（全滑鼠 UI）。
 - **精確方向表**（點→前進/左轉/右轉/後退）待「點前後無間隔」的乾淨實驗。
+
+### 追記十五（同日）：MSG.DBS 解壓演算法破解——二元樹走訪（#19 突破）
+
+**方法**：xlate1 加 `-trace-step/-trace-len/-trace-out`（精準停點＋逐指令
+CS:IP＋機器碼軌跡）。停點＝MSG.DBS seek 0x800 read 完成後
+（step 246838060）、長度 2550 步（read 到印字之間）＝解壓常式全程。
+
+**解壓函式**（runtime 0110:3E02）：
+
+```
+push bp / mov bp,sp / cld / sub sp,4 / push ds es si di
+mov ax,ds / mov es,ax        ← es = ds（呼叫者資料段）
+mov si,[bp+4] / mov di,[bp+6]
+mov ax,cs:[2D4E] / mov es,ax ← ★es 改指 cs:[2D4E] 段（樹/狀態區）
+lodsb / xor ah,ah / mov [bp-4],ax
+mov word[bp-2],8             ← 位元計數＝8
+lodsb                        ← 資料 byte
+bit_loop（3E49）：
+  shl al,1                   ← 高位出來
+  jc  3E6C                   ← bit=1 → 右子樹
+  左：test word es:[bx],0x8000；jnz +5；mov bx,es:[bx]；neg bx
+  右：test word es:[bx+2],0x8000；jnz；mov bx,es:[bx+2]；neg bx
+  shl bx,1 / shl bx,1        ← bx×4（word 索引）
+  loop bit_loop / mov cx,8 / lodsb（下一 byte）
+```
+
+**演算法＝8-bit 逐位元二元樹走訪解壓**（Huffman 樣）：
+- 節點＝word、bit15＝葉旗標、內部節點＝負指標鏈（neg＋×4 索引）
+- 樹根＝es:[0]、左右子樹＝[bx]/[bx+2]
+- 樹區段號存於 driver 附近 cs:[2D4E]（runtime 值待 dump）
+- 讀取單位＝byte、每 byte 走 8 次（每 bit 一次）
+
+**MSG.DBS 檔案結構**（confirmed，FileOps 實證）：
+- MSG.HDR 11,774 bytes＝訊息索引（開機讀入）
+- MSG.DBS＝1KB 壓縮塊（0x400 對齊）、按需讀取：印訊息 N → 查 HDR →
+  seek 塊 → read 1024 → 樹走訪解壓 → 印字
+- 實測讀取：0x2400（選單六項）、0x2800（credits）、0x800/0xc00（主選單
+  重印時）、0x1000（迷宮旁白）
+
+**待做**：dump 樹區（es:[0] 起）＋葉值路徑＋重現解壓器（Go）→ 全文抽取。

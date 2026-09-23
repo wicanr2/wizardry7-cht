@@ -61,6 +61,9 @@ func main() {
 	bkeysAt := flag.String("bkeys-at", "", "step:鍵名 逗號分隔（BIOS 緩衝路徑，如 step:Up）")
 	eventsFrom := flag.Uint64("events-from", 0, "只合成這個步數之後的文字事件（排除先前畫面的殘影）")
 	traceTail := flag.Bool("trace-tail", false, "終點前取樣 IP 分佈（找空轉迴圈）")
+	traceStep := flag.Uint64("trace-step", 0, "跑到這道步數停下（配 -trace-len）")
+	traceLen := flag.Uint64("trace-len", 0, "逐指令軌跡的步數（CS:IP＋機器碼）")
+	traceOut := flag.String("trace-out", "workplace/bake/trace.txt", "軌跡輸出檔")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -265,6 +268,28 @@ func main() {
 		n := uint64(2_000_000)
 		if rest := *stop2 - total; rest < n {
 			n = rest
+		}
+		if *traceStep > 0 && *traceLen > 0 && total < *traceStep && total+n >= *traceStep {
+			// 先跑到 traceStep，再逐指令軌跡
+			if rest := *traceStep - total; rest > 0 {
+				if err := o.Run(rest); err != nil {
+					fmt.Println("停止：", err)
+					return
+				}
+			}
+			total = *traceStep
+			out, _ := os.Create(*traceOut)
+			for i := uint64(0); i < *traceLen; i++ {
+				ip := o.IP()
+				code := o.Bytes(ip, 6)
+				fmt.Fprintf(out, "%04x:%04x % x\n", ip.Seg, ip.Off, code)
+				if err := o.Run(1); err != nil {
+					break
+				}
+			}
+			out.Close()
+			fmt.Printf("軌跡 %d 步 → %s\n", *traceLen, *traceOut)
+			return
 		}
 		if err := o.Run(n); err != nil {
 			fmt.Println("停止：", err)
