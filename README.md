@@ -82,14 +82,14 @@ Sound Blaster 與 Roland MT-32/LAPC-1 音效、滑鼠；需要 580K 傳統記憶
 點擊主選單第一列後的畫面（PCVWSCRN 底圖）。dosgolem 實跑輸出：
 滑鼠事件投遞到遊戲自己註冊的 handler 後推進的畫面，與 DOSBox-X 同輸入逐像素一致。
 
-<img src="docs/images/wiz7-menu-xlate.png" width="320" alt="轉譯層中文選單">
+<img src="docs/images/wiz7-hd-menu.png" width="480" alt="轉譯層中文選單">
 
 **主選單中文化（轉譯層上線）**：轉譯層攔截遊戲自己的印字呼叫，
 查譯文表後以倚天 15×15 點陣字型畫進離屏緩衝，隨原版 blit 時序上屏——
 不做 VRAM 事後加工，原版程式碼一行未改。選單項：角色選單、新增角色、
 載入紀錄、系統設定、匯入隊伍、結束遊戲。
 
-<img src="docs/images/wiz7-dialog-cjk.png" width="320" alt="角色建立與防拷檢查中文化">
+<img src="docs/images/wiz7-hd-dialog.png" width="480" alt="角色建立中文化"> <img src="docs/images/wiz7-hd-copyprot.png" width="480" alt="防拷檢查中文化">
 
 進一層的畫面同樣由轉譯層翻譯：角色建立對話框（新增角色／取消）、
 防拷檢查說明（安全檢查、請翻開手冊第35頁……）。沒有譯文的字串

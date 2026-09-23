@@ -56,6 +56,7 @@ func main() {
 	typeAt := flag.String("type-at", "", "step:字串（於指定步數輸入字串+CR）")
 	shotsAt := flag.String("shots-at", "", "step 逗號分隔（純截圖）")
 	bkeysAt := flag.String("bkeys-at", "", "step:鍵名 逗號分隔（BIOS 緩衝路徑，如 step:Up）")
+	eventsFrom := flag.Uint64("events-from", 0, "只合成這個步數之後的文字事件（排除先前畫面的殘影）")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -84,6 +85,7 @@ func main() {
 	drawn := 0
 	collected := map[string]bool{}
 	type drawEvent struct {
+		at   uint64
 		x, y int
 		fg   uint8
 		s    string
@@ -122,7 +124,7 @@ func main() {
 
 		// 高解析模式：不寫進 320x200 遊戲畫面（會被翻頁清掉、字比按鈕大），
 		// 記錄事件，stop2 之後在 2x 放大的終幀上以 15x15 原尺寸合成。
-		events = append(events, drawEvent{x: x, y: y, fg: fg, s: s, g: ent.G})
+		events = append(events, drawEvent{at: o.Steps(), x: x, y: y, fg: fg, s: s, g: ent.G})
 		drawn++
 		o.WriteU8(entry, 0xC3) // ret：原印失效
 		poked = true
@@ -285,6 +287,9 @@ func main() {
 		}
 	}
 	for _, e := range events {
+		if e.at < *eventsFrom {
+			continue // 先前畫面的事件，底圖已換，合成會張冠李戴
+		}
 		fr := pal[e.fg]
 		fgc := color.RGBA{fr[0], fr[1], fr[2], 255}
 		cx := e.x * 2

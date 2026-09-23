@@ -135,10 +135,10 @@ if __name__ == "__main__":
         ("IMPORT (BANE)", "匯入隊伍", 0),
         ("QUIT GAME", "結束遊戲", 0),
         ("CANCEL", "取消", 0),
+        # 防拷三行的數字（頁/段/行）是另一個印字呼叫、動態——譯文不含數字
         ("SECURITY CLEARANCE", "安全檢查", 0),
-        ("PLEASE TURN TO PAGE 35 OF YOUR", "請翻開手冊第35頁", 0),
-        ("MANUAL AND ENTER THE SECOND WORD", "找出第二個字輸入", 9),
-        ("LOCATED IN PARAGRAPH 3  LINE 5", "在第3段第5行", 18),
+        ("PLEASE TURN TO PAGE 35 OF YOUR", "請翻開手冊指定頁數", 0),
+        ("MANUAL AND ENTER THE SECOND WORD", "找出該頁第二個字輸入", 13),
         ("LOAD", "載入", 0),
         ("DIRECTORY", "目錄", 0),
         ("FILENAME", "檔名", 0),
