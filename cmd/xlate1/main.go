@@ -19,6 +19,7 @@ import (
 	"image/color"
 	"image/png"
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/wicanr2/dosgolem/oracle"
@@ -59,6 +60,7 @@ func main() {
 	shotsAt := flag.String("shots-at", "", "step 逗號分隔（純截圖）")
 	bkeysAt := flag.String("bkeys-at", "", "step:鍵名 逗號分隔（BIOS 緩衝路徑，如 step:Up）")
 	eventsFrom := flag.Uint64("events-from", 0, "只合成這個步數之後的文字事件（排除先前畫面的殘影）")
+	traceTail := flag.Bool("trace-tail", false, "終點前取樣 IP 分佈（找空轉迴圈）")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -341,6 +343,17 @@ func main() {
 			fmt.Printf("  AH=25h 設 int%02x → %04x:%04x @step %d\n", vs.Int, vs.Seg, vs.Off, vs.Step)
 		}
 	}
+	fmt.Printf("== 鍵盤：KeyWaits=%d Pending=%d Consumed=%d IRQ1Delivered=%d Stalls=%d\n",
+		o.KeyWaits(), o.KeysPending(), o.KeysConsumed(), o.IRQ1Delivered(), o.KeyStalls())
+	// BIOS tick 計數（0040:006C）的兩時點快照
+	tick := func(tag string) {
+		lo := o.Word(oracle.Addr{Seg: 0x40, Off: 0x6C})
+		hi := o.Word(oracle.Addr{Seg: 0x40, Off: 0x6E})
+		fmt.Printf("  tick[%s] = %d\n", tag, uint32(lo)|uint32(hi)<<16)
+	}
+	tick("now")
+	pr := o.PortReads()
+	fmt.Printf("== port 60h 讀取：%d 次；全部 port reads：%d 種\n", pr[0x60], len(pr))
 	fmt.Println("== 缺檔 ==", o.Missing())
 	fmt.Println("== 未實作 ==", o.Unimplemented())
 	fmt.Println("== 開過的檔 ==", o.Opened())
@@ -383,6 +396,36 @@ func main() {
 			}
 			cx += len(glyph) + 2
 		}
+	}
+	// 終點前 2000 步的 IP 取樣：CPU 在哪空轉
+	if *traceTail {
+		ips := map[uint32]int{}
+		for i := 0; i < 2000; i++ {
+			_ = o.Run(1)
+			ip := o.IP()
+			ips[ip.Linear()]++
+			if i%400 == 0 {
+				fmt.Printf("  now CS:IP = %04x:%04x\n", ip.Seg, ip.Off)
+			}
+		}
+		type kv struct {
+			k uint32
+			v int
+		}
+		var arr []kv
+		for k, v := range ips {
+			arr = append(arr, kv{k, v})
+		}
+		sort.Slice(arr, func(i, j int) bool { return arr[i].v > arr[j].v })
+		for i, e := range arr {
+			if i >= 12 {
+				break
+			}
+			fmt.Printf("  IP %#08x ×%d\n", e.k, e.v)
+		}
+		// 迴圈區的 runtime 機器碼 dump（linear 0x5540-0x5590）
+		code := o.Bytes(oracle.Addr{Seg: 0, Off: 0x5540}, 0x50)
+		fmt.Printf("  碼 0x5540: % x\n", code)
 	}
 	f, _ := os.Create("workplace/bake/xlate1-hd.png")
 	png.Encode(f, big)
