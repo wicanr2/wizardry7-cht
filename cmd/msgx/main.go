@@ -62,6 +62,7 @@ func main() {
 	blk := flag.String("blk", "0x2400", "塊 offset（hex）")
 	length := flag.Int("len", 512, "壓縮資料長度")
 	maxOut := flag.Int("max", 2048, "輸出上限")
+	bitsF := flag.String("bits", "", "實證位元流檔（trace 重建；優先於 blk）")
 	flag.Parse()
 
 	d, err := os.ReadFile(*dbs)
@@ -74,11 +75,60 @@ func main() {
 	}
 	var off int
 	fmt.Sscanf(*blk, "%x", &off)
+	var out []byte
+	bitsUsed := 0
+	if *bitsF != "" {
+		// 實證位元流模式：trace 重建的 bits + 樹走訪
+		bitsTxt, err := os.ReadFile(*bitsF)
+		if err != nil {
+			panic(err)
+		}
+		bx := 0
+		for _, c := range string(bitsTxt) {
+			if c != '0' && c != '1' {
+				continue
+			}
+			bit := int(c - '0')
+			_ = bit
+			p := bx*4
+			if bit != 0 {
+				p += 2
+			}
+			if p+1 >= len(tr) {
+				break
+			}
+			v := uint16(tr[p]) | uint16(tr[p+1])<<8
+			if v&0x8000 != 0 {
+				bx = (-int(int16(v))) * 4
+			} else {
+				out = append(out, byte(v))
+				bx = 0
+			}
+			if len(out) >= *maxOut {
+				break
+			}
+			if bitsUsed < 20 {
+				fmt.Printf("  bit=%d p=%d v=%04x out=%d bx=%d\n", bit, p, v, len(out), bx)
+			}
+			bitsUsed++
+		}
+		fmt.Printf("bitsUsed=%d\n", bitsUsed)
+		vis := make([]byte, 0, len(out))
+		for _, b := range out {
+			if b == 0 {
+				vis = append(vis, []byte("␀")...)
+			} else if b >= 32 && b < 127 {
+				vis = append(vis, b)
+			}
+		}
+		fmt.Printf("實證位元流解壓 %d 字元：\n%s\n", len(out), vis)
+		return
+	}
 	comp := d[off : off+*length]
-	out := decompress(comp[1:], tr, *maxOut) // 跳過第一 byte（長度）
-	fmt.Printf("塊 %s 解壓 %d bytes：\n", *blk, len(out))
+	out2 := decompress(comp, tr, *maxOut)
+	fmt.Printf("塊 %s 解壓 %d bytes：\n", *blk, len(out2))
 	// 可讀化
-	vis := make([]byte, 0, len(out))
+	vis := make([]byte, 0, len(out2))
 	nul := 0
 	for _, b := range out {
 		if b == 0 {
