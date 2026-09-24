@@ -6,6 +6,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 )
 
@@ -13,6 +14,72 @@ import (
 // bit15=1 的值＝內部節點（負指標，neg 轉正＝下一節點編號）；
 // bit15=0 的值＝葉（ASCII 字元，輸出後回根）。
 func decompress(block []byte, tree []byte, maxOut int) []byte {
+	// 精確語意（python 實證）：
+	// block[0]＝輸出長度、位元流從 block[1] 起 MSB-first。
+	// 葉（bit15=0）輸出 low byte 並回根；內部（bit15=1）neg 轉正 ×4 續走。
+	node := func(idx int) uint16 {
+		p := idx * 4
+		if p+1 >= len(tree) {
+			return 0x8000
+		}
+		return uint16(tree[p]) | uint16(tree[p+1])<<8
+	}
+	right := func(idx int) uint16 {
+		p := idx*4 + 2
+		if p+1 >= len(tree) {
+			return 0x8000
+		}
+		return uint16(tree[p]) | uint16(tree[p+1])<<8
+	}
+	si := 0
+	if si >= len(block) {
+		return nil
+	}
+	want := int(block[si])
+	si++
+	out := []byte{}
+	al := 0
+	cx := 0
+	bx := 0
+	if si < len(block) {
+		al = int(block[si])
+		si++
+	}
+	for len(out) < want && len(out) < maxOut {
+		bit := (al >> 7) & 1
+		al = (al << 1) & 0xFF
+		cx--
+		var v uint16
+		if bit != 0 {
+			v = right(bx)
+		} else {
+			v = node(bx)
+		}
+		if v&0x8000 != 0 {
+			bx = ((-int(v)) & 0xFFFF) // neg 轉正
+			bx = bx * 4               // ×4＝byte 偏移
+			if len(out) < 3 {
+				log.Printf("內部 bit=%d bx=%d", bit, bx)
+			}
+		} else {
+			out = append(out, byte(v)) // 葉：字元
+			if len(out) < 5 {
+				log.Printf("葉 bit=%d 字元=%q", bit, byte(v))
+			}
+			bx = 0 // 回根
+		}
+		if cx == 0 {
+			cx = 8
+			if si < len(block) {
+				al = int(block[si])
+				si++
+			}
+		}
+	}
+	return out
+}
+
+func decompressOld(block []byte, tree []byte, maxOut int) []byte {
 	node := func(idx int) uint16 {
 		p := idx * 4
 		if p+1 >= len(tree) {

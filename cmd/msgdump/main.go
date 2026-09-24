@@ -61,6 +61,28 @@ func main() {
 		}
 		fmt.Printf("PRINT step=%d %q\n", o.Steps(), s)
 	})
+	// 解壓函式入口監看：3E17 = mov ax,cs:[2D4E]（ax=樹段）、si=來源
+	caps := 0
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3E1B}, func(o *oracle.Oracle) {
+		if caps >= 5 {
+			return
+		}
+		caps++
+		r := o.Regs()
+		fmt.Printf("解壓#%d step=%d si=%04x ax(樹段)=%04x ds=%04x\n",
+			caps, o.Steps(), r.SI, r.AX, r.DS)
+		// dump 來源區（ds:si 起 128 bytes）
+		raw := o.Bytes(oracle.Addr{Seg: r.DS, Off: r.SI}, 128)
+		vis := strings.Map(func(rr rune) rune {
+			if rr < 32 || rr > 126 {
+				return '·'
+			}
+			return rr
+		}, string(raw))
+		fmt.Printf("   來源 %04x:%04x % x\n", r.DS, r.SI, raw[:64])
+		fmt.Printf("   可讀 %q\n", vis)
+	})
+
 	// 建隊 + START NEW GAME + 防拷 + 旁白
 	seq := []struct{ x, y int }{{160, 62}, {170, 153}, {90, 168}, {90, 168}, {160, 101}}
 	for _, s := range seq {
