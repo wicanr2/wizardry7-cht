@@ -45,10 +45,11 @@ func decompress(block []byte, tree []byte, maxOut int) []byte {
 				v = node(bx)
 			}
 			if v&0x8000 != 0 {
-				bx = -int(int16(v)) // 內部節點：neg 轉正
+				bx = -int(int16(v)) // 內部節點：neg 轉正（node() 內部已 ×4）
 			} else {
 				out = append(out, byte(v)) // 葉：字元
-				break                      // byte 對齊（剩餘 bits 丟棄）
+				bx = 0                     // 葉後回根（下一字元從根走）
+				break                      // byte 對齊
 			}
 		}
 	}
