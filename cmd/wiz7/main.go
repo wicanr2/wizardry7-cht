@@ -131,6 +131,7 @@ type shared struct {
 	buttons [2]bool   // 左、右
 	evs     []glyphEv // 翻譯文字事件（機器 goroutine 生產、Draw 消費）
 	stdin   []byte    // 待注入的 Stdin 字元（AH=3Fh 路徑）
+	clicks  []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
 
 type game struct {
@@ -249,6 +250,7 @@ func main() {
 	ips := flag.Float64("ips", 24_000_000, "每秒指令數（節流基準）")
 	xlatePath := flag.String("xlate", "workplace/bake/xlate.json", "譯文表（空字串＝純英文模式）")
 	hdShotF := flag.Bool("hdshot", false, "每 30 秒輸出 HD 合成幀（PNG）")
+	autoplay := flag.Bool("autoplay", false, "內建自動遊玩時序（建隊→防拷→旁白→迷宮移動）")
 	flag.Parse()
 
 	program := *exe
@@ -341,6 +343,38 @@ func main() {
 	})
 	g := &game{sh: sh, scale: *scale, screen: ebiten.NewImage(320, 200)}
 
+	// 自動遊玩時序表（oracle 層直接注入，繞過 Ebiten 輸入在 Xvfb 的失效）
+	var autos []struct {
+		after float64 // 啟動後秒數
+		fn    func(*oracle.Oracle)
+	}
+	if *autoplay {
+		add := func(t float64, fn func(*oracle.Oracle)) { autos = append(autos, struct {
+			after float64
+			fn    func(*oracle.Oracle)
+		}{t, fn}) }
+		cl := func(x, y int) func(*oracle.Oracle) {
+			return func(o *oracle.Oracle) { o.Click(x, y) }
+		}
+		add(16, cl(160, 62)) // ADD CHARACTER
+		add(18, cl(170, 153))
+		add(19.5, cl(90, 168))
+		add(21, cl(90, 168))
+		add(24, cl(160, 114)) // START NEW GAME
+		add(26, func(o *oracle.Oracle) { o.Type("AAAA\r") }) // 防拷
+		for i := 0; i < 24; i++ {                            // 旁白推進
+			t := 27.5 + float64(i)*1.2
+			add(t, cl(25, 15))
+		}
+		// 迷宮移動
+		for i := 0; i < 8; i++ {
+			add(60+float64(i)*2, cl(142, 165)) // 上箭頭（前進）
+		}
+	}
+
+	startWall := time.Now()
+	autoIdx := 0
+
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
 	// ⚠ MoveMouse 只在座標真的變了才送——遊戲把滑鼠活動當「有人在看」，
 	// 每塊都送會重置故事頁的推進計時（docs/re/009 的教訓）。
@@ -348,7 +382,7 @@ func main() {
 		chunk := uint64(200_000)
 		minWall := time.Duration(float64(chunk) / *ips * float64(time.Second))
 		last := time.Now()
-		lastL, lastR := false, false
+		lastR := false
 		lastX, lastY := -1, -1
 		for i := 0; ; i++ {
 			sh.mu.Lock()
@@ -361,19 +395,31 @@ func main() {
 				sh.stdin = nil
 			}
 			bx, by := sh.mouseX, sh.mouseY
-			l, r := sh.buttons[0], sh.buttons[1]
+			r := sh.buttons[1]
 			if bx != lastX || by != lastY {
 				o.MoveMouse(bx, by)
 				lastX, lastY = bx, by
 			}
-			if l != lastL {
-				if l {
-					o.PressButton(0)
-				} else {
-					o.ReleaseButton(0)
-				}
-				lastL = l
+			// 整包點擊（Click 路徑——分離的 Press/Release 在部分遊戲失效）
+			var clicks []struct{ x, y int }
+			for len(sh.clicks) > 0 {
+				c := sh.clicks[0]
+				sh.clicks = sh.clicks[1:]
+				clicks = append(clicks, c)
 			}
+			// MoveMouse（游標位置）
+			if bx != lastX || by != lastY {
+				o.MoveMouse(bx, by)
+				lastX, lastY = bx, by
+			}
+			sh.mu.Unlock()
+			for _, c := range clicks {
+				if err := o.Click(c.x, c.y); err != nil {
+					log.Printf("點擊 (%d,%d)：%v", c.x, c.y, err)
+				}
+			}
+			sh.mu.Lock()
+			// 右鍵維持 Press/Release 路徑
 			if r != lastR {
 				if r {
 					o.PressButton(1)
@@ -386,6 +432,18 @@ func main() {
 				sh.mu.Unlock()
 				log.Printf("機器停止於 steps=%d：%v", o.Steps(), err)
 				return
+			}
+			// 自動遊玩：啟動秒數過點執行
+			for autoIdx < len(autos) {
+				a := autos[autoIdx]
+				if time.Since(startWall).Seconds() < a.after {
+					break
+				}
+				sh.mu.Unlock()
+				fmt.Printf("AUTO %.1fs 執行\n", a.after)
+				a.fn(o)
+				autoIdx++
+				sh.mu.Lock()
 			}
 			// HD 幀輸出（每 30 秒）：A0000 2x 放大＋文字事件疊畫
 			if hdShot && time.Since(lastHD) > 30*time.Second {
