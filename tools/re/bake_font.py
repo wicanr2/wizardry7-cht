@@ -142,6 +142,10 @@ if __name__ == "__main__":
         ("LOAD", "載入", 0),
         ("DIRECTORY", "目錄", 0),
         ("FILENAME", "檔名", 0),
+        ("START NEW GAME", "開始新遊戲", 0),
+        ("REVIEW MEMBER", "檢視成員", 0),
+        ("DISMISS MEMBER", "開除成員", 0),
+        ("FIGHTER", "戰士", 0),
     ]
     # 開場故事（逐行 1:1 映射，tools 產生的 workplace/bake/story.txt）
     story = Path("workplace/bake/story.txt")

@@ -326,7 +326,8 @@ func main() {
 		evMu.Unlock()
 		// 大 blit（全屏重繪）＝清文字事件（殘影清除）
 	o.OnCall(oracle.Addr{Seg: 0x740C, Off: 0x4F5D}, func(o *oracle.Oracle) {
-		if int(o.Regs().CX) > 0x4000 {
+		// rep movsb 的 cx＝行長度；全屏寬（320）＝大重繪 → 清文字事件
+		if int(o.Regs().CX) >= 320 {
 			evMu.Lock()
 			if len(sh.evs) > 0 {
 				sh.evs = nil
@@ -377,9 +378,13 @@ func main() {
 			t := 27.5 + float64(i)*1.2
 			add(t, cl(25, 15))
 		}
-		// 迷宮移動
-		for i := 0; i < 8; i++ {
-			add(60+float64(i)*2, cl(142, 165)) // 上箭頭（前進）
+		// 迷宮方向測試（十字）
+		dirT := []struct {
+			t float64
+			x, y int
+		}{{60, 142, 165}, {63, 142, 191}, {66, 113, 178}, {69, 188, 178}, {72, 142, 165}}
+		for _, d := range dirT {
+			add(d.t, cl(d.x, d.y))
 		}
 	}
 
@@ -457,7 +462,7 @@ func main() {
 				sh.mu.Lock()
 			}
 			// HD 幀輸出（每 30 秒）：A0000 2x 放大＋文字事件疊畫
-			if hdShot && time.Since(lastHD) > 30*time.Second {
+			if hdShot && time.Since(lastHD) > 3*time.Second {
 				lastHD = time.Now()
 				evMu.Lock()
 				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/hd-%d.png", time.Now().Unix()))
