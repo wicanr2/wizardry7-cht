@@ -64,13 +64,16 @@ func main() {
 	// 解壓函式入口監看：3E17 = mov ax,cs:[2D4E]（ax=樹段）、si=來源
 	caps := 0
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3E1B}, func(o *oracle.Oracle) {
-		if caps >= 5 {
+		if caps >= 40 {
 			return
 		}
 		caps++
 		r := o.Regs()
-		fmt.Printf("解壓#%d step=%d si=%04x ax(樹段)=%04x ds=%04x\n",
-			caps, o.Steps(), r.SI, r.AX, r.DS)
+		// 每次解壓的輸入區 dump（第一層轉換的對照材料）
+		src := o.Bytes(oracle.Addr{Seg: r.DS, Off: r.SI}, 512)
+		_ = os.WriteFile(fmt.Sprintf("/w/workplace/bake/dec-input-%02d.bin", caps), src, 0o644)
+		fmt.Printf("解壓#%d step=%d si=%04x ax(樹段)=%04x ds=%04x 輸入區 → dec-input-%02d.bin\n",
+			caps, o.Steps(), r.SI, r.AX, r.DS, caps)
 		// dump 來源區（ds:si 起 128 bytes）
 		raw := o.Bytes(oracle.Addr{Seg: r.DS, Off: r.SI}, 128)
 		vis := strings.Map(func(rr rune) rune {
