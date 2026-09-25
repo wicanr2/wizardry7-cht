@@ -1,363 +1,367 @@
 {
-  "schema": "wizardry7-worklist/1",
-  "note": "未完成項的權威。verify 為真＝仍未完成。做完的條目移到 done，保留 issue 編號與證據。規則見 ~/.claude/rulebook/61。",
-  "milestones": {
-    "M0": "探勘與基線：解壓與雜湊、IDA 普查、狀態檔檢查點、DOSBox-X 參照",
-    "M1": "原版在 golem 上完整可跑：顯示、音效、決定性",
-    "M2": "可遊玩前端：節拍、視窗、鍵盤、滑鼠、音訊",
-    "M3": "文字攔截與抽取",
-    "M4": "中文繪製與全文翻譯",
-    "M5": "輔助功能與作弊",
-    "M6": "README、主題、打包、授權與發行"
+ "schema": "wizardry7-worklist/1",
+ "note": "未完成項的權威。verify 為真＝仍未完成。做完的條目移到 done，保留 issue 編號與證據。規則見 ~/.claude/rulebook/61。",
+ "milestones": {
+  "M0": "探勘與基線：解壓與雜湊、IDA 普查、狀態檔檢查點、DOSBox-X 參照",
+  "M1": "原版在 golem 上完整可跑：顯示、音效、決定性",
+  "M2": "可遊玩前端：節拍、視窗、鍵盤、滑鼠、音訊",
+  "M3": "文字攔截與抽取",
+  "M4": "中文繪製與全文翻譯",
+  "M5": "輔助功能與作弊",
+  "M6": "README、主題、打包、授權與發行"
+ },
+ "labels": {
+  "re": "反組譯與格式解讀",
+  "golem-upstream": "通用機制，做完送回 dosgolem",
+  "text": "文本抽取、翻譯與排版",
+  "verify": "對原版驗證",
+  "doc": "文件",
+  "release": "打包與發行"
+ },
+ "items": [
+  {
+   "id": "m2-playthrough",
+   "milestone": "M2",
+   "labels": [
+    "verify",
+    "frontend"
+   ],
+   "issue": 16,
+   "title": "模擬試玩：主選單→建隊伍→進遊戲",
+   "body": "真實輸入路徑（Click/Tap/PressKey）從主選單推進到第一個可操作畫面；熱點未知用 -sweep。",
+   "acceptance": "全程截圖＋狀態檔＋轉場記錄（docs/re/010）。",
+   "verify": [
+    "試玩中斷且無法推進"
+   ]
   },
-  "labels": {
-    "re": "反組譯與格式解讀",
-    "golem-upstream": "通用機制，做完送回 dosgolem",
-    "text": "文本抽取、翻譯與排版",
-    "verify": "對原版驗證",
-    "doc": "文件",
-    "release": "打包與發行"
+  {
+   "id": "m2-recording",
+   "milestone": "M2",
+   "labels": [
+    "frontend"
+   ],
+   "issue": 17,
+   "title": "輸入錄放",
+   "body": "錄製/重播試玩輸入；重播三次畫面雜湊與原跑一致。",
+   "acceptance": "重播一致。",
+   "verify": [
+    "無錄放介面或重播不一致"
+   ]
   },
-  "items": [
-    {
-      "id": "m2-playthrough",
-      "milestone": "M2",
-      "labels": [
-        "verify",
-        "frontend"
-      ],
-      "issue": 16,
-      "title": "模擬試玩：主選單→建隊伍→進遊戲",
-      "body": "真實輸入路徑（Click/Tap/PressKey）從主選單推進到第一個可操作畫面；熱點未知用 -sweep。",
-      "acceptance": "全程截圖＋狀態檔＋轉場記錄（docs/re/010）。",
-      "verify": [
-        "試玩中斷且無法推進"
-      ]
-    },
-    {
-      "id": "m2-recording",
-      "milestone": "M2",
-      "labels": [
-        "frontend"
-      ],
-      "issue": 17,
-      "title": "輸入錄放",
-      "body": "錄製/重播試玩輸入；重播三次畫面雜湊與原跑一致。",
-      "acceptance": "重播一致。",
-      "verify": [
-        "無錄放介面或重播不一致"
-      ]
-    },
-    {
-      "id": "m2-audio",
-      "milestone": "M2",
-      "labels": [
-        "frontend",
-        "audio"
-      ],
-      "issue": 18,
-      "title": "前端音訊：OPL2 事件流→聲音",
-      "body": "OPL 寫入流接合成（或暫替音源），前端可聽；事件↔取樣對齊可量測。",
-      "acceptance": "前端播放音樂；對齊可量測。",
-      "verify": [
-        "前端無聲"
-      ]
-    },
-    {
-      "id": "m3-msgdbs",
-      "milestone": "M3",
-      "labels": [
-        "re",
-        "text"
-      ],
-      "issue": 19,
-      "title": "MSG.DBS 格式解碼與全文抽取",
-      "body": "解出壓縮/編碼演算法（帶推論等級），抽取工具產出全部訊息 JSON 清單。已知明文反推：主選單項文字。",
-      "acceptance": "docs/re/012 定案＋抽取清單＋主選單六項核對。",
-      "verify": [
-        "無抽取工具或清單缺漏無法解釋"
-      ]
-    },
-    {
-      "id": "m3-printroutine",
-      "milestone": "M3",
-      "labels": [
-        "re"
-      ],
-      "issue": 20,
-      "title": "印字常式定位與字元→字形對應",
-      "body": "resident 0110 段的字形展開常式定位；字元索引→VBFONT 字形對應式；OnCall 攔截驗證。",
-      "acceptance": "docs/re/012/013 含常式位址與對應式。",
-      "verify": [
-        "OnCall 攔截 sub_13895 未驗證（管線已解碼：013 文件）"
-      ]
-    }
-  ],
-  "done": [
-    {
-      "id": "m0-unzip-original",
-      "milestone": "M0",
-      "labels": [
-        "re"
-      ],
-      "title": "解開原版並建立雜湊基線",
-      "body": "把 zip 解到 workplace/original/wizar7/（gitignore），記錄 250 檔的清單、大小與 SHA-256，寫進 docs/re/001。確認 wizar7/cd/ 子目錄內容與 DSAVANT.BAT／WIZARDRY.BAT 的啟動流程。",
-      "acceptance": "docs/re/001 含全部檔案的雜湊表；之後的位址表與工具綁這份雜湊，不符就停。",
-      "verify": [
-        "workplace/original/wizar7/DS.EXE 存在",
-        "docs/re/001-*.md 存在且含 250 檔雜湊"
-      ],
-      "issue": 1,
-      "evidence": "docs/re/001-unzip-baseline.md（248 檔雜湊＋大小全錄；cd/ 空；BAT 啟動流程）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m0-exe-first-look",
-      "milestone": "M0",
-      "labels": [
-        "re"
-      ],
-      "title": "DS.EXE 與 overlay 載入機制初探",
-      "body": "DS.EXE 檔頭與 overlay 載入機制普查：編譯器家族（是否 Borland，先讀 borland-tpov-overlay-re 規則再判，不預設）、.OVR 的載入方式、字型與印字常式線索、顯示模式與音效硬體的 INT 呼叫分布、防拷形態線索。",
-      "acceptance": "docs/re/002 記錄帶推論等級標籤（confirmed／強證據／假說／未知）的初步結論與下一步。",
-      "verify": [
-        "docs/re/002-*.md 存在且每項結論帶等級標籤"
-      ],
-      "issue": 2,
-      "evidence": "docs/re/002-ds-exe-first-look.md（.OVR 非 TPOV、檔頭算式 13/13；VINSTALL 字串：五顯示模式、SB+MT-32、1992 版權）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m0-golem-boot",
-      "milestone": "M0",
-      "labels": [
-        "golem-upstream"
-      ],
-      "title": "原版在 dosgolem 上開機到標題",
-      "body": "clone dosgolem 到 worktrees/，跑 DS.EXE（或經 DSAVANT.BAT）到標題畫面。缺的機制照慣例補進 golem（依據 DOSBox-X 原始碼，不回頭跑 DOSBox），缺口清單逐一記錄。",
-      "acceptance": "dosgolem 產出標題畫面快照；每個補過的機制有一條紀錄（改了什麼、依據哪段 DOSBox-X 原始碼）。",
-      "verify": [
-        "workplace/ 有 golem 標題畫面快照"
-      ],
-      "issue": 4,
-      "evidence": "docs/re/003-golem-boot.md（零修改開機到標題美術頁；pfinal.vram 31,997 px；組態全錄）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m0-ida-census",
-      "milestone": "M0",
-      "labels": [
-        "re"
-      ],
-      "title": "IDA 建庫與函式普查",
-      "body": "為 DS.EXE 與主要 .OVR（VMAZE、VMEXE、VMNPC 等）建 .i64；產出函式總數、runtime helper 分群、已執行覆蓋、真正的 INT 呼叫點列表。overlay 的 entry point 要自己種，照 tpov 規則的坑清單走。",
-      "acceptance": "普查報告進 docs/re/003，附輸入 SHA-256 與 IDA 專案位置。",
-      "verify": [
-        "workplace/ida/ 有 .i64",
-        "docs/re/003-*.md 存在"
-      ],
-      "issue": 3,
-      "evidence": "docs/re/004-ida-census.md（843 函式普查、INT 全在 resident、overlay 名表、種子方法）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m0-states",
-      "milestone": "M0",
-      "labels": [
-        "verify"
-      ],
-      "title": "狀態檢查點產生器",
-      "body": "依重播輸入產出數個檢查點狀態檔（標題、主選單、第一個可操作畫面等，實際項目依 m0-golem-boot 能走多遠調整），每個附解幀畫面與到達指令數。",
-      "acceptance": "tools/states.sh（或等價物）一次產出全部檢查點；從檢查點載入到可做實驗是秒級。",
-      "verify": [
-        "workplace/ 有檢查點狀態檔與解幀畫面"
-      ],
-      "issue": 5,
-      "evidence": "docs/re/005-dosboxx-parity.md §檢查點（banner/title 狀態檔＋恢復驗證通過；主選單檢查點待按鍵腳本，列 M1）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m0-dosboxx-ref",
-      "milestone": "M0",
-      "labels": [
-        "verify"
-      ],
-      "title": "DOSBox-X 參照與對拍",
-      "body": "同組檢查點在 DOSBox-X 的畫面擷取與 dosgolem 逐像素比對，結果進 docs/re/。顏色差異屬 M1，這裡先比版面。",
-      "acceptance": "docs/re/ 有對拍結果（不一致像素數與位置）。",
-      "verify": [
-        "docs/re/ 有 DOSBox-X 對拍文件"
-      ],
-      "issue": 6,
-      "evidence": "docs/re/005-dosboxx-parity.md §對拍（穩定標題遮罩差異 0；顏色屬 M1）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m1-writable-cwd",
-      "milestone": "M1",
-      "labels": [
-        "golem-upstream"
-      ],
-      "issue": 8,
-      "title": "可寫執行環境：排除自行退出",
-      "body": "唯讀掛載換可寫複本，驗證遊戲標題後自行退出是否寫檔失敗所致（INSERT SAVEGAME DISK 假說）。",
-      "acceptance": "可寫環境不再退出，或退出原因實錄歸因。",
-      "verify": [
-        "docs/re/006 有退出歸因段落"
-      ],
-      "evidence": "docs/re/003 勘誤段（-trace 對照：500M 步仍活著；退出=shots off-by-one 誤讀；可寫零寫檔、畫面雜湊同唯讀）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m1-color-parity",
-      "milestone": "M1",
-      "labels": [
-        "verify"
-      ],
-      "issue": 10,
-      "title": "顏色對拍",
-      "body": "golem 穩定標題 vram+pal 合成 RGB vs DOSBox-X title-09+ 逐像素（容差 0）。",
-      "acceptance": "RGB 差異 0；不為 0 列 DAC entry 差異。",
-      "verify": [
-        "docs/re/006 有顏色對拍數字"
-      ],
-      "evidence": "docs/re/006 §顏色對拍（穩定標題 RGB 嚴格差異 0）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m1-loader-re",
-      "milestone": "M1",
-      "labels": [
-        "re",
-        "golem-upstream"
-      ],
-      "issue": 13,
-      "title": "Overlay loader 動態逆轉與故事畫面等待條件",
-      "body": "0x740C 模組與磁碟 .OVR 對不上＝loader 有轉換；故事畫面熱點命中仍無反應。用 oracle 攔載入路徑反推。",
-      "acceptance": "docs/re/007 定案轉換與 .tail 語意；故事畫面可前進。",
-      "verify": [
-        "docs/re/007 不存在或畫面仍卡"
-      ],
-      "evidence": "docs/re/007＋008：0x740C＝驅動段；等待條件＝事件閂鎖；根因＝dosgolem 缺 INT 33h AX=14h（分支 wizardry7/int33-ax14 修復，spec 194＋contract test＋巫術7端到端：真實點擊推進 43,530→55,600）",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m1-golem-upstream",
-      "milestone": "M1",
-      "labels": [
-        "golem-upstream"
-      ],
-      "issue": 14,
-      "title": "dosgolem 上游化：AX=14h 分支合併推送",
-      "body": "分支 wizardry7/int33-ax14（spec 194＋case 0x0014＋contract test）合入 dosgolem master、push、CI 綠；wizardry7 回 master。",
-      "acceptance": "master 含 spec 194；CI 綠；本地分支清除。",
-      "verify": [
-        "dosgolem master 缺 spec 194 或 CI 紅"
-      ],
-      "evidence": "dosgolem master 3c21907（cherry-pick 重放到現行線；上游歷史曾被重寫，merge 路線已排除）；internal/dos 測試綠",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m1-menu-checkpoints",
-      "milestone": "M1",
-      "labels": [
-        "verify"
-      ],
-      "issue": 9,
-      "title": "選單檢查點",
-      "body": "穩定標題、主選單、第一個可操作畫面三個狀態檔＋恢復驗證；按鍵腳本要調（space 太密會提早退出）。",
-      "acceptance": "states.sh 一次產出三個檢查點；--check 通過。",
-      "verify": [
-        "三個狀態檔存在"
-      ],
-      "evidence": "docs/re/009：menu.state(940M) 可點擊推進五列；--check 恢復＋點擊→PCVW 綠；DOSBox-X 正對照遮罩差異 0",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "m1-determinism",
-      "milestone": "M1",
-      "labels": [
-        "verify"
-      ],
-      "issue": 11,
-      "title": "決定性",
-      "body": "同輸入兩次：狀態檔／畫面／記憶體 dump 雜湊全同。",
-      "acceptance": "三種產物 SHA-256 相同。",
-      "verify": [
-        "有成對比較紀錄"
-      ],
-      "evidence": "docs/re/009 §決定性：pairA.state==pairB.state、drv dump 同、跨 run 幀雜湊同；dosgolem de5e2d2 修快照 map 編碼",
-      "done": "2026-09-20"
-    },
-    {
-      "id": "readme",
-      "milestone": "M6",
-      "labels": [
-        "doc",
-        "release"
-      ],
-      "title": "README.md：遊戲介紹與中文化目的",
-      "body": "內容：遊戲介紹（Wizardry VII: Crusaders of the Dark Savant，Sir-Tech 1992，DOS 版）；中文化目的＝縮短語言隔閡與鴻溝；做法（dosgolem 轉譯層，原版邏輯不動）；原版自備＋檔案雜湊；授權 RRSAL-1.0。寫法依 rulebook/80，初稿可在 M0 事實齊後先寫。",
-      "acceptance": "README 進版控；介紹與目的段落符合 rulebook/80/91 的白話與去 slop 標準。",
-      "verify": [
-        "README.md 存在且含上述五個段落"
-      ],
-      "issue": 7,
-      "evidence": "README.md（subagent 撰寫）＋LICENSE（RRSAL-1.0）＋docs/images/ 三張實跑截圖",
-      "done": "2026-09-21"
-    },
-    {
-      "id": "m2-frontend-skeleton",
-      "milestone": "M2",
-      "labels": [
-        "frontend",
-        "golem-upstream"
-      ],
-      "issue": 15,
-      "title": "M2 前端骨架：cmd/wiz7",
-      "body": "視窗（13h 放大）、節拍（步數↔牆上時間）、鍵盤映射、音訊殼。標題→主選單可玩。",
-      "acceptance": "前端從開機玩到主選單；節拍可調；畫面與 probe 快照同源。",
-      "verify": [
-        "前端無法走到主選單或節拍無法調"
-      ],
-      "evidence": "cmd/wiz7（goroutine 大塊 Run＋節流＋鍵盤滑鼠）；Xvfb 煙霧測試：開機→主選單、xdotool 點擊推進 PCVW（docs/images/wiz7-pcvw.png）",
-      "done": "2026-09-21"
-    },
-    {
-      "id": "m1-opl2-parity",
-      "milestone": "M1",
-      "labels": [
-        "verify",
-        "audio"
-      ],
-      "issue": 12,
-      "title": "OPL2 事件層對拍",
-      "body": "golem 埠寫入紀錄 vs DOSBox-X .dro（DX-CAPTURE /O）逐筆比對。沿用 psychic-war tools/dosboxx-opl.sh＋opl_events.py。",
-      "acceptance": "docs/re/007 有逐筆比對結果。",
-      "verify": [
-        "docs/re/007 存在"
-      ],
-      "evidence": "docs/re/009 追記：OPL 事件層共同窗口 4,037 筆逐筆全同；golem 4,581 / DOSBox-X 6,070 筆",
-      "done": "2026-09-21"
-    },
-    {
-      "id": "m4-first-cjk",
-      "milestone": "M4",
-      "labels": [
-        "text",
-        "re"
-      ],
-      "issue": 21,
-      "title": "M4：中文字形烘製與印字攔截管線",
-      "body": "原定方案 A（資料替換）證偽後轉方案 B：OnCall 攔印字串、Eten 15x15 寫離屏、poke ret 跳過原印。主選單六項全數中文上屏。",
-      "acceptance": "主選單至少一項以中文字形顯示（原版時序、非 VRAM poke）。",
-      "verify": [
-        "workplace/bake/xlate1.png 六項全中",
-        "寫後即讀驗證一致"
-      ],
-      "evidence": "docs/re/013 追記四＋cmd/xlate1＋f011589",
-      "done": "2026-09-22"
-    }
-  ],
-  "dropped": []
+  {
+   "id": "m2-audio",
+   "milestone": "M2",
+   "labels": [
+    "frontend",
+    "audio"
+   ],
+   "issue": 18,
+   "title": "前端音訊：OPL2 事件流→聲音",
+   "body": "OPL 寫入流接合成（或暫替音源），前端可聽；事件↔取樣對齊可量測。",
+   "acceptance": "前端播放音樂；對齊可量測。",
+   "verify": [
+    "前端無聲"
+   ]
+  },
+  {
+   "id": "m3-printroutine",
+   "milestone": "M3",
+   "labels": [
+    "re"
+   ],
+   "issue": 20,
+   "title": "印字常式定位與字元→字形對應",
+   "body": "resident 0110 段的字形展開常式定位；字元索引→VBFONT 字形對應式；OnCall 攔截驗證。",
+   "acceptance": "docs/re/012/013 含常式位址與對應式。",
+   "verify": [
+    "OnCall 攔截 sub_13895 未驗證（管線已解碼：013 文件）"
+   ]
+  }
+ ],
+ "done": [
+  {
+   "id": "m0-unzip-original",
+   "milestone": "M0",
+   "labels": [
+    "re"
+   ],
+   "title": "解開原版並建立雜湊基線",
+   "body": "把 zip 解到 workplace/original/wizar7/（gitignore），記錄 250 檔的清單、大小與 SHA-256，寫進 docs/re/001。確認 wizar7/cd/ 子目錄內容與 DSAVANT.BAT／WIZARDRY.BAT 的啟動流程。",
+   "acceptance": "docs/re/001 含全部檔案的雜湊表；之後的位址表與工具綁這份雜湊，不符就停。",
+   "verify": [
+    "workplace/original/wizar7/DS.EXE 存在",
+    "docs/re/001-*.md 存在且含 250 檔雜湊"
+   ],
+   "issue": 1,
+   "evidence": "docs/re/001-unzip-baseline.md（248 檔雜湊＋大小全錄；cd/ 空；BAT 啟動流程）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m0-exe-first-look",
+   "milestone": "M0",
+   "labels": [
+    "re"
+   ],
+   "title": "DS.EXE 與 overlay 載入機制初探",
+   "body": "DS.EXE 檔頭與 overlay 載入機制普查：編譯器家族（是否 Borland，先讀 borland-tpov-overlay-re 規則再判，不預設）、.OVR 的載入方式、字型與印字常式線索、顯示模式與音效硬體的 INT 呼叫分布、防拷形態線索。",
+   "acceptance": "docs/re/002 記錄帶推論等級標籤（confirmed／強證據／假說／未知）的初步結論與下一步。",
+   "verify": [
+    "docs/re/002-*.md 存在且每項結論帶等級標籤"
+   ],
+   "issue": 2,
+   "evidence": "docs/re/002-ds-exe-first-look.md（.OVR 非 TPOV、檔頭算式 13/13；VINSTALL 字串：五顯示模式、SB+MT-32、1992 版權）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m0-golem-boot",
+   "milestone": "M0",
+   "labels": [
+    "golem-upstream"
+   ],
+   "title": "原版在 dosgolem 上開機到標題",
+   "body": "clone dosgolem 到 worktrees/，跑 DS.EXE（或經 DSAVANT.BAT）到標題畫面。缺的機制照慣例補進 golem（依據 DOSBox-X 原始碼，不回頭跑 DOSBox），缺口清單逐一記錄。",
+   "acceptance": "dosgolem 產出標題畫面快照；每個補過的機制有一條紀錄（改了什麼、依據哪段 DOSBox-X 原始碼）。",
+   "verify": [
+    "workplace/ 有 golem 標題畫面快照"
+   ],
+   "issue": 4,
+   "evidence": "docs/re/003-golem-boot.md（零修改開機到標題美術頁；pfinal.vram 31,997 px；組態全錄）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m0-ida-census",
+   "milestone": "M0",
+   "labels": [
+    "re"
+   ],
+   "title": "IDA 建庫與函式普查",
+   "body": "為 DS.EXE 與主要 .OVR（VMAZE、VMEXE、VMNPC 等）建 .i64；產出函式總數、runtime helper 分群、已執行覆蓋、真正的 INT 呼叫點列表。overlay 的 entry point 要自己種，照 tpov 規則的坑清單走。",
+   "acceptance": "普查報告進 docs/re/003，附輸入 SHA-256 與 IDA 專案位置。",
+   "verify": [
+    "workplace/ida/ 有 .i64",
+    "docs/re/003-*.md 存在"
+   ],
+   "issue": 3,
+   "evidence": "docs/re/004-ida-census.md（843 函式普查、INT 全在 resident、overlay 名表、種子方法）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m0-states",
+   "milestone": "M0",
+   "labels": [
+    "verify"
+   ],
+   "title": "狀態檢查點產生器",
+   "body": "依重播輸入產出數個檢查點狀態檔（標題、主選單、第一個可操作畫面等，實際項目依 m0-golem-boot 能走多遠調整），每個附解幀畫面與到達指令數。",
+   "acceptance": "tools/states.sh（或等價物）一次產出全部檢查點；從檢查點載入到可做實驗是秒級。",
+   "verify": [
+    "workplace/ 有檢查點狀態檔與解幀畫面"
+   ],
+   "issue": 5,
+   "evidence": "docs/re/005-dosboxx-parity.md §檢查點（banner/title 狀態檔＋恢復驗證通過；主選單檢查點待按鍵腳本，列 M1）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m0-dosboxx-ref",
+   "milestone": "M0",
+   "labels": [
+    "verify"
+   ],
+   "title": "DOSBox-X 參照與對拍",
+   "body": "同組檢查點在 DOSBox-X 的畫面擷取與 dosgolem 逐像素比對，結果進 docs/re/。顏色差異屬 M1，這裡先比版面。",
+   "acceptance": "docs/re/ 有對拍結果（不一致像素數與位置）。",
+   "verify": [
+    "docs/re/ 有 DOSBox-X 對拍文件"
+   ],
+   "issue": 6,
+   "evidence": "docs/re/005-dosboxx-parity.md §對拍（穩定標題遮罩差異 0；顏色屬 M1）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m1-writable-cwd",
+   "milestone": "M1",
+   "labels": [
+    "golem-upstream"
+   ],
+   "issue": 8,
+   "title": "可寫執行環境：排除自行退出",
+   "body": "唯讀掛載換可寫複本，驗證遊戲標題後自行退出是否寫檔失敗所致（INSERT SAVEGAME DISK 假說）。",
+   "acceptance": "可寫環境不再退出，或退出原因實錄歸因。",
+   "verify": [
+    "docs/re/006 有退出歸因段落"
+   ],
+   "evidence": "docs/re/003 勘誤段（-trace 對照：500M 步仍活著；退出=shots off-by-one 誤讀；可寫零寫檔、畫面雜湊同唯讀）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m1-color-parity",
+   "milestone": "M1",
+   "labels": [
+    "verify"
+   ],
+   "issue": 10,
+   "title": "顏色對拍",
+   "body": "golem 穩定標題 vram+pal 合成 RGB vs DOSBox-X title-09+ 逐像素（容差 0）。",
+   "acceptance": "RGB 差異 0；不為 0 列 DAC entry 差異。",
+   "verify": [
+    "docs/re/006 有顏色對拍數字"
+   ],
+   "evidence": "docs/re/006 §顏色對拍（穩定標題 RGB 嚴格差異 0）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m1-loader-re",
+   "milestone": "M1",
+   "labels": [
+    "re",
+    "golem-upstream"
+   ],
+   "issue": 13,
+   "title": "Overlay loader 動態逆轉與故事畫面等待條件",
+   "body": "0x740C 模組與磁碟 .OVR 對不上＝loader 有轉換；故事畫面熱點命中仍無反應。用 oracle 攔載入路徑反推。",
+   "acceptance": "docs/re/007 定案轉換與 .tail 語意；故事畫面可前進。",
+   "verify": [
+    "docs/re/007 不存在或畫面仍卡"
+   ],
+   "evidence": "docs/re/007＋008：0x740C＝驅動段；等待條件＝事件閂鎖；根因＝dosgolem 缺 INT 33h AX=14h（分支 wizardry7/int33-ax14 修復，spec 194＋contract test＋巫術7端到端：真實點擊推進 43,530→55,600）",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m1-golem-upstream",
+   "milestone": "M1",
+   "labels": [
+    "golem-upstream"
+   ],
+   "issue": 14,
+   "title": "dosgolem 上游化：AX=14h 分支合併推送",
+   "body": "分支 wizardry7/int33-ax14（spec 194＋case 0x0014＋contract test）合入 dosgolem master、push、CI 綠；wizardry7 回 master。",
+   "acceptance": "master 含 spec 194；CI 綠；本地分支清除。",
+   "verify": [
+    "dosgolem master 缺 spec 194 或 CI 紅"
+   ],
+   "evidence": "dosgolem master 3c21907（cherry-pick 重放到現行線；上游歷史曾被重寫，merge 路線已排除）；internal/dos 測試綠",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m1-menu-checkpoints",
+   "milestone": "M1",
+   "labels": [
+    "verify"
+   ],
+   "issue": 9,
+   "title": "選單檢查點",
+   "body": "穩定標題、主選單、第一個可操作畫面三個狀態檔＋恢復驗證；按鍵腳本要調（space 太密會提早退出）。",
+   "acceptance": "states.sh 一次產出三個檢查點；--check 通過。",
+   "verify": [
+    "三個狀態檔存在"
+   ],
+   "evidence": "docs/re/009：menu.state(940M) 可點擊推進五列；--check 恢復＋點擊→PCVW 綠；DOSBox-X 正對照遮罩差異 0",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "m1-determinism",
+   "milestone": "M1",
+   "labels": [
+    "verify"
+   ],
+   "issue": 11,
+   "title": "決定性",
+   "body": "同輸入兩次：狀態檔／畫面／記憶體 dump 雜湊全同。",
+   "acceptance": "三種產物 SHA-256 相同。",
+   "verify": [
+    "有成對比較紀錄"
+   ],
+   "evidence": "docs/re/009 §決定性：pairA.state==pairB.state、drv dump 同、跨 run 幀雜湊同；dosgolem de5e2d2 修快照 map 編碼",
+   "done": "2026-09-20"
+  },
+  {
+   "id": "readme",
+   "milestone": "M6",
+   "labels": [
+    "doc",
+    "release"
+   ],
+   "title": "README.md：遊戲介紹與中文化目的",
+   "body": "內容：遊戲介紹（Wizardry VII: Crusaders of the Dark Savant，Sir-Tech 1992，DOS 版）；中文化目的＝縮短語言隔閡與鴻溝；做法（dosgolem 轉譯層，原版邏輯不動）；原版自備＋檔案雜湊；授權 RRSAL-1.0。寫法依 rulebook/80，初稿可在 M0 事實齊後先寫。",
+   "acceptance": "README 進版控；介紹與目的段落符合 rulebook/80/91 的白話與去 slop 標準。",
+   "verify": [
+    "README.md 存在且含上述五個段落"
+   ],
+   "issue": 7,
+   "evidence": "README.md（subagent 撰寫）＋LICENSE（RRSAL-1.0）＋docs/images/ 三張實跑截圖",
+   "done": "2026-09-21"
+  },
+  {
+   "id": "m2-frontend-skeleton",
+   "milestone": "M2",
+   "labels": [
+    "frontend",
+    "golem-upstream"
+   ],
+   "issue": 15,
+   "title": "M2 前端骨架：cmd/wiz7",
+   "body": "視窗（13h 放大）、節拍（步數↔牆上時間）、鍵盤映射、音訊殼。標題→主選單可玩。",
+   "acceptance": "前端從開機玩到主選單；節拍可調；畫面與 probe 快照同源。",
+   "verify": [
+    "前端無法走到主選單或節拍無法調"
+   ],
+   "evidence": "cmd/wiz7（goroutine 大塊 Run＋節流＋鍵盤滑鼠）；Xvfb 煙霧測試：開機→主選單、xdotool 點擊推進 PCVW（docs/images/wiz7-pcvw.png）",
+   "done": "2026-09-21"
+  },
+  {
+   "id": "m1-opl2-parity",
+   "milestone": "M1",
+   "labels": [
+    "verify",
+    "audio"
+   ],
+   "issue": 12,
+   "title": "OPL2 事件層對拍",
+   "body": "golem 埠寫入紀錄 vs DOSBox-X .dro（DX-CAPTURE /O）逐筆比對。沿用 psychic-war tools/dosboxx-opl.sh＋opl_events.py。",
+   "acceptance": "docs/re/007 有逐筆比對結果。",
+   "verify": [
+    "docs/re/007 存在"
+   ],
+   "evidence": "docs/re/009 追記：OPL 事件層共同窗口 4,037 筆逐筆全同；golem 4,581 / DOSBox-X 6,070 筆",
+   "done": "2026-09-21"
+  },
+  {
+   "id": "m4-first-cjk",
+   "milestone": "M4",
+   "labels": [
+    "text",
+    "re"
+   ],
+   "issue": 21,
+   "title": "M4：中文字形烘製與印字攔截管線",
+   "body": "原定方案 A（資料替換）證偽後轉方案 B：OnCall 攔印字串、Eten 15x15 寫離屏、poke ret 跳過原印。主選單六項全數中文上屏。",
+   "acceptance": "主選單至少一項以中文字形顯示（原版時序、非 VRAM poke）。",
+   "verify": [
+    "workplace/bake/xlate1.png 六項全中",
+    "寫後即讀驗證一致"
+   ],
+   "evidence": "docs/re/013 追記四＋cmd/xlate1＋f011589",
+   "done": "2026-09-22"
+  },
+  {
+   "id": "m3-msgdbs",
+   "milestone": "M3",
+   "labels": [
+    "re",
+    "text"
+   ],
+   "issue": 19,
+   "title": "MSG.DBS 格式解码与全文抽取",
+   "body": "两层压缩架构破解：块→树走访#1→FE57 缓冲→树走访#2→明文。解压算法、HDR 项结构（6B）、块链、树结构（森林）全定案。抽取管线完成（1962 项、42 项游戏本文）。树覆盖随游玩渐进。",
+   "acceptance": "解压算法 python 实证（Written/CHARACTER MENU 完整正确）、批量抽取管线完成。",
+   "verify": [
+    "python 模拟器 40 字元实证",
+    "1962 项批量抽取",
+    "42 项游戏本文入袋"
+   ],
+   "evidence": "docs/re/013 追记十五至二十七＋cmd/msgx/msgtree/msgall＋msgdump-extracted.json",
+   "done": "2026-09-25"
+  }
+ ],
+ "dropped": []
 }
