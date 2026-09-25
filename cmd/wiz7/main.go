@@ -13,8 +13,10 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"fmt"
 	"image"
 	"image/color"
+	"image/png"
 	"log"
 	"os"
 	"sync"
@@ -74,6 +76,39 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 
 // 前端 ↔ 機器 goroutine 的共享狀態（mu 保護）。
 // entry 是譯文表的一筆（xlate.json）：dy＝行距微調、g＝每字 15×15 位圖。
+// hdFrame 合成高解析幀：A0000 2x 放大＋文字事件（15×15 原字形）。
+func hdFrame(o *oracle.Oracle, evs []glyphEv, path string) {
+	pal := o.Palette()
+	idx := o.Indexed()
+	img := image.NewRGBA(image.Rect(0, 0, 640, 400))
+	for py := 0; py < 400; py++ {
+		for px := 0; px < 640; px++ {
+			c := pal[idx[(py/2)*320+(px/2)]]
+			img.Set(px, py, color.RGBA{c[0], c[1], c[2], 255})
+		}
+	}
+	for _, e := range evs {
+		fr := color.RGBA{e.fgR, e.fgG, e.fgB, 255}
+		cx := e.x * 2
+		for _, glyph := range e.g {
+			for row, w := range glyph {
+				for bit := 0; bit < len(glyph); bit++ {
+					if (w>>(len(glyph)-1-bit))&1 != 0 {
+						img.Set(cx+bit, e.y*2+row, fr)
+					}
+				}
+			}
+			cx += len(glyph) + 2
+		}
+	}
+	f, err := os.Create(path)
+	if err != nil {
+		return
+	}
+	defer f.Close()
+	png.Encode(f, img)
+}
+
 type entry struct {
 	Dy int        `json:"dy"`
 	G  [][]uint16 `json:"g"`
@@ -95,6 +130,7 @@ type shared struct {
 	mouseY  int
 	buttons [2]bool   // 左、右
 	evs     []glyphEv // 翻譯文字事件（機器 goroutine 生產、Draw 消費）
+	stdin   []byte    // 待注入的 Stdin 字元（AH=3Fh 路徑）
 }
 
 type game struct {
@@ -114,6 +150,19 @@ func (g *game) Update() error {
 			g.sh.keys = append(g.sh.keys, sc, sc|0x80)
 			g.sh.mu.Unlock()
 		}
+	}
+	// 可列印字元 → Stdin（AH=3Fh 路徑：旁白推進/防拷/名字）
+	for _, r := range ebiten.AppendInputChars(nil) {
+		if r >= 32 && r < 127 {
+			g.sh.mu.Lock()
+			g.sh.stdin = append(g.sh.stdin, byte(r))
+			g.sh.mu.Unlock()
+		}
+	}
+	if inpututil.IsKeyJustPressed(ebiten.KeyEnter) {
+		g.sh.mu.Lock()
+		g.sh.stdin = append(g.sh.stdin, '\r')
+		g.sh.mu.Unlock()
 	}
 	mx, my := ebiten.CursorPosition()
 	sx, sy := mx/g.scale, my/g.scale
@@ -199,6 +248,7 @@ func main() {
 	scale := flag.Int("scale", 3, "畫面放大倍率")
 	ips := flag.Float64("ips", 24_000_000, "每秒指令數（節流基準）")
 	xlatePath := flag.String("xlate", "workplace/bake/xlate.json", "譯文表（空字串＝純英文模式）")
+	hdShotF := flag.Bool("hdshot", false, "每 30 秒輸出 HD 合成幀（PNG）")
 	flag.Parse()
 
 	program := *exe
@@ -229,6 +279,11 @@ func main() {
 		log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
 	}
 	var evMu sync.Mutex
+	treeSeen := map[uint16]bool{}
+	lastHD := time.Now()
+	hdShot := *hdShotF
+	_ = hdShot
+	os.MkdirAll("workplace/bake/trees", 0o755)
 	palNow := func() [256][3]uint8 { return o.Palette() }
 	_ = palNow
 	// 印字串入口（runtime 0110:3895）的 hook：unpoke → 查譯文 →
@@ -266,6 +321,20 @@ func main() {
 			g: ent.G,
 		})
 		evMu.Unlock()
+		// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
+		ts := o.Word(oracle.Addr{Seg: 0x0110, Off: 0x2D4E})
+		if ts != 0 {
+			lastTree, have := treeSeen[ts]
+			_ = lastTree
+			if !have {
+				treeSeen[ts] = true
+				data := o.Bytes(oracle.Addr{Seg: ts, Off: 0}, 8192)
+				fn := fmt.Sprintf("workplace/bake/trees/tree-%04x.bin", ts)
+				if err := os.WriteFile(fn, data, 0o644); err == nil {
+					log.Printf("樹段 %04x → %s", ts, fn)
+				}
+			}
+		}
 		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
 		o.WriteU8(entry, 0xC3)
 		poked = true
@@ -287,6 +356,10 @@ func main() {
 				o.PressKey(oracle.Key(sc))
 			}
 			sh.keys = nil
+			if len(sh.stdin) > 0 {
+				o.Type(string(sh.stdin))
+				sh.stdin = nil
+			}
 			bx, by := sh.mouseX, sh.mouseY
 			l, r := sh.buttons[0], sh.buttons[1]
 			if bx != lastX || by != lastY {
@@ -313,6 +386,13 @@ func main() {
 				sh.mu.Unlock()
 				log.Printf("機器停止於 steps=%d：%v", o.Steps(), err)
 				return
+			}
+			// HD 幀輸出（每 30 秒）：A0000 2x 放大＋文字事件疊畫
+			if hdShot && time.Since(lastHD) > 30*time.Second {
+				lastHD = time.Now()
+				evMu.Lock()
+				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/hd-%d.png", time.Now().Unix()))
+				evMu.Unlock()
 			}
 			if i%60 == 0 {
 				nz := 0
