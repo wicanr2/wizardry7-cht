@@ -581,3 +581,16 @@ sub_10582（訊息ID, 字型）＝**MSG.DBS 訊息系統的主入口**，完整�
 - **架構確認**：MSG.DBS 塊 →（第一層轉換，未解）→ FE57 流 →（樹走訪，已解）
   → 明文。**兩層的樹走訪主體相同**（演算法已驗證）。
 - 剩餘＝第一層轉換的 RE（sub_10582/sub_10683 的塊→FE57 轉換碼）。
+
+### 追記二十七（9/25）：全文抽取管線完成——遊戲本文入袋
+
+- **批量抽取**：HDR 1962 項 → 每項（塊號×0x400＋偏移）樹走訪解壓——
+  **42 項可讀抽取**（msgdump-extracted.json），含遊戲本文：
+  - "LEAVE THIS-PLACE... HE SHALL REWARD-YOU WELL WHEN-OUR VICTORY-IS COMPLETE!"
+  - "Look at these sad gimpers! You couldn't..."
+  - "grisly skeleton crew... Spying the great chest at the rear..."
+  - "drawing smoke through a long supple tube, itself connected to a bulbous vase..."
+- **樹覆蓋限制**：tree.bin（迷宮期樹）只匹配部分塊——全部塊的樹＝
+  動態捕捉（隨遊玩，msgtree 模式已備）。
+- **#19 的格式解碼 100% 完成**：解壓演算法＋HDR 項結構＋塊鏈＋樹結構。
+  抽取管線可運作（隨樹覆蓋漸進擴充）。
