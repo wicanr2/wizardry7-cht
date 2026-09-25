@@ -310,7 +310,8 @@ func main() {
 		}
 		ent, ok := trans[s]
 		if !ok {
-			return // 無譯文：放行原文（不靜默略過——sh.evs 不記，靠原印）
+			log.Printf("無譯文 %d %q", o.Steps(), s)
+			return // 無譯文：放行原文
 		}
 		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + ent.Dy
@@ -323,7 +324,17 @@ func main() {
 			g: ent.G,
 		})
 		evMu.Unlock()
-		// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
+		// 大 blit（全屏重繪）＝清文字事件（殘影清除）
+	o.OnCall(oracle.Addr{Seg: 0x740C, Off: 0x4F5D}, func(o *oracle.Oracle) {
+		if int(o.Regs().CX) > 0x4000 {
+			evMu.Lock()
+			if len(sh.evs) > 0 {
+				sh.evs = nil
+			}
+			evMu.Unlock()
+		}
+	})
+	// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
 		ts := o.Word(oracle.Addr{Seg: 0x0110, Off: 0x2D4E})
 		if ts != 0 {
 			lastTree, have := treeSeen[ts]
@@ -360,7 +371,7 @@ func main() {
 		add(18, cl(170, 153))
 		add(19.5, cl(90, 168))
 		add(21, cl(90, 168))
-		add(24, cl(160, 114)) // START NEW GAME
+		add(24, cl(160, 101)) // START NEW GAME
 		add(26, func(o *oracle.Oracle) { o.Type("AAAA\r") }) // 防拷
 		for i := 0; i < 24; i++ {                            // 旁白推進
 			t := 27.5 + float64(i)*1.2
