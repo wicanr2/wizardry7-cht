@@ -501,3 +501,19 @@ bits、byte 用盡才輸出 bl。
   內容）——兩層的差異＝走訪的起始節點/邊界語意。
 - msgall 已加雙層解壓骨架；殘餘＝走訪#1 與#2 的邊界語意（FE57 的
   起始/長度、走訪的節點歸零時機）——需 FE57 區 dump 與樹對照。
+
+### 追記二十二補（9/25）：解壓演算法完全驗證
+
+- FE57 壓縮流（msgdump 捕獲 60 bytes）＋tree.bin 樹走訪＝
+  **"Written & Programmed by" 完整正確解出**（含前綴控制碼與 NUL 邊界）。
+- python 模擬器（逐 bit＋16-bit neg wrap＋byte 載入時序）＝**演算法定案**：
+  ```
+  al = 流[0]；cx = 8；bx = 0；i = 流起點+1
+  迴圈：
+    bit = al>>7；al = (al<<1)&0xFF；cx--
+    v = 樹[bx + (bit?2:0)]
+    內部（bit15=1）：bx = (-v & 0xFFFF)*4
+    葉（bit15=0）：輸出 v low byte、bx = 0
+    cx==0：cx=8、al = 流[i]、i++
+  ```
+- 塊 0x800/0x2400 的部分錯位＝「塊起點與長度 byte 的語意」（HDR 解析解）。
