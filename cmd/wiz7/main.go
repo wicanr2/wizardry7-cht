@@ -19,6 +19,7 @@ import (
 	"image/png"
 	"log"
 	"os"
+	"strings"
 	"sync"
 	"time"
 
@@ -275,6 +276,7 @@ func main() {
 	}
 	trans := map[string]entry{}
 	digits := map[string][]uint16{}
+	ordinals := map[string][]uint16{}
 	if b, err := os.ReadFile(*xlatePath); err == nil {
 		var raw map[string]json.RawMessage
 		if err := json.Unmarshal(b, &raw); err != nil {
@@ -287,13 +289,19 @@ func main() {
 				}
 				continue
 			}
+			if k == "__ordinals__" {
+				if err := json.Unmarshal(v, &ordinals); err != nil {
+					log.Fatal("xlate.json ordinals：", err)
+				}
+				continue
+			}
 			var e entry
 			if err := json.Unmarshal(v, &e); err != nil {
 				log.Fatal("xlate.json entry：", err)
 			}
 			trans[k] = e
 		}
-		log.Printf("xlate：載入 %d 串、數字字形 %d", len(trans), len(digits))
+		log.Printf("xlate：載入 %d 串、數字 %d、序數 %d", len(trans), len(digits), len(ordinals))
 	} else {
 		log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
 	}
@@ -326,7 +334,7 @@ func main() {
 			}
 		}
 		// 查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
-		// 剝 <0x20 控制碼、連續數字 → '$'（數字另存，填進譯文的槽）。
+		// 剝 <0x20 控制碼、連續數字/序數詞 FIRST..TENTH → '$'（token 另存）。
 		key, nums := func(s string) (string, []string) {
 			var b []byte
 			var nums []string
@@ -345,6 +353,19 @@ func main() {
 					i = j - 1
 					continue
 				}
+				if c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' {
+					j := i
+					for j < len(s) && (s[j] >= 'A' && s[j] <= 'Z' || s[j] >= 'a' && s[j] <= 'z') {
+						j++
+					}
+					word := strings.ToUpper(s[i:j])
+					if _, ok := ordinals[word]; ok {
+						b = append(b, '$')
+						nums = append(nums, word)
+						i = j - 1
+						continue
+					}
+				}
 				b = append(b, c)
 			}
 			return string(b), nums
@@ -354,7 +375,7 @@ func main() {
 			log.Printf("無譯文 %d %q", o.Steps(), s)
 			return // 無譯文：放行原文
 		}
-		// '$' 槽展開成數字位圖序列（自製 5×7 放大字形，逐位並排）
+		// '$' 槽展開：數字→數字位圖、序數詞→中文字形（__ordinals__）
 		if len(ent.D) > 0 {
 			slotSet := map[int]bool{}
 			for _, s2 := range ent.D {
@@ -364,12 +385,17 @@ func main() {
 			ni := 0
 			for i, gl := range ent.G {
 				if slotSet[i] && ni < len(nums) {
-					for _, dc := range nums[ni] {
+					tok := nums[ni]
+					ni++
+					if dg, ok := ordinals[tok]; ok {
+						newG = append(newG, dg)
+						continue
+					}
+					for _, dc := range tok {
 						if dg, ok := digits[string(dc)]; ok {
 							newG = append(newG, dg)
 						}
 					}
-					ni++
 					continue
 				}
 				newG = append(newG, gl)
@@ -390,6 +416,9 @@ func main() {
 		// 大 blit（全屏重繪）＝清文字事件（殘影清除）
 	o.OnCall(oracle.Addr{Seg: 0x740C, Off: 0x4F5D}, func(o *oracle.Oracle) {
 		// rep movsb 的 cx＝行長度；全屏寬（320）＝大重繪 → 清文字事件
+		// ⚠ 實測（9/26）：此位址 OnCall 從未觸發（ovr740c.bin 檔映像該處為零
+		// ——runtime 映像與檔映像不同段）——殘影清除實際靠事件區域取代，
+		// 序數詞命中修正後再驗（013 追記三十二）。
 		if int(o.Regs().CX) >= 320 {
 			evMu.Lock()
 			if len(sh.evs) > 0 {

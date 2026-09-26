@@ -678,4 +678,17 @@ init 在無 display 時必炸——hdFrame 輸出驗證不受影響）。
 - **結構發現**：怪物名不在 MSG.DBS（在 .VGA 怪物資料庫，另案）；
   MSG.DBS 7000-7197 是玩家輸入的對話關鍵字詞庫（NLP 表）。
 
+### 追記三十二（9/26）：序數詞槽命中＋殘影根因確認
+
+- **1052 的 `$` runtime 填序數詞**（FIRST..TENTH，id 1060-1069 的字）——
+  normalize 舊版只認數字→`MANUAL AND ENTER THE SECOND WORD` 查不到表→
+  英文照印＋殘影。**修正**：normalize 序數詞→`$` 槽、`__ordinals__`
+  （一～十中文字形）由前端按 token 型別選表。**實證**：『找出該頁第三個字
+  輸入』上屏（hd-1790441458.png，THIRD→三）。
+- **殘影根因**：0x740C:0x4F5D 的 OnCall **從未觸發**（ovr740c.bin 檔映像
+  該處全零——runtime 映像≠檔映像，該位址非 code）——「大 blit 清事件」
+  實際沒生效。殘影＝畫面切換後舊事件殘留＋行距 12px vs 字高 15px。
+  **下輪**：從 driver（740C runtime 段）找 flip/clear 訊號做全屏清。
+
+
 

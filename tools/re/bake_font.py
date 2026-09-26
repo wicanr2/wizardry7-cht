@@ -110,6 +110,8 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
 
     # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）；key＝normalize(en)
     # zh 的 '$'＝數字槽：位圖全 0、槽索引記在 "d"；前端依 runtime 數字從 digits 填。
+    # 序數詞（FIRST..TENTH，防拷第二行）normalize 成 '$'、runtime 填的序數由
+    # __ordinals__（中文字形）呈現。
     xlate = {}
     for src, dst, dy in pairs:
         entry = []
@@ -128,6 +130,10 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
         if slots:
             xlate[normalize(src)]["d"] = slots
     xlate["__digits__"] = {c: digit_glyph(c) for c in DIGIT5x7}
+    xlate["__ordinals__"] = {
+        w: [int(v) for v in glyph_scaled(zh.encode("big5"))]
+        for w, zh in ORDINALS.items()
+    }
     (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))
     print(f"xlate.json：{len(xlate)} 串")
     print(f"字形 {len(chars)} 個；顏色平面 {len(col)}/3584 bytes")
@@ -138,7 +144,9 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
 def normalize(s: str) -> str:
     """查表 key 正規化（與 wiz7 前端同一套）：
     1. 剝掉 <0x20 的控制碼（印字屬性：顏色/停頓，不影響對位）
-    2. 連續數字 → '$'（防拷頁數/序號等 runtime 填入的動態數字）
+    2. 連續數字 → '$'（防拷頁數等 runtime 填入的動態數字）
+    3. 序數詞 FIRST..TENTH → '$'（id 1052 的 $ runtime 填序數詞；
+       槽內容由前端依 token 型別填數字位圖或序數中文字形）
     """
     out = []
     i = 0
@@ -154,6 +162,15 @@ def normalize(s: str) -> str:
             out.append("$")
             i = j
             continue
+        if c.isalpha():
+            j = i
+            while j < len(s) and s[j].isalpha():
+                j += 1
+            word = s[i:j].upper()
+            if word in ORDINALS:
+                out.append("$")
+                i = j
+                continue
         out.append(c)
         i += 1
     return "".join(out)
@@ -172,6 +189,13 @@ DIGIT5x7 = {
     "7": ["11111", "00001", "00010", "00100", "01000", "01000", "01000"],
     "8": ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
     "9": ["01110", "10001", "10001", "01111", "00001", "00010", "01100"],
+}
+
+# 防拷序數詞（id 1052 的 $ runtime 填序數詞，id 1060-1069）→ 中文數字
+ORDINALS = {
+    "FIRST": "一", "SECOND": "二", "THIRD": "三", "FOURTH": "四",
+    "FIFTH": "五", "SIXTH": "六", "SEVENTH": "七", "EIGHTH": "八",
+    "NINTH": "九", "TENTH": "十",
 }
 
 
