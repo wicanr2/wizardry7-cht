@@ -378,14 +378,23 @@ func main() {
 			t := 27.5 + float64(i)*1.2
 			add(t, cl(25, 15))
 		}
-		// 迷宮移動（方向盤十字：前進→右轉→前進×2→右轉→前進）
+		// 迷宮方向盤十字 sweep（移動實證）
 		dirT := []struct {
 			t float64
 			x, y int
-		}{{66, 142, 165}, {69, 142, 191}, {72, 113, 178}, {75, 142, 165},
-			{78, 142, 165}, {81, 188, 178}, {84, 142, 165}, {87, 142, 165}}
+		}{{30, 142, 165}, {34, 160, 155}, {38, 160, 178}, {42, 160, 196},
+			{46, 113, 178}, {50, 188, 178}, {54, 142, 165}, {58, 142, 165}}
 		for _, d := range dirT {
 			add(d.t, cl(d.x, d.y))
+		}
+		// 每點後 2 秒截圖（移動實證）
+		for _, d := range dirT {
+			shotT := d.t + 2
+			add(shotT, func(o *oracle.Oracle) {
+				evMu.Lock()
+				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/mv-%.0f-%d-%d.png", d.t, d.x, d.y))
+				evMu.Unlock()
+			})
 		}
 	}
 
