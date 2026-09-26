@@ -1,22 +1,300 @@
-[
- {
-  "blk": 100,
-  "en": ", drawing smoke through a  te,long supple tube, itself connected to a bulbous vase upon     atJhich rests a bowl of burning embers, a sedate munk succulently  t    dynhales his voyage into far distant",
-  "zh": "……長長的柔軟管子冒著煙，管子另一頭連著一個球莖狀的花瓶，上面放著一碗燃燒的炭火，一個沉穩的……"
- },
- {
-  "blk": 120,
-  "en": ")N LEAVE THIS-PLACE... &%%]    L HnE-SHALL REWARD-YOU WELL WHEN-OUR VICTORY-IS COMPLETE! &%%]         at d%O-AND DO-THIS FOR-THE T'RANG EMPIRE... &%%]       c f%O-AND DO-NOT RETURN! &%%]      n e rd d",
-  "zh": "）快離開這地方……當我們的勝利完成時，他會好好獎賞你！"
- },
- {
-  "blk": 140,
-  "en": ", d nyon...       o   l %   echht! %]     a   !  ook at these sad gimpers! %]       edt You couldn't steal from a dink if he was blind! %]          G aRome back when you've had more practice...       ",
-  "zh": "，……嘿嘿！看看這些可憐蟲！你們根本偷不到……"
- },
- {
-  "blk": 200,
-  "en": "aated venture, a grisly skeleton crew...         a  e   @Spying the great chest at the rear of the cavern, you wonder if        a   \u0003his could have been a band of pirates, burying their treasure,     ",
-  "zh": "……的冒險，一批陰森的骷髏船員……窺視著洞穴後方的大寶箱，你……"
+{
+ "schema": "wiz7-trans/1",
+ "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
+ "count": 73,
+ "items": {
+  "1000": {
+   "en": "CHARACTER MENU",
+   "zh": "角色選單"
+  },
+  "1001": {
+   "en": "ADD CHARACTER",
+   "zh": "新增角色"
+  },
+  "1002": {
+   "en": "REVIEW MEMBER",
+   "zh": "檢視成員"
+  },
+  "1003": {
+   "en": "DISMISS MEMBER",
+   "zh": "開除成員"
+  },
+  "1004": {
+   "en": "START NEW GAME",
+   "zh": "開始新遊戲"
+  },
+  "1005": {
+   "en": "LOAD SAVEGAME",
+   "zh": "載入紀錄"
+  },
+  "1006": {
+   "en": "CONFIGURATION",
+   "zh": "系統設定"
+  },
+  "1007": {
+   "en": "IMPORT (BANE)",
+   "zh": "匯入隊伍"
+  },
+  "1008": {
+   "en": "QUIT GAME",
+   "zh": "結束遊戲"
+  },
+  "1050": {
+   "en": "SECURITY CLEARANCE",
+   "zh": "安全檢查"
+  },
+  "1051": {
+   "en": "PLEASE TURN TO PAGE $ OF YOUR",
+   "zh": "請翻開手冊第 $ 頁"
+  },
+  "1052": {
+   "en": "MANUAL AND ENTER THE $ WORD",
+   "zh": "找出該頁第 $ 個字輸入",
+   "dy": 13
+  },
+  "1152": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1401": {
+   "en": "LOAD",
+   "zh": "載入"
+  },
+  "1411": {
+   "en": "SAVE",
+   "zh": "存檔"
+  },
+  "1450": {
+   "en": "DIRECTORY",
+   "zh": "目錄"
+  },
+  "1451": {
+   "en": "FILENAME",
+   "zh": "檔名"
+  },
+  "2303": {
+   "en": "INPUT DEVICE",
+   "zh": "輸入裝置"
+  },
+  "2304": {
+   "en": "DELAY",
+   "zh": "延遲"
+  },
+  "2305": {
+   "en": "PATH",
+   "zh": "路徑"
+  },
+  "2306": {
+   "en": "FILE",
+   "zh": "檔案"
+  },
+  "2307": {
+   "en": "EFFECTS",
+   "zh": "音效"
+  },
+  "2311": {
+   "en": "MUSIC",
+   "zh": "音樂"
+  },
+  "2313": {
+   "en": "PLAY LEVEL",
+   "zh": "遊戲等級"
+  },
+  "2314": {
+   "en": "FADE",
+   "zh": "淡入"
+  },
+  "2315": {
+   "en": "MEMORY",
+   "zh": "記憶體"
+  },
+  "2317": {
+   "en": "GRAPHICS",
+   "zh": "圖形"
+  },
+  "2318": {
+   "en": "BRIGHT",
+   "zh": "亮度"
+  },
+  "2319": {
+   "en": "CONTRAST",
+   "zh": "對比"
+  },
+  "2900": {
+   "en": "\u0002\u0001Written & Programmed by",
+   "zh": "編寫與程式設計"
+  },
+  "2903": {
+   "en": "\u0001Technical Programming",
+   "zh": "技術程式設計"
+  },
+  "2905": {
+   "en": "\u0005\u0001Graphics Maestro",
+   "zh": "美術總監"
+  },
+  "2907": {
+   "en": "\u0001Graphic Artists",
+   "zh": "美術設計"
+  },
+  "2910": {
+   "en": "\u0002\u0001Music Score & Sound Effects",
+   "zh": "音樂與音效"
+  },
+  "2912": {
+   "en": "\u0002\u0001Manual & Documentation",
+   "zh": "手冊與文件"
+  },
+  "2919": {
+   "en": "\u0002\u0001Sound Programming",
+   "zh": "音效程式設計"
+  },
+  "17860": {
+   "en": "You turn back to face the pitiful wretch in the corner... &%]",
+   "zh": "你轉身面對角落裡那可憐的可悲蟲……&%]"
+  },
+  "17861": {
+   "en": "But nothing there remains... &%]",
+   "zh": "但那裡已空無一物……&%]"
+  },
+  "17862": {
+   "en": "You glance back into the shadows, and then back into the",
+   "zh": "你回頭望向陰影深處，再轉回"
+  },
+  "17863": {
+   "en": "corner, and sense that there was",
+   "zh": "角落，隱約察覺"
+  },
+  "17864": {
+   "en": "something familiar about the two... &%]",
+   "zh": "那兩者之間似曾相識……&%]"
+  },
+  "17865": {
+   "en": "From deep in the darkness you hear the laughter",
+   "zh": "黑暗深處傳來一陣笑聲，"
+  },
+  "17866": {
+   "en": "of a distant munk... &%]",
+   "zh": "來自遠方的修士……&%]"
+  },
+  "17870": {
+   "en": "Sitting upright upon a cushion, drawing smoke through a",
+   "zh": "他端坐軟墊之上，以一支"
+  },
+  "17871": {
+   "en": "long supple tube, itself connected to a bulbous vase upon",
+   "zh": "細長柔軟的管子吸著煙，管子另一頭連著一只"
+  },
+  "17872": {
+   "en": "which rests a bowl of burning embers, a sedate munk succulently",
+   "zh": "球莖狀的水煙瓶，瓶上擺著一碗燒紅的炭火；這位沉靜的修士正愜意地"
+  },
+  "17873": {
+   "en": "inhales his voyage into far distant reveries... &%]",
+   "zh": "吞雲吐霧，神遊於遙遠的幻境……&%]"
+  },
+  "17874": {
+   "en": "As you step near, he breaks the silence: &%]",
+   "zh": "當你走近時，他打破了沉默：&%]"
+  },
+  "17875": {
+   "en": "Life is a mystery... &%]",
+   "zh": "生命是一團謎……&%]"
+  },
+  "17876": {
+   "en": "A puzzle... &%]A riddle, a rebus, an enigma... &%]",
+   "zh": "一道難題……&%]一則謎語、一幅字謎、一個謎團……&%]"
+  },
+  "17877": {
+   "en": "As you live, you discover some of its pieces... &%]",
+   "zh": "活著的過程中，你會尋得其中幾片……&%]"
+  },
+  "17878": {
+   "en": "Some you know, as if you had always known... &%]",
+   "zh": "有些你懂，彷彿與生俱來便懂……&%]"
+  },
+  "17879": {
+   "en": "Others you do not recognize, and discard... &%]",
+   "zh": "有些你辨不出，便棄之不顧……&%]"
+  },
+  "19390": {
+   "en": "HSSSS-GOOD-GOOD! &%%]",
+   "zh": "嘶嘶——很好－很好！&%%]"
+  },
+  "19391": {
+   "en": "NOW-PROVE YOURSELF-TO H'JENN-RA T'RANG! &%%]",
+   "zh": "現在－向特蘭格的 H'JENN-RA 證明你自己！&%%]"
+  },
+  "19392": {
+   "en": "THERE-ARE THOSE-WHO SERVE-THE DARK-MENACE... &%%]",
+   "zh": "有人侍奉著黑暗的威脅……&%%]"
+  },
+  "19393": {
+   "en": "THEY-ARE HERE-TO WATCH-US... &%%]",
+   "zh": "他們在此監視著我們……&%%]"
+  },
+  "19394": {
+   "en": "BUT-WE NO-LONGER MUST-TOLERATE THEIR-PRESENCE HERE... &%%]",
+   "zh": "但我們再也無法容忍他們在此出沒……&%%]"
+  },
+  "19396": {
+   "en": "ELIMINATE-THOSE HERE-WHO FOLLOW THE-SAVANT... &%%]",
+   "zh": "剷除此地那些追隨賢者之人……&%%]"
+  },
+  "19397": {
+   "en": "AND-THEN LEAVE THIS-PLACE... &%%]",
+   "zh": "然後離開這地方……&%%]"
+  },
+  "19398": {
+   "en": "WE-SHALL REWARD-YOU WELL WHEN-OUR VICTORY-IS COMPLETE! &%%]",
+   "zh": "當我們的勝利完成時，我們會好好獎賞你！&%%]"
+  },
+  "19399": {
+   "en": "GO-AND DO-THIS FOR-THE T'RANG EMPIRE... &%%]",
+   "zh": "去吧，為了特蘭格帝國完成此事……&%%]"
+  },
+  "20600": {
+   "en": "Gritting your teeth, you insert your hands through the bars of the",
+   "zh": "你咬緊牙關，把雙手從窗柵之間伸進"
+  },
+  "20601": {
+   "en": "window...",
+   "zh": "窗內……"
+  },
+  "20602": {
+   "en": "@Small furry paws quickly race over your hands, as if probing them",
+   "zh": "@毛茸茸的小掌迅速爬過你的雙手，像在探查它們"
+  },
+  "20605": {
+   "en": "Neechht! %]",
+   "zh": "尼嘻！%]"
+  },
+  "20606": {
+   "en": "Look at these sad gimpers! %]",
+   "zh": "看看這些可憐蟲！%]"
+  },
+  "20607": {
+   "en": "You couldn't steal from a dink if he was blind! %]",
+   "zh": "就算那傢伙瞎了眼，你們也偷不到半毛錢！%]"
+  },
+  "20610": {
+   "en": "Ah! You wear the mark of the Guild upon your finger! %]",
+   "zh": "啊！你手指上戴著公會的印記！%]"
+  },
+  "25265": {
+   "en": "In the blood-filled waters the leviathan carcass slips back to the",
+   "zh": "在染血的海水中，巨獸的屍身緩緩沉回"
+  },
+  "25266": {
+   "en": "depths, a gruesome end to the monsterous legend...",
+   "zh": "深處，為這頭怪物的傳說寫下駭人的終章……"
+  },
+  "25267": {
+   "en": "@There'll be no trophy to adorn any marina's walls, and perhaps this",
+   "zh": "@不會有任何戰利品能妝點碼頭的牆面，而或許"
+  },
+  "25268": {
+   "en": "too is how it should be...",
+   "zh": "這正是它最好的歸宿……"
+  }
  }
-]
+}

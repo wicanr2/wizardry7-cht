@@ -15,7 +15,16 @@ mkdir -p "$ROOT/workplace/gocache" "$ROOT/workplace/gomodcache"
 if [[ "${1:-}" == "xvfb" ]]; then shift; fi
 ARGS=()
 if [[ -n "${WIZ7_FE_SH:-}" ]]; then
-  ARGS=(bash -c "$WIZ7_FE_SH")
+  # 在 Xvfb（＋matchbox WM 若有）裡跑任意指令；GLFW 需要 display 可連。
+  PRE=""
+  if command -v Xvfb >/dev/null 2>&1; then
+    PRE="Xvfb :99 -screen 0 1024x768x24 & sleep 0.7; "
+    if command -v openbox >/dev/null 2>&1; then PRE+="openbox & sleep 0.3; "
+    elif command -v matchbox-window-manager >/dev/null 2>&1; then PRE+="matchbox-window-manager & sleep 0.3; "
+    elif command -v fluxbox >/dev/null 2>&1; then PRE+="fluxbox & sleep 0.3; "
+    fi
+  fi
+  ARGS=(bash -c "${PRE}$WIZ7_FE_SH")
 else
   ARGS=(go "$@")
 fi

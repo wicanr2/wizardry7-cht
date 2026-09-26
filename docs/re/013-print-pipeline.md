@@ -618,3 +618,47 @@ sub_10582（訊息ID, 字型）＝**MSG.DBS 訊息系統的主入口**，完整�
   START NEW GAME (160,101) → 防拷 → 開場 → 迷宮。
 - Ebiten 視窗在無 WM Xvfb 不顯示（GLFW）——驗證改用內建 HD 幀輸出。
 - 載入畫面多重中文實證（防拷兩行＋載入/取消＋檔名＋匯入隊伍）。
+
+### 追記三十（9/26）：MSG.DBS 格式 100% 定案——全文抽取 11,019 則
+
+**sub_10582/sub_13E02/sub_1045D/sub_104C6 全解**（DS.EXE.asm），「第一層轉換」
+疑團解除：**沒有第一層轉換**，先前殘形全是「記錄頭未跳＋記錄鏈未走」：
+
+- **HDR 項（6B，confirmed）**：`[+0]w 群首訊息ID、[+2]w 塊內偏移、[+4]b
+  覆蓋數（found 判準 first+span >= msgID，**含端點**）、[+5]b 塊號`。
+  項 0..count-1 有效（count=ds:100Ch=1924；1924..1961 是 padding）。
+- **記錄鏈**：群內訊息在塊內連續排列，每筆 `[L 壓縮長][D1 明文長]
+  [bitstream×(L-1)]`，next = off + 1 + L（sub_10582 loc_105BD）。
+- **跨塊**：記錄可跨 0x400 邊界——sub_10582 邊界處理＝載**實體相鄰的
+  blk+1** 接著讀（`sub_104C6(5212h+1)`）。
+- **塊載入（sub_104C6）**：「樹編號」實為 **MSG.DBS 塊號**；工作緩衝
+  ds:3E12、4 槽快取 ds:4212＋映射表 ds:3E0A、LRU 指標 ds:5214。
+  檔 handle ds:0E24h、seek = 塊號×1024。
+- **解壓（sub_13E02＋sub_13E46）**：localbuf[0]＝明文長度 D1、位元流自
+  localbuf[1] 起 MSB-first 連續（cx 8 進位）、樹 4-byte 節點（左 word +0、
+  右 word +2）、內部 neg×4＝byte 偏移、葉輸出 low byte 回根。
+- **樹**：單一棵（tree-73cb.bin）通吃全部塊——「動態樹」疑慮解除
+  （樹段確實會換內容，但走訪語意相同且這棵涵蓋全部群）。
+- **實績（cmd/msgall）**：11,019 則全量抽取、0 位元流耗盡、hi-bit 僅 1
+  （\x7f 裝飾碼）、重複 0、跨塊 245——`text/messages.json`（原文進版控，
+  依使用者定案）。#19 格式解碼完成。
+
+**譯文表正規化**：`text/story-trans.json`（wiz7-trans/1，key=訊息ID、
+en=原文含控制碼、zh=譯文、dy 可選）——73 筆（故事 4 段遷移＋UI/防拷/
+credits 從 bake_font.py pairs 遷移，id 全數核對）。bake_font.py 改吃譯文表
+（＋story.txt 開場旁白，SCENARIO 系統另冊）。
+
+**查表正規化（前端＋bake 同一套）**：剝 <0x20 控制碼＋連續數字→'$'。
+防拷「PLEASE TURN TO PAGE 35 OF YOUR」→ key『...PAGE $ OF YOUR』命中，
+譯文『請翻開手冊第 $ 頁』的 `$` 槽展開成數字位圖（stdfont.15 無半形/符號
+區——A2 段實測取到垃圾，改自製 5×7 數字放大 15×15，xlate.json
+`__digits__`＋entry `d` 槽索引）。**防拷幀實證：『第 35 頁』數字上屏**
+（hd-1790438271.png）。
+
+**環境修復**：fe.sh 在 WIZ7_FE_SH 模式自起 Xvfb（無 WM 也活）；
+wiz7 加 `-hdonly`（頭less：跳過 ebiten.RunGame/NewImage，GLFW package
+init 在無 display 時必炸——hdFrame 輸出驗證不受影響）。
+
+**已知打磨項**：防拷框等小視窗重繪（cx<320）不清文字事件→殘影重疊
+（hd-1790438271.png 下半）；行距 12px vs 字高 15px；數字位圖微偏右。
+

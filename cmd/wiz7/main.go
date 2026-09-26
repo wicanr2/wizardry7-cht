@@ -112,6 +112,7 @@ func hdFrame(o *oracle.Oracle, evs []glyphEv, path string) {
 type entry struct {
 	Dy int        `json:"dy"`
 	G  [][]uint16 `json:"g"`
+	D  []int      `json:"d,omitempty"` // '$' 數字槽索引（g 內位置，位圖全 0）
 }
 
 // glyphEv 是一則待合成的中文字串（15×15 原字形、畫在放大後畫布）。
@@ -251,6 +252,7 @@ func main() {
 	xlatePath := flag.String("xlate", "workplace/bake/xlate.json", "譯文表（空字串＝純英文模式）")
 	hdShotF := flag.Bool("hdshot", false, "每 30 秒輸出 HD 合成幀（PNG）")
 	autoplay := flag.Bool("autoplay", false, "內建自動遊玩時序（建隊→防拷→旁白→迷宮移動）")
+	hdOnly := flag.Bool("hdonly", false, "頭less：不開視窗，只輸出 HD 幀（無 WM 環境驗證用）")
 	flag.Parse()
 
 	program := *exe
@@ -272,11 +274,26 @@ func main() {
 		*xlatePath = "/nonexistent.json"
 	}
 	trans := map[string]entry{}
+	digits := map[string][]uint16{}
 	if b, err := os.ReadFile(*xlatePath); err == nil {
-		if err := json.Unmarshal(b, &trans); err != nil {
+		var raw map[string]json.RawMessage
+		if err := json.Unmarshal(b, &raw); err != nil {
 			log.Fatal("xlate.json：", err)
 		}
-		log.Printf("xlate：載入 %d 串", len(trans))
+		for k, v := range raw {
+			if k == "__digits__" {
+				if err := json.Unmarshal(v, &digits); err != nil {
+					log.Fatal("xlate.json digits：", err)
+				}
+				continue
+			}
+			var e entry
+			if err := json.Unmarshal(v, &e); err != nil {
+				log.Fatal("xlate.json entry：", err)
+			}
+			trans[k] = e
+		}
+		log.Printf("xlate：載入 %d 串、數字字形 %d", len(trans), len(digits))
 	} else {
 		log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
 	}
@@ -308,10 +325,56 @@ func main() {
 				break
 			}
 		}
-		ent, ok := trans[s]
+		// 查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
+		// 剝 <0x20 控制碼、連續數字 → '$'（數字另存，填進譯文的槽）。
+		key, nums := func(s string) (string, []string) {
+			var b []byte
+			var nums []string
+			for i := 0; i < len(s); i++ {
+				c := s[i]
+				if c < 0x20 {
+					continue
+				}
+				if c >= '0' && c <= '9' {
+					j := i
+					for j < len(s) && s[j] >= '0' && s[j] <= '9' {
+						j++
+					}
+					b = append(b, '$')
+					nums = append(nums, s[i:j])
+					i = j - 1
+					continue
+				}
+				b = append(b, c)
+			}
+			return string(b), nums
+		}(s)
+		ent, ok := trans[key]
 		if !ok {
 			log.Printf("無譯文 %d %q", o.Steps(), s)
 			return // 無譯文：放行原文
+		}
+		// '$' 槽展開成數字位圖序列（自製 5×7 放大字形，逐位並排）
+		if len(ent.D) > 0 {
+			slotSet := map[int]bool{}
+			for _, s2 := range ent.D {
+				slotSet[s2] = true
+			}
+			newG := make([][]uint16, 0, len(ent.G)+4)
+			ni := 0
+			for i, gl := range ent.G {
+				if slotSet[i] && ni < len(nums) {
+					for _, dc := range nums[ni] {
+						if dg, ok := digits[string(dc)]; ok {
+							newG = append(newG, dg)
+						}
+					}
+					ni++
+					continue
+				}
+				newG = append(newG, gl)
+			}
+			ent.G = newG
 		}
 		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + ent.Dy
@@ -353,7 +416,10 @@ func main() {
 		o.WriteU8(entry, 0xC3)
 		poked = true
 	})
-	g := &game{sh: sh, scale: *scale, screen: ebiten.NewImage(320, 200)}
+	g := &game{sh: sh, scale: *scale}
+	if !*hdOnly {
+		g.screen = ebiten.NewImage(320, 200)
+	}
 
 	// 自動遊玩時序表（oracle 層直接注入，繞過 Ebiten 輸入在 Xvfb 的失效）
 	var autos []struct {
@@ -507,6 +573,11 @@ func main() {
 		}
 	}()
 
+	if *hdOnly {
+		// 頭less 驗證：不開視窗（無 WM 時 GLFW init 會 panic），
+		// 只跑機器 goroutine＋hdFrame 輸出。
+		select {}
+	}
 	if err := ebiten.RunGame(g); err != nil {
 		log.Fatal(err)
 	}

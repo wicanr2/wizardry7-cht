@@ -108,17 +108,26 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
         "chars": chars, "index": {f"0x{k:02x}": v for k, v in index.items()},
     }, ensure_ascii=False, indent=1))
 
-    # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）
+    # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）；key＝normalize(en)
+    # zh 的 '$'＝數字槽：位圖全 0、槽索引記在 "d"；前端依 runtime 數字從 digits 填。
     xlate = {}
     for src, dst, dy in pairs:
         entry = []
+        slots = []  # '$' 槽索引
         for ch in dst:
+            if ch == "$":
+                slots.append(len(entry))
+                entry.append([0] * HEIGHT)
+                continue
             b5 = ch.encode("big5")
             if len(b5) != 2:
                 continue
             rows = glyph_scaled(b5)
             entry.append([int(w) for w in rows])
-        xlate[src] = {"dy": dy, "g": entry}
+        xlate[normalize(src)] = {"dy": dy, "g": entry}
+        if slots:
+            xlate[normalize(src)]["d"] = slots
+    xlate["__digits__"] = {c: digit_glyph(c) for c in DIGIT5x7}
     (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))
     print(f"xlate.json：{len(xlate)} 串")
     print(f"字形 {len(chars)} 個；顏色平面 {len(col)}/3584 bytes")
@@ -126,52 +135,78 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     print("索引：", " ".join(f"{0x80+i:02x}={ch}" for i, ch in enumerate(chars)))
 
 
+def normalize(s: str) -> str:
+    """查表 key 正規化（與 wiz7 前端同一套）：
+    1. 剝掉 <0x20 的控制碼（印字屬性：顏色/停頓，不影響對位）
+    2. 連續數字 → '$'（防拷頁數/序號等 runtime 填入的動態數字）
+    """
+    out = []
+    i = 0
+    while i < len(s):
+        c = s[i]
+        if ord(c) < 0x20:
+            i += 1
+            continue
+        if c.isdigit():
+            j = i
+            while j < len(s) and s[j].isdigit():
+                j += 1
+            out.append("$")
+            i = j
+            continue
+        out.append(c)
+        i += 1
+    return "".join(out)
+
+
+# 5×7 數字位樣（經典點陣）；stdfont.15 無半形/符號區（0xA440 起 30B/字，
+# 實測 A2 段取到垃圾）→ 自製數字，放大 2x＝10×14 塞進 15×15 置中。
+DIGIT5x7 = {
+    "0": ["01110", "10001", "10011", "10101", "11001", "10001", "01110"],
+    "1": ["00100", "01100", "00100", "00100", "00100", "00100", "01110"],
+    "2": ["01110", "10001", "00001", "00010", "00100", "01000", "11111"],
+    "3": ["11110", "00001", "00001", "01110", "00001", "00001", "11110"],
+    "4": ["00010", "00110", "01010", "10010", "11111", "00010", "00010"],
+    "5": ["11111", "10000", "11110", "00001", "00001", "10001", "01110"],
+    "6": ["00110", "01000", "10000", "11110", "10001", "10001", "01110"],
+    "7": ["11111", "00001", "00010", "00100", "01000", "01000", "01000"],
+    "8": ["01110", "10001", "10001", "01110", "10001", "10001", "01110"],
+    "9": ["01110", "10001", "10001", "01111", "00001", "00010", "01100"],
+}
+
+
+def digit_glyph(ch: str) -> list[int]:
+    """數字 → 15×15 位圖（5×7 放大 2x＝10×14，置中）。"""
+    rows5 = DIGIT5x7[ch]
+    big = []
+    for r in rows5:
+        row = 0
+        for x, c in enumerate(r):
+            if c == "1":
+                row |= 0b11 << (14 - x * 2)  # 水平 2x（左對齊 10px）
+        big.append(row)
+        big.append(row)  # 垂直 2x
+    # big = 14 列；上移 0 列、兩側置中由使用者位移（此處左 2px）
+    out = [0] * 15
+    for i, row in enumerate(big):
+        out[i] = row >> 2  # 10px 內容右移置中（14-10)/2=2
+    return out
+
+
 if __name__ == "__main__":
+    # 譯文表（單一權威）：text/story-trans.json（id→{en,zh,dy?}）。
+    # xlate.json 的 key＝normalize(en)（前端查表同款正規化）。
+    trans = json.loads(Path("text/story-trans.json").read_text())
     pairs = [
-        ("CHARACTER MENU", "角色選單", 0),
-        ("ADD CHARACTER", "新增角色", 0),
-        ("LOAD SAVEGAME", "載入紀錄", 0),
-        ("CONFIGURATION", "系統設定", 0),
-        ("IMPORT (BANE)", "匯入隊伍", 0),
-        ("QUIT GAME", "結束遊戲", 0),
-        ("CANCEL", "取消", 0),
-        # 防拷三行的數字（頁/段/行）是另一個印字呼叫、動態——譯文不含數字
-        ("SECURITY CLEARANCE", "安全檢查", 0),
-        ("PLEASE TURN TO PAGE 35 OF YOUR", "請翻開手冊指定頁數", 0),
-        ("MANUAL AND ENTER THE SECOND WORD", "找出該頁第二個字輸入", 13),
-        ("LOAD", "載入", 0),
-        ("DIRECTORY", "目錄", 0),
-        ("FILENAME", "檔名", 0),
-        ("START NEW GAME", "開始新遊戲", 0),
-        ("REVIEW MEMBER", "檢視成員", 0),
-        ("DISMISS MEMBER", "開除成員", 0),
-        ("FIGHTER", "戰士", 0),
-        ("Written & Programmed by", "編寫與程式設計", 0),
-        ("INPUT DEVICE", "輸入裝置", 0),
-        ("DELAY", "延遲", 0),
-        ("PATH", "路徑", 0),
-        ("FILE", "檔案", 0),
-        ("PLAY LEVEL", "遊戲等級", 0),
-        ("FADE", "淡入", 0),
-        ("MEMORY", "記憶體", 0),
-        ("EFFECTS", "音效", 0),
-        ("GRAPHICS", "圖形", 0),
-        ("BRIGHT", "亮度", 0),
-        ("CONTRAST", "對比", 0),
-        ("MUSIC", "音樂", 0),
-        ("SAVE", "存檔", 0),
-        ("Manual & Documentation", "手冊與文件", 0),
-        ("Music Score & Sound Effects", "音樂與音效", 0),
-        ("Technical Programming", "技術程式設計", 0),
-        ("Sound Programming", "音效程式設計", 0),
-        ("Graphic Artists", "美術設計", 0),
-        ("Graphics Maestro", "美術總監", 0),
+        (it["en"], it["zh"], it.get("dy", 0))
+        for it in trans["items"].values()
     ]
-    # 開場故事（逐行 1:1 映射，tools 產生的 workplace/bake/story.txt）
+    outdir = Path("workplace/bake")
+    # 開場故事（SCENARIO 系統，非 MSG.DBS 訊息 ID 系統；逐行 1:1 映射）
     story = Path("workplace/bake/story.txt")
     if story.exists():
         for line in story.read_text().splitlines():
             src, _, dst = line.partition("\t")
             if src:
                 pairs.append((src, dst, 0))
-    bake(pairs, Path("workplace/bake"))
+    bake(pairs, outdir)

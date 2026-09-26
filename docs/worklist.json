@@ -62,20 +62,6 @@
    "verify": [
     "前端無聲"
    ]
-  },
-  {
-   "id": "m3-printroutine",
-   "milestone": "M3",
-   "labels": [
-    "re"
-   ],
-   "issue": 20,
-   "title": "印字常式定位與字元→字形對應",
-   "body": "resident 0110 段的字形展開常式定位；字元索引→VBFONT 字形對應式；OnCall 攔截驗證。",
-   "acceptance": "docs/re/012/013 含常式位址與對應式。",
-   "verify": [
-    "OnCall 攔截 sub_13895 未驗證（管線已解碼：013 文件）"
-   ]
   }
  ],
  "done": [
@@ -352,15 +338,34 @@
    ],
    "issue": 19,
    "title": "MSG.DBS 格式解码与全文抽取",
-   "body": "两层压缩架构破解：块→树走访#1→FE57 缓冲→树走访#2→明文。解压算法、HDR 项结构（6B）、块链、树结构（森林）全定案。抽取管线完成（1962 项、42 项游戏本文）。树覆盖随游玩渐进。",
+   "body": "格式 100% 定案（013 追記三十）：無第一層轉換——HDR 項（6B：群首ID/偏移/覆蓋數/塊號）、記錄鏈 [L][D1][bits]、跨塊接 blk+1、塊載入 4 槽快取、解壓（D1=明文長、MSB-first、樹 4B 節點）。單一樹通吃。cmd/msgall 全量抽取 11,019 則 → text/messages.json（原文進版控）。",
    "acceptance": "解压算法 python 实证（Written/CHARACTER MENU 完整正确）、批量抽取管线完成。",
    "verify": [
-    "python 模拟器 40 字元实证",
-    "1962 项批量抽取",
-    "42 项游戏本文入袋"
+    "python 模擬器實證（Written & Programmed by 完整正確）",
+    "11,019 則全量抽取（0 耗盡、hi-bit 僅 \\x7f 裝飾碼、重複 0、跨塊 245）",
+    "譯文表 wiz7-trans/1 正規化（id-keyed 73 筆）＋bake 管線單一權威",
+    "防拷『第 35 頁』數字上屏實證（normalize→$ 槽→數字位圖）"
    ],
-   "evidence": "docs/re/013 追记十五至二十七＋cmd/msgx/msgtree/msgall＋msgdump-extracted.json",
-   "done": "2026-09-25"
+   "evidence": "docs/re/013 追記十五至三十＋cmd/msgall＋text/messages.json＋text/story-trans.json＋hd-1790438271.png",
+   "done": "2026-09-26"
+  },
+  {
+   "id": "m3-printroutine",
+   "milestone": "M3",
+   "labels": [
+    "re"
+   ],
+   "issue": 20,
+   "title": "印字常式定位與字元→字形對應",
+   "body": "resident 0110 段的字形展開常式定位；字元索引→VBFONT 字形對應式；OnCall 攔截驗證。",
+   "acceptance": "docs/re/012/013 含常式位址與對應式。",
+   "verify": [
+    "常式定位與對應式（013 追記一至十四）",
+    "OnCall 攔截 sub_13895 實證：翻譯上屏命中（選單/防拷/credits/旁白）",
+    "查表正規化＋poke ret 失效原印（-hdonly 頭less 驗證鏈）"
+   ],
+   "evidence": "docs/re/012/013＋cmd/wiz7（hook 段）＋/tmp/opencode/auto2.log 49 次命中＋hd-1790438268.png（PCVW 六項中文）",
+   "done": "2026-09-26"
   }
  ],
  "dropped": []

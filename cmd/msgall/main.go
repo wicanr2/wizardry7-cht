@@ -1,59 +1,67 @@
-// msgall — 全文抽取：msglist.json 的每則訊息，用對應樹＋壓縮塊解壓明文。
+// msgall — MSG.DBS 全文抽取（#19 定案版）。
 //
-//	msgall -dbs <MSG.DBS> -list <msglist.json> -treedir <trees/>
+// 演算法＝遊戲 sub_10582/sub_13E02/sub_1045D/sub_104C6 的離線重做
+// （docs/re/013 追記三十）：
+//
+//	HDR 項（6B）：[+0]w 群首訊息ID、[+2]w 塊內偏移、[+4]b 群內訊息數、[+5]b 塊號
+//	記錄鏈：每筆 [L 壓縮長][D1 明文長][bitstream×(L-1)]，next = off + 1 + L
+//	解壓：block[0]＝輸出長度、bitstream 自 [1] 起 MSB-first 連續、
+//	      樹 4-byte 節點（左 word +0、右 word +2、內部 neg×4＝byte 偏移、葉輸出回根）
+//
+//	msgall -hdr <MSG.HDR> -dbs <MSG.DBS> -tree <tree.bin> -out <messages.json>
+//
+// 樹檔是 runtime dump（workplace/bake/trees/tree-73cb.bin，gitignore）；
+// 本工具只產出原文表（原文欄位依使用者定案進版控）。
 package main
 
 import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
 	"os"
-	"strings"
 )
 
-func word(t []byte, off int) (uint16, bool) {
+func word(t []byte, off int) uint16 {
 	if off < 0 || off+1 >= len(t) {
-		return 0, false
+		return 0x8000
 	}
-	return uint16(t[off]) | uint16(t[off+1])<<8, true
+	return uint16(t[off]) | uint16(t[off+1])<<8
 }
 
-// decompress 走訪樹（位元流 MSB-first、葉回根、內部 neg 轉正 ×4）。
-// 起點＝塊 pos+8（結構 header 之後）。
-func decompress(dbs []byte, tree []byte, pos int64, maxOut int) []byte {
-	start := int(pos) + 8
-	if start+1 >= len(dbs) {
+// decompress 解一筆記錄（rec[0]＝明文長度 D1，bitstream 自 rec[1] 起）。
+func decompress(rec []byte, tree []byte) []byte {
+	if len(rec) == 0 {
 		return nil
 	}
-	out := []byte{}
+	want := int(rec[0])
+	if want == 0 {
+		return []byte{}
+	}
 	bx := 0
 	al := 0
-	cx := 0
-	i := start
-	// 葉後的「下一個 bit」跳過規則：bit 流連續、不額外跳
-	_ = i
-	for len(out) < maxOut {
+	cx := 8 // rec[1] 已載入 al，尚有 8 bits
+	i := 1
+	if len(rec) > 1 {
+		al = int(rec[1])
+		i = 2
+	}
+	out := []byte{}
+	for len(out) < want {
+		if i > len(rec)+1 {
+			return nil // 位元流耗盡（不該發生）
+		}
 		if cx == 0 {
-			if i >= len(dbs) {
-				break
-			}
-			al = int(dbs[i])
 			cx = 8
+			if i < len(rec) {
+				al = int(rec[i])
+			}
 			i++
 		}
 		bit := (al >> 7) & 1
 		al = (al << 1) & 0xFF
 		cx--
-		var v uint16
-		var ok bool
-		if bit != 0 {
-			v, ok = word(tree, bx+2)
-		} else {
-			v, ok = word(tree, bx)
-		}
-		if !ok {
-			break
-		}
+		v := word(tree, bx+(bit*2))
 		if v&0x8000 != 0 {
 			bx = ((-int(v)) & 0xFFFF) * 4
 		} else {
@@ -64,77 +72,142 @@ func decompress(dbs []byte, tree []byte, pos int64, maxOut int) []byte {
 	return out
 }
 
-type msgRec struct {
-	Step    uint64 `json:"step"`
-	Text    string `json:"text"`
-	TreeSeg uint16 `json:"tree_seg"`
-	ChunkPo int64  `json:"chunk_pos"`
+type entry struct {
+	First int `json:"first"`
+	Off   int `json:"off"`
+	Span  int `json:"span"`
+	Blk   int `json:"blk"`
+}
+
+type msg struct {
+	ID  int    `json:"id"`
+	Blk int    `json:"blk"`
+	Off int    `json:"off"`
+	En  string `json:"en"`
 }
 
 func main() {
-	dbsF := flag.String("dbs", "workplace/original/wizar7/MSG.DBS", "")
-	listF := flag.String("list", "workplace/bake/msglist.json", "")
-	treeDir := flag.String("treedir", "workplace/bake/trees", "")
-	maxOut := flag.Int("max", 400, "每則輸出上限")
+	hdrPath := flag.String("hdr", "", "MSG.HDR")
+	dbsPath := flag.String("dbs", "", "MSG.DBS")
+	treePath := flag.String("tree", "", "tree.bin（runtime dump）")
+	outPath := flag.String("out", "", "輸出 JSON")
 	flag.Parse()
+	if *hdrPath == "" || *dbsPath == "" || *treePath == "" || *outPath == "" {
+		log.Fatal("用法: msgall -hdr MSG.HDR -dbs MSG.DBS -tree tree.bin -out messages.json")
+	}
 
-	dbs, err := os.ReadFile(*dbsF)
+	hdr, err := os.ReadFile(*hdrPath)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	b, err := os.ReadFile(*listF)
+	dbs, err := os.ReadFile(*dbsPath)
 	if err != nil {
-		panic(err)
+		log.Fatal(err)
 	}
-	var recs []msgRec
-	if err := json.Unmarshal(b, &recs); err != nil {
-		panic(err)
+	tree, err := os.ReadFile(*treePath)
+	if err != nil {
+		log.Fatal(err)
 	}
-	trees := map[uint16][]byte{}
-	for _, r := range recs {
-		if _, ok := trees[r.TreeSeg]; !ok {
-			fn := fmt.Sprintf("%s/tree-%04x.bin", *treeDir, r.TreeSeg)
-			if d, err := os.ReadFile(fn); err == nil {
-				trees[r.TreeSeg] = d
-			}
-		}
+	if len(hdr) < 2 || (len(hdr)-2)%6 != 0 {
+		log.Fatalf("MSG.HDR 大小異常: %d", len(hdr))
 	}
-	seen := map[string]bool{}
-	okN, failN := 0, 0
-	for _, r := range recs {
-		if seen[r.Text] {
+	nEntries := (len(hdr) - 2) / 6
+	count := int(uint16(hdr[0]) | uint16(hdr[1])<<8) // ds:100Ch＝遊戲 binary search 上界
+	log.Printf("HDR: 檔大小 %d、項數 %d、遊戲計數 %d", len(hdr), nEntries, count)
+
+	entries := make([]entry, 0, nEntries)
+	for i := 0; i < nEntries; i++ {
+		b := hdr[2+i*6 : 2+i*6+6]
+		entries = append(entries, entry{
+			First: int(uint16(b[0]) | uint16(b[1])<<8),
+			Off:   int(uint16(b[2]) | uint16(b[3])<<8),
+			Span:  int(b[4]),
+			Blk:   int(b[5]),
+		})
+	}
+
+	// 仿 sub_1045D/sub_10582：以訊息 ID binary search 找群；遊戲上界＝count（項 0..count-1）。
+	// 覆蓋範圍＝[first, first+span]（含端點：found 判準 first+span >= msgID）。
+	// 記錄鏈可跨塊：sub_10582 邊界處理＝載 blk+1 接著讀（loc_105D9 之後）。
+	seen := map[int]bool{}
+	msgs := []msg{}
+	stat := struct{ groups, empty, hiBit, dup, cross int }{}
+	maxID := 0
+	for _, e := range entries[:count] {
+		if e.Blk*1024+1024 > len(dbs) {
 			continue
 		}
-		seen[r.Text] = true
-		tr, ok := trees[r.TreeSeg]
-		if !ok {
-			fmt.Printf("%q → 無樹 %04x\n", r.Text, r.TreeSeg)
-			failN++
-			continue
+		stat.groups++
+		// 虛擬視窗＝本塊＋下一塊（記錄跨 0x400 邊界用）
+		blkOff := e.Blk * 1024
+		nxtOff := blkOff + 1024
+		if nxtOff+1024 > len(dbs) {
+			nxtOff = blkOff // 最後一塊沒有下一塊
 		}
-		if r.ChunkPo < 0 {
-			fmt.Printf("%q → 無塊位置\n", r.Text)
-			failN++
-			continue
+		window := dbs[blkOff : blkOff+1024]
+		if nxtOff != blkOff {
+			window = dbs[blkOff : nxtOff+1024]
 		}
-		// 兩層架構：塊 → 樹走訪#1 → 中間層（可能仍是壓縮流）→ 樹走訪#2 → 明文
-		plain := decompress(dbs, tr, r.ChunkPo, *maxOut)
-		layer2 := decompress(plain, tr, 0, *maxOut)
-		if len(layer2) > 0 {
-			plain = layer2
-		}
-		// 去除控制碼（<0x20 且非 NUL）便讀
-		vis := strings.Map(func(rr rune) rune {
-			if rr == 0 {
-				return '␀'
+		o := e.Off
+		for id := e.First; id <= e.First+e.Span; id++ {
+			if o < 0 || o >= len(window) {
+				break
 			}
-			if rr < 32 {
-				return -1
+			L := int(window[o])
+			if L == 0 || o+1+L > len(window) {
+				break
 			}
-			return rr
-		}, string(plain))
-		fmt.Printf("ID %q\n  原文 %q\n  解壓 %q\n", r.Text, r.Text, vis)
-		okN++
+			if o+1+L > 1024 {
+				stat.cross++
+			}
+			if seen[id] {
+				stat.dup++
+			} else {
+				seen[id] = true
+				txt := decompress(window[o+1:o+1+L], tree)
+				if txt == nil {
+					log.Fatalf("id %d: 位元流耗盡（演算法或樹不符）", id)
+				}
+				for _, c := range txt {
+					if c >= 127 {
+						stat.hiBit++
+						break
+					}
+				}
+				if len(txt) == 0 {
+					stat.empty++
+				}
+				msgs = append(msgs, msg{ID: id, Blk: e.Blk, Off: o, En: string(txt)})
+				if id > maxID {
+					maxID = id
+				}
+			}
+			o += 1 + L
+		}
 	}
-	fmt.Printf("\n成功 %d、失敗 %d\n", okN, failN)
+	log.Printf("群 %d、訊息 %d（最大ID %d）、空 %d、含高位byte %d、重複 %d、跨塊 %d",
+		stat.groups, len(msgs), maxID, stat.empty, stat.hiBit, stat.dup, stat.cross)
+
+	w, err := os.Create(*outPath)
+	if err != nil {
+		log.Fatal(err)
+	}
+	enc := json.NewEncoder(w)
+	enc.SetEscapeHTML(false)
+	enc.SetIndent("", " ")
+	if err := enc.Encode(map[string]any{
+		"schema": "wiz7-messages/1",
+		"note": "MSG.DBS 全量抽取（docs/re/013 追記三十）。id＝訊息ID（sub_10582 參數）、" +
+			"blk＝MSG.DBS 塊號、off＝塊內記錄偏移、en＝原文（含控制碼，印字管線解讀）。",
+		"tree":    *treePath,
+		"count":   len(msgs),
+		"maxID":   maxID,
+		"records": msgs,
+	}); err != nil {
+		log.Fatal(err)
+	}
+	if err := w.Close(); err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("done: %d 則 → %s\n", len(msgs), *outPath)
 }
