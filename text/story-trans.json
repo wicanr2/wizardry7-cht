@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1287,
+ "count": 1444,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -5003,6 +5003,634 @@
   "14305": {
    "en": "discern the faint remnants of a ring of reddish dye...",
    "zh": "能辨認出一圈紅色染料的淡淡殘痕……"
+  },
+  "16000": {
+   "en": "Behind a flutter of papers inside the inner chamber of the",
+   "zh": "在一間藏書室的層層紙堆之後，你驚動了一隻"
+  },
+  "16001": {
+   "en": "library, you surprise an old and grey rat-like",
+   "zh": "蒼老灰白的鼠形生物——"
+  },
+  "16002": {
+   "en": "creature, who apparently does not like surprises...",
+   "zh": "他顯然不喜歡被驚擾……"
+  },
+  "16010": {
+   "en": "&EEECH! &%Who are you?!! &%]",
+   "zh": "&嘰——！&%你們是誰？！&%]"
+  },
+  "16011": {
+   "en": "Why can't you leave me to work in peace? &%]",
+   "zh": "為什麼不能讓我安靜工作？&%]"
+  },
+  "16012": {
+   "en": "Besides, I gave the city blueprints to the strangers that were",
+   "zh": "再說，城市藍圖我已經交給比你們"
+  },
+  "16013": {
+   "en": "here just before you, if that's what you're looking for... &%]",
+   "zh": "早一步來的那些陌生人了……&%]"
+  },
+  "16014": {
+   "en": "Now leave me alone!...",
+   "zh": "現在，別再煩我！……"
+  },
+  "16030": {
+   "en": "The history of Old City! &%]",
+   "zh": "舊城的歷史！&%]"
+  },
+  "16031": {
+   "en": "That's what I've been researching... &%]",
+   "zh": "那正是我一直在研究的……&%]"
+  },
+  "16032": {
+   "en": "Listen, and I'll tell you what I've learned... &%]",
+   "zh": "聽著，我就把我所知告訴你……&%]"
+  },
+  "16033": {
+   "en": "A long time ago, everyone lived together here... &%]",
+   "zh": "很久很久以前，所有人都住在這裡……&%]"
+  },
+  "16034": {
+   "en": "All in the same city... &%Old City... &%]",
+   "zh": "全都住在同一座城裡……&%舊城……&%]"
+  },
+  "16035": {
+   "en": "Life was simple for our ancestors, there was a common purpose... &%]",
+   "zh": "先人的生活很單純，有著共同的目標……&%]"
+  },
+  "16036": {
+   "en": "To fulfill the law of something called the Sacred Stone! &%]",
+   "zh": "去實踐一種名為「聖石」的律法！&%]"
+  },
+  "16037": {
+   "en": "But as time went on, there was disagreement upon the meaning",
+   "zh": "但隨著時間流逝，人們對聖典的詮釋"
+  },
+  "16038": {
+   "en": "of the sacred writing... &%]",
+   "zh": "產生了分歧……&%]"
+  },
+  "16039": {
+   "en": "Everyone began having different ideas... &%]",
+   "zh": "每個人都開始有了不同的想法……&%]"
+  },
+  "16040": {
+   "en": "And they began to fight amongst themselves... &%]",
+   "zh": "於是他們開始自相殘殺……&%]"
+  },
+  "16041": {
+   "en": "Different groups were formed, each claiming to represent the",
+   "zh": "不同的派系成形了，各自宣稱自己才是"
+  },
+  "16042": {
+   "en": "one true interpretation of the Sacred Stone... &%]",
+   "zh": "聖石唯一真義的代言人……&%]"
+  },
+  "16043": {
+   "en": "In time, each faction created their own version of the",
+   "zh": "最終，每個派系都造出了自己的"
+  },
+  "16044": {
+   "en": "Sacred Stone, rewriting it to conform to their own beliefs... &%]",
+   "zh": "「聖石」，把內容改寫成合乎自家信念的模樣……&%]"
+  },
+  "16045": {
+   "en": "The original Sacred Stone was lost, obscured, and forgotten... &%]",
+   "zh": "原始的聖石就此失落、被遮蔽、被遺忘……&%]"
+  },
+  "16046": {
+   "en": "Eventually, all anyone knew was dependent upon the beliefs of",
+   "zh": "最後，人們所知的一切，全取決於"
+  },
+  "16047": {
+   "en": "the faction unto which they were born... &%]",
+   "zh": "自己生來屬於哪個派系的信念……&%]"
+  },
+  "16048": {
+   "en": "Naturally, the different factions began to separate... &%]",
+   "zh": "自然地，各派系開始分道揚鑣……&%]"
+  },
+  "16049": {
+   "en": "Soon, newer cities were constructed in the surrounding regions... &%]",
+   "zh": "很快，周邊地區建起了新的城市……&%"
+  },
+  "16050": {
+   "en": "And Old City was abandoned... &%]",
+   "zh": "舊城就此被遺棄……&%]"
+  },
+  "16051": {
+   "en": "All evidence of our original common ancestry disappeared... &%]",
+   "zh": "我們原本同源的證據全都消失了……&%]"
+  },
+  "16052": {
+   "en": "There were wars... &%]",
+   "zh": "戰爭爆發了……&%]"
+  },
+  "16053": {
+   "en": "The simple life had come to an end... &%]",
+   "zh": "單純的生活就此終結……&%]"
+  },
+  "16054": {
+   "en": "And each faction began to evolve in an entirely different way... &%]",
+   "zh": "每個派系開始以全然不同的方式演化……&%]"
+  },
+  "16055": {
+   "en": "Some believed that this was bad... &%]",
+   "zh": "有些人認為這是坏事……&%]"
+  },
+  "16056": {
+   "en": "Others claim that it was all foretold... &%]",
+   "zh": "也有人聲稱這一切早有預言……&%]"
+  },
+  "16057": {
+   "en": "And a few others yet say that this is all as it should be... &%]",
+   "zh": "還有少數人說，這本就是理所當然……&%]"
+  },
+  "16058": {
+   "en": "Hundreds of years passed... &%]",
+   "zh": "數百年過去了……&%]"
+  },
+  "16059": {
+   "en": "Then, one day, a strange thing occurred... &%]",
+   "zh": "然後有一天，一件奇怪的事發生了……&%]"
+  },
+  "16060": {
+   "en": "A group of strangers appeared, calling themselves the Higardi... &%]",
+   "zh": "一群自稱希加迪的陌生人出現了……&%]"
+  },
+  "16061": {
+   "en": "They said they came from the mountains, where they had",
+   "zh": "他們說自己來自群山之中——自舊城"
+  },
+  "16062": {
+   "en": "been living in the ages since the fall of Old City... &%]",
+   "zh": "傾頹以來，他們就住在那裡……&%]"
+  },
+  "16063": {
+   "en": "They had achieved great scientific wonders... &%]",
+   "zh": "他們創造了偉大的科學奇觀……&%]"
+  },
+  "16064": {
+   "en": "And they wished to share their knowledge with all... &%]",
+   "zh": "並願與所有人分享他們的知識……&%]"
+  },
+  "16065": {
+   "en": "A common ground was needed for all the differing factions to",
+   "zh": "各派系需要一塊共同的土地來會晤"
+  },
+  "16066": {
+   "en": "meet with the Higardi, and so New City was constructed... &%]",
+   "zh": "希加迪人，於是新城被建了起來……&%]"
+  },
+  "16067": {
+   "en": "And it was built on top of Old City... &%]",
+   "zh": "而它就建在舊城之上……&%]"
+  },
+  "16068": {
+   "en": "Then, as suddenly as they had appeared, the Higardi vanished! &%]",
+   "zh": "然後，希加迪人來得一樣突然——消失了！&%]"
+  },
+  "16069": {
+   "en": "No one knows exactly what happened... &%]",
+   "zh": "沒有人確切知道發生了什麼……&%]"
+  },
+  "16070": {
+   "en": "There must have been some purpose... &%]",
+   "zh": "那必然有某種目的……&%]"
+  },
+  "16071": {
+   "en": "But no one knows what it is! &%]",
+   "zh": "但沒有人知道那是什麼！&%]"
+  },
+  "16072": {
+   "en": "And so then, at last, here we are...",
+   "zh": "就這樣，終於，我們來到了今天……"
+  },
+  "16080": {
+   "en": "Mmmm, let me think a moment... &%%]",
+   "zh": "嗯，讓我想一下……&%%]"
+  },
+  "16081": {
+   "en": "There were some archives in the Old City... &%]",
+   "zh": "舊城裡曾有一些檔案館……&%]"
+  },
+  "16082": {
+   "en": "When New City was built the archives were sealed off",
+   "zh": "新城建造時，檔案館被封死"
+  },
+  "16083": {
+   "en": "and covered over... &%]",
+   "zh": "掩埋了……&%]"
+  },
+  "16084": {
+   "en": "Years ago, I went there to study records of our history... &%]",
+   "zh": "多年前我去那裡研究過我們的歷史紀錄……&%]"
+  },
+  "16085": {
+   "en": "I think I may still have the key, one moment... &%%]",
+   "zh": "鑰匙我應該還留著，稍等……&%%]"
+  },
+  "16086": {
+   "en": "I hope this helps with what you are looking for...",
+   "zh": "希望這對你要找的東西有幫助……"
+  },
+  "16090": {
+   "en": "The access to the Old City is on the south side of New City... &%]",
+   "zh": "舊城的入口在新城南側……&%]"
+  },
+  "16091": {
+   "en": "It's been locked up for years... &%]",
+   "zh": "那裡已經鎖了很多年了……&%]"
+  },
+  "16092": {
+   "en": "Be careful!",
+   "zh": "小心！"
+  },
+  "16100": {
+   "en": "Yes?",
+   "zh": "有事嗎？"
+  },
+  "16105": {
+   "en": "Bye!",
+   "zh": "再見！"
+  },
+  "16122": {
+   "en": "@A vivid red emblem has been attached to the door, the",
+   "zh": "門上貼著一枚鮮紅的徽記，"
+  },
+  "16123": {
+   "en": "significance of which is not clear...",
+   "zh": "其含義不明……"
+  },
+  "16130": {
+   "en": "Cautiously you look around, wary of the foreboding",
+   "zh": "你警覺地環顧四周，對圖書館門前"
+  },
+  "16131": {
+   "en": "emblem which marked the front of the library door...",
+   "zh": "那不祥的徽記心存戒備……"
+  },
+  "16132": {
+   "en": "@The interior of the library is quite dusty and cluttered,",
+   "zh": "館內灰塵滿布、雜物凌亂，"
+  },
+  "16133": {
+   "en": "being filled with shelves of books and old scrolls...",
+   "zh": "書架與古卷軸堆疊成山……"
+  },
+  "16134": {
+   "en": "@It would require days to search through them all, and even",
+   "zh": "要把這些全部翻完得花上好幾天，"
+  },
+  "16135": {
+   "en": "then it is unlikely that anything here would be of much use...",
+   "zh": "而且這裡恐怕也沒什麼有用的東西……"
+  },
+  "16136": {
+   "en": "@For some reason you turn and cast a glance sideways,",
+   "zh": "不知為何，你轉身往房間北側瞥了一眼——"
+  },
+  "16137": {
+   "en": "toward the north end of the room, and there, perched slightly",
+   "zh": "在那裡，與周圍的書冊稍稍分開，"
+  },
+  "16138": {
+   "en": "apart from the volumes around it, you spy a dark red book...",
+   "zh": "一本暗紅色的書映入眼簾……"
+  },
+  "16139": {
+   "en": "@But suddenly you are startled by the gaunt figure of one",
+   "zh": "但突然間，一道枯槁的身影嚇了你一跳——"
+  },
+  "16140": {
+   "en": "of the ghoulish Savant Guards, unearthly still, uncannily poised",
+   "zh": "一名鬼魅般的賢者衛士，詭異地靜止，"
+  },
+  "16141": {
+   "en": "in the corner beside the shelf on which the book rests...",
+   "zh": "不可思議地佇立在書架旁的角落……"
+  },
+  "16142": {
+   "en": "@Ready to jump into action, yet still frozen where you stand,",
+   "zh": "你蓄勢待發，卻仍僵在原地——"
+  },
+  "16143": {
+   "en": "before you can react your senses tell you there is something",
+   "zh": "反應過來之前，你的直覺告訴你"
+  },
+  "16144": {
+   "en": "peculiar about the situation...",
+   "zh": "這情況有點古怪……"
+  },
+  "16145": {
+   "en": "@Within the heartbeat of the next moment, you can see that",
+   "zh": "就在下一個心跳之間，你看清了："
+  },
+  "16146": {
+   "en": "the dreaded Guardian is not reacting, nor making motions",
+   "zh": "那可怕的守衛毫無反應，"
+  },
+  "16147": {
+   "en": "of any kind...",
+   "zh": "也沒有任何動作……"
+  },
+  "16148": {
+   "en": "@Whether it is entranced, or dead, or asleep you cannot tell...",
+   "zh": "是入迷、已死，還是沉睡，你無從判斷……"
+  },
+  "16149": {
+   "en": "@Perhaps there is some secret power or weakness to which it has",
+   "zh": "或許是某種祕密力量或弱點"
+  },
+  "16150": {
+   "en": "succumbed...",
+   "zh": "讓它倒下了……"
+  },
+  "16151": {
+   "en": "@Whatever has affected it, you start breathing again, and find that",
+   "zh": "無論原因是什麼，你重新呼吸，發現"
+  },
+  "16152": {
+   "en": "it is totally oblivious to your presence...",
+   "zh": "它完全沒有察覺你的存在……"
+  },
+  "16161": {
+   "en": "   TRY TO TAKE THE BOOK   ",
+   "zh": "   試著取走那本書   "
+  },
+  "16162": {
+   "en": " ATTACK THE DORMANT GUARD ",
+   "zh": " 攻擊沉睡中的守衛 "
+  },
+  "16163": {
+   "en": "  WALK AWAY NONCHALANTLY  ",
+   "zh": "  若無其事地走開  "
+  },
+  "16165": {
+   "en": "Silently cursing yourselves as fools, you carefully approach the",
+   "zh": "你暗罵自己傻瓜，小心翼翼地靠近"
+  },
+  "16166": {
+   "en": "dormant Savant Guard...",
+   "zh": "沉睡的賢者衛士……"
+  },
+  "16167": {
+   "en": "@Sure enough, it seems to be deactivated in some fashion...",
+   "zh": "果不其然，它似乎以某種方式停擺了……"
+  },
+  "16168": {
+   "en": "@And there, on the shelf before you, the dark red book beckons...",
+   "zh": "而它就在你面前架上——那本暗紅色的書正在召喚……"
+  },
+  "16175": {
+   "en": "Your actions have awakened the Guard!!",
+   "zh": "你們的舉動驚醒了守衛！！"
+  },
+  "16180": {
+   "en": "Deftly, you sneak the book from the shelf...",
+   "zh": "你俐落地把書從架上偷走……"
+  },
+  "16181": {
+   "en": "@Not even a breeze...",
+   "zh": "連一絲風都沒有……"
+  },
+  "16182": {
+   "en": "@The Savant Guardian remains in its somnolent state...",
+   "zh": "賢者守衛依舊沉睡……"
+  },
+  "16185": {
+   "en": "Having vanquished the Guardian, the book is yours...",
+   "zh": "擊敗守衛之後，這本書歸你了……"
+  },
+  "16191": {
+   "en": "@The book is written in an ancient tongue, which",
+   "zh": "這本書以一種古代語言寫成，"
+  },
+  "16192": {
+   "en": "you do not understand...",
+   "zh": "你看不懂……"
+  },
+  "16200": {
+   "en": "The building is old and crumbling away, completely empty save",
+   "zh": "建築老舊崩頹，完全空無一物——只有"
+  },
+  "16201": {
+   "en": "for a few broken crates and a somewhat liberal spread of",
+   "zh": "幾個破爛木箱，和"
+  },
+  "16202": {
+   "en": "rodent droppings...",
+   "zh": "頗為隨意散布的鼠糞……"
+  },
+  "16215": {
+   "en": "#!__d_C_ty",
+   "zh": "#!__d_C_ty"
+  },
+  "16216": {
+   "en": "!__c_es",
+   "zh": "!__c_es"
+  },
+  "16217": {
+   "en": "@This is all you can glean from a sign too faded to read...",
+   "zh": "這是你從一塊褪色到無法辨識的招牌上能讀出的全部……"
+  },
+  "16220": {
+   "en": "!Old City Archives",
+   "zh": "舊城檔案館"
+  },
+  "16230": {
+   "en": "The air is dank and unpleasantly musty, an odor possibly",
+   "zh": "空氣潮濕、發霉得令人不適——那氣味可能來自"
+  },
+  "16231": {
+   "en": "attributable to a slick ochre mold which covers the walls",
+   "zh": "覆蓋牆面與地板的一層滑膩赭黃黴菌……"
+  },
+  "16235": {
+   "en": "You detect no trace of footprints in the moldy floor, nor",
+   "zh": "你在發黴的地板上沒有發現任何腳印，"
+  },
+  "16236": {
+   "en": "any other evidence to indicate the presence of others...",
+   "zh": "也沒有其他人來過的跡象……"
+  },
+  "16240": {
+   "en": "You are able to detect faint footprints in the moldy floor,",
+   "zh": "你在發黴的地板上察覺到淡淡的腳印——"
+  },
+  "16241": {
+   "en": "suggesting that someone else has been here recently...",
+   "zh": "最近似乎有人來過……"
+  },
+  "16245": {
+   "en": "The room appears vacant, though the air is quite ripe with",
+   "zh": "房間看似無人，但空氣中瀰漫著"
+  },
+  "16246": {
+   "en": "the putrid stench of something dead...",
+   "zh": "某種死物腐爛的惡臭……"
+  },
+  "16250": {
+   "en": "A horrid waft of stinking air assails you!",
+   "zh": "一股惡臭撲面而來！"
+  },
+  "16260": {
+   "en": "Inside the chest, neatly swaddled in a waxy wrapping, you",
+   "zh": "箱子裡，一張古老的手抄羊皮紙"
+  },
+  "16261": {
+   "en": "uncover an old piece of enscribed parchment...",
+   "zh": "整整齊齊地裹在蠟紙包裝裡……"
+  },
+  "16265": {
+   "en": "Opening the chest, you find nothing but scattered",
+   "zh": "打開箱子，裡面只剩"
+  },
+  "16266": {
+   "en": "pieces of empty waxen wrappers...",
+   "zh": "散落一地的空蠟紙包裝……"
+  },
+  "16267": {
+   "en": "@What was contained inside the wrappings has no doubt been taken",
+   "zh": "裡面裝的東西毫無疑問"
+  },
+  "16268": {
+   "en": "by someone else...",
+   "zh": "已經被別人取走了……"
+  },
+  "16300": {
+   "en": "You stand inside a large courtyard, serene and calm,",
+   "zh": "你站在一座寬闊的中庭裡，寧靜平和——"
+  },
+  "16301": {
+   "en": "and it is a welcome change from the otherwise gloomy city...",
+   "zh": "與城中其他陰鬱角落相比，令人心曠神怡……"
+  },
+  "16302": {
+   "en": "@There is an arched gazebo in the center of the courtyard",
+   "zh": "中庭噴泉的中央有一座拱形涼亭，"
+  },
+  "16303": {
+   "en": "fountain, and within it is housed an ancient statue...",
+   "zh": "裡面立著一尊古老的雕像……"
+  },
+  "16305": {
+   "en": "Standing at the statue, it appears much larger than before...",
+   "zh": "走近雕像，它看起來比遠看更大……"
+  },
+  "16306": {
+   "en": "@The stone looks fresh, as if it were carved only yesterday,",
+   "zh": "石材宛如新雕——像是昨天才刻好的，"
+  },
+  "16307": {
+   "en": "although a thick layer of rust around its base suggests",
+   "zh": "但底座周圍厚厚的鏽跡"
+  },
+  "16308": {
+   "en": "it has been here a long time...",
+   "zh": "訴說著它已矗立了很久……"
+  },
+  "16309": {
+   "en": "@Gazing up into the face of the majestic figure, you detect",
+   "zh": "仰望那莊嚴的面容，你察覺到一抹淡笑，"
+  },
+  "16310": {
+   "en": "a faint smile and its eyes seem to almost twinkle...",
+   "zh": "它的雙眼彷彿閃爍著微光……"
+  },
+  "16315": {
+   "en": "Scraping off the thick rust, you unearth a metal plate at",
+   "zh": "刮開厚厚的鏽層，你在雕像底座"
+  },
+  "16316": {
+   "en": "the foot of the statue engraved as follows:",
+   "zh": "挖出一塊金屬板，上面刻著："
+  },
+  "16317": {
+   "en": "@#!F A T H E R",
+   "zh": "@#!父 親"
+  },
+  "16318": {
+   "en": "!P H O O N Z A N G",
+   "zh": "普 隆 張"
+  },
+  "16320": {
+   "en": "Oddly enough, while cleaning the plate you noticed that the",
+   "zh": "奇怪的是，清理金屬板時你注意到"
+  },
+  "16321": {
+   "en": "middle of the second \"O\" in the engraving seemed to move out",
+   "zh": "銘文第二個「O」的中央"
+  },
+  "16322": {
+   "en": "of alignment...",
+   "zh": "似乎移位了……"
+  },
+  "16323": {
+   "en": "@It indeed swings open, pivoting at the top, and underneath",
+   "zh": "它確實打開了——以頂端為軸——"
+  },
+  "16324": {
+   "en": "you find a small opaque stone, apparently concealed here a long",
+   "zh": "底下藏著一顆小小的渾濁石頭，"
+  },
+  "16325": {
+   "en": "time ago...",
+   "zh": "顯然是很久以前藏在這裡的……"
+  },
+  "16380": {
+   "en": "The great Sea of Sorrows spans before you like a vast",
+   "zh": "偉大的哀傷之海在你面前展開，像一片"
+  },
+  "16381": {
+   "en": "and dense space flattened unto the sky, spreading into the",
+   "zh": "遼密無際、被抹平直抵天際的空間，"
+  },
+  "16382": {
+   "en": "far distant horizon as a desolate plain of shimmering ether...",
+   "zh": "向遙遠的地平線蔓延，如一片閃爍以太的荒原……"
+  },
+  "16383": {
+   "en": "@Its deep waters chant a thousand silent tales, and its unseen",
+   "zh": "深水吟誦著千百個無聲的故事，看不見的"
+  },
+  "16384": {
+   "en": "borders but hint of far distant lands...",
+   "zh": "疆界暗示著遙遠的彼岸……"
+  },
+  "16385": {
+   "en": "@How universal such a compelling motion, as if behind every veil",
+   "zh": "多麼普世的悸動——彷彿每一層無垠未知"
+  },
+  "16386": {
+   "en": "of boundless unknown lay cloaked an invisible beacon, endlessly",
+   "zh": "的帷幕之後，都罩著一座無形的燈塔，"
+  },
+  "16387": {
+   "en": "calling...",
+   "zh": "永不停歇地呼喚……"
+  },
+  "16388": {
+   "en": "@Such solace these sights bring, as if a reminder that though",
+   "zh": "這些景致帶來何等慰藉——彷彿在提醒："
+  },
+  "16389": {
+   "en": "the trappings of mortal man be forever enshrouded in a",
+   "zh": "縱然凡人的軀殼永遠裹在"
+  },
+  "16390": {
+   "en": "sea of passing discords, he has but to open his eyes that he",
+   "zh": "紛爭流轉之海中，他只需睜開雙眼，"
+  },
+  "16391": {
+   "en": "may bear witness to some greater existance of which he is only a",
+   "zh": "便能見證某種更偉大的存在——"
+  },
+  "16392": {
+   "en": "momentary traveler...",
+   "zh": "而他，只是其中一名過客……"
   },
   "17860": {
    "en": "You turn back to face the pitiful wretch in the corner... &%]",
