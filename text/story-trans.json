@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 6988,
+ "count": 7746,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -27940,6 +27940,438 @@
    "en": "the enemies of Dane...",
    "zh": "丹恩之敵的血……"
   },
+  "25000": {
+   "en": "Suddenly you detect a slight shimmer, the glint of a metal ring",
+   "zh": "突然間你察覺一絲微光，一枚金屬戒指的閃爍"
+  },
+  "25001": {
+   "en": "upon the finger of the deposed and headless caesar...",
+   "zh": "就在被推翻的無頭凱撒手上……"
+  },
+  "25005": {
+   "en": "In the charred and blackened Pit of the Hellspawn, you spy",
+   "zh": "在焦黑燒灼的地獄孽坑裡，你瞥見"
+  },
+  "25006": {
+   "en": "the great devil's smouldering cornu!",
+   "zh": "大惡魔悶燒未熄的巨角！"
+  },
+  "25010": {
+   "en": "From above, you hear the hysterical voice of Torquesade, the Magna",
+   "zh": "從上方傳來托克薩德歇斯底里的聲音，那位大"
+  },
+  "25011": {
+   "en": "Dane...",
+   "zh": "丹恩……"
+  },
+  "25012": {
+   "en": "@\"KILL THEM, SEIZE THEM, BRING ME THE HORN!!!",
+   "zh": "殺了他們！抓住他們！把角拿來給我！！！"
+  },
+  "25013": {
+   "en": "@It does not sound as if the Magna Dane will be keeping any bargains...",
+   "zh": "聽起來大丹恩似乎不打算遵守任何約定……"
+  },
+  "25014": {
+   "en": "@In fact, he sounds rather rabid and out of control...",
+   "zh": "事實上，他聽來相當瘋狂且失去控制……"
+  },
+  "25020": {
+   "en": "Approaching the gateway, a sudden bustle of the maddening crowd",
+   "zh": "走近門口時，身後突然響起狂亂人群的騷動"
+  },
+  "25021": {
+   "en": "at your back tells you that you have blundered into a trap...",
+   "zh": "你這才明白自己誤闖了陷阱……"
+  },
+  "25030": {
+   "en": "You raise the Magna Dane's ring before the gate...",
+   "zh": "你在門前舉起大丹恩的戒指……"
+  },
+  "25035": {
+   "en": "Lying upon a jeweled cushion of fine silk, a coiled serpent twined upon",
+   "zh": "寶石絲墊之上，一柄纏繞著盤蛇的"
+  },
+  "25036": {
+   "en": "a radiant sceptre shines with an aura of polished gold...",
+   "zh": "燦然權杖閃耀著拋光黃金般的光暈……"
+  },
+  "25040": {
+   "en": "Descending into the Pit, you see that its walls are thick with",
+   "zh": "下到深坑中，你看見坑壁上覆滿厚厚的"
+  },
+  "25041": {
+   "en": "a black residue, as if the spit of a blistering inferno...",
+   "zh": "黑色殘渣，彷彿烈獄噴吐的涎沫……"
+  },
+  "25042": {
+   "en": "@It is then that you recognize the ashen lumps and shoots upon the",
+   "zh": "這時你才認出那些灰燼般的團塊與殘枝"
+  },
+  "25043": {
+   "en": "ground...",
+   "zh": "散落地面……"
+  },
+  "25044": {
+   "en": "@The remnants of incinerated bones...",
+   "zh": "那是焚化殆盡的骨頭殘骸……"
+  },
+  "25050": {
+   "en": "High atop the Great Tower of Dane, howling winds blow and blackness",
+   "zh": "在大丹恩高塔之巔，狂風呼嘯，黑暗"
+  },
+  "25051": {
+   "en": "swallows the sky like a cloak of perteptual night...",
+   "zh": "如永夜斗篷般吞噬天空……"
+  },
+  "25090": {
+   "en": "Embedded into the wall is a circular golden emblem, a ring",
+   "zh": "牆上嵌著一枚圓形金徽，一圈"
+  },
+  "25091": {
+   "en": "of wavy spines around a core of grasping prongs...",
+   "zh": "波浪狀的尖刺環繞著中央的抓爪……"
+  },
+  "25100": {
+   "en": "Surprisingly, you pass through the stone wall as if it were not",
+   "zh": "出乎意料，你如入無物般穿過石牆"
+  },
+  "25101": {
+   "en": "there...",
+   "zh": "……"
+  },
+  "25105": {
+   "en": "You insert the glistening jewel into the prongs at the center",
+   "zh": "你將閃亮的寶石嵌入那枚"
+  },
+  "25106": {
+   "en": "of the golden emblem... %]",
+   "zh": "金色徽記中央的爪座……%]"
+  },
+  "25107": {
+   "en": "But nothing happens...",
+   "zh": "但什麼也沒發生……"
+  },
+  "25110": {
+   "en": "Passing through the illusionary wall, you",
+   "zh": "穿過幻影之牆時，你"
+  },
+  "25111": {
+   "en": "feel a slight tingle throughout your body...",
+   "zh": "感到全身一陣輕微的麻癢……"
+  },
+  "25115": {
+   "en": "As the tingling subsides, you notice a lingering disorientation...",
+   "zh": "麻癢退去後，你察覺到一絲揮之不去的暈眩……"
+  },
+  "25120": {
+   "en": "Stepping from the stone cubicle, you realize that it is some kind",
+   "zh": "踏出石室，你明白這是某種"
+  },
+  "25121": {
+   "en": "of gateway, but leading to where you know not...",
+   "zh": "傳送門，但通往何處你一無所知……"
+  },
+  "25122": {
+   "en": "@Ahead stands a familiar statue, stern and somber in the quiet of",
+   "zh": "前方立著一尊熟悉的雕像，在靜謐的"
+  },
+  "25123": {
+   "en": "the mysterious courtyard...",
+   "zh": "神秘庭院中更顯肅穆……"
+  },
+  "25125": {
+   "en": "Standing at the statue, it appears more at ease than before...",
+   "zh": "站在雕像前，它看來比先前更為安適……"
+  },
+  "25126": {
+   "en": "@The stone looks fresh, as if it were carved only yesterday,",
+   "zh": "石面看來嶄新，彷彿昨日才剛刻成，"
+  },
+  "25127": {
+   "en": "although a thick layer of rust around its base suggests",
+   "zh": "但基座四周厚厚的鏽層卻顯示"
+  },
+  "25128": {
+   "en": "it has been here a long time...",
+   "zh": "它已在此許久……"
+  },
+  "25129": {
+   "en": "@Gazing up into the face of the majestic figure, you detect",
+   "zh": "仰望那威嚴的面孔，你察覺"
+  },
+  "25130": {
+   "en": "a faint smile and its eyes seem to almost twinkle...",
+   "zh": "一抹淺笑，雙眼幾乎閃動著微光……"
+  },
+  "25135": {
+   "en": "Scraping off the thick rust, you unearth a metal plate at",
+   "zh": "刮除厚鏽後，你在"
+  },
+  "25136": {
+   "en": "the foot of the statue engraved as follows:",
+   "zh": "雕像腳下掘出一塊金屬板，上頭刻著："
+  },
+  "25137": {
+   "en": "@#!T H E",
+   "zh": "T H E"
+  },
+  "25138": {
+   "en": "!P R O P H E T",
+   "zh": "P R O P H E T"
+  },
+  "25140": {
+   "en": "While cleaning the plate you discover that",
+   "zh": "清理板面時，你發現"
+  },
+  "25141": {
+   "en": "the second \"P\" in the engraving pivots at the top...",
+   "zh": "刻文裡的第二個P會從頂端轉動……"
+  },
+  "25142": {
+   "en": "@Beneath it you find a glowing sapphire locket, apparently placed",
+   "zh": "在它下方你發現一只發光的藍寶石小盒，顯然是"
+  },
+  "25143": {
+   "en": "here a long time ago...",
+   "zh": "很久以前安放於此……"
+  },
+  "25150": {
+   "en": "Removing the locket from its ancient cache, you jump with surprise",
+   "zh": "將小盒從古老的藏處取出，你驚得跳起，"
+  },
+  "25151": {
+   "en": "as a voice speaks from the statue's mouth...",
+   "zh": "一個聲音從雕像口中響起……"
+  },
+  "25160": {
+   "en": "WELCOME MY LOST CHILDREN... &%]",
+   "zh": "歡迎，我迷失的孩子們……&%]"
+  },
+  "25161": {
+   "en": "THE DAY IS COME! &%]",
+   "zh": "時辰已至！&%]"
+  },
+  "25162": {
+   "en": "I DO NOT KNOW HOW MANY CENTURIES HAVE PASSED SINCE LAST I BREATHED",
+   "zh": "不知已過多少世紀，自我上次呼吸"
+  },
+  "25163": {
+   "en": "THESE AIRS AND WALKED THESE LANDS... &%]",
+   "zh": "這些空氣、行走這些土地以來……&%]"
+  },
+  "25164": {
+   "en": "BUT IN DEATH DOES TIME LOSE ALL MEANING... &%]",
+   "zh": "但在死亡中，時間失去所有意義……&%]"
+  },
+  "25165": {
+   "en": "AND SO IT IS BUT A MOMENT AGO THAT I LAY DOWN TO FINAL REST... &%]",
+   "zh": "所以我躺下長眠，恍如片刻之前……&%]"
+  },
+  "25166": {
+   "en": "THERE IS MUCH I WISH TO TELL YOU, THE STORY OF ALL STORIES... &%]",
+   "zh": "我有許多話想告訴你們，那是故事中的故事……&%]"
+  },
+  "25167": {
+   "en": "OF LIFE AND DEATH, AND OF THE TIME BETWEEN... &%]",
+   "zh": "關於生與死，以及生死之間的時光……&%]"
+  },
+  "25168": {
+   "en": "BUT SOON ENOUGH SHALL MY VOICE FADE AGAIN, ITS ENERGY DEPLETED, ITS",
+   "zh": "但我的聲音很快就將再度消逝，能量耗盡，"
+  },
+  "25169": {
+   "en": "TASK AT END... &%]",
+   "zh": "任務終了……&%]"
+  },
+  "25170": {
+   "en": "IN YOUR HANDS YOU HOLD THE LOCKET, A PART OF THE FINAL KEY... &%]",
+   "zh": "你們手中握著的小盒，是最終之鑰的一部分……&%]"
+  },
+  "25171": {
+   "en": "CARRY IT WELL, FOR IT IS A GUARDIAN OF MY SECRET... &%]",
+   "zh": "好好保管它，它是我的秘密的守護者……&%]"
+  },
+  "25172": {
+   "en": "WITHIN ITS CRYSTAL CELLS HAVE I IMPRINTED THE CODE OF MY PALM... &%]",
+   "zh": "我已將掌紋之碼印入它的晶體單元中……&%]"
+  },
+  "25173": {
+   "en": "SO THAT BY MY HAND ALONE SHALL THE KEY UNLOCK THE ASTRAL TOMB... &%]",
+   "zh": "唯有我之手能以鑰開啟星界之墓……&%]"
+  },
+  "25174": {
+   "en": "BUT THOUGH I BE DEAD A THOUSAND MILLENIA, THIS CAST DOES YET LIVE",
+   "zh": "然而縱使我已死去千萬年，這掌印之模仍活"
+  },
+  "25175": {
+   "en": "ON... &%]",
+   "zh": "著……&%]"
+  },
+  "25176": {
+   "en": "FOR UPON ALL MY DESCENDANTS AND THEIRS, FOR THE REMAINDER OF ALL TIME,",
+   "zh": "因為在我所有子孫及其後裔手上，直到時間的盡頭，"
+  },
+  "25177": {
+   "en": "SHALL MY CODE EXIST UPON THEIR HANDS, THE SECRET BEQUEATHED THROUGH",
+   "zh": "我的密碼都將留存，秘密透過"
+  },
+  "25178": {
+   "en": "THE BLOOD OF MY CHILDREN... &%]",
+   "zh": "我子女的血脈代代相傳……&%]"
+  },
+  "25179": {
+   "en": "I DO NOT KNOW YOUR NAME, WHETHER YOU BE MAN OR WOMAN OR CHILD... &%]",
+   "zh": "我不知你的姓名，不知你是男是女還是孩子……&%]"
+  },
+  "25180": {
+   "en": "BUT IF YOUR BLOOD BE MINE, THEN THE SECRET SHALL BE THINE... &%]",
+   "zh": "但若你流著我的血，秘密便屬於你……&%]"
+  },
+  "25181": {
+   "en": "WHEN YOU STAND ALONE WITHIN THE ASTRAL TOMB, GRASP THE",
+   "zh": "當你獨自站在星界之墓中，雙手握住"
+  },
+  "25182": {
+   "en": "LOCKET WITHIN YOUR PALMS... &%]",
+   "zh": "那小盒於掌心……&%]"
+  },
+  "25183": {
+   "en": "AND BEHOLD THE MIRACLE! &%]",
+   "zh": "並見證那奇蹟！&%]"
+  },
+  "25184": {
+   "en": "O, WOULD THAT I COULD SEE THE WONDERS OF MY WORKS! &%]",
+   "zh": "啊，但願我能親見我傑作中的奇觀！&%]"
+  },
+  "25185": {
+   "en": "MY BLESSINGS BE UPON YOU, DISTANT CHILD OF MY LOINS... &%]",
+   "zh": "我的祝福與你同在，我血脈遙遠的後裔……&%]"
+  },
+  "25186": {
+   "en": "UPON YOUR BROW DO I HEAVE THE WEIGHT OF A UNIVERSE! &%]",
+   "zh": "我將一個宇宙的重量加諸你的額頭！&%]"
+  },
+  "25187": {
+   "en": "...Then the statue becomes silent and still, the twinkle fading from",
+   "zh": "……然後雕像歸於沉默靜止，微光自"
+  },
+  "25188": {
+   "en": "its eyes...",
+   "zh": "眼中消逝……"
+  },
+  "25190": {
+   "en": "Inside the magic cubicle, you behold a sparkling jewel mounted",
+   "zh": "在魔法小室內，你見到一枚鑲嵌"
+  },
+  "25191": {
+   "en": "within a familiar golden emblem...",
+   "zh": "在熟悉金徽中的閃亮寶石……"
+  },
+  "25200": {
+   "en": "Ahead lies a dense white fog, and through it can be heard the sounds",
+   "zh": "前方是濃密的白霧，霧中傳來"
+  },
+  "25201": {
+   "en": "of the sea crashing against the shore...",
+   "zh": "海浪拍岸的聲響……"
+  },
+  "25202": {
+   "en": "@Or possibly just a rocky reef...",
+   "zh": "或者只是礁石群而已……"
+  },
+  "25210": {
+   "en": "The ship glances off a shallow reef, heaving everyone to the deck!",
+   "zh": "船擦過淺礁，把眾人全拋向甲板！"
+  },
+  "25215": {
+   "en": "The sea butts up against the barren cliffs of the Dragon Mountains,",
+   "zh": "海水撞上龍之山脈的荒涼峭壁，"
+  },
+  "25216": {
+   "en": "a treacherous cove with no safe harbour...",
+   "zh": "是個險惡的小灣，沒有安全的港口……"
+  },
+  "25220": {
+   "en": "In the darkness you can see the light of a distant lantern, but",
+   "zh": "黑暗中你看見遠處燈火的光，但"
+  },
+  "25221": {
+   "en": "whether to warn sailors of deadly reefs or to lure them in upon",
+   "zh": "它是為了警告水手致命暗礁，還是要引誘"
+  },
+  "25222": {
+   "en": "them you cannot tell...",
+   "zh": "他們撞上，難以分辨……"
+  },
+  "25225": {
+   "en": "Near the shining light you see that it isn't a lantern at all, but",
+   "zh": "靠近那亮光，你發現那根本不是燈籠，"
+  },
+  "25226": {
+   "en": "a hunk of glowing phosphor embedded into the face of the cliff...",
+   "zh": "而是嵌在崖壁上的一大塊發光磷石……"
+  },
+  "25227": {
+   "en": "@Invisible by day, the phosphor radiates brightly in the dark of the",
+   "zh": "白晝隱形無蹤，磷石在午夜黑暗的"
+  },
+  "25228": {
+   "en": "midnight sky...",
+   "zh": "天空中燦亮……"
+  },
+  "25230": {
+   "en": "Taking the Serpentine Staff and holding it high in front of the",
+   "zh": "取出蛇紋權杖，高舉在"
+  },
+  "25231": {
+   "en": "glowing rock, you discover that the phosphor chunk is not here by act",
+   "zh": "發光岩石前，你發現這塊磷石並非天然"
+  },
+  "25232": {
+   "en": "of nature, but by design...",
+   "zh": "而是人為設計……"
+  },
+  "25235": {
+   "en": "The side of the cliff retracts and opens the pass to an underground",
+   "zh": "崖壁向內縮退，開啟通往地下"
+  },
+  "25236": {
+   "en": "cove...",
+   "zh": "海灣……"
+  },
+  "25238": {
+   "en": "After waving the Serpentine Staff for awhile, you feel a bit silly...",
+   "zh": "揮舞蛇紋權杖一陣子後，你覺得自己有點蠢……"
+  },
+  "25240": {
+   "en": "In the murky waters ahead you hear a faint eerie cry... &~9",
+   "zh": "前方渾濁的水域傳來微弱詭異的哭聲……&~9"
+  },
+  "25245": {
+   "en": "Drawing nearer, you discern the figure of a woman",
+   "zh": "再靠近些，你辨認出一個女子的身影"
+  },
+  "25246": {
+   "en": "bathing in the cove...",
+   "zh": "在海灣裡沐浴……"
+  },
+  "25250": {
+   "en": "Softly she sings her haunting chant, against the sound of the rushing",
+   "zh": "她輕柔唱著勾人心魂的歌謠，應和著"
+  },
+  "25251": {
+   "en": "waves...",
+   "zh": "浪聲……"
+  },
+  "25255": {
+   "en": "Enticing and beautiful, no one notices you drifting in until...",
+   "zh": "她如此誘人美麗，沒有人注意到你漂近，直到……"
+  },
+  "25260": {
+   "en": "BROMBADEG HAS RISEN!",
+   "zh": "布羅姆巴德格復活了！"
+  },
   "25265": {
    "en": "In the blood-filled waters the leviathan carcass slips back to the",
    "zh": "在染血的海水中，巨獸的屍身緩緩沉回"
@@ -27955,6 +28387,2606 @@
   "25268": {
    "en": "too is how it should be...",
    "zh": "這正是它最好的歸宿……"
+  },
+  "25269": {
+   "en": "@After all, real myths are hard to come by...",
+   "zh": "畢竟，真正的神話可遇不可求……"
+  },
+  "25280": {
+   "en": "Deep in the dragon's lair you discover the bones of an",
+   "zh": "在巨龍巢穴深處，你發現一場"
+  },
+  "25281": {
+   "en": "ill-fated venture, a grisly skeleton crew...",
+   "zh": "厄運遠征的遺骸，一批駭人的骷髏船員……"
+  },
+  "25282": {
+   "en": "@Spying the great chest at the rear of the cavern, you wonder if",
+   "zh": "瞥見洞穴後方的大寶箱，你不禁懷疑"
+  },
+  "25283": {
+   "en": "this could have been a band of pirates, burying their treasure,",
+   "zh": "這是否曾是一夥海盜，在此埋藏寶藏，"
+  },
+  "25284": {
+   "en": "little suspecting that their secret hideaway was already occupied",
+   "zh": "萬萬沒想到他們的秘藏地早已被"
+  },
+  "25285": {
+   "en": "by a fire-breathing tenant...",
+   "zh": "一位會噴火的房客佔據……"
+  },
+  "25286": {
+   "en": "@You consider momentarily the tales of dying pirates who curse",
+   "zh": "你一時想起那些臨死海盜以"
+  },
+  "25287": {
+   "en": "their booty with a last gasping breath...",
+   "zh": "最後一口氣詛咒贓物的傳說……"
+  },
+  "25288": {
+   "en": "@But then think better, as such stories are usually the kinds of tales",
+   "zh": "但隨即打消念頭，這類故事通常只是"
+  },
+  "25289": {
+   "en": "meant for children and midnight campfires...",
+   "zh": "講給孩子聽、營火夜話的題材……"
+  },
+  "25290": {
+   "en": "@These bones look harmless enough...",
+   "zh": "這些骨頭看來毫無殺傷力……"
+  },
+  "25291": {
+   "en": "@Just to be sure, however, you take a casual stroll around the cavern",
+   "zh": "不過保險起見，你還是在洞穴裡四下隨意走走"
+  },
+  "25292": {
+   "en": "stepping on any pirate skulls that happen to be",
+   "zh": "踩過四散在地的"
+  },
+  "25293": {
+   "en": "lying about, crushing them beneath the",
+   "zh": "海盜頭骨，讓它們在"
+  },
+  "25294": {
+   "en": "grating heel of your boot...",
+   "zh": "靴底下碾得粉碎……"
+  },
+  "25295": {
+   "en": "@There, that should take care of any old pirate's curse...",
+   "zh": "這麼一來，任何老海盜的詛咒都該沒事了……"
+  },
+  "25300": {
+   "en": "Though the stories of a dragon's fancy for treasure are legend, you",
+   "zh": "雖然巨龍嗜財的故事只是傳說，你"
+  },
+  "25301": {
+   "en": "discover there is apparent truth in the tale...",
+   "zh": "卻發現這故事顯然有幾分真實……"
+  },
+  "25302": {
+   "en": "@Weighty chests appear to litter the cavern, all hoarded",
+   "zh": "沉重的寶箱散落洞穴各處，全被"
+  },
+  "25303": {
+   "en": "together for you by some tightwaded hot-breath lizard...",
+   "zh": "某隻小氣的噴火蜥蜴替你堆在一塊……"
+  },
+  "25305": {
+   "en": "Oh oh... %]",
+   "zh": "糟了……%]"
+  },
+  "25306": {
+   "en": "Looks like the tightwad has come home!",
+   "zh": "看來這個小氣鬼回家了！"
+  },
+  "25310": {
+   "en": "What a curious thing to find here...",
+   "zh": "在這裡發現這東西，真是奇特……"
+  },
+  "25315": {
+   "en": "~\u0005!CAVE-IN!!!",
+   "zh": "~\u0005坍方！！！"
+  },
+  "25350": {
+   "en": "Emerging from the dark caves, you are shocked to discover an entire",
+   "zh": "走出陰暗洞穴，你驚訝地發現竟有一整座"
+  },
+  "25351": {
+   "en": "city built upon the mountain plateau...",
+   "zh": "城市建在山間高原上……"
+  },
+  "25352": {
+   "en": "@But it is no ordinary city...",
+   "zh": "但這不是普通的城市……"
+  },
+  "25353": {
+   "en": "@Like a palace made from sparkling jewels, there is an enigmatic",
+   "zh": "它像寶石砌成的宮殿，泛著一股謎樣"
+  },
+  "25354": {
+   "en": "glimmer which mirrors the light as if reflecting from a thousand",
+   "zh": "微光流轉，彷彿映照自千顆驕陽"
+  },
+  "25355": {
+   "en": "suns...",
+   "zh": "……"
+  },
+  "25356": {
+   "en": "@And in the air, scarlet angels zip to and fro upon chariots of steel",
+   "zh": "空中，猩紅天使駕著鋼鐵與烈火的戰車"
+  },
+  "25357": {
+   "en": "and fire...",
+   "zh": "穿梭……"
+  },
+  "25358": {
+   "en": "@At your feet lies a glistening plaque...",
+   "zh": "你腳邊躺著一塊閃亮的銘匾……"
+  },
+  "25359": {
+   "en": "@#!The",
+   "zh": "天空"
+  },
+  "25360": {
+   "en": "!CITY Of SKY",
+   "zh": "之城"
+  },
+  "25370": {
+   "en": "Approaching the odd construction of floating sky, it finally becomes",
+   "zh": "走近這片懸浮天際的奇異構造，你終於"
+  },
+  "25371": {
+   "en": "apparent that the structure is composed of a thick resilient",
+   "zh": "看清這座建築由某種厚重而有韌性"
+  },
+  "25372": {
+   "en": "transparent material, like glass though flexible and supple,",
+   "zh": "的透明材質構成，像玻璃般柔軟，"
+  },
+  "25373": {
+   "en": "and yet tough as steel...",
+   "zh": "卻又堅固如鋼……"
+  },
+  "25380": {
+   "en": "Peering from outside a glass encased alcove, you see a luminescent",
+   "zh": "從玻璃罩的凹室外側窺看，你看見一件"
+  },
+  "25381": {
+   "en": "object floating above a small dais...",
+   "zh": "發光的物體浮在小台座上……"
+  },
+  "25391": {
+   "en": " TOUCH THE GLOWING KEY ",
+   "zh": " 觸摸發光的鑰匙 "
+  },
+  "25392": {
+   "en": " TAKE THE GLOWING KEY ",
+   "zh": " 拿取發光的鑰匙 "
+  },
+  "25393": {
+   "en": " LEAVE THE KEY ALONE ",
+   "zh": " 別碰這把鑰匙 "
+  },
+  "25395": {
+   "en": "Entering the gazebo, you view a radiant key...",
+   "zh": "走進涼亭，你看見一把耀眼的鑰匙……"
+  },
+  "25400": {
+   "en": "Cautiously you touch the key...",
+   "zh": "你小心翼翼地觸摸鑰匙……"
+  },
+  "25401": {
+   "en": "@It feels soft and fuzzy, but it is not hot and does not hurt...",
+   "zh": "摸起來柔軟毛絨，不燙也不痛……"
+  },
+  "25405": {
+   "en": "Carefully you take hold of the luminescent key, and are relieved",
+   "zh": "你小心翼翼握住發光鑰匙，慶幸"
+  },
+  "25406": {
+   "en": "to find that your hand did not fall off...",
+   "zh": "自己的手沒有掉下來……"
+  },
+  "25410": {
+   "en": "#!STORAGE",
+   "zh": "儲存"
+  },
+  "25411": {
+   "en": "!FACILITY",
+   "zh": "設施"
+  },
+  "25415": {
+   "en": "The storage facility appears vacant...",
+   "zh": "儲存設施裡似乎空無一物……"
+  },
+  "25420": {
+   "en": "An metal box-like machine stands quietly in the back of the room,",
+   "zh": "房間後方靜靜立著一台箱形金屬機器，"
+  },
+  "25421": {
+   "en": "appearing abandoned and forgotten...",
+   "zh": "一副遭人遺棄遺忘的模樣……"
+  },
+  "25422": {
+   "en": "@#!POWERCELL",
+   "zh": "動力電池"
+  },
+  "25423": {
+   "en": "!DISPENSARY",
+   "zh": "配給機"
+  },
+  "25424": {
+   "en": "@#!DEPOSIT",
+   "zh": "投入"
+  },
+  "25425": {
+   "en": "!1 CREDIT",
+   "zh": "一信用點"
+  },
+  "25426": {
+   "en": "@There is a thin slot directly underneath the sign, and a square",
+   "zh": "告示牌正下方有道細縫，底部還有"
+  },
+  "25427": {
+   "en": "orafice at the bottom...",
+   "zh": "一個方形開口……"
+  },
+  "25435": {
+   "en": "Inserting the credit into the slot, it takes but a",
+   "zh": "把信用點插入細縫，只過了"
+  },
+  "25436": {
+   "en": "moment for it to whirr, click, and gizzle before spitting out a small",
+   "zh": "一瞬，機器便嗡嗡、喀噠、嘶嘶作響，"
+  },
+  "25437": {
+   "en": "package through the opening at the bottom...",
+   "zh": "再從底部開口吐出一個小包裹……"
+  },
+  "25440": {
+   "en": "#!THE HALL OF",
+   "zh": "保存"
+  },
+  "25441": {
+   "en": "!PRESERVATION",
+   "zh": "殿"
+  },
+  "25442": {
+   "en": "@#!DEPOSIT",
+   "zh": "投入"
+  },
+  "25443": {
+   "en": "!1 CREDIT",
+   "zh": "一信用點"
+  },
+  "25444": {
+   "en": "@Beneath the sign is a thin narrow slot...",
+   "zh": "告示牌下方是一道狹窄的細縫……"
+  },
+  "25450": {
+   "en": "You insert the credit into the slot beneath the sign...",
+   "zh": "你將信用點投入告示牌下的細縫……"
+  },
+  "25455": {
+   "en": "The interior of the Hall of Preservation is spacious and empty, except",
+   "zh": "保存殿內部寬敞空曠，只有幾處壁龕"
+  },
+  "25456": {
+   "en": "for several alcoves which emit a shimmering aura...",
+   "zh": "散發著閃爍的光暈……"
+  },
+  "25470": {
+   "en": "Peering into the radiant chamber, a black handle emitting a beam",
+   "zh": "窺看光輝燦爛的展示室，一把散發幽光"
+  },
+  "25471": {
+   "en": "of spectral light lies poised upon a pedestal...",
+   "zh": "的黑色握柄靜置在台座上……"
+  },
+  "25472": {
+   "en": "@#!MERCURIAN",
+   "zh": "墨丘利"
+  },
+  "25473": {
+   "en": "!LIGHT SWORD",
+   "zh": "光劍"
+  },
+  "25480": {
+   "en": "Peering into the radiant chamber, a brilliant shield",
+   "zh": "窺看光輝燦爛的展示室，一面散發幽光"
+  },
+  "25481": {
+   "en": "emitting spectral light lies poised upon a pedestal...",
+   "zh": "的華美盾牌靜置在台座上……"
+  },
+  "25482": {
+   "en": "@#!MERCURIAN",
+   "zh": "墨丘利"
+  },
+  "25483": {
+   "en": "!LIGHT SHIELD",
+   "zh": "光盾"
+  },
+  "25485": {
+   "en": "Peering into the radiant chamber, a shimmering glove",
+   "zh": "窺看光輝燦爛的展示室，一隻閃爍"
+  },
+  "25486": {
+   "en": "of sparkling energy lies poised upon a pedestal...",
+   "zh": "著耀眼能量的手套靜置在台座上……"
+  },
+  "25487": {
+   "en": "@#!COBALTINE",
+   "zh": "鈷藍"
+  },
+  "25488": {
+   "en": "!POWER GLOVE",
+   "zh": "動力手套"
+  },
+  "25490": {
+   "en": "Peering into the radiant chamber, a pair of strange pistols",
+   "zh": "窺看光輝燦爛的展示室，一對造型奇特的"
+  },
+  "25491": {
+   "en": "lie poised upon a pedestal...",
+   "zh": "手槍靜置在台座上……"
+  },
+  "25492": {
+   "en": "@#!FRONTIERSMAN",
+   "zh": "拓荒者"
+  },
+  "25493": {
+   "en": "!PHASER PISTOLS",
+   "zh": "相位手槍"
+  },
+  "25495": {
+   "en": "A small ringlet encircles a hole upon the side of the alcove,",
+   "zh": "壁龕側邊有個小環圈圍著的孔，"
+  },
+  "25496": {
+   "en": "perhaps connected to the protective barrier which guards",
+   "zh": "也許連著那道守護展示品的"
+  },
+  "25497": {
+   "en": "the display...",
+   "zh": "屏障……"
+  },
+  "25500": {
+   "en": "Inserting the luminescent key into the ringlet hole, the",
+   "zh": "將發光鑰匙插入環孔中，那道透明的"
+  },
+  "25501": {
+   "en": "transparent barrier whisks away!",
+   "zh": "屏障倏地消失了！"
+  },
+  "25505": {
+   "en": "Using the hard diamond jewel of the ring as a cutting tool,",
+   "zh": "你用戒指上堅硬的鑽石充當切割工具，"
+  },
+  "25506": {
+   "en": "you painstakingly begin slicing through the glassine barrier...",
+   "zh": "開始一寸寸辛苦切開那道玻璃屏障……"
+  },
+  "25507": {
+   "en": "@Unfortunately, in cutting the glass-like material, the diamond",
+   "zh": "可惜在切割玻璃材質的過程中，鑽石"
+  },
+  "25508": {
+   "en": "erodes...",
+   "zh": "磨損……"
+  },
+  "25509": {
+   "en": "@Conserving the cutting jewel as much as possible, you are able to",
+   "zh": "你盡量節省切割的寶石，趕在鑽石"
+  },
+  "25510": {
+   "en": "carve an opening into the glass before the diamond completely",
+   "zh": "完全報銷之前，及時在玻璃上刻出了"
+  },
+  "25511": {
+   "en": "wears away...",
+   "zh": "一道開口……"
+  },
+  "25512": {
+   "en": "@Reaching into the chamber, you fetch your prize!",
+   "zh": "伸手探入展示室，你取回了戰利品！"
+  },
+  "25515": {
+   "en": "Stepping into the chamber, you claim your prize!",
+   "zh": "踏進展示室，你收下了戰利品！"
+  },
+  "25525": {
+   "en": "Inside the chamber hangs the picture of a magnificent city,",
+   "zh": "展示室內掛著一幅畫，畫中一座壯麗的"
+  },
+  "25526": {
+   "en": "bright and glistening as if made of jewels...",
+   "zh": "城市，明亮耀眼，彷彿寶石打造……"
+  },
+  "25530": {
+   "en": "Inside the chamber hangs the picture of a man dressed in",
+   "zh": "展示室內掛著一幅畫，一名男子身穿"
+  },
+  "25531": {
+   "en": "bright colored robes, standing with several Helazoid women",
+   "zh": "鮮豔的長袍，與幾名赫詹族女子和一架"
+  },
+  "25532": {
+   "en": "and a rocket sled...",
+   "zh": "火箭雪橇同立……"
+  },
+  "25535": {
+   "en": "Inside the chamber hangs the picture of machines dotted with",
+   "zh": "展示室內掛著一幅畫，畫中的機器綴滿"
+  },
+  "25536": {
+   "en": "multi-colored lights, and several odd statue-like creatures,",
+   "zh": "五顏六色的燈光，還有幾隻拋光鋼鐵"
+  },
+  "25537": {
+   "en": "made of polished steel...",
+   "zh": "打造的雕像般怪異生物……"
+  },
+  "25540": {
+   "en": "Inside the chamber, hanges the picture of several men dressed",
+   "zh": "展示室內掛著一幅畫，幾名男子身穿"
+  },
+  "25541": {
+   "en": "in bright colored robes...",
+   "zh": "鮮豔的長袍……"
+  },
+  "25542": {
+   "en": "@Among the group stands a familiar figure with a long white beard,",
+   "zh": "人群中站著一個熟悉的身影，留著"
+  },
+  "25543": {
+   "en": "a slight smile upon his lips and a twinkle in his eye...",
+   "zh": "白色長鬚，唇邊掛著淺笑，眼中閃著光芒……"
+  },
+  "25545": {
+   "en": "Inside the chamber hangs the picture of a mammoth starship,",
+   "zh": "展示室內掛著一幅畫，一艘龐大的"
+  },
+  "25546": {
+   "en": "as large as a thousand men stretched arm to arm,",
+   "zh": "星艦，大如千人手挽著手排開，是"
+  },
+  "25547": {
+   "en": "a city-ship of steel which sails the sky...",
+   "zh": "一艘航行天際的鋼鐵城市艦……"
+  },
+  "25555": {
+   "en": "Inside the chamber, you gaze upon the picture of something",
+   "zh": "展示室內，你凝視著畫中的某種事物，"
+  },
+  "25556": {
+   "en": "unfathomable...",
+   "zh": "深不可測……"
+  },
+  "25557": {
+   "en": "@A circular tube of silver-white lies nestled amongst a million stars",
+   "zh": "一條銀白色的圓管，安臥在百萬星辰"
+  },
+  "25558": {
+   "en": "in a blanket of deep velvet sky...",
+   "zh": "之間，覆著天鵝絨般的深沉夜空……"
+  },
+  "25559": {
+   "en": "@It is an image that is to haunt your dreams for quite some time",
+   "zh": "這幅影像將縈繞你的夢境，久久"
+  },
+  "25560": {
+   "en": "to come...",
+   "zh": "不散……"
+  },
+  "25570": {
+   "en": "An old trunk sits at the back of the room, appearing undisturbed",
+   "zh": "房間後方擺著一只舊皮箱，看來多年"
+  },
+  "25571": {
+   "en": "for many years...",
+   "zh": "未受驚擾……"
+  },
+  "25575": {
+   "en": "Opening the trunk, you discover it full of assorted items...",
+   "zh": "打開皮箱，你發現裡頭裝滿了各式物品……"
+  },
+  "25600": {
+   "en": "Before you lies a stately open aired courtyard...",
+   "zh": "眼前是一座氣派的露天庭院……"
+  },
+  "25601": {
+   "en": "@Positioned about are a number of Helazoid guardians, silent and",
+   "zh": "四周立著數名赫詹族守衛，沉默"
+  },
+  "25602": {
+   "en": "unmoving...",
+   "zh": "不動……"
+  },
+  "25603": {
+   "en": "@In the center of the yard stands a lithe amazonian figure of grand",
+   "zh": "庭院中央立著一位裝束華麗的輕盈女戰士，"
+  },
+  "25604": {
+   "en": "decor, an ornate plume of feathers upon her head, a scarlet cape",
+   "zh": "頭戴華美羽冠，一身猩紅披風"
+  },
+  "25605": {
+   "en": "wisping in the wind behind...",
+   "zh": "在身後隨風飄揚……"
+  },
+  "25608": {
+   "en": "Entering the courtyard, you face the noble valkyrie...",
+   "zh": "踏入庭院，你面對這位高貴的女武神……"
+  },
+  "25610": {
+   "en": "Welcome strangers, to the ancient city of Higardia, City of Sky... &%]",
+   "zh": "陌生人們，歡迎來到古老的城市希加爾迪亞，天空之城……&%]"
+  },
+  "25611": {
+   "en": "Capital and bastion of our world, home of the Helazoid Legion,",
+   "zh": "這是我們世界的首都與堡壘，赫詹軍團的"
+  },
+  "25612": {
+   "en": "Defenders of the Higardi... &%]",
+   "zh": "家園，希加爾迪人的守護者……&%]"
+  },
+  "25613": {
+   "en": "We are the guardians of the secrets of our ancestors, our duty to",
+   "zh": "我們是祖先秘密的守護者，我們的職責"
+  },
+  "25614": {
+   "en": "protect the charges entrusted us by the Great Maker, blessed be his",
+   "zh": "是守護偉大造物主託付之物，願其聖名"
+  },
+  "25615": {
+   "en": "name! &%]",
+   "zh": "受頌！&%]"
+  },
+  "25616": {
+   "en": "Sworn to defend until the day our forefathers return for us... &%]",
+   "zh": "我們立誓守衛，直到先祖歸來迎接我們……&%]"
+  },
+  "25617": {
+   "en": "When we shall fly into the heavens to join them forevermore! &%]",
+   "zh": "屆時我們將飛上天際，與他們永遠同在！&%]"
+  },
+  "25618": {
+   "en": "And at last our long wait is soon to end! &%]",
+   "zh": "而我們漫長的等待，終於快要結束了！&%]"
+  },
+  "25619": {
+   "en": "For the stars have aligned, the signs are clear... &%]",
+   "zh": "群星已然列位，預兆清晰明白……&%]"
+  },
+  "25620": {
+   "en": "The time of the prophecy draws nigh! &%]",
+   "zh": "預言的時刻即將來臨！&%]"
+  },
+  "25621": {
+   "en": "Though we are sworn not to assist those who would complete the",
+   "zh": "雖然我們誓不協助將要完成偉大試煉"
+  },
+  "25622": {
+   "en": "Great Test, we can offer you sanctuary while you are here... &%]",
+   "zh": "之人，但你們在此期間可受我們庇護……&%]"
+  },
+  "25623": {
+   "en": "Others, like yourself, have already come... &%]",
+   "zh": "其他與你們相同的人，早已陸續到來……&%]"
+  },
+  "25624": {
+   "en": "And while we do not know whom the fates shall choose... &%]",
+   "zh": "雖然我們無從知曉命運將擇選何人……&%]"
+  },
+  "25625": {
+   "en": "We are duty-bound not to interfere with the Divine Plan... &%]",
+   "zh": "但我們有職責不干涉神聖計畫……&%]"
+  },
+  "25626": {
+   "en": "I, Ke-Li, Dame Queen of the Helazoid, hail you brave Crusaders! &%]",
+   "zh": "我，柯麗，赫詹族女王，向英勇的十字軍致意！&%]"
+  },
+  "25627": {
+   "en": "Let destiny prevail!",
+   "zh": "願天命得償！"
+  },
+  "25630": {
+   "en": "This banner would not have been granted you without some achievement",
+   "zh": "若非你們有所成就，這面旗幟不會頒授給你們"
+  },
+  "25631": {
+   "en": "of valor and courage... &%]",
+   "zh": "英勇與膽識……&%]"
+  },
+  "25632": {
+   "en": "While I am bound not to assist those who seek the Great Test,",
+   "zh": "雖然我受命不得協助追尋大試煉之人，"
+  },
+  "25633": {
+   "en": "still may I award thee a boon for thy kindred deeds... &%]",
+   "zh": "但仍願因你的善行賜你一份恩惠……&%]"
+  },
+  "25634": {
+   "en": "Take then, this pendant from my neck, that it should benefit you",
+   "zh": "那麼，收下我頸上的這件墜飾，願它能幫助你"
+  },
+  "25635": {
+   "en": "as you have done for us!",
+   "zh": "一如你們曾幫助我們！"
+  },
+  "25640": {
+   "en": "The credits will grant you passage into the Hall of Preservation,",
+   "zh": "這份功績將讓你得以進入保存殿，"
+  },
+  "25641": {
+   "en": "the final legacy of our ancestors...",
+   "zh": "我們祖先最後的遺產……"
+  },
+  "25650": {
+   "en": "Welcome!",
+   "zh": "歡迎！"
+  },
+  "25655": {
+   "en": "Let destiny prevail!",
+   "zh": "讓命運得勝吧！"
+  },
+  "25660": {
+   "en": "\u0001\u0001GREAT TEST/",
+   "zh": "\u0001\u0001大試煉/"
+  },
+  "25670": {
+   "en": "Our ancestors, the Higardi, forefathers of our civilization, departed",
+   "zh": "我們的祖先希加爾迪人，我們文明的先驅，早已"
+  },
+  "25671": {
+   "en": "long ago, all in accordance with the Divine Plan... &%]",
+   "zh": "離開此地，一切皆遵照神聖計畫……&%]"
+  },
+  "25672": {
+   "en": "We await their return, when they shall take us with them into",
+   "zh": "我們等待他們歸來，屆時他們將帶我們登上"
+  },
+  "25673": {
+   "en": "the heavens, to live forevermore! &%]",
+   "zh": "天界，永生不朽！&%]"
+  },
+  "25674": {
+   "en": "We are protectors of their secrets, keepers of the Hall of",
+   "zh": "我們守護著他們的秘密，是保存殿的看守者，"
+  },
+  "25675": {
+   "en": "Preservation, the temple of their legacy!",
+   "zh": "他們遺產的聖殿！"
+  },
+  "25680": {
+   "en": "The Divine Plan, the living prophecy! &%]",
+   "zh": "神聖計畫，活生生的預言！&%]"
+  },
+  "25681": {
+   "en": "All is foretold of the coming of the Crusaders, heralds of our",
+   "zh": "十字軍的到來早已全在預言之中，他們是"
+  },
+  "25682": {
+   "en": "deliverance, reunited with our forefathers, our duty fulfilled,",
+   "zh": "我們得救的先驅；屆時與先祖重聚，職責已了，"
+  },
+  "25683": {
+   "en": "the circle complete... &%]",
+   "zh": "圓環就此圓滿……&%]"
+  },
+  "25684": {
+   "en": "It is the dawn of the return of the Great Maker!",
+   "zh": "此乃偉大造物主歸來的黎明！"
+  },
+  "25690": {
+   "en": "The Great Test shall prove the truth of the Prophecy, for only",
+   "zh": "大試煉將證明預言的真實，因為唯有"
+  },
+  "25691": {
+   "en": "the ordained Crusaders may safely brave its perils without fear! &%]",
+   "zh": "天命所歸的十字軍，能無懼直面其險！&%]"
+  },
+  "25692": {
+   "en": "If you are the ones the fates have chosen, then enter herein the",
+   "zh": "若你們正是命運選中之人，就進入"
+  },
+  "25693": {
+   "en": "Hall of the Crusaders, and let destiny prevail!",
+   "zh": "十字軍殿堂，讓命運得勝吧！"
+  },
+  "25700": {
+   "en": "The Hall of Preservation, the safeguard of the legacy of our",
+   "zh": "保存殿，守護先祖遺產之地，"
+  },
+  "25701": {
+   "en": "forefathers, the Higardi! &%]",
+   "zh": "先祖即是希加爾迪人！&%]"
+  },
+  "25702": {
+   "en": "It is our charge to protect and defend their secrets, until the",
+   "zh": "我們的職責是保護並守衛他們的秘密，直到"
+  },
+  "25703": {
+   "en": "coming of the Crusaders, and the prophecy is fulfilled!",
+   "zh": "十字軍到來、預言實現為止！"
+  },
+  "25750": {
+   "en": "#!HALL OF",
+   "zh": "十字軍"
+  },
+  "25751": {
+   "en": "!THE CRUSADERS",
+   "zh": "殿堂"
+  },
+  "25760": {
+   "en": "Entering the quiet courtyard, you face a familiar figure...",
+   "zh": "走進安靜的庭院，你面前是一個熟悉的身影……"
+  },
+  "25765": {
+   "en": "Standing at the statue, it appears more ominous than before...",
+   "zh": "站在雕像前，它顯得比先前更不祥……"
+  },
+  "25766": {
+   "en": "@The stone looks fresh, as if it were carved only yesterday,",
+   "zh": "石材看似新穎，彷彿昨日方才雕成，"
+  },
+  "25767": {
+   "en": "although a thick layer of rust around its base suggests",
+   "zh": "但基座周圍厚厚的一層鏽，卻顯示"
+  },
+  "25768": {
+   "en": "it has been here a long time...",
+   "zh": "它已在此許久……"
+  },
+  "25769": {
+   "en": "@Gazing up into the face of the majestic figure, you detect",
+   "zh": "抬頭凝視這威嚴身影的面容，你看不出"
+  },
+  "25770": {
+   "en": "no expression upon its face, and its eyes are dull and empty...",
+   "zh": "任何表情，它的雙眼黯淡而空洞……"
+  },
+  "25775": {
+   "en": "Scraping off the thick rust, you unearth a metal plate at",
+   "zh": "刮除厚鏽後，你在雕像腳下"
+  },
+  "25776": {
+   "en": "the foot of the statue engraved as follows:",
+   "zh": "挖出一塊金屬板，上頭刻著："
+  },
+  "25777": {
+   "en": "@#!THE",
+   "zh": "第一"
+  },
+  "25778": {
+   "en": "!FIRST TEST %]",
+   "zh": "試煉%]"
+  },
+  "25779": {
+   "en": "As if by magic, a voice booms out of the mouth of the statue...",
+   "zh": "彷彿魔法一般，一個聲音從雕像口中轟然響起……"
+  },
+  "25782": {
+   "en": "I AM THE CREATOR, THE BUILDER, THE FATHER, THE PROPHET,",
+   "zh": "吾乃創造者、建造者、父親、先知、"
+  },
+  "25783": {
+   "en": "THE MAKER... &%]",
+   "zh": "造物主……&%]"
+  },
+  "25784": {
+   "en": "MANY NAMES HAVE I... &%]",
+   "zh": "吾有諸多名號……&%]"
+  },
+  "25785": {
+   "en": "BUT ONLY ONE MAY YE SPEAK... &%]",
+   "zh": "但唯有一個名字你能說……&%]"
+  },
+  "25786": {
+   "en": "ONLY ONE SHALL I RECOGNIZE...",
+   "zh": "唯有一個名字我會承認……"
+  },
+  "25790": {
+   "en": "\u0005PHOONZANG/",
+   "zh": "\u0005豐贊/"
+  },
+  "25792": {
+   "en": "What name do you utter?",
+   "zh": "你道出何名？"
+  },
+  "25795": {
+   "en": "The statue stands silent, unmoving, lifeless and dead...",
+   "zh": "雕像沉默佇立，不動、無生氣、死寂……"
+  },
+  "25800": {
+   "en": "The eyes of the statue soften slightly, then glow, and the familiar",
+   "zh": "雕像的雙眼稍稍柔和，隨即發出光芒，那熟悉的"
+  },
+  "25801": {
+   "en": "radiance of the figure returns, its eyes twinkling once more...",
+   "zh": "光輝回到了身影上，雙眼再次閃爍……"
+  },
+  "25805": {
+   "en": "Entering the next courtyard, you face yet another likeness...",
+   "zh": "走進下一座庭院，眼前又是一尊肖像……"
+  },
+  "25810": {
+   "en": "Standing at the statue, it appears more doubtful than before...",
+   "zh": "站在雕像前，它顯得比先前更疑惑……"
+  },
+  "25811": {
+   "en": "@The stone looks fresh, as if it were carved only yesterday,",
+   "zh": "石材看似新穎，彷彿昨日方才雕成，"
+  },
+  "25812": {
+   "en": "although a thick layer of rust around its base suggests",
+   "zh": "但基座周圍厚厚的一層鏽，卻顯示"
+  },
+  "25813": {
+   "en": "it has been here a long time...",
+   "zh": "它已在此許久……"
+  },
+  "25814": {
+   "en": "@Gazing up into the face of the majestic figure, you detect",
+   "zh": "抬頭凝視這威嚴身影的面容，你看見"
+  },
+  "25815": {
+   "en": "no expression upon its face, and its eyes are dull and empty...",
+   "zh": "一抹淺淺的微笑，雙眼似乎閃爍生輝……"
+  },
+  "25820": {
+   "en": "Scraping off the thick rust, you unearth a metal plate at",
+   "zh": "刮除厚鏽後，你在雕像腳下"
+  },
+  "25821": {
+   "en": "the foot of the statue...",
+   "zh": "挖出一塊金屬板……"
+  },
+  "25825": {
+   "en": "CRYPTIC RUNES",
+   "zh": "神秘符文"
+  },
+  "25827": {
+   "en": " SERPENT ",
+   "zh": " 蛇 "
+  },
+  "25828": {
+   "en": " GATE ",
+   "zh": " 門 "
+  },
+  "25829": {
+   "en": " WAND ",
+   "zh": " 權杖 "
+  },
+  "25830": {
+   "en": " PYRAMID ",
+   "zh": " 金字塔 "
+  },
+  "25831": {
+   "en": " STAR ",
+   "zh": " 星 "
+  },
+  "25832": {
+   "en": " DRAGON ",
+   "zh": " 龍 "
+  },
+  "25833": {
+   "en": " CROSS ",
+   "zh": " 十字 "
+  },
+  "25834": {
+   "en": " SKULL ",
+   "zh": " 骷髏 "
+  },
+  "25835": {
+   "en": " MAP ",
+   "zh": " 地圖 "
+  },
+  "25840": {
+   "en": "Upon a metal plate at the foot of the statue are a number of buttons,",
+   "zh": "雕像腳下的金屬板上有許多按鈕，"
+  },
+  "25841": {
+   "en": "each with a rune inscribed thereon...",
+   "zh": "每個都刻著一枚符文……"
+  },
+  "25850": {
+   "en": "Once more you enter a courtyard to face a bearded statue... %]",
+   "zh": "你再度走進庭院，面對一座蓄鬍的雕像……%]"
+  },
+  "25851": {
+   "en": "This time, however, you sense a movement from within the shadows...",
+   "zh": "然而這次，你察覺陰影中有東西在移動……"
+  },
+  "25855": {
+   "en": "Only the gods could comprehend what manner of beast be this...",
+   "zh": "唯有諸神才能理解這是何等怪物……"
+  },
+  "25856": {
+   "en": "@Gargantuan metal and exploding fires, never was such an unholy fiend",
+   "zh": "龐然金屬與爆裂火光，即便是萬惡的地獄也從未"
+  },
+  "25857": {
+   "en": "conceived in all the maleficent hells...",
+   "zh": "孕育過這樣的邪魔……"
+  },
+  "25858": {
+   "en": "@Still stunned with disbelief, you pray they don't come in pairs...",
+   "zh": "仍驚愕不已的你，祈禱它們不會成對出現……"
+  },
+  "25860": {
+   "en": "Standing at the statue, it appears more peaceful than before...",
+   "zh": "站在雕像前，它顯得比先前更安詳……"
+  },
+  "25861": {
+   "en": "@The stone looks fresh, as if it were carved only yesterday,",
+   "zh": "石材看似新穎，彷彿昨日方才雕成，"
+  },
+  "25862": {
+   "en": "although a thick layer of rust around its base suggests",
+   "zh": "但基座周圍厚厚的一層鏽，卻顯示"
+  },
+  "25863": {
+   "en": "it has been here a long time...",
+   "zh": "它已在此許久……"
+  },
+  "25864": {
+   "en": "@Gazing up into the face of the majestic figure, you detect",
+   "zh": "抬頭凝視這威嚴身影的面容，你看見"
+  },
+  "25865": {
+   "en": "a faint smile, and its eyes seem to sparkle and twinkle...",
+   "zh": "一抹淺淺的微笑，雙眼似乎閃爍生輝……"
+  },
+  "25870": {
+   "en": "Scraping off the thick rust, you unearth a metal plate at",
+   "zh": "刮除厚鏽後，你在雕像腳下"
+  },
+  "25871": {
+   "en": "the foot of the statue engraved as follows:",
+   "zh": "挖出一塊金屬板，上頭刻著："
+  },
+  "25872": {
+   "en": "@#!THE",
+   "zh": "最後"
+  },
+  "25873": {
+   "en": "!LAST TEST %]",
+   "zh": "試煉%]"
+  },
+  "25874": {
+   "en": "Suddenly a voice emerges from the statue...",
+   "zh": "突然，一個聲音從雕像中傳出……"
+  },
+  "25880": {
+   "en": "HAIL MIGHTY CRUSADERS! &%]",
+   "zh": "向強大的十字軍致敬！&%]"
+  },
+  "25881": {
+   "en": "THESE TRIALS HAVE PROVEN THY COURAGE AND WISDOM... &%]",
+   "zh": "這些試煉已證明你們的勇氣與智慧……&%]"
+  },
+  "25882": {
+   "en": "SOON SHALL YOU FACE THE FINAL TEST, THE TEST OF THE PROPHECY! &%]",
+   "zh": "你們即將面對最終試煉，預言的試煉！&%]"
+  },
+  "25883": {
+   "en": "PREPARE THEE WELL, FOR AHEAD LIES A PART OF THE KEY!",
+   "zh": "做好萬全準備，前方藏有鑰匙的一部分！"
+  },
+  "25900": {
+   "en": "Upon the flat stretch of pavement lying just ahead, you view",
+   "zh": "就在前方平坦的路面，你看見"
+  },
+  "25901": {
+   "en": "the profile of a silver metal starship...",
+   "zh": "一艘銀色金屬星艦的側影……"
+  },
+  "25902": {
+   "en": "@It is old, and a bit faded, but there is no mistaking that it is",
+   "zh": "它老舊而略為褪色，但錯不了，它正是"
+  },
+  "25903": {
+   "en": "one of the steel hawks capable of soaring the depths of space...",
+   "zh": "一艘能翱翔太空深處的鋼鷹……"
+  },
+  "25904": {
+   "en": "@Approaching the vessel with caution, you wonder whether it",
+   "zh": "你謹慎地接近這艘船，心想它究竟"
+  },
+  "25905": {
+   "en": "might still fly considering its obvious age, apparently left here",
+   "zh": "還能不能飛。它顯然老舊，似乎是"
+  },
+  "25906": {
+   "en": "centuries ago by the originator of this,...",
+   "zh": "在數世紀前被這一切的開創者遺留在此……"
+  },
+  "25907": {
+   "en": "@This Crusade...",
+   "zh": "這場遠征……"
+  },
+  "25915": {
+   "en": "You approach the ship...",
+   "zh": "你走近這艘船……"
+  },
+  "25920": {
+   "en": "The ship is locked and sealed tight...",
+   "zh": "船身緊鎖，封得密實……"
+  },
+  "25922": {
+   "en": "The ship's doorway hatch is open...",
+   "zh": "船的艙門敞開著……"
+  },
+  "25925": {
+   "en": "A small round grille beside the doorway hatch appears to be the only",
+   "zh": "艙門旁的一個小圓形柵格，似乎是從船外"
+  },
+  "25926": {
+   "en": "means of access from outside the vessel...",
+   "zh": "進入的唯一途徑……"
+  },
+  "25935": {
+   "en": "The doorway hatch slides back, opening the entrance to the ship...",
+   "zh": "艙門滑開，敞開了這艘船的入口……"
+  },
+  "25942": {
+   "en": "Do you wish to enter the ship?",
+   "zh": "你要進入這艘船嗎？"
+  },
+  "25945": {
+   "en": "Entering the ancient spacecraft, you look around... &%]",
+   "zh": "走進這艘古老的太空船，你環顧四周……&%]"
+  },
+  "25946": {
+   "en": "The interior of the ship is compact and simple, spacious enough for",
+   "zh": "船的內部緊湊而簡單，空間足以容納"
+  },
+  "25947": {
+   "en": "a dozen men... &%]",
+   "zh": "十二個人……&%]"
+  },
+  "25948": {
+   "en": "How to restore life to the slumbering bird, however, is not apparent...",
+   "zh": "然而，如何喚醒這隻沉睡之鳥，卻無從得知……"
+  },
+  "25952": {
+   "en": "Do you wish to search the ship?",
+   "zh": "你要搜索這艘船嗎？"
+  },
+  "25955": {
+   "en": "You begin searching throughout the craft, looking for anything which",
+   "zh": "你開始搜遍整艘船，尋找任何"
+  },
+  "25956": {
+   "en": "might prove helpful... &%]",
+   "zh": "可能有幫助的東西……&%]"
+  },
+  "25957": {
+   "en": "Upon the main console of the ship rests a small black box...",
+   "zh": "船的主控台上放著一個小黑盒……"
+  },
+  "25967": {
+   "en": "Do you want to open the black box?",
+   "zh": "你要打開這個黑盒子嗎？"
+  },
+  "25970": {
+   "en": "Inside the box is a package of brown waxen wrappings... &%]",
+   "zh": "盒子裡是一包褐色蠟質的包裝……&%]"
+  },
+  "25971": {
+   "en": "Carefully opening the package, you uncover a preserved piece of",
+   "zh": "小心地打開包裝，你揭出一張保存完好的"
+  },
+  "25972": {
+   "en": "parchment...",
+   "zh": "羊皮紙……"
+  },
+  "25977": {
+   "en": "Do you wish to search some more?",
+   "zh": "你要繼續搜索嗎？"
+  },
+  "25980": {
+   "en": "Searching carefully, you find nothing...",
+   "zh": "你仔細搜索，一無所獲……"
+  },
+  "25985": {
+   "en": "Examining the main console bank, you notice an odd indenture,",
+   "zh": "檢視主控台，你注意到一個奇怪的凹槽，"
+  },
+  "25986": {
+   "en": "positioned to the left of the controls... &%]",
+   "zh": "位於控制裝置的左側……&%]"
+  },
+  "25987": {
+   "en": "The indenture appears made to hold an object of some kind...",
+   "zh": "這凹槽似乎是用來放置某種物品的……"
+  },
+  "25990": {
+   "en": "While examining the controls, you discover an inconspicuous",
+   "zh": "檢查控制裝置時，你發現一個不顯眼的"
+  },
+  "25991": {
+   "en": "button... &%]",
+   "zh": "按鈕……&%]"
+  },
+  "25992": {
+   "en": "Pressing the button, a compartment opens up underneath the dash,",
+   "zh": "按下按鈕，儀表板下方打開了一個隔間，"
+  },
+  "26000": {
+   "en": "Placing the locket within the indenture, it makes a perfect fit... &%]",
+   "zh": "將小盒放入凹槽，恰好吻合……&%]"
+  },
+  "26001": {
+   "en": "Unfortunately, nothing seems to be happening...",
+   "zh": "遺憾的是，似乎什麼都沒有發生……"
+  },
+  "26005": {
+   "en": "Exiting the ship, you are relieved to have discovered a potential",
+   "zh": "下了飛船，你慶幸自己發現了一個可能"
+  },
+  "26006": {
+   "en": "means of exodus from this world, though there is some concern",
+   "zh": "離開這個世界的方法，不過你仍有些"
+  },
+  "26007": {
+   "en": "about your inability to fully comprehend its operation... &%]",
+   "zh": "疑慮，因為你還無法完全參透它的操作方式……&%]"
+  },
+  "26008": {
+   "en": "Hopefully, sooner or later you will stumble upon its secret...",
+   "zh": "希望遲早你能偶然發現它的秘密……"
+  },
+  "26100": {
+   "en": "On the inner wall of the stone pillars, hewn in the rock,",
+   "zh": "在石柱的內側牆面，鑿刻於岩石之中，"
+  },
+  "26101": {
+   "en": "you gaze upon the intricate carving of a most unusual creature...",
+   "zh": "你凝視著一座雕工精細、極不尋常的生物雕像……"
+  },
+  "26102": {
+   "en": "@It looks a little like a woman...",
+   "zh": "看起來有點像女人……"
+  },
+  "26103": {
+   "en": "@And a little like a cat...",
+   "zh": "也有點像貓……"
+  },
+  "26104": {
+   "en": "@With a tad of lizard thrown in...",
+   "zh": "還摻了一點蜥蜴……"
+  },
+  "26105": {
+   "en": "@Surrounded by feathery plummage resembling that of a peacock...",
+   "zh": "四周環繞著孔雀般的羽毛……"
+  },
+  "26106": {
+   "en": "@The carving is very elaborate, and every detail of the creature",
+   "zh": "雕刻十分精緻，這生物的每個細節"
+  },
+  "26107": {
+   "en": "seems so life-like that it is almost as if the creature itself",
+   "zh": "都栩栩如生，幾乎就像是這生物本身"
+  },
+  "26108": {
+   "en": "had become trapped within the stone...",
+   "zh": "已被困在石頭裡……"
+  },
+  "26110": {
+   "en": "You wave the mystical wand before the magnificent stone carving...",
+   "zh": "你在這座宏偉的石雕前揮動神祕的魔杖……"
+  },
+  "26111": {
+   "en": "@It is without dissapointment that you watch as the wand begins",
+   "zh": "你毫不失望地看著魔杖開始"
+  },
+  "26112": {
+   "en": "to crackle and fume, a torch of golden sparks, glossing the image",
+   "zh": "劈啪作響、煙霧騰起，如同一把金色火花的火炬，映亮了"
+  },
+  "26113": {
+   "en": "whittled in the rock...",
+   "zh": "鑿刻在岩石上的影像……"
+  },
+  "26114": {
+   "en": "@Slowly, the features in the stone take on color, and",
+   "zh": "緩緩地，石中的五官染上色彩，"
+  },
+  "26115": {
+   "en": "portions of the carving begin to writhe and wriggle...",
+   "zh": "部分雕像開始蠕動扭晃……"
+  },
+  "26116": {
+   "en": "@Soon, the limbs of the beast begin extracting themselves from",
+   "zh": "不久，這野獸的四肢開始從牆中"
+  },
+  "26117": {
+   "en": "the wall...",
+   "zh": "掙出……"
+  },
+  "26118": {
+   "en": "@Whether the strange creature had become trapped within the rock,",
+   "zh": "無論這奇怪生物是原本被困在岩石裡，"
+  },
+  "26119": {
+   "en": "or whether the magical wand brought life to the stone, or whether",
+   "zh": "還是魔杖賦予了石頭生命，抑或這一切"
+  },
+  "26120": {
+   "en": "all of this is merely a fantastic illusion of some kind, matters",
+   "zh": "只是某種奇妙的幻象，都無關緊要，"
+  },
+  "26121": {
+   "en": "little, as the beast now fully realized emerges from the wall...",
+   "zh": "這頭完全成形的野獸此刻正從牆中現身……"
+  },
+  "26130": {
+   "en": "You've had long to consider my puzzle... &%]",
+   "zh": "你已有很長的時間思考我的謎題……&%]"
+  },
+  "26131": {
+   "en": "But before I may let you herein... &%]",
+   "zh": "但在我允許你進到此處之前……&%]"
+  },
+  "26132": {
+   "en": "You must answer me this, your reply... &%]",
+   "zh": "你必須回答我這個問題，你的答案……&%]"
+  },
+  "26133": {
+   "en": "When I ask of you, &'What is the question?'",
+   "zh": "當我問你：&『問題是什麼？』"
+  },
+  "26137": {
+   "en": "What do you reply?",
+   "zh": "那你怎麼回答？"
+  },
+  "26140": {
+   "en": "Close enough! &%]",
+   "zh": "答得夠接近了！&%]"
+  },
+  "26141": {
+   "en": "Indeed, &What is a Man, &__What is a Man, &____What is a Man! &%]",
+   "zh": "的確，&什麼是人，&__什麼是人，&____什麼是人！&%]"
+  },
+  "26142": {
+   "en": "A most perplexing riddle, I would say... &%]",
+   "zh": "我得說，這是個極令人困惑的謎題……&%]"
+  },
+  "26143": {
+   "en": "That is, if I were a man, which I am not... &%]",
+   "zh": "也就是說，假如我是人的話。但我不是……&%]"
+  },
+  "26144": {
+   "en": "But then, how very odd for you! &%]",
+   "zh": "不過話說回來，對你們而言可真怪！&%]"
+  },
+  "26145": {
+   "en": "I suppose it's a most annoying poser... &%]",
+   "zh": "我想這是個極惱人的謎題……&%]"
+  },
+  "26146": {
+   "en": "Annoying if you think about it, that is... &%]",
+   "zh": "就是說，想了才會覺得惱人……&%]"
+  },
+  "26147": {
+   "en": "Which is to say that if you don't, then I suppose it doesn't",
+   "zh": "也就是說，如果你不去想，那麼我猜它也就不"
+  },
+  "26148": {
+   "en": "much matter... &%]",
+   "zh": "那麼要緊了……&%]"
+  },
+  "26149": {
+   "en": "But since I have a fondness for such riddles... &%]",
+   "zh": "不過由於我特別喜愛這類謎題……&%]"
+  },
+  "26150": {
+   "en": "Perhaps I could find another for you... &%]",
+   "zh": "或許我可以再替你找一個……&%]"
+  },
+  "26151": {
+   "en": "Ah! I believe I have the perfect one... &%]",
+   "zh": "啊！我想我有一個最完美的……&%]"
+  },
+  "26152": {
+   "en": "How about... &%]",
+   "zh": "這個怎麼樣……&%]"
+  },
+  "26153": {
+   "en": "'What am I?' &%]",
+   "zh": "『我是什麼？』&%]"
+  },
+  "26154": {
+   "en": "...And with that strange utterance the unusual creature leaps into the",
+   "zh": "……話音一落，這隻不尋常的生物縱身躍入"
+  },
+  "26155": {
+   "en": "air above your head...",
+   "zh": "你頭頂的空中……"
+  },
+  "26165": {
+   "en": "Posh! &%]",
+   "zh": "胡說！&%]"
+  },
+  "26166": {
+   "en": "You haven't really thought about it at all! &%]",
+   "zh": "你根本沒認真想過！&%]"
+  },
+  "26167": {
+   "en": "Though I suppose I could give you another try... &%]",
+   "zh": "不過我想我可以再讓你試一次……&%]"
+  },
+  "26168": {
+   "en": "But then, from the look on your faces, I'm not sure it will",
+   "zh": "但話又說回來，看你們的表情，我不確定"
+  },
+  "26169": {
+   "en": "prove more rewarding than the first... &%]",
+   "zh": "這次會比第一次更有收穫……&%]"
+  },
+  "26170": {
+   "en": "Well, let's try again anyway...",
+   "zh": "好吧，無論如何再試一次……"
+  },
+  "26175": {
+   "en": "Dear me, it would seem that you're not the quizzical kind... &%]",
+   "zh": "天啊，看來你們不是解謎的料……&%]"
+  },
+  "26176": {
+   "en": "Very well then, I'll tell you... &%]",
+   "zh": "好吧，那我告訴你……&%]"
+  },
+  "26177": {
+   "en": "The question, dear sirs or madams... &%]",
+   "zh": "那個問題，親愛的先生或女士……&%]"
+  },
+  "26178": {
+   "en": "The question is, &'What is a Man?' &%]",
+   "zh": "問題就是，&『什麼是人？』&%]"
+  },
+  "26179": {
+   "en": "O hell, there I go again... &%]Spoiling everything... &%]",
+   "zh": "噢，該死，我又來了……&%]把一切都搞砸了……&%]"
+  },
+  "26180": {
+   "en": "Giving away the answer, that is, the question...",
+   "zh": "說出了答案，也就是那個問題……"
+  },
+  "26190": {
+   "en": "You watch as the extraordinary beast sails away into the sky, soon",
+   "zh": "你看著這隻神奇的生物騰空遠去，很快"
+  },
+  "26191": {
+   "en": "becoming a tiny dot, until at last disappearing...",
+   "zh": "縮成一個小點，最後徹底消失……"
+  },
+  "26192": {
+   "en": "@The remaining wall before you starts to crumble...",
+   "zh": "你面前剩餘的牆開始崩塌……"
+  },
+  "26195": {
+   "en": "A rather ghoulish stench bellows up from the pit below, and a",
+   "zh": "一股陰森的惡臭從下方深坑轟然湧上，還有"
+  },
+  "26196": {
+   "en": "disturbing chill seems to waft through the air...",
+   "zh": "一陣令人不安的寒意似乎在空氣中飄盪……"
+  },
+  "26200": {
+   "en": "Cast upon the framework of the gate, a serpentine dragon",
+   "zh": "鑄在大門的骨架上，一條蛇形"
+  },
+  "26201": {
+   "en": "of black iron weaves up and through the lattice, its head",
+   "zh": "黑鐵巨龍蜿蜒而上，穿過格柵，龍首"
+  },
+  "26202": {
+   "en": "perched out from the top of the gate in a ferocious snarling",
+   "zh": "自門頂探出，以兇猛咆哮之姿"
+  },
+  "26203": {
+   "en": "display of teeth and tongue...",
+   "zh": "展露利牙與長舌……"
+  },
+  "26205": {
+   "en": "The apparition was as ugly a ghoulish hag as the gods could have",
+   "zh": "這幽靈是眾神所能想出的"
+  },
+  "26206": {
+   "en": "possibly contrived to invent, and you wonder what torturous",
+   "zh": "最醜陋的食屍鬼老婦，你納悶究竟是什麼"
+  },
+  "26207": {
+   "en": "grotesqueness might have inspired them...",
+   "zh": "可怕的怪誕啟發了祂們……"
+  },
+  "26208": {
+   "en": "@Tragic enough to go through life with such a hideous countenance,",
+   "zh": "帶著這麼醜陋的面容度過一生已夠悲慘，"
+  },
+  "26209": {
+   "en": "but to suffer so through death as well seems to exceed the bounds of",
+   "zh": "死後還要受這種苦，似乎超出了殘酷"
+  },
+  "26210": {
+   "en": "of cruelty and dementation...",
+   "zh": "與瘋狂的界限……"
+  },
+  "26211": {
+   "en": "@Not to mention the fact that you couldn't understand what she was",
+   "zh": "更別提你根本聽不懂她在說"
+  },
+  "26212": {
+   "en": "saying...",
+   "zh": "什麼……"
+  },
+  "26213": {
+   "en": "@Something like 'MOSSY-KNOB?'...",
+   "zh": "好像是在說『MOSSY-KNOB?』之類……"
+  },
+  "26214": {
+   "en": "@What in the world is a 'MOSSY-KNOB?!?'",
+   "zh": "『MOSSY-KNOB?!?』到底是什麼玩意？"
+  },
+  "26216": {
+   "en": "WWWWHERE ISSS MMMMY BMOCYENOBBBB? &%]",
+   "zh": "哪哪哪裡有有有我的BMOCYENOBBBB？&%]"
+  },
+  "26217": {
+   "en": "IIIII WWWWANT MMMY BMOCYENOBBB!!",
+   "zh": "我我我要我的BMOCYENOBBB！！"
+  },
+  "26220": {
+   "en": "Inside the sepulcher rests the withered corpse of a royal Gorn...",
+   "zh": "石棺裡安放著一具高恩王室的乾癟屍體……"
+  },
+  "26221": {
+   "en": "@A Queen you'd guess, judging from the shape of her form and the",
+   "zh": "你猜是位女王，從她的身形以及"
+  },
+  "26222": {
+   "en": "illustrious brocade of her burial raiments...",
+   "zh": "壽衣上華貴的織錦判斷……"
+  },
+  "26223": {
+   "en": "@Looking at her mummified face, however, you begin to wretch and",
+   "zh": "然而一看見她木乃伊化的臉，你便開始作嘔，"
+  },
+  "26224": {
+   "en": "soon turn away...",
+   "zh": "隨即轉頭避開……"
+  },
+  "26225": {
+   "en": "@She's ugly, even for a Gorn...",
+   "zh": "她很醜，即使以高恩標準而言……"
+  },
+  "26226": {
+   "en": "@By the gods, she's ugly even for a dead Gorn...",
+   "zh": "天啊，即使以死去的高恩而言她也很醜……"
+  },
+  "26227": {
+   "en": "@In fact, she's so ugly that pretty soon you have to start laughing",
+   "zh": "事實上，她醜到你們過沒多久就得開始發笑，"
+  },
+  "26228": {
+   "en": "to keep from throwing up...",
+   "zh": "才不至於吐出來……"
+  },
+  "26230": {
+   "en": "Taking out the combs and brushes that you removed from the Castle",
+   "zh": "你取出先前從高恩王的城堡"
+  },
+  "26231": {
+   "en": "of the Gorn King, you place them into the shriveled hands of the",
+   "zh": "拿到的梳子與刷子，將它們放進"
+  },
+  "26232": {
+   "en": "mummified queen-thing...",
+   "zh": "木乃伊女王的乾癟手中……"
+  },
+  "26233": {
+   "en": "@Then, something strange occurs...",
+   "zh": "接著，怪事發生了……"
+  },
+  "26234": {
+   "en": "@The shape of the mummy begins to alter, her face begins to change...",
+   "zh": "木乃伊的形體開始改變，她的臉開始變化……"
+  },
+  "26235": {
+   "en": "@And before your eyes she is transformed...",
+   "zh": "而在你眼前，她整個蛻變了……"
+  },
+  "26236": {
+   "en": "@Her face smooths, and the warts and blemishes fade...",
+   "zh": "她的臉變得平滑，疣與瑕疵逐漸淡去……"
+  },
+  "26237": {
+   "en": "@Revealing the beautiful visage akin to that of a goddess...",
+   "zh": "露出宛若女神般的美麗容顏……"
+  },
+  "26238": {
+   "en": "@She is still quite dead...",
+   "zh": "她仍然是徹底死了……"
+  },
+  "26239": {
+   "en": "@And she is still a mummy...",
+   "zh": "而她也仍然是木乃伊……"
+  },
+  "26240": {
+   "en": "@But whatever kind of curse she was under, the spell has been",
+   "zh": "但無論她中了什麼詛咒，那道咒術都已"
+  },
+  "26241": {
+   "en": "broken...",
+   "zh": "破解……"
+  },
+  "26242": {
+   "en": "@A gentle smile now gracing her lips, you silently whisper to no one:",
+   "zh": "她唇上如今掛著一抹溫柔的微笑，你默默對著無人低語："
+  },
+  "26243": {
+   "en": "@Rest in peace, old girl, rest in peace...",
+   "zh": "安息吧，老太太，安息吧……"
+  },
+  "26245": {
+   "en": "Suddenly you become racked with pain, as if a diabolical beast were",
+   "zh": "突然你身受劇痛，彷彿一頭惡魔野獸"
+  },
+  "26246": {
+   "en": "tearing through your body...",
+   "zh": "正撕裂你的身體……"
+  },
+  "26250": {
+   "en": "I AM EVILSPEAK! &~!",
+   "zh": "我是邪語！&~!"
+  },
+  "26251": {
+   "en": "@You quickly turn to see who among you spoke, but everyone appears",
+   "zh": "你急忙轉身看是你們之中誰開的口，但每個人"
+  },
+  "26252": {
+   "en": "equally puzzled by the mysterious haunting voice...",
+   "zh": "看來都同樣對這神祕的鬼魅之聲感到困惑……"
+  },
+  "26253": {
+   "en": "@That such things are here is not a good sign...",
+   "zh": "這種東西出現在這裡，可不是好兆頭……"
+  },
+  "26255": {
+   "en": "I AM EVILSPEAK! &~!",
+   "zh": "我是邪語！&~!"
+  },
+  "26260": {
+   "en": "From out of nowhere a blinding ball of flame envelops the party...",
+   "zh": "一團刺眼的火球憑空罩住了隊伍……"
+  },
+  "26265": {
+   "en": "A shimmering light bleeds from the atmosphere surrounding you,",
+   "zh": "一道閃爍的光從你周遭的大氣中滲出，"
+  },
+  "26266": {
+   "en": "bathing you within a soft crimson light...",
+   "zh": "將你沐浴在柔和的緋紅光芒中……"
+  },
+  "26270": {
+   "en": "Inside the sepulture rest the decayed and disintegrated bones of",
+   "zh": "石棺裡安放著一具無法辨認屍體"
+  },
+  "26271": {
+   "en": "an unrecognizable corpse...",
+   "zh": "腐爛崩解的骸骨……"
+  },
+  "26275": {
+   "en": "Inside the sepulture rest the withered remains of a Gorn nobleman,",
+   "zh": "石棺裡安放著一位高恩貴族的乾癟遺骸，"
+  },
+  "26276": {
+   "en": "identifiable from the short tusks which are protruding at bizarre",
+   "zh": "從那自他乾癟口中以詭異角度"
+  },
+  "26277": {
+   "en": "angles from out of his macerated mouth...",
+   "zh": "突出的短獠牙，可辨認出其身分……"
+  },
+  "26281": {
+   "en": " UNWRAP THE SINISTER MUMMY ",
+   "zh": " 解開邪惡木乃伊 "
+  },
+  "26282": {
+   "en": " GET AWAY FROM THE MUMMY ",
+   "zh": " 離開木乃伊 "
+  },
+  "26285": {
+   "en": "Inside the sepulture rests the figure of an enshrouded mummy...",
+   "zh": "石棺裡躺著一具裹著裹屍布的木乃伊……"
+  },
+  "26286": {
+   "en": "@A dark aura seems to be surrounding the wrapped body, and it",
+   "zh": "一股黑暗氣息似乎籠罩著這具裹布的軀體，而且"
+  },
+  "26287": {
+   "en": "possesses a sinister poise...",
+   "zh": "它透著陰森的架勢……"
+  },
+  "26290": {
+   "en": "In spite of the evil omens which accompany the corpse, you begin",
+   "zh": "儘管這具屍體伴隨著邪惡的凶兆，你還是開始"
+  },
+  "26291": {
+   "en": "unwrapping the bandages...",
+   "zh": "解開裹屍布……"
+  },
+  "26292": {
+   "en": "@The body is dry and brittle, and you can feel it crumbling",
+   "zh": "屍體乾枯易碎，當你試著解開它時，"
+  },
+  "26293": {
+   "en": "under the wrappings as you attempt to unravel it...",
+   "zh": "可以感覺它在裹布之下崩解……"
+  },
+  "26294": {
+   "en": "@Whilst unwinding the head it crumples, spilling out, and",
+   "zh": "解到頭部時它整個塌陷，內容物灑出，"
+  },
+  "26295": {
+   "en": "a plop of teeth, eyes and bone dust splash to the floor...",
+   "zh": "一團牙齒、眼珠和骨粉啪地濺落地面……"
+  },
+  "26296": {
+   "en": "@Clutched in one of the decimated hands, however, you feel an",
+   "zh": "然而，在一隻殘毀的手掌裡，你摸到了"
+  },
+  "26297": {
+   "en": "an object hard and strong...",
+   "zh": "一件堅硬的物體……"
+  },
+  "26298": {
+   "en": "@Metal...",
+   "zh": "金屬……"
+  },
+  "26299": {
+   "en": "@Gold to be exact, as you extract a shining ankh from the",
+   "zh": "確切說是黃金——你從那隻粉碎的手掌中"
+  },
+  "26300": {
+   "en": "pulverized mitt...",
+   "zh": "抽出閃亮的安卡……"
+  },
+  "26310": {
+   "en": "Everyone starts feeling kind of dizzy...",
+   "zh": "眾人開始覺得有點頭暈……"
+  },
+  "26311": {
+   "en": "@And sick...",
+   "zh": "而且想吐……"
+  },
+  "26312": {
+   "en": "@The poison was very slow to take effect...",
+   "zh": "這毒發作得很慢……"
+  },
+  "26313": {
+   "en": "@But you recognize the symptoms all to well...",
+   "zh": "但你對這些症狀再熟悉不過了……"
+  },
+  "26320": {
+   "en": "Inside the sepulture rests a small golden urn, empty...",
+   "zh": "墓中安放著一只小金甕，裡面空無一物……"
+  },
+  "26325": {
+   "en": "You sprinkle the magic Jonga powder into the golden urn, and watch",
+   "zh": "你將魔法榮加粉撒入金甕，看著"
+  },
+  "26326": {
+   "en": "as a trace wiff of smoke soon arises...",
+   "zh": "一縷輕煙很快裊裊升起……"
+  },
+  "26330": {
+   "en": "#!HALL OF",
+   "zh": "亡者的"
+  },
+  "26331": {
+   "en": "!THE DEAD",
+   "zh": "大廳"
+  },
+  "26335": {
+   "en": "On the face of the stone pillar are carved many symbols and runes",
+   "zh": "石柱表面刻著許多符號與符文"
+  },
+  "26336": {
+   "en": "in a style both ornate and cryptic...",
+   "zh": "風格華麗而又神秘難解……"
+  },
+  "26340": {
+   "en": "Examining the runes of the stone tablet, you see a word and beneath",
+   "zh": "細看石板上的符文，你見到一個字，其下"
+  },
+  "26341": {
+   "en": "it these symbols:",
+   "zh": "有這些符號："
+  },
+  "26342": {
+   "en": "@*TEMPLE* !A Man, a Pyramid, and a Crescent Moon...",
+   "zh": "神殿——人、金字塔、新月……"
+  },
+  "26343": {
+   "en": "@Below these, another word and more runes:",
+   "zh": "其下還有另一個字與更多符文："
+  },
+  "26344": {
+   "en": "@*SPHINX* !An Egg, a Winged Chimera, and a Magic Wand...",
+   "zh": "斯芬克斯——蛋、有翼奇美拉、魔法杖……"
+  },
+  "26350": {
+   "en": "Examining the runes of the stone tablet, you see a word and beneath",
+   "zh": "細看石板上的符文，你見到一個字，其下"
+  },
+  "26351": {
+   "en": "it these symbols:",
+   "zh": "有這些符號："
+  },
+  "26352": {
+   "en": "@*BOAT* !A Devil, a Boat Upon Waves, and a Cross...",
+   "zh": "船——惡魔、波浪上的小船、十字架……"
+  },
+  "26353": {
+   "en": "@Below these, another word and more runes:",
+   "zh": "其下還有另一個字與更多符文："
+  },
+  "26354": {
+   "en": "@*CRYPT* !A Skull, a Radiant Jewel, and a Statue...",
+   "zh": "墓窖——骷髏、光芒四射的寶石、雕像……"
+  },
+  "26360": {
+   "en": "Examining the runes of the stone tablet, you see a word and beneath",
+   "zh": "細看石板上的符文，你見到一個字，其下"
+  },
+  "26361": {
+   "en": "it these symbols:",
+   "zh": "有這些符號："
+  },
+  "26362": {
+   "en": "@*SERPENT* !A Tower, A Coiled Serpent, and a Lantern...",
+   "zh": "蛇——高塔、盤繞的蛇、提燈……"
+  },
+  "26363": {
+   "en": "@Below these, another word and more runes:",
+   "zh": "其下還有另一個字與更多符文："
+  },
+  "26364": {
+   "en": "@*CRYSTAL* !A Cube, a Crystal Ball, and a Gate...",
+   "zh": "水晶——立方體、水晶球、門……"
+  },
+  "26370": {
+   "en": "Examining the runes of the stone tablet, you see a word and beneath",
+   "zh": "細看石板上的符文，你見到一個字，其下"
+  },
+  "26371": {
+   "en": "it these symbols:",
+   "zh": "有這些符號："
+  },
+  "26372": {
+   "en": "@*DRAGON* !A Dragon, A Chest, and a Key...",
+   "zh": "龍——一條龍、寶箱、鑰匙……"
+  },
+  "26373": {
+   "en": "@Below these, another word and more runes:",
+   "zh": "其下還有另一個字與更多符文："
+  },
+  "26374": {
+   "en": "@*STAR* !A Stone Tablet, Three Statues, and a Five-Pointed Star...",
+   "zh": "星——石碑、三座雕像、五芒星……"
+  },
+  "26380": {
+   "en": "You hold the Gaelin Legend over the face of the Runed Tablet, but none",
+   "zh": "你把蓋林傳說覆在符文石板上，然而沒有"
+  },
+  "26381": {
+   "en": "of the holes seem to align properly...",
+   "zh": "一個孔洞看來對得準……"
+  },
+  "26385": {
+   "en": "You hold the Gaelin Legend over the face of the Runed Tablet, and",
+   "zh": "你把蓋林傳說覆在符文石板表面，發現"
+  },
+  "26386": {
+   "en": "see that the holes in the parchment conform perfectly with knobs of",
+   "zh": "羊皮紙上的孔洞與石柱上突出的"
+  },
+  "26387": {
+   "en": "stone protruding from the pillar...",
+   "zh": "石鈕完全吻合……"
+  },
+  "26388": {
+   "en": "@The hole near the center of the Legend is positioned directly over",
+   "zh": "傳說中央附近的孔正好位在"
+  },
+  "26389": {
+   "en": "the eye of the Dragon, and by inserting your finger, you discover that",
+   "zh": "龍眼之上。你伸指探入，發現它"
+  },
+  "26390": {
+   "en": "it is actually a well concealed button...",
+   "zh": "其實是個隱藏得極好的按鈕……"
+  },
+  "26391": {
+   "en": "@Pushing the button, a secret compartment opens up in the Tablet,",
+   "zh": "按下按鈕，石板便開啟一個秘密隔間，"
+  },
+  "26392": {
+   "en": "revealing a black key in the shape of a skull...",
+   "zh": "露出一把骷髏形狀的黑鑰匙……"
+  },
+  "26400": {
+   "en": "#!THE",
+   "zh": "蓋林"
+  },
+  "26401": {
+   "en": "!GAELIN STONE",
+   "zh": "之石"
+  },
+  "26410": {
+   "en": "Opening the ancient chest, your eyes are momentarily blinded by a",
+   "zh": "打開古老的箱子，一道刺眼強光令你"
+  },
+  "26411": {
+   "en": "radiant glare...",
+   "zh": "瞬間失明……"
+  },
+  "26412": {
+   "en": "@A few seconds later the bright whiteness begins to wane, and soon",
+   "zh": "幾秒後，白光開始消退，不久"
+  },
+  "26413": {
+   "en": "you are able to focus your vision upon the glimmering jewel that",
+   "zh": "你便能看清靜置在這古盒之中的"
+  },
+  "26414": {
+   "en": "rests within the antique coffer...",
+   "zh": "那枚閃爍微光的寶石……"
+  },
+  "26415": {
+   "en": "@As you pick it up, the jewel turns to an opaque dullness...",
+   "zh": "你一拿起它，寶石便轉為晦暗不透光……"
+  },
+  "26420": {
+   "en": "#!HALL OF",
+   "zh": "過往的"
+  },
+  "26421": {
+   "en": "!THE PAST",
+   "zh": "大廳"
+  },
+  "26422": {
+   "en": "@Across the bow of the archway stares a coal-black skull of iron, a",
+   "zh": "拱門橫樑上，一具炭黑的鐵骷髏凝視著"
+  },
+  "26423": {
+   "en": "menacing deathmask of portentous foreboding...",
+   "zh": "一面威嚇而預示凶兆的死亡面具……"
+  },
+  "26425": {
+   "en": "#!THE CHAMBER",
+   "zh": "戈羅爾的"
+  },
+  "26426": {
+   "en": "!OF GORRORS",
+   "zh": "密室"
+  },
+  "26430": {
+   "en": "#!SPIRIT OF",
+   "zh": "達波列斯"
+  },
+  "26431": {
+   "en": "!D'ARBOLETH",
+   "zh": "之靈"
+  },
+  "26435": {
+   "en": "#!THE DEMON",
+   "zh": "惡魔"
+  },
+  "26436": {
+   "en": "!HORRAGOTH",
+   "zh": "霍拉戈斯"
+  },
+  "26440": {
+   "en": "#!THE FIEND",
+   "zh": "九界的"
+  },
+  "26441": {
+   "en": "!OF NINE WORLDS",
+   "zh": "妖魔"
+  },
+  "26445": {
+   "en": "#!THE THING",
+   "zh": "來自地獄"
+  },
+  "26446": {
+   "en": "!FROM HELL",
+   "zh": "之物"
+  },
+  "26450": {
+   "en": "#!BEAST OF",
+   "zh": "千眼"
+  },
+  "26451": {
+   "en": "!A THOUSAND EYES",
+   "zh": "巨獸"
+  },
+  "26455": {
+   "en": "#!CURSE OF",
+   "zh": "拉塞普雷"
+  },
+  "26456": {
+   "en": "!RA-SEP-RE-TEP",
+   "zh": "特普之詛咒"
+  },
+  "26461": {
+   "en": "  TOUCH THE EGG CRYSTAL  ",
+   "zh": "觸碰蛋水晶"
+  },
+  "26462": {
+   "en": "TOUCH THE MOON CRYSTAL",
+   "zh": "觸碰月亮水晶"
+  },
+  "26463": {
+   "en": "LEAVE THEM ALONE",
+   "zh": "別碰它們"
+  },
+  "26471": {
+   "en": " TOUCH THE CROSS CRYSTAL ",
+   "zh": "觸碰十字水晶"
+  },
+  "26472": {
+   "en": "TOUCH THE TOWER CRYSTAL",
+   "zh": "觸碰塔水晶"
+  },
+  "26473": {
+   "en": "LEAVE THEM ALONE",
+   "zh": "別碰它們"
+  },
+  "26481": {
+   "en": " TOUCH THE DRAGON CRYSTAL ",
+   "zh": "觸碰龍水晶"
+  },
+  "26482": {
+   "en": "TOUCH THE SKULL CRYSTAL",
+   "zh": "觸碰骷髏水晶"
+  },
+  "26483": {
+   "en": "LEAVE THEM ALONE",
+   "zh": "別碰它們"
+  },
+  "26491": {
+   "en": "  TOUCH THE SUN CRYSTAL  ",
+   "zh": "觸碰太陽水晶"
+  },
+  "26492": {
+   "en": "TOUCH THE STAR CRYSTAL",
+   "zh": "觸碰星水晶"
+  },
+  "26493": {
+   "en": "LEAVE THEM ALONE",
+   "zh": "別碰它們"
+  },
+  "26495": {
+   "en": "Inside the room are two large crystals, each with a symbol",
+   "zh": "房間裡有兩根大水晶，各自表面刻著"
+  },
+  "26496": {
+   "en": "inscribed upon its surface...",
+   "zh": "一個符號……"
+  },
+  "26500": {
+   "en": "Touching the runed crystal, it begins to glow...",
+   "zh": "觸碰符文水晶，它開始發光……"
+  },
+  "26505": {
+   "en": "On the surface of the floor in front of you lies an engraved",
+   "zh": "你眼前的地板上有一個刻印的"
+  },
+  "26506": {
+   "en": "pentagram, surrounded by eight runes:",
+   "zh": "五芒星，周圍環繞八個符文："
+  },
+  "26507": {
+   "en": "@EGG MOON CROSS TOWER !DRAGON SKULL SUN STAR",
+   "zh": "蛋 月 十字 塔 龍 骷髏 太陽 星"
+  },
+  "26510": {
+   "en": "You step into the pentagram...",
+   "zh": "你踏進五芒星中……"
+  },
+  "26515": {
+   "en": "#!TOMB OF THE",
+   "zh": "星界統領"
+  },
+  "26516": {
+   "en": "!ASTRAL DOMINAE",
+   "zh": "之墓"
+  },
+  "26520": {
+   "en": "On the floor a golden circle surrounds the word: !*TEMPLE*",
+   "zh": "地板上一個金色圓圈圍著字：神殿"
+  },
+  "26522": {
+   "en": "On the floor a golden circle surrounds the word: !*BOAT*",
+   "zh": "地板上一個金色圓圈圍著字：船"
+  },
+  "26524": {
+   "en": "On the floor a golden circle surrounds the word: !*SERPENT*",
+   "zh": "地板上一個金色圓圈圍著字：蛇"
+  },
+  "26526": {
+   "en": "On the floor a golden circle surrounds the word: !*DRAGON*",
+   "zh": "地板上一個金色圓圈圍著字：龍"
+  },
+  "26528": {
+   "en": "On the floor a golden circle surrounds the word: !*SPHINX*",
+   "zh": "地板上一個金色圓圈圍著字：斯芬克斯"
+  },
+  "26530": {
+   "en": "On the floor a golden circle surrounds the word: !*CRYPT*",
+   "zh": "地板上一個金色圓圈圍著字：墓窖"
+  },
+  "26532": {
+   "en": "On the floor a golden circle surrounds the word: !*STAR*",
+   "zh": "地板上一個金色圓圈圍著字：星"
+  },
+  "26534": {
+   "en": "On the floor a golden circle surrounds the word: !*CRYSTAL*",
+   "zh": "地板上一個金色圓圈圍著字：水晶"
+  },
+  "26536": {
+   "en": "On the floor a golden circle surrounds the words: !*ASTRAL DOMINAE*",
+   "zh": "地板上一個金色圓圈圍著字樣：星界統領"
+  },
+  "26540": {
+   "en": "Cautiously opening the seductive chest, you find within it a",
+   "zh": "你小心翼翼打開誘人的箱子，發現裡面有"
+  },
+  "26541": {
+   "en": "packet sealed in a waxy coating...",
+   "zh": "一個以蠟封住的包裹……"
+  },
+  "26542": {
+   "en": "@Opening the packet, you uncover an ancient parchment...",
+   "zh": "打開包裹，你發現一張古老羊皮紙……"
+  },
+  "26545": {
+   "en": "Cautiously opening the seductive chest, you find within it",
+   "zh": "你小心翼翼打開誘人的箱子，發現裡面"
+  },
+  "26546": {
+   "en": "nothing but an empty wax covering...",
+   "zh": "只剩一層空的蠟封……"
+  },
+  "26547": {
+   "en": "@Apparently, someone else has been here already...",
+   "zh": "顯然已經有人先來過了……"
+  },
+  "27000": {
+   "en": "Entering the area known as the Forbidden Zone, you confront a few",
+   "zh": "進入名為禁區的處所，你撞見幾名"
+  },
+  "27001": {
+   "en": "of the icy Savant Guardians at work behind a strange machine, its",
+   "zh": "冰冷的賢者守衛正在一部奇異機器後忙碌，"
+  },
+  "27002": {
+   "en": "panel aglow with rows of blinking colored lights...",
+   "zh": "機器面板上整排彩色燈號閃爍著……"
+  },
+  "27003": {
+   "en": "@Upon seeing you, one Savant Guard quickly snatches something from the",
+   "zh": "一看見你，一名賢者守衛連忙從面前"
+  },
+  "27004": {
+   "en": "panel in front of him, and the lights on the machine go out...",
+   "zh": "的面板上抓走某物，機器的燈光隨之熄滅……"
+  },
+  "27005": {
+   "en": "@The other Guards methodically and mechanically turn to attack...",
+   "zh": "其餘守衛刻板而機械地轉身攻擊……"
+  },
+  "27010": {
+   "en": "The powerful Controller eliminated, you are dismayed by the fact that",
+   "zh": "強大的控制者已除，令你沮喪的是，"
+  },
+  "27011": {
+   "en": "he vaporized without leaving behind the object that was attached to",
+   "zh": "他汽化消失了，沒有留下原本接在"
+  },
+  "27012": {
+   "en": "the odd machine...",
+   "zh": "怪機器上的物體……"
+  },
+  "27020": {
+   "en": "You stand at the helm of the blank machine, trying to comprehend",
+   "zh": "你站在這部沉寂的機器操縱台前，"
+  },
+  "27021": {
+   "en": "its purpose and operation... &%]",
+   "zh": "試圖理解其用途與操作……&%]"
+  },
+  "27022": {
+   "en": "On the side of its box-like head, you note the slot from which the",
+   "zh": "你注意到它箱狀頭部側面有個插槽，"
+  },
+  "27023": {
+   "en": "Savant Controller removed the device responsible for its",
+   "zh": "賢者控制者正是從那裡取走"
+  },
+  "27024": {
+   "en": "deactivation...",
+   "zh": "停機裝置……"
+  },
+  "27030": {
+   "en": "You insert the Comm-Link Device into the side of the machine...",
+   "zh": "你將通訊連結裝置插入機器側面……"
+  },
+  "27035": {
+   "en": "Activation Sequence Initiated &",
+   "zh": "啟動序列已展開 &"
+  },
+  "27036": {
+   "en": "Terminal Linkage Connect &",
+   "zh": "終端連結已接通 &"
+  },
+  "27037": {
+   "en": "Remote Access Operational",
+   "zh": "遠端存取已就緒"
+  },
+  "27040": {
+   "en": "\u0004023@41A2/\u0005018@67C1/",
+   "zh": "\u0004023@41A2/\u0005018@67C1/"
+  },
+  "27042": {
+   "en": "SERVER:",
+   "zh": "伺服器:"
+  },
+  "27045": {
+   "en": "SERVER NOT RECOGNIZED",
+   "zh": "無法辨識伺服器"
+  },
+  "27050": {
+   "en": "Server 023@41A2 Accepted",
+   "zh": "伺服器 023@41A2 已接受"
+  },
+  "27052": {
+   "en": "Server 018@67C1 Accepted",
+   "zh": "伺服器 018@67C1 已接受"
+  },
+  "27055": {
+   "en": "\u0006BLACK SHIP COMMAND/",
+   "zh": "\u0006黑船指揮部/"
+  },
+  "27057": {
+   "en": "HOST MODULE:",
+   "zh": "主機模組："
+  },
+  "27060": {
+   "en": "HOST MODULE NOT AVAILABLE",
+   "zh": "主機模組無法使用"
+  },
+  "27065": {
+   "en": "HOST MODULE: &Black Ship Command &LOADED",
+   "zh": "主機模組：&黑船指揮部 &已載入"
+  },
+  "27067": {
+   "en": "HOST MODULE: &Central Security &LOADED &%]",
+   "zh": "主機模組：&中央安全 &已載入 &%]"
+  },
+  "27068": {
+   "en": "LOCATION: &Remote Operation &Station #2",
+   "zh": "地點：&遠端操作 &站 #2"
+  },
+  "27070": {
+   "en": "\fS/\rL/\tF/\u000bE/",
+   "zh": "\fS/\rL/\tF/\u000bE/"
+  },
+  "27071": {
+   "en": "Command Not Recognized",
+   "zh": "無法辨識指令"
+  },
+  "27072": {
+   "en": "HOST: Black Ship Command &Options: S)tatus L)og F)iles E)xit",
+   "zh": "主機：黑船指揮部 &選項：S)狀態 L)日誌 F)檔案 E)離開"
+  },
+  "27075": {
+   "en": "HOST TERMINATED",
+   "zh": "主機已終止"
+  },
+  "27081": {
+   "en": "Status: IN ORBIT &",
+   "zh": "狀態：在軌道上 &"
+  },
+  "27082": {
+   "en": "Planet: GUARDIA &",
+   "zh": "行星：嘉迪亞 &"
+  },
+  "27083": {
+   "en": "Life Support: GREEN &",
+   "zh": "維生系統：綠燈 &"
+  },
+  "27084": {
+   "en": "Star Drives : GREEN &",
+   "zh": "星航引擎：綠燈 &"
+  },
+  "27085": {
+   "en": "Primary CPU : GREEN &",
+   "zh": "主CPU：綠燈 &"
+  },
+  "27086": {
+   "en": "Aux Sys CPU : GREEN &",
+   "zh": "輔助系統CPU：綠燈 &"
+  },
+  "27087": {
+   "en": "Shields     : (98/100%) &",
+   "zh": "護盾：(98/100%) &"
+  },
+  "27088": {
+   "en": "Phaser Banks: UNLOCKED &",
+   "zh": "相位砲組：已解鎖 &"
+  },
+  "27089": {
+   "en": "Missile Bays: READY &",
+   "zh": "飛彈艙：就緒 &"
+  },
+  "27090": {
+   "en": "All Systems Operational",
+   "zh": "全系統運作正常"
+  },
+  "27095": {
+   "en": "COMMAND LOG &Access Restricted &%]",
+   "zh": "指揮日誌 &存取受限 &%]"
+  },
+  "27120": {
+   "en": "UNAUTHORIZED ACCESS DETECTED",
+   "zh": "偵測到未授權存取"
+  },
+  "27125": {
+   "en": "Terminal Linkage Disconnect &%]",
+   "zh": "終端連結已切斷 &%]"
+  },
+  "27126": {
+   "en": "Remote Access Terminated &%",
+   "zh": "遠端存取已終止 &%"
+  },
+  "27205": {
+   "en": "\fS/\rP/\u000bE/",
+   "zh": "\fS/\rP/\u000bE/"
+  },
+  "27206": {
+   "en": "Function Not Available",
+   "zh": "功能無法使用"
+  },
+  "27207": {
+   "en": "FILES: S)hip P)ersonnel E)xit",
+   "zh": "檔案：S)船艦 P)人員 E)離開"
+  },
+  "27210": {
+   "en": "EXITING FILES...",
+   "zh": "離開檔案……"
+  },
+  "27215": {
+   "en": "Accessing: SHIP FILES",
+   "zh": "存取中：船艦檔案"
+  },
+  "27220": {
+   "en": "\u000eNARGISST/\u000fHORATHA/\u0010DEDAELIS/",
+   "zh": "\u000e納吉斯特/\u000f霍拉莎/\u0010德達利斯/"
+  },
+  "27222": {
+   "en": "NAME:",
+   "zh": "船名:"
+  },
+  "27225": {
+   "en": "RECORD NOT ON FILE",
+   "zh": "查無此記錄"
+  },
+  "27230": {
+   "en": "Ship  : NARGISST &",
+   "zh": "船艦：納吉斯特 &"
+  },
+  "27231": {
+   "en": "Clan  : T'RANG &",
+   "zh": "氏族：特蘭格 &"
+  },
+  "27232": {
+   "en": "Class : Whaler Transport &",
+   "zh": "類型：捕鯨運輸艦 &"
+  },
+  "27233": {
+   "en": "Status: In Transit &",
+   "zh": "狀態：轉運中 &"
+  },
+  "27234": {
+   "en": "Cr/Cp : 18/240 &",
+   "zh": "Cr/Cp：18/240 &"
+  },
+  "27235": {
+   "en": "Weapon: 2 Torpedo, 6 Phaser &",
+   "zh": "武裝：2魚雷、6相位砲 &"
+  },
+  "27236": {
+   "en": "Armor : 6",
+   "zh": "裝甲：6"
+  },
+  "27240": {
+   "en": "Ship  : HORATHA &",
+   "zh": "船艦：霍拉莎 &"
+  },
+  "27241": {
+   "en": "Clan  : UMPANI &",
+   "zh": "氏族：恩帕尼 &"
+  },
+  "27242": {
+   "en": "Class : Battle Cruiser &",
+   "zh": "類型：戰鬥巡洋艦 &"
+  },
+  "27243": {
+   "en": "Status: In Sector &",
+   "zh": "狀態：在星區內 &"
+  },
+  "27244": {
+   "en": "Cr/Cp : 275/2275 &",
+   "zh": "Cr/Cp：275/2275 &"
+  },
+  "27245": {
+   "en": "Weapon: 12 Torpedo, 16/36 Hv/Lt.Cannon, 28 Phaser &",
+   "zh": "武裝：12魚雷、16/36重/輕加農砲、28相位砲 &"
+  },
+  "27246": {
+   "en": "Armor : 38 &",
+   "zh": "裝甲：38 &"
+  },
+  "27250": {
+   "en": "SHIP CLASSIFIED &",
+   "zh": "船艦資料機密 &"
+  },
+  "27300": {
+   "en": "Accessing: PERSONNEL FILES",
+   "zh": "存取中：人員檔案"
+  },
+  "27305": {
+   "en": "\u0013DOMINA/\u000eH'JENN-RA/\u000fSHRITIS/\u0010YAMO/\u0011LEWARX/\u0012PHOONZANG/",
+   "zh": "\u0013多米娜/\u000e赫詹拉/\u000f希里提斯/\u0010亞莫/\u0011勒瓦克斯/\u0012豐贊/"
+  },
+  "27307": {
+   "en": "NAME:",
+   "zh": "姓名:"
+  },
+  "27310": {
+   "en": "Name  : H'JENN-RA &",
+   "zh": "姓名：赫詹拉 &"
+  },
+  "27311": {
+   "en": "Class : T'RANG &",
+   "zh": "種族：特蘭格 &"
+  },
+  "27312": {
+   "en": "Clan  : HAGIIGHA &",
+   "zh": "氏族：哈吉加 &"
+  },
+  "27313": {
+   "en": "Age   : 130+ &",
+   "zh": "年齡：130+ &"
+  },
+  "27314": {
+   "en": "Personality: NONE &",
+   "zh": "個性：無 &"
+  },
+  "27315": {
+   "en": "Overview: SUB-GENIUS,DEADLY &",
+   "zh": "概評：次天才、致命 &"
+  },
+  "27316": {
+   "en": "Features: MARK OF T'RANG COUNCIL &",
+   "zh": "特徵：特蘭格議會印記 &"
+  },
+  "27317": {
+   "en": "Last Known Whereabouts: UNKNOWN &",
+   "zh": "最後行蹤：不明 &"
+  },
+  "27318": {
+   "en": "Comments: Possibly terminated by T'Rang Council -",
+   "zh": "備註：可能已遭特蘭格議會終結——"
+  },
+  "27319": {
+   "en": "Head of Hagiigha Clan - Unscrupulous, Effective",
+   "zh": "哈吉加氏族首領——不擇手段、堪稱高效"
+  },
+  "27330": {
+   "en": "Name  : SHRITIS &",
+   "zh": "姓名：希里提斯 &"
+  },
+  "27331": {
+   "en": "Class : T'RANG &",
+   "zh": "種族：特蘭格 &"
+  },
+  "27332": {
+   "en": "Clan  : WASKOS &",
+   "zh": "氏族：瓦斯科斯 &"
+  },
+  "27333": {
+   "en": "Age   : 68+ &",
+   "zh": "年齡：68+ &"
+  },
+  "27334": {
+   "en": "Personality: NONE &",
+   "zh": "個性：無 &"
+  },
+  "27335": {
+   "en": "Overview: ASSASSIN, EXTREME INTELLIGENCE &",
+   "zh": "概評：刺客、極端聰慧 &"
+  },
+  "27336": {
+   "en": "Features: UNUSUALLY LARGE (9'++), SCAR-CLEFT FOREHEAD &",
+   "zh": "特徵：異常高大（9呎以上）、額有傷疤裂痕 &"
+  },
+  "27337": {
+   "en": "Last Known Whereabouts: PLANET GUARDIA &",
+   "zh": "最後行蹤：嘉迪亞行星 &"
+  },
+  "27338": {
+   "en": "Comments: Most dangerous entity alive - Right hand of",
+   "zh": "備註：在世最危險的存在——"
+  },
+  "27339": {
+   "en": "T'Rang Council - Rumored leader of T'Rang Guild of Assassins",
+   "zh": "特蘭格議會的左右手——傳聞是特蘭格刺客公會首領"
+  },
+  "27350": {
+   "en": "Name  : YAMO, OLEXANDER &",
+   "zh": "姓名：亞莫，歐雷克山德 &"
+  },
+  "27351": {
+   "en": "Class : UMPANI-MALE &",
+   "zh": "種族：恩帕尼男性 &"
+  },
+  "27352": {
+   "en": "Clan  : YAMO &",
+   "zh": "氏族：亞莫 &"
+  },
+  "27353": {
+   "en": "Age   : 72+ &",
+   "zh": "年齡：72+ &"
+  },
+  "27354": {
+   "en": "Personality: DEPENDABLE, RELIABLE &",
+   "zh": "個性：可靠、值得信賴 &"
+  },
+  "27355": {
+   "en": "Overview: INTELLIGENT, OVER-TRUSTING &",
+   "zh": "概評：聰明、過度輕信 &"
+  },
+  "27356": {
+   "en": "Features: HYCODET CROSS OF VALOR, 3 SCAR-HOLES LEFT ABDOMEN &",
+   "zh": "特徵：海科戴特英勇十字勳章、左腹3個疤孔 &"
+  },
+  "27357": {
+   "en": "Last Known Whereabouts: PLANET GUARDIA &",
+   "zh": "最後行蹤：嘉迪亞行星 &"
+  },
+  "27358": {
+   "en": "Comments: 3-Horn General of Umpani Tactical Forces -",
+   "zh": "備註：恩帕尼戰術部隊的三角將軍——"
+  },
+  "27359": {
+   "en": "Rumored to be getting soft with age, possible mandatory retirement",
+   "zh": "傳聞因年邁而心軟，可能被迫屆齡退役"
+  },
+  "27370": {
+   "en": "Name  : LEWARX, RODAN &",
+   "zh": "姓名：勒瓦克斯，羅丹 &"
+  },
+  "27371": {
+   "en": "Class : UMPANI-MALE &",
+   "zh": "種族：恩帕尼男性 &"
+  },
+  "27372": {
+   "en": "Clan  : LEWARX &",
+   "zh": "氏族：勒瓦克斯 &"
+  },
+  "27373": {
+   "en": "Age   : 35+ &",
+   "zh": "年齡：35+ &"
+  },
+  "27374": {
+   "en": "Personality: BOLD, OVERBEARING, SPOILED &",
+   "zh": "個性：大膽、傲慢、嬌縱 &"
+  },
+  "27375": {
+   "en": "Overview: HUNTER, AVG++ INTELLIGENCE, VERY SUCCESSFUL &",
+   "zh": "概評：獵人、智力中等偏上、非常成功 &"
+  },
+  "27376": {
+   "en": "Features: MEDAL OF THE GOLDEN SUN (Highest Umpani Award of Triumph) &",
+   "zh": "特徵：金日勳章（恩帕尼最高勝利勳章）&"
+  },
+  "27377": {
+   "en": "Last Known Whereabouts: PLANET GUARDIA &",
+   "zh": "最後行蹤：嘉迪亞行星 &"
+  },
+  "27378": {
+   "en": "Comments: Father was Hectar Lewarx, awarded the Golden Sun for",
+   "zh": "備註：父親赫克塔·勒瓦克斯因提菲德遠征"
+  },
+  "27379": {
+   "en": "Tyiphide Crusade -",
+   "zh": "榮獲金日勳章——"
+  },
+  "27380": {
+   "en": "Hectar rumored to be assassinated by Shritis T'Rang,",
+   "zh": "傳聞赫克塔遭特蘭格人希里提斯暗殺，"
+  },
+  "27381": {
+   "en": "Rodan would pay dearly for Shritis' head -",
+   "zh": "羅丹願重金懸賞希里提斯的人頭——"
+  },
+  "27382": {
+   "en": "He is foolhardy and reckless, making him dangerous",
+   "zh": "他有勇無謀且魯莽，因而危險"
+  },
+  "27390": {
+   "en": "Name  : PHOONZANG,??? &",
+   "zh": "姓名：豐贊，??? &"
+  },
+  "27391": {
+   "en": "Class : HUMANOID-MALE? &",
+   "zh": "種族：類人男性？ &"
+  },
+  "27392": {
+   "en": "Clan  : UNKNOWN &",
+   "zh": "氏族：不明 &"
+  },
+  "27393": {
+   "en": "Age   : ? &",
+   "zh": "年齡：? &"
+  },
+  "27394": {
+   "en": "Personality: DECEASED &",
+   "zh": "個性：已故 &"
+  },
+  "27395": {
+   "en": "Overview:    DECEASED &",
+   "zh": "概評：已故 &"
+  },
+  "27396": {
+   "en": "Features:    DECEASED &",
+   "zh": "特徵：已故 &"
+  },
+  "27397": {
+   "en": "Last Known Whereabouts: UNKNOWN - (PLANET GUARDIA?) &",
+   "zh": "最後行蹤：不明——（嘉迪亞行星？）&"
+  },
+  "27398": {
+   "en": "Comments: Legendary Creator of the Astral Dominae -",
+   "zh": "備註：傳奇的星界統領創造者——"
+  },
+  "27399": {
+   "en": "According to rumor located on Mythical Planet GUARDIA",
+   "zh": "據傳位於神話行星嘉迪亞"
+  },
+  "27410": {
+   "en": "Name  : DOMINA, VI &",
+   "zh": "姓名：薇·多米娜 &"
+  },
+  "27411": {
+   "en": "Class : HUMANOID-FEMALE &",
+   "zh": "種族：類人女性 &"
+  },
+  "27412": {
+   "en": "Clan  : UNKNOWN &",
+   "zh": "氏族：不明 &"
+  },
+  "27413": {
+   "en": "Age   : 24 &",
+   "zh": "年齡：24 &"
   }
  }
 }
