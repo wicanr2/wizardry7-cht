@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1029,
+ "count": 1179,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -1183,6 +1183,194 @@
   "1451": {
    "en": "FILENAME",
    "zh": "檔名"
+  },
+  "1500": {
+   "en": "(EQUIPPED)",
+   "zh": "（已裝備）"
+  },
+  "1501": {
+   "en": "YOU NEED IT!",
+   "zh": "你需要它！"
+  },
+  "1502": {
+   "en": "NO THANKS",
+   "zh": "不用了，謝謝"
+  },
+  "1503": {
+   "en": "(SHORT GP)",
+   "zh": "（金幣不足）"
+  },
+  "1504": {
+   "en": "* THANKS *",
+   "zh": "*多謝*"
+  },
+  "1505": {
+   "en": "  (FULL)  ",
+   "zh": "  （已滿）  "
+  },
+  "1506": {
+   "en": "(UNUSABLE)",
+   "zh": "（無法使用）"
+  },
+  "1507": {
+   "en": " * SOLD * ",
+   "zh": " * 已售出 * "
+  },
+  "1508": {
+   "en": "GP",
+   "zh": "金幣"
+  },
+  "1510": {
+   "en": "THE PARTY",
+   "zh": "我方隊伍"
+  },
+  "1511": {
+   "en": "-VS-",
+   "zh": "-對-"
+  },
+  "1512": {
+   "en": " GP",
+   "zh": " 金幣"
+  },
+  "1514": {
+   "en": "USE",
+   "zh": "使用"
+  },
+  "1515": {
+   "en": "USE",
+   "zh": "使用"
+  },
+  "1516": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1520": {
+   "en": "BUY",
+   "zh": "購買"
+  },
+  "1521": {
+   "en": "SELL",
+   "zh": "出售"
+  },
+  "1522": {
+   "en": "GIVE",
+   "zh": "贈送"
+  },
+  "1523": {
+   "en": "POOL",
+   "zh": "集中保管"
+  },
+  "1524": {
+   "en": "EXIT",
+   "zh": "離開"
+  },
+  "1530": {
+   "en": "TALK",
+   "zh": "交談"
+  },
+  "1531": {
+   "en": "LORE",
+   "zh": "打聽"
+  },
+  "1532": {
+   "en": "TRADE",
+   "zh": "交易"
+  },
+  "1533": {
+   "en": "TRUCE",
+   "zh": "休戰"
+  },
+  "1534": {
+   "en": "STEAL",
+   "zh": "偷竊"
+  },
+  "1535": {
+   "en": "SPELL",
+   "zh": "咒語"
+  },
+  "1536": {
+   "en": "USE",
+   "zh": "使用"
+  },
+  "1537": {
+   "en": "FIGHT",
+   "zh": "戰鬥"
+  },
+  "1538": {
+   "en": "LEAVE",
+   "zh": "離開"
+  },
+  "1539": {
+   "en": "RUN",
+   "zh": "逃跑"
+  },
+  "1540": {
+   "en": "NOT WITH YOU!",
+   "zh": "不能對你動手！"
+  },
+  "1545": {
+   "en": "(NOTHING)",
+   "zh": "（無）"
+  },
+  "1550": {
+   "en": "WEAPON (S)",
+   "zh": "武器（單）"
+  },
+  "1551": {
+   "en": "WEAPON (E)",
+   "zh": "武器（雙）"
+  },
+  "1552": {
+   "en": "WEAPON (T)",
+   "zh": "武器（投）"
+  },
+  "1553": {
+   "en": "WEAPON (L)",
+   "zh": "武器（長）"
+  },
+  "1554": {
+   "en": "MISSILE",
+   "zh": "投射武器"
+  },
+  "1555": {
+   "en": "MISC. ITEM",
+   "zh": "雜物"
+  },
+  "1556": {
+   "en": "HELMET",
+   "zh": "頭盔"
+  },
+  "1557": {
+   "en": "BODY ARMOR",
+   "zh": "身體護甲"
+  },
+  "1558": {
+   "en": "LEG ARMOR",
+   "zh": "腿部護甲"
+  },
+  "1559": {
+   "en": "GAUNTLETS",
+   "zh": "臂甲"
+  },
+  "1560": {
+   "en": "BOOTS",
+   "zh": "靴"
+  },
+  "1561": {
+   "en": "SHIELD",
+   "zh": "盾"
+  },
+  "1562": {
+   "en": "MAGICAL",
+   "zh": "魔法"
+  },
+  "1564": {
+   "en": "SPECIAL",
+   "zh": "特殊"
+  },
+  "1567": {
+   "en": "UNUSABLE",
+   "zh": "無法使用"
   },
   "2005": {
    "en": "SEARCH",
@@ -3472,6 +3660,146 @@
    "en": "KISS=DEATH",
    "zh": "死亡之吻"
   },
+  "5500": {
+   "en": "WAND&DAGGER",
+   "zh": "魔杖與匕首"
+  },
+  "5501": {
+   "en": "SWORD",
+   "zh": "劍術"
+  },
+  "5502": {
+   "en": "AXE",
+   "zh": "斧術"
+  },
+  "5503": {
+   "en": "MACE&FLAIL",
+   "zh": "錘與連枷"
+  },
+  "5504": {
+   "en": "POLE&STAFF",
+   "zh": "長柄與長杖"
+  },
+  "5505": {
+   "en": "THROWING",
+   "zh": "投擲"
+  },
+  "5506": {
+   "en": "SLING",
+   "zh": "投石索"
+  },
+  "5507": {
+   "en": "BOWS",
+   "zh": "弓術"
+  },
+  "5508": {
+   "en": "SHIELD",
+   "zh": "盾術"
+  },
+  "5509": {
+   "en": "HANDS&FEET",
+   "zh": "拳腳"
+  },
+  "5510": {
+   "en": "SWIMMING",
+   "zh": "游泳"
+  },
+  "5511": {
+   "en": "CLIMBING",
+   "zh": "攀爬"
+  },
+  "5512": {
+   "en": "SCOUTING",
+   "zh": "偵察"
+  },
+  "5513": {
+   "en": "MUSIC",
+   "zh": "音樂"
+  },
+  "5514": {
+   "en": "ORATORY",
+   "zh": "演說"
+  },
+  "5515": {
+   "en": "LEGERDEMAIN",
+   "zh": "手法"
+  },
+  "5516": {
+   "en": "SKULDUGGERY",
+   "zh": "竊術"
+  },
+  "5517": {
+   "en": "NINJUTSU",
+   "zh": "忍術"
+  },
+  "5518": {
+   "en": "FIREARMS",
+   "zh": "火器"
+  },
+  "5519": {
+   "en": "REFLEXTION",
+   "zh": "反射"
+  },
+  "5520": {
+   "en": "SNAKE SPEED",
+   "zh": "蛇速"
+  },
+  "5521": {
+   "en": "EAGLE EYE",
+   "zh": "鷹眼"
+  },
+  "5522": {
+   "en": "POWER STRIKE",
+   "zh": "強擊"
+  },
+  "5523": {
+   "en": "MIND CONTROL",
+   "zh": "心靈控制"
+  },
+  "5524": {
+   "en": "ARTIFACTS",
+   "zh": "神器學"
+  },
+  "5525": {
+   "en": "MYTHOLOGY",
+   "zh": "神話學"
+  },
+  "5526": {
+   "en": "MAPPING",
+   "zh": "製圖"
+  },
+  "5527": {
+   "en": "SCRIBE",
+   "zh": "抄錄"
+  },
+  "5528": {
+   "en": "DIPLOMACY",
+   "zh": "外交"
+  },
+  "5529": {
+   "en": "ALCHEMY",
+   "zh": "鍊金"
+  },
+  "5530": {
+   "en": "THEOLOGY",
+   "zh": "神學"
+  },
+  "5531": {
+   "en": "THEOSOPHY",
+   "zh": "通神學"
+  },
+  "5532": {
+   "en": "THAUMATURGY",
+   "zh": "奇術"
+  },
+  "5533": {
+   "en": "KIRIJUTSU",
+   "zh": "斬殺術"
+  },
+  "5534": {
+   "en": "SKILL POINTS",
+   "zh": "技能點數"
+  },
   "6000": {
    "en": "?DAGGER",
    "zh": "?匕首"
@@ -3971,6 +4299,278 @@
   "6127": {
    "en": "?OBJECT",
    "zh": "?物品"
+  },
+  "8004": {
+   "en": "Right here, of course!",
+   "zh": "當然就在這裡！"
+  },
+  "8010": {
+   "en": "!NEW CITY@",
+   "zh": "新城"
+  },
+  "8012": {
+   "en": "New City is where everyone eventually ends up!",
+   "zh": "新城是所有人最終都會來到的地方！"
+  },
+  "8013": {
+   "en": "New City lies at the north edge of the Sea...",
+   "zh": "新城位於哀傷之海的北岸……"
+  },
+  "8015": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "8018": {
+   "en": "Dionysceus lies west of the Myrmideon Forest...",
+   "zh": "狄奧尼修斯位於蜜爾米頓森林以西……"
+  },
+  "8020": {
+   "en": "!NYCTALINTH@",
+   "zh": "夜螢城"
+  },
+  "8023": {
+   "en": "Nyctalinth lies north of the Red Forest...",
+   "zh": "夜螢城位於赤色森林以北……"
+  },
+  "8025": {
+   "en": "!ORKOGRE@",
+   "zh": "奧高高"
+  },
+  "8030": {
+   "en": "!RATTKIN RUINS@",
+   "zh": "鼠人遺跡"
+  },
+  "8035": {
+   "en": "!MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "8037": {
+   "en": "The Holy City of the Munk...",
+   "zh": "修士們的聖城……"
+  },
+  "8040": {
+   "en": "!CITY OF SKY@",
+   "zh": "天空之城"
+  },
+  "8042": {
+   "en": "Beware the Helazoid Flyers!",
+   "zh": "當心異形飛行者！"
+  },
+  "8045": {
+   "en": "!UKPYR@",
+   "zh": "烏克皮爾"
+  },
+  "8053": {
+   "en": "The Giantlands lie north of the Eyrn River...",
+   "zh": "巨人之地位於艾恩河以北……"
+  },
+  "8065": {
+   "en": "!LOST TEMPLE@",
+   "zh": "失落神廟"
+  },
+  "8067": {
+   "en": "No one knows!",
+   "zh": "沒有人知道！"
+  },
+  "8068": {
+   "en": "The Temple has remained hidden for centuries!",
+   "zh": "這座神廟已隱匿數個世紀！"
+  },
+  "8085": {
+   "en": "!TRAMONTAINE@",
+   "zh": "特拉蒙泰"
+  },
+  "8090": {
+   "en": "!FUNHOUSE@",
+   "zh": "玩笑屋"
+  },
+  "8092": {
+   "en": "The Razuka have made it their hideout!",
+   "zh": "拉祖卡把這裡當成了巢穴！"
+  },
+  "8097": {
+   "en": "Many of the great ancestors are buried there...",
+   "zh": "許多偉大的先祖長眠於此……"
+  },
+  "8105": {
+   "en": "!CHURCH@",
+   "zh": "教堂"
+  },
+  "8110": {
+   "en": "!OLD CITY@",
+   "zh": "舊城"
+  },
+  "8112": {
+   "en": "The ruins of Old City lie underneath New City!",
+   "zh": "舊城的遺跡就在新城地下！"
+  },
+  "8115": {
+   "en": "!WILDERNESS@",
+   "zh": "荒野"
+  },
+  "8120": {
+   "en": "!HIGARDI@",
+   "zh": "希加迪"
+  },
+  "8122": {
+   "en": "Legend has it the Higardi ruled the sky!",
+   "zh": "傳說希加迪人曾統治天空！"
+  },
+  "8123": {
+   "en": "'Tis only a place of legend!",
+   "zh": "那只是傳說中的地方！"
+  },
+  "8125": {
+   "en": "!EYRN@",
+   "zh": "艾恩"
+  },
+  "8135": {
+   "en": "!MYRMIDEON@",
+   "zh": "蜜爾米頓"
+  },
+  "8137": {
+   "en": "The Myrmideon Forest, the lands of the Dane!",
+   "zh": "蜜爾米頓森林——丹恩家的領地！"
+  },
+  "8141": {
+   "en": "The Lord of all T'Rang!",
+   "zh": "特蘭格之主！"
+  },
+  "8146": {
+   "en": "The feared assassin of the High T'Rang!",
+   "zh": "令人生畏的高階特蘭格刺客！"
+  },
+  "8149": {
+   "en": "Not around here, I hope!",
+   "zh": "希望不在這附近！"
+  },
+  "8151": {
+   "en": "Beware the sting of the horrid T'Rang mercenaries!",
+   "zh": "當心可怕特蘭格傭兵的毒刺！"
+  },
+  "8161": {
+   "en": "Military commander of the Umpani!",
+   "zh": "恩帕尼的軍事統帥！"
+  },
+  "8166": {
+   "en": "Rodan Lewarx, the great Umpani Tracker!",
+   "zh": "羅丹·勒瓦克斯——偉大的恩帕尼追蹤者！"
+  },
+  "8168": {
+   "en": "Rodan Lewarx is hunting down the T'Rang!",
+   "zh": "羅丹·勒瓦克斯正在追獵特蘭格！"
+  },
+  "8171": {
+   "en": "The Umpani want to eliminate the T'Rang!",
+   "zh": "恩帕尼想剷除特蘭格！"
+  },
+  "8181": {
+   "en": "They say the Gorn King eats his captives alive!",
+   "zh": "聽說高恩王會生吞俘虜！"
+  },
+  "8183": {
+   "en": "The Gorn King sits upon his Castle throne!",
+   "zh": "高恩王高坐城堡王座之上！"
+  },
+  "8186": {
+   "en": "They say the Gorn Lord is a master of all weapons!",
+   "zh": "聽說高恩領主精通所有武器……"
+  },
+  "8188": {
+   "en": "The Gorn Lord serves the King of Orkogre Castle!",
+   "zh": "高恩領主效力於奧高高城堡之王！"
+  },
+  "8191": {
+   "en": "I have not seen him...",
+   "zh": "我沒見過他……"
+  },
+  "8193": {
+   "en": "The Gorn domain covers all of Orkogre Forest!",
+   "zh": "高恩的領地遍及整個奧高高森林！"
+  },
+  "8201": {
+   "en": "The Rattkin bandits lurk behind every tree!",
+   "zh": "鼠人強盜潛伏在每棵樹後！"
+  },
+  "8203": {
+   "en": "The Rattkin lair is well hidden!",
+   "zh": "鼠人的巢穴隱蔽得很好！"
+  },
+  "8211": {
+   "en": "Ke-Li, the legendary Queen of the Helazoid Flyers!",
+   "zh": "凱麗——傳說中的異形飛行者女王……"
+  },
+  "8213": {
+   "en": "They say she is Queen of the mythical City of Sky!",
+   "zh": "聽說她是神話中天空之城的女王……"
+  },
+  "8218": {
+   "en": "Where the Helazoid fly, let men beware!",
+   "zh": "異形飛翔之處，凡人當心！"
+  },
+  "8221": {
+   "en": "Lord of the House of Dane!",
+   "zh": "丹恩家之主！"
+  },
+  "8231": {
+   "en": "It is said he possesses inhuman powers!",
+   "zh": "據說他擁有超人的力量！"
+  },
+  "8236": {
+   "en": "Brother TShober, guardian of Munkharama Bridge...",
+   "zh": "喬伯修士——僧侶聖地橋的守衛……"
+  },
+  "8241": {
+   "en": "I do not know...",
+   "zh": "我不知道……"
+  },
+  "8246": {
+   "en": "Dread Ruler of Galaxies!",
+   "zh": "星系的恐怖統治者！"
+  },
+  "8248": {
+   "en": "No one knows!",
+   "zh": "沒有人知道！"
+  },
+  "8251": {
+   "en": "Lord of the House of Dane!",
+   "zh": "丹恩家之主！"
+  },
+  "8258": {
+   "en": "Everywhere at once!",
+   "zh": "無所不在！"
+  },
+  "8263": {
+   "en": "Everywhere at once!",
+   "zh": "無所不在！"
+  },
+  "8278": {
+   "en": "Dionysceus, where looms the Great Tower of Dane...",
+   "zh": "狄奧尼修斯——丹恩巨塔聳立之地。"
+  },
+  "8283": {
+   "en": "The Munk dwell in the Holy City of Munkharama...",
+   "zh": "修士們住在聖城僧侶聖地……"
+  },
+  "8288": {
+   "en": "The Gorn domain covers all of Orkogre Forest!",
+   "zh": "高恩的領地遍及整個奧高高森林！"
+  },
+  "8293": {
+   "en": "The Rattkin call everywhere \"Home!\"",
+   "zh": "鼠人把處處都當『家』！"
+  },
+  "8321": {
+   "en": "I do not know...",
+   "zh": "我不知道……"
+  },
+  "8325": {
+   "en": "!THESMINSTER@",
+   "zh": "希斯敏斯特"
+  },
+  "8327": {
+   "en": "Thesminster Abbey is in New City...",
+   "zh": "希斯敏斯特修道院在新城……"
   },
   "17860": {
    "en": "You turn back to face the pitiful wretch in the corner... &%]",
