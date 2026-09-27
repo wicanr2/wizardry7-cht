@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 5924,
+ "count": 6219,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -23683,6 +23683,1186 @@
   "22300": {
    "en": "folded in between two of its pages...",
    "zh": "折好，夾在其中兩頁之間……"
+  },
+  "22578": {
+   "en": "Well well, how are the new cadets fairing? &%]",
+   "zh": "唷，新兵們過得如何啊？&%]"
+  },
+  "22579": {
+   "en": "All outfitted and finished with training I see...",
+   "zh": "看來裝備齊全、訓練也完成了……"
+  },
+  "22590": {
+   "en": "Now for your first assignment... &%]",
+   "zh": "現在是你們的首項任務……&%]"
+  },
+  "22591": {
+   "en": "There's been a report of a band of strangers hiding out in the",
+   "zh": "據報有一夥陌生人藏身於"
+  },
+  "22592": {
+   "en": "Tramontane forest, a bit north of here... &%]",
+   "zh": "特拉蒙塔內森林，就在此地稍北……&%]"
+  },
+  "22593": {
+   "en": "Of course it could just be some of the locals,",
+   "zh": "當然也可能只是當地人，"
+  },
+  "22594": {
+   "en": "but they may be spies... &%]",
+   "zh": "但他們可能是間諜……&%]"
+  },
+  "22595": {
+   "en": "Possibly even the T'Rang... &%]",
+   "zh": "甚至可能是特蘭格……&%]"
+  },
+  "22596": {
+   "en": "Here are your new orders...",
+   "zh": "這是你的新命令……"
+  },
+  "22600": {
+   "en": "Comb the Tramontane forest for anything that might be dangerous... &%]",
+   "zh": "搜索特拉蒙塔內森林，找出任何危險事物……&%]"
+  },
+  "22601": {
+   "en": "Report back to me when you've scouted the area... &%]",
+   "zh": "偵察完該區域後向我回報……&%]"
+  },
+  "22602": {
+   "en": "And if you meet any of the enemy T'Rang... &%]",
+   "zh": "要是遇上敵方的特蘭格……&%]"
+  },
+  "22603": {
+   "en": "Remember the I.U.F motto: &",
+   "zh": "謹記恩帕尼帝國軍格言：&"
+  },
+  "22604": {
+   "en": "DUTY - POWER - VICTORY!!!",
+   "zh": "職責·力量·勝利!!!"
+  },
+  "22610": {
+   "en": "I was beginning to worry about you new recruits... &%]",
+   "zh": "我開始替你們這些新兵擔心了……&%]"
+  },
+  "22611": {
+   "en": "Give me a briefing of your mission...",
+   "zh": "向我簡報任務經過……"
+  },
+  "22617": {
+   "en": "Did you find any T'Rang hiding out in the area?",
+   "zh": "你們在這區發現藏匿的特蘭格了嗎？"
+  },
+  "22620": {
+   "en": "Hmmmm, maybe just a false sighting then... &%]",
+   "zh": "嗯，也許只是誤報……&%]"
+  },
+  "22621": {
+   "en": "Completing the scouting mission pays 200 gold pieces...",
+   "zh": "完成偵察任務可獲200金幣……"
+  },
+  "22627": {
+   "en": "Did you destroy them?",
+   "zh": "你們幹掉他們了嗎？"
+  },
+  "22630": {
+   "en": "Huh?!?... &%]",
+   "zh": "啥？！……&%]"
+  },
+  "22631": {
+   "en": "You left them alive??? &%]",
+   "zh": "你們留了活口???&%]"
+  },
+  "22632": {
+   "en": "That's no help to us! &%]",
+   "zh": "那對我們沒用！&%]"
+  },
+  "22633": {
+   "en": "You have failed in your mission... &%]",
+   "zh": "你們任務失敗了……&%]"
+  },
+  "22634": {
+   "en": "Now get back out there and find them... &%]",
+   "zh": "現在回去找出他們……&%]"
+  },
+  "22635": {
+   "en": "And this time don't let them escape!!",
+   "zh": "這次別再讓他們逃了！！"
+  },
+  "22640": {
+   "en": "Good job! &%]",
+   "zh": "幹得好！&%]"
+  },
+  "22641": {
+   "en": "I'll report this to General Yamo immediately... &%]",
+   "zh": "我會立刻向亞莫將軍回報……&%]"
+  },
+  "22642": {
+   "en": "A successful scouting mission pays 500 gold pieces... &%]",
+   "zh": "偵察任務成功可得500金幣……&%]"
+  },
+  "22643": {
+   "en": "But destroying a T'Rang spy party earns you a 5000 gold bonus...",
+   "zh": "殲滅特蘭格間諜小隊則有5000金幣獎金……"
+  },
+  "22645": {
+   "en": "Really? &%]That's odd, according to one of our trackers, he reported",
+   "zh": "是嗎？&%]奇怪，我方一名追蹤者回報說，"
+  },
+  "22646": {
+   "en": "seeing you run away from the T'Rang!",
+   "zh": "看見你們逃離特蘭格！"
+  },
+  "22650": {
+   "en": "Here are your new orders...",
+   "zh": "這是你的新命令……"
+  },
+  "22652": {
+   "en": "For your next assignment I'm sending you to New City... &%]",
+   "zh": "下一項任務，我派你們去新城……&%]"
+  },
+  "22653": {
+   "en": "You may take the Humpawhammer directly to our Detache there... &%]",
+   "zh": "你們可搭漢帕哈默號直達我們在那裡的分遣隊……&%]"
+  },
+  "22654": {
+   "en": "This pass will allow you entry to the Humpawhammer Station...",
+   "zh": "這張通行證讓你們進入漢帕哈默站……"
+  },
+  "22660": {
+   "en": "You are to meet with the Master Tracker, Rodan Lewarx... &%]",
+   "zh": "你們要會見首席追蹤官羅丹·勒瓦克斯……&%]"
+  },
+  "22661": {
+   "en": "Give him this document...",
+   "zh": "把這份文件交給他……"
+  },
+  "22663": {
+   "en": "It's a message from General Yamo himself... &%]",
+   "zh": "那是亞莫將軍本人的親筆訊息……&%]"
+  },
+  "22664": {
+   "en": "Report back to me when you've completed your assignment... &%]",
+   "zh": "任務完成後回來向我回報……&%]"
+  },
+  "22665": {
+   "en": "There is a reason I'm sending you on this important mission... &%]",
+   "zh": "我派你們執行這項重要任務是有原因的……&%]"
+  },
+  "22666": {
+   "en": "Use extreme caution and don't hang around too long... &%]",
+   "zh": "務必格外小心，別逗留太久……&%]"
+  },
+  "22667": {
+   "en": "And whatever you do, don't mention the T'Rang around Rodan! &%]",
+   "zh": "無論如何，別在羅丹面前提起特蘭格！&%]"
+  },
+  "22668": {
+   "en": "It gets him upset, and he's going to be upset enough as it is...",
+   "zh": "那會惹惱他，而他已經夠心煩了……"
+  },
+  "22670": {
+   "en": "It's about time you recruits got back!",
+   "zh": "你們這些新兵總算回來了！"
+  },
+  "22677": {
+   "en": "You delivered the message to Rodan Lewarx?",
+   "zh": "你們把訊息送到羅丹·勒瓦克斯手上了？"
+  },
+  "22680": {
+   "en": "That document is vital to the Umpani Imperium!! &%]",
+   "zh": "那份文件對恩帕尼帝國至關重要！！&%]"
+  },
+  "22681": {
+   "en": "NOW DELIVER THAT MESSAGE!!!",
+   "zh": "立刻把訊息送到！！！"
+  },
+  "22685": {
+   "en": "Rodan must have taken the news well if you're still in one piece to",
+   "zh": "看來羅丹聽了消息反應不錯，你們才能"
+  },
+  "22686": {
+   "en": "report back to me about it... &%]",
+   "zh": "完好無缺地回來向我報告……&%]"
+  },
+  "22687": {
+   "en": "No one around here was willing to volunteer for the mission so you",
+   "zh": "這附近沒人自願接這任務，於是"
+  },
+  "22688": {
+   "en": "got the job... &%]",
+   "zh": "差事落到你們頭上……&%]"
+  },
+  "22689": {
+   "en": "Fortunately for you, however, a few were willing to pay handsomely",
+   "zh": "不過算你們運氣好，有幾個人肯付大錢"
+  },
+  "22690": {
+   "en": "to escape the assignment... &%]",
+   "zh": "換取不出這趟任務……&%]"
+  },
+  "22691": {
+   "en": "Let's see, with the 350 gold courier fee... &%]",
+   "zh": "我看看，加上350金幣的信差費……&%]"
+  },
+  "22692": {
+   "en": "And the 7820 gold pieces contributed by the anxious staff corps... &%]",
+   "zh": "再加上焦慮的參謀團湊的7820金幣……&%]"
+  },
+  "22693": {
+   "en": "Your total pay comes to 8170 gold pieces... &%]",
+   "zh": "你們的總報酬為8170金幣……&%]"
+  },
+  "22694": {
+   "en": "Just as long as Rodan obeys orders and stays put... &%]",
+   "zh": "只要羅丹服從命令、待在原地……&%]"
+  },
+  "22695": {
+   "en": "Which brings me to your next objective... &%]",
+   "zh": "接下來是你們的下一個目標……&%]"
+  },
+  "22696": {
+   "en": "General Yamo wants a full report from you about Rodan... &%]",
+   "zh": "亞莫將軍要你們提交關於羅丹的完整報告……&%]"
+  },
+  "22697": {
+   "en": "Here's your orders...",
+   "zh": "這是給你們的命令……"
+  },
+  "22700": {
+   "en": "Present them to the guards at Command HQ and they'll escort you... &%]",
+   "zh": "把命令交給指揮部的衛兵，他們會帶你們去……&%]"
+  },
+  "22701": {
+   "en": "If General Yamo doesn't have new orders for you, you can report",
+   "zh": "若亞莫將軍沒有新命令給你們，就回"
+  },
+  "22702": {
+   "en": "back to me here... &%]",
+   "zh": "我這裡回報……&%]"
+  },
+  "22703": {
+   "en": "Good luck, the General's waiting...",
+   "zh": "祝好運，將軍在等……"
+  },
+  "22800": {
+   "en": "#!SUPPLY",
+   "zh": "補給"
+  },
+  "22801": {
+   "en": "!DEPOT",
+   "zh": "倉庫"
+  },
+  "22807": {
+   "en": "May I see your orders?",
+   "zh": "讓我看看你們的命令？"
+  },
+  "22810": {
+   "en": "No orders, huh?",
+   "zh": "沒有命令？"
+  },
+  "22815": {
+   "en": "\u0004RECRUITS/\u0004VICTORY/",
+   "zh": "\u0004新兵/\u0004勝利/"
+  },
+  "22817": {
+   "en": "What are you doing here?",
+   "zh": "你們在這裡做什麼？"
+  },
+  "22820": {
+   "en": "Guards!!!",
+   "zh": "衛兵!!!"
+  },
+  "22825": {
+   "en": "New recruits, huh? &%]",
+   "zh": "新兵是吧？&%]"
+  },
+  "22826": {
+   "en": "You want the Recruiting Station, south side of town...",
+   "zh": "你們要去城鎮南側的募兵站……"
+  },
+  "22830": {
+   "en": "Standard N.E.P.S. issue, huh? &%]",
+   "zh": "N.E.P.S.標準配備是吧？&%]"
+  },
+  "22831": {
+   "en": "Lessee, that's two flak vests, two short muskets, ammo, and your",
+   "zh": "我瞧瞧，兩件防彈背心、兩把短火槍、彈藥，還有"
+  },
+  "22832": {
+   "en": "offical I.U.F.S.T.F.N.E.P. insignia badge... &%]",
+   "zh": "你們的I.U.F.S.T.F.N.E.P.徽章……&%]"
+  },
+  "22833": {
+   "en": "That comes to 9250 gold pieces, for the lot...",
+   "zh": "全部總計9250金幣……"
+  },
+  "22837": {
+   "en": "Do you have 9250 gold pieces?",
+   "zh": "你們有9250金幣嗎？"
+  },
+  "22840": {
+   "en": "I tell you what, since you're just greenhorns, I'll give you a",
+   "zh": "這樣吧，看你們只是菜鳥，我給你們"
+  },
+  "22841": {
+   "en": "break... &%]",
+   "zh": "打個折……&%]"
+  },
+  "22842": {
+   "en": "8000 gold pieces for everything and I'll throw in a Blade as well...",
+   "zh": "全部8000金幣，我再送一把刀劍……"
+  },
+  "22847": {
+   "en": "Can you pay the 8000 gold pieces?",
+   "zh": "你們付得出8000金幣嗎？"
+  },
+  "22850": {
+   "en": "I can't do better than that... &%]",
+   "zh": "不能再低了……&%]"
+  },
+  "22851": {
+   "en": "You'll have to come back when you can pay for your gear...",
+   "zh": "等付得起裝備費再回來吧……"
+  },
+  "22855": {
+   "en": "I don't see enough gold there...",
+   "zh": "金幣不夠啊……"
+  },
+  "22860": {
+   "en": "Proceed over to the Firing Range, where Lieutenant Gromo will",
+   "zh": "前往射擊場，格羅莫中尉會在那裡"
+  },
+  "22861": {
+   "en": "instruct you in basic training... &%]",
+   "zh": "教你們基礎訓練……&%]"
+  },
+  "22862": {
+   "en": "He can direct you from there... &%]",
+   "zh": "他會從那裡替你們指引……&%]"
+  },
+  "22863": {
+   "en": "If you need more ammunition, just come back and see me... &%]",
+   "zh": "需要更多彈藥就回來找我……&%]"
+  },
+  "22864": {
+   "en": "Here's your new orders...",
+   "zh": "這是你們的新命令……"
+  },
+  "22866": {
+   "en": "At ease, soldier!",
+   "zh": "稍息，士兵！"
+  },
+  "22867": {
+   "en": "Dismissed!",
+   "zh": "解散！"
+  },
+  "22868": {
+   "en": "\u0001\u0001SPIES/",
+   "zh": "\u0001\u0001間諜/"
+  },
+  "22870": {
+   "en": "What can I get for you?",
+   "zh": "要點什麼？"
+  },
+  "22875": {
+   "en": "Well, well, T.U.F.S.! &%]",
+   "zh": "哎呀，T.U.F.S.！&%]"
+  },
+  "22876": {
+   "en": "That entitles you to requisition a special double-barrelled",
+   "zh": "憑這資格你們可以請領特製的雙管"
+  },
+  "22877": {
+   "en": "Blunderbuss and a Heavy Flak Jacket... &%]",
+   "zh": "大口徑火槍和重型防彈夾克……&%]"
+  },
+  "22878": {
+   "en": "That'll cost you 14250 gold pieces...",
+   "zh": "要價14250金幣……"
+  },
+  "22887": {
+   "en": "Do you want to pay the 14250 gold pieces?",
+   "zh": "要付這14250金幣嗎？"
+  },
+  "22890": {
+   "en": "Sorry, but I can't make any deals on these items... &%]",
+   "zh": "抱歉，這些東西沒法打折……&%]"
+  },
+  "22891": {
+   "en": "It'll still be here if you change your mind...",
+   "zh": "改變心意時它還會在這裡……"
+  },
+  "22895": {
+   "en": "Sold!",
+   "zh": "成交"
+  },
+  "22900": {
+   "en": "#!FIRING",
+   "zh": "射擊"
+  },
+  "22901": {
+   "en": "!RANGE",
+   "zh": "靶場"
+  },
+  "22905": {
+   "en": "A tallish brute of an Umpani is busy rubbing down a long barrelled",
+   "zh": "一名高大的恩帕尼壯漢正忙著用軟皮"
+  },
+  "22906": {
+   "en": "instrument with a piece of soft hide, polishing until perfection...",
+   "zh": "擦拭一支長管器械，拋光到完美……"
+  },
+  "22907": {
+   "en": "@As you enter he glances up, and then carefully sets the ominous",
+   "zh": "你們進門時他抬眼一瞥，然後小心翼翼地把那不祥的"
+  },
+  "22908": {
+   "en": "looking object down in his chair and stands up to face you...",
+   "zh": "玩意放進椅子裡，起身面對你們……"
+  },
+  "22917": {
+   "en": "You got Orders to be here?",
+   "zh": "有命令要來這裡嗎？"
+  },
+  "22920": {
+   "en": "No one gets on the range without proper orders... &%]",
+   "zh": "沒有正當命令誰也不能上靶場……&%]"
+  },
+  "22921": {
+   "en": "Now beat it!",
+   "zh": "快滾！"
+  },
+  "22925": {
+   "en": "Greenhorns, huh? &%]",
+   "zh": "菜鳥是吧？&%]"
+  },
+  "22926": {
+   "en": "Head down to the Enlistment Center, south side of town... &%]",
+   "zh": "去城鎮南側的入伍中心……&%]"
+  },
+  "22927": {
+   "en": "Once you get your orders, I'll show you a thing or two... &%]",
+   "zh": "等你們拿到命令，我會教你們幾招……&%]"
+  },
+  "22928": {
+   "en": "Now scram!",
+   "zh": "滾吧！"
+  },
+  "22930": {
+   "en": "S.T.F., huh? &%]",
+   "zh": "S.T.F.是吧？&%]"
+  },
+  "22931": {
+   "en": "Standard issue, right? &%]",
+   "zh": "標準配備，對吧？&%]"
+  },
+  "22932": {
+   "en": "Well, you need some basic instruction before heading out to the",
+   "zh": "嗯，你們得先接受一點基礎教學才能上"
+  },
+  "22933": {
+   "en": "range... &%]",
+   "zh": "靶場……&%]"
+  },
+  "22934": {
+   "en": "First, take your piece like so, then dump some powder in there like",
+   "zh": "首先，像這樣拿好你的槍，然後像這樣倒點火藥"
+  },
+  "22935": {
+   "en": "this... &%]",
+   "zh": "進去……&%]"
+  },
+  "22936": {
+   "en": "Not too much or you'll get a black face and blown rod... &%]",
+   "zh": "別倒太多，否則會炸黑臉、炸彎槍管……&%]"
+  },
+  "22937": {
+   "en": "Put in a square and tamp it down, gently... &%]",
+   "zh": "放入方形墊，輕輕壓實……&%]"
+  },
+  "22938": {
+   "en": "Now drop in the ball and tap down again, nice and firm... &%]",
+   "zh": "現在放入彈丸，再穩穩壓實……&%]"
+  },
+  "22939": {
+   "en": "Hold it like this... &%]",
+   "zh": "像這樣握著……&%]"
+  },
+  "22940": {
+   "en": "Don't point that thing at me, you idiot! &%]",
+   "zh": "別拿那玩意指著我，你這蠢貨！&%]"
+  },
+  "22941": {
+   "en": "Right, ok, and keep your digit parallel to the barrel so you can get",
+   "zh": "好，手指與槍管保持平行，這樣你才能"
+  },
+  "22942": {
+   "en": "a feel of your aim... &%]",
+   "zh": "找到瞄準的感覺……&%]"
+  },
+  "22943": {
+   "en": "Now when ready to fire, squeeze the trigger easy, don't jerk it... &%]",
+   "zh": "準備射擊時，輕輕扣扳機，別猛拉……&%]"
+  },
+  "23960": {
+   "en": "and he holds firmly as it quickly turns into black ash...",
+   "zh": "而他緊握不放，那東西很快化為黑灰……"
+  },
+  "23961": {
+   "en": "@As the flame reaches his hand he drops the fiery ash to the floor",
+   "zh": "火焰燒到他的手時，他將燒紅的灰燼抖落地面"
+  },
+  "23962": {
+   "en": "and with a sudden stomp transforms the carbon residue into a flurry",
+   "zh": "接著猛然一腳踩下，把碳化的殘渣化為"
+  },
+  "23963": {
+   "en": "of flying wisps...",
+   "zh": "漫天飛舞的碎屑……"
+  },
+  "23964": {
+   "en": "@Then he looks up and stares you in the face...",
+   "zh": "然後他抬起頭，直視你的臉……"
+  },
+  "23970": {
+   "en": "With a voice stout and calm, he begins to speak: &%]",
+   "zh": "他以沉穩厚實的嗓音開口說道：&%]"
+  },
+  "23971": {
+   "en": "I am sending you on a special mission... &%]",
+   "zh": "我要派你執行一項特殊任務……&%]"
+  },
+  "23972": {
+   "en": "It will be very dangerous... &%]",
+   "zh": "那將非常危險……&%]"
+  },
+  "23973": {
+   "en": "But it is a dangerous game we play... &%]",
+   "zh": "但我們玩的是一場危險的遊戲……&%]"
+  },
+  "23974": {
+   "en": "We have intercepted one of the T'Rang shuttles... &%]",
+   "zh": "我們攔截了一艘特蘭格穿梭機……&%]"
+  },
+  "23975": {
+   "en": "And upon inspection discovered it full of T'Rang cells... &%]",
+   "zh": "檢查之後，發現裡面裝滿特蘭格細胞……&%]"
+  },
+  "23976": {
+   "en": "Fertilized T'Rang cells in incubation... &%]",
+   "zh": "是正在孵育的受精特蘭格細胞……&%]"
+  },
+  "23977": {
+   "en": "Which can only mean that the T'Rang have long term plans to",
+   "zh": "這只代表一件事：特蘭格早有長期計畫，要"
+  },
+  "23978": {
+   "en": "infest this part of the galaxy... &%]",
+   "zh": "蠶食銀河的這個角落……&%]"
+  },
+  "23979": {
+   "en": "The T'Rang are a hideous lot... &%]",
+   "zh": "特蘭格是群醜惡的傢伙……&%]"
+  },
+  "23980": {
+   "en": "Laying their eggs which eventually hatch into entire colonies... &%]",
+   "zh": "產下卵，最後孵化成整個族群……&%]"
+  },
+  "23981": {
+   "en": "Soon decimating all other life forms and transforming",
+   "zh": "迅速殲滅所有其他生命形態，把"
+  },
+  "23982": {
+   "en": "a bountiful world into a cavernous network of barren waste... &%]",
+   "zh": "富饒世界化為荒蕪的坑道網絡……&%]"
+  },
+  "23983": {
+   "en": "They think of nothing else save spawning their own kind",
+   "zh": "他們別無所想，只顧繁衍自己的同類"
+  },
+  "23984": {
+   "en": "throughout the universe... &%]",
+   "zh": "遍及整個宇宙……&%]"
+  },
+  "23985": {
+   "en": "And they must be stopped... &%]",
+   "zh": "必須有人阻止他們……&%]"
+  },
+  "23986": {
+   "en": "I want you to stop them... &%]",
+   "zh": "我要你去阻止他們……&%]"
+  },
+  "23987": {
+   "en": "You will have to infiltrate their established network, far to the",
+   "zh": "你必須滲透他們已站穩的勢力網，就在遙遠的"
+  },
+  "23988": {
+   "en": "northwest in a cluster of abandoned ruins... &%]",
+   "zh": "西北方一片廢棄遺跡之中……&%]"
+  },
+  "23989": {
+   "en": "There must be a Queen there producing the eggs... &%]",
+   "zh": "那裡必定有隻產卵的母后……&%]"
+  },
+  "23990": {
+   "en": "They would keep her quite protected... &%]",
+   "zh": "他們一定把她保護得十分周密……&%]"
+  },
+  "23991": {
+   "en": "You must find her, and destroy her... &%]",
+   "zh": "你必須找到她，並消滅她……&%]"
+  },
+  "23992": {
+   "en": "I am sending you because our own forces are far too weak here to try",
+   "zh": "我派你去，是因為我們在此的兵力太弱，無力"
+  },
+  "23993": {
+   "en": "any kind of direct assault, and no Umpani could possibly infiltrate",
+   "zh": "發動任何直接攻擊，而且恩帕尼人也絕不可能"
+  },
+  "23994": {
+   "en": "them by subterfuge... &%]",
+   "zh": "滲透進他們內部……&%]"
+  },
+  "23995": {
+   "en": "But this is how you might be able to succeed where we cannot... &%]",
+   "zh": "但你或許能因此在我們辦不到的地方成功……&%]"
+  },
+  "23996": {
+   "en": "The T'Rang and Umpani Empires have made a declaration of war... &%]",
+   "zh": "特蘭格與恩帕尼兩大帝國已互相宣戰……&%]"
+  },
+  "23997": {
+   "en": "Conflict on a galactic scale... &%]",
+   "zh": "這是銀河尺度的戰爭……&%]"
+  },
+  "23998": {
+   "en": "And this is only the beginning... &%]",
+   "zh": "而這只是開端……&%]"
+  },
+  "23999": {
+   "en": "You must seek out the T'Rang stronghold... &%]",
+   "zh": "你必須找出特蘭格的要塞……&%]"
+  },
+  "24000": {
+   "en": "And destroy the Queen! &%]",
+   "zh": "並消滅女王！&%]"
+  },
+  "24001": {
+   "en": "I have a special weapon which I am going to send with you... &%]",
+   "zh": "我有一件特殊武器，要交給你們帶去……&%]"
+  },
+  "24002": {
+   "en": "It is the only one we have, so you must use it carefully... &%]",
+   "zh": "這是我們僅有的一件，務必小心使用……&%]"
+  },
+  "24003": {
+   "en": "But it is powerful enough to destroy the Queen and her spore... &%]",
+   "zh": "但它的威力足以消滅女王和她的孢子……&%]"
+  },
+  "24004": {
+   "en": "Wait until you are close enough to use it... &%]",
+   "zh": "等到距離夠近再使用……&%]"
+  },
+  "24005": {
+   "en": "And then get out as fast as you can...",
+   "zh": "然後盡快逃離這裡……"
+  },
+  "24010": {
+   "en": "Good luck on your mission... &%]",
+   "zh": "祝你們任務順利……&%]"
+  },
+  "24011": {
+   "en": "I, the Umpani Federation, and worlds we have not yet dreamed of,",
+   "zh": "我、恩帕尼聯邦，以及我們作夢也想不到的諸世界，"
+  },
+  "24012": {
+   "en": "are counting on you to eliminate the T'Rang invasion... &%]",
+   "zh": "都指望你們消滅特蘭格的入侵……&%]"
+  },
+  "24013": {
+   "en": "Remember... &%]DUTY &POWER &VICTORY!",
+   "zh": "謹記……&%]責任 &力量 &勝利！"
+  },
+  "24015": {
+   "en": "...Suddenly there is a blinding explosion... &%]",
+   "zh": "……突然，一場炫目的大爆炸爆開……&%]"
+  },
+  "24016": {
+   "en": "Picking yourselves up from the floor, you can feel the earth move",
+   "zh": "你們從地上爬起，感覺大地在腳下"
+  },
+  "24017": {
+   "en": "underfoot as more explosions rip the surrounding areas outside the",
+   "zh": "震動，一波波爆炸撕裂了指揮所外的"
+  },
+  "24018": {
+   "en": "command post...",
+   "zh": "周圍區域……"
+  },
+  "24020": {
+   "en": "Looking into the rubble of the General's Headquarters, you see an",
+   "zh": "望向將軍總部的殘骸，你們看見一條"
+  },
+  "24021": {
+   "en": "arm protruding from the debris... &%]",
+   "zh": "手臂從瓦礫中伸出……&%]"
+  },
+  "24022": {
+   "en": "Quickly digging into the fallen stones, you uncover his bloody and",
+   "zh": "你們迅速挖開落石，露出他血淋淋而"
+  },
+  "24023": {
+   "en": "ripped body... &%]Gazing down upon him, you know that his time is",
+   "zh": "撕裂的軀體……&%]俯視著他，你們知道他的"
+  },
+  "24024": {
+   "en": "close at end... &%]",
+   "zh": "死期將至……&%]"
+  },
+  "24025": {
+   "en": "With a straining gasp he chokes a whisper... &%]",
+   "zh": "他費力地喘息，哽咽著低語……&%]"
+  },
+  "24026": {
+   "en": "Duty... &%Power... &%Victorieeeghh...... &%]",
+   "zh": "責任……&%力量……&%勝利呀啊……&%]"
+  },
+  "24027": {
+   "en": "...And then the Umpani general is still and breathes no more...",
+   "zh": "……然後，這位恩帕尼將軍歸於沉寂，再無氣息……"
+  },
+  "24030": {
+   "en": "Soon, the explosions cease and you can hear the sounds of Umpani",
+   "zh": "不久，爆炸止息，你們聽見恩帕尼"
+  },
+  "24031": {
+   "en": "soldiers shouting orders and the sounds of the dying and wounded...",
+   "zh": "士兵喝令的聲音，以及垂死者與傷者的呻吟……"
+  },
+  "24032": {
+   "en": "@The explosion that hit the Command Center has blasted the side away,",
+   "zh": "擊中指揮中心的爆炸把這一側轟開了，"
+  },
+  "24033": {
+   "en": "and you can see into the din outside...",
+   "zh": "外面的喧囂一覽無遺……"
+  },
+  "24034": {
+   "en": "@There is smoke, confusion and scattered Umpani everywhere...",
+   "zh": "四處是煙霧與混亂，恩帕尼人倉皇四散……"
+  },
+  "24040": {
+   "en": "Stepping outside, you see ranks of the mighty armsmen fleeing the",
+   "zh": "走出屋外，你們看見一隊隊威武的士兵正在逃離"
+  },
+  "24041": {
+   "en": "town, vacating their fortress and seeking safety in the nearby",
+   "zh": "城鎮，棄守要塞，前往附近的"
+  },
+  "24042": {
+   "en": "forests...",
+   "zh": "森林……"
+  },
+  "24043": {
+   "en": "@Your own senses are still numbed by the shock of what has happened,",
+   "zh": "你們自己的知覺仍因這場變故的震撼而麻痺，"
+  },
+  "24044": {
+   "en": "but you feel that perhaps there is more here still to be uncovered...",
+   "zh": "但你們覺得這裡或許還有更多東西待發掘……"
+  },
+  "24045": {
+   "en": "@And such an opportunity may not present itself for long...",
+   "zh": "而這樣的機會或許不會存在太久……"
+  },
+  "24050": {
+   "en": "#!SPACEPORT",
+   "zh": "太空港"
+  },
+  "24051": {
+   "en": "!AUTHORITY",
+   "zh": "管理局"
+  },
+  "24055": {
+   "en": "Several Umpani armsmen block the entrance to the Spaceport Center,",
+   "zh": "幾名恩帕尼士兵擋在太空港中心的入口，"
+  },
+  "24056": {
+   "en": "intent on keeping out unwanted or unauthorized personnel...",
+   "zh": "一心要把不速之客與未獲授權者擋在外面……"
+  },
+  "24060": {
+   "en": "This area is restricted... &%]",
+   "zh": "此地為管制區……&%]"
+  },
+  "24061": {
+   "en": "Present your orders...",
+   "zh": "出示命令……"
+  },
+  "24067": {
+   "en": "Do you give the Armsman your orders?",
+   "zh": "要把命令交給士兵嗎？"
+  },
+  "24075": {
+   "en": "Guards, seize them!",
+   "zh": "衛兵，抓住他們！"
+  },
+  "24080": {
+   "en": "These orders do not grant you access to the Spaceport... &%]",
+   "zh": "這份命令無法讓你們進入太空港……&%]"
+  },
+  "24081": {
+   "en": "Leave the area immediately or I'll have to place you under arrest...",
+   "zh": "立刻離開此地，否則我將不得不逮捕你們……"
+  },
+  "24085": {
+   "en": "A huge painted plat covers the inside wall of the Spaceport Center,",
+   "zh": "一幅巨大的彩繪佔滿太空港中心的整面內牆，"
+  },
+  "24086": {
+   "en": "although what you are looking at makes no sense...",
+   "zh": "只是你們眼前的東西看不出個所以然……"
+  },
+  "24087": {
+   "en": "@It appears to be flecks and colored circles painted onto a dark",
+   "zh": "那看來像是漆在深"
+  },
+  "24088": {
+   "en": "blue background, with white lines and numbers scattered over it...",
+   "zh": "藍底色上的斑點與彩色圓圈，還散布著白色線條與數字……"
+  },
+  "24090": {
+   "en": "Stepping closer to the wallmap, you study its features in more",
+   "zh": "走近這幅牆上地圖，你們更仔細地研究其中的"
+  },
+  "24091": {
+   "en": "detail...",
+   "zh": "細節……"
+  },
+  "24092": {
+   "en": "@Then it dawns on you...",
+   "zh": "然後你們恍然大悟……"
+  },
+  "24093": {
+   "en": "@In the center of the map is a large yellow circle...",
+   "zh": "地圖中央有一個巨大的黃色圓圈……"
+  },
+  "24094": {
+   "en": "@And upon the outer edge of a concentric ring of circles around it,",
+   "zh": "而在它周圍一圈圈同心圓環的外緣，"
+  },
+  "24095": {
+   "en": "a tiny sphere is labelled with the following inscription: GUARDIA",
+   "zh": "有個小小的球體，標著如下的字樣：嘉迪亞"
+  },
+  "24096": {
+   "en": "@And on a ring around the sphere Guardia, another small white globe",
+   "zh": "而在嘉迪亞星球周圍的環圈上，還畫著另一顆"
+  },
+  "24097": {
+   "en": "has been drawn...",
+   "zh": "白色小球……"
+  },
+  "24098": {
+   "en": "@As if a giant sea, the air, the sky, space itself lies plotted",
+   "zh": "彷彿一片汪洋大海——空氣、天空、太空本身，全都繪於"
+  },
+  "24099": {
+   "en": "on this amazing mural, as plainly as any skipper's navigational",
+   "zh": "這幅驚人的壁畫之上，就像縱橫大洋的船長手中的"
+  },
+  "24100": {
+   "en": "charts who sails the oceans...",
+   "zh": "航海圖一般明白……"
+  },
+  "24101": {
+   "en": "@You remember seeing such a map before, on your journey to this",
+   "zh": "你們記得在前往這個世界的旅途上，曾見過這樣一幅圖，"
+  },
+  "24102": {
+   "en": "world, but it is only now that you begin to fathom its true",
+   "zh": "但直到此刻才開始領悟它真正的"
+  },
+  "24103": {
+   "en": "meaning and purpose...",
+   "zh": "意義與目的……"
+  },
+  "24104": {
+   "en": "@And you realize that these creatures cross the skies just as",
+   "zh": "你們並領悟到，這些生物橫越天空，正如"
+  },
+  "24105": {
+   "en": "the men of your world cross the sea...",
+   "zh": "你們世界的人類橫渡海洋……"
+  },
+  "24106": {
+   "en": "@Masters of the heavens...",
+   "zh": "蒼天的主宰……"
+  },
+  "24107": {
+   "en": "@Glancing over the entire mural again, your brain begins turning",
+   "zh": "再次掃視整幅壁畫，你們的腦袋開始攪成"
+  },
+  "24108": {
+   "en": "into jelly trying to conceive of the hundreds of circles, worlds,",
+   "zh": "漿糊，試著想像那數百個圓圈，那數百個世界，"
+  },
+  "24109": {
+   "en": "that dot its surface, as if each were a tiny bubble afloat within",
+   "zh": "密布其上，彷彿每一個都是飄浮在"
+  },
+  "24110": {
+   "en": "a vast and infinite foam...",
+   "zh": "無垠泡沫裡的小氣泡……"
+  },
+  "24111": {
+   "en": "@You read names and names and more names, trying to remember that",
+   "zh": "你們讀著名字、名字、再更多名字，並試著記住："
+  },
+  "24112": {
+   "en": "each represents an entire planet, like your own, like Guardia,",
+   "zh": "每一個都代表一整顆行星，像你們的家園，像嘉迪亞，"
+  },
+  "24113": {
+   "en": "perhaps teeming with strange peoples, perhaps full of wonderous",
+   "zh": "或許住滿奇異的種族，或許充滿奇妙的"
+  },
+  "24114": {
+   "en": "new things to behold...",
+   "zh": "新事物待你們目睹……"
+  },
+  "24115": {
+   "en": "@How the magiks of the universe have wrought such a weave of",
+   "zh": "宇宙的奇術竟織就出這樣一片"
+  },
+  "24116": {
+   "en": "intoxicating shores!",
+   "zh": "令人陶醉的海岸！"
+  },
+  "24117": {
+   "en": "@You turn away, no longer able to withstand these lofty thoughts...",
+   "zh": "你們轉開視線，再也承受不住這些高遠的思緒……"
+  },
+  "24118": {
+   "en": "@But after a few breaths, you turn back and study the little globe",
+   "zh": "但喘了幾口氣後，你們又回頭再次端詳那顆"
+  },
+  "24119": {
+   "en": "Guardia once again...",
+   "zh": "小星球嘉迪亞……"
+  },
+  "24120": {
+   "en": "@A small metal pin sticks out of the map in an emtpy patch of blue",
+   "zh": "一枚小小的金屬針插在地圖上一片空白的藍色處，"
+  },
+  "24121": {
+   "en": "near the planet, and under the pin you read the following:",
+   "zh": "就在星球近旁；針的下方寫著："
+  },
+  "24122": {
+   "en": "@HORATHA TRACKING - S:18,49 D:34,82,+17",
+   "zh": "霍拉莎追蹤 - S:18,49 D:34,82,+17"
+  },
+  "24123": {
+   "en": "@Hmmm...",
+   "zh": "嗯……"
+  },
+  "24124": {
+   "en": "@Finally, your eyes and head begin to ache, and you decide to look",
+   "zh": "最後，你們的眼睛和頭都開始發痛，於是決定"
+  },
+  "24125": {
+   "en": "for an alternate source of entertainment and reading material...",
+   "zh": "找找別的消遣與讀物……"
+  },
+  "24127": {
+   "en": "Peeking in through the window, you see the back wall has been painted",
+   "zh": "從窗戶窺看進去，你們看見後牆被漆成了"
+  },
+  "24128": {
+   "en": "black, with lots of colorful speckles...",
+   "zh": "黑色，上頭有許多彩色斑點……"
+  },
+  "24130": {
+   "en": "This side of the Spaceport appears to be a storeroom, filled with",
+   "zh": "太空港的這一側似乎是間儲藏室，堆滿了"
+  },
+  "24131": {
+   "en": "crates and heavy metal pieces...",
+   "zh": "板條箱與沉重的金屬零件……"
+  },
+  "24135": {
+   "en": "Prying open a few crates, you find they contain giant metal objects,",
+   "zh": "撬開幾個板條箱，你們發現裡面裝著巨大的金屬物件，"
+  },
+  "24136": {
+   "en": "far too heavy to carry, and whose purpose is rather enigmatic...",
+   "zh": "重得無法搬運，用途也相當費解……"
+  },
+  "24200": {
+   "en": "Standing out over the treetops, the Great Tower of Dane, Dionysceus,",
+   "zh": "高聳於樹冠之上，丹恩大塔狄奧尼修斯"
+  },
+  "24201": {
+   "en": "is visible in the southern sky, a deep paled monolithic slab which",
+   "zh": "在南方天際清晰可見，一塊蒼白單調的巨碑，"
+  },
+  "24202": {
+   "en": "rises above the forest lands with an unnatural alien majesty...",
+   "zh": "以非自然的異界威嚴聳出森林大地之上……"
+  },
+  "24203": {
+   "en": "@Strong and expressionless, you can almost feel within its cold stoney",
+   "zh": "堅實而毫無表情，你們幾乎能感覺到它冰冷石造的"
+  },
+  "24204": {
+   "en": "walls the powerful magiks which most surely reside within its holds...",
+   "zh": "牆垣之內，必定盤踞著強大的奇術……"
+  },
+  "24205": {
+   "en": "@And for the first time, it dawns on you just how old",
+   "zh": "而你們頭一次領悟到，丹恩這樣一個源遠流長而確立的"
+  },
+  "24206": {
+   "en": "must be the ancient and established order of the Dane...",
+   "zh": "教團究竟有多麼古老……"
+  },
+  "24207": {
+   "en": "@A sect likely as old as the planet itself...",
+   "zh": "一個幾乎與這顆行星本身同樣古老的教派……"
+  },
+  "24210": {
+   "en": "Closer to the ominous tower, you feel a boney chill that seems to",
+   "zh": "更靠近這座不祥之塔，你們感到一股徹骨寒意，正"
+  },
+  "24211": {
+   "en": "descend from its looming surface...",
+   "zh": "從它陰森高懸的塔身降下……"
+  },
+  "24215": {
+   "en": "#!Entering",
+   "zh": "進入"
+  },
+  "24216": {
+   "en": "!DIONYSCEUS",
+   "zh": "狄奧尼修斯"
+  },
+  "24217": {
+   "en": "@#!Great Tower",
+   "zh": "大塔"
+  },
+  "24218": {
+   "en": "!Of Dane",
+   "zh": "丹恩的"
+  },
+  "24220": {
+   "en": "Inside the entrance of the tower, an utter lack of warmth tells",
+   "zh": "塔內入口處全無一絲暖意，這告訴你們的"
+  },
+  "24221": {
+   "en": "you as much about the Fellowship of Dane as could any Dane himself...",
+   "zh": "丹恩團契的種種，不亞於任何丹恩人親口所言……"
+  },
+  "24222": {
+   "en": "@It does not strike you that they are likely to provide visitors",
+   "zh": "你們並不覺得他們會給訪客"
+  },
+  "24223": {
+   "en": "with any sense of a hearty welcome, and indeed you suspect they would",
+   "zh": "什麼熱忱的歡迎，而且你們懷疑他們"
+  },
+  "24224": {
+   "en": "be quite perplexed by any notion akin to showing one \"a good time\"...",
+   "zh": "對「帶人痛快玩一場」這類念頭準會大惑不解……"
+  },
+  "24225": {
+   "en": "@But then again, perhaps it won't be dull after all...",
+   "zh": "不過話說回來，這裡或許終究不會無聊……"
+  },
+  "24230": {
+   "en": "Gathered inside the chamber, a huddle of Dane talk in",
+   "zh": "大廳裡聚著一群丹恩人，正以細弱的"
+  },
+  "24231": {
+   "en": "soft whispers, ceasing as you enter...",
+   "zh": "低語交談，在你們進來時靜了下來……"
+  },
+  "24232": {
+   "en": "@Surprised at your presence, they distantly survey the party, trying",
+   "zh": "他們對你們的出現感到意外，冷冷地打量著隊伍，"
+  },
+  "24233": {
+   "en": "to fathom your intent...",
+   "zh": "參透你們的來意……"
+  },
+  "24234": {
+   "en": "@Then, bearing aught but a slit for a smile, one of them approaches...",
+   "zh": "然後，其中一人掛著一道細縫般的微笑走近……"
+  },
+  "24240": {
+   "en": "The Fellowship of Dane welcomes ye, good brothers...",
+   "zh": "丹恩團契歡迎爾等，善良的弟兄們……"
+  },
+  "24247": {
+   "en": "Hast ye heard the word?",
+   "zh": "爾等可曾聽聞聖言？"
+  },
+  "24250": {
+   "en": "May the divine light guide ye then...",
+   "zh": "願神聖之光指引爾等……"
+  },
+  "24255": {
+   "en": "They that hear the word are often drawn to the Tower of Dane, divine",
+   "zh": "聽聞聖言者常受感召來到丹恩之塔，神聖的"
+  },
+  "24256": {
+   "en": "inspiration their guiding light... &%]",
+   "zh": "啟示即是他們的引路之光……&%]"
+  },
+  "24257": {
+   "en": "Perhaps ye hear but do not listen... &%]",
+   "zh": "爾等或許聽見了，卻未聆聽……&%]"
+  },
+  "24258": {
+   "en": "And thus ye seek the way of the Fellowship...",
+   "zh": "因而爾等尋求團契之道……"
+  },
+  "24262": {
+   "en": "Dost ye wish the help of the Fellowship?",
+   "zh": "爾等想要團契的協助嗎？"
+  },
+  "24265": {
+   "en": "May the divine light guide ye then...",
+   "zh": "願神聖之光指引爾等……"
+  },
+  "24270": {
+   "en": "Then blessings be upon ye, lost children... &%]",
+   "zh": "那麼，願祝福降臨爾等，迷途的孩子們……&%]"
+  },
+  "24271": {
+   "en": "The Fellowship shall light thy life... &%]",
+   "zh": "團契將照亮你的生命……&%]"
+  },
+  "24272": {
+   "en": "The Fellowship welcomes all who seek it!",
+   "zh": "團契歡迎所有尋求它的人！"
+  },
+  "24275": {
+   "en": "\u0006GOLD/\u0006MONEY/\u0006COIN/",
+   "zh": "\u0006黃金/\u0006金錢/\u0006金幣/"
+  },
+  "24277": {
+   "en": "And what token of thy faith dost ye offer, my children?",
+   "zh": "那麼孩子們，爾等要獻上什麼信仰的信物呢？"
+  },
+  "24280": {
+   "en": "Ah, let Fellowship enter thy hearts, good brothers, and show ye",
+   "zh": "啊，善良的弟兄，讓團契進入爾等的心，"
+  },
+  "24281": {
+   "en": "then the blessed offering of the golden coins which so heavily",
+   "zh": "然後獻上金幣的蒙福奉獻，那金幣如此沉重地……"
   },
   "25265": {
    "en": "In the blood-filled waters the leviathan carcass slips back to the",
