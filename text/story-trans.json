@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 8417,
+ "count": 8825,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -6858,7 +6858,7 @@
   },
   "9358": {
    "en": "The Magna Dane rules from atop the Great Tower of Dane!",
-   "zh": "大丹恩從丹恩巨塔的塔頂統治！"
+   "zh": "大丹恩從丹恩大塔的塔頂統治！"
   },
   "9360": {
    "en": "\u001fTORQUESADE@",
@@ -6874,7 +6874,7 @@
   },
   "9368": {
    "en": "Brother Almagorte may be found in the Great Tower of Dane!",
-   "zh": "阿爾馬戈特修士可在丹恩巨塔找到！"
+   "zh": "阿爾馬戈特修士可在丹恩大塔找到！"
   },
   "9370": {
    "en": " TOLLEN DANE@",
@@ -6886,7 +6886,7 @@
   },
   "9373": {
    "en": "He travels the sacred halls of the Tower of Dane!",
-   "zh": "他行走於丹恩巨塔的聖堂！"
+   "zh": "他行走於丹恩大塔的聖堂！"
   },
   "9375": {
    "en": "!DIONYSCEUS@",
@@ -8066,7 +8066,7 @@
   },
   "10433": {
    "en": "The Magna Dane rules from atop the Great Tower of Dane!",
-   "zh": "大丹恩從丹恩巨塔頂端統治一切！"
+   "zh": "大丹恩從丹恩大塔頂端統治一切！"
   },
   "10435": {
    "en": "\u001fTORQUESADE@",
@@ -8090,7 +8090,7 @@
   },
   "10448": {
    "en": "He travels the sacred halls of the Tower of Dane!",
-   "zh": "他行走於丹恩巨塔的聖堂！"
+   "zh": "他行走於丹恩大塔的聖堂！"
   },
   "10450": {
    "en": " BELCANZOR@",
@@ -8230,7 +8230,7 @@
   },
   "10523": {
    "en": "The sacramental urns lie throughout the Great Tower of Dane...",
-   "zh": "聖甕散布在丹恩巨塔各處……"
+   "zh": "聖甕散布在丹恩大塔各處……"
   },
   "10600": {
    "en": " YOU@",
@@ -11134,7 +11134,7 @@
   },
   "13113": {
    "en": "The Magna Dane rules from atop the Great Tower of Dane!",
-   "zh": "大丹恩從丹恩巨塔的塔頂統治！"
+   "zh": "大丹恩從丹恩大塔的塔頂統治！"
   },
   "13115": {
    "en": "\u001fTORQUESADE@",
@@ -11150,7 +11150,7 @@
   },
   "13123": {
    "en": "Brother Almagorte may be found in the Great Tower of Dane!",
-   "zh": "阿爾馬戈特修士可在丹恩巨塔找到！"
+   "zh": "阿爾馬戈特修士可在丹恩大塔找到！"
   },
   "13125": {
    "en": " TOLLEN DANE@",
@@ -11162,7 +11162,7 @@
   },
   "13128": {
    "en": "He travels the sacred halls of the Tower of Dane!",
-   "zh": "他行走於丹恩巨塔的聖堂！"
+   "zh": "他行走於丹恩大塔的聖堂！"
   },
   "13130": {
    "en": " BELCANZOR@",
@@ -27940,6 +27940,110 @@
    "en": "the enemies of Dane...",
    "zh": "丹恩之敵的血……"
   },
+  "24945": {
+   "en": "Into the pit you sprinkle the Ashes of Diam, and watch as emerges",
+   "zh": "你將迪亞姆之灰撒入坑中，看著"
+  },
+  "24946": {
+   "en": "a billowing cloud of smoke...",
+   "zh": "一團翻騰的煙霧湧現……"
+  },
+  "24950": {
+   "en": "Into the pit you hurl the mystical Stone of Gates, igniting the smoke",
+   "zh": "你將神秘的門扉之石擲入坑中，引燃煙霧"
+  },
+  "24951": {
+   "en": "to a stream of white hot fire... %",
+   "zh": "化為一道白熱火焰……%"
+  },
+  "24955": {
+   "en": "Up from the scorching pyre ascends the raging Hellspawn... &%]",
+   "zh": "狂怒的地獄孽物自灼熱火葬堆中升起……&%]"
+  },
+  "24956": {
+   "en": "His fists ablaze with globes of searing white flame... &%]",
+   "zh": "他雙拳燃著灼人的白焰光球……&%]"
+  },
+  "24957": {
+   "en": "And upon his head thrusting the great devil's cornu... &%]",
+   "zh": "他頭上挺立著魔鬼的巨角……&%]"
+  },
+  "24958": {
+   "en": "ONCE AGAIN I AM SUMMONED TO THE WORLD OF MAN, &%]",
+   "zh": "吾再次被召喚至人世，&%]"
+  },
+  "24959": {
+   "en": "TRAPPED BY THE PIT OF THE SPAWNING WELL; &%]",
+   "zh": "受困於滋生之井的坑洞；&%]"
+  },
+  "24960": {
+   "en": "COME THEN, YE MORTALS, FACE THE SPAWN OF THE DAMNED... &%]",
+   "zh": "來吧，凡人，直面受詛咒者的孽種……&%]"
+  },
+  "24961": {
+   "en": "YE WHOSE SOULS SHALL I TAKE BACK TO HELL!!",
+   "zh": "你們之中，誰的靈魂該被吾帶回地獄！！"
+  },
+  "24965": {
+   "en": "In the final stroke of the battle was the great demon cornu severed",
+   "zh": "戰鬥的最後一擊中，巨大的魔角遭斬落"
+  },
+  "24966": {
+   "en": "from the head of the beast, falling back into the depths of the pit",
+   "zh": "自巨獸頭上脫落，墜入坑洞深處"
+  },
+  "24967": {
+   "en": "as the spawn of hell burst into pyre of black flame...",
+   "zh": "此時地獄孽物迸燃成黑焰烈火……"
+  },
+  "24970": {
+   "en": "From outside the gates of the Pit you hear the cry...",
+   "zh": "你聽見深坑門外傳來呼喊……"
+  },
+  "24971": {
+   "en": "@\"QUICKLY MY CHILDREN, TAKE THE HORN!",
+   "zh": "快，我的孩子們，取走那支角！"
+  },
+  "24980": {
+   "en": "TO THE DEATH YE OF DANE, BRING ME THE HORN!! %]",
+   "zh": "丹恩子民，戰至死方休，把角帶來給我！！%]"
+  },
+  "24981": {
+   "en": "And the children, slaves, whores, and fathers of Torquesade, the",
+   "zh": "於是托克薩德的孩童、奴隸、娼妓與父老——"
+  },
+  "24982": {
+   "en": "insane Lord of all Dane, the Magna Dane, attack as if driven by",
+   "zh": "統治全丹恩的瘋狂領主、大丹恩——彷彿被"
+  },
+  "24983": {
+   "en": "the tumultuous fury of all hells...",
+   "zh": "眾地獄翻騰狂怒所驅使，瘋狂撲殺……"
+  },
+  "24990": {
+   "en": "Walking among the mass of obliterated bodies, you come across the",
+   "zh": "你行走於遍地被殲滅的屍骸之間，發現了"
+  },
+  "24991": {
+   "en": "twisted corpse of the fallen Torquesade, the Magna Dane...",
+   "zh": "隕落的托克薩德、大丹恩那扭曲的屍身……"
+  },
+  "24992": {
+   "en": "@You pause...",
+   "zh": "你停下……"
+  },
+  "24993": {
+   "en": "@And with a slight nod, wonder silently...",
+   "zh": "你微微頷首，默默思忖……"
+  },
+  "24994": {
+   "en": "@What now shall become...",
+   "zh": "而偉大的丹恩世家，"
+  },
+  "24995": {
+   "en": "@Of the mighty House of Dane...",
+   "zh": "如今又將變成什麼呢……"
+  },
   "25000": {
    "en": "Suddenly you detect a slight shimmer, the glint of a metal ring",
    "zh": "突然間你察覺一絲微光，一枚金屬戒指的閃爍"
@@ -29515,6 +29619,22 @@
   "25992": {
    "en": "Pressing the button, a compartment opens up underneath the dash,",
    "zh": "按下按鈕，儀表板下方打開了一個隔間，"
+  },
+  "25993": {
+   "en": "within which lies a crested sapphire ring... &%]",
+   "zh": "裡面躺著一枚帶紋章的藍寶石戒指……&%]"
+  },
+  "25994": {
+   "en": "Suddenly, a booming voice emerges from the console... &%]",
+   "zh": "突然，洪亮的聲音自控制台傳出……&%]"
+  },
+  "25995": {
+   "en": "IN YOUR HANDS YOU HOLD THE RING, A PART OF THE FINAL KEY... &%]",
+   "zh": "你手中握著的戒指，是最終之鑰的一部分……&%]"
+  },
+  "25996": {
+   "en": "CARRY IT WELL, FOR IT IS A GUARDIAN OF MY SECRET...",
+   "zh": "妥善保管它，因它是我秘密的守護者……"
   },
   "26000": {
    "en": "Placing the locket within the indenture, it makes a perfect fit... &%]",
@@ -31402,7 +31522,7 @@
   },
   "27644": {
    "en": "By the way, my name is Vitalia... &%]",
-   "zh": "對了，我的名字是維塔莉亞…… &%]"
+   "zh": "對了，我的名字是薇塔莉亞…… &%]"
   },
   "27645": {
    "en": "But everyone calls me Vi... &%]",
@@ -33671,6 +33791,1518 @@
   "29416": {
    "en": "righteous path...",
    "zh": "正道……"
+  },
+  "29420": {
+   "en": "Because of your former good deeds, I shall forgive you this time,",
+   "zh": "念在你過去的善行，這回我就饒了你，"
+  },
+  "29421": {
+   "en": "but do not continue to walk the evil path that you tread upon",
+   "zh": "但你別再繼續走在你這些日子所踏的"
+  },
+  "29422": {
+   "en": "these days!",
+   "zh": "邪路上！"
+  },
+  "29425": {
+   "en": "You are as the vermin that infests the eternal cesspool of vile",
+   "zh": "你就像那永恆罪穢糞坑裡滋生的"
+  },
+  "29426": {
+   "en": "iniquitiousness... &%]",
+   "zh": "害蟲一般……&%]"
+  },
+  "29427": {
+   "en": "You are a warty plague upon our lands! &%]",
+   "zh": "你是我們土地上多疣的瘟疫！&%]"
+  },
+  "29428": {
+   "en": "Your heart is as diseased a funnel as a maggot's bowel!! &%]",
+   "zh": "你的心如蛆腸般，是條染病的漏斗！！&%]"
+  },
+  "29429": {
+   "en": "I shall rid the world of your unholy pestilence!!!",
+   "zh": "我要從世上除掉你這褻瀆的瘟疫！！！"
+  },
+  "29437": {
+   "en": "Did you receive my letter?",
+   "zh": "你收到我的信了嗎？"
+  },
+  "29440": {
+   "en": "I left a note for you at the School of 5 Flowers... &",
+   "zh": "我在五花門給你留了一張字條……&"
+  },
+  "29441": {
+   "en": "Look for it there...",
+   "zh": "去那裡找找吧……"
+  },
+  "29445": {
+   "en": "It is plain enough!",
+   "zh": "這再明顯不過了！"
+  },
+  "29450": {
+   "en": "A mixture of the divine Dahlia into a vial of Holy Water will",
+   "zh": "把神聖的大麗花調入一小瓶聖水，將可"
+  },
+  "29451": {
+   "en": "yield the blessed solution...",
+   "zh": "調出那蒙福的溶液……"
+  },
+  "29500": {
+   "en": "In the distance you hear a horrid moaning... &%]",
+   "zh": "你聽見遠處傳來可怕的呻吟……&%]"
+  },
+  "29501": {
+   "en": "It is drawing nearer... &%]",
+   "zh": "它越來越近了……&%]"
+  },
+  "29502": {
+   "en": "It's horrible, ghastly... &%]",
+   "zh": "它可怕又駭人……&%]"
+  },
+  "29503": {
+   "en": "It's...",
+   "zh": "它……"
+  },
+  "29505": {
+   "en": "Brother TShober! &%]",
+   "zh": "喬伯修士！&%]"
+  },
+  "29506": {
+   "en": "The wailing (and somewhat inebriated) munk swaggers up...",
+   "zh": "那哀號的（還帶幾分醉意的）穆克搖搖晃晃地走近……"
+  },
+  "29510": {
+   "en": "Hi-ho (*hic*), fair brothers!",
+   "zh": "嗨呵（嗝），可敬的弟兄們！"
+  },
+  "29515": {
+   "en": "Methinks (*hic*) the malodorous scum of Dane (may a stampede of",
+   "zh": "本僧想（嗝）丹恩那群惡臭敗類（願成群惡毒"
+  },
+  "29516": {
+   "en": "malignant toads defecate in their infectious mouths), (*hic*) are",
+   "zh": "蟾蜍在他們染疫的嘴裡拉屎），（嗝）他們"
+  },
+  "29517": {
+   "en": "after me! &%]",
+   "zh": "正要抓我！&%]"
+  },
+  "29518": {
+   "en": "I'll tear'em to pieces (*hic*), limb from limb!!",
+   "zh": "我會把他們撕成碎片（嗝），一肢肢扯斷！！"
+  },
+  "29521": {
+   "en": "Huh, (*hic*) ?",
+   "zh": "咦，（嗝）？"
+  },
+  "29522": {
+   "en": "Er, you haven't seen any around here, have you? (*hic*)",
+   "zh": "呃，你們沒在這附近看過任何一個吧？（嗝）"
+  },
+  "29525": {
+   "en": "Good thing too (*hic*), I'd make mincemeat out of 'em!!",
+   "zh": "那樣才好（嗝），我會把他們剁成肉醬！！"
+  },
+  "29530": {
+   "en": "Ulp! (*hic*) Heh, in that case (*hic*) I think I'll be on my... &%]",
+   "zh": "咕嚕！（嗝）嘿，那樣的話（嗝）我想我還是先……&%]"
+  },
+  "29531": {
+   "en": "Er, I mean, (*hic*) I'll go see if I can find 'em! &%]",
+   "zh": "呃，我是說，（嗝）我這就去看看能不能找到他們！&%]"
+  },
+  "29532": {
+   "en": "I'll show 'em (*hic*) a thing or two!!",
+   "zh": "我會讓他們（嗝）見識見識！！"
+  },
+  "29540": {
+   "en": "It must be kept safe from the (*hic) blasphemous maggots of Dane,",
+   "zh": "它必須保管妥當，別讓（嗝）丹恩那些瀆神的蛆蟲染指，"
+  },
+  "29541": {
+   "en": "may a plague of rabid cows vomit upon their lands!",
+   "zh": "願成群瘋牛嘔吐在他們的土地上！"
+  },
+  "29550": {
+   "en": "TShober's Ghost!!! &%]",
+   "zh": "喬伯的鬼魂！！！&%]"
+  },
+  "29551": {
+   "en": "NOW YOU'LL PAY! &%]",
+   "zh": "你們將付出代價！&%]"
+  },
+  "29552": {
+   "en": "HAH HAH HAH! &%]",
+   "zh": "哈！哈！哈！&%]"
+  },
+  "29553": {
+   "en": "NOW YOU'LL ALL PAY!! &%]",
+   "zh": "你們全都得付出代價！！&%]"
+  },
+  "29554": {
+   "en": "COME TO ME, MY PETS!!!",
+   "zh": "到我這來，寵物們！！！"
+  },
+  "29592": {
+   "en": "Do you wish to join her in battle against the spider-men?",
+   "zh": "你要與她並肩對抗那些蛛人嗎？"
+  },
+  "29600": {
+   "en": "In the field ahead you hear the din of a battle in progress...",
+   "zh": "前方原野傳來一場激戰的喧鬧聲……"
+  },
+  "29602": {
+   "en": "A group of brown spidery creatures are flailing with long glowing",
+   "zh": "一群棕色蛛形生物正對著牠們圍在中間的某物"
+  },
+  "29603": {
+   "en": "rods at something in their midst...",
+   "zh": "揮舞著發光的長桿……"
+  },
+  "29605": {
+   "en": "Suddenly, from between them shoots a bright red sled into the air...",
+   "zh": "突然，一架鮮紅的雪橇從牠們之間射上空中……"
+  },
+  "29608": {
+   "en": "But it is immediately snared by a net which grabs the end of the",
+   "zh": "但它隨即被一張網子攫住，網子扣住"
+  },
+  "29609": {
+   "en": "flying vehicle, and the spider-men quickly haul it back into the",
+   "zh": "飛行器的尾端，蛛人們迅速將它拖回"
+  },
+  "29610": {
+   "en": "ground... &%]",
+   "zh": "地面……&%]"
+  },
+  "29611": {
+   "en": "From the crashing sled you see the pilot leap into the foray of",
+   "zh": "你見駕駛員從墜落的雪橇躍入那群棕色"
+  },
+  "29612": {
+   "en": "brown attackers... &%]",
+   "zh": "攻擊者的混戰中……&%]"
+  },
+  "29613": {
+   "en": "It appears to be a woman, heavily outnumbered... &%]",
+   "zh": "那似乎是名女子，正寡不敵眾……&%]"
+  },
+  "29614": {
+   "en": "You see her turn in your direction and call out something, but she",
+   "zh": "你見她轉向你們的方向喊了些什麼，但"
+  },
+  "29615": {
+   "en": "is too far away for you to hear...",
+   "zh": "距離太遠，你們聽不見……"
+  },
+  "29620": {
+   "en": "Deciding not to get involved, you watch as the fight continues... &%]",
+   "zh": "你決定不插手，在旁觀看戰鬥繼續……&%]"
+  },
+  "29621": {
+   "en": "Soon, the girl is lashed in red from her many bleeding wounds, yet",
+   "zh": "不一會兒，女孩多處傷口淌血，渾身染成"
+  },
+  "29622": {
+   "en": "still she battles onward... &%]",
+   "zh": "一片鮮紅，卻仍奮戰……&%]"
+  },
+  "29623": {
+   "en": "Being no match for the host of T'Rang which surround her, she",
+   "zh": "她終究不敵圍在四周的特蘭格大軍，"
+  },
+  "29624": {
+   "en": "eventually succumbs to their gashing blows... &%]",
+   "zh": "最終倒在牠們劈砍的重擊之下……&%]"
+  },
+  "29625": {
+   "en": "You stand safely at a distance and watch as they bind up the",
+   "zh": "你在安全距離外看著牠們捆起"
+  },
+  "29626": {
+   "en": "helpless girl, and then drag her and the flying machine off into the",
+   "zh": "無助的女孩，然後把她和飛行器拖進"
+  },
+  "29627": {
+   "en": "forest...",
+   "zh": "森林……"
+  },
+  "29630": {
+   "en": "You run to help the struggling girl...",
+   "zh": "你跑上前去幫助苦撐的女孩……"
+  },
+  "29650": {
+   "en": "The battle over, the pilot-girl returns to her fiery vessel and",
+   "zh": "戰鬥結束後，駕駛女孩回到她火紅的飛船，"
+  },
+  "29651": {
+   "en": "glides over to land before you...",
+   "zh": "滑翔而來，降落在你們面前……"
+  },
+  "29655": {
+   "en": "Thy courage is great, and thy arms strong! &%]",
+   "zh": "汝之勇氣非凡，臂力強健！&%]"
+  },
+  "29656": {
+   "en": "I am Jan-Ette, of the Helazoid Legion, Defenders of the City of",
+   "zh": "我是珍妮特，赫詹軍團的一員，天空之城的"
+  },
+  "29657": {
+   "en": "Sky... &%]",
+   "zh": "守衛者……&%]"
+  },
+  "29658": {
+   "en": "I was sent by the great queen of our tribe, Dame Ke-Li, to learn",
+   "zh": "我受我族偉大的女王柯麗夫人之命，前來"
+  },
+  "29659": {
+   "en": "of the strangers that now inhabit our lands... &%]",
+   "zh": "打探如今住進我們土地的陌生人……&%]"
+  },
+  "29660": {
+   "en": "We await the coming of the Crusaders! &%]",
+   "zh": "我們等候十字軍的到來！&%]"
+  },
+  "29661": {
+   "en": "I give to you this banner of my people...",
+   "zh": "我將我族的這面旗幟贈予你們……"
+  },
+  "29665": {
+   "en": "Carry it with you, that all Helazoid shall know you as friend... &%]",
+   "zh": "帶著它，讓全體赫詹族都知道你們是朋友……&%]"
+  },
+  "29666": {
+   "en": "Present it to Dame Ke-Li, in the City of Sky, and she will welcome",
+   "zh": "把它呈給天空之城的柯麗夫人，她會迎接"
+  },
+  "29667": {
+   "en": "you...",
+   "zh": "你們…"
+  },
+  "29670": {
+   "en": "I recognise you! &%]",
+   "zh": "我認得你們！&%]"
+  },
+  "29671": {
+   "en": "Thou art the cowards who watched idly as I was taken into the claws",
+   "zh": "你們就是在我被特蘭格的利爪抓走時"
+  },
+  "29672": {
+   "en": "of the T'Rang! &%]",
+   "zh": "袖手旁觀的懦夫！&%]"
+  },
+  "29673": {
+   "en": "How does it feel to be lower than the worm, spineless whelps... &%]",
+   "zh": "連蟲都不如是什麼滋味，沒骨氣的懦夫……&%]"
+  },
+  "29674": {
+   "en": "I have not forgotten thy lack of courage! &%]",
+   "zh": "我可沒忘記你們的怯懦！&%]"
+  },
+  "29675": {
+   "en": "Fortunately for me, there is one of great valor who does",
+   "zh": "所幸對我而言，世上仍有一位真正的勇者，"
+  },
+  "29676": {
+   "en": "not tremble with fear at the might of the T'Rang, and twas he that",
+   "zh": "面對特蘭格的威勢也不顫抖，而正是他"
+  },
+  "29677": {
+   "en": "set me free from my captors! &%]",
+   "zh": "把我從擄走我的人手中救出！&%]"
+  },
+  "29678": {
+   "en": "I spit upon thy faces, thou pitiful curs!!",
+   "zh": "我朝你們的臉啐口水，可悲的狗東西！！"
+  },
+  "29680": {
+   "en": "...Saying farewell, the pilot-girl, Jan-Ette, throttles her",
+   "zh": "……道別之後，駕駛女孩珍妮特催動她"
+  },
+  "29681": {
+   "en": "crimson steed and goes zooming off into the sky...",
+   "zh": "那猩紅座騎，呼嘯飛上天際……"
+  },
+  "29700": {
+   "en": "O'Haio, kind friends! &%]",
+   "zh": "歐哈伊，親切的朋友們！&%]"
+  },
+  "29701": {
+   "en": "I thought to come by and see how thee doth fare!",
+   "zh": "我順道過來看看你們過得如何！"
+  },
+  "29710": {
+   "en": "O'Haio, noble ones! &%]",
+   "zh": "歐哈伊，尊貴的諸位！&%]"
+  },
+  "29711": {
+   "en": "Welcome to the City of Sky! &%]",
+   "zh": "歡迎來到天空之城！&%]"
+  },
+  "29712": {
+   "en": "May thy days be filled with joy...",
+   "zh": "願你們日日充滿喜樂……"
+  },
+  "29715": {
+   "en": "Begone, strangers! &%]",
+   "zh": "滾開，陌生人！&%]"
+  },
+  "29716": {
+   "en": "Thou are not welcome in the City of Sky!",
+   "zh": "天空之城不歡迎你們！"
+  },
+  "29750": {
+   "en": "Suddenly, from out of the blue, descends a flying red rocket... &%]",
+   "zh": "突然，晴空之中降下一架紅色火箭……&%]"
+  },
+  "29751": {
+   "en": "Upon the back of which rides a blazing female warrior...",
+   "zh": "上面騎著一位烈焰般的女戰士……"
+  },
+  "29755": {
+   "en": "O'Haio, strangers! &%]",
+   "zh": "歐哈伊，陌生人們！&%]"
+  },
+  "29756": {
+   "en": "Welcome to the lands of Guardia! &%]",
+   "zh": "歡迎來到嘉迪亞的土地！&%]"
+  },
+  "29757": {
+   "en": "Many are you, who have come from the stars... &%]",
+   "zh": "你們人數眾多，來自群星……&%]"
+  },
+  "29758": {
+   "en": "We hail you, for it is the time of the coming of the Crusaders! &%]",
+   "zh": "我們向你們致敬，十字軍降臨的時刻已到！&%]"
+  },
+  "29759": {
+   "en": "Let destiny prevail! &%]",
+   "zh": "願命運得勝！&%]"
+  },
+  "29760": {
+   "en": "...And with that the bizarre lass zooms into the sky and shoots out of",
+   "zh": "……說完，那古怪的少女便衝上天際，"
+  },
+  "29761": {
+   "en": "sight...",
+   "zh": "消失……"
+  },
+  "29800": {
+   "en": "Deactivation Sequence Initiated",
+   "zh": "解除序列已啟動"
+  },
+  "29801": {
+   "en": "!Terminal Linkage Disconnect",
+   "zh": "終端連結中斷"
+  },
+  "29802": {
+   "en": "@Server 023@41A2",
+   "zh": "伺服器 023 41A2"
+  },
+  "29803": {
+   "en": "!Host Black Ship Command",
+   "zh": "主機：黑船指揮部"
+  },
+  "29804": {
+   "en": "@Remote Access Terminated",
+   "zh": "遠端存取已終止"
+  },
+  "29805": {
+   "en": "!Memory Purge Complete",
+   "zh": "記憶清除完成"
+  },
+  "29810": {
+   "en": "System Failure",
+   "zh": "系統故障"
+  },
+  "29811": {
+   "en": "!Warning",
+   "zh": "警告"
+  },
+  "29812": {
+   "en": "!Overload",
+   "zh": "過載"
+  },
+  "29813": {
+   "en": "@Host Central Security Access",
+   "zh": "主機：中央安保存取"
+  },
+  "29814": {
+   "en": "!Linkage server 018@67C1",
+   "zh": "連結伺服器 018 67C1"
+  },
+  "29815": {
+   "en": "@Termination Sequence Initiated",
+   "zh": "終止序列已啟動"
+  },
+  "29820": {
+   "en": "OFFICIAL I.U.F.",
+   "zh": "I.U.F.公文"
+  },
+  "29821": {
+   "en": "!Proceed to the Supply Depot and receive standard N.E.P.S. issue from",
+   "zh": "前往補給庫，向卡邦姆中士領取標準配發的"
+  },
+  "29822": {
+   "en": "Sgt. Kabomm",
+   "zh": "N.E.P.S."
+  },
+  "29823": {
+   "en": "@Signed, !Sgt. Balbrak",
+   "zh": "簽署者：巴布拉克中士"
+  },
+  "29830": {
+   "en": "OFFICIAL I.U.F.",
+   "zh": "I.U.F.公文"
+  },
+  "29831": {
+   "en": "!Proceed to the Firing Range for basic training with Lt. Gromo",
+   "zh": "前往射擊場，接受格羅莫中尉的基礎訓練"
+  },
+  "29832": {
+   "en": "@Signed, !Sgt. Kabomm",
+   "zh": "簽署者：卡邦姆中士"
+  },
+  "29840": {
+   "en": "OFFICIAL I.U.F.",
+   "zh": "I.U.F.公文"
+  },
+  "29841": {
+   "en": "!Proceed to the Recruitment Station and report to Sgt. Balbrak",
+   "zh": "前往招募站，向巴布拉克中士報到"
+  },
+  "29842": {
+   "en": "@Signed, !Lt. Gromo",
+   "zh": "簽署者：格羅莫中尉"
+  },
+  "29850": {
+   "en": "OFFICIAL S.T.F.",
+   "zh": "S.T.F.公文"
+  },
+  "29851": {
+   "en": "!Investigate Tramontane Forest for any evidence of enemy activity",
+   "zh": "調查特拉蒙塔內森林，找尋敵方活動的跡象"
+  },
+  "29852": {
+   "en": "@Signed, !Sgt. Balbrak",
+   "zh": "簽署者：巴布拉克中士"
+  },
+  "29860": {
+   "en": "OFFICIAL S.T.F.",
+   "zh": "S.T.F.公文"
+  },
+  "29861": {
+   "en": "!Deliver special dispatch to Rodan Lewarx at the I.U.F. Detache'",
+   "zh": "將特急公文送給位於新城的I.U.F.分遣隊之"
+  },
+  "29862": {
+   "en": "located in New City",
+   "zh": "羅丹·勒瓦克斯"
+  },
+  "29863": {
+   "en": "@Signed, !Sgt. Balbrak",
+   "zh": "簽署者：巴布拉克中士"
+  },
+  "29870": {
+   "en": "OFFICIAL I.U.F.",
+   "zh": "I.U.F.公文"
+  },
+  "29871": {
+   "en": "!Report to General Yamo's office at Command Headquarters",
+   "zh": "前往指揮總部，向亞莫將軍辦公室報到"
+  },
+  "29872": {
+   "en": "@Signed, !Sgt. Balbrak",
+   "zh": "署名：巴布拉克中士"
+  },
+  "29880": {
+   "en": "The book is filled with chants, prayers and liturgies, and many",
+   "zh": "書中滿是頌歌、祈禱文與禮儀文，還有許多"
+  },
+  "29881": {
+   "en": "references to the Divine Munkharam...",
+   "zh": "關於神聖穆克哈拉姆的記載……"
+  },
+  "29882": {
+   "en": "@While it contains nothing that is particularly helpful at",
+   "zh": "雖然書中沒有任何眼下特別有用的"
+  },
+  "29883": {
+   "en": "the present, it does have a few nice pictures of flowers...",
+   "zh": "東西，倒是有幾張漂亮的花卉圖畫……"
+  },
+  "29885": {
+   "en": "Opening the book, you read the following:",
+   "zh": "翻開書本，你讀到以下內容："
+  },
+  "29886": {
+   "en": "@ !THE !CHANT OF !DEMONSPAWN",
+   "zh": "魔裔之頌"
+  },
+  "29887": {
+   "en": "@Into the pit must ye throw the bowels of our enemies,",
+   "zh": "爾當將我等仇敵的臟腑擲入坑中，"
+  },
+  "29888": {
+   "en": "!That the blood of their innards may entice the fiend;",
+   "zh": "以其臟血誘引那惡魔；"
+  },
+  "29889": {
+   "en": "@Into the pit must ye sprinkle the Ashes of Diam,",
+   "zh": "爾當將迪亞姆之灰灑入坑中，"
+  },
+  "29890": {
+   "en": "!That the aroma of its scent may incite the fiend;",
+   "zh": "以其香氣煽動那惡魔；"
+  },
+  "29891": {
+   "en": "@Into the pit must ye hurl the Stone of Gates,",
+   "zh": "爾當將諸門之石拋入坑中，"
+  },
+  "29892": {
+   "en": "!That the magic of the gem may summon the fiend;",
+   "zh": "以其寶石之魔力召喚那惡魔；"
+  },
+  "29893": {
+   "en": "@Into the pit must ye recite the Chant of Demonspawn,",
+   "zh": "爾當向坑中誦唸魔裔之頌，"
+  },
+  "29894": {
+   "en": "!That the power of the word may bind the fiend;",
+   "zh": "以其言語之力束縛那惡魔；"
+  },
+  "29895": {
+   "en": "@Then may the Spawn of Hell be vanquished!",
+   "zh": "而後地獄孽裔必遭降伏！"
+  },
+  "29900": {
+   "en": "The acrid smell of staleness bites your nostrils as you enter the",
+   "zh": "走進這惡臭塵封的房間時，一股嗆鼻的霉味"
+  },
+  "29901": {
+   "en": "rank and dusty chamber, and you surmise that this area was abandoned",
+   "zh": "直刺你的鼻孔，你推測這一帶早已"
+  },
+  "29902": {
+   "en": "quite some time ago...",
+   "zh": "荒廢多時……"
+  },
+  "29903": {
+   "en": "@Other than the occasional soft pitter-patter of little",
+   "zh": "除了偶爾傳來小腳疾奔的"
+  },
+  "29904": {
+   "en": "scampering feet, you hear nothing at all which",
+   "zh": "輕響之外，你全然聽不見任何"
+  },
+  "29905": {
+   "en": "breaks the gloomy silence...",
+   "zh": "打破陰鬱寂靜的聲音……"
+  },
+  "29910": {
+   "en": "In the corner, you spot a pile of old rotted rags lying in a heap...",
+   "zh": "角落裡，你看到一堆腐爛的舊破布堆在一處……"
+  },
+  "29915": {
+   "en": "Sifting through the rags, you uncover the remains of whatever it",
+   "zh": "翻找這堆破布，你發現了當初穿著這些"
+  },
+  "29916": {
+   "en": "was that was wearing the clothing now turned to rot...",
+   "zh": "衣物、如今已化為腐朽的殘骸……"
+  },
+  "29917": {
+   "en": "@Just as you start to turn away from the well decayed corpse, you spy",
+   "zh": "你正要轉身離開這具腐爛殆盡的屍體，卻瞥見"
+  },
+  "29918": {
+   "en": "an old worn parchment still clutched within its boney fingers...",
+   "zh": "它的骨指間仍緊抓著一張破舊的羊皮紙……"
+  },
+  "29930": {
+   "en": "Approaching the trickling fountain, you are pleasantly surprised to",
+   "zh": "走近這座涓涓細流的噴泉，你驚喜地"
+  },
+  "29931": {
+   "en": "find that its water still runs fresh and sweet...",
+   "zh": "發現泉水依然清新甘甜……"
+  },
+  "29940": {
+   "en": "The air inside the secreted passage is dryer than you would have",
+   "zh": "這條隱密通道內的空氣比你想像的更乾燥，"
+  },
+  "29941": {
+   "en": "suspected, an indication that it has remained undiscovered for many",
+   "zh": "這顯示它多年來始終無人"
+  },
+  "29942": {
+   "en": "years...",
+   "zh": "問津……"
+  },
+  "29945": {
+   "en": "#!HORROR OF",
+   "zh": "恐怖的"
+  },
+  "29946": {
+   "en": "!RA-SEP-RE-TEP",
+   "zh": "拉塞普雷特普"
+  },
+  "29950": {
+   "en": "You pause for a moment to reflect upon the wisdom of disturbing",
+   "zh": "你停了片刻，思量驚擾這扇門"
+  },
+  "29951": {
+   "en": "whatever it is that might lie beyond the gate...",
+   "zh": "後未知存在是否明智……"
+  },
+  "29960": {
+   "en": "A sudden flash of fire arises from the sconces along the wall as you",
+   "zh": "你一走進房間，牆上的燭台便驟然竄起火光，"
+  },
+  "29961": {
+   "en": "enter the chamber, and dancing in the flicker of their candlelight",
+   "zh": "燭光搖曳舞動間，你看見一道"
+  },
+  "29962": {
+   "en": "you watch as a shadowy form emerges from the depths of a smokey",
+   "zh": "陰影形體從冒煙沸騰的池水"
+  },
+  "29963": {
+   "en": "bubbling pool...",
+   "zh": "深處浮現……"
+  },
+  "29970": {
+   "en": "The skeleton ghoul now splintered into hundreds of tiny bones, you",
+   "zh": "骷髏食屍鬼如今已碎裂成數百塊細骨，你"
+  },
+  "29971": {
+   "en": "nonetheless feel uneasy about the mystical chamber, and could almost",
+   "zh": "對這間魔法密室仍感不安，幾乎可以發誓"
+  },
+  "29972": {
+   "en": "swear the little ivory fragments were slowly inching their way back",
+   "zh": "那些細小的象牙白碎片正慢慢挪回"
+  },
+  "29973": {
+   "en": "into the pool...",
+   "zh": "池中……"
+  },
+  "29975": {
+   "en": "Re-entering the chamber, you note that most of the bone fragments",
+   "zh": "再次進入房間，你注意到大部分的骨頭碎片"
+  },
+  "29976": {
+   "en": "have disappeared...",
+   "zh": "已經消失了……"
+  },
+  "29980": {
+   "en": "As you start to leave the crypt, you deliberately step out of your",
+   "zh": "離開墓室之際，你特意繞路"
+  },
+  "29981": {
+   "en": "way to grind a small remaining finger chip into the floor...",
+   "zh": "把一小片殘留的指骨碾進地板……"
+  },
+  "31000": {
+   "en": "The West Wind howls through blackened skies, an ominous air",
+   "zh": "西風呼嘯著掠過漆黑的天空，不祥之氣"
+  },
+  "31001": {
+   "en": "that portends of gathering storms...",
+   "zh": "預示著風暴正在凝聚……"
+  },
+  "31002": {
+   "en": "@You have taken the hand of the dark harbinger, and sense that",
+   "zh": "你已牽起黑暗先驅的手，並感覺到"
+  },
+  "31003": {
+   "en": "the tide of things to come shall sweep all without mercy...",
+   "zh": "未來的浪潮將無情地橫掃一切……"
+  },
+  "31004": {
+   "en": "@Or chance of escape...",
+   "zh": "或者逃脫的機會……"
+  },
+  "31005": {
+   "en": "@The forest is ripe with the fetid odor of your inhospitable hosts,",
+   "zh": "森林裡瀰漫著不好客主人散發的惡臭，"
+  },
+  "31006": {
+   "en": "the T'Rang, an indication that their settlement lies somewhere",
+   "zh": "那是特蘭格的氣味，顯示他們的聚落"
+  },
+  "31007": {
+   "en": "nearby...",
+   "zh": "就在附近……"
+  },
+  "31008": {
+   "en": "@And though they be allies, you are filled with mistrust, knowing",
+   "zh": "雖然他們是盟友，你卻滿懷戒心，因為"
+  },
+  "31009": {
+   "en": "that a time may come when you will turn your swords against them...",
+   "zh": "總有一天你可能會對他們刀劍相向……"
+  },
+  "31010": {
+   "en": "@The corners of your grim lips raise slighty...",
+   "zh": "你冷峻的嘴角微微上揚……"
+  },
+  "31011": {
+   "en": "@How good it is to walk the way of danger...",
+   "zh": "行走於危險之途，是多麼美好……"
+  },
+  "31050": {
+   "en": "The East Wind cackles amongst the branches of the trees, a haunting",
+   "zh": "東風在樹枝間咯咯作響，像是來自"
+  },
+  "31051": {
+   "en": "voice from within the surrounding forest...",
+   "zh": "四周森林深處的鬼魅之聲……"
+  },
+  "31052": {
+   "en": "@Standing tall against the crisp darkness of the night, you",
+   "zh": "你挺立迎向夜晚清冷的黑暗，"
+  },
+  "31053": {
+   "en": "breathe deep, at last freed from the stuffy confines of the great",
+   "zh": "深吸一口氣，你終於脫離那艘載你"
+  },
+  "31054": {
+   "en": "flying machine which brought you here...",
+   "zh": "前來此地、局促悶熱的巨型飛行器……"
+  },
+  "31055": {
+   "en": "@To the south, a faint glow hovers just above the forest,",
+   "zh": "南方，一抹微光懸在森林上方，"
+  },
+  "31056": {
+   "en": "perhaps the fires of a small village alighting the sky...",
+   "zh": "也許是小村落的火光照亮了天際……"
+  },
+  "31057": {
+   "en": "@To the north, only the chilling laughter of the wind breaks the",
+   "zh": "北方，只有寒風刺骨的笑聲劃破"
+  },
+  "31058": {
+   "en": "emptiness of vast untamed wilderness...",
+   "zh": "遼闊蠻荒的空寂……"
+  },
+  "31059": {
+   "en": "@You have been abandoned, hurled into dangerous realms and unknown",
+   "zh": "你遭到了拋棄，被擲入危險的國度與未知"
+  },
+  "31060": {
+   "en": "lands...",
+   "zh": "之地……"
+  },
+  "31061": {
+   "en": "@How good it is to live again...",
+   "zh": "重獲新生，是多麼美好……"
+  },
+  "31100": {
+   "en": "You confront a giant slumbering beast, so huge that it fills the",
+   "zh": "你面對一頭沉睡的巨獸，牠龐大得"
+  },
+  "31101": {
+   "en": "entire room, so still that it doesn't even take a breath... &%\f]",
+   "zh": "塞滿整個房間，靜得連一口氣都不喘……&%\f]"
+  },
+  "31102": {
+   "en": "Everyone agrees you have troll dung in your brains, but they",
+   "zh": "大夥都說你腦袋裝了食人妖的糞，但"
+  },
+  "31103": {
+   "en": "follow you into the mouth of the beast nonetheless... &%\n]",
+   "zh": "他們仍跟著你走進巨獸口中……&%\n]"
+  },
+  "31110": {
+   "en": "...And then there were stars... &%\u0006]",
+   "zh": "……然後，眼前出現了繁星……&%\u0006]"
+  },
+  "31111": {
+   "en": "Inside the beast-bird of steel, you have traveled far into the",
+   "zh": "在這隻鋼鐵巨鳥體內，你已遠行至"
+  },
+  "31112": {
+   "en": "depths of space... &%\n]",
+   "zh": "宇宙深處……&%\n]"
+  },
+  "31113": {
+   "en": "For months your journey has continued blindly through the",
+   "zh": "數月來，你的旅程盲目地航行於"
+  },
+  "31114": {
+   "en": "heavens... &%\n]",
+   "zh": "星空……&%\n]"
+  },
+  "31115": {
+   "en": "And then... &%\u0005]",
+   "zh": "然後……&%\u0005]"
+  },
+  "31120": {
+   "en": "An evil presence appears against the darkness around you... &%\n]",
+   "zh": "一股邪惡的氣息在你周遭的黑暗中浮現……&%\n]"
+  },
+  "31121": {
+   "en": "A monsterous vessel approaches your helpless",
+   "zh": "一艘猙獰的船艦逼近你那"
+  },
+  "31122": {
+   "en": "craft as if hungering for prey... &%\u0012#|]",
+   "zh": "無助的飛船，彷彿飢餓的獵食者……&%\u0012#|]"
+  },
+  "31123": {
+   "en": "In a few minutes it is all over... &%\u0006]",
+   "zh": "幾分鐘後，一切就結束了……&%\u0006]"
+  },
+  "31130": {
+   "en": "You emerge from your metal beast into a long narrow corridor... &%\b]",
+   "zh": "你從金屬巨獸中走出，進入一條狹長的走廊……&%\b]"
+  },
+  "31131": {
+   "en": "While joyous at the prospect of rescue, you are troubled by the",
+   "zh": "獲救在望固然欣喜，你卻因神祕"
+  },
+  "31132": {
+   "en": "ominous presence of your mysterious saviour... &%\f]",
+   "zh": "救主的不祥氣息而心神不寧……&%\f]"
+  },
+  "31133": {
+   "en": "At the end of the corridor a figure sits high upon a throne... &%\b]",
+   "zh": "走廊盡頭，一道身影高踞王座之上……&%\b]"
+  },
+  "31134": {
+   "en": "You approach... &%\u0005]",
+   "zh": "你走上前……&%\u0005]"
+  },
+  "31150": {
+   "en": "I am he that is called Dark Savant... &%\b]",
+   "zh": "我就是那被稱為黑暗賢者的存在……&%\b]"
+  },
+  "31160": {
+   "en": "We travel to a distant world, vanished for many millenia, the",
+   "zh": "我們前往一個消失數千年的遙遠世界，"
+  },
+  "31161": {
+   "en": "legendary Lost Guardia... &%\n]",
+   "zh": "傳說中的失落嘉迪亞……&%\n]"
+  },
+  "31162": {
+   "en": "And upon this world lies the most powerful artifact in the Universe,",
+   "zh": "而這個世界上藏著全宇宙最強大的神器，"
+  },
+  "31163": {
+   "en": "the Astral Dominae! &%\n]",
+   "zh": "星界統領！&%\n]"
+  },
+  "31170": {
+   "en": "With it, I shall aquire the knowledge of the gods! &%\b]",
+   "zh": "有了它，我將獲得眾神的知識！&%\b]"
+  },
+  "31171": {
+   "en": "The will of the Cosmic Circle shall be no more! &%\b]",
+   "zh": "宇宙之環的意志將不復存在！&%\b]"
+  },
+  "31172": {
+   "en": "I shall challenge their power, put an end to their",
+   "zh": "我要挑戰他們的權力，終結他們對"
+  },
+  "31173": {
+   "en": "stranglehold on the Destiny of the Stars... &%\f]",
+   "zh": "群星命運的鉗制……&%\f]"
+  },
+  "31174": {
+   "en": "And spread the secrets that they have kept hidden for so",
+   "zh": "並將他們長久隱藏的秘密，"
+  },
+  "31175": {
+   "en": "long amongst all the worlds of the heavens! &%\f]",
+   "zh": "公諸於諸天萬界！&%\f]"
+  },
+  "31176": {
+   "en": "I must find the Astral Dominae!! &%\b]",
+   "zh": "我必須找到星界統領！！&%\b]"
+  },
+  "31177": {
+   "en": "I shall send you to Lost Guardia, where you will join in the search",
+   "zh": "我會把你們送去失落嘉迪亞，與"
+  },
+  "31178": {
+   "en": "with those who serve me, the T'Rang... &%\f]",
+   "zh": "效忠我的特蘭格一同搜尋……&%\f]"
+  },
+  "31190": {
+   "en": "I shall command the T'Rang to offer you assistance... &%\f]",
+   "zh": "我會命令特蘭格向你們提供協助……&%\f]"
+  },
+  "31200": {
+   "en": "Until we arrive, you will remain aboard my Black Ship... &%\b]",
+   "zh": "在我們抵達之前，你們就待在我的黑船上……&%\b]"
+  },
+  "31201": {
+   "en": "Vitalia, show them to their quarters! &%\n]",
+   "zh": "薇塔莉亞，帶他們去房間！&%\n]"
+  },
+  "31210": {
+   "en": "A young girl approaches and escorts you through the",
+   "zh": "一名少女上前，引領你穿越"
+  },
+  "31211": {
+   "en": "bizarre space vessel, saying nothing... &%\n]",
+   "zh": "這艘奇異的太空船，一路無語……&%\n]"
+  },
+  "31212": {
+   "en": "At the end of the silent walk, she points to your room... &%\b]",
+   "zh": "沉默的行程終了，她指向你的房間……&%\b]"
+  },
+  "31213": {
+   "en": "As you enter the room, she peers deep into your eyes... &%\b]",
+   "zh": "你走進房間時，她深深凝視你的雙眼……&%\b]"
+  },
+  "31214": {
+   "en": "Then resuming her icy glaze, she presses a button and the",
+   "zh": "接著恢復冰冷的目光，她按下按鈕，"
+  },
+  "31215": {
+   "en": "doorway snaps shut... &%\f]",
+   "zh": "艙門倏然關閉……&%\f]"
+  },
+  "31220": {
+   "en": "Several days later you are placed aboard another metal space-bird,",
+   "zh": "數天後，你被送上另一隻金屬太空鳥，"
+  },
+  "31221": {
+   "en": "piloted by a pair of hissing T'Rang... &%\f]",
+   "zh": "由兩名嘶嘶作響的特蘭格駕駛……&%\f]"
+  },
+  "31222": {
+   "en": "They seem to be talking about you in a tongue you do not understand,",
+   "zh": "他們似乎正用一種你聽不懂的語言談論你，"
+  },
+  "31223": {
+   "en": "but you recognize their equivalent of a sneering laugh well",
+   "zh": "但那近乎譏嘲的笑聲，你"
+  },
+  "31224": {
+   "en": "enough... &%\u000f]",
+   "zh": "一聽便知……&%\u000f]"
+  },
+  "31225": {
+   "en": "Soon, a wondrous sphere appears within your view... &#%\u000f]",
+   "zh": "不久，一顆奇妙的星球映入眼簾……&#%\u000f]"
+  },
+  "31230": {
+   "en": "The planet Guardia... &%\u0014]",
+   "zh": "嘉迪亞行星……&%\u0014]"
+  },
+  "31240": {
+   "en": "\"Hssst, we have arrived!\" hisses one of the T'Rang,",
+   "zh": "「嘶嘶——我們到了！」一名特蘭格嘶聲道，"
+  },
+  "31241": {
+   "en": "\"H'Jenn-Ra T'Rang awaits!\" &%\u000e]",
+   "zh": "「赫詹拉特蘭格正等著你們！」&%\u000e]"
+  },
+  "31242": {
+   "en": "Unexpectedly you begin to feel faint, and before you have time",
+   "zh": "你突然感到暈眩，還來不及"
+  },
+  "31243": {
+   "en": "to grab all of your nearby possessions, suddenly find yourself",
+   "zh": "抓起身邊所有的裝備，便發現自己"
+  },
+  "31244": {
+   "en": "shimmering into a strange new world... &%\u000f]",
+   "zh": "閃爍著沒入一個陌生的嶄新世界……&%\u000f]"
+  },
+  "31500": {
+   "en": "!Behold the Cosmic Forge! &%\u0005]",
+   "zh": "看哪，宇宙鍛爐！&%\u0005]"
+  },
+  "31501": {
+   "en": "You reach for the pen... &#|]",
+   "zh": "你伸手去拿那支筆……&#|]"
+  },
+  "31502": {
+   "en": "\"I'll take that!\" says a strange voice... &%\u0005]",
+   "zh": "「那個我收下了！」一個奇怪的聲音說道……&%\u0005]"
+  },
+  "31503": {
+   "en": "\"I am Aletheides, sent to retrieve the Cosmic Forge,",
+   "zh": "「我是阿萊賽德斯，奉命前來取回"
+  },
+  "31504": {
+   "en": "the Pen and Hand of Destiny! &%\n]",
+   "zh": "命運之筆與手！&%\n]"
+  },
+  "31505": {
+   "en": "The Lords of the Cosmic Circle are awaiting its return, for",
+   "zh": "宇宙之環諸主正等著它物歸原主，因為"
+  },
+  "31506": {
+   "en": "it is by power of the Pen that they maintain order within",
+   "zh": "他們正是憑藉筆的力量維持"
+  },
+  "31507": {
+   "en": "the Universe, and control the Destiny of all worlds... &%\f]",
+   "zh": "宇宙秩序，掌控諸界命運……&%\f]"
+  },
+  "31508": {
+   "en": "When the Cosmic Forge was stolen, so too was stolen the power by",
+   "zh": "宇宙鍛爐被竊之時，一併被奪走的，"
+  },
+  "31509": {
+   "en": "which the fate of the heavens has been guided since the dawn of",
+   "zh": "是自開天闢地以來指引諸天命運的"
+  },
+  "31510": {
+   "en": "creation, enscribed by the writ of the Cosmic Circle... &%\f]",
+   "zh": "力量，由宇宙之環的敕令所銘刻……&%\f]"
+  },
+  "31511": {
+   "en": "And in the time since the Forge was lost, a horrible mishap of events",
+   "zh": "而在鍛爐失落之後，一連串可怕的變故"
+  },
+  "31512": {
+   "en": "has transpired which now threatens the very existance of the Cosmos",
+   "zh": "已經發生，如今威脅到宇宙本身的"
+  },
+  "31513": {
+   "en": "itself... &%\f]",
+   "zh": "存在……&%\f]"
+  },
+  "31520": {
+   "en": "In the deep regions of space, a tiny planet by name of Guardia",
+   "zh": "在太空深處，有顆名喚嘉迪亞的小行星"
+  },
+  "31521": {
+   "en": "had been concealed from the sight of outside worlds... &%\n]",
+   "zh": "長久隱匿於外界的視線之外……&%\n]"
+  },
+  "31522": {
+   "en": "Concealed by the Lords of the Cosmic Circle to safeguard the great",
+   "zh": "由宇宙之環諸主所隱匿，以守護深藏"
+  },
+  "31523": {
+   "en": "secret buried within it... &%\b]",
+   "zh": "其中的重大秘密……&%\b]"
+  },
+  "31524": {
+   "en": "With the Cosmic Forge gone, discovery of the planet Guardia became",
+   "zh": "宇宙鍛爐失竊後，嘉迪亞行星被發現"
+  },
+  "31525": {
+   "en": "inevitable... &%\b]",
+   "zh": "已是必然……&%\b]"
+  },
+  "31526": {
+   "en": "The hiding place of the Astral Dominae, the",
+   "zh": "星界統領的藏匿之處，那"
+  },
+  "31527": {
+   "en": "most powerful artifact in the Universe, had been found! &%\f]",
+   "zh": "全宇宙最強大的神器，已經被找到了！&%\f]"
+  },
+  "31530": {
+   "en": "Even as I speak, an evil presence draws closer to the lost planet",
+   "zh": "就在我說話的此刻，一股邪惡勢力正"
+  },
+  "31531": {
+   "en": "with each passing day, lured by the prospect of its power... &%\n]",
+   "zh": "一天天逼近，受其力量所誘……&%\n]"
+  },
+  "31532": {
+   "en": "It is the Black Ship, the ship of darkness, vessel of",
+   "zh": "那是黑船，黑暗之船，毀滅"
+  },
+  "31533": {
+   "en": "destruction... &%\u0014]",
+   "zh": "之器……&%\u0014]"
+  },
+  "31535": {
+   "en": "Within the Black Ship comes the Harbinger of Doom, challenger to the",
+   "zh": "黑船上載來了末日先驅——宇宙之環"
+  },
+  "31536": {
+   "en": "throne of the Cosmic Circle... &%\n]",
+   "zh": "王座的挑戰者……&%\n]"
+  },
+  "31537": {
+   "en": "The Dark Savant... &%\u0005]",
+   "zh": "黑暗賢者……&%\u0005]"
+  },
+  "31538": {
+   "en": "He plots an end to the Cosmic Circle, to sever the Destiny of",
+   "zh": "他密謀終結宇宙之環，使群星"
+  },
+  "31539": {
+   "en": "the Stars from its protection... &%\b]",
+   "zh": "命運失去其守護……&%\b]"
+  },
+  "31540": {
+   "en": "To wield the power of the gods by his hand alone... &%\b]",
+   "zh": "好讓眾神之力唯他一人掌控……&%\b]"
+  },
+  "31541": {
+   "en": "He searches for the great secret, the Astral Dominae... &%\b]",
+   "zh": "他追尋那重大秘密——星界統領……&%\b]"
+  },
+  "31542": {
+   "en": "And he has already obtained a part of the key to its mystery... &%\t]",
+   "zh": "而他已取得了通往其奧秘的部分鑰匙……&%\t]"
+  },
+  "31550": {
+   "en": "Aboard the ship of the Dark Savant is a young girl, by name of",
+   "zh": "黑暗賢者的船上有一名少女，名叫"
+  },
+  "31551": {
+   "en": "Vi Domina... &%\n]",
+   "zh": "薇·多米娜……&%\n]"
+  },
+  "31552": {
+   "en": "Within her lies a special connection to the Astral Dominae, and though",
+   "zh": "她與星界統領之間存在特殊的連結，儘管"
+  },
+  "31553": {
+   "en": "she knows it not, it is through her that the power may be",
+   "zh": "她自己並不知情，但那力量唯有透過她"
+  },
+  "31554": {
+   "en": "won... &%\f]",
+   "zh": "方能贏得……&%\f]"
+  },
+  "31555": {
+   "en": "There are also others... &%\u0005]",
+   "zh": "還有其他勢力……&%\u0005]"
+  },
+  "31560": {
+   "en": "The T'Rang... &%\n]",
+   "zh": "特蘭格……&%\n]"
+  },
+  "31565": {
+   "en": "The Umpani... &%\n]",
+   "zh": "恩帕尼……&%\n]"
+  },
+  "31570": {
+   "en": "There is no more time to lose... &%\u0005]",
+   "zh": "時間刻不容緩……&%\u0005]"
+  },
+  "31571": {
+   "en": "I will return with the Cosmic Forge to the Lords of the",
+   "zh": "我將帶著宇宙鍛爐，回到宇宙之環"
+  },
+  "31572": {
+   "en": "Circle... &%\b]",
+   "zh": "諸主身邊……&%\b]"
+  },
+  "31573": {
+   "en": "You will accompany me to the planet Guardia, to locate",
+   "zh": "你們將隨我前往嘉迪亞行星，找出"
+  },
+  "31574": {
+   "en": "the Astral Dominae and protect it until my return... &%\n]",
+   "zh": "星界統領，並守護它直到我歸來……&%\n]"
+  },
+  "31580": {
+   "en": "...Inside a tiny bird of steel, you have traveled far into the",
+   "zh": "……在這隻小小的鋼鐵之鳥內，你已遠赴"
+  },
+  "31581": {
+   "en": "stars... &%\b]",
+   "zh": "星海……&%\b]"
+  },
+  "31582": {
+   "en": "For months the journey has continued, the strange machine-man known",
+   "zh": "數月來旅程持續著，那位奇怪的機器人"
+  },
+  "31583": {
+   "en": "as Aletheides saying little to ease the discomfort of the",
+   "zh": "阿萊賽德斯話不多，未能減輕"
+  },
+  "31584": {
+   "en": "cramped and confined quarters... &%\f]",
+   "zh": "局促艙房的種種不適……&%\f]"
+  },
+  "31585": {
+   "en": "#Until at last... &%\u000e]",
+   "zh": "直到最後……&%\u000e]"
+  },
+  "31590": {
+   "en": "The planet Guardia... &%\u0014]",
+   "zh": "行星嘉迪亞……&%\u0014]"
+  },
+  "31600": {
+   "en": "\"We have arrived!\" exclaims Aletheides, and everyone scrambles as he",
+   "zh": "「我們到了！」阿萊賽德斯喊道，眾人一陣忙亂，他"
+  },
+  "31601": {
+   "en": "activates the teleportation device by which you were first brought",
+   "zh": "啟動了數月前將你們首次送上"
+  },
+  "31602": {
+   "en": "aboard so many months ago... &%\u000f]",
+   "zh": "此船的傳送裝置……&%\u000f]"
+  },
+  "31603": {
+   "en": "Having only a moment to grab whatever scattered possessions are lying",
+   "zh": "你只有片刻時間抓起散落一旁的隨身"
+  },
+  "31604": {
+   "en": "nearby, you suddenly find yourself shimmering into a strange new",
+   "zh": "物品，便發現自己閃著微光，進入了"
+  },
+  "31605": {
+   "en": "world... &%\u000f]",
+   "zh": "新世界……&%\u000f]"
+  },
+  "31650": {
+   "en": "Inside the ruins of an abandoned temple, you have come in search",
+   "zh": "在荒廢神廟的殘垣中，你前來尋找"
+  },
+  "31651": {
+   "en": "of treasure and grand adventure... &#|]",
+   "zh": "財寶與偉大的冒險……&#|]"
+  },
+  "31652": {
+   "en": "\"I am Aletheides, sent to retrieve the Cosmic Forge,",
+   "zh": "「我是阿萊賽德斯，前來取回宇宙鍛爐——"
+  },
+  "31653": {
+   "en": "the Pen and Hand of Destiny! &%\n]",
+   "zh": "命運之筆與手！&%\n]"
+  },
+  "31654": {
+   "en": "It is here within this very chamber that the Cosmic Forge was",
+   "zh": "正是在這個房間裡，宇宙鍛爐被"
+  },
+  "31655": {
+   "en": "secreted by they who had stolen it... &%\n]",
+   "zh": "偷走它的人藏匿了起來……&%\n]"
+  },
+  "31656": {
+   "en": "When the Cosmic Forge was stolen, so too was stolen the power by",
+   "zh": "宇宙鍛爐被竊時，一併失竊的還有"
+  },
+  "31657": {
+   "en": "which the fate of the heavens has been guided since the dawn of",
+   "zh": "自開天闢地以來指引諸天命運的"
+  },
+  "31658": {
+   "en": "creation, enscribed by the writ of the Cosmic Circle... &%\f]",
+   "zh": "力量，那是宇宙之環詔書所銘刻的……&%\f]"
+  },
+  "31659": {
+   "en": "And in the time since the Forge was lost, a horrible mishap of events",
+   "zh": "而自鍛爐失落以來，一連串可怕的變故"
+  },
+  "31660": {
+   "en": "has transpired which now threatens the very existance of the Cosmos",
+   "zh": "已然發生，如今威脅到宇宙本身的"
+  },
+  "31661": {
+   "en": "itself... &%\f]",
+   "zh": "存續……&%\f]"
+  },
+  "31700": {
+   "en": "Perched upon his throne, a great black dragon sits pondering the",
+   "zh": "一頭巨大的黑龍棲坐王座上，沉思著"
+  },
+  "31701": {
+   "en": "deep mysteries of the Universe... &%\n]",
+   "zh": "宇宙的深邃奧秘……&%\n]"
+  },
+  "31702": {
+   "en": "\"Well,\" he says at last, \"I think I know where they might be... &%\b]",
+   "zh": "「嗯，」他終於開口，「我想我知道他們在哪……&%\b]"
+  },
+  "31703": {
+   "en": "It all started a short time ago, when I began to hear voices",
+   "zh": "這一切始於不久前，我開始聽見"
+  },
+  "31704": {
+   "en": "coming from inside the space machine of the Bane King... &%\f]",
+   "zh": "從禍王的太空機器內部傳來的聲音……&%\f]"
+  },
+  "31705": {
+   "en": "Soon I discovered the source of these mysterious voices... &%\b]",
+   "zh": "很快我便發現這些神秘聲音的來源……&%\b]"
+  },
+  "31706": {
+   "en": "A small box, emitting visions and sounds of strange",
+   "zh": "一個小盒子，播映著奇特生物的"
+  },
+  "31707": {
+   "en": "creatures... &%\n]",
+   "zh": "影像與聲音……&%\n]"
+  },
+  "31715": {
+   "en": "They call themselves the Umpani, and I listened as they talked of",
+   "zh": "他們自稱恩帕尼，我聽著他們談論"
+  },
+  "31716": {
+   "en": "many unusual things... &%\b]",
+   "zh": "種種不尋常的事物……&%\b]"
+  },
+  "31720": {
+   "en": "Somewhere among the stars is a place they call Lost Guardia... &%\b]",
+   "zh": "群星之間，有個他們稱作失落嘉迪亞的地方……&%\b]"
+  },
+  "31721": {
+   "en": "It is the hiding place of something named the Astral Dominae,",
+   "zh": "這裡正是星界統領的藏匿之處，"
+  },
+  "31722": {
+   "en": "rumored to be the most sought after artifact in the Universe! &%\f]",
+   "zh": "據傳是全宇宙最受爭奪的神器！&%\f]"
+  },
+  "31730": {
+   "en": "They also spoke of terrible creatures called",
+   "zh": "他們還談到名為特蘭格的可怕"
+  },
+  "31731": {
+   "en": "the T'Rang, their sworn enemy... &%\f]",
+   "zh": "生物——他們的死敵……&%\f]"
+  },
+  "31735": {
+   "en": "And of a Black Ship approaching the lost world... &%\n]",
+   "zh": "還談到一艘正駛近失落世界的黑船……&%\n]"
+  },
+  "31736": {
+   "en": "They say it brings death and destruction, a ship of doom... &%\u0014]",
+   "zh": "據說它帶來死亡與毀滅，是一艘末日之船……&%\u0014]"
+  },
+  "31740": {
+   "en": "And within the Black Ship, a god they call the Dark Savant... &%\t]",
+   "zh": "而在黑船之內，有一位他們稱為黑暗賢者的神……&%\t]"
+  },
+  "31741": {
+   "en": "They speak of him in fear, as if he were the lord of evil... &%\t]",
+   "zh": "他們畏懼地談起他，彷彿他是邪惡之主……&%\t]"
+  },
+  "31742": {
+   "en": "He comes in search of the Astral Dominae... &%\u0006]",
+   "zh": "他為尋找星界統領而來……&%\u0006]"
+  },
+  "31743": {
+   "en": "And with him, another who is a part of the mystery... &%\t]",
+   "zh": "與他同行的，還有一人也身涉謎團……&%\t]"
+  },
+  "31750": {
+   "en": "A young girl, Vi Domina, who possesses a special power over the",
+   "zh": "少女薇·多米娜，她對星界統領"
+  },
+  "31751": {
+   "en": "Astral Dominae... &%\u000f]",
+   "zh": "懷有特殊的力量……&%\u000f]"
+  },
+  "31755": {
+   "en": "After the voices ceased, I devised a plan... &%\b]",
+   "zh": "聲音停止後，我擬好了一個計畫……&%\b]"
+  },
+  "31756": {
+   "en": "Someone is coming to retrieve the Cosmic Forge... &%\b]",
+   "zh": "有人即將前來取回宇宙鍛爐……&%\b]"
+  },
+  "31757": {
+   "en": "All we need to do is wait... &%\u0006]",
+   "zh": "我們只需要等待……&%\u0006]"
+  },
+  "31760": {
+   "en": "...Concealed near the chamber of the Cosmic Forge, you wait",
+   "zh": "……你藏身於宇宙鍛爐所在的房間附近"
+  },
+  "31761": {
+   "en": "in silent vigilance... &%\f]",
+   "zh": "靜靜守望……&%\f]"
+  },
+  "31762": {
+   "en": "You do not wait for long... &#|&%\u0005]",
+   "zh": "你沒等太久……&#|&%\u0005]"
+  },
+  "31770": {
+   "en": "\"There he is!\" whispers Bela... &%\u0006]",
+   "zh": "「他在那裡！」貝拉低聲道……&%\u0006]"
+  },
+  "31771": {
+   "en": "We're off to chase a Cosmic Lord!! &%\b]",
+   "zh": "我們要去追宇宙領主了！！&%\b]"
+  },
+  "31780": {
+   "en": "...Inside a tiny bird of steel, you have traveled far into the",
+   "zh": "……在一隻鋼鐵小鳥裡，你已遠行至"
+  },
+  "31781": {
+   "en": "stars... &%\b]",
+   "zh": "星海之中……&%\b]"
+  },
+  "31782": {
+   "en": "For months the journey has continued, the oversized smokey black",
+   "zh": "旅程持續數月，那頭過大的煙黑色"
+  },
+  "31783": {
+   "en": "dragon doing little to ease the discomfort inside such",
+   "zh": "巨龍對於減輕這般狹窄空間裡的"
+  },
+  "31784": {
+   "en": "cramped and confined quarters... &%\u000f]",
+   "zh": "不適毫無幫助……&%\u000f]"
+  },
+  "31785": {
+   "en": "Always in pursuit of the ship carrying the strange humanoid that",
+   "zh": "你們始終追著那艘船，船上載著貝拉"
+  },
+  "31786": {
+   "en": "Bela calls a Cosmic Lord... &%\n]",
+   "zh": "所謂的宇宙領主——那奇特的人形生物……&%\n]"
+  },
+  "31787": {
+   "en": "#Until at last... &%\u000e]",
+   "zh": "直到最後……&%\u000e]"
+  },
+  "31800": {
+   "en": "The strange world, Lost Guardia... &%\u0014]",
+   "zh": "奇異的世界，失落嘉迪亞……&%\u0014]"
+  },
+  "31810": {
+   "en": "\"Here at last!\" Bela yelps, \"But the Cosmic Lord",
+   "zh": "「終於到了！」貝拉叫道，「但宇宙領主"
+  },
+  "31811": {
+   "en": "doesn't seem to be stopping! &%\f]",
+   "zh": "似乎沒有停下來的意思！&%\f]"
+  },
+  "31812": {
+   "en": "I'll follow him and see where he goes, while you search",
+   "zh": "我去跟蹤他，看他去哪，你們則去"
+  },
+  "31813": {
+   "en": "for the Astral Dominae! &%\n]",
+   "zh": "尋找星界統領！&%\n]"
+  },
+  "31814": {
+   "en": "This button should do the trick! &%\u0005]",
+   "zh": "這個按鈕應該管用！&%\u0005]"
+  },
+  "31815": {
+   "en": "\"Prepare to disembark!\" shouts Bela, and everyone scrambles as he",
+   "zh": "「準備下船！」貝拉喊道，眾人一陣忙亂，他"
+  },
+  "31816": {
+   "en": "pushes the button... &%\n]",
+   "zh": "按下了按鈕……&%\n]"
+  },
+  "31817": {
+   "en": "Having only a moment to grab whatever scattered possessions are lying",
+   "zh": "你只有片刻時間抓起散落一旁的"
+  },
+  "31818": {
+   "en": "nearby, you suddenly find yourself shimmering into the strange new",
+   "zh": "物品，隨即發現自己閃著微光進入"
+  },
+  "31819": {
+   "en": "world... &%\u000f]",
+   "zh": "奇異的新世界……&%\u000f]"
   }
  }
 }
