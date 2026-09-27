@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1278,
+ "count": 1287,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -1308,9 +1308,37 @@
    "en": "NOT WITH YOU!",
    "zh": "不能對你動手！"
   },
+  "1541": {
+   "en": "^ ATTACKS!",
+   "zh": "發動攻擊！"
+  },
+  "1542": {
+   "en": "^ LEAVES...",
+   "zh": "離開了……"
+  },
+  "1543": {
+   "en": "^ IS CHARMED!",
+   "zh": "被魅惑了！"
+  },
+  "1544": {
+   "en": "^ IS UNAFFECTED!",
+   "zh": "完全免疫！"
+  },
   "1545": {
    "en": "(NOTHING)",
    "zh": "（無）"
+  },
+  "1547": {
+   "en": "(^ GOT AN ITEM)",
+   "zh": "（得到了物品）"
+  },
+  "1548": {
+   "en": "^ HYPNOTIZED!",
+   "zh": "被催眠了！"
+  },
+  "1549": {
+   "en": "^ BITTEN!",
+   "zh": "被咬了！"
   },
   "1550": {
    "en": "WEAPON (S)",
@@ -1482,7 +1510,7 @@
   },
   "2040": {
    "en": "^ DETECTS SOMETHING!",
-   "zh": "^ 偵測到什麼！"
+   "zh": "偵測到什麼！"
   },
   "2041": {
    "en": "RUNNING!",
@@ -1562,7 +1590,7 @@
   },
   "2061": {
    "en": "^ DROWNED",
-   "zh": "^ 溺斃了"
+   "zh": "溺斃了"
   },
   "2062": {
    "en": "(ABOARD WIKUM-BOAT)",
@@ -3344,6 +3372,10 @@
    "en": "(LOCKED GATE)",
    "zh": "（閘門上鎖了）"
   },
+  "5010": {
+   "en": "^, YOU MADE A $ LEVEL!",
+   "zh": "你升到了 $ 級！"
+  },
   "5011": {
    "en": "YOU GAINED $ HIT POINT!",
    "zh": "你增加了 $ 點生命！"
@@ -3359,6 +3391,10 @@
   "5014": {
    "en": "YOU INCREASED $!",
    "zh": "你的 $ 提升了！"
+  },
+  "5015": {
+   "en": "^ INCREASED $!",
+   "zh": "能力提升了！"
   },
   "5016": {
    "en": " POTION",

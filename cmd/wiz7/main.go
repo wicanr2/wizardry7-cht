@@ -75,6 +75,74 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 	return sc, ok
 }
 
+// normalizeKey＝查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
+// 剝 <0x20 控制碼、連續數字→'$'、序數詞 FIRST..TENTH→'$'、'^'/'%' 佔位→'$'。
+// token（數字/序數詞）另存，供 '$' 槽填回。
+func normalizeKey(s string) (string, []string) {
+	var b []byte
+	var nums []string
+	for i := 0; i < len(s); i++ {
+		c := s[i]
+		if c < 0x20 {
+			continue
+		}
+		if c >= '0' && c <= '9' {
+			j := i
+			for j < len(s) && s[j] >= '0' && s[j] <= '9' {
+				j++
+			}
+			b = append(b, '$')
+			nums = append(nums, s[i:j])
+			i = j - 1
+			continue
+		}
+		if c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' {
+			j := i
+			for j < len(s) && (s[j] >= 'A' && s[j] <= 'Z' || s[j] >= 'a' && s[j] <= 'z') {
+				j++
+			}
+			word := strings.ToUpper(s[i:j])
+			if _, ok := ordinalsPub[word]; ok {
+				b = append(b, '$')
+				nums = append(nums, word)
+				i = j - 1
+				continue
+			}
+		}
+		if c == '^' || c == '%' {
+			b = append(b, '$')
+			i++
+			continue
+		}
+		b = append(b, c)
+	}
+	return string(b), nums
+}
+
+// ordinalsPub＝序數詞→中文（與 xlate __ordinals__ 對應；查詞用）。
+var ordinalsPub = map[string]bool{
+	"FIRST": true, "SECOND": true, "THIRD": true, "FOURTH": true, "FIFTH": true,
+	"SIXTH": true, "SEVENTH": true, "EIGHTH": true, "NINTH": true, "TENTH": true,
+}
+
+// leadingWordDollar＝^＝隊員名 pattern 的 variant key 產生器：
+// runtime 字串開頭若是「全大寫詞」（隊員名，如 THESUS），換成 '$'。
+// 混有大小寫的普通字（如 "Life"）不觸發。
+func leadingWordDollar(s string) string {
+	i := 0
+	for i < len(s) && s[i] < 0x20 {
+		i++
+	}
+	j := i
+	for j < len(s) && s[j] >= 'A' && s[j] <= 'Z' {
+		j++
+	}
+	if j-i < 2 || j >= len(s) && j == i {
+		return ""
+	}
+	return "$" + s[j:]
+}
+
 // vramHash＝Indexed 色號畫面中事件區域（x..x+w、y..y+14，越界裁切）的
 // FNV-1a。殘影清除：合成時背景區域雜湊與記錄時不同＝畫面已切換→丟棄。
 func vramHash(idx []uint8, x, y, w int) uint32 {
@@ -379,49 +447,18 @@ func main() {
 		}
 		// 查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
 		// 剝 <0x20 控制碼、連續數字/序數詞 FIRST..TENTH → '$'（token 另存）。
-		key, nums := func(s string) (string, []string) {
-			var b []byte
-			var nums []string
-			for i := 0; i < len(s); i++ {
-				c := s[i]
-				if c < 0x20 {
-					continue
-				}
-				if c >= '0' && c <= '9' {
-					j := i
-					for j < len(s) && s[j] >= '0' && s[j] <= '9' {
-						j++
-					}
-					b = append(b, '$')
-					nums = append(nums, s[i:j])
-					i = j - 1
-					continue
-				}
-				if c >= 'A' && c <= 'Z' || c >= 'a' && c <= 'z' {
-					j := i
-					for j < len(s) && (s[j] >= 'A' && s[j] <= 'Z' || s[j] >= 'a' && s[j] <= 'z') {
-						j++
-					}
-					word := strings.ToUpper(s[i:j])
-					if _, ok := ordinals[word]; ok {
-						b = append(b, '$')
-						nums = append(nums, word)
-						i = j - 1
-						continue
-					}
-				}
-				if c == '^' || c == '%' {
-					// 原文佔位符（runtime 填數字）——正規化成 '$'
-					// （數字 token 已在上方處理；這裡收非數字的填充）
-					b = append(b, '$')
-					i++
-					continue
-				}
-				b = append(b, c)
-			}
-			return string(b), nums
-		}(s)
+		key, nums := normalizeKey(s)
 		ent, ok := trans[key]
+		if !ok {
+			// ^＝隊員名 pattern（2040/2061/5010/1541 等）：runtime 開頭是
+			// 隊員名（全大寫）——首詞換成 '$' 再查一次（表側 zh 不含名字）。
+			if v := leadingWordDollar(s); v != "" {
+				k2, n2 := normalizeKey(v)
+				if e2, ok2 := trans[k2]; ok2 {
+					ent, ok, nums = e2, true, n2
+				}
+			}
+		}
 		if !ok {
 			log.Printf("無譯文 %d %q", o.Steps(), s)
 			return // 無譯文：放行原文
