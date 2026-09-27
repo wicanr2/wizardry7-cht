@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1716,
+ "count": 1786,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -6851,6 +6851,286 @@
   "20610": {
    "en": "Ah! You wear the mark of the Guild upon your finger! %]",
    "zh": "啊！你手指上戴著公會的印記！%]"
+  },
+  "21000": {
+   "en": "A black pyramid is hooked to the end of the heavy chain, and it",
+   "zh": "一座黑色金字塔吊在粗鐵鏈的末端，"
+  },
+  "21001": {
+   "en": "is poised over the end of the plank...",
+   "zh": "懸在跳板的盡頭上方……"
+  },
+  "21005": {
+   "en": "With a heave and a grunt you hoist the black pyramid up and hook",
+   "zh": "你們吆喝著使勁，把黑色金字塔拉起來，"
+  },
+  "21006": {
+   "en": "it on to the end of the chain...",
+   "zh": "掛到鐵鏈的末端……"
+  },
+  "21011": {
+   "en": "else happens...",
+   "zh": "什麼事也沒發生……"
+  },
+  "21015": {
+   "en": "Stepping onto the plank, your end pivots to the floor, triggering",
+   "zh": "踏上跳板，你這端翹起觸地，觸動了"
+  },
+  "21016": {
+   "en": "a switch underneath it... &%]",
+   "zh": "下面的機關……&%]"
+  },
+  "21021": {
+   "en": "the plank, but nothing else happens...",
+   "zh": "跳板，但什麼事也沒發生……"
+  },
+  "21025": {
+   "en": "A weighty pyramid suddenly drops onto the other",
+   "zh": "沉重的金字塔突然砸向跳板另一端，"
+  },
+  "21026": {
+   "en": "end of the plank, catapulting you into the air...",
+   "zh": "把你們彈上了天……"
+  },
+  "21030": {
+   "en": "Having achieved the remarkable elevation of almost four feet,",
+   "zh": "在達成將近四呎的驚人高度之後，"
+  },
+  "21032": {
+   "en": "with thuds and groans...",
+   "zh": "伴隨著悶響與呻吟……"
+  },
+  "21035": {
+   "en": "You douse yourselves with the mysterious potion, and soon feel",
+   "zh": "你們把神祕藥水潑在身上，很快感到"
+  },
+  "21036": {
+   "en": "tingley, and as light as a feather...",
+   "zh": "酥麻發癢，輕如鴻毛……"
+  },
+  "21041": {
+   "en": "shaft above the plank...",
+   "zh": "跳板正上方的豎井……"
+  },
+  "21045": {
+   "en": "Still propelled from your launch, you continue sailing upwards...",
+   "zh": "彈射的力道未消，你們繼續向上飛翔，"
+  },
+  "21052": {
+   "en": "like little fat balloons...",
+   "zh": "像一隻隻圓滾滾的氣球……"
+  },
+  "21055": {
+   "en": "Arising up through the shaft, you momentarily hang poised, then",
+   "zh": "升出豎井的瞬間，你們懸停在半空，"
+  },
+  "21056": {
+   "en": "grope, and then plumment back down the open shaft beneath you...",
+   "zh": "胡亂抓了一把，然後朝身下敞開的豎井直墜回去。"
+  },
+  "21060": {
+   "en": "This just isn't your dayyyyy...",
+   "zh": "今天真是你們的倒楣日……"
+  },
+  "21066": {
+   "en": "with thuds and groans...",
+   "zh": "伴隨著悶響與呻吟……"
+  },
+  "21071": {
+   "en": "quickly returning...",
+   "zh": "很快地恢復……"
+  },
+  "21076": {
+   "en": "colored circles and a star...",
+   "zh": "彩色的圓圈和一顆星星……"
+  },
+  "21080": {
+   "en": "Grabbing onto the rope so conveniently dangling from above, your",
+   "zh": "抓住頭頂正好垂下的繩索，擺盪的動能"
+  },
+  "21081": {
+   "en": "momentum swings you across the water duct...",
+   "zh": "把你們盪過了水道……"
+  },
+  "21085": {
+   "en": "Resting on the pad is an odd black ball,",
+   "zh": "踏板上放著一顆古怪的黑球，"
+  },
+  "21086": {
+   "en": "about the size of an ogre's head and almost as pretty...",
+   "zh": "約莫食人魔腦袋大小，長得也差不多……"
+  },
+  "21090": {
+   "en": "On the floor in front of you lies a square plate, large enough",
+   "zh": "你面前的地板上有一塊方形踏板，"
+  },
+  "21091": {
+   "en": "for everyone to crowd onto it...",
+   "zh": "夠全隊一起擠上去……"
+  },
+  "21092": {
+   "en": "@Behind the plate you can see the outline of a transparent tube,",
+   "zh": "踏板後方，可以看到一根透明管子的輪廓，"
+  },
+  "21093": {
+   "en": "sticking down from a shaft in the ceiling...",
+   "zh": "從天花板的豎井裡伸下來……"
+  },
+  "21095": {
+   "en": "Stepping onto the plate, you note the pad directly underneath",
+   "zh": "踏上踏板，你注意到正下方有個墊子……&[]"
+  },
+  "21096": {
+   "en": "the end of the tube... &[]",
+   "zh": "它似乎與踏板相連，"
+  },
+  "21097": {
+   "en": "It appears to be connected to the plate as a kind of trigger",
+   "zh": "像是某種觸發機關……"
+  },
+  "21100": {
+   "en": "Inspecting the tube, you see the pad underneath it",
+   "zh": "檢視那根管子——下方的墊子"
+  },
+  "21101": {
+   "en": "is poised to catch anything that falls down the chute...",
+   "zh": "擺好了位置，要接住任何從豎井落下的東西……"
+  },
+  "21110": {
+   "en": "Stepping onto the plate, you hear a slight click... &%]",
+   "zh": "踏上踏板，你聽見輕輕的咔噠聲……&%]"
+  },
+  "21111": {
+   "en": "A large black ball drops down the hollow tube, landing",
+   "zh": "一顆巨大的黑球沿著中空管落下，"
+  },
+  "21112": {
+   "en": "in the pad beneath it...",
+   "zh": "正落在下方的墊子上……"
+  },
+  "21115": {
+   "en": "Suddenly the entire plate shoots skyward, propelling you up the",
+   "zh": "突然整塊踏板衝天而起，把你們"
+  },
+  "21116": {
+   "en": "open shaft directly overhead...",
+   "zh": "沿著頭頂敞開的豎井拋了上去……"
+  },
+  "21120": {
+   "en": "You fall back through the shaft and land with a crash upon the",
+   "zh": "你們沿豎井跌回，重重砸在"
+  },
+  "21121": {
+   "en": "plate...",
+   "zh": "踏板上……"
+  },
+  "21125": {
+   "en": "Coiled in the corner you discover a short thick rope, which is",
+   "zh": "角落裡盤著一小段粗繩，"
+  },
+  "21126": {
+   "en": "securely tied to a hefty bar...",
+   "zh": "牢牢繫在一根粗槓上……"
+  },
+  "21130": {
+   "en": "SIX SPEARS",
+   "zh": "六支長矛"
+  },
+  "21131": {
+   "en": "423150",
+   "zh": "423150"
+  },
+  "21132": {
+   "en": " FIRST ",
+   "zh": " 第一 "
+  },
+  "21133": {
+   "en": "SECOND",
+   "zh": "第二"
+  },
+  "21134": {
+   "en": "THIRD",
+   "zh": "第三"
+  },
+  "21135": {
+   "en": "FOURTH",
+   "zh": "第四"
+  },
+  "21136": {
+   "en": "FIFTH",
+   "zh": "第五"
+  },
+  "21137": {
+   "en": "SIXTH",
+   "zh": "第六"
+  },
+  "21141": {
+   "en": "with a long rivet through the center...",
+   "zh": "中央穿著一根長鉚釘……"
+  },
+  "21142": {
+   "en": "@There are six spears in all, arranged in a circular pattern,",
+   "zh": "總共六支長矛，排成圓形，"
+  },
+  "21143": {
+   "en": "and you discover that they can swing around on the rivet which",
+   "zh": "你發現它們可以繞著固定的鉚釘轉動……"
+  },
+  "21144": {
+   "en": "pins them together...",
+   "zh": ""
+  },
+  "21145": {
+   "en": "@Looking a bit closer, it appears to be an elaborate mechanism of",
+   "zh": "仔細一看，這像是某種精巧的機關——"
+  },
+  "21146": {
+   "en": "some kind, each spear rotating a different gear which is in turn",
+   "zh": "每支長矛轉動不同的齒輪，齒輪又"
+  },
+  "21147": {
+   "en": "connected to more gears and so on...",
+   "zh": "連著更多齒輪，層層相扣……"
+  },
+  "21148": {
+   "en": "@There is nothing which indicates a purpose to the spears, or",
+   "zh": "沒有任何東西說明這些長矛的用途，"
+  },
+  "21149": {
+   "en": "what the contraption actually does, although it appears likely",
+   "zh": "也不知道這玩意到底做什麼——但看起來"
+  },
+  "21150": {
+   "en": "that it is a locking mechanism of some kind, designed to open",
+   "zh": "很像某種鎖定機關，"
+  },
+  "21151": {
+   "en": "if the spears are turned in a specific combination...",
+   "zh": "要把長矛轉到特定組合才會開啟……"
+  },
+  "21160": {
+   "en": "Lo, inside the chest you find an old preserved piece of",
+   "zh": "看，寶箱裡有一張保存良好的"
+  },
+  "21161": {
+   "en": "parchment, carefully bundled in waxed wrappings...",
+   "zh": "古老羊皮紙，仔細裹在蠟紙裡……"
+  },
+  "21170": {
+   "en": "You emerge from the Funhouse to find yourself in the forest,",
+   "zh": "走出玩笑屋，你發現自己在森林裡，"
+  },
+  "21171": {
+   "en": "somewhere outside the nearby Rattkin ruins...",
+   "zh": "就在鼠人遺跡附近……"
+  },
+  "21175": {
+   "en": "The forest has grown through the cumbling ruins, and appears to",
+   "zh": "森林早已長過傾頹的遺跡，"
+  },
+  "21176": {
+   "en": "have choked off the main entry...",
+   "zh": "把主要入口堵了個嚴實……"
   },
   "25265": {
    "en": "In the blood-filled waters the leviathan carcass slips back to the",
