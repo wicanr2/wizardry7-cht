@@ -326,6 +326,9 @@ func (g *game) Draw(dst *ebiten.Image) {
 	}
 	for i := range evs {
 		e := &evs[i]
+		if len(e.g) == 0 || len(e.g[0]) == 0 {
+			continue // 空字形條（純控制碼/純 ASCII 譯文）跳過
+		}
 		if e.img == nil {
 			// 字形條：整串排成一張（每字 15px＋2px 間距）
 			n := 0

@@ -114,6 +114,10 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     # __ordinals__（中文字形）呈現。
     xlate = {}
     for src, dst, dy in pairs:
+        # zh 純 ASCII（不翻照抄類：KIA/V/RAMNAME…）不進 xlate——
+        # runtime 查不到 → 原版 ASCII 字形照印，且避免空字形條讓前端 Draw 炸。
+        if dst.isascii():
+            continue
         entry = []
         slots = []  # '$' 槽索引
         for ch in dst:
