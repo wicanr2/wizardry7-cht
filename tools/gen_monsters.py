@@ -4,7 +4,7 @@
 # 怪物記錄：232 bytes／隻、名字欄在 +72：[真名單][真名複][別名單][別名複]
 # （每欄 \x00 結尾補齊）。Wiz7 的別名＝低鑑定度時顯示的名字。
 # 產出 text/monsters.json（原文欄位進版控，使用者定案）。
-import json, re, sys
+import json, sys, re, sys
 
 DBS = 'workplace/original/wizar7/SCENARIO.DBS'
 OUT = 'text/monsters.json'
@@ -45,6 +45,25 @@ out = {
     'count': len(mons),
     'monsters': mons,
 }
+
+# BIG5 字集檢查（stdfont.15 限制；簡體錯字在這裡攔下）
+def big5_check(zh, ctx):
+    bad = [ch for ch in zh if not _try_big5(ch)]
+    if bad:
+        print(f'BIG5 編碼失敗 {ctx}: {bad}', file=sys.stderr)
+        sys.exit(1)
+
+def _try_big5(ch):
+    try:
+        ch.encode("big5")
+        return True
+    except UnicodeEncodeError:
+        return False
+
+# 檢查後寫出
+for _m in out["monsters"]:
+    for _n in _m["names"]:
+        big5_check(_n, str(_m["idx"]))
 json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print(f'{OUT}: {len(mons)} 隻')
 

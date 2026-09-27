@@ -5,7 +5,7 @@
 # 表：offset 896 起、417 件（BROKEN/ITEM＝idx 0 佔位）。
 # 名字格式「MATERIAL/TYPE」＝材質/類型組合（LEATHER/CUIRASS 皮胸甲）。
 # 產出 text/items.json（原文欄位進版控，使用者定案）。
-import json
+import json, sys
 
 DBS = 'workplace/original/wizar7/SCENARIO.DBS'
 OUT = 'text/items.json'
@@ -40,6 +40,24 @@ out = {
     'count': len(items),
     'items': items,
 }
+
+# BIG5 字集檢查（stdfont.15 限制；簡體錯字在這裡攔下）
+def big5_check(zh, ctx):
+    bad = [ch for ch in zh if not _try_big5(ch)]
+    if bad:
+        print(f'BIG5 編碼失敗 {ctx}: {bad}', file=sys.stderr)
+        sys.exit(1)
+
+def _try_big5(ch):
+    try:
+        ch.encode("big5")
+        return True
+    except UnicodeEncodeError:
+        return False
+
+# 檢查後寫出
+for _it in out["items"]:
+    big5_check(_it["name"], str(_it["idx"]))
 json.dump(out, open(OUT, 'w'), ensure_ascii=False, indent=1)
 print(f'{OUT}: {len(items)} 件')
 

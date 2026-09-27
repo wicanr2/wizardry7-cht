@@ -2,7 +2,7 @@
 # gen_trans.py — 從 id→zh 映射產生 text/story-trans.json
 # en 欄位直接取自 text/messages.json（＝runtime 明文，含控制碼），
 # 保證前端查表逐字一致；不一致就報錯。
-import json, sys
+import json, sys, sys
 
 MSG = json.load(open('text/messages.json'))['records']
 byid = {m['id']: m for m in MSG}
@@ -1331,6 +1331,23 @@ out = {
     'count': len(items),
     'items': items,
 }
+# BIG5 字集檢查（stdfont.15 限制；簡體錯字在這裡攔下）
+def big5_check(zh, ctx):
+    bad = [ch for ch in zh if not _try_big5(ch)]
+    if bad:
+        print(f'BIG5 編碼失敗 {ctx}: {bad}', file=sys.stderr)
+        sys.exit(1)
+
+def _try_big5(ch):
+    try:
+        ch.encode("big5")
+        return True
+    except UnicodeEncodeError:
+        return False
+
+# 檢查後寫出
+for _k, _v in (out.get("items") or {}).items():
+    big5_check(_v if isinstance(_v, str) else _v.get("zh",""), str(_k))
 with open('text/story-trans.json', 'w') as f:
     json.dump(out, f, ensure_ascii=False, indent=1)
 print(f'story-trans.json: {len(items)} 筆')
