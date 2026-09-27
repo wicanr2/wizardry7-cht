@@ -715,6 +715,21 @@ init 在無 display 時必炸——hdFrame 輸出驗證不受影響）。
   bake_font.py 併入 → xlate.json 1,386 串。戰鬥印名查表即中文化。
 - 譯名記入 docs/names.md（種族系／勢力系／劇情角色；全 DRAFT）。
 
+### 追記三十五（9/27）：物品名表破解——SCENARIO.DBS 417 件全抽出
+
+- **物品表**：SCENARIO.DBS offset 896 起、**72 bytes／件 × 417 件**、
+  名字欄 +0（\x00 補齊、單欄最長 32 字）；BROKEN/ITEM＝idx 0 佔位。
+  （同檔怪物區 225272 之前——物品在前、怪物在後。）
+- **名格式**：`MATERIAL/TYPE` 組合名（LEATHER/CUIRASS 皮胸甲）＋
+  神器專名（EXCALIBER、MURAMASA/BLADE、THE/AVENGER、FAUST/HALBERD）。
+- **管線**：tools/gen_items.py → text/items.json（417 件原文）＋
+  text/items-trans.json（批次一＝idx 0-160 武器/防具 161 筆）→
+  bake 併入 → xlate.json **1,536 串、字形 1,236**。
+- **字集限制**：譯名限 BIG5（stdfont.15）——「脇差」→「脅差」。
+- **剩餘**：idx 161-416（進階防具/飾品/雜物）譯名下輪批次；
+  record 內屬性數值（傷害/防護/價格）待解（ASSAY 鑑定畫面用）。
+
+
 
 
 

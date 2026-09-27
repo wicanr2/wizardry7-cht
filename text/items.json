@@ -1,0 +1,2092 @@
+{
+ "schema": "wiz7-items/1",
+ "note": "SCENARIO.DBS 物品名表（docs/re/013 追記三十五）。record=72B、名字欄 +0（\u0000 補齊）。idx＝物品編號（0 起，對應遊戲內部索引）；BROKEN/ITEM＝idx 0 佔位。原文欄位進版控（使用者定案）。",
+ "count": 417,
+ "items": [
+  {
+   "idx": 0,
+   "rec": 896,
+   "name": "BROKEN/ITEM"
+  },
+  {
+   "idx": 1,
+   "rec": 968,
+   "name": "DAGGER"
+  },
+  {
+   "idx": 2,
+   "rec": 1040,
+   "name": "MAIN/GAUCHE"
+  },
+  {
+   "idx": 3,
+   "rec": 1112,
+   "name": "BASELARD"
+  },
+  {
+   "idx": 4,
+   "rec": 1184,
+   "name": "WAKIZASHI"
+  },
+  {
+   "idx": 5,
+   "rec": 1256,
+   "name": "RAPIER"
+  },
+  {
+   "idx": 6,
+   "rec": 1328,
+   "name": "CUTLASS"
+  },
+  {
+   "idx": 7,
+   "rec": 1400,
+   "name": "TARNISHED/SWORD"
+  },
+  {
+   "idx": 8,
+   "rec": 1472,
+   "name": "LONGSWORD"
+  },
+  {
+   "idx": 9,
+   "rec": 1544,
+   "name": "BROADSWORD"
+  },
+  {
+   "idx": 10,
+   "rec": 1616,
+   "name": "KATANA"
+  },
+  {
+   "idx": 11,
+   "rec": 1688,
+   "name": "BASTARD/SWORD"
+  },
+  {
+   "idx": 12,
+   "rec": 1760,
+   "name": "CLAYMORE"
+  },
+  {
+   "idx": 13,
+   "rec": 1832,
+   "name": "BEARDED/WAR AXE"
+  },
+  {
+   "idx": 14,
+   "rec": 1904,
+   "name": "BATTLE/AXE"
+  },
+  {
+   "idx": 15,
+   "rec": 1976,
+   "name": "ANOINTED/FLAIL"
+  },
+  {
+   "idx": 16,
+   "rec": 2048,
+   "name": "WAR/SCEPTRE"
+  },
+  {
+   "idx": 17,
+   "rec": 2120,
+   "name": "MACE"
+  },
+  {
+   "idx": 18,
+   "rec": 2192,
+   "name": "STAFF"
+  },
+  {
+   "idx": 19,
+   "rec": 2264,
+   "name": "MORNING/STAR"
+  },
+  {
+   "idx": 20,
+   "rec": 2336,
+   "name": "HAMMER"
+  },
+  {
+   "idx": 21,
+   "rec": 2408,
+   "name": "WAR HAMMER"
+  },
+  {
+   "idx": 22,
+   "rec": 2480,
+   "name": "SPEAR"
+  },
+  {
+   "idx": 23,
+   "rec": 2552,
+   "name": "AWL PIKE"
+  },
+  {
+   "idx": 24,
+   "rec": 2624,
+   "name": "QUARTER/STAFF"
+  },
+  {
+   "idx": 25,
+   "rec": 2696,
+   "name": "BO"
+  },
+  {
+   "idx": 26,
+   "rec": 2768,
+   "name": "HALBERD"
+  },
+  {
+   "idx": 27,
+   "rec": 2840,
+   "name": "BITE/DAGGER"
+  },
+  {
+   "idx": 28,
+   "rec": 2912,
+   "name": "FEATHER/DARTS"
+  },
+  {
+   "idx": 29,
+   "rec": 2984,
+   "name": "SLING"
+  },
+  {
+   "idx": 30,
+   "rec": 3056,
+   "name": "BULLET/STONE"
+  },
+  {
+   "idx": 31,
+   "rec": 3128,
+   "name": "SHORT/BOW"
+  },
+  {
+   "idx": 32,
+   "rec": 3200,
+   "name": "LONG BOW"
+  },
+  {
+   "idx": 33,
+   "rec": 3272,
+   "name": "WILLOW/ARROW"
+  },
+  {
+   "idx": 34,
+   "rec": 3344,
+   "name": "LT./CROSSBOW"
+  },
+  {
+   "idx": 35,
+   "rec": 3416,
+   "name": "QUARREL"
+  },
+  {
+   "idx": 36,
+   "rec": 3488,
+   "name": "POIGNARD"
+  },
+  {
+   "idx": 37,
+   "rec": 3560,
+   "name": "STILETTO"
+  },
+  {
+   "idx": 38,
+   "rec": 3632,
+   "name": "WALRIBLADE"
+  },
+  {
+   "idx": 39,
+   "rec": 3704,
+   "name": "NINJATO"
+  },
+  {
+   "idx": 40,
+   "rec": 3776,
+   "name": "FLAMBERGE"
+  },
+  {
+   "idx": 41,
+   "rec": 3848,
+   "name": "ZWEIHANDER"
+  },
+  {
+   "idx": 42,
+   "rec": 3920,
+   "name": "NO-DACHI"
+  },
+  {
+   "idx": 43,
+   "rec": 3992,
+   "name": "BIPENNIS"
+  },
+  {
+   "idx": 44,
+   "rec": 4064,
+   "name": "ZIZKA STAR"
+  },
+  {
+   "idx": 45,
+   "rec": 4136,
+   "name": "BEC DE/CORBIN"
+  },
+  {
+   "idx": 46,
+   "rec": 4208,
+   "name": "BULLWHIP"
+  },
+  {
+   "idx": 47,
+   "rec": 4280,
+   "name": "SHURIKEN"
+  },
+  {
+   "idx": 48,
+   "rec": 4352,
+   "name": "SAI"
+  },
+  {
+   "idx": 49,
+   "rec": 4424,
+   "name": "NUNCHAKA"
+  },
+  {
+   "idx": 50,
+   "rec": 4496,
+   "name": "LANCE"
+  },
+  {
+   "idx": 51,
+   "rec": 4568,
+   "name": "MONSTRANCE"
+  },
+  {
+   "idx": 52,
+   "rec": 4640,
+   "name": "FAUCHARD"
+  },
+  {
+   "idx": 53,
+   "rec": 4712,
+   "name": "NAGINATA"
+  },
+  {
+   "idx": 54,
+   "rec": 4784,
+   "name": "CHROMATIC/LYRE"
+  },
+  {
+   "idx": 55,
+   "rec": 4856,
+   "name": "POET'S/LUTE"
+  },
+  {
+   "idx": 56,
+   "rec": 4928,
+   "name": "SPIKE/STONE"
+  },
+  {
+   "idx": 57,
+   "rec": 5000,
+   "name": "SHRIKE/ARROW"
+  },
+  {
+   "idx": 58,
+   "rec": 5072,
+   "name": "BARBED/ARROW"
+  },
+  {
+   "idx": 59,
+   "rec": 5144,
+   "name": "ANGEL'S/TONGUE"
+  },
+  {
+   "idx": 60,
+   "rec": 5216,
+   "name": "POISON/DAGGER"
+  },
+  {
+   "idx": 61,
+   "rec": 5288,
+   "name": "SPEAR+2"
+  },
+  {
+   "idx": 62,
+   "rec": 5360,
+   "name": "BROADSWORD/+1"
+  },
+  {
+   "idx": 63,
+   "rec": 5432,
+   "name": "VORPAL/BLADE"
+  },
+  {
+   "idx": 64,
+   "rec": 5504,
+   "name": "DRAGON/SLAYER"
+  },
+  {
+   "idx": 65,
+   "rec": 5576,
+   "name": "BUSHIDO/BLADE"
+  },
+  {
+   "idx": 66,
+   "rec": 5648,
+   "name": "POISON/DART"
+  },
+  {
+   "idx": 67,
+   "rec": 5720,
+   "name": "CRUSADER'S/2H AXE+1"
+  },
+  {
+   "idx": 68,
+   "rec": 5792,
+   "name": "HAYAI BO"
+  },
+  {
+   "idx": 69,
+   "rec": 5864,
+   "name": "HOLY/BASHER"
+  },
+  {
+   "idx": 70,
+   "rec": 5936,
+   "name": "LUTE =/SLOTH"
+  },
+  {
+   "idx": 71,
+   "rec": 6008,
+   "name": "PIPES =/DOOM"
+  },
+  {
+   "idx": 72,
+   "rec": 6080,
+   "name": "IMPALING/STONE"
+  },
+  {
+   "idx": 73,
+   "rec": 6152,
+   "name": "TA-LI/STONE"
+  },
+  {
+   "idx": 74,
+   "rec": 6224,
+   "name": "ENCHANTED/BOW"
+  },
+  {
+   "idx": 75,
+   "rec": 6296,
+   "name": "ARMOR/PIERCER"
+  },
+  {
+   "idx": 76,
+   "rec": 6368,
+   "name": "VIPER/ARROW"
+  },
+  {
+   "idx": 77,
+   "rec": 6440,
+   "name": "HV./CROSSBOW"
+  },
+  {
+   "idx": 78,
+   "rec": 6512,
+   "name": "HUNTER/QUARREL"
+  },
+  {
+   "idx": 79,
+   "rec": 6584,
+   "name": "SIREN'S/WAIL"
+  },
+  {
+   "idx": 80,
+   "rec": 6656,
+   "name": "THIEVES/DAGGER"
+  },
+  {
+   "idx": 81,
+   "rec": 6728,
+   "name": "BLADE/CUISINART"
+  },
+  {
+   "idx": 82,
+   "rec": 6800,
+   "name": "SPEAR =/DEATH"
+  },
+  {
+   "idx": 83,
+   "rec": 6872,
+   "name": "SWORD =/FIRE"
+  },
+  {
+   "idx": 84,
+   "rec": 6944,
+   "name": "AXE =/MANY RUNES"
+  },
+  {
+   "idx": 85,
+   "rec": 7016,
+   "name": "MAIDEN/HEAD"
+  },
+  {
+   "idx": 86,
+   "rec": 7088,
+   "name": "VULCAN/HAMMER"
+  },
+  {
+   "idx": 87,
+   "rec": 7160,
+   "name": "RAVEN'S/BILL"
+  },
+  {
+   "idx": 88,
+   "rec": 7232,
+   "name": "CAT'O NINE/TAIL"
+  },
+  {
+   "idx": 89,
+   "rec": 7304,
+   "name": "HORN =/PROMETHEUS"
+  },
+  {
+   "idx": 90,
+   "rec": 7376,
+   "name": "SILENT/LYRE"
+  },
+  {
+   "idx": 91,
+   "rec": 7448,
+   "name": "WRIST/ROCKET"
+  },
+  {
+   "idx": 92,
+   "rec": 7520,
+   "name": "MEDUSA/STONE"
+  },
+  {
+   "idx": 93,
+   "rec": 7592,
+   "name": "GREAT BOW"
+  },
+  {
+   "idx": 94,
+   "rec": 7664,
+   "name": "MYSTIC/ARROW"
+  },
+  {
+   "idx": 95,
+   "rec": 7736,
+   "name": "PEACEMAKER"
+  },
+  {
+   "idx": 96,
+   "rec": 7808,
+   "name": "SEIGE/ARBALEST"
+  },
+  {
+   "idx": 97,
+   "rec": 7880,
+   "name": "LIGHTNING/BOLT"
+  },
+  {
+   "idx": 98,
+   "rec": 7952,
+   "name": "TOMB =/DEMONS"
+  },
+  {
+   "idx": 99,
+   "rec": 8024,
+   "name": "LYRE =/CAKES"
+  },
+  {
+   "idx": 100,
+   "rec": 8096,
+   "name": "SWORD =/4 WINDS"
+  },
+  {
+   "idx": 101,
+   "rec": 8168,
+   "name": "STAVE =/12 STARS"
+  },
+  {
+   "idx": 102,
+   "rec": 8240,
+   "name": "SWORD =/HEARTS"
+  },
+  {
+   "idx": 103,
+   "rec": 8312,
+   "name": "SAINT/BASTARD"
+  },
+  {
+   "idx": 104,
+   "rec": 8384,
+   "name": "FANG"
+  },
+  {
+   "idx": 105,
+   "rec": 8456,
+   "name": "ESTOC DE/OLIVIA"
+  },
+  {
+   "idx": 106,
+   "rec": 8528,
+   "name": "THE/AVENGER"
+  },
+  {
+   "idx": 107,
+   "rec": 8600,
+   "name": "MURAMASA/BLADE"
+  },
+  {
+   "idx": 108,
+   "rec": 8672,
+   "name": "EXCALIBER"
+  },
+  {
+   "idx": 109,
+   "rec": 8744,
+   "name": "BLADES =/AESIR"
+  },
+  {
+   "idx": 110,
+   "rec": 8816,
+   "name": "DIAMOND/EYES"
+  },
+  {
+   "idx": 111,
+   "rec": 8888,
+   "name": "MAENAD'S/LANCE"
+  },
+  {
+   "idx": 112,
+   "rec": 8960,
+   "name": "ZATOICHI/BO"
+  },
+  {
+   "idx": 113,
+   "rec": 9032,
+   "name": "FAUST/HALBERD"
+  },
+  {
+   "idx": 114,
+   "rec": 9104,
+   "name": "ELVEN BOW"
+  },
+  {
+   "idx": 115,
+   "rec": 9176,
+   "name": "RAMMBUS/STAFF"
+  },
+  {
+   "idx": 116,
+   "rec": 9248,
+   "name": "WAKIZASHI/+1"
+  },
+  {
+   "idx": 117,
+   "rec": 9320,
+   "name": "DEATH STAR"
+  },
+  {
+   "idx": 118,
+   "rec": 9392,
+   "name": "STUN ROD"
+  },
+  {
+   "idx": 119,
+   "rec": 9464,
+   "name": "SHOCK ROD"
+  },
+  {
+   "idx": 120,
+   "rec": 9536,
+   "name": "CLOTH/SHIRT"
+  },
+  {
+   "idx": 121,
+   "rec": 9608,
+   "name": "CLOTH/PANTS"
+  },
+  {
+   "idx": 122,
+   "rec": 9680,
+   "name": "ROBES (U)"
+  },
+  {
+   "idx": 123,
+   "rec": 9752,
+   "name": "ROBES (L)"
+  },
+  {
+   "idx": 124,
+   "rec": 9824,
+   "name": "FUR/HALTER"
+  },
+  {
+   "idx": 125,
+   "rec": 9896,
+   "name": "CHAMOIS/SKIRT"
+  },
+  {
+   "idx": 126,
+   "rec": 9968,
+   "name": "SUEDE/DOUBLET"
+  },
+  {
+   "idx": 127,
+   "rec": 10040,
+   "name": "SUEDE/PANTS"
+  },
+  {
+   "idx": 128,
+   "rec": 10112,
+   "name": "SKULLCAP"
+  },
+  {
+   "idx": 129,
+   "rec": 10184,
+   "name": "FEATHERED/HAT"
+  },
+  {
+   "idx": 130,
+   "rec": 10256,
+   "name": "SANDALS"
+  },
+  {
+   "idx": 131,
+   "rec": 10328,
+   "name": "BUSKINS"
+  },
+  {
+   "idx": 132,
+   "rec": 10400,
+   "name": "FUR/LEGGING"
+  },
+  {
+   "idx": 133,
+   "rec": 10472,
+   "name": "QUILT/TUNIC"
+  },
+  {
+   "idx": 134,
+   "rec": 10544,
+   "name": "QUILT/LEGGING"
+  },
+  {
+   "idx": 135,
+   "rec": 10616,
+   "name": "LEATHER/CUIRASS"
+  },
+  {
+   "idx": 136,
+   "rec": 10688,
+   "name": "LEATHER/HAUBERK"
+  },
+  {
+   "idx": 137,
+   "rec": 10760,
+   "name": "LEATHER/LEGGING"
+  },
+  {
+   "idx": 138,
+   "rec": 10832,
+   "name": "LEATHER/HELM"
+  },
+  {
+   "idx": 139,
+   "rec": 10904,
+   "name": "CUIR/GAUNTLETS"
+  },
+  {
+   "idx": 140,
+   "rec": 10976,
+   "name": "LEATHER/BOOTS"
+  },
+  {
+   "idx": 141,
+   "rec": 11048,
+   "name": "BUCKLER/SHIELD"
+  },
+  {
+   "idx": 142,
+   "rec": 11120,
+   "name": "BREAST/PLATE"
+  },
+  {
+   "idx": 143,
+   "rec": 11192,
+   "name": "STEEL/HELM"
+  },
+  {
+   "idx": 144,
+   "rec": 11264,
+   "name": "TARNISHED/MAIL"
+  },
+  {
+   "idx": 145,
+   "rec": 11336,
+   "name": "CHAIN/HAUBERK"
+  },
+  {
+   "idx": 146,
+   "rec": 11408,
+   "name": "CHAIN/CHAUSSES"
+  },
+  {
+   "idx": 147,
+   "rec": 11480,
+   "name": "MAIL COIF"
+  },
+  {
+   "idx": 148,
+   "rec": 11552,
+   "name": "MAIL/MITTENS"
+  },
+  {
+   "idx": 149,
+   "rec": 11624,
+   "name": "CHAIN/HOSEN"
+  },
+  {
+   "idx": 150,
+   "rec": 11696,
+   "name": "ROUND/SHIELD"
+  },
+  {
+   "idx": 151,
+   "rec": 11768,
+   "name": "OLIVESKIN/DOUBLET"
+  },
+  {
+   "idx": 152,
+   "rec": 11840,
+   "name": "PLATE/MAIL (U)"
+  },
+  {
+   "idx": 153,
+   "rec": 11912,
+   "name": "PLATE/MAIL (L)"
+  },
+  {
+   "idx": 154,
+   "rec": 11984,
+   "name": "BASCINET"
+  },
+  {
+   "idx": 155,
+   "rec": 12056,
+   "name": "STEEL/GAUNTLETS"
+  },
+  {
+   "idx": 156,
+   "rec": 12128,
+   "name": "SOLLERET"
+  },
+  {
+   "idx": 157,
+   "rec": 12200,
+   "name": "HEATER/SHIELD"
+  },
+  {
+   "idx": 158,
+   "rec": 12272,
+   "name": "NINJA/GARB (U)"
+  },
+  {
+   "idx": 159,
+   "rec": 12344,
+   "name": "NINJA/GARB (L)"
+  },
+  {
+   "idx": 160,
+   "rec": 12416,
+   "name": "NINJA/COWL"
+  },
+  {
+   "idx": 161,
+   "rec": 12488,
+   "name": "TABI/BOOTS"
+  },
+  {
+   "idx": 162,
+   "rec": 12560,
+   "name": "WIZARD'S/CONE"
+  },
+  {
+   "idx": 163,
+   "rec": 12632,
+   "name": "MITRE"
+  },
+  {
+   "idx": 164,
+   "rec": 12704,
+   "name": "DEATH/SHROUD"
+  },
+  {
+   "idx": 165,
+   "rec": 12776,
+   "name": "ROBES (U)/+1"
+  },
+  {
+   "idx": 166,
+   "rec": 12848,
+   "name": "ROBES (L)/+1"
+  },
+  {
+   "idx": 167,
+   "rec": 12920,
+   "name": "DO-MARU/(U)"
+  },
+  {
+   "idx": 168,
+   "rec": 12992,
+   "name": "DO-MARU/(L)"
+  },
+  {
+   "idx": 169,
+   "rec": 13064,
+   "name": "BRACERS =/DEFENSE"
+  },
+  {
+   "idx": 170,
+   "rec": 13136,
+   "name": "BRONZE/CUIRASS"
+  },
+  {
+   "idx": 171,
+   "rec": 13208,
+   "name": "LEATHER/GREAVES"
+  },
+  {
+   "idx": 172,
+   "rec": 13280,
+   "name": "STUDDED/HAUBERK"
+  },
+  {
+   "idx": 173,
+   "rec": 13352,
+   "name": "STUD/CHAUSSES"
+  },
+  {
+   "idx": 174,
+   "rec": 13424,
+   "name": "OLIVESKIN/LEGGINGS"
+  },
+  {
+   "idx": 175,
+   "rec": 13496,
+   "name": "PHRYGIAN/CAP"
+  },
+  {
+   "idx": 176,
+   "rec": 13568,
+   "name": "HELM&COIF"
+  },
+  {
+   "idx": 177,
+   "rec": 13640,
+   "name": "KABUTO"
+  },
+  {
+   "idx": 178,
+   "rec": 13712,
+   "name": "SILKEN/GLOVES"
+  },
+  {
+   "idx": 179,
+   "rec": 13784,
+   "name": "CHAMOIS/GLOVES"
+  },
+  {
+   "idx": 180,
+   "rec": 13856,
+   "name": "COPPER/GLOVES"
+  },
+  {
+   "idx": 181,
+   "rec": 13928,
+   "name": "SHIELD =/SOARING"
+  },
+  {
+   "idx": 182,
+   "rec": 14000,
+   "name": "CHAIN/MAIL+1 (U)"
+  },
+  {
+   "idx": 183,
+   "rec": 14072,
+   "name": "CHAIN/MAIL+1 (L)"
+  },
+  {
+   "idx": 184,
+   "rec": 14144,
+   "name": "JAZERAINT/TUNIC"
+  },
+  {
+   "idx": 185,
+   "rec": 14216,
+   "name": "JAZERAINT/SKIRT"
+  },
+  {
+   "idx": 186,
+   "rec": 14288,
+   "name": "BRONZE/GREAVES"
+  },
+  {
+   "idx": 187,
+   "rec": 14360,
+   "name": "TOSEI-DO/(U)"
+  },
+  {
+   "idx": 188,
+   "rec": 14432,
+   "name": "TOSEI-DO/(L)"
+  },
+  {
+   "idx": 189,
+   "rec": 14504,
+   "name": "DEATHMAIL"
+  },
+  {
+   "idx": 190,
+   "rec": 14576,
+   "name": "PLATE/MAIL+2 (U)"
+  },
+  {
+   "idx": 191,
+   "rec": 14648,
+   "name": "PLATE/MAIL+2 (L)"
+  },
+  {
+   "idx": 192,
+   "rec": 14720,
+   "name": "BURGONET/HELM"
+  },
+  {
+   "idx": 193,
+   "rec": 14792,
+   "name": "BASCINET/& CAMAIL"
+  },
+  {
+   "idx": 194,
+   "rec": 14864,
+   "name": "CAP =/WILES"
+  },
+  {
+   "idx": 195,
+   "rec": 14936,
+   "name": "SILVER/GLOVES"
+  },
+  {
+   "idx": 196,
+   "rec": 15008,
+   "name": "SILVER/SOLLERET"
+  },
+  {
+   "idx": 197,
+   "rec": 15080,
+   "name": "MAGNETIC/BOOTS"
+  },
+  {
+   "idx": 198,
+   "rec": 15152,
+   "name": "DRAGON/KITE"
+  },
+  {
+   "idx": 199,
+   "rec": 15224,
+   "name": "ANOINTED/CLOAK"
+  },
+  {
+   "idx": 200,
+   "rec": 15296,
+   "name": "PLATE/MAIL+3 (U)"
+  },
+  {
+   "idx": 201,
+   "rec": 15368,
+   "name": "PLATE/MAIL+3 (L)"
+  },
+  {
+   "idx": 202,
+   "rec": 15440,
+   "name": "CHAMAIL/DOUBLET+2"
+  },
+  {
+   "idx": 203,
+   "rec": 15512,
+   "name": "CHAMAIL/PANTS+2"
+  },
+  {
+   "idx": 204,
+   "rec": 15584,
+   "name": "FAERIE CAP"
+  },
+  {
+   "idx": 205,
+   "rec": 15656,
+   "name": "MITRE/DE SANCT"
+  },
+  {
+   "idx": 206,
+   "rec": 15728,
+   "name": "CLOAK =/FORTUNE"
+  },
+  {
+   "idx": 207,
+   "rec": 15800,
+   "name": "STAFF =/DOOM"
+  },
+  {
+   "idx": 208,
+   "rec": 15872,
+   "name": "ROBES =/ENCHANT(U)"
+  },
+  {
+   "idx": 209,
+   "rec": 15944,
+   "name": "ROBES =/ENCHANT(L)"
+  },
+  {
+   "idx": 210,
+   "rec": 16016,
+   "name": "BLACK GOWN/=DEATH(U)"
+  },
+  {
+   "idx": 211,
+   "rec": 16088,
+   "name": "BLACK GOWN/=DEATH(L)"
+  },
+  {
+   "idx": 212,
+   "rec": 16160,
+   "name": "ARMET"
+  },
+  {
+   "idx": 213,
+   "rec": 16232,
+   "name": "MANTIS/GLOVES"
+  },
+  {
+   "idx": 214,
+   "rec": 16304,
+   "name": "MANTIS/BOOTS"
+  },
+  {
+   "idx": 215,
+   "rec": 16376,
+   "name": "FOREST/CAPE"
+  },
+  {
+   "idx": 216,
+   "rec": 16448,
+   "name": "IUFSTFNEPS/BADGE"
+  },
+  {
+   "idx": 217,
+   "rec": 16520,
+   "name": "IUFSTFTUFS/BADGE"
+  },
+  {
+   "idx": 218,
+   "rec": 16592,
+   "name": "HEAUME"
+  },
+  {
+   "idx": 219,
+   "rec": 16664,
+   "name": "FLAK/VEST"
+  },
+  {
+   "idx": 220,
+   "rec": 16736,
+   "name": "FLAK/JACKET"
+  },
+  {
+   "idx": 221,
+   "rec": 16808,
+   "name": "STUD-CUIR/SKIRT+2"
+  },
+  {
+   "idx": 222,
+   "rec": 16880,
+   "name": "STUD-CUIR/BRA+2"
+  },
+  {
+   "idx": 223,
+   "rec": 16952,
+   "name": "EBONY/PLATE (U)"
+  },
+  {
+   "idx": 224,
+   "rec": 17024,
+   "name": "EBONY/PLATE (L)"
+  },
+  {
+   "idx": 225,
+   "rec": 17096,
+   "name": "HI-KANE-DO/(U)"
+  },
+  {
+   "idx": 226,
+   "rec": 17168,
+   "name": "HI-KANE-DO/(L)"
+  },
+  {
+   "idx": 227,
+   "rec": 17240,
+   "name": "ROCK/CRYSTALS"
+  },
+  {
+   "idx": 228,
+   "rec": 17312,
+   "name": "BRIMSTONE/NUGGETS"
+  },
+  {
+   "idx": 229,
+   "rec": 17384,
+   "name": "AROMATIC/SALTS"
+  },
+  {
+   "idx": 230,
+   "rec": 17456,
+   "name": "MANTA/ROOTS"
+  },
+  {
+   "idx": 231,
+   "rec": 17528,
+   "name": "LION'S/CLAWS"
+  },
+  {
+   "idx": 232,
+   "rec": 17600,
+   "name": "JU-JU/STONES"
+  },
+  {
+   "idx": 233,
+   "rec": 17672,
+   "name": "DRAGON'S/TEETH"
+  },
+  {
+   "idx": 234,
+   "rec": 17744,
+   "name": "DISPLACER/CLOAK"
+  },
+  {
+   "idx": 235,
+   "rec": 17816,
+   "name": "CRUSADER/HELM"
+  },
+  {
+   "idx": 236,
+   "rec": 17888,
+   "name": "EBONY/HEAUME"
+  },
+  {
+   "idx": 237,
+   "rec": 17960,
+   "name": "COIF =/DIVINEMAIL"
+  },
+  {
+   "idx": 238,
+   "rec": 18032,
+   "name": "GOWN(U) =/DIVINEMAIL"
+  },
+  {
+   "idx": 239,
+   "rec": 18104,
+   "name": "GOWN(L) =/DIVINEMAIL"
+  },
+  {
+   "idx": 240,
+   "rec": 18176,
+   "name": "EMERALD/TALISMAN"
+  },
+  {
+   "idx": 241,
+   "rec": 18248,
+   "name": "SHADOW/CLOAK"
+  },
+  {
+   "idx": 242,
+   "rec": 18320,
+   "name": "RING =/INVISIBLTY"
+  },
+  {
+   "idx": 243,
+   "rec": 18392,
+   "name": "AMULET =/HEALING"
+  },
+  {
+   "idx": 244,
+   "rec": 18464,
+   "name": "RING =/STARS"
+  },
+  {
+   "idx": 245,
+   "rec": 18536,
+   "name": "SILVER/CROSS"
+  },
+  {
+   "idx": 246,
+   "rec": 18608,
+   "name": "VALENTINE/NECKLACE"
+  },
+  {
+   "idx": 247,
+   "rec": 18680,
+   "name": "JEWELED/CUSHION"
+  },
+  {
+   "idx": 248,
+   "rec": 18752,
+   "name": "RUBBER/WHITE BEAR"
+  },
+  {
+   "idx": 249,
+   "rec": 18824,
+   "name": "BLACKBELT=/5 FLOWERS"
+  },
+  {
+   "idx": 250,
+   "rec": 18896,
+   "name": "HELAZOID/PENDANT"
+  },
+  {
+   "idx": 251,
+   "rec": 18968,
+   "name": "VITRIOLIC/WARDER"
+  },
+  {
+   "idx": 252,
+   "rec": 19040,
+   "name": "MIDNIGHT/CLOAK"
+  },
+  {
+   "idx": 253,
+   "rec": 19112,
+   "name": "MEDICINE/BAG"
+  },
+  {
+   "idx": 254,
+   "rec": 19184,
+   "name": "*LIGHT*/*SHIELD*"
+  },
+  {
+   "idx": 255,
+   "rec": 19256,
+   "name": "SCARAB/NECKLACE"
+  },
+  {
+   "idx": 256,
+   "rec": 19328,
+   "name": "*LIGHT*/*SWORD*"
+  },
+  {
+   "idx": 257,
+   "rec": 19400,
+   "name": "FRONTIER/PHASER"
+  },
+  {
+   "idx": 258,
+   "rec": 19472,
+   "name": "POWERPAK"
+  },
+  {
+   "idx": 259,
+   "rec": 19544,
+   "name": "COBALTINE/POWERGLOVE"
+  },
+  {
+   "idx": 260,
+   "rec": 19616,
+   "name": "GARLAND =/ROSES"
+  },
+  {
+   "idx": 261,
+   "rec": 19688,
+   "name": "PK CRYSTAL"
+  },
+  {
+   "idx": 262,
+   "rec": 19760,
+   "name": "CAMEO/LOCKET"
+  },
+  {
+   "idx": 263,
+   "rec": 19832,
+   "name": "DIAMOND/RING"
+  },
+  {
+   "idx": 264,
+   "rec": 19904,
+   "name": "MUSKET"
+  },
+  {
+   "idx": 265,
+   "rec": 19976,
+   "name": "BLUNDER/BUSS"
+  },
+  {
+   "idx": 266,
+   "rec": 20048,
+   "name": "POWDER_&/SHOT"
+  },
+  {
+   "idx": 267,
+   "rec": 20120,
+   "name": "RING =/TRUTH"
+  },
+  {
+   "idx": 268,
+   "rec": 20192,
+   "name": "RING =/RESOUNDING"
+  },
+  {
+   "idx": 269,
+   "rec": 20264,
+   "name": "RING =/SHIELDING"
+  },
+  {
+   "idx": 270,
+   "rec": 20336,
+   "name": "MYSTIC'S/RING"
+  },
+  {
+   "idx": 271,
+   "rec": 20408,
+   "name": "RING PRO/FROST"
+  },
+  {
+   "idx": 272,
+   "rec": 20480,
+   "name": "RING PRO/MAGIC"
+  },
+  {
+   "idx": 273,
+   "rec": 20552,
+   "name": "BAT/NECKLACE"
+  },
+  {
+   "idx": 274,
+   "rec": 20624,
+   "name": "AMULET =/SPIDERS"
+  },
+  {
+   "idx": 275,
+   "rec": 20696,
+   "name": "AMULET =/STILLNESS"
+  },
+  {
+   "idx": 276,
+   "rec": 20768,
+   "name": "AMULET =/AIRS"
+  },
+  {
+   "idx": 277,
+   "rec": 20840,
+   "name": "AMULET =/ILLUSIONS"
+  },
+  {
+   "idx": 278,
+   "rec": 20912,
+   "name": "AMULET/= LIFE"
+  },
+  {
+   "idx": 279,
+   "rec": 20984,
+   "name": "ANKH =/MIGHT"
+  },
+  {
+   "idx": 280,
+   "rec": 21056,
+   "name": "ANKH =/YOUTH"
+  },
+  {
+   "idx": 281,
+   "rec": 21128,
+   "name": "ANKH =/SPEED"
+  },
+  {
+   "idx": 282,
+   "rec": 21200,
+   "name": "ANKH =/DEXTERITY"
+  },
+  {
+   "idx": 283,
+   "rec": 21272,
+   "name": "ANKH =/SANCTITY"
+  },
+  {
+   "idx": 284,
+   "rec": 21344,
+   "name": "ANKH =/LIFE"
+  },
+  {
+   "idx": 285,
+   "rec": 21416,
+   "name": "ANKH =/DEATH"
+  },
+  {
+   "idx": 286,
+   "rec": 21488,
+   "name": "ANKH =/HEALING"
+  },
+  {
+   "idx": 287,
+   "rec": 21560,
+   "name": "CROSS =/TURNING"
+  },
+  {
+   "idx": 288,
+   "rec": 21632,
+   "name": "CROSS =/PROTECTION"
+  },
+  {
+   "idx": 289,
+   "rec": 21704,
+   "name": "BOOK =/DEMONS"
+  },
+  {
+   "idx": 290,
+   "rec": 21776,
+   "name": "MANA STONE"
+  },
+  {
+   "idx": 291,
+   "rec": 21848,
+   "name": "STONE PRO/AIRS"
+  },
+  {
+   "idx": 292,
+   "rec": 21920,
+   "name": "STONE =/NEW LIFE"
+  },
+  {
+   "idx": 293,
+   "rec": 21992,
+   "name": "STAFF =/CHARMING"
+  },
+  {
+   "idx": 294,
+   "rec": 22064,
+   "name": "STAFF =/BLESSING"
+  },
+  {
+   "idx": 295,
+   "rec": 22136,
+   "name": "STAVE =/SILENCE"
+  },
+  {
+   "idx": 296,
+   "rec": 22208,
+   "name": "STAFF PRO/PARALYSIS"
+  },
+  {
+   "idx": 297,
+   "rec": 22280,
+   "name": "HAUNTING/STICK"
+  },
+  {
+   "idx": 298,
+   "rec": 22352,
+   "name": "STAVE PRO/UNDEAD"
+  },
+  {
+   "idx": 299,
+   "rec": 22424,
+   "name": "WINTERWAND"
+  },
+  {
+   "idx": 300,
+   "rec": 22496,
+   "name": "PANDORA'S/WAND"
+  },
+  {
+   "idx": 301,
+   "rec": 22568,
+   "name": "CRYSTAL/WAND"
+  },
+  {
+   "idx": 302,
+   "rec": 22640,
+   "name": "WAND =/WINDS"
+  },
+  {
+   "idx": 303,
+   "rec": 22712,
+   "name": "BAG =/DEATH"
+  },
+  {
+   "idx": 304,
+   "rec": 22784,
+   "name": "BAG =/TRICKS"
+  },
+  {
+   "idx": 305,
+   "rec": 22856,
+   "name": "SPARKLE/STIX"
+  },
+  {
+   "idx": 306,
+   "rec": 22928,
+   "name": "ICICLE/STIX"
+  },
+  {
+   "idx": 307,
+   "rec": 23000,
+   "name": "CRACKER/STIX"
+  },
+  {
+   "idx": 308,
+   "rec": 23072,
+   "name": "FIRE STIX"
+  },
+  {
+   "idx": 309,
+   "rec": 23144,
+   "name": "ROCKET/STIX"
+  },
+  {
+   "idx": 310,
+   "rec": 23216,
+   "name": "AMULET =/ASPHIXIATE"
+  },
+  {
+   "idx": 311,
+   "rec": 23288,
+   "name": "AMULET PRO/MAGIC"
+  },
+  {
+   "idx": 312,
+   "rec": 23360,
+   "name": "AMULET =/RAINBOWS"
+  },
+  {
+   "idx": 313,
+   "rec": 23432,
+   "name": "ROD =/SPRITES"
+  },
+  {
+   "idx": 314,
+   "rec": 23504,
+   "name": "RESURRECT"
+  },
+  {
+   "idx": 315,
+   "rec": 23576,
+   "name": "CASK =/ILL REPUTE"
+  },
+  {
+   "idx": 316,
+   "rec": 23648,
+   "name": "LT. HEAL"
+  },
+  {
+   "idx": 317,
+   "rec": 23720,
+   "name": "MOD. HEAL"
+  },
+  {
+   "idx": 318,
+   "rec": 23792,
+   "name": "HV. HEAL"
+  },
+  {
+   "idx": 319,
+   "rec": 23864,
+   "name": "MOD./STAMINA"
+  },
+  {
+   "idx": 320,
+   "rec": 23936,
+   "name": "HV./STAMINA"
+  },
+  {
+   "idx": 321,
+   "rec": 24008,
+   "name": "CURE/LT. CND"
+  },
+  {
+   "idx": 322,
+   "rec": 24080,
+   "name": "CURE/POISON"
+  },
+  {
+   "idx": 323,
+   "rec": 24152,
+   "name": "CURE/PARALYZ"
+  },
+  {
+   "idx": 324,
+   "rec": 24224,
+   "name": "CURE/STONE"
+  },
+  {
+   "idx": 325,
+   "rec": 24296,
+   "name": "CURE/DISEASE"
+  },
+  {
+   "idx": 326,
+   "rec": 24368,
+   "name": "SUPERMAN"
+  },
+  {
+   "idx": 327,
+   "rec": 24440,
+   "name": "CHERRY/BOMB"
+  },
+  {
+   "idx": 328,
+   "rec": 24512,
+   "name": "FIRE/BOMB"
+  },
+  {
+   "idx": 329,
+   "rec": 24584,
+   "name": "POISON/BOMB"
+  },
+  {
+   "idx": 330,
+   "rec": 24656,
+   "name": "ACID BOMB"
+  },
+  {
+   "idx": 331,
+   "rec": 24728,
+   "name": "STINK/BOMB"
+  },
+  {
+   "idx": 332,
+   "rec": 24800,
+   "name": "HOLY WATER"
+  },
+  {
+   "idx": 333,
+   "rec": 24872,
+   "name": "INVISIBLE/POTION"
+  },
+  {
+   "idx": 334,
+   "rec": 24944,
+   "name": "MAGIC/SCREEN"
+  },
+  {
+   "idx": 335,
+   "rec": 25016,
+   "name": "MAGIC/MISSILE"
+  },
+  {
+   "idx": 336,
+   "rec": 25088,
+   "name": "TERROR"
+  },
+  {
+   "idx": 337,
+   "rec": 25160,
+   "name": "DISPEL/UNDEAD"
+  },
+  {
+   "idx": 338,
+   "rec": 25232,
+   "name": "SLOW"
+  },
+  {
+   "idx": 339,
+   "rec": 25304,
+   "name": "KNOCK/KNOCK"
+  },
+  {
+   "idx": 340,
+   "rec": 25376,
+   "name": "HOLD/MONSTERS"
+  },
+  {
+   "idx": 341,
+   "rec": 25448,
+   "name": "WHIPPING/ROCKS"
+  },
+  {
+   "idx": 342,
+   "rec": 25520,
+   "name": "MISSILE/PROTECT"
+  },
+  {
+   "idx": 343,
+   "rec": 25592,
+   "name": "ARMORPLATE"
+  },
+  {
+   "idx": 344,
+   "rec": 25664,
+   "name": "ENCHANTED/BLADE"
+  },
+  {
+   "idx": 345,
+   "rec": 25736,
+   "name": "HASTE"
+  },
+  {
+   "idx": 346,
+   "rec": 25808,
+   "name": "FIREBALL"
+  },
+  {
+   "idx": 347,
+   "rec": 25880,
+   "name": "BLINK"
+  },
+  {
+   "idx": 348,
+   "rec": 25952,
+   "name": "ILLUSION"
+  },
+  {
+   "idx": 349,
+   "rec": 26024,
+   "name": "CONJURE"
+  },
+  {
+   "idx": 350,
+   "rec": 26096,
+   "name": "LEVITATE"
+  },
+  {
+   "idx": 351,
+   "rec": 26168,
+   "name": "ZAP UNDEAD"
+  },
+  {
+   "idx": 352,
+   "rec": 26240,
+   "name": "RESURRECT"
+  },
+  {
+   "idx": 353,
+   "rec": 26312,
+   "name": "ARMORMELT"
+  },
+  {
+   "idx": 354,
+   "rec": 26384,
+   "name": "CRUSH"
+  },
+  {
+   "idx": 355,
+   "rec": 26456,
+   "name": "CONFUSION"
+  },
+  {
+   "idx": 356,
+   "rec": 26528,
+   "name": "WIZARD/EYE"
+  },
+  {
+   "idx": 357,
+   "rec": 26600,
+   "name": "REMOVE/CURSE"
+  },
+  {
+   "idx": 358,
+   "rec": 26672,
+   "name": "RESTFULL"
+  },
+  {
+   "idx": 359,
+   "rec": 26744,
+   "name": "HEALFULL"
+  },
+  {
+   "idx": 360,
+   "rec": 26816,
+   "name": "BLADES"
+  },
+  {
+   "idx": 361,
+   "rec": 26888,
+   "name": "LOCATE/OBJECT"
+  },
+  {
+   "idx": 362,
+   "rec": 26960,
+   "name": "LOCATE/PERSON"
+  },
+  {
+   "idx": 363,
+   "rec": 27032,
+   "name": "BOOK =/SHIELDING"
+  },
+  {
+   "idx": 364,
+   "rec": 27104,
+   "name": "BOOK =/AIRS"
+  },
+  {
+   "idx": 365,
+   "rec": 27176,
+   "name": "BOOK =/RESTING"
+  },
+  {
+   "idx": 366,
+   "rec": 27248,
+   "name": "BOOK =/BARRIERS"
+  },
+  {
+   "idx": 367,
+   "rec": 27320,
+   "name": "BOOK =/KNOCKS"
+  },
+  {
+   "idx": 368,
+   "rec": 27392,
+   "name": "BOOK =/DIRECTION"
+  },
+  {
+   "idx": 369,
+   "rec": 27464,
+   "name": "BOOK =/DETECTION"
+  },
+  {
+   "idx": 370,
+   "rec": 27536,
+   "name": "BOOK =/HASTE"
+  },
+  {
+   "idx": 371,
+   "rec": 27608,
+   "name": "BOOK =/WATCHBELLS"
+  },
+  {
+   "idx": 372,
+   "rec": 27680,
+   "name": "BOOK =/BLESSINGS"
+  },
+  {
+   "idx": 373,
+   "rec": 27752,
+   "name": "BOOK =/CHARMING"
+  },
+  {
+   "idx": 374,
+   "rec": 27824,
+   "name": "BOOK =/LEVITATION"
+  },
+  {
+   "idx": 375,
+   "rec": 27896,
+   "name": "BOOK =/FIREWALLS"
+  },
+  {
+   "idx": 376,
+   "rec": 27968,
+   "name": "BOOK =/SEEING"
+  },
+  {
+   "idx": 377,
+   "rec": 28040,
+   "name": "BOOK =/UNHEXING"
+  },
+  {
+   "idx": 378,
+   "rec": 28112,
+   "name": "BOOK =/BANISHING"
+  },
+  {
+   "idx": 379,
+   "rec": 28184,
+   "name": "BOOK =/ANTI-MAGIC"
+  },
+  {
+   "idx": 380,
+   "rec": 28256,
+   "name": "BOOK =/ICEWALLS"
+  },
+  {
+   "idx": 381,
+   "rec": 28328,
+   "name": "SKELETON/POWDER"
+  },
+  {
+   "idx": 382,
+   "rec": 28400,
+   "name": "TALC =/TAMARIS"
+  },
+  {
+   "idx": 383,
+   "rec": 28472,
+   "name": "POWDER =/CREATION"
+  },
+  {
+   "idx": 384,
+   "rec": 28544,
+   "name": "FAERIE/DUST"
+  },
+  {
+   "idx": 385,
+   "rec": 28616,
+   "name": "SNEEZE/POWDER"
+  },
+  {
+   "idx": 386,
+   "rec": 28688,
+   "name": "FLASH/POWDER"
+  },
+  {
+   "idx": 387,
+   "rec": 28760,
+   "name": "SNAKE/DUST"
+  },
+  {
+   "idx": 388,
+   "rec": 28832,
+   "name": "BONE/DUST"
+  },
+  {
+   "idx": 389,
+   "rec": 28904,
+   "name": "CRUSHED/WIDOWS"
+  },
+  {
+   "idx": 390,
+   "rec": 28976,
+   "name": "DUNGORE'S/MALT ALE"
+  },
+  {
+   "idx": 391,
+   "rec": 29048,
+   "name": "BREAD/ROLLS"
+  },
+  {
+   "idx": 392,
+   "rec": 29120,
+   "name": "GOLDEN/APPLES"
+  },
+  {
+   "idx": 393,
+   "rec": 29192,
+   "name": "BUNCH =/BANANAS"
+  },
+  {
+   "idx": 394,
+   "rec": 29264,
+   "name": "MOSER'S/MOJO TEA"
+  },
+  {
+   "idx": 395,
+   "rec": 29336,
+   "name": "BOTTLE =/OLD JAKE'S"
+  },
+  {
+   "idx": 396,
+   "rec": 29408,
+   "name": "MILK =/MAGMANASIA"
+  },
+  {
+   "idx": 397,
+   "rec": 29480,
+   "name": "FAERIE/STICK"
+  },
+  {
+   "idx": 398,
+   "rec": 29552,
+   "name": "GOSSAMER/GOWN (U)"
+  },
+  {
+   "idx": 399,
+   "rec": 29624,
+   "name": "GOSSAMER/GOWN (L)"
+  },
+  {
+   "idx": 400,
+   "rec": 29696,
+   "name": "*TEMPLE*"
+  },
+  {
+   "idx": 401,
+   "rec": 29768,
+   "name": "*BOAT*"
+  },
+  {
+   "idx": 402,
+   "rec": 29840,
+   "name": "*SERPENT*"
+  },
+  {
+   "idx": 403,
+   "rec": 29912,
+   "name": "*DRAGON*"
+  },
+  {
+   "idx": 404,
+   "rec": 29984,
+   "name": "*SPHINX*"
+  },
+  {
+   "idx": 405,
+   "rec": 30056,
+   "name": "*CRYPT*"
+  },
+  {
+   "idx": 406,
+   "rec": 30128,
+   "name": "*LEGEND*"
+  },
+  {
+   "idx": 407,
+   "rec": 30200,
+   "name": "*CRYSTAL*"
+  },
+  {
+   "idx": 408,
+   "rec": 30272,
+   "name": "*STAR*"
+  },
+  {
+   "idx": 409,
+   "rec": 30344,
+   "name": "*GLOBE*"
+  },
+  {
+   "idx": 410,
+   "rec": 30416,
+   "name": "*FOOLS*"
+  },
+  {
+   "idx": 411,
+   "rec": 30488,
+   "name": "JOURNEY/MAP KIT"
+  },
+  {
+   "idx": 412,
+   "rec": 30560,
+   "name": "BOOK =/RELICS"
+  },
+  {
+   "idx": 413,
+   "rec": 30632,
+   "name": "FILCHER'S/BAND"
+  },
+  {
+   "idx": 414,
+   "rec": 30704,
+   "name": "FLYNN'S/CAP"
+  },
+  {
+   "idx": 415,
+   "rec": 30776,
+   "name": "GOATFOOT/BOOTS"
+  },
+  {
+   "idx": 416,
+   "rec": 30848,
+   "name": "KNOCK/PICKS"
+  }
+ ]
+}

@@ -60,3 +60,15 @@
   阿萊賽德斯（依既有譯名表）；DUNGORE 鄧戈爾、GENERAL YAMO 亞莫將軍、
   KING ULGAR 烏爾加王、H'JENN-RA 赫詹拉等音譯。
 - **複數欄**：中文無複數變化——譯文同單數欄（key 四欄各自存在）。
+
+## 物品譯名批次一（2026-09-27，SCENARIO.DBS 物品資料庫，DRAFT）
+
+- **物品表**：SCENARIO.DBS offset 896 起、**72 bytes／件 × 417 件**、名字欄 +0
+  （BROKEN/ITEM＝idx 0 佔位）。工具 `tools/gen_items.py` → `text/items.json`
+  ＋`text/items-trans.json`（批次一＝武器/防具 idx 0-160、161 筆）→
+  bake 併入 xlate.json（合計 1,536 串、字形 1,236）。
+- **名格式**：`MATERIAL/TYPE`（LEATHER/CUIRASS 皮胸甲、CHAIN/HAUBERK
+  鎖鏈甲）＝材質/類型組合；神器專名（EXCALIBER 王者之劍、MURAMASA/BLADE
+  村正刀、THE/AVENGER 復仇者）。
+- **注意**：譯名限 BIG5 字集（stdfont.15）——「脇差」→「脅差」
+  （脇 U+8107 不在 BIG5）。

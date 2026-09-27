@@ -245,4 +245,11 @@ if __name__ == "__main__":
         for en, zh in mons.items():
             pairs.append((en, zh, 0))
         print(f"怪物譯文 {len(mons)} 筆併入")
+    # 物品譯文（text/items-trans.json，key＝名字原文）併入
+    ip = "text/items-trans.json"
+    if Path(ip).exists():
+        its = json.loads(Path(ip).read_text())["items"]
+        for en, zh in its.items():
+            pairs.append((en, zh, 0))
+        print(f"物品譯文 {len(its)} 筆併入")
     bake(pairs, outdir)
