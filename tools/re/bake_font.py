@@ -238,4 +238,11 @@ if __name__ == "__main__":
             src, _, dst = line.partition("\t")
             if src:
                 pairs.append((src, dst, 0))
+    # 怪物譯文（text/monsters-trans.json，key＝名字原文）併入
+    mp = "text/monsters-trans.json"
+    if Path(mp).exists():
+        mons = json.loads(Path(mp).read_text())["items"]
+        for en, zh in mons.items():
+            pairs.append((en, zh, 0))
+        print(f"怪物譯文 {len(mons)} 筆併入")
     bake(pairs, outdir)

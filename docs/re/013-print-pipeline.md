@@ -703,6 +703,19 @@ init 在無 display 時必炸——hdFrame 輸出驗證不受影響）。
    七八行——hd-1790438277.png）。hdFrame 與 Ebiten Draw 兩條合成路徑
    都過濾（Draw 用 sh.idx 快照）。
 
+### 追記三十四（9/27）：怪物名表破解——SCENARIO.DBS 250 隻全抽出
+
+- 怪物名**不在 MSG.DBS 也不在 .VGA**（.VGA 是純像素）——在
+  **SCENARIO.DBS offset 225272 起**、**232 bytes／隻 × 250 隻**。
+- 記錄結構：名字欄 +72＝`[真名單數][真名複數][別名單數][別名複數]`
+  （各欄 \x00 結尾補齊、單欄最長 24 字）；別名＝低鑑定度顯示名
+  （GLOW MOTH→EERIE MOTH）。record 前後為屬性數值（HP/XP 等，待解）。
+- **管線**：tools/gen_monsters.py → text/monsters.json（250 隻原文）＋
+  text/monsters-trans.json（461 筆譯文，複數欄 zh＝同單數）→
+  bake_font.py 併入 → xlate.json 1,386 串。戰鬥印名查表即中文化。
+- 譯名記入 docs/names.md（種族系／勢力系／劇情角色；全 DRAFT）。
+
+
 
 
 

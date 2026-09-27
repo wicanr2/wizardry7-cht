@@ -1,0 +1,2507 @@
+{
+ "schema": "wiz7-monsters/1",
+ "note": "SCENARIO.DBS 怪物名表（docs/re/013 追記三十四）。record=232B、名字欄 +72：[真名單數][真名複數][別名單數][別名複數]——別名＝低鑑定度顯示名。idx＝怪物編號（0 起，對應遊戲內部索引）；原文欄位進版控（使用者定案）。",
+ "count": 250,
+ "monsters": [
+  {
+   "idx": 0,
+   "rec": 225272,
+   "names": [
+    "DANDIPHOOT",
+    "DANDIPHOOTS",
+    "PHOOT",
+    "PHOOTS"
+   ]
+  },
+  {
+   "idx": 1,
+   "rec": 225504,
+   "names": [
+    "ALLIPHOOT",
+    "ALLIPHOOTS",
+    "PHOOT",
+    "PHOOTS"
+   ]
+  },
+  {
+   "idx": 2,
+   "rec": 225736,
+   "names": [
+    "GUMBIPHOOT",
+    "GUMBIPHOOTS",
+    "PHOOT",
+    "PHOOTS"
+   ]
+  },
+  {
+   "idx": 3,
+   "rec": 225968,
+   "names": [
+    "MANTRAPHOOT",
+    "MANTRAPHOOTS",
+    "PHOOT",
+    "PHOOTS"
+   ]
+  },
+  {
+   "idx": 4,
+   "rec": 226200,
+   "names": [
+    "GLOW MOTH",
+    "GLOW MOTHS",
+    "EERIE MOTH",
+    "EERIE MOTHS"
+   ]
+  },
+  {
+   "idx": 5,
+   "rec": 226432,
+   "names": [
+    "SPECTRAL MOTH",
+    "SPECTRAL MOTHS",
+    "EERIE MOTH",
+    "EERIE MOTHS"
+   ]
+  },
+  {
+   "idx": 6,
+   "rec": 226664,
+   "names": [
+    "GLOW MOTHRA",
+    "GLOW MOTHRAS",
+    "EERIE MOTH",
+    "EERIE MOTHS"
+   ]
+  },
+  {
+   "idx": 7,
+   "rec": 226896,
+   "names": [
+    "LUNA MOTHRA",
+    "LUNA MOTHRAS",
+    "EERIE MOTH",
+    "EERIE MOTHS"
+   ]
+  },
+  {
+   "idx": 8,
+   "rec": 227128,
+   "names": [
+    "STAG WEEVIL",
+    "STAG WEEVILS",
+    "BUG",
+    "BUGS"
+   ]
+  },
+  {
+   "idx": 9,
+   "rec": 227360,
+   "names": [
+    "VENOM WEEVIL",
+    "VENOM WEEVILS",
+    "BUG",
+    "BUGS"
+   ]
+  },
+  {
+   "idx": 10,
+   "rec": 227592,
+   "names": [
+    "BOAR WEEVIL",
+    "BOAR WEEVILS",
+    "BUG",
+    "BUGS"
+   ]
+  },
+  {
+   "idx": 11,
+   "rec": 227824,
+   "names": [
+    "BEAR WEEVIL",
+    "BEAR WEEVILS",
+    "BUG",
+    "BUGS"
+   ]
+  },
+  {
+   "idx": 12,
+   "rec": 228056,
+   "names": [
+    "NIGHT ROOK",
+    "NIGHT ROOKS",
+    "BLACK BIRD",
+    "BLACK BIRDS"
+   ]
+  },
+  {
+   "idx": 13,
+   "rec": 228288,
+   "names": [
+    "VAMPIRE ROOK",
+    "VAMPIRE ROOKS",
+    "BLACK BIRD",
+    "BLACK BIRDS"
+   ]
+  },
+  {
+   "idx": 14,
+   "rec": 228520,
+   "names": [
+    "SPECTRAL RAVEN",
+    "SPECTRAL RAVENS",
+    "BLACK BIRD",
+    "BLACK BIRDS"
+   ]
+  },
+  {
+   "idx": 15,
+   "rec": 228752,
+   "names": [
+    "VAMPIRE VULTURE",
+    "VAMPIRE VULTURE",
+    "BLACK BIRD",
+    "RD"
+   ]
+  },
+  {
+   "idx": 16,
+   "rec": 228984,
+   "names": [
+    "CACHRE SLUDGE",
+    "CACHRE SLUDGES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 17,
+   "rec": 229216,
+   "names": [
+    "CRAWLING WASTE",
+    "CRAWLING WASTES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 18,
+   "rec": 229448,
+   "names": [
+    "FUNGUS OOZE",
+    "FUNGUS OOZES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 19,
+   "rec": 229680,
+   "names": [
+    "PUXIC OOZE",
+    "PUXIC OOZES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 20,
+   "rec": 229912,
+   "names": [
+    "SHADOW CRUST",
+    "SHADOW CRUSTS",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 21,
+   "rec": 230144,
+   "names": [
+    "IGUANADON",
+    "RD",
+    "IGUANADONS",
+    "DS"
+   ]
+  },
+  {
+   "idx": 22,
+   "rec": 230376,
+   "names": [
+    "KOMODO DRAGON",
+    "KOMODO DRAGONS",
+    "GIANT LIZARD",
+    "GIANT LIZARDS"
+   ]
+  },
+  {
+   "idx": 23,
+   "rec": 230608,
+   "names": [
+    "CARNOSAURUS",
+    "CARNOSAURI",
+    "ES",
+    "GIGANTIC LIZARD"
+   ]
+  },
+  {
+   "idx": 24,
+   "rec": 230840,
+   "names": [
+    "REXX",
+    "NUS REX",
+    "R",
+    "REXX"
+   ]
+  },
+  {
+   "idx": 25,
+   "rec": 231072,
+   "names": [
+    "RAVEN",
+    "ROOK",
+    "RAVENS",
+    "OOKS"
+   ]
+  },
+  {
+   "idx": 26,
+   "rec": 231304,
+   "names": [
+    "BAMBIPHOOT",
+    "BAMBIPHOOTS",
+    "PHOOT",
+    "PHOOTS"
+   ]
+  },
+  {
+   "idx": 27,
+   "rec": 231536,
+   "names": [
+    "CAVE SLIME",
+    "CAVE SLIMES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 28,
+   "rec": 231768,
+   "names": [
+    "ROCK LIZARD",
+    "N",
+    "ROCK LIZARDS",
+    "S"
+   ]
+  },
+  {
+   "idx": 29,
+   "rec": 232000,
+   "names": [
+    "DRAGON ROOK",
+    "EN",
+    "DRAGON ROOKS",
+    "NS"
+   ]
+  },
+  {
+   "idx": 30,
+   "rec": 232232,
+   "names": [
+    "MAN O' GROVE",
+    "MAN O' GROVES",
+    "MAN O' GROVE",
+    "MAN O' GROVES"
+   ]
+  },
+  {
+   "idx": 31,
+   "rec": 232464,
+   "names": [
+    "HALLOWEECH",
+    "E",
+    "HALLOWEECHES",
+    "MAN O' GROVE"
+   ]
+  },
+  {
+   "idx": 32,
+   "rec": 232696,
+   "names": [
+    "TOBAGAN",
+    "ROVE",
+    "TOBAGANS",
+    "OVES"
+   ]
+  },
+  {
+   "idx": 33,
+   "rec": 232928,
+   "names": [
+    "JELLY STINGER",
+    "JELLY STINGERS",
+    "FLOATER",
+    "FLOATERS"
+   ]
+  },
+  {
+   "idx": 34,
+   "rec": 233160,
+   "names": [
+    "GELIMAGA",
+    "NGER",
+    "GELIMAGAS",
+    "GERS"
+   ]
+  },
+  {
+   "idx": 35,
+   "rec": 233392,
+   "names": [
+    "FLOWER O'YE SEA",
+    "FLOWER O'YE SEA",
+    "FLOATER",
+    "FLOATERS"
+   ]
+  },
+  {
+   "idx": 36,
+   "rec": 233624,
+   "names": [
+    "BANTARI",
+    "BANTARI",
+    "2-HEADED LION",
+    "2-HEADED LIONS"
+   ]
+  },
+  {
+   "idx": 37,
+   "rec": 233856,
+   "names": [
+    "Q'UA-TARI",
+    "Q'UA-TARI",
+    "2-HEADED LION",
+    "2-HEADED LIONS"
+   ]
+  },
+  {
+   "idx": 38,
+   "rec": 234088,
+   "names": [
+    "FOREST GIANT",
+    "FOREST GIANTS",
+    "GIANT",
+    "GIANTS"
+   ]
+  },
+  {
+   "idx": 39,
+   "rec": 234320,
+   "names": [
+    "BOULDER GIANT",
+    "BOULDER GIANTS",
+    "GIANT",
+    "GIANTS"
+   ]
+  },
+  {
+   "idx": 40,
+   "rec": 234552,
+   "names": [
+    "WATER NYMPH",
+    "WATER NYMPHS",
+    "NYMPH",
+    "NYMPHS"
+   ]
+  },
+  {
+   "idx": 41,
+   "rec": 234784,
+   "names": [
+    "WOOD DRYAD",
+    "WOOD DRYADS",
+    "NYMPH",
+    "NYMPHS"
+   ]
+  },
+  {
+   "idx": 42,
+   "rec": 235016,
+   "names": [
+    "GODZYLLI",
+    "REX",
+    "GODZYLLI",
+    "REX"
+   ]
+  },
+  {
+   "idx": 43,
+   "rec": 235248,
+   "names": [
+    "MYXLMYNX",
+    "MYXLMYNX",
+    "S",
+    "MYXLMYNX"
+   ]
+  },
+  {
+   "idx": 44,
+   "rec": 235480,
+   "names": [
+    "MOTTLE CRUD",
+    "MOTTLE CRUDS",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 45,
+   "rec": 235712,
+   "names": [
+    "BITTERBUG",
+    "L",
+    "BITTERBUGS",
+    "S"
+   ]
+  },
+  {
+   "idx": 46,
+   "rec": 235944,
+   "names": [
+    "SKELETON",
+    "SA",
+    "SKELETONS",
+    "SA"
+   ]
+  },
+  {
+   "idx": 47,
+   "rec": 236176,
+   "names": [
+    "KOLIDRA",
+    "KOLIDRAS",
+    "LESSER DEMON",
+    "LESSER DEMONS"
+   ]
+  },
+  {
+   "idx": 48,
+   "rec": 236408,
+   "names": [
+    "YREGUOTH",
+    "YREGUOTHS",
+    "LESSER DEMON",
+    "LESSER DEMONS"
+   ]
+  },
+  {
+   "idx": 49,
+   "rec": 236640,
+   "names": [
+    "NECROMANIS",
+    "NECROMANI",
+    "GREATER DEMON",
+    "GREATER DEMONS"
+   ]
+  },
+  {
+   "idx": 50,
+   "rec": 236872,
+   "names": [
+    "DEMON O'YE DEEP",
+    "DEMON O'YE DEEP",
+    "DEMON O'YE DEEP",
+    "DEMON O'YE DEEP"
+   ]
+  },
+  {
+   "idx": 51,
+   "rec": 237104,
+   "names": [
+    "RED PIRANNHA",
+    "RED PIRANNHAS",
+    "RED FISH",
+    "ER"
+   ]
+  },
+  {
+   "idx": 52,
+   "rec": 237336,
+   "names": [
+    "PIRANNHA SHARK",
+    "PIRANNHA SHARKS",
+    "RED FISH",
+    "ER"
+   ]
+  },
+  {
+   "idx": 53,
+   "rec": 237568,
+   "names": [
+    "BATTLE DROID",
+    "BATTLE DROIDS",
+    "DEATH MACHINE",
+    "DEATH MACHINES"
+   ]
+  },
+  {
+   "idx": 54,
+   "rec": 237800,
+   "names": [
+    "MEGA-BOT",
+    "MEGA-BOTS",
+    "DEATH MACHINE",
+    "DEATH MACHINES"
+   ]
+  },
+  {
+   "idx": 55,
+   "rec": 238032,
+   "names": [
+    "CONQUILADO",
+    "E",
+    "CONQUILADAS",
+    "S"
+   ]
+  },
+  {
+   "idx": 56,
+   "rec": 238264,
+   "names": [
+    "DRAGON PUP",
+    "DRAGON PUPS",
+    "GREEN DRAGON",
+    "GREEN DRAGONS"
+   ]
+  },
+  {
+   "idx": 57,
+   "rec": 238496,
+   "names": [
+    "LIME DRAGON",
+    "LIME DRAGONS",
+    "GREEN DRAGON",
+    "GREEN DRAGONS"
+   ]
+  },
+  {
+   "idx": 58,
+   "rec": 238728,
+   "names": [
+    "CAVE THRAXE",
+    "CAVE THRAXES",
+    "GIANT INSECT",
+    "GIANT INSECTS"
+   ]
+  },
+  {
+   "idx": 59,
+   "rec": 238960,
+   "names": [
+    "CRUST THRAXE",
+    "CRUST THRAXES",
+    "GIANT INSECT",
+    "GIANT INSECTS"
+   ]
+  },
+  {
+   "idx": 60,
+   "rec": 239192,
+   "names": [
+    "T'RANG YOUNGER",
+    "T'RANG YOUNGERS",
+    "T'RANG",
+    "T'RANG"
+   ]
+  },
+  {
+   "idx": 61,
+   "rec": 239424,
+   "names": [
+    "T'RANG WILDER",
+    "T'RANG WILDERS",
+    "T'RANG",
+    "T'RANG"
+   ]
+  },
+  {
+   "idx": 62,
+   "rec": 239656,
+   "names": [
+    "T'RANG WATCHER",
+    "T'RANG WATCHERS",
+    "T'RANG WATCHER",
+    "T'RANG WATCHERS"
+   ]
+  },
+  {
+   "idx": 63,
+   "rec": 239888,
+   "names": [
+    "T'RANG WISER",
+    "T'RANG WISERS",
+    "T'RANG WISER",
+    "T'RANG WISERS"
+   ]
+  },
+  {
+   "idx": 64,
+   "rec": 240120,
+   "names": [
+    "T'RANG ELDER",
+    "T'RANG ELDERS",
+    "T'RANG",
+    "T'RANG"
+   ]
+  },
+  {
+   "idx": 65,
+   "rec": 240352,
+   "names": [
+    "T'RANG ASSASSIN",
+    "T'RANG ASSASSIN",
+    "T'RANG",
+    "T'RANG"
+   ]
+  },
+  {
+   "idx": 66,
+   "rec": 240584,
+   "names": [
+    "UMPANI RUFFIAN",
+    "UMPANI RUFFIANS",
+    "UMPANI",
+    "UMPANI"
+   ]
+  },
+  {
+   "idx": 67,
+   "rec": 240816,
+   "names": [
+    "UMPANI RENEGADE",
+    "UMPANI RENEGADE",
+    "UMPANI",
+    "UMPANI"
+   ]
+  },
+  {
+   "idx": 68,
+   "rec": 241048,
+   "names": [
+    "UMPANI SCOUT",
+    "UMPANI SCOUTS",
+    "S",
+    "UMPANI"
+   ]
+  },
+  {
+   "idx": 69,
+   "rec": 241280,
+   "names": [
+    "UMPANI TRACKER",
+    "UMPANI TRACKERS",
+    "UMPANI",
+    "UMPANI"
+   ]
+  },
+  {
+   "idx": 70,
+   "rec": 241512,
+   "names": [
+    "UMPANI COMMANDO",
+    "UMPANI COMMANDO",
+    "UMPANI",
+    "UMPANI"
+   ]
+  },
+  {
+   "idx": 71,
+   "rec": 241744,
+   "names": [
+    "I.U.F.GRENADIER",
+    "I.U.F.GRENADIER",
+    "I.U.F.GRENADIER",
+    "I.U.F.GRENADIER"
+   ]
+  },
+  {
+   "idx": 72,
+   "rec": 241976,
+   "names": [
+    "DEMENTED MUNK",
+    "DEMENTED MUNKS",
+    "MUNK",
+    "MUNKS"
+   ]
+  },
+  {
+   "idx": 73,
+   "rec": 242208,
+   "names": [
+    "DK.FOREST MUNK",
+    "DK.FOREST MUNKS",
+    "MUNK",
+    "MUNKS"
+   ]
+  },
+  {
+   "idx": 74,
+   "rec": 242440,
+   "names": [
+    "MUNK NINJA",
+    "MUNK NINJAS",
+    "MUNK",
+    "MUNKS"
+   ]
+  },
+  {
+   "idx": 75,
+   "rec": 242672,
+   "names": [
+    "MAD WARDER",
+    "UNK",
+    "MAD WARDERS",
+    "NKS"
+   ]
+  },
+  {
+   "idx": 76,
+   "rec": 242904,
+   "names": [
+    "PSIMUNK",
+    "UNK",
+    "PSIMUNKS",
+    "NKS"
+   ]
+  },
+  {
+   "idx": 77,
+   "rec": 243136,
+   "names": [
+    "DANE INITIATE",
+    "DANE INITIATES",
+    "DANE",
+    "DANES"
+   ]
+  },
+  {
+   "idx": 78,
+   "rec": 243368,
+   "names": [
+    "DANE CANON",
+    "DANE CANONS",
+    "DANE",
+    "DANES"
+   ]
+  },
+  {
+   "idx": 79,
+   "rec": 243600,
+   "names": [
+    "DANE PRIEST",
+    "DANE PRIESTS",
+    "DANE",
+    "DANES"
+   ]
+  },
+  {
+   "idx": 80,
+   "rec": 243832,
+   "names": [
+    "DANE APOSTLE",
+    "DANE APOSTLES",
+    "DANE",
+    "DANES"
+   ]
+  },
+  {
+   "idx": 81,
+   "rec": 244064,
+   "names": [
+    "HIGH FATHER",
+    "HIGH FATHERS",
+    "DANE",
+    "DANES"
+   ]
+  },
+  {
+   "idx": 82,
+   "rec": 244296,
+   "names": [
+    "GORN SPEARMAN",
+    "GORN SPEARMEN",
+    "GORN",
+    "GORNS"
+   ]
+  },
+  {
+   "idx": 83,
+   "rec": 244528,
+   "names": [
+    "GORN RANGER",
+    "GORN RANGERS",
+    "GORN",
+    "GORNS"
+   ]
+  },
+  {
+   "idx": 84,
+   "rec": 244760,
+   "names": [
+    "GORN SHAMAN",
+    "GORN SHAMANS",
+    "GORN",
+    "GORNS"
+   ]
+  },
+  {
+   "idx": 85,
+   "rec": 244992,
+   "names": [
+    "GORN LEADER",
+    "GORN LEADERS",
+    "GORN",
+    "GORNS"
+   ]
+  },
+  {
+   "idx": 86,
+   "rec": 245224,
+   "names": [
+    "GORN ASHIGARU",
+    "GORN ASHIGARU",
+    "GORN ASHIGARU",
+    "GORN ASHIGARU"
+   ]
+  },
+  {
+   "idx": 87,
+   "rec": 245456,
+   "names": [
+    "GORN LORD",
+    "GORN LORDS",
+    "GORN LORD",
+    "GORN LORDS"
+   ]
+  },
+  {
+   "idx": 88,
+   "rec": 245688,
+   "names": [
+    "RATTKIN ROGUE",
+    "RATTKIN ROGUES",
+    "RATTKIN",
+    "RATTKINS"
+   ]
+  },
+  {
+   "idx": 89,
+   "rec": 245920,
+   "names": [
+    "RATTKIN BANDIT",
+    "RATTKIN BANDITS",
+    "RATTKIN",
+    "RATTKINS"
+   ]
+  },
+  {
+   "idx": 90,
+   "rec": 246152,
+   "names": [
+    "RATTKIN THIEF",
+    "RATTKIN THIEVES",
+    "RATTKIN",
+    "RATTKINS"
+   ]
+  },
+  {
+   "idx": 91,
+   "rec": 246384,
+   "names": [
+    "RATTKIN HUNTER",
+    "RATTKIN HUNTERS",
+    "RATTKIN",
+    "RATTKINS"
+   ]
+  },
+  {
+   "idx": 92,
+   "rec": 246616,
+   "names": [
+    "RATTKIN LEADER",
+    "RATTKIN LEADERS",
+    "RATTKIN",
+    "RATTKINS"
+   ]
+  },
+  {
+   "idx": 93,
+   "rec": 246848,
+   "names": [
+    "RATTKIN RAZUKA",
+    "RATTKIN RAZUKA",
+    "RATTKIN",
+    "RATTKINS"
+   ]
+  },
+  {
+   "idx": 94,
+   "rec": 247080,
+   "names": [
+    "SAVANT GUARD",
+    "SAVANT GUARDS",
+    "SAVANT GUARD",
+    "SAVANT GUARDS"
+   ]
+  },
+  {
+   "idx": 95,
+   "rec": 247312,
+   "names": [
+    "SAVANT TROOPER",
+    "SAVANT TROOPERS",
+    "SAVANT TROOPER",
+    "SAVANT TROOPERS"
+   ]
+  },
+  {
+   "idx": 96,
+   "rec": 247544,
+   "names": [
+    "SV. CONTROLLER",
+    "SV. CONTROLLERS",
+    "SV. CONTROLLER",
+    "SV. CONTROLLERS"
+   ]
+  },
+  {
+   "idx": 97,
+   "rec": 247776,
+   "names": [
+    "SV. KUI'SA-KA",
+    "SV. KUI'SA-KA",
+    "SV. KUI'SA-KA",
+    "SV. KUI'SA-KA"
+   ]
+  },
+  {
+   "idx": 98,
+   "rec": 248008,
+   "names": [
+    "XENOZOID RUNNER",
+    "XENOZOID RUNNER",
+    "?ZOID?",
+    "YER"
+   ]
+  },
+  {
+   "idx": 99,
+   "rec": 248240,
+   "names": [
+    "XENOZOID FLYER",
+    "XENOZOID FLYERS",
+    "?ZOID?",
+    "D"
+   ]
+  },
+  {
+   "idx": 100,
+   "rec": 248472,
+   "names": [
+    "XENO ROCKETEER",
+    "XENO ROCKETEERS",
+    "?ZOID?",
+    "D"
+   ]
+  },
+  {
+   "idx": 101,
+   "rec": 248704,
+   "names": [
+    "HELAZOID ACE",
+    "HELAZOID ACES",
+    "?ZOID?",
+    "D"
+   ]
+  },
+  {
+   "idx": 102,
+   "rec": 248936,
+   "names": [
+    "GORN LANCER",
+    "GORN LANCERS",
+    "GORN",
+    "LANCER"
+   ]
+  },
+  {
+   "idx": 103,
+   "rec": 249168,
+   "names": [
+    "GORN SAMURAI",
+    "GORN SAMURAI",
+    "GORN",
+    "ASHIGARU"
+   ]
+  },
+  {
+   "idx": 104,
+   "rec": 249400,
+   "names": [
+    "T'RANG TECNIK",
+    "T'RANG TECNIKS",
+    "T'RANG TECNIK",
+    "T'RANG TECNIKS"
+   ]
+  },
+  {
+   "idx": 105,
+   "rec": 249632,
+   "names": [
+    "RATTKIN RONIN",
+    "RATTKIN RONIN",
+    "S",
+    "RATTKIN"
+   ]
+  },
+  {
+   "idx": 106,
+   "rec": 249864,
+   "names": [
+    "ZOMBIE SKELL",
+    "ZOMBIE SKELLS",
+    "WALKING UNDEAD",
+    "WALKING UNDEAD"
+   ]
+  },
+  {
+   "idx": 107,
+   "rec": 250096,
+   "names": [
+    "FIRE CROW",
+    "EN",
+    "FIRE CROWS",
+    "ENS"
+   ]
+  },
+  {
+   "idx": 108,
+   "rec": 250328,
+   "names": [
+    "GRIMAL",
+    " YAZUKA",
+    "GRIMAL",
+    " YAZUKAS"
+   ]
+  },
+  {
+   "idx": 109,
+   "rec": 250560,
+   "names": [
+    "BLIENMEIS",
+    "ZUKA",
+    "BLIENMEIS",
+    "ZUKAS"
+   ]
+  },
+  {
+   "idx": 110,
+   "rec": 250792,
+   "names": [
+    "SAVANT TROOPER",
+    "SAVANT TROOPERS",
+    "SAVANT TROOPER",
+    "SAVANT TROOPERS"
+   ]
+  },
+  {
+   "idx": 111,
+   "rec": 251024,
+   "names": [
+    "DUNGORE",
+    "DER",
+    "DUNGORE",
+    "DERS"
+   ]
+  },
+  {
+   "idx": 112,
+   "rec": 251256,
+   "names": [
+    "PALUKE",
+    "ADER",
+    "PALUKE",
+    "ADERS"
+   ]
+  },
+  {
+   "idx": 113,
+   "rec": 251488,
+   "names": [
+    "ROSSARIAN",
+    "CKER",
+    "ROSSARIAN",
+    "CKERS"
+   ]
+  },
+  {
+   "idx": 114,
+   "rec": 251720,
+   "names": [
+    "CAPT. BOERIGARD",
+    "CAPT. BOERIGARD",
+    "CAPT. BOERIGARD",
+    "CAPT. BOERIGARD"
+   ]
+  },
+  {
+   "idx": 115,
+   "rec": 251952,
+   "names": [
+    "SAVANT TROOPER",
+    "SAVANT TROOPERS",
+    "SAVANT TROOPER",
+    "SAVANT TROOPERS"
+   ]
+  },
+  {
+   "idx": 116,
+   "rec": 252184,
+   "names": [
+    "SAVANT GUARD",
+    "SAVANT GUARDS",
+    "SAVANT GUARD",
+    "SAVANT GUARDS"
+   ]
+  },
+  {
+   "idx": 117,
+   "rec": 252416,
+   "names": [
+    "BELCANZOR",
+    "P",
+    "BELCANZOR",
+    "PS"
+   ]
+  },
+  {
+   "idx": 118,
+   "rec": 252648,
+   "names": [
+    "FATHER RULAE",
+    "FATHER RULAE",
+    "FATHER RULAE",
+    "FATHER RULAE"
+   ]
+  },
+  {
+   "idx": 119,
+   "rec": 252880,
+   "names": [
+    "PROF.WUNDERLAND",
+    "PROF.WUNDERLAND",
+    "PROF.WUNDERLAND",
+    "PROF.WUNDERLAND"
+   ]
+  },
+  {
+   "idx": 120,
+   "rec": 253112,
+   "names": [
+    "SOGHEIM",
+    "DER",
+    "SOGHEIM",
+    "DERS"
+   ]
+  },
+  {
+   "idx": 121,
+   "rec": 253344,
+   "names": [
+    "KING ULGAR",
+    "KING ULGAR",
+    "KING ULGAR",
+    "KING ULGAR"
+   ]
+  },
+  {
+   "idx": 122,
+   "rec": 253576,
+   "names": [
+    "BROTHER MOSER",
+    "BROTHER MOSER",
+    "BROTHER MOSER",
+    "BROTHER MOSER"
+   ]
+  },
+  {
+   "idx": 123,
+   "rec": 253808,
+   "names": [
+    "BROTHER TSHOBER",
+    "BROTHER TSHOBER",
+    "BROTHER TSHOBER",
+    "BROTHER TSHOBER"
+   ]
+  },
+  {
+   "idx": 124,
+   "rec": 254040,
+   "names": [
+    "XEN XHENG",
+    "K",
+    "XEN XHENG",
+    "KS"
+   ]
+  },
+  {
+   "idx": 125,
+   "rec": 254272,
+   "names": [
+    "MAD WARDER",
+    "UNK",
+    "MAD WARDERS",
+    "NKS"
+   ]
+  },
+  {
+   "idx": 126,
+   "rec": 254504,
+   "names": [
+    "LORD GALIERE",
+    "LORD GALIERE",
+    "LORD GALIERE",
+    "LORD GALIERE"
+   ]
+  },
+  {
+   "idx": 127,
+   "rec": 254736,
+   "names": [
+    "MAN O' GROVE",
+    "MAN O' GROVES",
+    "MAN O' GROVE",
+    "MAN O' GROVES"
+   ]
+  },
+  {
+   "idx": 128,
+   "rec": 254968,
+   "names": [
+    "BERTIE",
+    " HUNTER",
+    "BERTIE",
+    " HUNTERS"
+   ]
+  },
+  {
+   "idx": 129,
+   "rec": 255200,
+   "names": [
+    "BLIENMEIS",
+    "ZUKA",
+    "BLIENMEIS",
+    "ZUKAS"
+   ]
+  },
+  {
+   "idx": 130,
+   "rec": 255432,
+   "names": [
+    "H'JENN-RA",
+    "HEST",
+    "H'JENN-RA",
+    "HEST"
+   ]
+  },
+  {
+   "idx": 131,
+   "rec": 255664,
+   "names": [
+    "SHRITIS T'RANG",
+    "SHRITIS T'RANG",
+    "SHRITIS T'RANG",
+    "SHRITIS T'RANG"
+   ]
+  },
+  {
+   "idx": 132,
+   "rec": 255896,
+   "names": [
+    "K'BORRA T'RANG",
+    "K'BORRA T'RANG",
+    "K'BORRA T'RANG",
+    "K'BORRA T'RANG"
+   ]
+  },
+  {
+   "idx": 133,
+   "rec": 256128,
+   "names": [
+    "D'RANG T'RANG",
+    "D'RANG T'RANG",
+    "D'RANG T'RANG",
+    "D'RANG T'RANG"
+   ]
+  },
+  {
+   "idx": 134,
+   "rec": 256360,
+   "names": [
+    "GENERAL YAMO",
+    "L",
+    "GENERAL YAMO",
+    "LS"
+   ]
+  },
+  {
+   "idx": 135,
+   "rec": 256592,
+   "names": [
+    "RODAN LEWARX",
+    "L",
+    "RODAN LEWARX",
+    "LS"
+   ]
+  },
+  {
+   "idx": 136,
+   "rec": 256824,
+   "names": [
+    "TRK. RHALLICK",
+    "TRK. RHALLICK",
+    "TRK. RHALLICK",
+    "TRK. RHALLICK"
+   ]
+  },
+  {
+   "idx": 137,
+   "rec": 257056,
+   "names": [
+    "LT.GRUNTWRAPPER",
+    "LT.GRUNTWRAPPER",
+    "LT.GRUNTWRAPPER",
+    "LT.GRUNTWRAPPER"
+   ]
+  },
+  {
+   "idx": 138,
+   "rec": 257288,
+   "names": [
+    "KING ULGAR",
+    "KING ULGAR",
+    "KING ULGAR",
+    "KING ULGAR"
+   ]
+  },
+  {
+   "idx": 139,
+   "rec": 257520,
+   "names": [
+    "LORD GALIERE",
+    "LORD GALIERE",
+    "LORD GALIERE",
+    "LORD GALIERE"
+   ]
+  },
+  {
+   "idx": 140,
+   "rec": 257752,
+   "names": [
+    "CAPT. BOERIGARD",
+    "CAPT. BOERIGARD",
+    "CAPT. BOERIGARD",
+    "CAPT. BOERIGARD"
+   ]
+  },
+  {
+   "idx": 141,
+   "rec": 257984,
+   "names": [
+    "BARLONE'",
+    "AZUKA",
+    "BARLONE'",
+    "AZUKA"
+   ]
+  },
+  {
+   "idx": 142,
+   "rec": 258216,
+   "names": [
+    "RATSPUTIN",
+    "ADER",
+    "RATSPUTIN",
+    "ADER"
+   ]
+  },
+  {
+   "idx": 143,
+   "rec": 258448,
+   "names": [
+    "MICK THE PICK",
+    "MICK THE PICK",
+    "MICK THE PICK",
+    "MICK THE PICK"
+   ]
+  },
+  {
+   "idx": 144,
+   "rec": 258680,
+   "names": [
+    "DAME KE-LI",
+    "ME",
+    "DAME KE-LI",
+    "ME"
+   ]
+  },
+  {
+   "idx": 145,
+   "rec": 258912,
+   "names": [
+    "JAN-ETTE",
+    "ACE",
+    "JAN-ETTE",
+    "ACES"
+   ]
+  },
+  {
+   "idx": 146,
+   "rec": 259144,
+   "names": [
+    "MAGNA DANE",
+    "MAGNA DANE",
+    "MAGNA DANE",
+    "MAGNA DANE"
+   ]
+  },
+  {
+   "idx": 147,
+   "rec": 259376,
+   "names": [
+    "KYMAS TURAN",
+    "KYMAS TURAN",
+    "KYMAS TURAN",
+    "KYMAS TURAN"
+   ]
+  },
+  {
+   "idx": 148,
+   "rec": 259608,
+   "names": [
+    "XEN XHENG",
+    "K",
+    "XEN XHENG",
+    "KS"
+   ]
+  },
+  {
+   "idx": 149,
+   "rec": 259840,
+   "names": [
+    "BROTHER TSHOBER",
+    "BROTHER TSHOBER",
+    "BROTHER TSHOBER",
+    "BROTHER TSHOBER"
+   ]
+  },
+  {
+   "idx": 150,
+   "rec": 260072,
+   "names": [
+    "UMPANI ARMSMAN",
+    "UMPANI ARMSMEN",
+    "UMPANI ARMSMAN",
+    "UMPANI ARMSMEN"
+   ]
+  },
+  {
+   "idx": 151,
+   "rec": 260304,
+   "names": [
+    "K'BORRA T'RANG",
+    "K'BORRA T'RANG",
+    "K'BORRA T'RANG",
+    "K'BORRA T'RANG"
+   ]
+  },
+  {
+   "idx": 152,
+   "rec": 260536,
+   "names": [
+    "UMPANI TROOPER",
+    "UMPANI TROOPERS",
+    "UMPANI TROOPER",
+    "UMPANI TROOPERS"
+   ]
+  },
+  {
+   "idx": 153,
+   "rec": 260768,
+   "names": [
+    "SGT. BALBRAK",
+    "R",
+    "SGT. BALBRAK",
+    "RS"
+   ]
+  },
+  {
+   "idx": 154,
+   "rec": 261000,
+   "names": [
+    "LT. GROMO",
+    "TEER",
+    "LT. GROMO",
+    "TEERS"
+   ]
+  },
+  {
+   "idx": 155,
+   "rec": 261232,
+   "names": [
+    "SPIRIT = DANE",
+    "N",
+    "SPIRITS = DANE",
+    "SPIRIT = DANE"
+   ]
+  },
+  {
+   "idx": 156,
+   "rec": 261464,
+   "names": [
+    "SKELETON LORD",
+    "SKELETON LORDS",
+    "SKELETON LORD",
+    "SKELETON LORDS"
+   ]
+  },
+  {
+   "idx": 157,
+   "rec": 261696,
+   "names": [
+    "LORD=DK.FOREST",
+    "LORDS=DK.FOREST",
+    "LORD=DK.FOREST",
+    "LORDS=DK.FOREST"
+   ]
+  },
+  {
+   "idx": 158,
+   "rec": 261928,
+   "names": [
+    "FROTHING MUNK",
+    "FROTHING MUNKS",
+    "FROTHING MUNK",
+    "FROTHING MUNKS"
+   ]
+  },
+  {
+   "idx": 159,
+   "rec": 262160,
+   "names": [
+    "LEPER GIANT",
+    "ANT",
+    "LEPER GIANTS",
+    "NT"
+   ]
+  },
+  {
+   "idx": 160,
+   "rec": 262392,
+   "names": [
+    "FROTHING MUNK",
+    "FROTHING MUNKS",
+    "FROTHING MUNK",
+    "FROTHING MUNKS"
+   ]
+  },
+  {
+   "idx": 161,
+   "rec": 262624,
+   "names": [
+    "MTN. THRAXE",
+    "MTN. THRAXES",
+    "MTN. THRAXE",
+    "MTN. THRAXES"
+   ]
+  },
+  {
+   "idx": 162,
+   "rec": 262856,
+   "names": [
+    "BONEHEAD",
+    "ATH",
+    "BONEHEAD",
+    "ATH"
+   ]
+  },
+  {
+   "idx": 163,
+   "rec": 263088,
+   "names": [
+    "BRUNATZ",
+    "ATH",
+    "BRUNATZ",
+    "ATH"
+   ]
+  },
+  {
+   "idx": 164,
+   "rec": 263320,
+   "names": [
+    "L'IL OGO",
+    "ATH",
+    "L'IL OGO",
+    "ATH"
+   ]
+  },
+  {
+   "idx": 165,
+   "rec": 263552,
+   "names": [
+    "MUNSTACHIO",
+    "H",
+    "MUNSTACHIO",
+    "H"
+   ]
+  },
+  {
+   "idx": 166,
+   "rec": 263784,
+   "names": [
+    "GRUENGARD",
+    "TH",
+    "GRUENGARD",
+    "TH"
+   ]
+  },
+  {
+   "idx": 167,
+   "rec": 264016,
+   "names": [
+    "* S P O T *",
+    "R",
+    "* S P O T *",
+    "X"
+   ]
+  },
+  {
+   "idx": 168,
+   "rec": 264248,
+   "names": [
+    "?DARK SAVANT?",
+    "?DARK SAVANT?",
+    "?DARK SAVANT?",
+    "L"
+   ]
+  },
+  {
+   "idx": 169,
+   "rec": 264480,
+   "names": [
+    "?VI DOMINA?",
+    "?",
+    "?VI DOMINA?",
+    "?"
+   ]
+  },
+  {
+   "idx": 170,
+   "rec": 264712,
+   "names": [
+    "?ALETHEIDES?",
+    "?ALETHEIDES?",
+    "?ALETHEIDES?",
+    "L"
+   ]
+  },
+  {
+   "idx": 171,
+   "rec": 264944,
+   "names": [
+    "?STATUE?",
+    "G?",
+    "?",
+    "?STATUE?"
+   ]
+  },
+  {
+   "idx": 172,
+   "rec": 265176,
+   "names": [
+    "WITCH'S LIGHTS",
+    "WITCH'S LIGHTS",
+    "WITCH'S LIGHTS",
+    "WITCH'S LIGHTS"
+   ]
+  },
+  {
+   "idx": 173,
+   "rec": 265408,
+   "names": [
+    "* B E L A *",
+    "* B E L A *",
+    "S",
+    "* B E L A *"
+   ]
+  },
+  {
+   "idx": 174,
+   "rec": 265640,
+   "names": [
+    "FETID CORPSE",
+    "FETID CORPSES",
+    "WALKING UNDEAD",
+    "WALKING UNDEAD"
+   ]
+  },
+  {
+   "idx": 175,
+   "rec": 265872,
+   "names": [
+    "SV. CONTROLLER",
+    "SV. CONTROLLERS",
+    "SV. CONTROLLER",
+    "SV. CONTROLLERS"
+   ]
+  },
+  {
+   "idx": 176,
+   "rec": 266104,
+   "names": [
+    "HOG BEETLE",
+    "HOG BEETLES",
+    "HOG BEETLE",
+    "HOG BEETLES"
+   ]
+  },
+  {
+   "idx": 177,
+   "rec": 266336,
+   "names": [
+    "MINOSKELL",
+    "SA",
+    "MINOSKELL",
+    "SA"
+   ]
+  },
+  {
+   "idx": 178,
+   "rec": 266568,
+   "names": [
+    "GHOST",
+    "WEAVER",
+    "AN",
+    "GHOSTS"
+   ]
+  },
+  {
+   "idx": 179,
+   "rec": 266800,
+   "names": [
+    "SV. BERSERKER",
+    "SV. BERSERKERS",
+    "SV. BERSERKER",
+    "SV. BERSERKERS"
+   ]
+  },
+  {
+   "idx": 180,
+   "rec": 267032,
+   "names": [
+    "ALLIPHOOT",
+    "ALLIPHOOTS",
+    "PHOOT",
+    "PHOOTS"
+   ]
+  },
+  {
+   "idx": 181,
+   "rec": 267264,
+   "names": [
+    "SV. CONTROLLER",
+    "SV. CONTROLLERS",
+    "SV. CONTROLLER",
+    "SV. CONTROLLERS"
+   ]
+  },
+  {
+   "idx": 182,
+   "rec": 267496,
+   "names": [
+    "PUXIC OOZE",
+    "PUXIC OOZES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 183,
+   "rec": 267728,
+   "names": [
+    "DRAGONLIZARD",
+    "DRAGONLIZARDS",
+    "DRAGONLIZARD",
+    "DRAGONLIZARDS"
+   ]
+  },
+  {
+   "idx": 184,
+   "rec": 267960,
+   "names": [
+    "GORN ASHIGARU",
+    "GORN ASHIGARU",
+    "GORN ASHIGARU",
+    "GORN ASHIGARU"
+   ]
+  },
+  {
+   "idx": 185,
+   "rec": 268192,
+   "names": [
+    "GORN LANCER",
+    "GORN LANCERS",
+    "GORN LANCER",
+    "GORN LANCERS"
+   ]
+  },
+  {
+   "idx": 186,
+   "rec": 268424,
+   "names": [
+    "SHADOW GUARDIAN",
+    "SHADOW GUARDIAN",
+    "SHADOW GUARDIAN",
+    "SHADOW GUARDIAN"
+   ]
+  },
+  {
+   "idx": 187,
+   "rec": 268656,
+   "names": [
+    "SPECTRAL RAVEN",
+    "SPECTRAL RAVENS",
+    "SPECTRAL RAVEN",
+    "SPECTRAL RAVENS"
+   ]
+  },
+  {
+   "idx": 188,
+   "rec": 268888,
+   "names": [
+    "BOAR WEEVIL",
+    "BOAR WEEVILS",
+    "BUG",
+    "BUGS"
+   ]
+  },
+  {
+   "idx": 189,
+   "rec": 269120,
+   "names": [
+    "DREAM WEAVER",
+    "AN",
+    "DREAM WEAVERS",
+    "N"
+   ]
+  },
+  {
+   "idx": 190,
+   "rec": 269352,
+   "names": [
+    "NIGHTMARE",
+    "ER",
+    "AN",
+    "NIGHTMARES"
+   ]
+  },
+  {
+   "idx": 191,
+   "rec": 269584,
+   "names": [
+    "FURY",
+    "FURIES",
+    "FURY",
+    "FURIES"
+   ]
+  },
+  {
+   "idx": 192,
+   "rec": 269816,
+   "names": [
+    "HOG BEETLE",
+    "HOG BEETLES",
+    "HOG BEETLE",
+    "HOG BEETLES"
+   ]
+  },
+  {
+   "idx": 193,
+   "rec": 270048,
+   "names": [
+    "YMMU",
+    "M'KURSA",
+    "YMMU",
+    "M'KURSA"
+   ]
+  },
+  {
+   "idx": 194,
+   "rec": 270280,
+   "names": [
+    "VILET KANEBE",
+    "VILET KANEBE",
+    "VILET KANEBE",
+    "VILET KANEBE"
+   ]
+  },
+  {
+   "idx": 195,
+   "rec": 270512,
+   "names": [
+    "T'RANG WISER",
+    "T'RANG WISERS",
+    "T'RANG WISER",
+    "T'RANG WISERS"
+   ]
+  },
+  {
+   "idx": 196,
+   "rec": 270744,
+   "names": [
+    "T'RANG WATCHER",
+    "T'RANG WATCHERS",
+    "T'RANG WATCHER",
+    "T'RANG WATCHERS"
+   ]
+  },
+  {
+   "idx": 197,
+   "rec": 270976,
+   "names": [
+    "T'RANG TECNIK",
+    "T'RANG TECNIKS",
+    "T'RANG TECNIK",
+    "T'RANG TECNIKS"
+   ]
+  },
+  {
+   "idx": 198,
+   "rec": 271208,
+   "names": [
+    "T'RANG GUARDER",
+    "T'RANG GUARDERS",
+    "T'RANG GUARDER",
+    "T'RANG GUARDERS"
+   ]
+  },
+  {
+   "idx": 199,
+   "rec": 271440,
+   "names": [
+    "T'RANG KEEPER",
+    "T'RANG KEEPERS",
+    "T'RANG KEEPER",
+    "T'RANG KEEPERS"
+   ]
+  },
+  {
+   "idx": 200,
+   "rec": 271672,
+   "names": [
+    "VULTURE",
+    "L ROOK",
+    "VULTURES",
+    " ROOKS"
+   ]
+  },
+  {
+   "idx": 201,
+   "rec": 271904,
+   "names": [
+    "EARTH GOLEM",
+    "EARTH GOLEMS",
+    "GOLEM",
+    "GOLEM"
+   ]
+  },
+  {
+   "idx": 202,
+   "rec": 272136,
+   "names": [
+    "FAERIE WITCH",
+    "FAERIE WITCHES",
+    "WITCH",
+    " WITCH"
+   ]
+  },
+  {
+   "idx": 203,
+   "rec": 272368,
+   "names": [
+    "FROST GIANT",
+    "FROST GIANTS",
+    "GIANT",
+    "GIANT"
+   ]
+  },
+  {
+   "idx": 204,
+   "rec": 272600,
+   "names": [
+    "BLACK DRAGON",
+    "BLACK DRAGONS",
+    "BLACK DRAGON",
+    "BLACK DRAGONS"
+   ]
+  },
+  {
+   "idx": 205,
+   "rec": 272832,
+   "names": [
+    "FIERO",
+    "EMON",
+    "E",
+    "FIEROS"
+   ]
+  },
+  {
+   "idx": 206,
+   "rec": 273064,
+   "names": [
+    "SPECTRAL MOTH",
+    "SPECTRAL MOTHS",
+    "EERIE MOTH",
+    "EERIE MOTHS"
+   ]
+  },
+  {
+   "idx": 207,
+   "rec": 273296,
+   "names": [
+    "SKELETON",
+    "SA",
+    "SKELETONS",
+    "SA"
+   ]
+  },
+  {
+   "idx": 208,
+   "rec": 273528,
+   "names": [
+    "SPIRIT",
+    "EAVER",
+    "AN",
+    "SPIRITS"
+   ]
+  },
+  {
+   "idx": 209,
+   "rec": 273760,
+   "names": [
+    "SKELETON LORD",
+    "SKELETON LORDS",
+    "SKELETON LORD",
+    "SKELETON LORDS"
+   ]
+  },
+  {
+   "idx": 210,
+   "rec": 273992,
+   "names": [
+    "POISON DRAGON",
+    "POISON DRAGONS",
+    "GREEN DRAGON",
+    "GREEN DRAGONS"
+   ]
+  },
+  {
+   "idx": 211,
+   "rec": 274224,
+   "names": [
+    "MYXLMYNX",
+    "MYXLMYNX",
+    "S",
+    "MYXLMYNX"
+   ]
+  },
+  {
+   "idx": 212,
+   "rec": 274456,
+   "names": [
+    "BORING BEETLE",
+    "BORING BEETLES",
+    "BUG",
+    "BUGS"
+   ]
+  },
+  {
+   "idx": 213,
+   "rec": 274688,
+   "names": [
+    "GASEOUS SLIME",
+    "GASEOUS SLIMES",
+    "CREEPING CRUD",
+    "CREEPING CRUDS"
+   ]
+  },
+  {
+   "idx": 214,
+   "rec": 274920,
+   "names": [
+    "DINKLE WISP",
+    "DINKLE WISPS",
+    "FLOATER",
+    "FLOATERS"
+   ]
+  },
+  {
+   "idx": 215,
+   "rec": 275152,
+   "names": [
+    "BANTARI",
+    "BANTARI",
+    "2-HEADED LION",
+    "2-HEADED LIONS"
+   ]
+  },
+  {
+   "idx": 216,
+   "rec": 275384,
+   "names": [
+    "BLOODWYRM",
+    "E",
+    "BLOODWYRMS",
+    "S"
+   ]
+  },
+  {
+   "idx": 217,
+   "rec": 275616,
+   "names": [
+    "GODZYLLI",
+    "REX",
+    "GODZYLLI",
+    "REX"
+   ]
+  },
+  {
+   "idx": 218,
+   "rec": 275848,
+   "names": [
+    "SPECTRAL MOTH",
+    "SPECTRAL MOTHS",
+    "EERIE MOTH",
+    "EERIE MOTHS"
+   ]
+  },
+  {
+   "idx": 219,
+   "rec": 276080,
+   "names": [
+    "SKELETON",
+    "SA",
+    "SKELETONS",
+    "SA"
+   ]
+  },
+  {
+   "idx": 220,
+   "rec": 276312,
+   "names": [
+    "FAERIE WITCH",
+    "FAERIE WITCHES",
+    "WITCH",
+    " WITCH"
+   ]
+  },
+  {
+   "idx": 221,
+   "rec": 276544,
+   "names": [
+    "TRICKERTREE",
+    "TRICKERTREES",
+    "MAN O' GROVE",
+    "MAN O' GROVES"
+   ]
+  },
+  {
+   "idx": 222,
+   "rec": 276776,
+   "names": [
+    "WRAITH",
+    "GUARDIAN",
+    "WRAITH",
+    "GUARDIAN"
+   ]
+  },
+  {
+   "idx": 223,
+   "rec": 277008,
+   "names": [
+    "FANTASMAGORA",
+    "FANTASMAGORA",
+    "DEMONIC FIGURE",
+    "DEMONIC FIGURE"
+   ]
+  },
+  {
+   "idx": 224,
+   "rec": 277240,
+   "names": [
+    "DANE DISCIPLE",
+    "DANE DISCIPLES",
+    "DANE",
+    "DANES"
+   ]
+  },
+  {
+   "idx": 225,
+   "rec": 277472,
+   "names": [
+    "DK. S A V A N T",
+    "DK. S A V A N T",
+    "DK. S A V A N T",
+    "DK. S A V A N T"
+   ]
+  },
+  {
+   "idx": 226,
+   "rec": 277704,
+   "names": [
+    "T'RANG C'TLU",
+    "T'RANG C'TLU",
+    "T'RANG C'TLU",
+    "T'RANG C'TLU"
+   ]
+  },
+  {
+   "idx": 227,
+   "rec": 277936,
+   "names": [
+    "UMPANI S.S.U.F.",
+    "UMPANI S.S.U.F.",
+    "UMPANI S.S.U.F.",
+    "UMPANI S.S.U.F."
+   ]
+  },
+  {
+   "idx": 228,
+   "rec": 278168,
+   "names": [
+    "T'RANG ASSASSIN",
+    "T'RANG ASSASSIN",
+    "T'RANG",
+    "T'RANG"
+   ]
+  },
+  {
+   "idx": 229,
+   "rec": 278400,
+   "names": [
+    "TSHOBER'S GHOST",
+    "TSHOBER'S GHOST",
+    "TSHOBER'S GHOST",
+    "TSHOBER'S GHOST"
+   ]
+  },
+  {
+   "idx": 230,
+   "rec": 278632,
+   "names": [
+    "PSI-BEAST",
+    "E",
+    "PSI-BEAST",
+    "ES"
+   ]
+  },
+  {
+   "idx": 231,
+   "rec": 278864,
+   "names": [
+    "HIGH FATHER",
+    "HIGH FATHERS",
+    "HIGH FATHER",
+    "HIGH FATHERS"
+   ]
+  },
+  {
+   "idx": 232,
+   "rec": 279096,
+   "names": [
+    "ALMAGORTE",
+    "ALMAGORTE",
+    "S",
+    "ALMAGORTE"
+   ]
+  },
+  {
+   "idx": 233,
+   "rec": 279328,
+   "names": [
+    "* S P A W N *",
+    "* S P A W N *",
+    "* S P A W N *",
+    "* S P A W N *"
+   ]
+  },
+  {
+   "idx": 234,
+   "rec": 279560,
+   "names": [
+    "DRAGORRA",
+    "ON",
+    "DRAGORRAS",
+    "NS"
+   ]
+  },
+  {
+   "idx": 235,
+   "rec": 279792,
+   "names": [
+    "EMERALD DRAGON",
+    "EMERALD DRAGONS",
+    "EMERALD DRAGON",
+    "EMERALD DRAGONS"
+   ]
+  },
+  {
+   "idx": 236,
+   "rec": 280024,
+   "names": [
+    "DRAGON PUP",
+    "DRAGON PUPS",
+    "GREEN DRAGON",
+    "GREEN DRAGONS"
+   ]
+  },
+  {
+   "idx": 237,
+   "rec": 280256,
+   "names": [
+    "DRAGONESSA",
+    "N",
+    "DRAGONESSA",
+    "N"
+   ]
+  },
+  {
+   "idx": 238,
+   "rec": 280488,
+   "names": [
+    "META-DROID",
+    "D",
+    "META-DROIDS",
+    "S"
+   ]
+  },
+  {
+   "idx": 239,
+   "rec": 280720,
+   "names": [
+    "* BROMBADEG *",
+    "P",
+    "* BROMBADEG *",
+    "P"
+   ]
+  },
+  {
+   "idx": 240,
+   "rec": 280952,
+   "names": [
+    "GHOST=GORN",
+    "N",
+    "GHOSTS=GORN",
+    "N"
+   ]
+  },
+  {
+   "idx": 241,
+   "rec": 281184,
+   "names": [
+    "UNGORN DAIMYO",
+    "UNGORN DAIMYO",
+    "M",
+    "UNGORN DAIMYO"
+   ]
+  },
+  {
+   "idx": 242,
+   "rec": 281416,
+   "names": [
+    "* D O O M *",
+    "ON",
+    "* D O O M *",
+    "ONS"
+   ]
+  },
+  {
+   "idx": 243,
+   "rec": 281648,
+   "names": [
+    "D'ARBOLETH",
+    "HOST",
+    "D'ARBOLETH",
+    "HOST"
+   ]
+  },
+  {
+   "idx": 244,
+   "rec": 281880,
+   "names": [
+    "HORRAGOTH",
+    "HORRAGOTH",
+    "HORRAGOTH",
+    "MON"
+   ]
+  },
+  {
+   "idx": 245,
+   "rec": 282112,
+   "names": [
+    "FIEND=9 WORLDS",
+    "FIEND=9 WORLDS",
+    "FIEND=9 WORLDS",
+    "FIEND=9 WORLDS"
+   ]
+  },
+  {
+   "idx": 246,
+   "rec": 282344,
+   "names": [
+    "THING FROM HELL",
+    "THING FROM HELL",
+    "THING FROM HELL",
+    "THING FROM HELL"
+   ]
+  },
+  {
+   "idx": 247,
+   "rec": 282576,
+   "names": [
+    "BEAST=1000EYE",
+    "S",
+    "BEAST=1000EYE",
+    "S"
+   ]
+  },
+  {
+   "idx": 248,
+   "rec": 282808,
+   "names": [
+    "RA-SEP-RE-TEP",
+    "RA-SEP-RE-TEP",
+    "RA-SEP-RE-TEP",
+    "RA-SEP-RE-TEP"
+   ]
+  },
+  {
+   "idx": 249,
+   "rec": 283040,
+   "names": [
+    "COSMO-BOT",
+    "COSMO-BOT",
+    "COSMO-BOT",
+    "INE"
+   ]
+  }
+ ]
+}

@@ -44,3 +44,19 @@
 - 7000-7197 對話解析關鍵字詞庫——引擎按玩家輸入的英文比對
 - `*R.GARLAND` 等終極道具名——待物品系統（.VGA）統一處理
 - 人名（D.W.Bradley 等 credits 人名）
+
+## 怪物譯名批次（2026-09-27，SCENARIO.DBS 怪物資料庫，全標 DRAFT）
+
+- **來源**：SCENARIO.DBS offset 225272 起、232 bytes／隻 × 250 隻、名字欄 +72
+  ＝[真名單數][真名複數][別名單數][別名複數]（別名＝低鑑定度顯示名）。
+  工具 `tools/gen_monsters.py` → `text/monsters.json`（原文）＋
+  `text/monsters-trans.json`（461 筆譯文）→ bake 併入 xlate.json。
+- **種族系譯名**：PHOOT 噗特系／MOTH 蛾系／WEEVIL 象鼻蟲系／ROOK 鴉系／
+  CREEPING CRUD 爬行污穢系／THRAXE 巨蟲系／GIANT 巨人系／NYMPH 寧芙系／
+  DRAGON 龍系（綠龍/黑龍/翡翠龍）／GOLEM 巨人像
+- **勢力系譯名**：T'RANG 特蘭格／UMPANI 恩帕尼／DANE 丹恩／GORN 高恩／
+  RATTKIN 鼠人／SAVANT 賢者／XENOZOID 異形
+- **劇情角色**：DARK SAVANT 黑暗賢者、VI DOMINA 薇·多米娜、ALETHEIDES
+  阿萊賽德斯（依既有譯名表）；DUNGORE 鄧戈爾、GENERAL YAMO 亞莫將軍、
+  KING ULGAR 烏爾加王、H'JENN-RA 赫詹拉等音譯。
+- **複數欄**：中文無複數變化——譯文同單數欄（key 四欄各自存在）。
