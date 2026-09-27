@@ -75,12 +75,51 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 	return sc, ok
 }
 
+// vramHash＝Indexed 色號畫面中事件區域（x..x+w、y..y+14，越界裁切）的
+// FNV-1a。殘影清除：合成時背景區域雜湊與記錄時不同＝畫面已切換→丟棄。
+func vramHash(idx []uint8, x, y, w int) uint32 {
+	var h uint32 = 2166136261
+	for row := y; row < y+15 && row < 200; row++ {
+		if row < 0 {
+			continue
+		}
+		x0, x1 := x, x+w
+		if x0 < 0 {
+			x0 = 0
+		}
+		if x1 > 320 {
+			x1 = 320
+		}
+		base := row * 320
+		for px := x0; px < x1; px++ {
+			h = (h ^ uint32(idx[base+px])) * 16777619
+		}
+	}
+	return h
+}
+
+// evAlive 過濾掉背景已變（畫面已切換）的事件。
+func evAlive(evs []glyphEv, idx []uint8) []glyphEv {
+	kept := evs[:0]
+	for _, e := range evs {
+		w := 0
+		for _, g := range e.g {
+			w += len(g) + 2
+		}
+		if vramHash(idx, e.x, e.y, w) == e.hash {
+			kept = append(kept, e)
+		}
+	}
+	return kept
+}
+
 // 前端 ↔ 機器 goroutine 的共享狀態（mu 保護）。
 // entry 是譯文表的一筆（xlate.json）：dy＝行距微調、g＝每字 15×15 位圖。
 // hdFrame 合成高解析幀：A0000 2x 放大＋文字事件（15×15 原字形）。
 func hdFrame(o *oracle.Oracle, evs []glyphEv, path string) {
 	pal := o.Palette()
 	idx := o.Indexed()
+	evs = evAlive(evs, idx)
 	img := image.NewRGBA(image.Rect(0, 0, 640, 400))
 	for py := 0; py < 400; py++ {
 		for px := 0; px < 640; px++ {
@@ -117,16 +156,20 @@ type entry struct {
 }
 
 // glyphEv 是一則待合成的中文字串（15×15 原字形、畫在放大後畫布）。
+// Hash＝記錄當下背景（Indexed 色號）事件區域的 FNV——合成時背景已變
+// （畫面切換/重繪）即丟棄，殘影清除不依賴 flip 訊號（013 追記三十三）。
 type glyphEv struct {
 	x, y          int
 	fgR, fgG, fgB uint8
 	g             [][]uint16
+	hash          uint32
 	img           *ebiten.Image // Draw 時 lazily 預渲染的字形條
 }
 
 type shared struct {
 	mu      sync.Mutex
 	rgba    []byte    // 320×200×4 的畫面快照（Draw 用）
+	idx     []uint8   // 320×200 色號快照（事件殘影過濾用）
 	keys    []uint8   // 待注入的掃描碼（make＋break 成對排程）
 	mouseX  int
 	mouseY  int
@@ -193,7 +236,8 @@ func (g *game) Update() error {
 func (g *game) Draw(dst *ebiten.Image) {
 	g.sh.mu.Lock()
 	rgba := append([]byte(nil), g.sh.rgba...)
-	evs := g.sh.evs
+	idx := append([]uint8(nil), g.sh.idx...)
+	evs := evAlive(g.sh.evs, idx)
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
@@ -268,7 +312,7 @@ func main() {
 	ebiten.SetWindowSize(320**scale, 200**scale)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")
 
-	sh := &shared{rgba: make([]byte, 320*200*4)}
+	sh := &shared{rgba: make([]byte, 320*200*4), idx: make([]uint8, 320*200)}
 	// ── xlate 翻譯層 ──────────────────────────────────────────────
 	// 譯文表（原文 → 每字 15×15 位圖，tools/re/bake_font.py 烘製）。
 	if *xlatePath == "" {
@@ -406,11 +450,30 @@ func main() {
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + ent.Dy
 		dl := uint8(o.Regs().DX & 0xFF)
 		fg := palNow()[dl]
+		// 事件區域背景雜湊（Indexed 色號；原印被 poke 擋掉，此時是純背景）
+		evW := 0
+		for _, g := range ent.G {
+			evW += len(g) + 2
+		}
+		hash := vramHash(o.Indexed(), x, y, evW)
 		evMu.Lock()
-		sh.evs = append(sh.evs, glyphEv{
+		// 區域重疊去重：同位置重印（jitter）只留最新
+		kept := sh.evs[:0]
+		for _, e := range sh.evs {
+			ow := 0
+			for _, g := range e.g {
+				ow += len(g) + 2
+			}
+			if e.x < x+evW && e.x+ow > x && e.y+15 > y && e.y < y+15 {
+				continue
+			}
+			kept = append(kept, e)
+		}
+		sh.evs = append(kept, glyphEv{
 			x: x, y: y,
 			fgR: fg[0], fgG: fg[1], fgB: fg[2],
-			g: ent.G,
+			g:    ent.G,
+			hash: hash,
 		})
 		evMu.Unlock()
 		// 大 blit（全屏重繪）＝清文字事件（殘影清除）
@@ -592,6 +655,7 @@ func main() {
 			}
 			_, _, rgb := o.ScreenRGB()
 			copy(sh.rgba, rgb)
+			copy(sh.idx, o.Indexed())
 			sh.mu.Unlock()
 
 			elapsed := time.Since(last)
