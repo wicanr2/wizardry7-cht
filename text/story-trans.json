@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1179,
+ "count": 1204,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -4571,6 +4571,106 @@
   "8327": {
    "en": "Thesminster Abbey is in New City...",
    "zh": "希斯敏斯特修道院在新城……"
+  },
+  "9001": {
+   "en": "My name is Dungore...",
+   "zh": "我叫鄧戈爾……"
+  },
+  "9002": {
+   "en": "I'm Innkeeper, Barkeeper and Broomsweeper!",
+   "zh": "我既是客棧老闆、酒保，也是掃地的！"
+  },
+  "9003": {
+   "en": "Our rooms are the pride of the city!",
+   "zh": "我們的房間是全城的驕傲！"
+  },
+  "9036": {
+   "en": "I've heard the Black Market operates from the Arms of Argus!",
+   "zh": "聽說黑市就在阿格斯之臂酒館裡經營……"
+  },
+  "9048": {
+   "en": "Since they've been coming around business has been bad...",
+   "zh": "自從他們開始到處跑之後，生意就難做了……"
+  },
+  "9101": {
+   "en": "I am Rossarian!",
+   "zh": "我是羅薩里安！"
+  },
+  "9102": {
+   "en": "I sell contraband to those willing to pay the price!",
+   "zh": "我做的是走私買賣——只要出得起價錢！"
+  },
+  "9104": {
+   "en": "My network covers all of New City!",
+   "zh": "我的網路遍布整個新城！"
+  },
+  "9111": {
+   "en": "I might have what you need, for a price!",
+   "zh": "只要價錢談得攏，你要的我或許有！"
+  },
+  "9137": {
+   "en": "If you want to deal, you'll have to make an offer...",
+   "zh": "想交易，就得先出個價……"
+  },
+  "9152": {
+   "en": "Rodan searches for the fierce T'Rang called Shritis...",
+   "zh": "羅丹正在搜捕那個凶狠的特蘭格，叫希里提斯……"
+  },
+  "9153": {
+   "en": "Laying a trap for the wretched T'Rang insects, I suspect!",
+   "zh": "我猜，是想給那些可憎的特蘭格蟲子設個陷阱！"
+  },
+  "9157": {
+   "en": "I.U.F., that stands for Imperial Umpani Forces!",
+   "zh": "I.U.F.，就是恩帕尼帝國軍的縮寫！"
+  },
+  "9158": {
+   "en": "The I.U.F. Command Headquarters is at our base in Ukpyr...",
+   "zh": "I.U.F. 指揮部設在我們位於烏克皮爾的基地……"
+  },
+  "9162": {
+   "en": "Ukpyr is the location of our Command Headquarters...",
+   "zh": "烏克皮爾是我們指揮部所在……"
+  },
+  "9201": {
+   "en": "I am Paluke, maker of fine armors!",
+   "zh": "我是帕魯克，上等護甲的匠人！"
+  },
+  "9202": {
+   "en": "I make the finest armor in all New City!",
+   "zh": "我做的護甲是全新城最棒的！"
+  },
+  "9211": {
+   "en": "I make the finest armor in all New City!",
+   "zh": "我做的護甲是全新城最棒的！"
+  },
+  "9216": {
+   "en": "There is war in the air, make no mistake!",
+   "zh": "戰爭的氣息已在空中彌漫，別搞錯！"
+  },
+  "9221": {
+   "en": "The Savant Kui'Sa-Ka have captured a Gorn Officer!",
+   "zh": "賢者魁薩卡抓了一名高恩軍官！"
+  },
+  "9226": {
+   "en": "The Savant Kui'Sa-Ka, the Legions of the Dark Savant!",
+   "zh": "賢者魁薩卡——黑暗賢者的軍團！"
+  },
+  "9228": {
+   "en": "They have taken control of the Constabulary...",
+   "zh": "他們已經控制了警察局……"
+  },
+  "9237": {
+   "en": "It's a secret!",
+   "zh": "這是秘密！"
+  },
+  "9247": {
+   "en": "The Constabulary is where prisoners are taken!",
+   "zh": "警察局是關俘虜的地方！"
+  },
+  "9248": {
+   "en": "The Constabulary is here in New City...",
+   "zh": "警察局就在新城這裡……"
   },
   "17860": {
    "en": "You turn back to face the pitiful wretch in the corner... &%]",
