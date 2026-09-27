@@ -148,3 +148,37 @@ PCVW→EXIT (277,190)→七項選單 (160,101) START NEW GAME→巫6 匯入詢�
 **下一輪**：換檢查點法——在匯入詢問畫面存狀態檔，直接載入測三選項
 熱點（y-15/y-13 兩規則各試），不用整條路徑重跑。CANCEL 的實際語意
 （取消匯入 vs 取消新遊戲）以畫面轉場判。
+
+## 追記（2026-09-28 R8）：IMPORT 快速路線實測——時序漂移，全程停在主選單
+
+本輪把 autoplay 切到 IMPORT 路線（未提交：主選單 (121,97) IMPORT→防拷 AAAA→
+LOAD 舊進度→旁白→迷宮八點），autopl2 全跑（58 個 AUTO 全執行，panic 0）。
+**結論：一次有效點擊都沒打中——全程停在主選單。**
+
+錨點（log 時間＝容器 UTC＝本地−8h，啟動 17:52:13）：
+
+- AUTO 16s 的 (121,97) 落在片頭 credits（同期文字＝"IBM, Amiga, & Macintosh"，
+  steps ~118M）——主選單文字（CHARACTER MENU…IMPORT (BANE)）到 17:52:58
+  （啟動+45s，steps ~246M）才出現。**開機到主選單約 45s wall**，比脚本假設的
+  16s 慢近 3 倍。
+- 之後 40 次旁白點擊 (25,15) 全打在主選單左上角空白；迷宮八點點擊同樣打在
+  主選單上。mv-*.png×8、hd-*.png 全數 md5 相同（`1eb248d2…`）＝停格。
+  對照 `docs/images/wiz7-menu.png` 確認停格畫面＝主選單（金條無字是事件緩衝
+   aged-out，另案）。
+- `import -window root` 的 play2-shot.png 是 Xvfb 根視窗雜訊——此路徑不可靠，
+  今後以 hdFrame（mv-/hd-）為準（舊建議重申）。
+
+兩個獨立教訓（confirmed）：
+
+1. **wall-clock 時序表漂移**（confirmed：主選單 +45s 才出現，舊脚本 16s 點擊
+   打在 credits）。機制是假說：R7 把 xlate 從 ~1.8k 串加到 8.5k 串，每 blit
+   查表成本上升、前台節拍變慢；舊時序（probe 環境／R7 前量得）全失效。
+   下一輪 autoplay 時序必須按本輪實測錨點重排，或改為事件門控
+   （見到主選單文字事件才點）。
+2. **IMPORT 路線缺存檔**：`workplace/run/` 無 `SAVEGAME.BCF`，即使點中 IMPORT→
+   LOAD 也無檔可載（正是舊輪 DIRECTORY/FILENAME 卡點的同一根因）。
+   #16 驗收本來就要求「建隊伍→進遊戲」，IMPORT 繞過建隊——**退回 START NEW GAME
+   路線（追記補二輪 4 的 confirmed 路徑），下一輪走檢查點法解巫6匯入詢問**。
+
+worktree 未提交 main.go 的 IMPORT 改法處置：驗證失敗，下一輪改回 START 序列
+（重排時序）或直接 revert；本輪不動，留給下一輪動手。
