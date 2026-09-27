@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 5177,
+ "count": 5924,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -20388,6 +20388,618 @@
    "en": "I get what you need!! &%]",
    "zh": "你要的我通通有！！&%]"
   },
+  "20273": {
+   "en": "You get me shiney coins!!",
+   "zh": "你拿閃亮金幣給我！！"
+  },
+  "20285": {
+   "en": "Come on, I could finish ten times by now!!",
+   "zh": "拜託，換我做早就完工十次了！！"
+  },
+  "20290": {
+   "en": "Make mind up already!",
+   "zh": "快點拿定主意啦！"
+  },
+  "20295": {
+   "en": "Hurry up! &%You so slow!",
+   "zh": "快一點！&%你太慢了！"
+  },
+  "20300": {
+   "en": "So get on with it!",
+   "zh": "那就快動手啊！"
+  },
+  "20305": {
+   "en": "Bring more coins next time!!",
+   "zh": "下次多帶點金幣來！！"
+  },
+  "20310": {
+   "en": "\u0001\u0001RAZUKA/",
+   "zh": "\u0001\u0001拉祖卡/"
+  },
+  "20315": {
+   "en": "Magic juice work very fast, be quick but make wing fur fly!",
+   "zh": "魔法汁見效超快，動作快，別搞得羽毛亂飛！"
+  },
+  "20340": {
+   "en": "Carefully stepping into the open chamber, your eyes note",
+   "zh": "你小心翼翼踏進敞開的房室，眼睛注意到"
+  },
+  "20341": {
+   "en": "a peculiar darkness, which fills the room like a smokey",
+   "zh": "一種奇特的黑暗，像冒煙的"
+  },
+  "20342": {
+   "en": "cloud...",
+   "zh": "雲霧般充滿整個房間……"
+  },
+  "20345": {
+   "en": "#!BARLONE'",
+   "zh": "巴隆內"
+  },
+  "20346": {
+   "en": "!ORDER OF TAW",
+   "zh": "陶之教團"
+  },
+  "20350": {
+   "en": "You can hear quiet whispering chits coming from somewhere nearby...",
+   "zh": "你聽見附近某處傳來細碎的吱吱低語……"
+  },
+  "20351": {
+   "en": "@You do not understand what is being said, or whether they are",
+   "zh": "你聽不懂他們在說什麼，也分不清他們"
+  },
+  "20352": {
+   "en": "aware of you presence...",
+   "zh": "是否察覺到你的存在……"
+  },
+  "20355": {
+   "en": "Hmmm, so much for the element of surprise...",
+   "zh": "嗯，突襲的先機是別想了……"
+  },
+  "20360": {
+   "en": "Entering the room, you face a mob of husky Rattkin,",
+   "zh": "走進房內，你面對一群魁梧的鼠人，"
+  },
+  "20361": {
+   "en": "weapons drawn and ready, but not yet moving into action...",
+   "zh": "個個持械以待，卻還沒展開行動……"
+  },
+  "20362": {
+   "en": "@In the still of the moment, you quickly assess your opponents...",
+   "zh": "在這凝滯的瞬間，你迅速打量著對手……"
+  },
+  "20363": {
+   "en": "@Their fur is dark and well groomed... @And though they exude a",
+   "zh": "他們毛色深黑、梳理得光潔……雖然散發著"
+  },
+  "20364": {
+   "en": "somewhat sinister ethos, there is a subtle strange charisma about",
+   "zh": "幾分陰邪之氣，卻也透著一股微妙的奇異魅力，"
+  },
+  "20365": {
+   "en": "them...",
+   "zh": "縈繞在他們身上……"
+  },
+  "20366": {
+   "en": "@They seem quite confident, and most of all, demonstrate an obvious",
+   "zh": "他們顯得信心十足，尤其明顯展現出"
+  },
+  "20367": {
+   "en": "interest in you and in watching your reactions...",
+   "zh": "對你的濃厚興趣，正觀察著你的反應……"
+  },
+  "20368": {
+   "en": "@It is then that you recognize the nature of these creatures...",
+   "zh": "就在此時，你認出了這群生物的本質……"
+  },
+  "20369": {
+   "en": "@They are members of an underworld...",
+   "zh": "他們是黑社會的一員……"
+  },
+  "20370": {
+   "en": "@But not a gang of thugs, no...",
+   "zh": "但可不是什麼暴徒幫派，不……"
+  },
+  "20371": {
+   "en": "@These creatures are well organized, meticulous, and possess a",
+   "zh": "這些傢伙組織嚴密、一絲不苟，還有著"
+  },
+  "20372": {
+   "en": "razor-sharp intellect... @Honed by years of strict orthodoxy...",
+   "zh": "剃刀般鋒利的智識……經多年嚴格教規磨礪而成……"
+  },
+  "20373": {
+   "en": "@Upper eschelon corsairs, studying their mark, noting your",
+   "zh": "頂層的海盜行家，端詳著獵物，記下你的"
+  },
+  "20374": {
+   "en": "strengths and weaknesses... @Silently forming the noose by which",
+   "zh": "長處與弱點……暗地裡編好絞索，好"
+  },
+  "20375": {
+   "en": "to profit from your eventual hanging...",
+   "zh": "在你日後被吊死時大賺一筆……"
+  },
+  "20376": {
+   "en": "@Finally, your eyes meet those of a Rattkin who appears to have an",
+   "zh": "最後，你的視線與一隻鼠人相遇，他臉上彷彿"
+  },
+  "20377": {
+   "en": "icy mask of death etched across his face...",
+   "zh": "刻著一副冰冷的死亡面具……"
+  },
+  "20378": {
+   "en": "@And he begins to speak in a low hoarse whisper...",
+   "zh": "接著他開口，用低沉沙啞的耳語說道……"
+  },
+  "20390": {
+   "en": "Allow me to introduce myself... &%]",
+   "zh": "容我自我介紹一下……&%]"
+  },
+  "20391": {
+   "en": "I am Barlone'... &%]",
+   "zh": "我是巴隆內……&%]"
+  },
+  "20392": {
+   "en": "It is good that you have come... &%]",
+   "zh": "你們來了，正好……&%]"
+  },
+  "20393": {
+   "en": "My associates and I have a proposition for you... &%]",
+   "zh": "我和我的夥伴們有個提案要給你……&%]"
+  },
+  "20397": {
+   "en": "Would you like something to drink?",
+   "zh": "想來點什麼喝的嗎？"
+  },
+  "20400": {
+   "en": "Suit yourself...",
+   "zh": "隨你便……"
+  },
+  "20402": {
+   "en": "Gensuda'...",
+   "zh": "根蘇達……"
+  },
+  "20405": {
+   "en": "As I was saying, my friends and I have an interesting proposal",
+   "zh": "剛才說到，我和朋友們有個有趣的提案，"
+  },
+  "20406": {
+   "en": "which we want you to consider... &%]",
+   "zh": "想請你考慮考慮……&%]"
+  },
+  "20407": {
+   "en": "We can do many things for you... &%]",
+   "zh": "我們能為你做很多事……&%]"
+  },
+  "20408": {
+   "en": "And we want you to do us a small favor in return... &%]",
+   "zh": "也要你幫我們一個小忙作為回報……&%]"
+  },
+  "20409": {
+   "en": "We know about you and the others... &%]",
+   "zh": "我們知道你和其他人的事……&%]"
+  },
+  "20410": {
+   "en": "We've seen the machines that breathe fire and move through the",
+   "zh": "我們見過那些會噴火、還能飛上"
+  },
+  "20411": {
+   "en": "sky... &%]",
+   "zh": "天空的機器……&%]"
+  },
+  "20412": {
+   "en": "Long ago there were others that had these machines... &%]",
+   "zh": "很久以前，也有別人擁有這些機器……&%]"
+  },
+  "20413": {
+   "en": "The Higardi... &%]",
+   "zh": "希加爾迪人……&%]"
+  },
+  "20414": {
+   "en": "But they are gone now... &%]",
+   "zh": "但他們如今已不復存在……&%]"
+  },
+  "20415": {
+   "en": "We know that you have come from a world beyond the sky... &%]",
+   "zh": "我們知道你來自天空之外的世界……&%]"
+  },
+  "20416": {
+   "en": "And we wish to expand our operations... &%]",
+   "zh": "而我們想擴展我們的事業……&%]"
+  },
+  "20417": {
+   "en": "We want you to do something for us... &%]",
+   "zh": "我們要你替我們辦一件事……&%]"
+  },
+  "20418": {
+   "en": "And in return our organization will assist you... &%]",
+   "zh": "作為回報，我們的組織會助你一臂之力……&%]"
+  },
+  "20422": {
+   "en": "Do we have a deal?",
+   "zh": "成交嗎？"
+  },
+  "20425": {
+   "en": "What's the matter, you don't trust us? &%]",
+   "zh": "怎麼，你不信任我們？&%]"
+  },
+  "20426": {
+   "en": "There are two kinds in the world, my friends... &%]",
+   "zh": "這世上分成兩種人，我的朋友……&%]"
+  },
+  "20427": {
+   "en": "The living... &%and the dead... &%]",
+   "zh": "活人……&%和死人……&%]"
+  },
+  "20428": {
+   "en": "The dead dwell in fear, and search for safety and comfort... &%]",
+   "zh": "死人活在恐懼裡，只尋求安全與安逸……&%]"
+  },
+  "20429": {
+   "en": "Always following the rules... &%]",
+   "zh": "永遠墨守成規……&%]"
+  },
+  "20430": {
+   "en": "Never taking the chance to do anything which might",
+   "zh": "從不敢冒險去做任何可能"
+  },
+  "20431": {
+   "en": "bring about uncertain change... &%]",
+   "zh": "帶來未知改變的事……&%]"
+  },
+  "20432": {
+   "en": "But the living seek otherwise... &%]",
+   "zh": "但活人追求的截然不同……&%]"
+  },
+  "20433": {
+   "en": "They brave the edge over which lies unknown and dangerous",
+   "zh": "他們勇於跨過那道邊緣，後頭藏著未知而危險的"
+  },
+  "20434": {
+   "en": "new discovery... &%]",
+   "zh": "新發現……&%]"
+  },
+  "20435": {
+   "en": "Knowing that to become complacent is to become inanimate... &%]",
+   "zh": "因為他們明白，自滿就是淪為死物……&%]"
+  },
+  "20436": {
+   "en": "Come back when you decide to enjoin the living...",
+   "zh": "等你決定加入活人那一邊時，再回來吧……"
+  },
+  "20440": {
+   "en": "I see you have reconsidered our offer...",
+   "zh": "看來你重新考慮過我們的提議了……"
+  },
+  "20445": {
+   "en": "This is a good day for us... &%]",
+   "zh": "今天對我們來說是個好日子……&%]"
+  },
+  "20446": {
+   "en": "What we ask is something simple... &%]",
+   "zh": "我們的要求很簡單……&%]"
+  },
+  "20447": {
+   "en": "There is a flying machine which descends into the old ruins of",
+   "zh": "有台飛行機器會降落在"
+  },
+  "20448": {
+   "en": "Nyctalinth... &%]",
+   "zh": "尼克塔林斯的古老遺跡……&%]"
+  },
+  "20449": {
+   "en": "Our scouts have seen it come and go many times... &%]",
+   "zh": "我們的斥候見過它來來去去好多次……&%]"
+  },
+  "20450": {
+   "en": "Find out when the flying machine will be at Nyctalinth again... &%]",
+   "zh": "去查出那台飛行機器下次何時再到尼克塔林斯……&%]"
+  },
+  "20451": {
+   "en": "This is a small favor we ask of you... &%]",
+   "zh": "這只是我們請你幫的小忙……&%]"
+  },
+  "20452": {
+   "en": "Once you do this thing, return to me... &%]",
+   "zh": "辦完這件事後，回到我這裡來……&%]"
+  },
+  "20453": {
+   "en": "And I'll tell you where you can find one of the maps... &%]",
+   "zh": "我就告訴你其中一張地圖在哪裡找得到……&%]"
+  },
+  "20454": {
+   "en": "I know all about the maps... &%]",
+   "zh": "這些地圖的事我瞭若指掌……&%]"
+  },
+  "20455": {
+   "en": "You do this small favor for us... &%]",
+   "zh": "你幫我們這個小忙……&%]"
+  },
+  "20456": {
+   "en": "And we'll help you get the maps... &%]",
+   "zh": "我們就幫你取得那些地圖……&%]"
+  },
+  "20457": {
+   "en": "I think our business is concluded for today... &%]",
+   "zh": "我想今天我們的買賣就到此為止……&%]"
+  },
+  "20458": {
+   "en": "You've made a wise decision to work with us...",
+   "zh": "與我們合作，是個明智的決定……"
+  },
+  "20462": {
+   "en": "Have you done the small favor we asked of you?",
+   "zh": "我們請你幫的小忙，辦妥了嗎？"
+  },
+  "20465": {
+   "en": "We know you won't fail us... &%]",
+   "zh": "我們知道你不會讓我們失望……&%]"
+  },
+  "20466": {
+   "en": "Now go and do this simple thing... &%]",
+   "zh": "現在去把這件簡單的事辦好……&%]"
+  },
+  "20467": {
+   "en": "Find out when the flying ship will be at Nyctalinth again...",
+   "zh": "去查清楚飛船下次何時會再到尼克塔林斯……"
+  },
+  "20470": {
+   "en": "\b088:53/\b88:53/",
+   "zh": "\b088:53/\b88:53/"
+  },
+  "20472": {
+   "en": "When can we expect the next flying ship at Nyctalinth?",
+   "zh": "下一艘飛船何時會再到尼克塔林斯？"
+  },
+  "20475": {
+   "en": "Excuse us for a moment...",
+   "zh": "容我們失陪一下……"
+  },
+  "20480": {
+   "en": "We don't find your trick amusing... &%]",
+   "zh": "你的把戲一點也不有趣……&%]"
+  },
+  "20481": {
+   "en": "It's obvious that you can't be trusted...",
+   "zh": "很明顯，你根本信不過……"
+  },
+  "20485": {
+   "en": "Yes, that is possible... &%]",
+   "zh": "是的，有這個可能……&%]"
+  },
+  "20486": {
+   "en": "You've done well... &%]",
+   "zh": "幹得好……&%]"
+  },
+  "20487": {
+   "en": "In the New City there is a passage that leads to the old",
+   "zh": "新城裡有一條通道，通往古老的"
+  },
+  "20488": {
+   "en": "Archives... &%]",
+   "zh": "檔案庫……&%]"
+  },
+  "20489": {
+   "en": "A piece of the map was put there by a friend of the family... &%]",
+   "zh": "一片地圖碎片，是我們家族的一位朋友放在那裡的……&%]"
+  },
+  "20490": {
+   "en": "As a small personal favor... &%]",
+   "zh": "算是一點小小的私人請託……&%]"
+  },
+  "20491": {
+   "en": "We may have another favor you can do for us later... &%]",
+   "zh": "日後可能還有別的忙要請你幫……&%]"
+  },
+  "20492": {
+   "en": "We'll let you know...",
+   "zh": "到時再告訴你……"
+  },
+  "20500": {
+   "en": "Emerging from a small alcove, an odd looking Rattkin wearing dark",
+   "zh": "一隻模樣古怪的鼠人從小壁龕裡鑽出，他戴著深色"
+  },
+  "20501": {
+   "en": "specatcles and tapping a wooden cane slowly hobbles out to meet",
+   "zh": "眼鏡、敲著木拐杖，緩緩蹣跚地走出來"
+  },
+  "20502": {
+   "en": "you...",
+   "zh": "迎接你……"
+  },
+  "20510": {
+   "en": "Coins for the blind... &%]",
+   "zh": "給盲人的金幣……&%]"
+  },
+  "20511": {
+   "en": "Coins for the blind... &%]",
+   "zh": "給盲人的金幣……&%]"
+  },
+  "20517": {
+   "en": "Kind Sirs, could you spare a few coins for the unfortunate?",
+   "zh": "好心的先生們，可否賞幾枚金幣給不幸之人？"
+  },
+  "20520": {
+   "en": "Pah! &%May the Razuka treat you so fairly! &%]",
+   "zh": "呸！&%願拉祖卡也這樣公平地對待你！&%]"
+  },
+  "20521": {
+   "en": "And the old blind Rattkin scurries back into his alcove,",
+   "zh": "接著那隻老盲鼠人迅速竄回他的壁龕，"
+  },
+  "20522": {
+   "en": "surprisingly quick in light of his condition...",
+   "zh": "以他的處境來說，快得驚人……"
+  },
+  "20525": {
+   "en": "The old blind Rattkin embraces you, patting you on the back,",
+   "zh": "老盲鼠人擁抱你，拍拍你的背，"
+  },
+  "20526": {
+   "en": "and exclaims,... &%]",
+   "zh": "並歡呼道……&%]"
+  },
+  "20527": {
+   "en": "May your generous souls be equally rewarded! &%]",
+   "zh": "願你慷慨的靈魂得到同樣的回報！&%]"
+  },
+  "20528": {
+   "en": "A sudden pleasant sensation comes over you, the good feeling",
+   "zh": "一股宜人的感覺突然籠罩你，那是"
+  },
+  "20529": {
+   "en": "that aspires from assisting others in need, and you are left",
+   "zh": "援助困境之人時湧起的美意，你沉浸在"
+  },
+  "20530": {
+   "en": "basking with a tingling lightness of being...",
+   "zh": "一種微微輕顫、飄然自在的感受之中……"
+  },
+  "20535": {
+   "en": "Ah! I recall same generous footsteps not too long passed... &%]",
+   "zh": "啊！同樣大方的腳步聲，前不久才聽過……&%]"
+  },
+  "20536": {
+   "en": "How fair thee this day, noble sirs?",
+   "zh": "高貴的先生們，今日可安好？"
+  },
+  "20540": {
+   "en": "Oddly enough, though Old Blienmeis obviously flinched at your",
+   "zh": "說也奇怪，老盲麥斯雖然明顯被你"
+  },
+  "20541": {
+   "en": "clumsy attempt to rifle through his pocket, he makes no sudden",
+   "zh": "笨拙翻他口袋的舉動嚇了一跳，卻沒有"
+  },
+  "20542": {
+   "en": "outburst or cry, but instead stands callously hunched as if",
+   "zh": "突然暴喝或喊叫，只是冷漠地佝僂著，彷彿"
+  },
+  "20543": {
+   "en": "fallen into a slight stupor... &%]",
+   "zh": "陷入微微的恍惚……&%]"
+  },
+  "20544": {
+   "en": "Protuding from one of his pockets, a small ring dangles enticingly,",
+   "zh": "他的一個口袋裡露出一枚小戒指，誘人地懸晃著，"
+  },
+  "20545": {
+   "en": "caught slightly in the fold of a kerchief where you had fumbled",
+   "zh": "稍稍卡在手帕褶縫裡，正是你剛才"
+  },
+  "20546": {
+   "en": "it a moment ago... &%]",
+   "zh": "失手弄亂的地方……&%]"
+  },
+  "20547": {
+   "en": "It seems almost to bulge out at you, ready to hop into your hand,",
+   "zh": "它簡直像要朝你鼓出來，一副隨時會跳進你手掌的樣子，"
+  },
+  "20548": {
+   "en": "and sensing the moment, you quickly snatch it up, before it can",
+   "zh": "你抓準時機，迅速將它一把抄起，免得它"
+  },
+  "20549": {
+   "en": "fall to the ground with a tell-tale tinkle...",
+   "zh": "落地時發出洩底的叮噹聲……"
+  },
+  "20555": {
+   "en": "A cool breeze crosses by you, and Old Blienmeis turns to",
+   "zh": "一陣涼風從你身邊拂過，老盲麥斯轉過身"
+  },
+  "20556": {
+   "en": "face the sky, saying... &%]",
+   "zh": "仰面向著天空，說道……&%]"
+  },
+  "20557": {
+   "en": "Weather seems to be turning, eh?! &%]",
+   "zh": "天氣好像要變了，是吧？！&%]"
+  },
+  "20558": {
+   "en": "And with that he quickly retreats into the alcove, hands over his",
+   "zh": "說完他連忙退回壁龕，雙手捂住"
+  },
+  "20559": {
+   "en": "head for cover as if protecting himself from invisible droplets of",
+   "zh": "頭，像是要擋住看不見的"
+  },
+  "20560": {
+   "en": "rain...",
+   "zh": "雨滴……"
+  },
+  "20565": {
+   "en": "Glad to hear you...",
+   "zh": "很高興聽到你……"
+  },
+  "20566": {
+   "en": "Be hearing you!",
+   "zh": "後會有期！"
+  },
+  "20567": {
+   "en": "\u0002\u0001FUNHOUSE/RING OF REFLEXTION/",
+   "zh": "\u0002\u0001玩笑屋/反射之戒/"
+  },
+  "20568": {
+   "en": "\u0001\u0001RATSKELL'S/",
+   "zh": "\u0001\u0001拉茨凱爾/"
+  },
+  "20570": {
+   "en": "#!RATSKELL'S",
+   "zh": "拉茨凱爾"
+  },
+  "20571": {
+   "en": "!THIEVES GUILD",
+   "zh": "盜賊公會"
+  },
+  "20575": {
+   "en": "From behind the heavy oaken door a muffled voice calls out...",
+   "zh": "厚重的橡木門後，傳來一陣悶悶的呼聲……"
+  },
+  "20576": {
+   "en": "@\"Only genuine thieves, rouges, and brigands may enter...",
+   "zh": "只有真正的竊賊、流氓和強盜才能進來……"
+  },
+  "20577": {
+   "en": "@If you would prove yourself, stick your hands through the",
+   "zh": "如果你想證明自己，就把手伸進"
+  },
+  "20578": {
+   "en": "window!",
+   "zh": "窗內！"
+  },
+  "20580": {
+   "en": "The room is vacant, though adorned with old chains and burnt torches...",
+   "zh": "房間空無一人，只是裝飾著舊鎖鏈和燒過的火把……"
+  },
+  "20582": {
+   "en": "They say it was created by an ancient Rattkin Magi...",
+   "zh": "據說它出自遠古的鼠人法師之手……"
+  },
+  "20585": {
+   "en": "Stay away from there!",
+   "zh": "別靠近那裡！"
+  },
+  "20587": {
+   "en": "Ooo, that tickles!!",
+   "zh": "噢，好癢呀！！"
+  },
+  "20591": {
+   "en": "   PUT HANDS THROUGH WINDOW   ",
+   "zh": "   把手伸進窗戶   "
+  },
+  "20592": {
+   "en": " KEEP HANDS AWAY FROM WINDOW ",
+   "zh": " 別把手靠近窗戶 "
+  },
+  "20595": {
+   "en": "You approach the window, debating the wisdom of honoring the",
+   "zh": "你走近窗戶，猶豫著該不該照辦這個"
+  },
+  "20596": {
+   "en": "dangerous request...",
+   "zh": "危險的請求……"
+  },
   "20600": {
    "en": "Gritting your teeth, you insert your hands through the bars of the",
    "zh": "你咬緊牙關，把雙手從窗柵之間伸進"
@@ -20399,6 +21011,10 @@
   "20602": {
    "en": "@Small furry paws quickly race over your hands, as if probing them",
    "zh": "@毛茸茸的小掌迅速爬過你的雙手，像在探查它們"
+  },
+  "20603": {
+   "en": "in some secret ritual of divination...",
+   "zh": "，恍若進行某種秘密的占卜儀式……"
   },
   "20605": {
    "en": "Neechht! %]",
@@ -20412,9 +21028,433 @@
    "en": "You couldn't steal from a dink if he was blind! %]",
    "zh": "就算那傢伙瞎了眼，你們也偷不到半毛錢！%]"
   },
+  "20608": {
+   "en": "Come back when you've had more practice...",
+   "zh": "等你多練習幾次再來吧……"
+  },
   "20610": {
    "en": "Ah! You wear the mark of the Guild upon your finger! %]",
    "zh": "啊！你手指上戴著公會的印記！%]"
+  },
+  "20611": {
+   "en": "Enter herein, fellow purlionettes!",
+   "zh": "進來吧，竊賊同伴們！"
+  },
+  "20615": {
+   "en": "Entering the dimly lit shoppe, you make out the form of a",
+   "zh": "走進這間光線昏暗的店鋪，你認出"
+  },
+  "20616": {
+   "en": "familiar figure standing before you...",
+   "zh": "眼前站著一個熟悉的身影……"
+  },
+  "20620": {
+   "en": "It warms my cockles to hear your footsteps again... &%]",
+   "zh": "再聽到你的腳步聲，我心頭都暖了……&%]"
+  },
+  "20621": {
+   "en": "I must confess, however, that your skills are quite lacking... &%]",
+   "zh": "不過我必須承認，你的技術實在差勁……&%]"
+  },
+  "20622": {
+   "en": "Crude, weak, pathetic, ineffective, sluggish, oaffy... &%]",
+   "zh": "粗糙、軟弱、可悲、無效、遲鈍、笨拙……&%]"
+  },
+  "20623": {
+   "en": "Not to mention obvious... &%]",
+   "zh": "更別提太顯眼了……&%]"
+  },
+  "20624": {
+   "en": "What you need is help... &%]",
+   "zh": "你需要的是幫助……&%]"
+  },
+  "20625": {
+   "en": "And lots of it!",
+   "zh": "而且要很多！"
+  },
+  "20630": {
+   "en": "They say the Razuka operate out of the old Funhouse... &%]",
+   "zh": "據說拉祖卡就以老玩笑屋為根據地……&%]"
+  },
+  "20631": {
+   "en": "It's dangerous to do business with the Razuka... &%]",
+   "zh": "跟拉祖卡做生意很危險……&%]"
+  },
+  "20632": {
+   "en": "One little mistake, and well... &%]",
+   "zh": "只要出個小差錯，嗯……&%]"
+  },
+  "20633": {
+   "en": "Let's just say that old Blienmeis wasn't always Blienmeis... &%]",
+   "zh": "這麼說吧，老盲麥斯並非生來就叫盲麥斯……&%]"
+  },
+  "20634": {
+   "en": "But if you want to get inside, Blienmeis will help... &%",
+   "zh": "不過如果你想進去，盲麥斯可以幫忙……&%"
+  },
+  "20638": {
+   "en": "Tch! You haven't the jingle!",
+   "zh": "切！你身上沒個錢響！"
+  },
+  "20642": {
+   "en": "]Will you pay 1000 gold pieces for a nose?",
+   "zh": "]你願意付 1000 金幣買一個鼻子嗎？"
+  },
+  "20645": {
+   "en": "This will get you inside, but after that you're on your own...",
+   "zh": "這能讓你進去，不過之後就全靠你自己了……"
+  },
+  "20650": {
+   "en": "The Ring of Reflextion contains a very special power... &%]",
+   "zh": "反射之戒蘊藏著非常特殊的力量……&%]"
+  },
+  "20651": {
+   "en": "Created by an ancient Rattkin Magi long ago... &%]",
+   "zh": "很久以前由遠古鼠人法師所造……&%]"
+  },
+  "20652": {
+   "en": "I have but one, and it comes at a great price... &%]",
+   "zh": "我僅有一枚，而且代價高昂……&%]"
+  },
+  "20657": {
+   "en": "]Will you pay 12000 gold pieces for it?",
+   "zh": "]你願意付 12000 金幣買下它嗎？"
+  },
+  "20660": {
+   "en": "You must invoke the magic of the ring to transfer its power...",
+   "zh": "你必須發動戒指的魔法，才能轉移它的力量……"
+  },
+  "20665": {
+   "en": "Perhaps you will change your mind later...",
+   "zh": "也許你晚點會改變心意……"
+  },
+  "20670": {
+   "en": "Barging into the room, you interrupt a gang of rousey Rattkin",
+   "zh": "你闖進房間，打斷了一群喧鬧的鼠人"
+  },
+  "20671": {
+   "en": "polishing their swords and sharpening their daggers...",
+   "zh": "擦拭佩劍、研磨匕首的工作……"
+  },
+  "20672": {
+   "en": "@As they revel in their succulent good fortune at your foolhardy",
+   "zh": "正當他們為你莽撞闖入所送上"
+  },
+  "20673": {
+   "en": "intrusion, a big fat ugly Rattkin in the back shouts out,...",
+   "zh": "的豐厚好運狂歡時，後方一隻肥碩醜陋的鼠人大喊……"
+  },
+  "20674": {
+   "en": "@\"Look what the cat's dragged in, boys! %]",
+   "zh": "瞧瞧貓叼進來了什麼，小子們！%]"
+  },
+  "20675": {
+   "en": "Let's clean 'em!!",
+   "zh": "咱們收拾他們！！"
+  },
+  "20750": {
+   "en": "The interior of the Funhouse appears gloomy and decrepit, lacking",
+   "zh": "玩笑屋內部陰森破敗，完全"
+  },
+  "20751": {
+   "en": "any festive spirit whatsoever...",
+   "zh": "感受不到任何歡樂氣息……"
+  },
+  "20752": {
+   "en": "@You begin to suspect rather devious connotations in the word,",
+   "zh": "你開始懷疑這個詞暗藏玄機——"
+  },
+  "20753": {
+   "en": "\"Fun\"...",
+   "zh": "「樂趣」……"
+  },
+  "20755": {
+   "en": "Mounted to the wall, a spinning fan whirls round and round, blowing",
+   "zh": "牆上裝著一颱風扇不停打轉，吹出"
+  },
+  "20756": {
+   "en": "a gusty wind...",
+   "zh": "陣陣疾風……"
+  },
+  "20760": {
+   "en": "Lying underneath a pile of rubble on the floor, you discover a",
+   "zh": "你在地板的一堆瓦礫底下發現一把"
+  },
+  "20761": {
+   "en": "tarnished key...",
+   "zh": "黯淡的鑰匙……"
+  },
+  "20765": {
+   "en": "Mounted upon the wall are two blocks which support short steel",
+   "zh": "牆上裝著兩個基座，各自撐著一根"
+  },
+  "20766": {
+   "en": "cylinders, each with a hook... &[]",
+   "zh": "短鋼筒，每根都帶著一個鉤子……&[]"
+  },
+  "20767": {
+   "en": "Two metal blades are attached to an end of one",
+   "zh": "其中一根鋼筒的一端裝著兩片金屬"
+  },
+  "20768": {
+   "en": "cylinder, and you find that it spins around quite freely...",
+   "zh": "葉片，而且它轉得相當靈活……"
+  },
+  "20770": {
+   "en": "You stretch the elastic band between the two hooked",
+   "zh": "你把橡皮筋撐開，繫在兩個帶鉤的"
+  },
+  "20771": {
+   "en": "cylinders and wind it up... &%]",
+   "zh": "鋼筒之間，並且把它絞緊……&%]"
+  },
+  "20772": {
+   "en": "The blades spin around as the band unwinds, emitting a cool",
+   "zh": "橡皮筋鬆開時葉片跟著旋轉，送出涼"
+  },
+  "20773": {
+   "en": "and steady breeze...",
+   "zh": "爽而平穩的微風……"
+  },
+  "20780": {
+   "en": "Before you, a cascade of troughs turns beneath an",
+   "zh": "眼前一串槽斗在敞開的豎井下方"
+  },
+  "20781": {
+   "en": "open shaft, and you are cautious lest you accidently fall in...",
+   "zh": "不停轉動，你步步提防，生怕一失足跌落……"
+  },
+  "20785": {
+   "en": "You brazenly step into the cascading troughs...",
+   "zh": "你大著膽子踏進那串槽斗……"
+  },
+  "20790": {
+   "en": "The cascading troughs spin you around and downward, slamming",
+   "zh": "槽斗載著你們旋轉下行，把你們撞上"
+  },
+  "20791": {
+   "en": "you into the solid bars of a closed steel gate...",
+   "zh": "關閉鋼門的堅實門柵……"
+  },
+  "20795": {
+   "en": "Having no escape from the rotating troughs, you are dumped",
+   "zh": "無路可逃的你們被旋轉的槽斗倒進"
+  },
+  "20796": {
+   "en": "into the darkness below...",
+   "zh": "下方的一片黑暗之中……"
+  },
+  "20800": {
+   "en": "The cascading troughs spin you around and downward, flinging",
+   "zh": "槽斗載著你們旋轉下行，把你們甩向"
+  },
+  "20801": {
+   "en": "you into the open corridor ahead...",
+   "zh": "前方敞開的走廊……"
+  },
+  "20803": {
+   "en": "In the shaft ahead is a moving belt, which arises from below...",
+   "zh": "前方豎井裡有一條輸送帶，正從下方升起……"
+  },
+  "20805": {
+   "en": "Atop the moving belt, it propels you into the hallway...",
+   "zh": "站上輸送帶，它把你們推進走廊……"
+  },
+  "20807": {
+   "en": "Oops! %]",
+   "zh": "哎呀！%]"
+  },
+  "20808": {
+   "en": "You accidently pried the candle sconce loose from the wall!",
+   "zh": "你不小心把牆上的燭台撬了下來！"
+  },
+  "20810": {
+   "en": "A thin veneer of water skates rapidly down a descending channel,",
+   "zh": "一層薄薄的水沿著下斜的槽溝疾速滑落，"
+  },
+  "20811": {
+   "en": "and you wonder at its purpose...",
+   "zh": "你想不透它有什麼用處……"
+  },
+  "20812": {
+   "en": "@The water being only a few inches thick, you touch beneath its",
+   "zh": "水只有幾吋深，你把手伸到水面"
+  },
+  "20813": {
+   "en": "surface to discover a slick and slippery bottom...",
+   "zh": "底下，摸到一片濕滑的底……"
+  },
+  "20814": {
+   "en": "@At least it isn't deep enough to worry about getting in over",
+   "zh": "至少它還沒深到需要擔心你們"
+  },
+  "20815": {
+   "en": "your heads...",
+   "zh": "滅頂……"
+  },
+  "20818": {
+   "en": "Entering the water, you slide down the flue...",
+   "zh": "一踏進水中，你們便順著滑道滑了下去……"
+  },
+  "20820": {
+   "en": "An odd transparent dome protrudes from a narrow shaft a",
+   "zh": "一個奇特的透明圓頂從窄小的井口凸出，"
+  },
+  "20821": {
+   "en": "few steps in front of you...",
+   "zh": "就在你們前方幾步遠的地方……"
+  },
+  "20825": {
+   "en": "Looking closer at the dome, you note a gaping hole in its face... &[]",
+   "zh": "湊近細看圓頂，你注意到它正面有個敞開的大洞……&[]"
+  },
+  "20826": {
+   "en": "It appears to be a hollow tube of some sort...",
+   "zh": "它看來是某種中空的管子……"
+  },
+  "20830": {
+   "en": "The heavy black ball rests inside the tube, perched upon a",
+   "zh": "沉重的黑球安放在管子裡，棲在一塊"
+  },
+  "20831": {
+   "en": "thick plate...",
+   "zh": "厚板上……"
+  },
+  "20835": {
+   "en": "You drop the ball into the dome, making a loud",
+   "zh": "你把球丟進圓頂，當球落到管內"
+  },
+  "20836": {
+   "en": "thud as it lands on a plate inside the tube...",
+   "zh": "的板子上時，發出沉重的一聲悶響……"
+  },
+  "20840": {
+   "en": "A large spool stands mounted over an open shaft, and attached",
+   "zh": "一只大線軸架在敞開的豎井上方，"
+  },
+  "20841": {
+   "en": "to it is a heavy metal chain...",
+   "zh": "上頭繫著一條沉重的鐵鏈……"
+  },
+  "20845": {
+   "en": "The chain is wound up onto the spool...",
+   "zh": "鐵鏈捲繞在線軸上……"
+  },
+  "20850": {
+   "en": "The chain is hanging down the shaft...",
+   "zh": "鐵鏈垂在豎井裡……"
+  },
+  "20855": {
+   "en": "Attaching the handle to the spindle of the spool, you crank up",
+   "zh": "把搖柄裝上線軸的軸心，你使勁把"
+  },
+  "20856": {
+   "en": "the chain as far as it will go...",
+   "zh": "鐵鏈絞到最緊……"
+  },
+  "20860": {
+   "en": "Lying under an old broken skull, you retrieve an unusual object...",
+   "zh": "你從一顆破舊的骷髏頭底下取出一件不尋常的物品……"
+  },
+  "20862": {
+   "en": "The chamber appears to be an old burial crypt, filled with bones...",
+   "zh": "這個房間看來是座古老的墓窖，堆滿了骸骨……"
+  },
+  "20863": {
+   "en": "@Even more disturbing, however, is that some of them are moving...",
+   "zh": "不過更令人不安的是，其中一些骸骨還在動……"
+  },
+  "20865": {
+   "en": "Looking down the passage, you face a row of gaping pits which",
+   "zh": "望向通道深處，眼前是一排張口的大坑，"
+  },
+  "20866": {
+   "en": "travels the length of the corridor... &[]",
+   "zh": "一路延伸到走廊盡頭……&[]"
+  },
+  "20867": {
+   "en": "At the end of the pits stands a round pillow target,",
+   "zh": "坑列盡頭立著一面圓形枕靶，"
+  },
+  "20868": {
+   "en": "bearing circles of various colors and a crimson bull's-eye...",
+   "zh": "畫著各色圓圈和鮮紅的靶心……"
+  },
+  "20872": {
+   "en": "You leap into the gaping pit...",
+   "zh": "你縱身跳進張口的大坑……"
+  },
+  "20875": {
+   "en": "You heave the painted ball down the passage towards the target...",
+   "zh": "你把彩繪球奮力擲過通道，射向標靶……"
+  },
+  "20880": {
+   "en": "Missing the bull's-eye, the ball bounces off the target and falls",
+   "zh": "沒打中靶心，球彈開標靶，落回"
+  },
+  "20881": {
+   "en": "back into the pit at the end of the corridor...",
+   "zh": "走廊盡頭的坑裡……"
+  },
+  "20885": {
+   "en": "BULL'S-EYE!",
+   "zh": "正中靶心！"
+  },
+  "20890": {
+   "en": "A round target stands mounted on the floor, and",
+   "zh": "地板上立著一面圓形標靶，而"
+  },
+  "20891": {
+   "en": "down the north corridor is a row of large gaping pits...",
+   "zh": "沿北側走廊則是一排張口的大坑……"
+  },
+  "20892": {
+   "en": "@To the west, a cascade of troughs goes round and round, dumping",
+   "zh": "西邊一串槽斗不停轉圈，往下方的"
+  },
+  "20893": {
+   "en": "empty air into the darkness below it...",
+   "zh": "黑暗傾倒著空無一物的空氣……"
+  },
+  "20895": {
+   "en": "Up ahead, a wide moving belt ascends from a shaft in the floor,",
+   "zh": "前方一條寬敞的輸送帶從地板的豎井升起，"
+  },
+  "20896": {
+   "en": "rising steadily upward and into the ceiling...",
+   "zh": "穩穩向上爬升，沒入天花板……"
+  },
+  "20900": {
+   "en": "Up you go!",
+   "zh": "上去吧！"
+  },
+  "20910": {
+   "en": "Perched over the shaft, you hear the sound of rushing water far",
+   "zh": "你俯在豎井口，聽見遙遠下方傳來奔流的"
+  },
+  "20911": {
+   "en": "below...",
+   "zh": "水聲……"
+  },
+  "20915": {
+   "en": "Examining the shaft, you note a pair of grooved notches which",
+   "zh": "檢視豎井，你發現一對開了槽的凹口，"
+  },
+  "20916": {
+   "en": "lie on each side of its width, as if made to hold something",
+   "zh": "分列井口兩側，像是用來卡住某種"
+  },
+  "20917": {
+   "en": "which spanned across it...",
+   "zh": "橫跨井口的東西……"
+  },
+  "20920": {
+   "en": "You insert the roped bar into the grooves which span the shaft,",
+   "zh": "你把繫繩的粗槓插入橫跨井口的凹槽，"
+  },
+  "20921": {
+   "en": "and let the rope fall below...",
+   "zh": "再讓繩子垂落到下方……"
   },
   "21000": {
    "en": "A black pyramid is hooked to the end of the heavy chain, and it",
@@ -20432,6 +21472,10 @@
    "en": "it on to the end of the chain...",
    "zh": "掛到鐵鏈的末端……"
   },
+  "21010": {
+   "en": "Stepping onto the plank, your end pivots to the floor, but nothing",
+   "zh": "你踏上木板，腳下這端隨即落向地面，但什麼"
+  },
   "21011": {
    "en": "else happens...",
    "zh": "什麼事也沒發生……"
@@ -20443,6 +21487,10 @@
   "21016": {
    "en": "a switch underneath it... &%]",
    "zh": "下面的機關……&%]"
+  },
+  "21020": {
+   "en": "A heavy chain suddenly drops from the ceiling over the other end of",
+   "zh": "一條沉重的鎖鏈突然從天花板墜下，落在木板"
   },
   "21021": {
    "en": "the plank, but nothing else happens...",
@@ -20460,6 +21508,10 @@
    "en": "Having achieved the remarkable elevation of almost four feet,",
    "zh": "在達成將近四呎的驚人高度之後，"
   },
+  "21031": {
+   "en": "everyone is sent sprawling in all directions, falling to the ground",
+   "zh": "所有人被摔得四散翻滾，跌落在地面"
+  },
   "21032": {
    "en": "with thuds and groans...",
    "zh": "伴隨著悶響與呻吟……"
@@ -20472,6 +21524,10 @@
    "en": "tingley, and as light as a feather...",
    "zh": "酥麻發癢，輕如鴻毛……"
   },
+  "21040": {
+   "en": "Being reduced to featherweights, you are hurled upward through the",
+   "zh": "你們變得輕如鵝毛，被向上拋擲，穿過"
+  },
   "21041": {
    "en": "shaft above the plank...",
    "zh": "跳板正上方的豎井……"
@@ -20479,6 +21535,14 @@
   "21045": {
    "en": "Still propelled from your launch, you continue sailing upwards...",
    "zh": "彈射的力道未消，你們繼續向上飛翔，"
+  },
+  "21050": {
+   "en": "Arising up through the shaft, you are hit by a gusty blast of wind,",
+   "zh": "沿著豎井向上飄升，一陣狂風迎面襲來，"
+  },
+  "21051": {
+   "en": "which, in your lightweight condition, blows you across the corridor",
+   "zh": "在你輕飄飄的狀態下，把你吹過走廊"
   },
   "21052": {
    "en": "like little fat balloons...",
@@ -20496,13 +21560,25 @@
    "en": "This just isn't your dayyyyy...",
    "zh": "今天真是你們的倒楣日……"
   },
+  "21065": {
+   "en": "Everyone is sent sprawling in all directions, falling to the ground",
+   "zh": "眾人被摔得四散翻滾，跌落在地面"
+  },
   "21066": {
    "en": "with thuds and groans...",
    "zh": "伴隨著悶響與呻吟……"
   },
+  "21070": {
+   "en": "Standing up from your miraculous flight, you feel your normal weight",
+   "zh": "從這場奇蹟似的飛行中站起身，你感覺體重"
+  },
   "21071": {
    "en": "quickly returning...",
    "zh": "很快地恢復……"
+  },
+  "21075": {
+   "en": "Lying on the floor is a fist-sized wooden ball, painted with brightly",
+   "zh": "地上躺著一顆拳頭大的木球，漆著鮮豔的"
   },
   "21076": {
    "en": "colored circles and a star...",
@@ -20551,6 +21627,10 @@
   "21097": {
    "en": "It appears to be connected to the plate as a kind of trigger",
    "zh": "像是某種觸發機關……"
+  },
+  "21098": {
+   "en": "mechanism...",
+   "zh": "機關……"
   },
   "21100": {
    "en": "Inspecting the tube, you see the pad underneath it",
@@ -20628,6 +21708,10 @@
    "en": "SIXTH",
    "zh": "第六"
   },
+  "21140": {
+   "en": "Upon the wall is a set of tall metal spears, mounted in a single row",
+   "zh": "牆上裝著一組高大的金屬矛，排成單列"
+  },
   "21141": {
    "en": "with a long rivet through the center...",
    "zh": "中央穿著一根長鉚釘……"
@@ -20680,6 +21764,10 @@
    "en": "parchment, carefully bundled in waxed wrappings...",
    "zh": "古老羊皮紙，仔細裹在蠟紙裡……"
   },
+  "21165": {
+   "en": "Lo, inside the chest is naught but a pile of empty wax wrapping...",
+   "zh": "看哪，箱中別無他物，只有一堆空蠟包裝……"
+  },
   "21170": {
    "en": "You emerge from the Funhouse to find yourself in the forest,",
    "zh": "走出玩笑屋，你發現自己在森林裡，"
@@ -20695,6 +21783,1906 @@
   "21176": {
    "en": "have choked off the main entry...",
    "zh": "把主要入口堵了個嚴實……"
+  },
+  "21177": {
+   "en": "@Perhaps there is another way...",
+   "zh": "也許還有另一條路……"
+  },
+  "21180": {
+   "en": "Passing the tree, you notice that an anomaly of nature has arranged",
+   "zh": "經過那棵樹時，你注意到造化的奇手把"
+  },
+  "21181": {
+   "en": "the gnarls and knots of its rippled bark into the likeness of a face,",
+   "zh": "它波紋狀樹皮上的樹瘤與節疤排成了一張臉，"
+  },
+  "21182": {
+   "en": "and one that possesses a gloaty smug smile at that...",
+   "zh": "而且那張臉還帶著一抹自鳴得意的奸笑……"
+  },
+  "21185": {
+   "en": "It is then that you witness the woody countenance make a wink, and",
+   "zh": "就在此時，你親眼見到那張木臉眨了眨眼，而"
+  },
+  "21186": {
+   "en": "momentarily numbed by the surprising event, find yourself seized",
+   "zh": "被這突如其來的變故驚得一呆，發現自己已被"
+  },
+  "21187": {
+   "en": "securely within its grasping branches...",
+   "zh": "牢牢地困在它緊抓的枝椏之中……"
+  },
+  "21190": {
+   "en": "Before you can react, you are hoisted up into the tree, shuffled",
+   "zh": "你還來不及反應，就被高高舉上樹，一路"
+  },
+  "21191": {
+   "en": "and passed from branch to branch, and finally deposited into a",
+   "zh": "在枝椏間被傳來傳去，最後被安置進一間"
+  },
+  "21192": {
+   "en": "crude and weathered bungalow, apparently either built into the",
+   "zh": "簡陋而飽經風霜的小屋，它顯然要不是嵌在"
+  },
+  "21193": {
+   "en": "top of the tree or overhanging it in some fashion...",
+   "zh": "樹頂，就是以某種方式懸挑在樹上……"
+  },
+  "21194": {
+   "en": "@The place looks completely abandoned...",
+   "zh": "此地看來已徹底荒廢……"
+  },
+  "21200": {
+   "en": "Oops, not quite completely abandoned!",
+   "zh": "哎呀，還不算徹底荒廢！"
+  },
+  "21205": {
+   "en": "The squat furry Rattkins seemed most surprised and disturbed by your",
+   "zh": "這群矮胖多毛的鼠人似乎大為驚愕，被你"
+  },
+  "21206": {
+   "en": "appearance, and no doubt word of your arrival is quickly spreading",
+   "zh": "的現身攪得心神不寧，你到來的消息無疑正迅速傳遍"
+  },
+  "21207": {
+   "en": "throughout their squirrelly network...",
+   "zh": "他們松鼠般的消息網……"
+  },
+  "21210": {
+   "en": "Passing by the gnarled faced tree, its makes a sly wink, seizing",
+   "zh": "經過那棵瘤臉怪樹時，它狡黠地眨眨眼，用"
+  },
+  "21211": {
+   "en": "you within its grasping branches and hoisting you up...",
+   "zh": "緊抓的枝椏捉住你，把你高高舉起……"
+  },
+  "21215": {
+   "en": "Grabbing onto the branches at the top of the tree, you climb down",
+   "zh": "抓住樹頂的枝椏，你一路向下爬"
+  },
+  "21216": {
+   "en": "to the ground below...",
+   "zh": "回到下方的地面……"
+  },
+  "21301": {
+   "en": " CLIMB UP THE MOUNTAIN ",
+   "zh": " 登上高山 "
+  },
+  "21302": {
+   "en": "  REMAIN HERE FOR NOW  ",
+   "zh": "  暫留此地  "
+  },
+  "21305": {
+   "en": "There is a steep trail which leads up the mountain here...",
+   "zh": "此處有一條陡峭的小徑通往山上……"
+  },
+  "21311": {
+   "en": " CLIMB DOWN THE MOUNTAIN ",
+   "zh": " 走下高山 "
+  },
+  "21312": {
+   "en": "   REMAIN HERE FOR NOW  ",
+   "zh": "   暫留此地  "
+  },
+  "21315": {
+   "en": "There is a steep trail which leads down the mountain here...",
+   "zh": "此處有一條陡峭的小徑通往山下……"
+  },
+  "21320": {
+   "en": "!You skillfully navigate the treacherous climb...",
+   "zh": "你靈巧地通過了這段兇險的攀爬……"
+  },
+  "21325": {
+   "en": "!You slipped and fell!",
+   "zh": "你腳底一滑，摔倒了！"
+  },
+  "21330": {
+   "en": "You are standing atop a sheer cliff, and below you the trees of",
+   "zh": "你站在峭壁的頂端，腳下森林的樹木"
+  },
+  "21331": {
+   "en": "the forest appear as little specks, a pool of emerald lawn...",
+   "zh": "看來如同細小的斑點，宛如一池翠綠草地……"
+  },
+  "21335": {
+   "en": "The craggy face of the mountain side offers little hope of being",
+   "zh": "山壁嶙峋崎嶇，幾乎毫無"
+  },
+  "21336": {
+   "en": "scaled, but upon closer scrutiny you discover a rotted piece of",
+   "zh": "攀爬的可能，但細看之下，你發現一段腐朽的"
+  },
+  "21337": {
+   "en": "rope, lassoed around a boulder and dangling down the precipice,",
+   "zh": "繩索，套繫在巨石上垂下絕壁，"
+  },
+  "21338": {
+   "en": "suggesting that someone has attempted the descent before...",
+   "zh": "顯示先前曾有人嘗試由此而下……"
+  },
+  "21339": {
+   "en": "@Unfortunately, the dried rope crumbles at the touch, eliminating",
+   "zh": "可惜，乾枯的繩子一碰就碎，"
+  },
+  "21340": {
+   "en": "it as a viable means of support...",
+   "zh": "無法再作為可靠的支撐……"
+  },
+  "21345": {
+   "en": "Securing the long cord of spliced vines to a boulder at the cliff's",
+   "zh": "你把拼接藤蔓製成的長繩固定在崖邊"
+  },
+  "21346": {
+   "en": "edge, you peer down and notice that it seems to reach the ground...",
+   "zh": "的巨石上，往下看去，繩子似乎能及地……"
+  },
+  "21347": {
+   "en": "@It sure looked alot further a few moments ago...",
+   "zh": "方才看起來明明還遠得多……"
+  },
+  "21350": {
+   "en": "Dropping the vine down the side of the cliff, you see that it is",
+   "zh": "把藤蔓沿峭壁放下去，你發現它"
+  },
+  "21351": {
+   "en": "still too short to reach the forest below...",
+   "zh": "仍然太短，搆不到下方的森林……"
+  },
+  "21361": {
+   "en": " CLIMB UP THE LONG VINE ",
+   "zh": " 攀上長藤 "
+  },
+  "21362": {
+   "en": "  REMAIN HERE FOR NOW  ",
+   "zh": "  暫留此地  "
+  },
+  "21365": {
+   "en": "At the base of a sheer cliff dangles a long vine from far above...",
+   "zh": "峭壁腳下，一條長藤自高處垂落……"
+  },
+  "21371": {
+   "en": " CLIMB DOWN THE LONG VINE ",
+   "zh": " 攀下長藤 "
+  },
+  "21372": {
+   "en": "   REMAIN HERE FOR NOW  ",
+   "zh": "   暫留此地  "
+  },
+  "21375": {
+   "en": "A long vine dangles down the sheer cliff into the forest below...",
+   "zh": "一條長藤沿峭壁垂入下方森林……"
+  },
+  "21380": {
+   "en": "You stand at the base of a steep sheer cliff, almost straight up",
+   "zh": "你站在陡峭絕壁的腳下，它近乎垂直"
+  },
+  "21381": {
+   "en": "and certainly impossible to scale or climb...",
+   "zh": "而且根本無法攀爬……"
+  },
+  "21382": {
+   "en": "@It appears to ascend all the way into the heavens...",
+   "zh": "它看上去一路直上雲霄……"
+  },
+  "21390": {
+   "en": "With grim determination amidst visions of a pulpy death, you",
+   "zh": "腦中閃過摔成肉泥的畫面，你仍狠下決心，"
+  },
+  "21391": {
+   "en": "bravely make the unfathomable climb...",
+   "zh": "勇敢地展開這場不可思議的攀登……"
+  },
+  "21401": {
+   "en": "  CLIMB UP THE VINES  ",
+   "zh": "  攀上藤蔓  "
+  },
+  "21402": {
+   "en": " REMAIN HERE FOR NOW ",
+   "zh": " 暫留此地 "
+  },
+  "21405": {
+   "en": "From a tree hang long thick vines, growing across",
+   "zh": "一棵樹上垂掛著粗長的藤蔓，一路蔓生過"
+  },
+  "21406": {
+   "en": "the ground and up the mountain, hundreds of feet long...",
+   "zh": "地面又攀上山坡，長達數百英尺……"
+  },
+  "21410": {
+   "en": "The vines appear supple and sturdy, but cling so gently to the",
+   "zh": "藤蔓看似柔韌結實，卻只是輕輕攀附在"
+  },
+  "21411": {
+   "en": "mountain face that a quick yank parts them from their grasp,",
+   "zh": "山壁上，使勁一扯便讓它們鬆開了攀附，"
+  },
+  "21412": {
+   "en": "tumbling them back upon you to the ground in a heap...",
+   "zh": "整堆塌落下來砸在你身上，摔到地面……"
+  },
+  "21450": {
+   "en": "A sudden cold chill rushes through you as you come to the edge",
+   "zh": "走到一片林間空地的邊緣時，一陣寒意"
+  },
+  "21451": {
+   "en": "of a clearing in the forest...",
+   "zh": "突然竄過你全身……"
+  },
+  "21455": {
+   "en": "The night air cackles with an eerie magic, the wind howls, and you",
+   "zh": "夜空嘶響著詭異的魔法，風聲嚎嘯，你"
+  },
+  "21456": {
+   "en": "understand well these signs that signify you stand amidst the presence",
+   "zh": "深知這些徵兆表示你正置身於某種"
+  },
+  "21457": {
+   "en": "of a haunting...",
+   "zh": "鬧鬼之地……"
+  },
+  "21460": {
+   "en": "You enter a cold spot, which momentarily dances around",
+   "zh": "你走進一團寒氣之中，它繞著"
+  },
+  "21461": {
+   "en": "you, then vanishes...",
+   "zh": "你盤旋片刻便消散……"
+  },
+  "21465": {
+   "en": "Peering through the lens of the Necromatic Helm, you stand witness",
+   "zh": "透過死靈頭盔的鏡片凝望，你親眼目睹"
+  },
+  "21466": {
+   "en": "to a host of colorful ghostly visages as they dance and dart",
+   "zh": "成群色彩繽紛的幽靈面容，正飛舞穿梭"
+  },
+  "21467": {
+   "en": "about the supernatural field...",
+   "zh": "在這片超自然的場域之間……"
+  },
+  "21468": {
+   "en": "@They seem to be encircling something, and you notice that",
+   "zh": "它們似乎正圍繞著某個東西，而且你注意到"
+  },
+  "21469": {
+   "en": "they make occasional thrusts and lunges into the center of the",
+   "zh": "它們不時朝著圈中央突刺猛撲，"
+  },
+  "21470": {
+   "en": "circle, which is immediately followed by an anguished scream of",
+   "zh": "而每次之後立刻響起一聲悽厲的"
+  },
+  "21471": {
+   "en": "pain, coming from as yet some unknown other creature...",
+   "zh": "痛苦慘叫，來自某個尚未現身的生物……"
+  },
+  "21475": {
+   "en": "You draw near to one of the faint spectres, who menacingly turns",
+   "zh": "你朝其中一個黯淡的幽魂靠近，它帶著威嚇"
+  },
+  "21476": {
+   "en": "to face you...",
+   "zh": "轉身面對你……"
+  },
+  "21480": {
+   "en": "Gnoll trolls and skeleton bowls, &",
+   "zh": "豺狼巨魔與骷髏碗，&"
+  },
+  "21481": {
+   "en": "I am it that the East Witch tolls; &%]",
+   "zh": "我是東方女巫敲響的鐘；&%]"
+  },
+  "21482": {
+   "en": "By ears of gold her wish be done, &",
+   "zh": "憑金色耳朵遂她的心願，&"
+  },
+  "21483": {
+   "en": "Tis Barbana called in mountains yon!",
+   "zh": "山那一方，她名喚芭芭娜！"
+  },
+  "21485": {
+   "en": "Mummy's tombs and hexing looms, &",
+   "zh": "木乃伊陵與咒術織機，&"
+  },
+  "21486": {
+   "en": "I am it that the West Witch dooms; &%]",
+   "zh": "我是西方女巫降下的厄運；&%]"
+  },
+  "21487": {
+   "en": "By a nose of gold her wish be done, &",
+   "zh": "憑金色鼻子遂她的心願，&"
+  },
+  "21488": {
+   "en": "Tis Carmela called in mountains yon!",
+   "zh": "山那一方，她名喚卡蜜拉！"
+  },
+  "21490": {
+   "en": "Blackened chains on dead men's veins, &",
+   "zh": "死人血管上的焦黑鎖鏈，&"
+  },
+  "21491": {
+   "en": "I am it that the South Witch banes; &%]",
+   "zh": "我是南方女巫降的禍殃；&%]"
+  },
+  "21492": {
+   "en": "By teeth of gold her wish be done, &",
+   "zh": "憑金色牙齒遂她的心願，&"
+  },
+  "21493": {
+   "en": "Tis Xandasa called in mountains yon!",
+   "zh": "山那一方，她名喚珊達莎！"
+  },
+  "21495": {
+   "en": "Icy fires and goblin pyres, &",
+   "zh": "寒冰之火與妖精柴堆，&"
+  },
+  "21496": {
+   "en": "I am it that the North Witch sires; &%]",
+   "zh": "我是北方女巫所出之物；&%]"
+  },
+  "21497": {
+   "en": "By eyes of gold her wish be done, &",
+   "zh": "憑金色眼睛遂她的心願，&"
+  },
+  "21498": {
+   "en": "Tis Naralda called in mountains yon!",
+   "zh": "山那一方，她名喚娜拉爾達！"
+  },
+  "21500": {
+   "en": "Inside the circle of dancing wraiths, another spirit fades into view...",
+   "zh": "在飛舞群鬼圍成的圓圈中央，又一個靈影淡現而出……"
+  },
+  "21505": {
+   "en": "Her frail and noble body shaking, she calls... &%]",
+   "zh": "她纖弱而高貴的身軀顫抖著，呼喊……&%]"
+  },
+  "21506": {
+   "en": "\"Help me\" &%]",
+   "zh": "「救救我」&%]"
+  },
+  "21507": {
+   "en": "The ghastly phantasms suddenly leap and tear at her, and you watch",
+   "zh": "兇惡的幽靈們突然撲上撕扯她，你只能眼睜睜"
+  },
+  "21508": {
+   "en": "helplessly as she writhes at their touch, fading again out of view...",
+   "zh": "看著她在觸碰下扭動掙扎，再度淡出視線……"
+  },
+  "21510": {
+   "en": "Suddenly in the sky you see a soaring black bird, pursued by a flock",
+   "zh": "突然間，你望見天上一隻翱翔的黑鳥，身後有"
+  },
+  "21511": {
+   "en": "of demonic flying creatures...",
+   "zh": "一群魔性飛獸緊追在後……"
+  },
+  "21512": {
+   "en": "@The black bird descends upon you with a telling pain that speaks all",
+   "zh": "黑鳥朝你撲降而下，帶著一股痛楚，"
+  },
+  "21513": {
+   "en": "too well of its desperate plight...",
+   "zh": "將牠絕望的處境訴說得再清楚不過……"
+  },
+  "21515": {
+   "en": "Stopping just before you, the doomed bird looks into your face and",
+   "zh": "那隻劫數難逃的鳥兒停在你面前，望著你的臉，"
+  },
+  "21516": {
+   "en": "attempts to croan out something which you might understand... &%]",
+   "zh": "努力嘶啞地叫出你也許能懂的話……&%]"
+  },
+  "21517": {
+   "en": "\"Al-bie\" &%]",
+   "zh": "「艾比」&%]"
+  },
+  "21518": {
+   "en": "Then it is off again, and you watch as its pursuers quickly gain, and",
+   "zh": "接著牠又騰身而去，你看著追兵迅速逼近，"
+  },
+  "21519": {
+   "en": "know that it is only a short matter of time before they succeed in",
+   "zh": "明白不出多久，他們終將"
+  },
+  "21520": {
+   "en": "catching their prey...",
+   "zh": "抓住這隻獵物……"
+  },
+  "21530": {
+   "en": "The pointed spires of scowling black mountains loom upwards, towering",
+   "zh": "森然黑山的尖銳峰巒向上高聳，"
+  },
+  "21531": {
+   "en": "into the sky, and you feel a sudden slight rush of both awe and",
+   "zh": "直插天際，你心中驟然湧起一股敬畏"
+  },
+  "21532": {
+   "en": "ominous foreboding...",
+   "zh": "與不祥的預感……"
+  },
+  "21535": {
+   "en": "The royal peaks of the thick Ukpyr Mountains lying east shine in hues",
+   "zh": "東邊巍峨的烏克皮爾山脈，王者般的群峰閃著"
+  },
+  "21536": {
+   "en": "of deep purple-blue, its forested foothills made serene by the",
+   "zh": "深紫藍的色澤，覆滿林木的山麓因"
+  },
+  "21537": {
+   "en": "colors of wild flowers dotting the velveted shore...",
+   "zh": "野花點綴如絨毯的岸邊而寧靜祥和……"
+  },
+  "21540": {
+   "en": "Ascending into the dark sable crown of the Witch Mountains, you feel",
+   "zh": "登上有如漆黑王冠的巫女山脈，你感覺"
+  },
+  "21541": {
+   "en": "as if about to set foot upon an etherial stage of unnatural forces...",
+   "zh": "自己彷彿即將踏上超自然力量的虛幻舞台……"
+  },
+  "21545": {
+   "en": "A soft apparition appears upon the mountainside... &%]",
+   "zh": "一道輕柔的幽影浮現在山腰上……&%]"
+  },
+  "21546": {
+   "en": "She pauses momentarily, gazing in your direction... &%]",
+   "zh": "她停留片刻，朝你的方向凝望……&%]"
+  },
+  "21547": {
+   "en": "There is something she is holding in her hands... &%]",
+   "zh": "她手中似乎捧著什麼東西……&%]"
+  },
+  "21548": {
+   "en": "Then she turns away, and soon vanishes without a trace...",
+   "zh": "然後她轉身離去，不久便消失得無影無蹤……"
+  },
+  "21560": {
+   "en": "You see a moving swarm of dainty glowing lights up ahead...",
+   "zh": "你看見前方有一群翩然移動的小光點……"
+  },
+  "21565": {
+   "en": "The little lights seem to be moving, always ahead of you...",
+   "zh": "那些小光點似乎一直在移動，始終在你前方……"
+  },
+  "21570": {
+   "en": "The tiny lights have disappeared into the darkness...",
+   "zh": "微小的光點已消失在黑暗之中……"
+  },
+  "21572": {
+   "en": "From out of the darkness the swarming stars engulf you!",
+   "zh": "成群光點從黑暗中湧出，將你吞噬！"
+  },
+  "21575": {
+   "en": "A cold shiver suddenly passes through you... %]",
+   "zh": "一陣寒顫突然掠過你身……%]"
+  },
+  "21576": {
+   "en": "But you see nothing... %]",
+   "zh": "但你什麼也沒看見……%]"
+  },
+  "21577": {
+   "en": "It must have been only the wind... %]",
+   "zh": "想必只是風聲罷了……%]"
+  },
+  "21578": {
+   "en": "But it has left you feeling cold, so cold...",
+   "zh": "但它留下了寒意，冷，好冷……"
+  },
+  "21580": {
+   "en": "Before you appears a shackled ghost... &%]",
+   "zh": "你面前出現一個被鐵鍊鎖住的幽靈……&%]"
+  },
+  "21581": {
+   "en": "It looks pleadingly at you... &%]",
+   "zh": "它哀求地望著你……&%]"
+  },
+  "21582": {
+   "en": "As if wanting something from you... &%]",
+   "zh": "彷彿想向你索求什麼……&%]"
+  },
+  "21583": {
+   "en": "Then it becomes angry and charges, a grimacing demon... &%]",
+   "zh": "接著它獰笑暴怒，如惡魔般撲來……&%]"
+  },
+  "21584": {
+   "en": "Its face becomes like death and it enters into you... &%]",
+   "zh": "它的面容變得如死亡般，接著竄入你體內……&%]"
+  },
+  "21585": {
+   "en": "Only to disappear and leave you cold, so very cold...",
+   "zh": "隨即消失無蹤，只留給你寒意，刺骨的冷……"
+  },
+  "21590": {
+   "en": "A strange sound can be heard from somewhere distant... %]",
+   "zh": "遠處某處傳來一陣奇異的聲響……%]"
+  },
+  "21591": {
+   "en": "It sounds like a woman, crying... %]",
+   "zh": "聽來像個女人在哭泣……%]"
+  },
+  "21592": {
+   "en": "Then it sounds like it is calling out to someone... %]",
+   "zh": "接著又像是在呼喚某人……%]"
+  },
+  "21593": {
+   "en": "And then turns into a spoken whisper... %]",
+   "zh": "然後化成了低聲細語……%]"
+  },
+  "21594": {
+   "en": "But it is too faint for you to make out the words...",
+   "zh": "但聲音太微弱，你聽不清說的是什麼……"
+  },
+  "21600": {
+   "en": "The Witch's Tale",
+   "zh": "女巫的故事"
+  },
+  "21601": {
+   "en": "!Once upon a time there was a goodly witch by the name of",
+   "zh": "很久以前，有位善良的女巫，名叫"
+  },
+  "21602": {
+   "en": "Hilynda, who was very powerful and beautiful. She lived high",
+   "zh": "希琳達，她法力高強，容貌美麗。她住在"
+  },
+  "21603": {
+   "en": "upon a mountain top, and ruled all the lands below her as far as",
+   "zh": "高高的山頂上，統治山下凡視線所及的一切土地。"
+  },
+  "21604": {
+   "en": "the eye could see. Being a fair and just witch, she was provider",
+   "zh": "她公正又仁慈，是領地中所有動物的"
+  },
+  "21605": {
+   "en": "and benefactor to all the animals dwelling within her domain,",
+   "zh": "供養者與恩主，也常在路過的旅人"
+  },
+  "21606": {
+   "en": "and often appeared to passing strangers in times of need. She",
+   "zh": "危難之時現身相助。她的父母"
+  },
+  "21607": {
+   "en": "had been borne of parents who also were witches, and had inherited",
+   "zh": "也是女巫，她因此繼承了預知"
+  },
+  "21608": {
+   "en": "the power to foretell the future, a very rare and special gift, even",
+   "zh": "未來的能力，那是極罕見的特別天賦，"
+  },
+  "21609": {
+   "en": "for a witch. But coming from a family of witches, she was not an",
+   "zh": "就連對女巫而言也是。但生於女巫之家，她"
+  },
+  "21610": {
+   "en": "only child. Four sisters, envious of her beauty and jealous of her",
+   "zh": "並非獨生女。四個姊妹嫉妒她的美貌、"
+  },
+  "21611": {
+   "en": "power, also lived in the mountains. And as every day passed, they",
+   "zh": "眼紅她的力量，也住在山中。隨著日子"
+  },
+  "21612": {
+   "en": "became more and more resentful of her popularity and her goodness.",
+   "zh": "一天天過去，她們對她的名望與善良越發怨恨。"
+  },
+  "21613": {
+   "en": "So the four sisters banded together, and decided that they would",
+   "zh": "於是四姊妹結成一夥，決定要"
+  },
+  "21614": {
+   "en": "undo all the good that Hilynda had done, and torment her, and",
+   "zh": "破壞希琳達成就的一切善行，折磨她，"
+  },
+  "21615": {
+   "en": "be just as nasty as they could. And the four sisters took upon",
+   "zh": "使出種種卑劣手段。四姊妹還分別"
+  },
+  "21616": {
+   "en": "themselves the names of the North, the South, the East, and the",
+   "zh": "以北、南、東、西四方之名自稱，"
+  },
+  "21617": {
+   "en": "West, so that they would cover all the lands around them and",
+   "zh": "好盤踞四周的全部土地，"
+  },
+  "21618": {
+   "en": "insure that no foul deed would go undone. But for every dirty",
+   "zh": "不讓任何惡行落空。但她們每使一個"
+  },
+  "21619": {
+   "en": "trick, for every heinous crime, for every little bit of badness",
+   "zh": "卑鄙伎倆、每犯一樁重罪、每做一件"
+  },
+  "21620": {
+   "en": "that they could do, Hilynda was always there to thwart them, and",
+   "zh": "小小的惡事，希琳達總能及時挫敗，"
+  },
+  "21621": {
+   "en": "turn their horrible deeds into good ones. For remember, Hilynda",
+   "zh": "把可怕的行徑化為善果。別忘了，希琳達"
+  },
+  "21622": {
+   "en": "could see into the future and always knew what her sisters were",
+   "zh": "能看見未來，姊妹們要做什麼，"
+  },
+  "21623": {
+   "en": "going to do, even before they themselves knew! And so the day",
+   "zh": "她總是先知道，甚至比她們自己還早！"
+  },
+  "21624": {
+   "en": "finally came when the four sisters said enough was enough and",
+   "zh": "於是這一天終於來到，四姊妹說夠了，"
+  },
+  "21625": {
+   "en": "the time had come for them to put a stop to Hilynda once and",
+   "zh": "該一勞永逸地終結希琳達了。一天夜裡，"
+  },
+  "21626": {
+   "en": "for all. One night, while Hilynda lay sleeping, dreaming of",
+   "zh": "希琳達正睡得香甜，作著好夢，"
+  },
+  "21627": {
+   "en": "good things, they sneaked into her chamber and invoked a",
+   "zh": "她們溜進她的寢室，對她"
+  },
+  "21628": {
+   "en": "terrible magic spell upon her; they cast a spell to steal her",
+   "zh": "施展了可怕的魔法；她們施咒要偷走"
+  },
+  "21629": {
+   "en": "face! Her beautiful face, her nose, her",
+   "zh": "她的臉！她美麗的臉、鼻子、"
+  },
+  "21630": {
+   "en": "mouth, her ears and her enchanted eyes, were severed and plucked",
+   "zh": "嘴巴、耳朵和附魔的雙眼，都被切下奪走；"
+  },
+  "21631": {
+   "en": "from her; and each of the sisters took a part of Hilynda's",
+   "zh": "每個姊妹各取走希琳達的"
+  },
+  "21632": {
+   "en": "face, so that then they would all have a share of their sister's",
+   "zh": "一部分臉，這樣她們就能共享姊妹的"
+  },
+  "21633": {
+   "en": "magical power, and of her beauty. But Hilynda was wise to them,",
+   "zh": "法力與美貌。但希琳達早有防備，"
+  },
+  "21634": {
+   "en": "and had foreseen what her sisters had been planning to do,",
+   "zh": "她已預見姊妹們的圖謀，那晚"
+  },
+  "21635": {
+   "en": "and that night, before she slept, she annointed",
+   "zh": "就寢之前，她以特製的藥膏"
+  },
+  "21636": {
+   "en": "herself with a special potion, which turned her face into gold!",
+   "zh": "塗抹自己，臉因此化為了黃金！"
+  },
+  "21637": {
+   "en": "And when her mouth, her nose, her ears, and her eyes were",
+   "zh": "於是當她的嘴、鼻、耳、眼被偷走時，"
+  },
+  "21638": {
+   "en": "stolen, it did not hurt her and she did not die; and because",
+   "zh": "她不覺疼痛，也沒有死；由於五官"
+  },
+  "21639": {
+   "en": "her features were no longer of flesh and blood, each of the four",
+   "zh": "已不再是血肉之軀，四姊妹每人的臉"
+  },
+  "21640": {
+   "en": "sister's own face was replaced with a part of gold. But Hilynda",
+   "zh": "都換上了一部分黃金。但希琳達從此"
+  },
+  "21641": {
+   "en": "was cut off from the outside world, alone, and with no face.",
+   "zh": "與外界隔絕，孤孤單單，沒有臉。"
+  },
+  "21642": {
+   "en": "The four sisters now rule the mountains, and terrorize the",
+   "zh": "如今四姊妹統治群山，恐嚇"
+  },
+  "21643": {
+   "en": "surrounding lands, and do all kinds of horrible things. And",
+   "zh": "四周的土地，無惡不作。而為了"
+  },
+  "21644": {
+   "en": "to repay Hilynda for her cleverness, and cursing them with",
+   "zh": "報復希琳達的機智、詛咒她們"
+  },
+  "21645": {
+   "en": "a feature of gold, every night they torment her, sending demons",
+   "zh": "得到黃金五官，她們每晚折磨她，派出"
+  },
+  "21646": {
+   "en": "and spooks and ghouls and fiends to poke and tear at her, and",
+   "zh": "惡魔、幽靈、食屍鬼與魔怪去戳她撕她，"
+  },
+  "21647": {
+   "en": "make her feel just awful. They say that the five sisters still",
+   "zh": "讓她難受至極。據說五姊妹至今仍"
+  },
+  "21648": {
+   "en": "live in those mountains, and that every night, just before",
+   "zh": "住在那些山中；而且每夜，就在"
+  },
+  "21649": {
+   "en": "the witching hour, if you look through a witching glass, you can",
+   "zh": "巫時將至之前，若你透過巫鏡觀看，"
+  },
+  "21650": {
+   "en": "see the spirits come down into the forest, dancing",
+   "zh": "便能看見眾靈降入森林，"
+  },
+  "21651": {
+   "en": "their dance of torture, cruelty and pain around Hilynda, and that",
+   "zh": "圍著希琳達跳起酷刑、殘忍與痛苦之舞；據說"
+  },
+  "21652": {
+   "en": "to this very day she still roams the mountains, waiting for someone",
+   "zh": "時至今日，她仍在群山間徘徊，等待有人"
+  },
+  "21653": {
+   "en": "to make her whole and beautiful again, waiting for someone to",
+   "zh": "使她重歸完整與美麗，等待有人"
+  },
+  "21654": {
+   "en": "bring back her face.",
+   "zh": "帶回她的臉。"
+  },
+  "21655": {
+   "en": "!!The End",
+   "zh": "（完）"
+  },
+  "21660": {
+   "en": "Opening the ancient chest, you uncover a package of sealed waxy",
+   "zh": "打開古老的箱子，你發現一包蠟封的"
+  },
+  "21661": {
+   "en": "wrappings...",
+   "zh": "包裹……"
+  },
+  "21662": {
+   "en": "@Inside the wrappings you find an old piece of preserved parchment...",
+   "zh": "蠟封包裹裡有一張保存良好的古老羊皮紙……"
+  },
+  "21700": {
+   "en": "Upon the wall of the cavern hangs a mirror of black stone... &%]",
+   "zh": "洞窟牆上掛著一面黑石鏡子……&%]"
+  },
+  "21701": {
+   "en": "As you approach, a spectral face with ears of gold appears within...",
+   "zh": "你走近時，鏡中浮現一張有著金色耳朵的幽靈臉孔……"
+  },
+  "21705": {
+   "en": "Upon the wall of the cavern hangs a mirror of black stone... &%]",
+   "zh": "洞窟牆上掛著一面黑石鏡子……&%]"
+  },
+  "21706": {
+   "en": "As you approach, a spectral face with teeth of gold appears within...",
+   "zh": "你走近時，鏡中浮現一張有著金色牙齒的幽靈臉孔……"
+  },
+  "21710": {
+   "en": "Upon the wall of the cavern hangs a mirror of black stone... &%]",
+   "zh": "洞窟牆上掛著一面黑石鏡子……&%]"
+  },
+  "21711": {
+   "en": "As you approach, a spectral face with a nose of gold appears within...",
+   "zh": "你走近時，鏡中浮現一張有著金色鼻子的幽靈臉孔……"
+  },
+  "21715": {
+   "en": "Upon the wall of the cavern hangs a mirror of black stone... &%]",
+   "zh": "洞窟牆上掛著一面黑石鏡子……&%]"
+  },
+  "21716": {
+   "en": "As you approach, a spectral face with eyes of gold appears within...",
+   "zh": "你走近時，鏡中浮現一張有著金色雙眼的幽靈臉孔……"
+  },
+  "21720": {
+   "en": "\u0006BARBANA/",
+   "zh": "\u0006BARBANA/"
+  },
+  "21722": {
+   "en": "Bat's boils and raven's blood, what name be under East Witch hood?",
+   "zh": "蝙蝠的膿瘡與渡鴉之血，東方女巫兜帽下是何名？"
+  },
+  "21725": {
+   "en": "\u0003XANDASA/",
+   "zh": "\u0003XANDASA/"
+  },
+  "21727": {
+   "en": "Rat's tails and demon's blood, what name be under South Witch hood?",
+   "zh": "鼠尾與惡魔之血，南方女巫兜帽下是何名？"
+  },
+  "21730": {
+   "en": "\tCARMELA/",
+   "zh": "\tCARMELA/"
+  },
+  "21732": {
+   "en": "Toad's warts and black cat's blood, what name be under West Witch hood?",
+   "zh": "蟾蜍疣與黑貓之血，西方女巫兜帽下是何名？"
+  },
+  "21735": {
+   "en": "\fNARALDA/",
+   "zh": "\fNARALDA/"
+  },
+  "21737": {
+   "en": "Dragon's wings and ogre's blood, what name be under North Witch hood?",
+   "zh": "龍翼與食人魔之血，北方女巫兜帽下是何名？"
+  },
+  "21740": {
+   "en": "Upon calling out the name, a wild pandemonium of hisses and",
+   "zh": "喚出名字的瞬間，一陣嘶聲與"
+  },
+  "21741": {
+   "en": "colored vapors suddenly erupts before you... &%]",
+   "zh": "彩霧猛然在你面前爆開……&%]"
+  },
+  "21742": {
+   "en": "From the billow of swirling fumes is revealed the figure of",
+   "zh": "翻騰的煙霧中顯現出一個"
+  },
+  "21743": {
+   "en": "a raving witch...",
+   "zh": "狂亂女巫……"
+  },
+  "21750": {
+   "en": "Thou that calls my name, shall know thy bane!",
+   "zh": "呼喚我名者，必將知曉自身的剋星！"
+  },
+  "21757": {
+   "en": "Wilt thou fill my hold, with 1000 coins of gold?",
+   "zh": "你願奉上1000枚金幣，裝滿我的手掌嗎？"
+  },
+  "21760": {
+   "en": "The prophesy be done! &%]",
+   "zh": "預言已應驗！&%]"
+  },
+  "21761": {
+   "en": "A pillar of smoke engulfs the witch, becoming blindingly white... &%]",
+   "zh": "一道煙柱吞沒女巫，轉為刺目的白……&%]"
+  },
+  "21762": {
+   "en": "Your eyes become transfixed upon it and watch as another form",
+   "zh": "你的目光緊盯著它，看著另一個形體"
+  },
+  "21763": {
+   "en": "appears within...",
+   "zh": "在其中浮現……"
+  },
+  "21765": {
+   "en": "Thou knowest this form?",
+   "zh": "你識得這形體嗎？"
+  },
+  "21770": {
+   "en": "The crumpled body of the fallen figure slowly begins to transform",
+   "zh": "倒地者的蜷曲身軀開始緩緩轉變"
+  },
+  "21771": {
+   "en": "amidst swales of darkly mists...",
+   "zh": "在團團黑霧之中……"
+  },
+  "21772": {
+   "en": "@Soon to reveal the bloody corpse of the raving witch...",
+   "zh": "隨即顯露出狂亂女巫的血腥屍身……"
+  },
+  "21773": {
+   "en": "@Dissolving into an etherial vapor, it eventually dissipates",
+   "zh": "屍身化為縹緲蒸氣，漸漸消散"
+  },
+  "21774": {
+   "en": "into the hushed air, leaving naught but a small shiny object on the",
+   "zh": "於寂靜空氣中，只在地上留下一個"
+  },
+  "21775": {
+   "en": "cavern floor...",
+   "zh": "發亮小物……"
+  },
+  "21780": {
+   "en": "In death shall you meet, and in death shall he be victorious! &%]",
+   "zh": "你將於死亡中相會，而死亡中他必得勝！&%]"
+  },
+  "21781": {
+   "en": "Then suddenly the figure attacks!",
+   "zh": "接著那形體突然發動攻擊！"
+  },
+  "21785": {
+   "en": "Behind her darkened brow, doth lie the secret illumination! &%]",
+   "zh": "她陰暗的眉宇之後，藏著秘密的光明！&%]"
+  },
+  "21786": {
+   "en": "Then suddenly the figure attacks!",
+   "zh": "接著那形體突然發動攻擊！"
+  },
+  "21790": {
+   "en": "In the scheme of his master, yet another game shall unfold! &%]",
+   "zh": "在他主人的謀局中，又將展開另一場遊戲！&%]"
+  },
+  "21791": {
+   "en": "Then suddenly the figure attacks!",
+   "zh": "接著那形體突然發動攻擊！"
+  },
+  "21795": {
+   "en": "From him shall one universe end to beget yet another! &%]",
+   "zh": "由他將終結一個宇宙，再造另一個！&%]"
+  },
+  "21796": {
+   "en": "Then suddenly the eyes of the figure begin to glow!",
+   "zh": "接著那形體的雙眼開始發光！"
+  },
+  "21800": {
+   "en": "Upon the wall of the cavern hangs a mirror of black stone... &%]",
+   "zh": "洞窟牆上掛著一面黑石鏡子……&%]"
+  },
+  "21801": {
+   "en": "As you approach, a spectral image with no face appears within... &%]",
+   "zh": "你走近時，鏡中浮現一個沒有臉的幽靈影像……&%]"
+  },
+  "21802": {
+   "en": "She lingers for an instant, and clutches something in her hand... &%]",
+   "zh": "她停留片刻，手中緊握著某物……&%]"
+  },
+  "21803": {
+   "en": "Then she points behind you, and softly fades away...",
+   "zh": "接著她指向你身後，輕輕消散……"
+  },
+  "21805": {
+   "en": "Peering behind you, there is a small dais and a bright object",
+   "zh": "回頭細看，身後有一座小台座和"
+  },
+  "21806": {
+   "en": "which was not there a moment ago...",
+   "zh": "一個發亮之物，方才並不在這裡……"
+  },
+  "21810": {
+   "en": "Drawing forth to the phantom dais, the shining object resting",
+   "zh": "走向那幻影台座，安放於其上的"
+  },
+  "21811": {
+   "en": "upon it appears to be in the shape of a human head,",
+   "zh": "發亮之物看似人頭的形狀，"
+  },
+  "21812": {
+   "en": "made of solid gold, but lacking any facial features...",
+   "zh": "以純金打造，卻沒有任何五官……"
+  },
+  "21813": {
+   "en": "@Just a blank, void golden head...",
+   "zh": "只是一顆空無的黃金頭顱……"
+  },
+  "21815": {
+   "en": "Touching the witch's golden ears to the sides of the gilt head,",
+   "zh": "將女巫的金色耳朵貼上金頭兩側，"
+  },
+  "21816": {
+   "en": "they magically meld into place...",
+   "zh": "它們魔法般融合歸位……"
+  },
+  "21820": {
+   "en": "Touching the witch's golden teeth to the gilt head,",
+   "zh": "你把女巫的金牙貼上鍍金頭像，"
+  },
+  "21821": {
+   "en": "they magically meld into place...",
+   "zh": "它們魔法般融合歸位……"
+  },
+  "21825": {
+   "en": "Touching the witch's golden nose to the gilt head,",
+   "zh": "你把女巫的金鼻貼上鍍金頭像，"
+  },
+  "21826": {
+   "en": "it magically melds into place...",
+   "zh": "它魔法般融合歸位……"
+  },
+  "21830": {
+   "en": "Touching the witch's golden eyes to the gilt head,",
+   "zh": "你把女巫的金眼貼上鍍金頭像，"
+  },
+  "21831": {
+   "en": "they magically meld into place...",
+   "zh": "它們魔法般融合歸位……"
+  },
+  "21835": {
+   "en": "The beautiful face of the golden head now complete, a phosphorescent",
+   "zh": "金頭像的美麗臉龐現已完成，一圈磷光"
+  },
+  "21836": {
+   "en": "brume begins to coalesce around the bewitching fantata...",
+   "zh": "薄霧開始在迷人幻影周圍凝聚……"
+  },
+  "21840": {
+   "en": "From the smokey plumes arises the full form of the golden witch,",
+   "zh": "煙霧繚繞中升起了金女巫的完整身形，"
+  },
+  "21841": {
+   "en": "Hilynda, enchanting and radiant, and made whole again... &%]",
+   "zh": "希琳達，魅惑動人、光彩照人，重歸完整……&%]"
+  },
+  "21842": {
+   "en": "One hand is raised upright, in a reverent sign of peace and",
+   "zh": "她一手筆直高舉，虔敬地示意和平與"
+  },
+  "21843": {
+   "en": "tranquility, and in the other burns bright a glowing pyramid,",
+   "zh": "安寧，另一隻手燃亮著發光的金字塔，"
+  },
+  "21844": {
+   "en": "upon whose apex floats an illuminant eye... &%]",
+   "zh": "塔尖上漂浮著一隻發亮的眼睛……&%]"
+  },
+  "21845": {
+   "en": "With a voice delicate and tender she speaks: &%]",
+   "zh": "她以細膩溫柔的嗓音說道：&%]"
+  },
+  "21846": {
+   "en": "And in thy final hour of darkness, when the battle be bloodiest",
+   "zh": "而在你最黑暗的時刻，當戰鬥最為血腥"
+  },
+  "21847": {
+   "en": "and all hope becomes lost... &%]Let this icon, this Elysiad, be",
+   "zh": "而一切希望盡失……&%]願這聖像、這至福聖章，成為"
+  },
+  "21848": {
+   "en": "thy guiding spirit, and help deliver unto thee thy place of destiny,",
+   "zh": "你的引導之靈，引領你抵達你的命運歸所，"
+  },
+  "21849": {
+   "en": "as thee hast delivered unto me mine own... &%]",
+   "zh": "正如你已將我的歸所賜還給我……&%]"
+  },
+  "21850": {
+   "en": "...She then waves her hand over the divine icon and it becomes",
+   "zh": "……然後她揮手掠過神聖聖像，它變得"
+  },
+  "21851": {
+   "en": "black as jet, and she places it upon the dais... &%]",
+   "zh": "漆黑如墨玉，她將它放上高台……&%]"
+  },
+  "21852": {
+   "en": "Then, speaking again, she says: &%]",
+   "zh": "然後她再次開口說道：&%]"
+  },
+  "21853": {
+   "en": "Herein this domain lies a part of thy puzzle... &%]",
+   "zh": "這片領域中藏有你謎題的一部分……&%]"
+  },
+  "21854": {
+   "en": "For as the prophesy is fulfilled, the time has come that it be",
+   "zh": "因為預言既已應驗，該是它被揭示的"
+  },
+  "21855": {
+   "en": "revealed... &%]",
+   "zh": "時刻了……&%]"
+  },
+  "21856": {
+   "en": "Remember that thee dost always travel a road leading to",
+   "zh": "記住，你始終走在一條通往"
+  },
+  "21857": {
+   "en": "thine own discovery... &%]",
+   "zh": "自我發現的道路上……&%]"
+  },
+  "21858": {
+   "en": "...And in an irridescent plummage of billowing clouds, she becomes",
+   "zh": "……而後，在翻騰雲霧織就的虹彩羽衣中，她化為"
+  },
+  "21859": {
+   "en": "an ether and gently wisps away...",
+   "zh": "乙太，輕輕飄散而去……"
+  },
+  "21865": {
+   "en": "Picking up the obsidian tetrahedron, you feel a flowing surge of",
+   "zh": "拾起黑曜石四面體，你感到一股流動的"
+  },
+  "21866": {
+   "en": "enchanted energy, which bestows a special blessing...",
+   "zh": "附魔能量，它賦予一份特別的祝福……"
+  },
+  "21870": {
+   "en": "A slight tremor passes through the cavern, and you hear a brief",
+   "zh": "一陣輕微的震動掠過洞穴，你聽到短暫的"
+  },
+  "21871": {
+   "en": "rumble which soon ebbs into the quiet once more...",
+   "zh": "隆隆聲，很快又消退回寂靜……"
+  },
+  "21880": {
+   "en": "A great commotion of convulsing waters spews up from the center",
+   "zh": "劇烈翻騰的水流從混濁水池的中央"
+  },
+  "21881": {
+   "en": "of the turgid pool, and you realize that to navigate the turbulence",
+   "zh": "噴湧而出，你明白想橫渡這股湍流"
+  },
+  "21882": {
+   "en": "would most likely end with disaster...",
+   "zh": "多半會以災難收場……"
+  },
+  "21883": {
+   "en": "@Here too, the shore is bathed in deposits of the frost-white mineral,",
+   "zh": "這裡的岸邊同樣覆滿霜白礦物的沉積，"
+  },
+  "21884": {
+   "en": "the accumulation so great that it has formed a plateau several feet",
+   "zh": "沉積多到形成了高達數尺的平台"
+  },
+  "21885": {
+   "en": "high...",
+   "zh": "……"
+  },
+  "21890": {
+   "en": "Ahead lies the great eruption of turbulent water, and you can",
+   "zh": "前方就是那片劇烈翻騰的水流噴發，你能"
+  },
+  "21891": {
+   "en": "feel the current starting to pull you down...",
+   "zh": "感覺到水流開始把你往下拉……"
+  },
+  "21895": {
+   "en": "The violent tide sucks you under...",
+   "zh": "猛烈的潮水把你捲入水底……"
+  },
+  "21900": {
+   "en": "Pausing inside the cave's entrance, you glance about and listen...",
+   "zh": "你在洞穴入口停下，環顧四周、側耳傾聽……"
+  },
+  "21901": {
+   "en": "@You can hear a faint noise coming from somewhere not too far",
+   "zh": "你聽見不遠處的某處傳來微弱聲響"
+  },
+  "21902": {
+   "en": "away, like the sound of rushing water...",
+   "zh": "像是水流奔瀉的聲音……"
+  },
+  "21903": {
+   "en": "@And the brevity of its echoes reveal that the cave is probably",
+   "zh": "而回音短促，顯示這洞穴恐怕相當"
+  },
+  "21904": {
+   "en": "fairly shallow...",
+   "zh": "淺……"
+  },
+  "21910": {
+   "en": "Approaching the edge of the waters, you see that they are quite",
+   "zh": "走近水邊，你看見水勢相當"
+  },
+  "21911": {
+   "en": "agitated, and are curious about the source of the pool's hefty",
+   "zh": "激盪，不禁好奇這水池的大片"
+  },
+  "21912": {
+   "en": "ripples...",
+   "zh": "漣漪……"
+  },
+  "21913": {
+   "en": "@Deposits of a fine white powder along the bank's edge have",
+   "zh": "岸邊沉積的細白粉末，給水池邊緣"
+  },
+  "21914": {
+   "en": "frosted the lip of the pool, a coating likely aquired by ages",
+   "zh": "敷上一層白霜，這層外皮想必是長年"
+  },
+  "21915": {
+   "en": "of lapping waves laden with the crystalized mineral...",
+   "zh": "載著結晶礦物的波浪拍打而成……"
+  },
+  "21920": {
+   "en": "Picking up a small pinch of the milky shore, you sniff, then",
+   "zh": "你捏起一小撮乳白的岸土，先聞了聞，然後"
+  },
+  "21921": {
+   "en": "taste... %]Salty!",
+   "zh": "嘗……%]是鹹的！"
+  },
+  "21930": {
+   "en": "Placing the mysterious egg upon the salty bank, you stand",
+   "zh": "你把神秘的蛋放上鹽岸，退後"
+  },
+  "21931": {
+   "en": "back and wait to see what happens... %]",
+   "zh": "站開，等著看接下來會如何……%]"
+  },
+  "21932": {
+   "en": "Nothing...",
+   "zh": "沒動靜……"
+  },
+  "21940": {
+   "en": "Placing the mysterious egg upon the salty bank, you stand",
+   "zh": "你把神秘的蛋放上鹽岸，退後"
+  },
+  "21941": {
+   "en": "back and wait to see what happens... %]",
+   "zh": "站開，等著看接下來會如何……%]"
+  },
+  "21942": {
+   "en": "Nothing... %",
+   "zh": "沒動靜……%"
+  },
+  "21943": {
+   "en": "at first... %]",
+   "zh": "起先……%]"
+  },
+  "21944": {
+   "en": "And then you notice that the salt seems to be dissolving",
+   "zh": "然後你注意到鹽似乎正在溶解"
+  },
+  "21945": {
+   "en": "the hard stoney shell... %]",
+   "zh": "那層堅硬的石質外殼……%]"
+  },
+  "21946": {
+   "en": "It is reacting with the egg, bubbling, spewing and fizzing... %]",
+   "zh": "它與蛋起反應，冒泡、噴濺、嘶嘶作響……%]"
+  },
+  "21948": {
+   "en": "And then it explodes!",
+   "zh": "然後它爆炸了！"
+  },
+  "21950": {
+   "en": "Although powerful enough to knock you down, no one seems hurt... %]",
+   "zh": "雖然威力足以將你擊倒，但似乎沒人受傷……%]"
+  },
+  "21951": {
+   "en": "In fact it was a quite gentle and almost pleasant sensation...",
+   "zh": "那其實是相當輕柔、幾乎令人愉悅的感受……"
+  },
+  "21955": {
+   "en": "You stand up and begin to brush yourself off, and while doing so",
+   "zh": "你站起來拍去身上塵土，這時突然"
+  },
+  "21956": {
+   "en": "suddenly catch a glimpse of the magnificent creature flying directly",
+   "zh": "瞥見那宏偉的生物從上方筆直朝你"
+  },
+  "21957": {
+   "en": "at you from above...",
+   "zh": "飛來……"
+  },
+  "21960": {
+   "en": "Is he not a body, that from toil doth he bring forth sustenance? &%]",
+   "zh": "他豈非軀體，從勞苦中生出滋養？&%]"
+  },
+  "21961": {
+   "en": "Is he not a heart, that from anguish doth he glean understanding? &%]",
+   "zh": "他豈非一顆心，從悲痛中拾得領悟？&%]"
+  },
+  "21962": {
+   "en": "Is he not a mind, that from chaos doth he wrest order? &%]",
+   "zh": "他豈非心智，從混亂中奪得秩序？&%]"
+  },
+  "21963": {
+   "en": "And is he not yet more than this, that from emptiness doth he",
+   "zh": "而他豈非更勝於此，從虛空中"
+  },
+  "21964": {
+   "en": "harvest creation?",
+   "zh": "收割創造？"
+  },
+  "21966": {
+   "en": "...Then the wonderous manifestation swoops down to the edge of the",
+   "zh": "……然後那奇妙的化身俯衝至冒泡的"
+  },
+  "21967": {
+   "en": "bubbling water, and flying a high arc above the uproaring sea, emits",
+   "zh": "水邊，在翻騰咆哮的水面上空飛出一道高弧，噴放出"
+  },
+  "21968": {
+   "en": "a trail of swirling colors which follows her path across it to",
+   "zh": "一串迴旋的色彩，沿她的航跡橫越水面直到"
+  },
+  "21969": {
+   "en": "the other side...",
+   "zh": "對岸……"
+  },
+  "21971": {
+   "en": "And she calls across the churning ocean and the colorful arch: &%]",
+   "zh": "她隔著翻騰的水面與彩色拱橋喊道：&%]"
+  },
+  "21972": {
+   "en": "Think well upon this, for this be thine only key to the great",
+   "zh": "好好思索此事，因為這是你解開偉大謎題的唯一"
+  },
+  "21973": {
+   "en": "riddle...",
+   "zh": "鑰匙……"
+  },
+  "21975": {
+   "en": "Before you shines a great rainbow arch, spanning across a pool",
+   "zh": "你眼前閃耀著一道巨大的彩虹拱橋，橫跨"
+  },
+  "21976": {
+   "en": "of churning waters...",
+   "zh": "一座翻騰的水池……"
+  },
+  "21980": {
+   "en": "Do you step onto the arch?",
+   "zh": "你要踏上拱橋嗎？"
+  },
+  "21982": {
+   "en": "Stepping upon the end of the rainbow arch, you magically",
+   "zh": "踏上彩虹拱橋一端，你彷彿被魔法托著"
+  },
+  "21983": {
+   "en": "glide across the raging pool...",
+   "zh": "滑越怒濤洶湧的水池……"
+  },
+  "21985": {
+   "en": "A shallow pit lies in the cavern floor, filled with a sea of",
+   "zh": "洞穴地面有個淺坑，坑裡滿是"
+  },
+  "21986": {
+   "en": "black slugs...",
+   "zh": "黑蛞蝓……"
+  },
+  "21990": {
+   "en": "Reaching down into the pit of slugs, your hand grasps a metal rod,",
+   "zh": "你伸手探入蛞蝓坑，握住一根金屬棒，"
+  },
+  "21991": {
+   "en": "afloat within their oozing midst...",
+   "zh": "它漂浮在牠們黏膩的漿液中……"
+  },
+  "21992": {
+   "en": "@Extracting the hard shaft, you behold a dazzling wand...",
+   "zh": "抽出堅硬的杖身，你見到一根耀眼的法杖……"
+  },
+  "21993": {
+   "en": "@Perhaps the creature's strange words have something to do with it...",
+   "zh": "或許那生物的奇異話語與此有關……"
+  },
+  "21995": {
+   "en": "#!Do Not Touch!",
+   "zh": "請勿觸摸！"
+  },
+  "21996": {
+   "en": "!WAND MAJESTIK",
+   "zh": "威嚴法杖"
+  },
+  "21997": {
+   "en": "@An empty marble pedestal sits quietly, displaying nothing but air...",
+   "zh": "空蕩的大理石基座靜靜立著，上方空無一物……"
+  },
+  "22000": {
+   "en": "In the pitted gorge of the mountains beckons an elephantine cave,",
+   "zh": "山脈坑疤的峽谷間，一座巨象般的洞穴向你招手，"
+  },
+  "22001": {
+   "en": "and you sense perhaps the abode of many a thumping goliath...",
+   "zh": "你隱約感覺，這裡說不定是許多腳步如雷的巨人的巢穴……"
+  },
+  "22002": {
+   "en": "@Maybe no one is home...",
+   "zh": "也許沒人在家……"
+  },
+  "22005": {
+   "en": "The large flowing body of water can only be an underground route of",
+   "zh": "這片浩大的流動水域，只能是艾恩河的"
+  },
+  "22006": {
+   "en": "the Eyrn River, winding it's way down through the mountains...",
+   "zh": "一段地下河道，蜿蜒穿山而下……"
+  },
+  "22007": {
+   "en": "@Very convenient for the inhabitants to have a fresh water supply,",
+   "zh": "居民有現成的淡水可用，著實方便，"
+  },
+  "22008": {
+   "en": "as well as an easy means for disposing of waste...",
+   "zh": "要倒穢物也同樣省事……"
+  },
+  "22009": {
+   "en": "@And meddlers...",
+   "zh": "還有好事之徒……"
+  },
+  "22015": {
+   "en": "Violating his dominion, you confont a strapping colossus...",
+   "zh": "你侵犯了他的領域，迎面撞上一名魁梧巨漢……"
+  },
+  "22020": {
+   "en": "GARAAWWWW! &%]CHEWY FOOD!",
+   "zh": "嘎啦哇！&%]有嚼勁的食物！"
+  },
+  "22025": {
+   "en": "BURRGGGAAAHH! &%]STUUFFFIIINSSS!!",
+   "zh": "布嘎啊啊啊！&%]好吃的填餡！！"
+  },
+  "22030": {
+   "en": "HAWWGAAH! &%]OGO GETS NEW SHOES!",
+   "zh": "嘩嘎啊！&%]奧戈有新鞋穿了！"
+  },
+  "22035": {
+   "en": "MMMMM! &%]M U N C H K I N S!",
+   "zh": "姆姆姆姆！&%]小 點 心！"
+  },
+  "22040": {
+   "en": "O-HO-HO! &%]LITTLE JELLY TUBES!",
+   "zh": "喔呵呵！&%]小果凍條！"
+  },
+  "22045": {
+   "en": "You surmise that you are considered a delicacy in this neck of the",
+   "zh": "你推想，在這一帶的山林裡，你們被視為"
+  },
+  "22046": {
+   "en": "woods...",
+   "zh": "珍饈……"
+  },
+  "22050": {
+   "en": "Scrawled upon the cave wall you make out these jumbo sketchy letters:",
+   "zh": "你在洞壁上認出這行歪斜的巨大塗鴉："
+  },
+  "22051": {
+   "en": "@!S P O T",
+   "zh": "史 波 特"
+  },
+  "22052": {
+   "en": "@You ponder the significance...",
+   "zh": "你思索著其中的含意……"
+  },
+  "22055": {
+   "en": "Entering the gargantuan cavity, you are assailed by a horrendous",
+   "zh": "踏進這座巨大的穴腔，駭人的惡臭迎面"
+  },
+  "22056": {
+   "en": "stench... %]",
+   "zh": "襲來……%]"
+  },
+  "22057": {
+   "en": "Soon followed by the sounds of heavy breathing... %]",
+   "zh": "緊接著傳來沉重的呼吸聲……%]"
+  },
+  "22058": {
+   "en": "And a very odd clacking noise... %]",
+   "zh": "還有一種非常古怪的喀噠聲……%]"
+  },
+  "22059": {
+   "en": "G A R W O O O F!!!",
+   "zh": "嘎 汪 汪 汪！！！"
+  },
+  "22065": {
+   "en": "The malodorous cavern is littered with the rotted scum and bones of",
+   "zh": "這個惡臭的洞穴裡，散落著許多旅人的"
+  },
+  "22066": {
+   "en": "many a traveler...",
+   "zh": "腐穢與殘骨……"
+  },
+  "22067": {
+   "en": "@Most of them flattened into the floor from repeated trampings...",
+   "zh": "大半被反覆踩踏，扁平地嵌進了地面……"
+  },
+  "22070": {
+   "en": "Prying up the dried pulpy remnant of something once human, you are",
+   "zh": "撬起那團乾涸糊爛、曾為人形的殘塊，"
+  },
+  "22071": {
+   "en": "delighted to find a rather enticing looking helmet embedded into",
+   "zh": "你欣喜地發現底下的土裡嵌著一頂"
+  },
+  "22072": {
+   "en": "the ground beneath it, thick and strong and unscathed...",
+   "zh": "誘人的頭盔，厚實堅固，毫髮無損……"
+  },
+  "22073": {
+   "en": "@You make note of several cryptic runes engraved upon it, and",
+   "zh": "你注意到盔上刻著幾個神秘難解的符文，"
+  },
+  "22074": {
+   "en": "are intrigued by the scarlet glass which is mounted inside covering",
+   "zh": "內側嵌著遮住眼窗的猩紅玻璃，也令你好奇，"
+  },
+  "22075": {
+   "en": "the eye slot, also unharmed and unscratched...",
+   "zh": "同樣完好，不見半點刮痕……"
+  },
+  "22076": {
+   "en": "@Very strong stuff indeed...",
+   "zh": "的確是非常堅固的玩意……"
+  },
+  "22081": {
+   "en": " PICK THE RED ORCHID ",
+   "zh": " 摘下紅色蘭花 "
+  },
+  "22082": {
+   "en": " LEAVE THE ORCHID BE ",
+   "zh": " 別動那蘭花 "
+  },
+  "22085": {
+   "en": "On the rocky ledge grows a single exotic red orchid, an apparent",
+   "zh": "岩架上生著一株珍奇的紅蘭花，顯然是"
+  },
+  "22086": {
+   "en": "anomaly in the cavernous conditions of the underground river...",
+   "zh": "地下河洞窟環境中的一個異數……"
+  },
+  "22090": {
+   "en": "You uproot the scarlet puppy...",
+   "zh": "你把這株猩紅小狗連根拔起……"
+  },
+  "22091": {
+   "en": "@A bright red stain seems to appear on whatever the orchid touches...",
+   "zh": "蘭花碰過的東西，似乎都會沾上鮮紅的漬印……"
+  },
+  "22092": {
+   "en": "@Pretty soon everybody is kind of looking at you funny and giggling...",
+   "zh": "沒過多久，大家都有點怪怪地盯著你偷笑……"
+  },
+  "22101": {
+   "en": " PICK THE BLUE FLOWER ",
+   "zh": " 摘藍色花朵 "
+  },
+  "22102": {
+   "en": " LEAVE THE FLOWER BE ",
+   "zh": " 別動那花朵 "
+  },
+  "22105": {
+   "en": "In a hollow crag of the mountain you spot a lonely blue wild flower",
+   "zh": "山岩凹洞裡，你瞥見一朵孤零零的藍色野花，"
+  },
+  "22106": {
+   "en": "growing in apparent comfort and safety...",
+   "zh": "長得舒適又安全……"
+  },
+  "22107": {
+   "en": "@The hollow is about three feet deep, just close enough for an",
+   "zh": "凹洞約三呎深，伸直了手臂剛好能探入，"
+  },
+  "22108": {
+   "en": "outstretched arm to reach in and fetch it with a little effort...",
+   "zh": "稍加努力就能把花取出來……"
+  },
+  "22110": {
+   "en": "Reaching into the hollow, you take hold and begin extracting the",
+   "zh": "你把手伸進凹洞，握住之後開始抽出那朵"
+  },
+  "22111": {
+   "en": "indigo flower...",
+   "zh": "靛藍色的花……"
+  },
+  "22112": {
+   "en": "@Apparently there is something else living in the hollow along with",
+   "zh": "顯然，洞裡還住著別的東西，就在"
+  },
+  "22113": {
+   "en": "the flower...",
+   "zh": "花的旁邊……"
+  },
+  "22121": {
+   "en": " CLIMB UP & GET THE FLOWER ",
+   "zh": " 爬上去&摘花 "
+  },
+  "22122": {
+   "en": " LEAVE THE FLOWER BE ",
+   "zh": " 別動那花朵 "
+  },
+  "22125": {
+   "en": "Sprouting high upon the mountainside, a yellow flower bathes in",
+   "zh": "高高的山壁上，一朵黃花在岩架裂縫間"
+  },
+  "22126": {
+   "en": "solitude amongst the cracks of a ledge...",
+   "zh": "獨自沐浴著孤寂……"
+  },
+  "22127": {
+   "en": "@It will require a tricky climb to reach the flower...",
+   "zh": "要摘到這朵花，得攀爬一段不好走的路……"
+  },
+  "22130": {
+   "en": "You manage to scale the steep mountainside and fetch the flower...",
+   "zh": "你成功攀上陡峭的山壁，摘到了那朵花……"
+  },
+  "22135": {
+   "en": "You slipped and fell!",
+   "zh": "你腳一滑，摔了下來！"
+  },
+  "22141": {
+   "en": " PICK THE PURPLE ORCHID ",
+   "zh": " 摘紫色蘭花 "
+  },
+  "22142": {
+   "en": " LEAVE THE ORCHID BE ",
+   "zh": " 別動那蘭花 "
+  },
+  "22145": {
+   "en": "A singular purple petaled pod sits nestled within a grove of",
+   "zh": "一朵紫瓣的花苞窩在濃密的雜草叢裡，"
+  },
+  "22146": {
+   "en": "thick weeds, a stray sheep amongst the wolves...",
+   "zh": "有如狼群中迷途的一隻羊……"
+  },
+  "22150": {
+   "en": "You pluck the special flower from amidst the weeds...",
+   "zh": "你從雜草間摘下這朵特別的花……"
+  },
+  "22151": {
+   "en": "@Wolves indeed...",
+   "zh": "還真是狼群……"
+  },
+  "22161": {
+   "en": " PICK THE WHITE BLOSSOM ",
+   "zh": " 摘白色花朵 "
+  },
+  "22162": {
+   "en": " LEAVE THE BLOSSOM BE ",
+   "zh": " 別動那朵花 "
+  },
+  "22165": {
+   "en": "Perched comfortably underneath the thick arm of a tree, a white",
+   "zh": "一朵白花安穩地棲在粗壯的樹臂之下，"
+  },
+  "22166": {
+   "en": "blossom dangles in the breeze...",
+   "zh": "在微風中輕輕搖晃……"
+  },
+  "22170": {
+   "en": "A stinky odor shoots from the blossom when you grasp it...",
+   "zh": "你一把抓住花，一股惡臭隨之噴出……"
+  },
+  "22171": {
+   "en": "@After a few whiffs, suddenly no one is looking too particularly",
+   "zh": "嗅了幾下之後，大家突然都對"
+  },
+  "22172": {
+   "en": "excited at the prospect of carrying this one around...",
+   "zh": "帶著這朵到處走提不起勁了……"
+  },
+  "22200": {
+   "en": "You insert the notched shaft into the small hole... %]",
+   "zh": "你把那根帶凹槽的桿子插進小孔……%]"
+  },
+  "22201": {
+   "en": "Deep inside the wall you detect a faint click...",
+   "zh": "你察覺牆壁深處傳來一下細微的喀噠聲……"
+  },
+  "22205": {
+   "en": "#!KEEP OF",
+   "zh": "請勿踐踏"
+  },
+  "22206": {
+   "en": "!THE HOLY WORK",
+   "zh": "聖工"
+  },
+  "22211": {
+   "en": " TRY TO FIX THE LEVER ",
+   "zh": " 試著修理拉桿 "
+  },
+  "22212": {
+   "en": " LEAVE IT ALONE ",
+   "zh": " 別去動它 "
+  },
+  "22215": {
+   "en": "You pull the lever but nothing happens...",
+   "zh": "你拉了拉桿，但什麼也沒發生……"
+  },
+  "22216": {
+   "en": "@It appears to be broken...",
+   "zh": "它似乎是壞了……"
+  },
+  "22220": {
+   "en": "Playing with the lever for awhile and getting nowhere, you eventually",
+   "zh": "擺弄了拉桿一陣子卻毫無進展，你最後"
+  },
+  "22221": {
+   "en": "resort to more forceful tactics...",
+   "zh": "訴諸了更強硬的手段……"
+  },
+  "22222": {
+   "en": "@Pretty soon the floor is littered with pieces of hacked lever parts,",
+   "zh": "不一會兒，地上滿是被砍碎的拉桿零件，"
+  },
+  "22223": {
+   "en": "everybody is yelling at everybody else, and finally you concede that",
+   "zh": "眾人彼此叫罵成一團，最後你們終於承認"
+  },
+  "22224": {
+   "en": "some things were not meant to be...",
+   "zh": "有些東西天生就不該讓人修……"
+  },
+  "22225": {
+   "en": "@Standing back and looking at the results of your handiwork, the",
+   "zh": "你退後一步，端詳自己這番傑作，那"
+  },
+  "22226": {
+   "en": "poor thing teeters for a moment, and then in a last dying gasp,",
+   "zh": "可憐的玩意晃了晃，在嚥下最後一口氣後，"
+  },
+  "22227": {
+   "en": "mercifully falls completely off the wall with a clump, most dead...",
+   "zh": "解脫似地啪咚一聲整個從牆上摔落，死透了……"
+  },
+  "22228": {
+   "en": "@The gate, quite unaffected by all your antics, seems to silently",
+   "zh": "大門對你們的這番胡鬧全然無動於衷，似乎在"
+  },
+  "22229": {
+   "en": "smirk...",
+   "zh": "竊笑……"
+  },
+  "22235": {
+   "en": "The candle sconce pulls out from the wall!",
+   "zh": "燭臺從牆上拉了出來！"
+  },
+  "22240": {
+   "en": "Emitting squeaky cries amid threatening leaps, kicks and karate",
+   "zh": "一邊發出尖叫，一邊比出威嚇的跳躍、踢擊與"
+  },
+  "22241": {
+   "en": "chops, a ragged munk, disgusting and filthy, covered with festering",
+   "zh": "空手劈，一個骯髒破爛的穆克，滿身化膿的"
+  },
+  "22242": {
+   "en": "sores and oozing green scabs and foaming wildly at the mouth,",
+   "zh": "瘡與滲著綠膿的痂，口中瘋狂吐著白沫，"
+  },
+  "22243": {
+   "en": "insanely begins to claw and bite at you...",
+   "zh": "狂亂地開始朝你又抓又咬……"
+  },
+  "22245": {
+   "en": "At least the wretch is out of his misery...",
+   "zh": "至少這可憐蟲脫離苦海了……"
+  },
+  "22250": {
+   "en": "Stepping into the darkness, you hear the sound of dragging",
+   "zh": "踏入黑暗之中，你聽見了拖行的"
+  },
+  "22251": {
+   "en": "footsteps...",
+   "zh": "腳步聲……"
+  },
+  "22252": {
+   "en": "@And about six feet above your head, a hot fetid heavy breathing...",
+   "zh": "而在你頭頂約六呎處，一股溫熱腥臭的沉重呼吸……"
+  },
+  "22255": {
+   "en": "The chamber is vile and obscene, filled with more of the",
+   "zh": "這個廳室邪穢猥褻，滿是更多"
+  },
+  "22256": {
+   "en": "feculent outcasts and lost souls...",
+   "zh": "渾身穢物的流放者與迷失的亡魂……"
+  },
+  "22260": {
+   "en": "Amid yells and spells, a congregation of munks quickly form their",
+   "zh": "在叫罵與咒語聲中，一群穆克迅速排好"
+  },
+  "22261": {
+   "en": "ranks in anticipation of your uninvited intrusion, the",
+   "zh": "陣形，防備你們這群不速之客，發號"
+  },
+  "22262": {
+   "en": "commanding munk heading for the rear while those of agile and swift",
+   "zh": "施令的穆克退向後方，身手迅捷的"
+  },
+  "22263": {
+   "en": "execution charge to the front... %]",
+   "zh": "則衝往前列……%]"
+  },
+  "22264": {
+   "en": "It is then that you notice the row of coffers that they were",
+   "zh": "這時你才注意到他們原本在搬運的"
+  },
+  "22265": {
+   "en": "transporting, surely filled with all kinds of black magic and",
+   "zh": "那排箱櫃，裡頭想必裝滿了各種黑魔法"
+  },
+  "22266": {
+   "en": "unholy artifacts... %]",
+   "zh": "與褻瀆的邪物……%]"
+  },
+  "22267": {
+   "en": "From the back of the pack you hear a darkly voice intone: %]",
+   "zh": "隊伍後方傳來一個陰沉的聲音吟誦道：%]"
+  },
+  "22268": {
+   "en": "BA-GA-SHI-TA ALLET BA-RAMM! %]",
+   "zh": "BA-GA-SHI-TA ALLET BA-RAMM! %]"
+  },
+  "22269": {
+   "en": "THE FOUL VERMIN MUST DIE!",
+   "zh": "卑劣的害蟲必須死！"
+  },
+  "22275": {
+   "en": "You step into the arena of a tremendous cathedral, its bizarre",
+   "zh": "你踏進宏偉大教堂的廳堂，怪誕的壁畫早已"
+  },
+  "22276": {
+   "en": "frescoes long faded, its papal pews submerged under a dense cesspool",
+   "zh": "褪色，教皇長椅浸在一池濃稠的死水之下，"
+  },
+  "22277": {
+   "en": "of stagnant water, and filled with the wrenching odor of offal and",
+   "zh": "空氣裡滿是令人作嘔的內臟與腐敗的"
+  },
+  "22278": {
+   "en": "decay...",
+   "zh": "惡臭……"
+  },
+  "22279": {
+   "en": "@Thick molds cover much of the ceiling and chamber, and splotches",
+   "zh": "厚重的黴菌覆滿天花板與大半個廳室，"
+  },
+  "22280": {
+   "en": "of scummy mires are visible floating upon the surface of the water...",
+   "zh": "水面上還漂著一攤攤浮垢汙泥……"
+  },
+  "22281": {
+   "en": "@It is not a very pleasant atmosphere...",
+   "zh": "這裡的氣氛實在說不上宜人……"
+  },
+  "22285": {
+   "en": "Inside the chest you remove a long bar made of steel, in which are",
+   "zh": "你從箱中取出一根鋼製長桿，上頭刻著"
+  },
+  "22286": {
+   "en": "cut many irregular notches...",
+   "zh": "許多不規則的凹痕……"
+  },
+  "22287": {
+   "en": "@If it's a code of some kind, it's a very good one...",
+   "zh": "如果這是某種密碼，那可是個非常高明的密碼……"
+  },
+  "22290": {
+   "en": "The ancient chest is so covered with a scungey growth that it is",
+   "zh": "這口古箱覆滿了黏滑的增生汙垢，"
+  },
+  "22291": {
+   "en": "difficult to distinguish where the box ends and the floor begins...",
+   "zh": "教人分不清哪裡是箱子的盡頭、哪裡是地板……"
+  },
+  "22292": {
+   "en": "@Obviously it has been here a long time, perhaps forgotten or",
+   "zh": "顯然它待在這裡很久了，也許早已被遺忘，"
+  },
+  "22293": {
+   "en": "thought lost after the cathedral became submerged...",
+   "zh": "或在教堂淹水後被當作遺失了……"
+  },
+  "22295": {
+   "en": "Carefully opening the antediluvian locker, you find a thick bundle",
+   "zh": "你小心打開這口遠古的箱櫃，發現一個"
+  },
+  "22296": {
+   "en": "sealed in a waxy dressing, untouched by the years of confinement...",
+   "zh": "以蠟質封料密封的厚實包裹，未受多年封存之累……"
+  },
+  "22297": {
+   "en": "@Inside the bundle you uncover an old book, entitled",
+   "zh": "包裹裡你翻出一本古書，題名為"
+  },
+  "22298": {
+   "en": "\"HOLY COVENANT\" and enscribed with antiquitous writing...",
+   "zh": "《聖約》，並以古老的字跡題刻……"
+  },
+  "22299": {
+   "en": "@Opening the book, a piece of preserved parchment lies neatly",
+   "zh": "翻開書頁，一張保存完好的羊皮紙整整齊齊"
+  },
+  "22300": {
+   "en": "folded in between two of its pages...",
+   "zh": "折好，夾在其中兩頁之間……"
   },
   "25265": {
    "en": "In the blood-filled waters the leviathan carcass slips back to the",
