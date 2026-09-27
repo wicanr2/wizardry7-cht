@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1640,
+ "count": 1716,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -6519,6 +6519,310 @@
   "19399": {
    "en": "GO-AND DO-THIS FOR-THE T'RANG EMPIRE... &%%]",
    "zh": "去吧，為了特蘭格帝國完成此事……&%%]"
+  },
+  "19500": {
+   "en": "@062:44 IN",
+   "zh": "@062:44 進"
+  },
+  "19501": {
+   "en": "!002:Watcher",
+   "zh": "!002:看守者"
+  },
+  "19502": {
+   "en": "!200:Cell",
+   "zh": "!200:牢房"
+  },
+  "19503": {
+   "en": "!005:Disruptor(C)",
+   "zh": "!005:瓦解器(C)"
+  },
+  "19504": {
+   "en": "@066:07 OUT",
+   "zh": "@066:07 出"
+  },
+  "19505": {
+   "en": "!001:Watcher",
+   "zh": "!001:看守者"
+  },
+  "19506": {
+   "en": "!150:Cell",
+   "zh": "!150:牢房"
+  },
+  "19507": {
+   "en": "@071:81 IN",
+   "zh": "@071:81 進"
+  },
+  "19508": {
+   "en": "!012:Tech",
+   "zh": "!012:技師"
+  },
+  "19509": {
+   "en": "!001:SPMS",
+   "zh": "!001:SPMS"
+  },
+  "19510": {
+   "en": "!004:UVMLII",
+   "zh": "!004:UVMLII"
+  },
+  "19511": {
+   "en": "@073:12 OUT",
+   "zh": "@073:12 出"
+  },
+  "19512": {
+   "en": "@Next Arrival:",
+   "zh": "@下次抵達："
+  },
+  "19513": {
+   "en": "!NARGISST SHUTTLE",
+   "zh": "!納吉斯特接駁艇"
+  },
+  "19514": {
+   "en": "!",
+   "zh": "!"
+  },
+  "19515": {
+   "en": "!Galactic Stardate",
+   "zh": "!星際曆"
+  },
+  "19516": {
+   "en": "!088:53 ETA",
+   "zh": "!088:53 預計"
+  },
+  "19517": {
+   "en": "@That is the last entry in the book...",
+   "zh": "@這是日誌的最後一筆……"
+  },
+  "19520": {
+   "en": "In the most nauseating atmosphere imaginable, the carcass of the",
+   "zh": "在最能令人作嘔的氣氛中，那頭名為"
+  },
+  "19521": {
+   "en": "great lumbering slug known as H'Jenn-Ra T'Rang lies hacked to",
+   "zh": "赫詹拉·特蘭格的巨大蠕蟲的屍體"
+  },
+  "19522": {
+   "en": "pieces upon the chamber floor...",
+   "zh": "被砍成碎塊，散落在艙室地板上……"
+  },
+  "19524": {
+   "en": "were pouring out of his tremendous worm-like abdomen, eggs",
+   "zh": "正從他巨大的蠕蟲狀腹部湧出——"
+  },
+  "19525": {
+   "en": "to spawn thousands of his kind upon this small world...",
+   "zh": "足以在這個小世界繁衍千百代後代的卵……"
+  },
+  "19526": {
+   "en": "@Apparently, someone else has little love of the T'Rang, for they",
+   "zh": "顯然，還有別人對特蘭格懷有深仇——"
+  },
+  "19527": {
+   "en": "have certainly insured that H'Jenn-Ra will never again pose any",
+   "zh": "他們確保了赫詹拉永遠無法"
+  },
+  "19528": {
+   "en": "threat to anyone...",
+   "zh": "再對任何人構成威脅……"
+  },
+  "19530": {
+   "en": "#!OBSERVATION",
+   "zh": "#!觀測室"
+  },
+  "19531": {
+   "en": "!CONTROL CENTER",
+   "zh": "!控制中心"
+  },
+  "19532": {
+   "en": "@A vivid red emblem has been attached to the door, the",
+   "zh": "門上貼著一枚鮮紅的徽記，"
+  },
+  "19533": {
+   "en": "significance of which is not clear...",
+   "zh": "其含義不明……"
+  },
+  "19535": {
+   "en": "The Control Center is filled with a vast complex of machines and",
+   "zh": "控制中心裡擠滿了複雜的機器"
+  },
+  "19536": {
+   "en": "blinking boxes...",
+   "zh": "與閃爍的箱子……"
+  },
+  "19538": {
+   "en": "seem to be busy working at the equipment...",
+   "zh": "似乎正忙著操作那些設備……"
+  },
+  "19540": {
+   "en": "while the rest advance to engage...",
+   "zh": "其餘的則上前迎擊……"
+  },
+  "19545": {
+   "en": "Stepping up to one of the shimmering boxes you see glowing words",
+   "zh": "走近一台閃爍的箱子，你看見"
+  },
+  "19546": {
+   "en": "which appear to be floating inside it...",
+   "zh": "懸浮其中的發光字句……"
+  },
+  "19548": {
+   "en": "Deactivation Sequence Initiated &%",
+   "zh": "停用程序已啟動 &%"
+  },
+  "19549": {
+   "en": "Terminal Linkage Disconnect &%]",
+   "zh": "終端連線已斷開 &%]"
+  },
+  "19550": {
+   "en": "SERVER: 023@41A2 &%",
+   "zh": "伺服器：023@41A2 &%"
+  },
+  "19551": {
+   "en": "HOST: Black Ship Command &%]",
+   "zh": "主機：黑船指揮部 &%]"
+  },
+  "19552": {
+   "en": "Remote Access Terminated &%",
+   "zh": "遠端存取已終止 &%"
+  },
+  "19553": {
+   "en": "Memory Purge Complete",
+   "zh": "記憶體清除完成"
+  },
+  "19557": {
+   "en": "All of the machines have suddenly become quiet and blank...",
+   "zh": "所有的機器突然安靜下來，一片空白……"
+  },
+  "19560": {
+   "en": "You confront several more of the dread Savants, and behind them a",
+   "zh": "你遭遇更多可怕的賢者，就在"
+  },
+  "19562": {
+   "en": "machines...",
+   "zh": "機器後方……"
+  },
+  "19563": {
+   "en": "@As the guardians attack, the machines begin to grow dark, one by",
+   "zh": "守衛們發動攻擊時，機器一台接一台"
+  },
+  "19564": {
+   "en": "one...",
+   "zh": "暗了下來……"
+  },
+  "19566": {
+   "en": "Sensing the information might be of some importance, you hastily",
+   "zh": "覺得這些資訊或許很重要，你匆匆"
+  },
+  "19567": {
+   "en": "scribble it down on a piece of parchment...",
+   "zh": "把它抄在一張羊皮紙上……"
+  },
+  "19570": {
+   "en": "The magic seems to have vanished from the puzzling boxes, and the",
+   "zh": "謎樣的箱子彷彿失去了魔法，"
+  },
+  "19571": {
+   "en": "various stations now lie vacant and dead...",
+   "zh": "一個個操作台空蕩蕩地死去……"
+  },
+  "19572": {
+   "en": "@As you slowly cast your gaze about the chamber, the wonderment",
+   "zh": "當你緩緩環顧這間艙室，這些生物"
+  },
+  "19573": {
+   "en": "of these creatures and their machines begins to gnaw at the back",
+   "zh": "與他們機器的奇觀開始啃噬你的心底——"
+  },
+  "19574": {
+   "en": "of your brain, and you remember your strange voyage here in the",
+   "zh": "你想起自己那趟奇異的航程，乘著"
+  },
+  "19575": {
+   "en": "ship that flys through the air and amongst the stars...",
+   "zh": "飛越天空與群星的船……"
+  },
+  "19576": {
+   "en": "@It is a thing altogether different from your world and what you",
+   "zh": "這與你的世界、與你所知的一切"
+  },
+  "19577": {
+   "en": "have known, for these entities seem to wield a power unknown to",
+   "zh": "截然不同——這些存在操弄著"
+  },
+  "19578": {
+   "en": "you,...",
+   "zh": "你一無所知的力量，……"
+  },
+  "19579": {
+   "en": "@A power that seems to defy the laws of nature itself...",
+   "zh": "一種彷彿違逆自然法則本身的力量……"
+  },
+  "19580": {
+   "en": "@A power to weave abstract mathematical thought into a reality",
+   "zh": "一種把抽象的數學思緒織成嶄新而"
+  },
+  "19581": {
+   "en": "composed of new unfathomable dimensions, tempering the energy of",
+   "zh": "不可測度之維度的力量——把星球的能量"
+  },
+  "19582": {
+   "en": "the spheres as if it were but a weight of common steel...",
+   "zh": "馴得如同尋常鋼鐵的重量……"
+  },
+  "19583": {
+   "en": "@And yet, for all their magiks, still do they walk and bleed and",
+   "zh": "然而縱有這一切魔法，他們終究還是行走、流血、"
+  },
+  "19584": {
+   "en": "die as mere mortal men, and seem driven by the same hungers of",
+   "zh": "死去，如凡人一般，受著同樣的飢渴驅策……"
+  },
+  "19586": {
+   "en": "@How very strange...",
+   "zh": "多麼奇怪啊……"
+  },
+  "19590": {
+   "en": "On top of one of the tablestations, you find a small",
+   "zh": "在其中一張操作台上，你發現一個"
+  },
+  "19591": {
+   "en": "enigmatic object, whose purpose you cannot imagine...",
+   "zh": "謎樣的小物件，猜不出用途……"
+  },
+  "19592": {
+   "en": "@It is labeled: TX-Coder",
+   "zh": "上面標著：TX 編碼器"
+  },
+  "19597": {
+   "en": "Searching through the remains of the dead party, you find some",
+   "zh": "翻搜死者的遺物，你找到幾件"
+  },
+  "19598": {
+   "en": "very old and interesting items...",
+   "zh": "非常古老而有趣的東西……"
+  },
+  "19600": {
+   "en": "You land with a hard thud, tumbling along the ground...",
+   "zh": "你重重摔落地面，在地上翻滾……"
+  },
+  "19602": {
+   "en": "Shaking the dizziness from your head, you stand up to",
+   "zh": "甩掉頭上的暈眩，你站起身來，"
+  },
+  "19603": {
+   "en": "find yourself in a large cavern...",
+   "zh": "發現自己身在一座巨大的洞穴中……"
+  },
+  "19604": {
+   "en": "@The atmosphere seems breathable, though dry and a bit stale...",
+   "zh": "空氣似乎可以呼吸——雖然乾燥且有點陳悶……"
+  },
+  "19606": {
+   "en": "fell about thirty feet above your head, a hole of light in",
+   "zh": "在頭頂約三十呎处，洞穴漆黑的夜空裡"
+  },
+  "19607": {
+   "en": "the darkness of the cavern sky...",
+   "zh": "有一個透光的洞……"
   },
   "20600": {
    "en": "Gritting your teeth, you insert your hands through the bars of the",
