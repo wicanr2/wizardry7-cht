@@ -1313,6 +1313,12 @@ DY = {
  1052: 13,
 }
 
+# 批次譯文（subagent 產出，trans_merge.py 驗證後併入；同 id 以本檔 Z 為準）
+from pathlib import Path as _P
+if _P('text/batches-merged.json').exists():
+    for _k, _v in json.load(open('text/batches-merged.json')).items():
+        Z.setdefault(int(_k), _v)
+
 items = {}
 for mid in sorted(Z):
     if mid not in byid:

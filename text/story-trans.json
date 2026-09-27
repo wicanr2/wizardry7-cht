@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1786,
+ "count": 2845,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -1156,25 +1156,137 @@
    "en": "DELETE WHO?",
    "zh": "刪除誰？"
   },
+  "1155": {
+   "en": "OK",
+   "zh": "確定"
+  },
+  "1156": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
   "1157": {
    "en": "REVIEW WHO?",
    "zh": "檢視誰？"
+  },
+  "1158": {
+   "en": "OK",
+   "zh": "確定"
+  },
+  "1159": {
+   "en": "CANCEL",
+   "zh": "取消"
   },
   "1160": {
    "en": "RENAME WHO?",
    "zh": "改名誰？"
   },
+  "1161": {
+   "en": "OK",
+   "zh": "確定"
+  },
+  "1162": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
   "1163": {
    "en": "CHANGE WHO?",
    "zh": "更換誰？"
+  },
+  "1164": {
+   "en": "OK",
+   "zh": "確定"
+  },
+  "1165": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1166": {
+   "en": "RENAME CHARACTER",
+   "zh": "重新命名角色"
+  },
+  "1167": {
+   "en": "OK",
+   "zh": "確定"
+  },
+  "1168": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1169": {
+   "en": "CHARACTER NAME",
+   "zh": "角色名稱"
+  },
+  "1200": {
+   "en": "ADD CHARACTER",
+   "zh": "新增角色"
+  },
+  "1201": {
+   "en": "OK",
+   "zh": "確定"
+  },
+  "1202": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1400": {
+   "en": "LOAD SAVEGAME",
+   "zh": "載入存檔"
   },
   "1401": {
    "en": "LOAD",
    "zh": "載入"
   },
+  "1402": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1410": {
+   "en": "SAVE SAVEGAME",
+   "zh": "儲存存檔"
+  },
   "1411": {
    "en": "SAVE",
    "zh": "存檔"
+  },
+  "1412": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1415": {
+   "en": "IMPORT (BANE)",
+   "zh": "匯入(巫6)"
+  },
+  "1416": {
+   "en": "LOAD",
+   "zh": "載入"
+  },
+  "1417": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1420": {
+   "en": "DISK ERROR",
+   "zh": "磁碟錯誤"
+  },
+  "1421": {
+   "en": "LOADING...",
+   "zh": "載入中…"
+  },
+  "1422": {
+   "en": "SAVING...",
+   "zh": "儲存中…"
+  },
+  "1425": {
+   "en": "SAVE ENDGAME",
+   "zh": "儲存結局"
+  },
+  "1426": {
+   "en": "SAVE",
+   "zh": "儲存"
+  },
+  "1427": {
+   "en": "CANCEL",
+   "zh": "取消"
   },
   "1450": {
    "en": "DIRECTORY",
@@ -1183,6 +1295,30 @@
   "1451": {
    "en": "FILENAME",
    "zh": "檔名"
+  },
+  "1490": {
+   "en": "PEACE",
+   "zh": "和平"
+  },
+  "1491": {
+   "en": "BRIBE",
+   "zh": "賄賂"
+  },
+  "1492": {
+   "en": "FORCE",
+   "zh": "威嚇"
+  },
+  "1493": {
+   "en": "GIVE",
+   "zh": "給予"
+  },
+  "1494": {
+   "en": "POOL",
+   "zh": "集資"
+  },
+  "1495": {
+   "en": "EXIT",
+   "zh": "離開"
   },
   "1500": {
    "en": "(EQUIPPED)",
@@ -1392,13 +1528,833 @@
    "en": "MAGICAL",
    "zh": "魔法"
   },
+  "1563": {
+   "en": "MAGICAL",
+   "zh": "魔法"
+  },
   "1564": {
    "en": "SPECIAL",
    "zh": "特殊"
   },
+  "1565": {
+   "en": "SPECIAL",
+   "zh": "特殊"
+  },
+  "1566": {
+   "en": "MAGICAL",
+   "zh": "魔法"
+  },
   "1567": {
    "en": "UNUSABLE",
    "zh": "無法使用"
+  },
+  "1570": {
+   "en": "^ MAKES HIS MOVE...",
+   "zh": "^展開行動……"
+  },
+  "1571": {
+   "en": "^ MAKES HER MOVE...",
+   "zh": "^展開行動……"
+  },
+  "1572": {
+   "en": "PILFER FAILED",
+   "zh": "行竊失敗"
+  },
+  "1573": {
+   "en": "^ STOLE AN ITEM!",
+   "zh": "^偷走了物品!"
+  },
+  "1574": {
+   "en": "^ STOLE SOME GOLD!",
+   "zh": "^偷走了金幣!"
+  },
+  "1575": {
+   "en": "PILFER FAILED",
+   "zh": "行竊失敗"
+  },
+  "1576": {
+   "en": "^ GOT CAUGHT!",
+   "zh": "^被逮個正著!"
+  },
+  "1577": {
+   "en": " GP",
+   "zh": " 金幣"
+  },
+  "1578": {
+   "en": "BUY",
+   "zh": "購買"
+  },
+  "1579": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1581": {
+   "en": "SELL",
+   "zh": "賣出"
+  },
+  "1582": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1584": {
+   "en": "GIVE",
+   "zh": "給予"
+  },
+  "1585": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "1586": {
+   "en": "AMOUNT >",
+   "zh": "金額 >"
+  },
+  "1587": {
+   "en": "ACCEPT $ GP FOR",
+   "zh": "願以$金幣收購"
+  },
+  "1588": {
+   "en": "YOUR $?",
+   "zh": "你的$?"
+  },
+  "1589": {
+   "en": "YES",
+   "zh": "是"
+  },
+  "1590": {
+   "en": "NO",
+   "zh": "否"
+  },
+  "1591": {
+   "en": "^ ENTERS NEGOTIATIONS...",
+   "zh": "^開始交涉……"
+  },
+  "1592": {
+   "en": "^ LOOKS PLEASED!",
+   "zh": "^顯得很滿意!"
+  },
+  "1593": {
+   "en": "^ APPEARS RESERVED...",
+   "zh": "^顯得有所保留……"
+  },
+  "1594": {
+   "en": "^ BECOMES ANGRY!!",
+   "zh": "^生氣了!!"
+  },
+  "1600": {
+   "en": "Are you speaking of ^",
+   "zh": "你說的是^"
+  },
+  "1601": {
+   "en": "or ^?",
+   "zh": "還是^?"
+  },
+  "1602": {
+   "en": "^ what?",
+   "zh": "^什麼?"
+  },
+  "1603": {
+   "en": "I don't know about that...",
+   "zh": "我不清楚那件事……"
+  },
+  "1604": {
+   "en": "I don't understand...",
+   "zh": "我不明白……"
+  },
+  "1605": {
+   "en": "Are you asking about ^?",
+   "zh": "你是在問^嗎?"
+  },
+  "1606": {
+   "en": "Your words are confusing...",
+   "zh": "你的話令人困惑……"
+  },
+  "1607": {
+   "en": "Huh?",
+   "zh": "嗯?"
+  },
+  "1608": {
+   "en": "Very well then...",
+   "zh": "那好吧……"
+  },
+  "1609": {
+   "en": "So be it...",
+   "zh": "就這樣吧……"
+  },
+  "1610": {
+   "en": "I am waiting...",
+   "zh": "我等著……"
+  },
+  "1611": {
+   "en": "Don't mention it...",
+   "zh": "別客氣……"
+  },
+  "1612": {
+   "en": "Same to you!",
+   "zh": "你也一樣!"
+  },
+  "1613": {
+   "en": "Consider it forgotten...",
+   "zh": "就當沒這回事……"
+  },
+  "1614": {
+   "en": "Help with what?",
+   "zh": "幫什麼忙?"
+  },
+  "1615": {
+   "en": "Ha ha ha!",
+   "zh": "哈哈哈!"
+  },
+  "1616": {
+   "en": "I Don't know ^...",
+   "zh": "我不清楚^……"
+  },
+  "1617": {
+   "en": "I heard a rumor about ^...",
+   "zh": "我聽過關於^的傳聞……"
+  },
+  "1618": {
+   "en": "I don't know anyone named ^...",
+   "zh": "我不認識叫^的人……"
+  },
+  "1619": {
+   "en": "who",
+   "zh": "誰"
+  },
+  "1620": {
+   "en": "what",
+   "zh": "什麼"
+  },
+  "1621": {
+   "en": "I don't know when...",
+   "zh": "我不知道何時……"
+  },
+  "1622": {
+   "en": "where",
+   "zh": "哪裡"
+  },
+  "1623": {
+   "en": "I don't know which...",
+   "zh": "我不知道哪個……"
+  },
+  "1624": {
+   "en": "why",
+   "zh": "為何"
+  },
+  "1625": {
+   "en": "how",
+   "zh": "如何"
+  },
+  "1626": {
+   "en": "I am alive...",
+   "zh": "我還活著……"
+  },
+  "1627": {
+   "en": "I wouldn't know...",
+   "zh": "這我就不知道了……"
+  },
+  "1628": {
+   "en": "That's your opinion...",
+   "zh": "那是你的看法……"
+  },
+  "1629": {
+   "en": "Good for you...",
+   "zh": "你開心就好……"
+  },
+  "1630": {
+   "en": "I don't know...",
+   "zh": "我不知道……"
+  },
+  "1631": {
+   "en": "Possibly...",
+   "zh": "也許吧……"
+  },
+  "1632": {
+   "en": "That's what you think...",
+   "zh": "那是你自己的想法……"
+  },
+  "1633": {
+   "en": "Please continue...",
+   "zh": "請繼續……"
+  },
+  "1634": {
+   "en": "Try and see!",
+   "zh": "試了就知道!"
+  },
+  "1635": {
+   "en": "That's very interesting...",
+   "zh": "真有意思……"
+  },
+  "1636": {
+   "en": "That's good to know...",
+   "zh": "知道這個真好……"
+  },
+  "1637": {
+   "en": "I will consider it...",
+   "zh": "我會考慮的……"
+  },
+  "1638": {
+   "en": "I haven't heard a thing...",
+   "zh": "我什麼也沒聽說……"
+  },
+  "1639": {
+   "en": "What are you looking for?",
+   "zh": "你在找什麼?"
+  },
+  "1640": {
+   "en": "What do you have to offer?",
+   "zh": "你有什麼可提供的?"
+  },
+  "1641": {
+   "en": "Heh-heh... Why, I haven't heard a thing...",
+   "zh": "嘿嘿……我可什麼都沒聽說……"
+  },
+  "1642": {
+   "en": "Our party",
+   "zh": "我方隊伍"
+  },
+  "1643": {
+   "en": "I can't say...",
+   "zh": "我不便說……"
+  },
+  "1644": {
+   "en": "You don't have enough gold...",
+   "zh": "你的金幣不夠……"
+  },
+  "1645": {
+   "en": "Perhaps you'd like to hear some interesting rumors...",
+   "zh": "或許你想聽點有趣的傳聞……"
+  },
+  "1692": {
+   "en": "Will you pay 50 GP?",
+   "zh": "你願付50金幣嗎?"
+  },
+  "1700": {
+   "en": "H'Jenn-Ra T'Rang",
+   "zh": "赫詹拉特蘭格"
+  },
+  "1701": {
+   "en": "Shritis T'Rang",
+   "zh": "希里提斯特蘭格"
+  },
+  "1702": {
+   "en": "K'Borra T'Rang",
+   "zh": "克波拉特蘭格"
+  },
+  "1703": {
+   "en": "D'Rang T'Rang",
+   "zh": "德蘭特蘭格"
+  },
+  "1704": {
+   "en": "General Yamo",
+   "zh": "亞莫將軍"
+  },
+  "1705": {
+   "en": "Rodan Lewarx",
+   "zh": "羅丹勒瓦克斯"
+  },
+  "1706": {
+   "en": "Tracker Rhallick",
+   "zh": "追蹤者拉利克"
+  },
+  "1707": {
+   "en": "Lt. Gruntwrapper",
+   "zh": "格蘭特拉普中尉"
+  },
+  "1708": {
+   "en": "King Ulgar",
+   "zh": "烏爾加王"
+  },
+  "1709": {
+   "en": "Lord Galiere",
+   "zh": "加列爾勳爵"
+  },
+  "1710": {
+   "en": "Capt. Boerigard",
+   "zh": "波利加德上尉"
+  },
+  "1711": {
+   "en": "Barlone'",
+   "zh": "巴隆內"
+  },
+  "1712": {
+   "en": "Ratsputin",
+   "zh": "鼠拉斯普丁"
+  },
+  "1713": {
+   "en": "Mick the Pick",
+   "zh": "快手米克"
+  },
+  "1714": {
+   "en": "Dame Ke-Li",
+   "zh": "柯麗夫人"
+  },
+  "1715": {
+   "en": "Jan-Ette",
+   "zh": "珍妮特"
+  },
+  "1716": {
+   "en": "Magna Dane",
+   "zh": "大丹恩"
+  },
+  "1717": {
+   "en": "Kymas Turan",
+   "zh": "基馬斯圖蘭"
+  },
+  "1718": {
+   "en": "Xen Xheng",
+   "zh": "仙祥"
+  },
+  "1719": {
+   "en": "Brother TShober",
+   "zh": "索伯修士"
+  },
+  "1720": {
+   "en": "Bela",
+   "zh": "貝拉"
+  },
+  "1721": {
+   "en": "Your Party",
+   "zh": "你的隊伍"
+  },
+  "1750": {
+   "en": "you",
+   "zh": "你"
+  },
+  "1751": {
+   "en": "the Savant Kui'Sa-Ka",
+   "zh": "賢者魁薩卡"
+  },
+  "1752": {
+   "en": "the T'Rang",
+   "zh": "特蘭格"
+  },
+  "1753": {
+   "en": "the Umpani",
+   "zh": "恩帕尼"
+  },
+  "1754": {
+   "en": "the Dane",
+   "zh": "丹恩"
+  },
+  "1755": {
+   "en": "the Munk",
+   "zh": "穆克"
+  },
+  "1756": {
+   "en": "the Gorn",
+   "zh": "高恩"
+  },
+  "1757": {
+   "en": "the Rattkin",
+   "zh": "鼠人"
+  },
+  "1758": {
+   "en": "the Helazoid",
+   "zh": "赫詹族"
+  },
+  "1759": {
+   "en": "the Cosmic Forces",
+   "zh": "宇宙諸力"
+  },
+  "1760": {
+   "en": "unholy terrors",
+   "zh": "邪穢恐怖之物"
+  },
+  "1770": {
+   "en": "New City",
+   "zh": "新城"
+  },
+  "1771": {
+   "en": "Dionysceus",
+   "zh": "狄奧尼修斯"
+  },
+  "1772": {
+   "en": "Nyctalinth",
+   "zh": "夜螢城"
+  },
+  "1773": {
+   "en": "Orkogre Castle",
+   "zh": "奧高高城堡"
+  },
+  "1774": {
+   "en": "Rattkin Ruins",
+   "zh": "鼠人遺跡"
+  },
+  "1775": {
+   "en": "Munkharama",
+   "zh": "僧侶聖地"
+  },
+  "1776": {
+   "en": "City of Sky",
+   "zh": "天空之城"
+  },
+  "1777": {
+   "en": "Ukpyr",
+   "zh": "烏克皮爾"
+  },
+  "1778": {
+   "en": "Witch Mtns.",
+   "zh": "巫女山脈"
+  },
+  "1779": {
+   "en": "Lost Temple",
+   "zh": "失落神廟"
+  },
+  "1780": {
+   "en": "Giantlands",
+   "zh": "巨人之地"
+  },
+  "1781": {
+   "en": "Isle of Crypts",
+   "zh": "墓穴之島"
+  },
+  "1782": {
+   "en": "Tramontaine",
+   "zh": "特拉蒙泰"
+  },
+  "1783": {
+   "en": "Dragon Mtns.",
+   "zh": "龍之山脈"
+  },
+  "1784": {
+   "en": "Old Funhouse",
+   "zh": "老玩笑屋"
+  },
+  "1785": {
+   "en": "Old Cemetery",
+   "zh": "老墓園"
+  },
+  "1786": {
+   "en": "Old City",
+   "zh": "舊城"
+  },
+  "1787": {
+   "en": "Myrmideon Road",
+   "zh": "蜜爾米頓大道"
+  },
+  "1788": {
+   "en": "Red Forest",
+   "zh": "赤色森林"
+  },
+  "1789": {
+   "en": "Orkogre Forest",
+   "zh": "奧高高森林"
+  },
+  "1790": {
+   "en": "River Road",
+   "zh": "河畔大道"
+  },
+  "1791": {
+   "en": "Eyrn River",
+   "zh": "艾恩河"
+  },
+  "1792": {
+   "en": "Wilderness",
+   "zh": "荒野"
+  },
+  "1793": {
+   "en": "Wilderness",
+   "zh": "荒野"
+  },
+  "1794": {
+   "en": "North Forest",
+   "zh": "北森林"
+  },
+  "1795": {
+   "en": "Ancient Tombs",
+   "zh": "上古墓群"
+  },
+  "1796": {
+   "en": "??Unknown??",
+   "zh": "??未知??"
+  },
+  "1800": {
+   "en": "?Temple?",
+   "zh": "?神廟?"
+  },
+  "1801": {
+   "en": "?Boat?",
+   "zh": "?船?"
+  },
+  "1802": {
+   "en": "?Serpent?",
+   "zh": "?蛇?"
+  },
+  "1803": {
+   "en": "?Dragon?",
+   "zh": "?龍?"
+  },
+  "1804": {
+   "en": "?Sphinx?",
+   "zh": "?斯芬克斯?"
+  },
+  "1805": {
+   "en": "?Crypt?",
+   "zh": "?墓穴?"
+  },
+  "1806": {
+   "en": "?Legend?",
+   "zh": "?傳說?"
+  },
+  "1807": {
+   "en": "?Crystal?",
+   "zh": "?水晶?"
+  },
+  "1808": {
+   "en": "?Star?",
+   "zh": "?星辰?"
+  },
+  "1809": {
+   "en": "?Globe?",
+   "zh": "?球體?"
+  },
+  "1810": {
+   "en": "?Fools?",
+   "zh": "?愚者?"
+  },
+  "1850": {
+   "en": "^ has been fighting # at $",
+   "zh": "^已在$與#交戰"
+  },
+  "1851": {
+   "en": "^ has defeated # at $",
+   "zh": "^已在$擊敗#"
+  },
+  "1852": {
+   "en": "^ has made a secret pact with #",
+   "zh": "^已與#締結密約"
+  },
+  "1853": {
+   "en": "^ has aquired the # map from $",
+   "zh": "^已從$取得#地圖"
+  },
+  "1854": {
+   "en": "^ has discovered the # map",
+   "zh": "^已發現#地圖"
+  },
+  "1855": {
+   "en": "^ has formed an alliance with #",
+   "zh": "^已與#結為同盟"
+  },
+  "1856": {
+   "en": "^ has been sighted at $",
+   "zh": "^曾在$被目擊"
+  },
+  "1857": {
+   "en": "^ has solved the mystery of the # map",
+   "zh": "^已解開#地圖之謎"
+  },
+  "1858": {
+   "en": "^ has conquered $ in the name of #",
+   "zh": "^已奉#之名征服$"
+  },
+  "1859": {
+   "en": "^ has reclaimed $ in the name of #",
+   "zh": "^已奉#之名收復$"
+  },
+  "1860": {
+   "en": "^ has been looking for $",
+   "zh": "^一直在尋找$"
+  },
+  "1880": {
+   "en": "$ has possession of the # Map",
+   "zh": "$持有#地圖"
+  },
+  "1881": {
+   "en": "It is rumored that $ possesses the # Map",
+   "zh": "據傳$持有#地圖"
+  },
+  "1882": {
+   "en": "It is rumored that $ possess the # Map",
+   "zh": "據傳$持有#地圖"
+  },
+  "1883": {
+   "en": "The # Map is rumored to be hidden near $",
+   "zh": "據傳#地圖藏在$附近"
+  },
+  "1903": {
+   "en": "$ shall be eliminated in good time!",
+   "zh": "$遲早會被剷除！"
+  },
+  "1904": {
+   "en": "$ are useful only for the dullest of tasks...",
+   "zh": "$只能用來做最呆板的工作……"
+  },
+  "1905": {
+   "en": "$ serve me well!",
+   "zh": "$為我效勞得很好！"
+  },
+  "1906": {
+   "en": "$ are scum to be devoured!",
+   "zh": "$是該被吞噬的渣滓！"
+  },
+  "1907": {
+   "en": "$ can't be trusted...",
+   "zh": "$不可信任……"
+  },
+  "1908": {
+   "en": "$ serve us well!",
+   "zh": "$為我們盡心效勞！"
+  },
+  "1909": {
+   "en": "$ deserve no mercy!",
+   "zh": "$不值得絲毫憐憫！"
+  },
+  "1910": {
+   "en": "$ have no quarrel with us...",
+   "zh": "$與我們沒有恩怨……"
+  },
+  "1911": {
+   "en": "$ are our allies!",
+   "zh": "$是我們的盟友！"
+  },
+  "1912": {
+   "en": "$ are unholy defilers!",
+   "zh": "$是邪穢的褻瀆者！"
+  },
+  "1913": {
+   "en": "$ do not yet see the light...",
+   "zh": "$尚未看清光明……"
+  },
+  "1914": {
+   "en": "$ are our brothers!",
+   "zh": "$是我們的兄弟！"
+  },
+  "1915": {
+   "en": "$ are thieving scoundrels!",
+   "zh": "$是竊賊惡棍！"
+  },
+  "1916": {
+   "en": "$ are best left alone...",
+   "zh": "$最好別去招惹……"
+  },
+  "1917": {
+   "en": "$ are above our suspicion...",
+   "zh": "$不受我們懷疑……"
+  },
+  "1918": {
+   "en": "$ should be boiled in dung oil!",
+   "zh": "$該丟進糞油裡煮！"
+  },
+  "1919": {
+   "en": "$ are very unpredictable...",
+   "zh": "$非常難以捉摸……"
+  },
+  "1920": {
+   "en": "$ have honored our domains...",
+   "zh": "$一向尊重我們的領域……"
+  },
+  "1921": {
+   "en": "$ should be slowly gnawed and tortured!",
+   "zh": "$該被慢慢啃噬、折磨！"
+  },
+  "1922": {
+   "en": "$ are capable of anything!",
+   "zh": "$什麼事都做得出來！"
+  },
+  "1923": {
+   "en": "$ accept the nature of our kind!",
+   "zh": "$認同我等族類的天性！"
+  },
+  "1924": {
+   "en": "$ shall pay for their crimes!",
+   "zh": "$必將為罪行付出代價！"
+  },
+  "1925": {
+   "en": "$ are of no concern to us...",
+   "zh": "$與我們毫不相干……"
+  },
+  "1926": {
+   "en": "$ have proven themselves!",
+   "zh": "$已證明了自己的實力！"
+  },
+  "1927": {
+   "en": "$ are dangerous!",
+   "zh": "$很危險！"
+  },
+  "1928": {
+   "en": "$ deserve caution...",
+   "zh": "$值得多加提防……"
+  },
+  "1929": {
+   "en": "$ may prove helpful!",
+   "zh": "$或許幫得上忙！"
+  },
+  "1930": {
+   "en": "$ shall make tasty meals!",
+   "zh": "$會是美味的佳餚！"
+  },
+  "1931": {
+   "en": "$ would do well to stay out of my way!",
+   "zh": "$最好別擋我的路！"
+  },
+  "1932": {
+   "en": "$ are meritorious in their own right...",
+   "zh": "$自有其功績……"
+  },
+  "1933": {
+   "en": "$ are foes to be defeated in battle!",
+   "zh": "$是須在戰場上擊敗的敵人！"
+  },
+  "1934": {
+   "en": "$ have left us alone...",
+   "zh": "$一直沒來打擾我們……"
+  },
+  "1935": {
+   "en": "$ aid us in our times of need!",
+   "zh": "$在我們危難時伸出援手！"
+  },
+  "1936": {
+   "en": "We shall be victorious!",
+   "zh": "我們必將獲勝！"
+  },
+  "1950": {
+   "en": "You",
+   "zh": "你"
+  },
+  "1951": {
+   "en": "The Savant Kui'Sa-Ka",
+   "zh": "賢者魁薩卡"
+  },
+  "1952": {
+   "en": "The T'Rang",
+   "zh": "特蘭格"
+  },
+  "1953": {
+   "en": "The Umpani",
+   "zh": "恩帕尼"
+  },
+  "1954": {
+   "en": "The Dane",
+   "zh": "丹恩"
+  },
+  "1955": {
+   "en": "The Munk",
+   "zh": "穆克"
+  },
+  "1956": {
+   "en": "The Gorn",
+   "zh": "高恩"
+  },
+  "1957": {
+   "en": "The Rattkin",
+   "zh": "鼠人"
+  },
+  "1958": {
+   "en": "The Helazoid",
+   "zh": "赫詹族"
+  },
+  "1959": {
+   "en": "The Cosmic Forces",
+   "zh": "宇宙諸力"
+  },
+  "1960": {
+   "en": "Bela and minions",
+   "zh": "貝拉與爪牙"
+  },
+  "2002": {
+   "en": "party_options",
+   "zh": "party_options"
   },
   "2005": {
    "en": "SEARCH",
@@ -1539,6 +2495,10 @@
   "2047": {
    "en": "WHO DRINKS?",
    "zh": "誰要喝？"
+  },
+  "2048": {
+   "en": "NO EFFECT",
+   "zh": "無效果"
   },
   "2049": {
    "en": "REFRESHING!",
@@ -1704,6 +2664,18 @@
    "en": "PRESS \u0015 TO EXIT",
    "zh": "按 \u0015 離開"
   },
+  "2300": {
+   "en": "CRUSADERS OF THE DARK SAVANT",
+   "zh": "黑暗賢者的十字軍"
+  },
+  "2301": {
+   "en": "V",
+   "zh": "V"
+  },
+  "2302": {
+   "en": "GAME CONFIGURATION",
+   "zh": "遊戲設定"
+  },
   "2303": {
    "en": "INPUT DEVICE",
    "zh": "輸入裝置"
@@ -1724,9 +2696,25 @@
    "en": "EFFECTS",
    "zh": "音效"
   },
+  "2308": {
+   "en": "EFFECTS VOL",
+   "zh": "音效音量"
+  },
+  "2309": {
+   "en": "MONSTER VOL",
+   "zh": "怪物音量"
+  },
+  "2310": {
+   "en": "BACKGND VOL",
+   "zh": "背景音量"
+  },
   "2311": {
    "en": "MUSIC",
    "zh": "音樂"
+  },
+  "2312": {
+   "en": "MUSIC VOL",
+   "zh": "音樂音量"
   },
   "2313": {
    "en": "PLAY LEVEL",
@@ -1740,6 +2728,10 @@
    "en": "MEMORY",
    "zh": "記憶體"
   },
+  "2316": {
+   "en": "RAMNAME",
+   "zh": "RAMNAME"
+  },
   "2317": {
    "en": "GRAPHICS",
    "zh": "圖形"
@@ -1752,6 +2744,26 @@
    "en": "CONTRAST",
    "zh": "對比"
   },
+  "2320": {
+   "en": "SAVE",
+   "zh": "儲存"
+  },
+  "2321": {
+   "en": "CANCEL",
+   "zh": "取消"
+  },
+  "2322": {
+   "en": "\u001aHARDWARE CONFIGURATION",
+   "zh": "\u001a硬體設定"
+  },
+  "2323": {
+   "en": "\u0001...EXITING PROGRAM...",
+   "zh": "\u0001……離開程式中……"
+  },
+  "2325": {
+   "en": "\u0001(PLEASE RESTART THE GAME)",
+   "zh": "\u0001(請重新啟動遊戲)"
+  },
   "2350": {
    "en": "KEYBOARD",
    "zh": "鍵盤"
@@ -1763,6 +2775,38 @@
   "2352": {
    "en": "JOYSTICK",
    "zh": "搖桿"
+  },
+  "2353": {
+   "en": "PC SPEAKER",
+   "zh": "PC 喇叭"
+  },
+  "2354": {
+   "en": "ADLIB",
+   "zh": "ADLIB"
+  },
+  "2355": {
+   "en": "CVOX SOUND MS",
+   "zh": "CVOX SOUND MS"
+  },
+  "2356": {
+   "en": "CVOX VOICE MS",
+   "zh": "CVOX VOICE MS"
+  },
+  "2357": {
+   "en": "SOUND BLASTER",
+   "zh": "SOUND BLASTER"
+  },
+  "2358": {
+   "en": "(LAPC-1)",
+   "zh": "(LAPC-1)"
+  },
+  "2359": {
+   "en": "COVOX SMII",
+   "zh": "COVOX SMII"
+  },
+  "2360": {
+   "en": "NORMAL",
+   "zh": "一般"
   },
   "2361": {
    "en": "EASY",
@@ -1780,33 +2824,165 @@
    "en": "OFF",
    "zh": "關"
   },
+  "2365": {
+   "en": "(640K)",
+   "zh": "(640K)"
+  },
+  "2366": {
+   "en": "EXPANDED",
+   "zh": "擴充"
+  },
+  "2367": {
+   "en": "RAMDISK",
+   "zh": "RAM 碟"
+  },
+  "2368": {
+   "en": "VGA 256",
+   "zh": "VGA 256"
+  },
+  "2369": {
+   "en": "EGA 16",
+   "zh": "EGA 16"
+  },
+  "2370": {
+   "en": "TANDY 16",
+   "zh": "TANDY 16"
+  },
+  "2371": {
+   "en": "HBRITE 64",
+   "zh": "HBRITE 64"
+  },
+  "2372": {
+   "en": "MAC MONO",
+   "zh": "MAC MONO"
+  },
+  "2373": {
+   "en": "MAC 256",
+   "zh": "MAC 256"
+  },
+  "2374": {
+   "en": "(NONE)",
+   "zh": "(無)"
+  },
+  "2375": {
+   "en": "ADLIB",
+   "zh": "ADLIB"
+  },
+  "2376": {
+   "en": "(COVOX)",
+   "zh": "(COVOX)"
+  },
+  "2377": {
+   "en": "(COVOX)",
+   "zh": "(COVOX)"
+  },
+  "2378": {
+   "en": "SOUND BLASTER",
+   "zh": "SOUND BLASTER"
+  },
+  "2379": {
+   "en": "ROLAND LAPC-1",
+   "zh": "ROLAND LAPC-1"
+  },
+  "2380": {
+   "en": "COVOX SMII",
+   "zh": "COVOX SMII"
+  },
   "2900": {
    "en": "\u0002\u0001Written & Programmed by",
    "zh": "編寫與程式設計"
+  },
+  "2901": {
+   "en": "\u0002D.W.Bradley",
+   "zh": "\u0002D.W.Bradley"
+  },
+  "2902": {
+   "en": "\u0003\u0001IBM, Amiga, & Macintosh",
+   "zh": "\u0003\u0001IBM, Amiga, & Macintosh"
   },
   "2903": {
    "en": "\u0001Technical Programming",
    "zh": "技術程式設計"
   },
+  "2904": {
+   "en": "\u0002Gary Speegle",
+   "zh": "\u0002Gary Speegle"
+  },
   "2905": {
    "en": "\u0005\u0001Graphics Maestro",
    "zh": "美術總監"
+  },
+  "2906": {
+   "en": "\u0002Chris Appel",
+   "zh": "\u0002Chris Appel"
   },
   "2907": {
    "en": "\u0001Graphic Artists",
    "zh": "美術設計"
   },
+  "2908": {
+   "en": "\u0002Suzanne Snelling  Dan Mintor",
+   "zh": "\u0002Suzanne Snelling  Dan Mintor"
+  },
+  "2909": {
+   "en": "\u0002Renata Dolnick    B.J.Barrett",
+   "zh": "\u0002Renata Dolnick    B.J.Barrett"
+  },
   "2910": {
    "en": "\u0002\u0001Music Score & Sound Effects",
    "zh": "音樂與音效"
+  },
+  "2911": {
+   "en": "\u0002Steve Miller",
+   "zh": "\u0002Steve Miller"
   },
   "2912": {
    "en": "\u0002\u0001Manual & Documentation",
    "zh": "手冊與文件"
   },
+  "2913": {
+   "en": "\u0002Brenda Garno",
+   "zh": "\u0002Brenda Garno"
+  },
+  "2914": {
+   "en": "\u0005\u0001Storyboard Video Sequence",
+   "zh": "\u0005\u0001影片分鏡"
+  },
+  "2915": {
+   "en": "\u0002Toshi Sato",
+   "zh": "\u0002Toshi Sato"
+  },
+  "2917": {
+   "en": "\u0001Titlepage Video Sequence",
+   "zh": "\u0001標題畫面影片"
+  },
+  "2918": {
+   "en": "\u0002Derek Hardison",
+   "zh": "\u0002Derek Hardison"
+  },
   "2919": {
    "en": "\u0002\u0001Sound Programming",
    "zh": "音效程式設計"
+  },
+  "2920": {
+   "en": "\u0002Jeff Noyle   David Triggerson",
+   "zh": "\u0002Jeff Noyle   David Triggerson"
+  },
+  "2921": {
+   "en": "\u0004\u0003COPYRIGHT (C) 1992 BY",
+   "zh": "\u0004\u0003COPYRIGHT (C) 1992 BY"
+  },
+  "2922": {
+   "en": "\u0003SIR-TECH SOFTWARE, INC. AND",
+   "zh": "\u0003SIR-TECH SOFTWARE, INC. AND"
+  },
+  "2923": {
+   "en": "\u0003DAVID W. BRADLEY",
+   "zh": "\u0003DAVID W. BRADLEY"
+  },
+  "2924": {
+   "en": "\u0003ALL RIGHTS RESERVED.",
+   "zh": "\u0003ALL RIGHTS RESERVED."
   },
   "3000": {
    "en": "FIGHT",
@@ -4336,9 +5512,17 @@
    "en": "?OBJECT",
    "zh": "?物品"
   },
+  "8000": {
+   "en": " US^2WE",
+   "zh": " 我^2們"
+  },
   "8004": {
    "en": "Right here, of course!",
    "zh": "當然就在這裡！"
+  },
+  "8005": {
+   "en": "\u001fOUR PARTY@",
+   "zh": "\u001f我方隊伍"
   },
   "8010": {
    "en": "!NEW CITY@",
@@ -4356,6 +5540,10 @@
    "en": "!DIONYSCEUS@",
    "zh": "狄奧尼修斯"
   },
+  "8017": {
+   "en": "The Magna Dane rules high in the Great Tower of Dionysceus!",
+   "zh": "大丹恩高踞狄奧尼修斯巨塔統治！"
+  },
   "8018": {
    "en": "Dionysceus lies west of the Myrmideon Forest...",
    "zh": "狄奧尼修斯位於蜜爾米頓森林以西……"
@@ -4363,6 +5551,10 @@
   "8020": {
    "en": "!NYCTALINTH@",
    "zh": "夜螢城"
+  },
+  "8022": {
+   "en": "The fierce T'Rang hordes have occupied the ruins of Nyctalinth!",
+   "zh": "兇猛的特蘭格大軍已佔據夜螢城廢墟！"
   },
   "8023": {
    "en": "Nyctalinth lies north of the Red Forest...",
@@ -4372,9 +5564,21 @@
    "en": "!ORKOGRE@",
    "zh": "奧高高"
   },
+  "8027": {
+   "en": "Orkogre Castle lies hidden deep within Orkogre Forest!",
+   "zh": "奧高高城堡深藏在奧高高森林之中！"
+  },
   "8030": {
    "en": "!RATTKIN RUINS@",
    "zh": "鼠人遺跡"
+  },
+  "8032": {
+   "en": "It is said that the Rattkin Ruins is a most dangerous place...",
+   "zh": "據說鼠人遺跡是個極度危險的地方……"
+  },
+  "8033": {
+   "en": "The old Rattkin Ruins lie deep in the northeast forests...",
+   "zh": "古老的鼠人遺跡深藏在東北森林裡……"
   },
   "8035": {
    "en": "!MUNKHARAMA@",
@@ -4384,6 +5588,10 @@
    "en": "The Holy City of the Munk...",
    "zh": "修士們的聖城……"
   },
+  "8038": {
+   "en": "Munkharama lies across the Eryn River in Tramontane Forest...",
+   "zh": "僧侶聖地在特拉蒙泰森林、艾恩河的對岸……"
+  },
   "8040": {
    "en": "!CITY OF SKY@",
    "zh": "天空之城"
@@ -4392,13 +5600,57 @@
    "en": "Beware the Helazoid Flyers!",
    "zh": "當心異形飛行者！"
   },
+  "8043": {
+   "en": "They say the legendary city lies high, south of the seas!",
+   "zh": "傳說中的城市高踞在南方大海之外！"
+  },
   "8045": {
    "en": "!UKPYR@",
    "zh": "烏克皮爾"
   },
+  "8047": {
+   "en": "It is rumored the Umpani have built a huge fortress in the jungles...",
+   "zh": "傳聞恩帕尼在叢林裡建了一座巨大堡壘……"
+  },
+  "8048": {
+   "en": "Ukpyr lies through the Wilderness, along the Ukpyr Mountains...",
+   "zh": "烏克皮爾在荒野彼端，沿烏克皮爾山脈而行……"
+  },
+  "8050": {
+   "en": "!GIANTLAND%",
+   "zh": "巨人之地%"
+  },
+  "8052": {
+   "en": "Horrible Giants roam the lands in search of tasty humans!",
+   "zh": "可怕的巨人四處遊蕩，尋找美味的人類！"
+  },
   "8053": {
    "en": "The Giantlands lie north of the Eyrn River...",
    "zh": "巨人之地位於艾恩河以北……"
+  },
+  "8055": {
+   "en": " WITCH^0ES",
+   "zh": " 女巫^0"
+  },
+  "8056": {
+   "en": "It is rumored that horrible Witches roam the dark mountains!",
+   "zh": "傳聞可怕的女巫在陰暗山間出沒！"
+  },
+  "8058": {
+   "en": "The Witch Mountains are far to the east, north of the Ukpyr...",
+   "zh": "女巫山脈在遙遠的東方、烏克皮爾以北……"
+  },
+  "8060": {
+   "en": "!TOWER%",
+   "zh": "巨塔%"
+  },
+  "8062": {
+   "en": "The Magna Dane rules high in the Great Tower of Dionysceus!",
+   "zh": "大丹恩高踞狄奧尼修斯巨塔統治！"
+  },
+  "8063": {
+   "en": "Dionysceus lies west of the Myrmideon Forest...",
+   "zh": "狄奧尼修斯位於蜜爾米頓森林以西……"
   },
   "8065": {
    "en": "!LOST TEMPLE@",
@@ -4412,9 +5664,41 @@
    "en": "The Temple has remained hidden for centuries!",
    "zh": "這座神廟已隱匿數個世紀！"
   },
+  "8070": {
+   "en": "!SEA OF SORROW%",
+   "zh": "哀傷之海%"
+  },
+  "8072": {
+   "en": "It is rumored a great monster guards the secret of the seas!",
+   "zh": "傳聞大海的秘密由一頭巨怪守護！"
+  },
+  "8073": {
+   "en": "New City has a harbour upon the Sea of Sorrows...",
+   "zh": "新城在哀傷之海畔有座港口……"
+  },
+  "8075": {
+   "en": "\u001fSEA%",
+   "zh": "\u001f海%"
+  },
+  "8080": {
+   "en": "!ISLE OF CRYPT%",
+   "zh": "墓窖之島%"
+  },
+  "8082": {
+   "en": "The Isle of Crypts holds the long dead and lost secrets!",
+   "zh": "墓窖之島藏著逝者與失落的秘密！"
+  },
+  "8083": {
+   "en": "To get to the Isle of Crypts you must travel across the sea!",
+   "zh": "要到墓窖之島，你必須渡海而行！"
+  },
   "8085": {
    "en": "!TRAMONTAINE@",
    "zh": "特拉蒙泰"
+  },
+  "8087": {
+   "en": "The Tramontaine Forest, this side of the great Ukypr Mountains...",
+   "zh": "特拉蒙泰森林，在烏克皮爾大山脈的這一側……"
   },
   "8090": {
    "en": "!FUNHOUSE@",
@@ -4424,13 +5708,45 @@
    "en": "The Razuka have made it their hideout!",
    "zh": "拉祖卡把這裡當成了巢穴！"
   },
+  "8093": {
+   "en": "The old Funhouse lies in the heart of the Rattkin Ruins...",
+   "zh": "老玩笑屋就位於鼠人遺跡的中心……"
+  },
+  "8095": {
+   "en": "!CEMETERY%",
+   "zh": "墓園%"
+  },
   "8097": {
    "en": "Many of the great ancestors are buried there...",
    "zh": "許多偉大的先祖長眠於此……"
   },
+  "8098": {
+   "en": "The Cemetery was behind the old church at Nyctalinth...",
+   "zh": "墓園在夜螢城舊教堂的後面……"
+  },
+  "8100": {
+   "en": " DRAGON%",
+   "zh": " 龍%"
+  },
+  "8102": {
+   "en": "It is rumored the Dragon flies at night over the sea!",
+   "zh": "傳聞那條龍夜裡飛越大海！"
+  },
+  "8103": {
+   "en": "'Tis said a giant Dragon lives beyond the south seas!",
+   "zh": "據說南海之外住著一條巨龍！"
+  },
   "8105": {
    "en": "!CHURCH@",
    "zh": "教堂"
+  },
+  "8107": {
+   "en": "Many of the great ancestors are buried there...",
+   "zh": "許多偉大的先祖長眠於此……"
+  },
+  "8108": {
+   "en": "The ancient church lies in the ruins of Nyctalinth...",
+   "zh": "古老教堂位於夜螢城廢墟之中……"
   },
   "8110": {
    "en": "!OLD CITY@",
@@ -4443,6 +5759,10 @@
   "8115": {
    "en": "!WILDERNESS@",
    "zh": "荒野"
+  },
+  "8117": {
+   "en": "The Great Wilderness lies east and west of the sea!",
+   "zh": "大荒野位於大海的東西兩側！"
   },
   "8120": {
    "en": "!HIGARDI@",
@@ -4460,6 +5780,14 @@
    "en": "!EYRN@",
    "zh": "艾恩"
   },
+  "8127": {
+   "en": "The river runs from the haunted mountains down to the great sea...",
+   "zh": "這條河從鬧鬼的群山流下，注入大海……"
+  },
+  "8130": {
+   "en": "\u001fRIVER%",
+   "zh": "\u001f河%"
+  },
   "8135": {
    "en": "!MYRMIDEON@",
    "zh": "蜜爾米頓"
@@ -4468,25 +5796,65 @@
    "en": "The Myrmideon Forest, the lands of the Dane!",
    "zh": "蜜爾米頓森林——丹恩家的領地！"
   },
+  "8140": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
   "8141": {
    "en": "The Lord of all T'Rang!",
    "zh": "特蘭格之主！"
+  },
+  "8143": {
+   "en": "He is said to be well guarded in the old ruins of Nyctalinth...",
+   "zh": "據說他在夜螢城舊廢墟裡，守衛森嚴……"
+  },
+  "8145": {
+   "en": " SHRITIS@",
+   "zh": " 希里提斯"
   },
   "8146": {
    "en": "The feared assassin of the High T'Rang!",
    "zh": "令人生畏的高階特蘭格刺客！"
   },
+  "8148": {
+   "en": "Shritis T'Rang seeks to sabotage the Umpani Forces!",
+   "zh": "希里提斯特蘭格圖謀破壞恩帕尼軍！"
+  },
   "8149": {
    "en": "Not around here, I hope!",
    "zh": "希望不在這附近！"
+  },
+  "8150": {
+   "en": " K'BORRA@",
+   "zh": " 克波拉"
   },
   "8151": {
    "en": "Beware the sting of the horrid T'Rang mercenaries!",
    "zh": "當心可怕特蘭格傭兵的毒刺！"
   },
+  "8153": {
+   "en": "The T'Rang have infested the old ruins of Nyctalinth...",
+   "zh": "特蘭格已大量盤踞夜螢城舊廢墟……"
+  },
+  "8155": {
+   "en": "\u001fD'RANG@",
+   "zh": "\u001f德蘭格"
+  },
+  "8160": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
   "8161": {
    "en": "Military commander of the Umpani!",
    "zh": "恩帕尼的軍事統帥！"
+  },
+  "8163": {
+   "en": "The Umpani have built a fortress in the jungles of Ukpyr...",
+   "zh": "恩帕尼已在烏克皮爾的叢林建了堡壘……"
+  },
+  "8165": {
+   "en": " LEWARX@",
+   "zh": " 勒瓦克斯"
   },
   "8166": {
    "en": "Rodan Lewarx, the great Umpani Tracker!",
@@ -4496,9 +5864,29 @@
    "en": "Rodan Lewarx is hunting down the T'Rang!",
    "zh": "羅丹·勒瓦克斯正在追獵特蘭格！"
   },
+  "8169": {
+   "en": "Where the T'Rang go, Rodan Lewarx is sure to follow!",
+   "zh": "特蘭格到哪，羅丹·勒瓦克斯必跟到哪！"
+  },
+  "8170": {
+   "en": " RHALLICK@",
+   "zh": " 拉利克"
+  },
   "8171": {
    "en": "The Umpani want to eliminate the T'Rang!",
    "zh": "恩帕尼想剷除特蘭格！"
+  },
+  "8173": {
+   "en": "The Umpani have built a fortress in the jungles of Ukpyr...",
+   "zh": "恩帕尼已在烏克皮爾的叢林建了堡壘……"
+  },
+  "8175": {
+   "en": "\u001fGRUNTWRAPPER@",
+   "zh": "\u001f格倫特拉帕"
+  },
+  "8180": {
+   "en": " ULGAR@",
+   "zh": " 烏爾加"
   },
   "8181": {
    "en": "They say the Gorn King eats his captives alive!",
@@ -4508,6 +5896,10 @@
    "en": "The Gorn King sits upon his Castle throne!",
    "zh": "高恩王高坐城堡王座之上！"
   },
+  "8185": {
+   "en": " GALIERE@",
+   "zh": " 加利爾"
+  },
   "8186": {
    "en": "They say the Gorn Lord is a master of all weapons!",
    "zh": "聽說高恩領主精通所有武器……"
@@ -4515,6 +5907,10 @@
   "8188": {
    "en": "The Gorn Lord serves the King of Orkogre Castle!",
    "zh": "高恩領主效力於奧高高城堡之王！"
+  },
+  "8190": {
+   "en": " BOERIGARD@",
+   "zh": " 波利加德"
   },
   "8191": {
    "en": "I have not seen him...",
@@ -4524,6 +5920,22 @@
    "en": "The Gorn domain covers all of Orkogre Forest!",
    "zh": "高恩的領地遍及整個奧高高森林！"
   },
+  "8195": {
+   "en": " BARLONE^0'",
+   "zh": " 巴隆內^0"
+  },
+  "8196": {
+   "en": "The fattest Rattkin, head of the Razuka family, king of thieves!",
+   "zh": "最肥的鼠人，拉祖卡家族首領，盜賊之王！"
+  },
+  "8198": {
+   "en": "It is rumored that he sits upon the gnawed bones of men!",
+   "zh": "傳聞他坐在啃剩的人骨之上！"
+  },
+  "8200": {
+   "en": " RATSPUTIN@",
+   "zh": " 鼠拉斯普丁"
+  },
   "8201": {
    "en": "The Rattkin bandits lurk behind every tree!",
    "zh": "鼠人強盜潛伏在每棵樹後！"
@@ -4531,6 +5943,14 @@
   "8203": {
    "en": "The Rattkin lair is well hidden!",
    "zh": "鼠人的巢穴隱蔽得很好！"
+  },
+  "8205": {
+   "en": "\u001fMICK THE PICK@",
+   "zh": "\u001f撬鎖米克"
+  },
+  "8210": {
+   "en": " KE-LI@",
+   "zh": " 凱麗"
   },
   "8211": {
    "en": "Ke-Li, the legendary Queen of the Helazoid Flyers!",
@@ -4540,25 +5960,77 @@
    "en": "They say she is Queen of the mythical City of Sky!",
    "zh": "聽說她是神話中天空之城的女王……"
   },
+  "8215": {
+   "en": " JAN-ETTE@",
+   "zh": " 珍艾特"
+  },
+  "8216": {
+   "en": "The feared Helazoid flyers ride upon blazing rockets of fire!",
+   "zh": "令人畏懼的赫詹族飛行者乘著烈焰火箭！"
+  },
   "8218": {
    "en": "Where the Helazoid fly, let men beware!",
    "zh": "異形飛翔之處，凡人當心！"
+  },
+  "8220": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
   },
   "8221": {
    "en": "Lord of the House of Dane!",
    "zh": "丹恩家之主！"
   },
+  "8223": {
+   "en": "They say strange cries can be heard at night from atop the Great Tower!",
+   "zh": "據說夜裡巨塔頂端會傳來奇怪的叫聲！"
+  },
+  "8225": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "8226": {
+   "en": "Beware the mystic power of the Deliverer, Kymas Turan!",
+   "zh": "當心救世者基馬斯·圖蘭的神秘力量！"
+  },
+  "8228": {
+   "en": "The House of Dane lies in the Great Tower of Dionysceus...",
+   "zh": "丹恩家就在狄奧尼修斯巨塔之中……"
+  },
+  "8230": {
+   "en": " XHENG@",
+   "zh": " 姜欣"
+  },
   "8231": {
    "en": "It is said he possesses inhuman powers!",
    "zh": "據說他擁有超人的力量！"
+  },
+  "8233": {
+   "en": "It is whispered that he teaches a secret school somewhere...",
+   "zh": "有人竊語，他在某處開設秘密學院……"
+  },
+  "8235": {
+   "en": " TSHOBER@",
+   "zh": " 喬伯"
   },
   "8236": {
    "en": "Brother TShober, guardian of Munkharama Bridge...",
    "zh": "喬伯修士——僧侶聖地橋的守衛……"
   },
+  "8238": {
+   "en": "He guards Munkharama Bridge along the Eryn River...",
+   "zh": "他守著艾恩河畔的僧侶聖地橋……"
+  },
+  "8240": {
+   "en": " VI DOMINAE@",
+   "zh": " 薇·多米娜"
+  },
   "8241": {
    "en": "I do not know...",
    "zh": "我不知道……"
+  },
+  "8245": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
   },
   "8246": {
    "en": "Dread Ruler of Galaxies!",
@@ -4568,33 +6040,125 @@
    "en": "No one knows!",
    "zh": "沒有人知道！"
   },
+  "8250": {
+   "en": " TORQUESADE@",
+   "zh": " 托爾凱薩德"
+  },
   "8251": {
    "en": "Lord of the House of Dane!",
    "zh": "丹恩家之主！"
+  },
+  "8253": {
+   "en": "They say strange cries can be heard at night from atop the Great Tower!",
+   "zh": "據說夜裡巨塔頂端會傳來奇怪的叫聲！"
+  },
+  "8255": {
+   "en": " SAVANT%",
+   "zh": " 賢者%"
   },
   "8258": {
    "en": "Everywhere at once!",
    "zh": "無所不在！"
   },
+  "8260": {
+   "en": "\u001fKUI'SA-KA@",
+   "zh": "\u001f魁薩卡"
+  },
   "8263": {
    "en": "Everywhere at once!",
    "zh": "無所不在！"
+  },
+  "8265": {
+   "en": " T'RANG@",
+   "zh": " 特蘭格"
+  },
+  "8268": {
+   "en": "The T'Rang are rumored to inhabit the ruins of Nyctalinth...",
+   "zh": "傳聞特蘭格棲息在夜螢城廢墟裡……"
+  },
+  "8270": {
+   "en": " UMPANI@",
+   "zh": " 恩帕尼"
+  },
+  "8273": {
+   "en": "It is said that the Umpani have a base in the eastern jungles...",
+   "zh": "據說恩帕尼在東方叢林有座基地……"
+  },
+  "8275": {
+   "en": " DANE%",
+   "zh": " 丹恩%"
   },
   "8278": {
    "en": "Dionysceus, where looms the Great Tower of Dane...",
    "zh": "狄奧尼修斯——丹恩巨塔聳立之地。"
   },
+  "8280": {
+   "en": " MUNK%",
+   "zh": " 穆克%"
+  },
   "8283": {
    "en": "The Munk dwell in the Holy City of Munkharama...",
    "zh": "修士們住在聖城僧侶聖地……"
+  },
+  "8285": {
+   "en": " GORN%",
+   "zh": " 高恩%"
   },
   "8288": {
    "en": "The Gorn domain covers all of Orkogre Forest!",
    "zh": "高恩的領地遍及整個奧高高森林！"
   },
+  "8290": {
+   "en": " RATTKIN%",
+   "zh": " 鼠人%"
+  },
   "8293": {
    "en": "The Rattkin call everywhere \"Home!\"",
    "zh": "鼠人把處處都當『家』！"
+  },
+  "8295": {
+   "en": " HELAZOID%",
+   "zh": " 赫詹族%"
+  },
+  "8298": {
+   "en": "The Helazoid Legions live high in the mythical City of Sky!",
+   "zh": "赫詹軍團高居神話中的天空之城！"
+  },
+  "8300": {
+   "en": "\"MAP%",
+   "zh": "地圖%"
+  },
+  "8302": {
+   "en": "Perhaps if you give me one of yours for a moment I could help...",
+   "zh": "也許你把你的那份借我一會兒，我就能幫忙……"
+  },
+  "8305": {
+   "en": "\u001fMAPPIECE%",
+   "zh": "\u001f地圖碎片%"
+  },
+  "8310": {
+   "en": "\"LORE@",
+   "zh": "知識"
+  },
+  "8312": {
+   "en": "We may both benefit from the mutual exchange of knowledge...",
+   "zh": "互換知識，你我或許都能受益……"
+  },
+  "8315": {
+   "en": "\"BIRD%",
+   "zh": "巨鳥%"
+  },
+  "8317": {
+   "en": "The giant birds of the seas, predators of mortal men!",
+   "zh": "大海的巨鳥，獵食凡人的猛禽！"
+  },
+  "8318": {
+   "en": "The giant birds can be seen flying south of the Sea!",
+   "zh": "在大海以南可以看到巨鳥飛翔！"
+  },
+  "8320": {
+   "en": " BELA@",
+   "zh": " 貝拉"
   },
   "8321": {
    "en": "I do not know...",
@@ -4608,6 +6172,142 @@
    "en": "Thesminster Abbey is in New City...",
    "zh": "希斯敏斯特修道院在新城……"
   },
+  "8330": {
+   "en": "\u001fABBEY@",
+   "zh": "\u001f修道院"
+  },
+  "8900": {
+   "en": "Hsssst!",
+   "zh": "嘶嘶！"
+  },
+  "8901": {
+   "en": "Hsst!",
+   "zh": "嘶！"
+  },
+  "8902": {
+   "en": "\u0001\u0002UKPYR/LEWARX/",
+   "zh": "\u0001\u0002烏克皮爾/勒瓦克斯/"
+  },
+  "8903": {
+   "en": "\u0001\u0002YAMO/10000 GOLD/",
+   "zh": "\u0001\u0002亞莫/10000金幣/"
+  },
+  "8904": {
+   "en": "\u0001\u0002BLACK SHIP/NARGISST/",
+   "zh": "\u0001\u0002黑船/納吉斯特/"
+  },
+  "8905": {
+   "en": "At ease, soldier!",
+   "zh": "稍息，士兵！"
+  },
+  "8906": {
+   "en": "Dismissed!",
+   "zh": "解散！"
+  },
+  "8907": {
+   "en": "\u0001\u0002BLACK MARKET/HECTOR/VENGEANCE/",
+   "zh": "\u0001\u0002黑市/赫克特/復仇/"
+  },
+  "8908": {
+   "en": "\u0001\u0002SHRITIS/WITCHES/",
+   "zh": "\u0001\u0002希里提斯/女巫/"
+  },
+  "8909": {
+   "en": "\u0001\u0002ASTRAL DOMINAE/HORATHA/",
+   "zh": "\u0001\u0002星界統領/霍拉薩/"
+  },
+  "8910": {
+   "en": "Ort!",
+   "zh": "歐特！"
+  },
+  "8911": {
+   "en": "Chalu!",
+   "zh": "查魯！"
+  },
+  "8912": {
+   "en": "\u0001\u0002CIVIL WAR/MURKATOS/",
+   "zh": "\u0001\u0002內戰/穆卡托斯/"
+  },
+  "8913": {
+   "en": "\u0001\u0002BOERIGARD/ORKOGRE/",
+   "zh": "\u0001\u0002波利加德/奧高高/"
+  },
+  "8914": {
+   "en": "\u0001\u0002MURKATOS/BETRAYER/",
+   "zh": "\u0001\u0002穆卡托斯/叛徒/"
+  },
+  "8915": {
+   "en": "Hoyo...",
+   "zh": "霍喲……"
+  },
+  "8916": {
+   "en": "Bodendoi...",
+   "zh": "波登多伊……"
+  },
+  "8917": {
+   "en": "\u0001\u0002THE DANE/KYMAS TURAN/",
+   "zh": "\u0001\u0002丹恩/基馬斯圖蘭/"
+  },
+  "8918": {
+   "en": "\u0001\u0002PALACE/DIONYSCEUS/",
+   "zh": "\u0001\u0002宮殿/狄奧尼修斯/"
+  },
+  "8920": {
+   "en": "Eee-cha!",
+   "zh": "咿恰！"
+  },
+  "8921": {
+   "en": "Rheent-rheent!",
+   "zh": "瑞恩——瑞恩！"
+  },
+  "8922": {
+   "en": "\u0001\u0002GUILD/DON BARLONE'/",
+   "zh": "\u0001\u0002公會/唐巴隆內/"
+  },
+  "8923": {
+   "en": "\u0001\u0002BERTIE'S/RAZUKA/",
+   "zh": "\u0001\u0002伯蒂/拉祖卡/"
+  },
+  "8925": {
+   "en": "Greetings, brethren...",
+   "zh": "問候你，弟兄……"
+  },
+  "8926": {
+   "en": "May the guiding light protect thee!",
+   "zh": "願引導之光護佑你！"
+  },
+  "8927": {
+   "en": "\u0001\u0002TSHOBER/HOLY WORD/",
+   "zh": "\u0001\u0002喬伯/聖言/"
+  },
+  "8930": {
+   "en": "\"O'Haio!",
+   "zh": "歐哈伊！"
+  },
+  "8931": {
+   "en": "Let destiny prevail!",
+   "zh": "願命運得勝！"
+  },
+  "8932": {
+   "en": "\u0001\u0002CRUSADERS/THE PROPHECY/CITY OF SKY/",
+   "zh": "\u0001\u0002十字軍/預言/天空之城/"
+  },
+  "8990": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "8996": {
+   "en": "Hi",
+   "zh": "嗨"
+  },
+  "8997": {
+   "en": "Bye",
+   "zh": "掰"
+  },
+  "9000": {
+   "en": " YOU@",
+   "zh": "你"
+  },
   "9001": {
    "en": "My name is Dungore...",
    "zh": "我叫鄧戈爾……"
@@ -4620,13 +6320,57 @@
    "en": "Our rooms are the pride of the city!",
    "zh": "我們的房間是全城的驕傲！"
   },
+  "9005": {
+   "en": "\u001fDUNGORE@",
+   "zh": "\u001f鄧戈爾"
+  },
+  "9010": {
+   "en": "#ROOM%",
+   "zh": "房間%"
+  },
+  "9015": {
+   "en": "#STAY^4REST",
+   "zh": "住宿^4REST"
+  },
+  "9020": {
+   "en": "#SLEEP^5INN",
+   "zh": "睡覺^5INN"
+  },
+  "9025": {
+   "en": "#DRINK%",
+   "zh": "喝酒%"
+  },
+  "9030": {
+   "en": "#ALE@",
+   "zh": "麥酒"
+  },
+  "9035": {
+   "en": "\"ARMS OF ARGUS@",
+   "zh": "阿格斯之臂"
+  },
   "9036": {
    "en": "I've heard the Black Market operates from the Arms of Argus!",
    "zh": "聽說黑市就在阿格斯之臂酒館裡經營……"
   },
+  "9040": {
+   "en": "\u001fBLACK MARKET%",
+   "zh": "\u001f黑市%"
+  },
+  "9045": {
+   "en": " T'RANG%",
+   "zh": "特蘭格%"
+  },
+  "9046": {
+   "en": "Nasty creatures, nasty... &%Leaves that icky stuff everywhere...",
+   "zh": "討厭的生物，真髒……&%到處都留著那種黏答答的髒東西……"
+  },
   "9048": {
    "en": "Since they've been coming around business has been bad...",
    "zh": "自從他們開始到處跑之後，生意就難做了……"
+  },
+  "9100": {
+   "en": " YOU@",
+   "zh": "你"
   },
   "9101": {
    "en": "I am Rossarian!",
@@ -4640,13 +6384,69 @@
    "en": "My network covers all of New City!",
    "zh": "我的網路遍布整個新城！"
   },
+  "9105": {
+   "en": "\u001fROSSARIAN@",
+   "zh": "\u001f羅薩里安"
+  },
+  "9110": {
+   "en": "\"WEAPON%",
+   "zh": "武器%"
+  },
   "9111": {
    "en": "I might have what you need, for a price!",
    "zh": "只要價錢談得攏，你要的我或許有！"
   },
+  "9115": {
+   "en": "\u001fARM%",
+   "zh": "\u001f軍械%"
+  },
+  "9120": {
+   "en": "\u001eMUSKET%",
+   "zh": "\u001e火槍%"
+  },
+  "9125": {
+   "en": "\u001dBLUNDERBUSS^0ES",
+   "zh": "\u001d大口徑火槍^0ES"
+  },
+  "9130": {
+   "en": "!OLD CITY@",
+   "zh": "舊城"
+  },
+  "9132": {
+   "en": "There is a secret access rumored to be in the Condemned Area!",
+   "zh": "據傳查封區裡藏著一條秘密通道！"
+  },
+  "9135": {
+   "en": "\"CONTRABAND@",
+   "zh": "違禁品"
+  },
   "9137": {
    "en": "If you want to deal, you'll have to make an offer...",
    "zh": "想交易，就得先出個價……"
+  },
+  "9140": {
+   "en": "\u001fBLACK MARKET@",
+   "zh": "\u001f黑市"
+  },
+  "9145": {
+   "en": " YAMO@",
+   "zh": "亞莫"
+  },
+  "9146": {
+   "en": "General Yamo, Commander of the I.U.F., Imperial Umpani Forces!",
+   "zh": "亞莫將軍，恩帕尼帝國軍 I.U.F. 的統帥！"
+  },
+  "9148": {
+   "en": "He commands the I.U.F. from our base in the jungles of Ukpyr...",
+   "zh": "他從我們烏克皮爾叢林裡的基地指揮 I.U.F.……"
+  },
+  "9150": {
+   "en": " LEWARX@",
+   "zh": "勒瓦克斯"
+  },
+  "9151": {
+   "en": "Rodan Lewarx, Master Tracker under the command of General Yamo...",
+   "zh": "羅丹·勒瓦克斯，亞莫將軍麾下的追蹤大師……"
   },
   "9152": {
    "en": "Rodan searches for the fierce T'Rang called Shritis...",
@@ -4656,6 +6456,10 @@
    "en": "Laying a trap for the wretched T'Rang insects, I suspect!",
    "zh": "我猜，是想給那些可憎的特蘭格蟲子設個陷阱！"
   },
+  "9155": {
+   "en": "\"I.U.F.@",
+   "zh": "帝國軍"
+  },
   "9157": {
    "en": "I.U.F., that stands for Imperial Umpani Forces!",
    "zh": "I.U.F.，就是恩帕尼帝國軍的縮寫！"
@@ -4664,9 +6468,25 @@
    "en": "The I.U.F. Command Headquarters is at our base in Ukpyr...",
    "zh": "I.U.F. 指揮部設在我們位於烏克皮爾的基地……"
   },
+  "9160": {
+   "en": "!UKPYR@",
+   "zh": "烏克皮爾"
+  },
   "9162": {
    "en": "Ukpyr is the location of our Command Headquarters...",
    "zh": "烏克皮爾是我們指揮部所在……"
+  },
+  "9163": {
+   "en": "Ukpyr is east through the jungles, this side of the Ukpyr Mountains...",
+   "zh": "烏克皮爾往東穿過叢林，在烏克皮爾山脈的這一側……"
+  },
+  "9165": {
+   "en": "\u001fHEADQUARTER%",
+   "zh": "\u001f總部%"
+  },
+  "9200": {
+   "en": " YOU@",
+   "zh": "你"
   },
   "9201": {
    "en": "I am Paluke, maker of fine armors!",
@@ -4676,17 +6496,37 @@
    "en": "I make the finest armor in all New City!",
    "zh": "我做的護甲是全新城最棒的！"
   },
+  "9205": {
+   "en": "\u001fPALUKE@",
+   "zh": "\u001f帕盧克"
+  },
+  "9210": {
+   "en": "\"ARMOR%",
+   "zh": "護甲%"
+  },
   "9211": {
    "en": "I make the finest armor in all New City!",
    "zh": "我做的護甲是全新城最棒的！"
+  },
+  "9215": {
+   "en": " WAR%",
+   "zh": "戰爭%"
   },
   "9216": {
    "en": "There is war in the air, make no mistake!",
    "zh": "戰爭的氣息已在空中彌漫，別搞錯！"
   },
+  "9220": {
+   "en": " PRISONER%",
+   "zh": "俘虜%"
+  },
   "9221": {
    "en": "The Savant Kui'Sa-Ka have captured a Gorn Officer!",
    "zh": "賢者魁薩卡抓了一名高恩軍官！"
+  },
+  "9225": {
+   "en": " SAVANT%",
+   "zh": "黑暗賢者%"
   },
   "9226": {
    "en": "The Savant Kui'Sa-Ka, the Legions of the Dark Savant!",
@@ -4696,9 +6536,25 @@
    "en": "They have taken control of the Constabulary...",
    "zh": "他們已經控制了警察局……"
   },
+  "9230": {
+   "en": "\u001fKUI'SA-KA@",
+   "zh": "\u001f魁薩卡"
+  },
+  "9235": {
+   "en": "!ORKOGRE@",
+   "zh": "奧克格雷"
+  },
   "9237": {
    "en": "It's a secret!",
    "zh": "這是秘密！"
+  },
+  "9240": {
+   "en": "\u001fCASTLE@",
+   "zh": "\u001f城堡"
+  },
+  "9245": {
+   "en": "!CONSTABULARY@",
+   "zh": "治安所"
   },
   "9247": {
    "en": "The Constabulary is where prisoners are taken!",
@@ -4707,6 +6563,2386 @@
   "9248": {
    "en": "The Constabulary is here in New City...",
    "zh": "警察局就在新城這裡……"
+  },
+  "9250": {
+   "en": " ULGAR@",
+   "zh": "烏爾加"
+  },
+  "9251": {
+   "en": "King Ulgar, Ruler of the mighty Gorn Empire!",
+   "zh": "烏爾加王，強大高恩帝國的統治者！"
+  },
+  "9253": {
+   "en": "He rules upon the throne of Orkogre Castle!",
+   "zh": "他在奧高高城堡的王座上統治！"
+  },
+  "9255": {
+   "en": " GALIERE@",
+   "zh": "加列爾"
+  },
+  "9256": {
+   "en": "Lord Galiere, the regal knight, loyal to the throne of King Ulgar!",
+   "zh": "加利爾領主，尊貴的騎士，效忠烏爾加王的王座！"
+  },
+  "9257": {
+   "en": "He gives his sword to preserve the kingdom of Gorn!",
+   "zh": "他獻出劍來守護高恩王國！"
+  },
+  "9259": {
+   "en": "He is the protector of the Gorn domain, all of Orkogre Forest!",
+   "zh": "他是高恩領地的守護者，整個奧高高森林！"
+  },
+  "9300": {
+   "en": " YOU@",
+   "zh": "你"
+  },
+  "9301": {
+   "en": "I am Belcanzor!",
+   "zh": "我是貝爾坎佐！"
+  },
+  "9302": {
+   "en": "I offer mystical enchantments of all kinds...",
+   "zh": "我提供各種神秘的附魔……"
+  },
+  "9303": {
+   "en": "Those that need me, find me!",
+   "zh": "需要我的人，自會尋來！"
+  },
+  "9305": {
+   "en": "\u001fBELCANZOR@",
+   "zh": "\u001f貝爾坎佐"
+  },
+  "9310": {
+   "en": "\"MAGIC%",
+   "zh": "魔法%"
+  },
+  "9311": {
+   "en": "I have mystical enchantments of all kinds...",
+   "zh": "我有各種神秘的附魔……"
+  },
+  "9315": {
+   "en": "\u001fMAGIK%",
+   "zh": "\u001f奇術%"
+  },
+  "9320": {
+   "en": "\u001ePOTION%",
+   "zh": "\u001e藥水%"
+  },
+  "9325": {
+   "en": "\u001dSCROLL%",
+   "zh": "\u001d卷軸%"
+  },
+  "9330": {
+   "en": "\u001cPOWDER%",
+   "zh": "\u001c粉末%"
+  },
+  "9335": {
+   "en": "\u001bBOOK%",
+   "zh": "\u001b書籍%"
+  },
+  "9340": {
+   "en": "\u001aSPELL%",
+   "zh": "\u001a法術%"
+  },
+  "9345": {
+   "en": " STRANGER%",
+   "zh": "陌生人%"
+  },
+  "9346": {
+   "en": "Many strangers from beyond now walk upon our world!",
+   "zh": "許多來自彼方的異鄉客如今行走於我們的世界！"
+  },
+  "9350": {
+   "en": "\u001fKYMAS TURAN@",
+   "zh": "\u001f基馬斯圖蘭"
+  },
+  "9351": {
+   "en": "The great Kymas Turan, the Deliverer, spreads the word of Dane!",
+   "zh": "偉大的基馬斯·圖蘭，救世者，散播丹恩的話語！"
+  },
+  "9355": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "9356": {
+   "en": "The Magna Dane, ruler of the House of Dane!",
+   "zh": "大丹恩，丹恩家之主！"
+  },
+  "9358": {
+   "en": "The Magna Dane rules from atop the Great Tower of Dane!",
+   "zh": "大丹恩從丹恩巨塔的塔頂統治！"
+  },
+  "9360": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克薩德"
+  },
+  "9365": {
+   "en": " ALMAGORTE@",
+   "zh": "阿爾馬戈特"
+  },
+  "9366": {
+   "en": "Brother Almagorte, welcomes new initiates into the House of Dane!",
+   "zh": "阿爾馬戈特修士，迎接新入會者進入丹恩家！"
+  },
+  "9368": {
+   "en": "Brother Almagorte may be found in the Great Tower of Dane!",
+   "zh": "阿爾馬戈特修士可在丹恩巨塔找到！"
+  },
+  "9370": {
+   "en": " TOLLEN DANE@",
+   "zh": " 托倫·丹恩"
+  },
+  "9371": {
+   "en": "Speak kindly of the brother that helps all arise in the House of Dane!",
+   "zh": "好好稱許那位幫助眾人在丹恩家晉升的修士！"
+  },
+  "9373": {
+   "en": "He travels the sacred halls of the Tower of Dane!",
+   "zh": "他行走於丹恩巨塔的聖堂！"
+  },
+  "9375": {
+   "en": "!DIONYSCEUS@",
+   "zh": "迪歐尼修斯"
+  },
+  "9376": {
+   "en": "Dionysceus, the Great Tower, the House of Dane!",
+   "zh": "狄奧尼修斯，巨塔，丹恩家！"
+  },
+  "9378": {
+   "en": "Dionysceus, the Great Tower which shadows the Myrmideon Forest...",
+   "zh": "狄奧尼修斯，籠罩蜜爾米頓森林的巨塔……"
+  },
+  "9380": {
+   "en": "\u001fTOWER@",
+   "zh": "\u001f高塔"
+  },
+  "9385": {
+   "en": "\"HOUSE OF DANE@",
+   "zh": "丹恩家"
+  },
+  "9387": {
+   "en": "The holy House of Dane, the Great Tower of the Righteous!",
+   "zh": "神聖的丹恩家，義者的巨塔！"
+  },
+  "9388": {
+   "en": "The House of Dane, the Great Tower of Dionysceus!",
+   "zh": "丹恩家，狄奧尼修斯巨塔！"
+  },
+  "9390": {
+   "en": "\"DIVINE LIGHT@",
+   "zh": "神聖之光"
+  },
+  "9391": {
+   "en": "May the divine light guide thee!",
+   "zh": "願神聖之光引導你！"
+  },
+  "9400": {
+   "en": " YOU@",
+   "zh": "你"
+  },
+  "9401": {
+   "en": "I am Boerigard, a Captain of the mighty Gorn Army!",
+   "zh": "我是波利加德，強大高恩大軍的隊長！"
+  },
+  "9402": {
+   "en": "I am a Captain of the mighty Gorn Army!",
+   "zh": "我是強大高恩大軍的隊長！"
+  },
+  "9403": {
+   "en": "I'm getting out of here!",
+   "zh": "我要離開這裡！"
+  },
+  "9405": {
+   "en": "\u001fBOERIGARD@",
+   "zh": "\u001f波利加德"
+  },
+  "9410": {
+   "en": "#ORKOGRE@",
+   "zh": "奧克格雷"
+  },
+  "9415": {
+   "en": "#CASTLE%",
+   "zh": "城堡%"
+  },
+  "9420": {
+   "en": "#ASSASSIN%",
+   "zh": "刺客%"
+  },
+  "9425": {
+   "en": " SAVANT%",
+   "zh": "黑暗賢者%"
+  },
+  "9426": {
+   "en": "The Legions of the Savant Kui'Sa-Ka plot to destroy our world!",
+   "zh": "賢者魁薩卡的軍團密謀摧毀我們的世界！"
+  },
+  "9430": {
+   "en": "\u001fKUI'SA-KA@",
+   "zh": "\u001f魁薩卡"
+  },
+  "9435": {
+   "en": "\"DESTROY@",
+   "zh": "毀滅"
+  },
+  "9436": {
+   "en": "I know nothing more!",
+   "zh": "其他的我不知道了！"
+  },
+  "9440": {
+   "en": " ULGAR@",
+   "zh": "烏爾加"
+  },
+  "9441": {
+   "en": "King Ulgar, Ruler of the mighty Gorn Empire!",
+   "zh": "烏爾加王，強大高恩帝國的統治者！"
+  },
+  "9443": {
+   "en": "He rules upon the throne of Orkogre Castle!",
+   "zh": "他在奧高高城堡的王座上統治！"
+  },
+  "9445": {
+   "en": " GALIERE@",
+   "zh": "加列爾"
+  },
+  "9446": {
+   "en": "Lord Galiere, the regal knight, loyal to the throne of King Ulgar!",
+   "zh": "加利爾領主，尊貴的騎士，效忠烏爾加王的王座！"
+  },
+  "9447": {
+   "en": "He gives his sword to preserve the kingdom of Gorn!",
+   "zh": "他獻出劍來守護高恩王國！"
+  },
+  "9449": {
+   "en": "He is the protector of the Gorn domain, all of Orkogre Forest!",
+   "zh": "他是高恩領地的守護者，整個奧高高森林！"
+  },
+  "9450": {
+   "en": " MURKATOS@",
+   "zh": "穆卡托斯"
+  },
+  "9451": {
+   "en": "Murkatos, the Wizard of Gorn!",
+   "zh": "穆卡托斯，高恩的法師！"
+  },
+  "9453": {
+   "en": "Murkatos dwells in the halls of Orkogre Castle!",
+   "zh": "穆卡托斯住在奧高高城堡的廳堂裡！"
+  },
+  "9455": {
+   "en": "\u001fWIZARD@",
+   "zh": "\u001f巫師"
+  },
+  "9460": {
+   "en": "!WAR%",
+   "zh": "戰爭%"
+  },
+  "9462": {
+   "en": "I fear that war shall soon ravage our lands!",
+   "zh": "我擔心戰火即將蹂躪我們的土地！"
+  },
+  "9500": {
+   "en": " YOU@",
+   "zh": "你"
+  },
+  "9501": {
+   "en": "I am Father Rulae",
+   "zh": "我是魯萊神父"
+  },
+  "9502": {
+   "en": "I heal the mortal wounds and mend the broken spirit...",
+   "zh": "我治癒致命之傷，縫補破碎的心靈……"
+  },
+  "9503": {
+   "en": "I reside here in the hallowed halls of Thesminster Abbey...",
+   "zh": "我住在希斯敏斯特修道院的聖堂裡……"
+  },
+  "9505": {
+   "en": "\u001fRULAE@",
+   "zh": "\u001f魯萊"
+  },
+  "9510": {
+   "en": "#HEAL^0ING",
+   "zh": "治療^0ING"
+  },
+  "9515": {
+   "en": "#HELP@",
+   "zh": "幫助"
+  },
+  "9520": {
+   "en": "#GUIDANCE@",
+   "zh": "指引"
+  },
+  "9525": {
+   "en": "#SPIRIT%",
+   "zh": "靈性%"
+  },
+  "9530": {
+   "en": "#SPIRITUAL@",
+   "zh": "屬靈"
+  },
+  "9535": {
+   "en": "#SACRAMENT%",
+   "zh": "聖禮%"
+  },
+  "9540": {
+   "en": "#HOLY PATH@",
+   "zh": "聖道"
+  },
+  "9545": {
+   "en": "#HOLY WORK%",
+   "zh": "聖工%"
+  },
+  "9550": {
+   "en": " STATUE%",
+   "zh": "雕像%"
+  },
+  "9551": {
+   "en": "The statue has been here since the beginning of time!",
+   "zh": "這座雕像從太初之時就立在這裡！"
+  },
+  "9555": {
+   "en": "!PALACE@",
+   "zh": "宮殿"
+  },
+  "9556": {
+   "en": "To walk the land of dreams seek the Palace of Munkharama...",
+   "zh": "想行走夢土，就尋訪僧侶聖地的宮殿……"
+  },
+  "9560": {
+   "en": "\u001fDREAM%",
+   "zh": "\u001f夢境%"
+  },
+  "9565": {
+   "en": "!MUNKHARAMA@",
+   "zh": "穆克哈拉瑪"
+  },
+  "9567": {
+   "en": "The Holy City of Munkharama, the city of the Holy Work...",
+   "zh": "聖城僧侶聖地，聖工之城……"
+  },
+  "9568": {
+   "en": "The Holy City of Munkharama lies east of the Eyrn River...",
+   "zh": "聖城僧侶聖地位於艾恩河以東……"
+  },
+  "9570": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "9571": {
+   "en": "The diseased Lord of the House of Dane, defiler of the Holy Work!",
+   "zh": "丹恩家病態的主子，聖工的褻瀆者！"
+  },
+  "9573": {
+   "en": "He practices his unholy rituals from atop the Tower of Dionysceus...",
+   "zh": "他從狄奧尼修斯塔頂施行邪穢的儀式……"
+  },
+  "9575": {
+   "en": " DANE%",
+   "zh": "丹恩%"
+  },
+  "9576": {
+   "en": "The blasphemous scorn of Dane, may their souls burn forever!",
+   "zh": "丹恩那群瀆神之徒，願他們的靈魂永遠燃燒！"
+  },
+  "9578": {
+   "en": "They spread their wickedness from the unholy Tower of Dionysceus...",
+   "zh": "他們從邪穢的狄奧尼修斯之塔散播邪惡……"
+  },
+  "9580": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "9581": {
+   "en": "Beware the lying deceit and treachery of Kymas Turan!",
+   "zh": "當心基馬斯·圖蘭的謊言、欺瞞與背叛！"
+  },
+  "9585": {
+   "en": "!DIONYSCEUS@",
+   "zh": "迪歐尼修斯"
+  },
+  "9587": {
+   "en": "Dionysceus, the Unholy Tower, and House of the blaspheming Danes!",
+   "zh": "狄奧尼修斯，邪穢之塔，瀆神丹恩眾之家！"
+  },
+  "9588": {
+   "en": "Beware, only the wicked walk through the unholy lands of Dane!",
+   "zh": "當心，只有惡徒才會走過丹恩的邪穢之地！"
+  },
+  "9590": {
+   "en": "\u001fTOWER%",
+   "zh": "\u001f高塔%"
+  },
+  "9600": {
+   "en": " YOU@",
+   "zh": "你"
+  },
+  "9601": {
+   "en": "I am Professor Wunderland...",
+   "zh": "我是馮德蘭教授……"
+  },
+  "9602": {
+   "en": "I am making a record of our history...",
+   "zh": "我正在記錄我們的歷史……"
+  },
+  "9603": {
+   "en": "I reside here in New City...",
+   "zh": "我住在新城這裡……"
+  },
+  "9605": {
+   "en": "\u001fWUNDERLAND@",
+   "zh": "\u001f馮德蘭"
+  },
+  "9610": {
+   "en": "\u001ePROFESSOR@",
+   "zh": "\u001e教授"
+  },
+  "9615": {
+   "en": "\"BLUEPRINT%",
+   "zh": "藍圖%"
+  },
+  "9616": {
+   "en": "They were much like yourself, only different!...",
+   "zh": "他們跟你很像，只是不太一樣！……"
+  },
+  "9617": {
+   "en": "The blueprints of the Old City, a part of my records on our history...",
+   "zh": "舊城的藍圖，是我歷史紀錄的一部分……"
+  },
+  "9618": {
+   "en": "I no longer have the blueprints, only my history notes...",
+   "zh": "藍圖已不在我手上，只剩歷史筆記……"
+  },
+  "9620": {
+   "en": "#HISTORY@",
+   "zh": "歷史"
+  },
+  "9625": {
+   "en": "#RECORD%",
+   "zh": "紀錄%"
+  },
+  "9630": {
+   "en": "#NOTE%",
+   "zh": "筆記%"
+  },
+  "9635": {
+   "en": "#OLD CITY@",
+   "zh": "舊城"
+  },
+  "9640": {
+   "en": "#STUDY@",
+   "zh": "書房"
+  },
+  "9645": {
+   "en": "#ARCHIVE%",
+   "zh": "檔案庫%"
+  },
+  "9650": {
+   "en": "!LIBRARY@",
+   "zh": "圖書館"
+  },
+  "9652": {
+   "en": "I come to the library to study, preferably without interruption!",
+   "zh": "我來圖書館讀書，最好別來打擾我！"
+  },
+  "9653": {
+   "en": "The New City Library is all that remains of our written history...",
+   "zh": "新城圖書館是我們文字歷史僅存的一切……"
+  },
+  "9655": {
+   "en": " HIGARDI@",
+   "zh": "希加爾迪"
+  },
+  "9656": {
+   "en": "They were very mysterious, we know little about them...",
+   "zh": "他們非常神秘，我們對他們所知甚少……"
+  },
+  "9658": {
+   "en": "It is said they came from the mountains beyond the sea...",
+   "zh": "據說他們來自大海彼端的群山……"
+  },
+  "9660": {
+   "en": "\"SACRED STONE@",
+   "zh": "聖石"
+  },
+  "9662": {
+   "en": "It is the sacred law created at the beginning of time!",
+   "zh": "那是太初時創立的神聖律法！"
+  },
+  "9663": {
+   "en": "It was lost centuries ago...",
+   "zh": "它在幾世紀前就失落了……"
+  },
+  "9665": {
+   "en": " STRANGER%",
+   "zh": "陌生人%"
+  },
+  "9666": {
+   "en": "They were much like yourself, only different!...",
+   "zh": "他們跟你很像，只是不太一樣！……"
+  },
+  "9668": {
+   "en": "They didn't say...",
+   "zh": "他們沒說……"
+  },
+  "9670": {
+   "en": "\"RED BOOK%",
+   "zh": "紅書%"
+  },
+  "9671": {
+   "en": "I have little time for such things!",
+   "zh": "我沒空理這種事！"
+  },
+  "9675": {
+   "en": "\u001fFABLE%",
+   "zh": "\u001f寓言%"
+  },
+  "9680": {
+   "en": " BARLONE^0'",
+   "zh": "巴隆內^0'"
+  },
+  "9681": {
+   "en": "Don Barlone' is head of the family of Razuka!",
+   "zh": "唐·巴隆內是拉祖卡家族的首領！"
+  },
+  "9683": {
+   "en": "His eyes are everywhere!",
+   "zh": "他的眼線無所不在！"
+  },
+  "9685": {
+   "en": " RATSPUTIN@",
+   "zh": "鼠拉斯普丁"
+  },
+  "9686": {
+   "en": "Ratsputin, the gathering paw of the Razuka!",
+   "zh": "鼠拉斯普丁，拉祖卡的召集之爪！"
+  },
+  "9688": {
+   "en": "He's making the rounds, I'm sure!",
+   "zh": "他肯定正在四處巡視！"
+  },
+  "9690": {
+   "en": " BLINDMEIS@",
+   "zh": "盲麥斯"
+  },
+  "9691": {
+   "en": "Ah! Old Blindmeis... &heh heh heh...",
+   "zh": "啊！老盲麥斯……&嘿嘿嘿……"
+  },
+  "9693": {
+   "en": "I'm sure you'll bump into him sooner or later...",
+   "zh": "你遲早會撞見他的……"
+  },
+  "9695": {
+   "en": "!RATTKIN RUINS@",
+   "zh": "鼠人廢墟"
+  },
+  "9697": {
+   "en": "Our forest home in the northern lands...",
+   "zh": "我們在北方的森林家園……"
+  },
+  "9698": {
+   "en": "In the woods, down the valley, through the vale, over the mountains!",
+   "zh": "在林子裡，下到谷底，穿過溪谷，翻過山嶺！"
+  },
+  "9700": {
+   "en": "\u001fFOREST HOME@",
+   "zh": "\u001f森林家園"
+  },
+  "9705": {
+   "en": "!FUNHOUSE@",
+   "zh": "歡樂屋"
+  },
+  "9706": {
+   "en": "The old Funhouse, perhaps best to stay away from there...",
+   "zh": "老玩笑屋，最好還是離那裡遠一點……"
+  },
+  "9710": {
+   "en": " RAZUKA@",
+   "zh": "拉祖卡"
+  },
+  "9711": {
+   "en": "The Razuka, the mighty paw of the land!",
+   "zh": "拉祖卡，這片土地的強大之爪！"
+  },
+  "9713": {
+   "en": "The Razuka are everywhere!",
+   "zh": "拉祖卡無所不在！"
+  },
+  "9800": {
+   "en": " YOU@",
+   "zh": "你"
+  },
+  "9801": {
+   "en": "I am Lord Galiere, Defender of the Gorn Domains!",
+   "zh": "我是加利爾領主，高恩領土的防衛者！"
+  },
+  "9802": {
+   "en": "I am Defender of the Gorn Domains!",
+   "zh": "我是高恩領土的防衛者！"
+  },
+  "9803": {
+   "en": "We stand at the border of the lands of the Gorn Empire!",
+   "zh": "我們正站在高恩帝國領土的邊界上！"
+  },
+  "9805": {
+   "en": "\u001fGALIERE@",
+   "zh": "\u001f加列爾"
+  },
+  "9810": {
+   "en": "\"LETTER@",
+   "zh": "信件"
+  },
+  "9812": {
+   "en": "You'd best hurry with your news to the King!",
+   "zh": "你最好趕快把消息呈給國王！"
+  },
+  "9815": {
+   "en": "#BOERIGARD@",
+   "zh": "波利加德"
+  },
+  "9816": {
+   "en": "Capt. Boerigard disappeared not long ago, and we fear for the worst!",
+   "zh": "波利加德隊長不久前失蹤了，我們擔心最壞的已經發生！"
+  },
+  "9820": {
+   "en": "!ORKOGRE@",
+   "zh": "奧克格雷"
+  },
+  "9822": {
+   "en": "None but the loyal may walk the halls of Orkogre Castle!",
+   "zh": "唯有忠誠者才能行走奧高高城堡的廳堂！"
+  },
+  "9823": {
+   "en": "Travel west and a little north through the forest from here...",
+   "zh": "從這裡出發往西穿過森林，再稍偏北……"
+  },
+  "9825": {
+   "en": "\u001fCASTLE@",
+   "zh": "\u001f城堡"
+  },
+  "9830": {
+   "en": "!BORDER%",
+   "zh": "邊界%"
+  },
+  "9832": {
+   "en": "The Gorn lands extend throughout all of Orkogre Forest...",
+   "zh": "高恩的土地遍及整個奧高高森林……"
+  },
+  "9835": {
+   "en": "\u001fDOMAIN%",
+   "zh": "\u001f領地%"
+  },
+  "9840": {
+   "en": " ULGAR@",
+   "zh": "烏爾加"
+  },
+  "9841": {
+   "en": "King Ulgar, Lord of the mighty Gorn Empire!",
+   "zh": "烏爾加王，強大高恩帝國之主！"
+  },
+  "9843": {
+   "en": "He rules upon the throne of Orkogre Castle!",
+   "zh": "他在奧高高城堡的王座上統治！"
+  },
+  "9845": {
+   "en": "\u001fKING@",
+   "zh": "\u001f國王"
+  },
+  "9850": {
+   "en": " MURKATOS@",
+   "zh": "穆卡托斯"
+  },
+  "9851": {
+   "en": "Alas, poor wizard Murkatos, the betrayer betrayed!",
+   "zh": "唉，可憐的法師穆卡托斯，背叛者反遭背叛！"
+  },
+  "9852": {
+   "en": "Poor Murkatos, once the great Wizard of Gorn, now a pile of bones...",
+   "zh": "可憐的穆卡托斯，昔日高恩的偉大法師，如今只剩一堆白骨……"
+  },
+  "9853": {
+   "en": "Murkatos is dead!",
+   "zh": "穆卡托斯死了！"
+  },
+  "9855": {
+   "en": "\u001fWIZARD@",
+   "zh": "\u001f巫師"
+  },
+  "9860": {
+   "en": "!WAR%",
+   "zh": "戰爭%"
+  },
+  "9862": {
+   "en": "Civil War has befallen the land of Gorn!",
+   "zh": "內戰降臨高恩大地！"
+  },
+  "9900": {
+   "en": " YOU@",
+   "zh": "你"
+  },
+  "9901": {
+   "en": "I am Brother Moser!",
+   "zh": "我是莫瑟修士！"
+  },
+  "9902": {
+   "en": "A maker of magical mixtures!",
+   "zh": "魔法藥劑的製造者！"
+  },
+  "9903": {
+   "en": "We are but here in my humble shop...",
+   "zh": "我們就在我這間簡陋小店裡……"
+  },
+  "9905": {
+   "en": "\u001fMOSER@",
+   "zh": "\u001f莫瑟"
+  },
+  "9910": {
+   "en": "#SECRET SCHOOL%",
+   "zh": "秘密學院%"
+  },
+  "9911": {
+   "en": "To find it you must pass through the land of dreams!",
+   "zh": "想找到它，你必須穿越夢土！"
+  },
+  "9915": {
+   "en": "\u001fSCHOOL%",
+   "zh": "\u001f學院%"
+  },
+  "9920": {
+   "en": "#DREAM%",
+   "zh": "夢境%"
+  },
+  "9925": {
+   "en": "#GRAN MELANGE@",
+   "zh": "格蘭梅蘭"
+  },
+  "9930": {
+   "en": "#PALACE@",
+   "zh": "宮殿"
+  },
+  "9935": {
+   "en": "\"TEA%",
+   "zh": "茶%"
+  },
+  "9937": {
+   "en": "Perhaps you'd like to buy a bottle...",
+   "zh": "也許你想買一瓶……"
+  },
+  "9938": {
+   "en": "I make it here, from my secret herbs and spices!",
+   "zh": "我在這裡製作它，用我秘方的香草與香料！"
+  },
+  "9940": {
+   "en": "\"HERB%",
+   "zh": "藥草%"
+  },
+  "9942": {
+   "en": "A secret I'll never tell!",
+   "zh": "秘密？我死也不會說！"
+  },
+  "9945": {
+   "en": "\u001fSPICE%",
+   "zh": "\u001f香料%"
+  },
+  "9950": {
+   "en": "\"POTION%",
+   "zh": "藥水%"
+  },
+  "9952": {
+   "en": "Perhaps you'd like to buy a few of my specialties!",
+   "zh": "也許你想買幾樣我的招牌貨！"
+  },
+  "9955": {
+   "en": "\"SPECIALTY^1IES",
+   "zh": "特調^1IES"
+  },
+  "9957": {
+   "en": "From health to havoc, I have what you need!",
+   "zh": "從健康到浩劫，你要的我都有！"
+  },
+  "9960": {
+   "en": "!MUNKHARAMA@",
+   "zh": "穆克哈拉瑪"
+  },
+  "9962": {
+   "en": "The Holy City of Munkharama, where thy dreams come true...",
+   "zh": "聖城僧侶聖地，你的夢想成真之地……"
+  },
+  "9963": {
+   "en": "The Holy City of Munkharama lies east of the Eyrn River...",
+   "zh": "聖城僧侶聖地位於艾恩河以東……"
+  },
+  "9965": {
+   "en": " RULAE@",
+   "zh": "魯萊"
+  },
+  "9966": {
+   "en": "It's been a long time since I've seen the good Father Rulae...",
+   "zh": "我已經很久沒見到善良的魯萊神父了……"
+  },
+  "9968": {
+   "en": "The last time I saw Father Rulae, I was on a journey to New City...",
+   "zh": "上次見到魯萊神父，是我前往新城的旅途中……"
+  },
+  "10000": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "10001": {
+   "en": "I am Brother TShober, Guardian of Munkharama Bridge...",
+   "zh": "我是喬伯修士，僧侶聖地橋的守護者……"
+  },
+  "10003": {
+   "en": "I guard the Bridge to Munkharama here at the Eyrn River...",
+   "zh": "我在艾恩河畔守衛通往僧侶聖地的橋……"
+  },
+  "10005": {
+   "en": "\u001fTSHOBER@",
+   "zh": "\u001f喬伯"
+  },
+  "10010": {
+   "en": "#RIVER%",
+   "zh": "河%"
+  },
+  "10015": {
+   "en": "#BRIDGE%",
+   "zh": "橋%"
+  },
+  "10020": {
+   "en": "#CABLE%",
+   "zh": "纜索%"
+  },
+  "10025": {
+   "en": "#MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "10030": {
+   "en": "\"HOLY PATH@",
+   "zh": "聖道"
+  },
+  "10031": {
+   "en": "All good brothers walk the holy path!",
+   "zh": "良善的修士都行走聖道！"
+  },
+  "10032": {
+   "en": "The rightful way of the holy work!",
+   "zh": "聖工的正道！"
+  },
+  "10033": {
+   "en": "Father Rulae of Thesminster Abbey can help you!",
+   "zh": "希斯敏斯特修道院的魯萊神父能幫你！"
+  },
+  "10035": {
+   "en": "\"HOLY WORK%",
+   "zh": "聖工%"
+  },
+  "10037": {
+   "en": "We serve the way of the Holy Work!",
+   "zh": "我們侍奉聖工之道！"
+  },
+  "10038": {
+   "en": "Those who walk the holy path know the way!",
+   "zh": "走聖道的人認得路！"
+  },
+  "10040": {
+   "en": "\u001fHOLY COVENANT@",
+   "zh": "\u001f聖約"
+  },
+  "10045": {
+   "en": "!UNDERWORLD@",
+   "zh": "地下世界"
+  },
+  "10047": {
+   "en": "The Hidden Temple of Munkharama, underworld of the fallen brothers!",
+   "zh": "僧侶聖地隱密神殿，墮落修士的地下世界！"
+  },
+  "10048": {
+   "en": "It lies beneath the Holy City of Munkharama...",
+   "zh": "它就在聖城僧侶聖地底下……"
+  },
+  "10050": {
+   "en": "\u001fTEMPLE%",
+   "zh": "\u001f神殿%"
+  },
+  "10055": {
+   "en": " BROTHER MOSER@",
+   "zh": " 莫瑟修士"
+  },
+  "10056": {
+   "en": "I heard he makes very bad tea!",
+   "zh": "聽說他泡的茶很難喝！"
+  },
+  "10058": {
+   "en": "He attends the Apothecary in Munkharama...",
+   "zh": "他在僧侶聖地的藥鋪做事……"
+  },
+  "10060": {
+   "en": " XHENG@",
+   "zh": " 鄭大師"
+  },
+  "10061": {
+   "en": "Master Xheng, Lord of the 5 Flowers...",
+   "zh": "鄭大師，五花之主……"
+  },
+  "10063": {
+   "en": "He is master of a secret school in Munkharama...",
+   "zh": "他是僧侶聖地秘密學院的大師……"
+  },
+  "10065": {
+   "en": "!SECRET SCHOOL@",
+   "zh": "秘密學院"
+  },
+  "10066": {
+   "en": "Seek ye Master Xheng!",
+   "zh": "去尋訪鄭大師吧！"
+  },
+  "10070": {
+   "en": " FATHER RULAE@",
+   "zh": " 魯萊神父"
+  },
+  "10071": {
+   "en": "Father Rulae teaches how to walk the holy path!",
+   "zh": "魯萊神父教導如何行走聖道！"
+  },
+  "10073": {
+   "en": "He spends his days at Thesminster Abbey, in New City...",
+   "zh": "他終日待在新城的希斯敏斯特修道院……"
+  },
+  "10075": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "10076": {
+   "en": "The diseased Lord of the House of Dane, defiler of the Holy Work!",
+   "zh": "丹恩家病態的主子，聖工的褻瀆者！"
+  },
+  "10078": {
+   "en": "Tis said he practices unholy rituals atop the Tower of Dionysceus...",
+   "zh": "他從狄奧尼修斯塔頂施行邪穢的儀式……"
+  },
+  "10080": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克塞德"
+  },
+  "10085": {
+   "en": " DANE%",
+   "zh": " 丹恩%"
+  },
+  "10086": {
+   "en": "The blasphemous scorn of Dane, may their souls burn forever!",
+   "zh": "丹恩那群瀆神之徒，願他們的靈魂永遠燃燒！"
+  },
+  "10088": {
+   "en": "They spread their wickedness from the unholy Tower of Dionysceus...",
+   "zh": "他們從邪穢的狄奧尼修斯之塔散播邪惡……"
+  },
+  "10090": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "10091": {
+   "en": "Beware the lying deceit and treachery of Kymas Turan!",
+   "zh": "當心基馬斯·圖蘭的謊言、欺瞞與背叛！"
+  },
+  "10093": {
+   "en": "Kymas Turan flings his iniquitous filth upon all who come near...",
+   "zh": "基馬斯·圖蘭將不義的穢物潑向靠近的人……"
+  },
+  "10095": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "10097": {
+   "en": "Dionysceus, the Unholy Tower, and House of the blaspheming Danes!",
+   "zh": "狄奧尼修斯，邪穢之塔，瀆神丹恩眾之家！"
+  },
+  "10098": {
+   "en": "Beware, only the wicked walk through the unholy lands of Dane!",
+   "zh": "當心，只有惡徒才會走過丹恩的邪穢之地！"
+  },
+  "10100": {
+   "en": "\u001fTOWER%",
+   "zh": "\u001f塔%"
+  },
+  "10105": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^"
+  },
+  "10106": {
+   "en": "The prophecy shall purge the unholy, and leads us to salvation!",
+   "zh": "預言將滌淨邪穢，引領我們走向救贖！"
+  },
+  "10110": {
+   "en": "!PALACE@",
+   "zh": "宮殿"
+  },
+  "10111": {
+   "en": "To walk the land of dreams seek the Palace of Munkharama...",
+   "zh": "想行走夢土，就尋訪僧侶聖地的宮殿……"
+  },
+  "10115": {
+   "en": "\u001fDREAM%",
+   "zh": "\u001f夢%"
+  },
+  "10200": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "10201": {
+   "en": "Me Bertie!",
+   "zh": "我貝提！"
+  },
+  "10202": {
+   "en": "I make flying sticks, sharp and pointy!",
+   "zh": "我做飛棍，又尖又利！"
+  },
+  "10203": {
+   "en": "You bring me shiney coins!",
+   "zh": "你帶亮晶晶錢幣來！"
+  },
+  "10204": {
+   "en": "Bertie lives at Bertie's!",
+   "zh": "貝提住貝提家！"
+  },
+  "10205": {
+   "en": "\u001fBERTIE@",
+   "zh": "\u001f貝提"
+  },
+  "10210": {
+   "en": "\"COIN%",
+   "zh": "錢幣%"
+  },
+  "10212": {
+   "en": "Me like shiney coins, you bring me plenty!",
+   "zh": "我愛亮晶晶錢幣，你多帶來！"
+  },
+  "10213": {
+   "en": "No no no! &Shiney coins be mine!",
+   "zh": "不行不行！&亮晶晶錢幣我的！"
+  },
+  "10215": {
+   "en": "\"BOW%",
+   "zh": "弓%"
+  },
+  "10217": {
+   "en": "Me have fine shooters! &You buy some!",
+   "zh": "我有好弓！&你買些吧！"
+  },
+  "10218": {
+   "en": "You give me shiney coins!",
+   "zh": "你給我亮晶晶錢幣！"
+  },
+  "10219": {
+   "en": "Me get you what you want, you give me coins!",
+   "zh": "你要什麼我拿來，你給錢幣！"
+  },
+  "10220": {
+   "en": "\"ARROW%",
+   "zh": "箭%"
+  },
+  "10222": {
+   "en": "Me make best flying sticks with special juice!",
+   "zh": "我用特製藥水做最棒飛棍！"
+  },
+  "10223": {
+   "en": "You give me shiney coins!",
+   "zh": "你給我亮晶晶錢幣！"
+  },
+  "10224": {
+   "en": "Me get you what you want, you give me coins!",
+   "zh": "你要什麼我拿來，你給錢幣！"
+  },
+  "10225": {
+   "en": "\u001fSTICK%",
+   "zh": "\u001f飛棍%"
+  },
+  "10230": {
+   "en": "\"FEATHER%",
+   "zh": "羽毛%"
+  },
+  "10232": {
+   "en": "Magic wing fur make sticks fly!",
+   "zh": "魔法翼毛讓飛棍飛！"
+  },
+  "10233": {
+   "en": "Me have magic juice for making sticks fly!",
+   "zh": "我有讓飛棍飛的魔法藥水！"
+  },
+  "10234": {
+   "en": "Me get magic wing fur, you give me coins!",
+   "zh": "我拿魔法翼毛，你給錢幣！"
+  },
+  "10235": {
+   "en": "\u001fWING FUR@",
+   "zh": "\u001f翼毛"
+  },
+  "10240": {
+   "en": "\"MAGIC@",
+   "zh": "魔法"
+  },
+  "10242": {
+   "en": "Me have special magic juice for making wing fur fly!",
+   "zh": "我有讓翼毛飛的特製魔法藥水！"
+  },
+  "10243": {
+   "en": "You give me coins, I give what you need!",
+   "zh": "你給錢幣，我給你要的！"
+  },
+  "10245": {
+   "en": "\u001fJUICE@",
+   "zh": "\u001f藥水"
+  },
+  "10250": {
+   "en": " RAZUKA@",
+   "zh": " 拉祖卡"
+  },
+  "10251": {
+   "en": "The Razuka are fattest, lords of all Rattkin!",
+   "zh": "拉祖卡最肥，是所有鼠人的王！"
+  },
+  "10252": {
+   "en": "Razuka big fat, keep many coins, has treasure plenty!",
+   "zh": "拉祖卡肥肥，錢多多，寶藏滿滿！"
+  },
+  "10253": {
+   "en": "Razuka keeps treasure hidden, you no tell Razuka!",
+   "zh": "拉祖卡偷偷藏寶，你不准告訴拉祖卡！"
+  },
+  "10254": {
+   "en": "Razuka has secret place, me no tell you!",
+   "zh": "拉祖卡有秘密地方，我不告訴你！"
+  },
+  "10255": {
+   "en": "\"TREASURE%",
+   "zh": "寶藏%"
+  },
+  "10257": {
+   "en": "Many many shiney coins, much more than Bertie!",
+   "zh": "好多好多亮晶晶錢幣，比貝提多好多！"
+  },
+  "10258": {
+   "en": "Razuka keeps treasure hidden, you no tell Razuka!",
+   "zh": "拉祖卡偷偷藏寶，你不准告訴拉祖卡！"
+  },
+  "10259": {
+   "en": "Razuka has secret place, me no tell you!",
+   "zh": "拉祖卡有秘密地方，我不告訴你！"
+  },
+  "10260": {
+   "en": " BARLONE^0'",
+   "zh": " 巴隆內^"
+  },
+  "10261": {
+   "en": "Don Barlone' is head of the family of Razuka!",
+   "zh": "唐·巴隆內是拉祖卡家族的首領！"
+  },
+  "10263": {
+   "en": "His eyes are everywhere!",
+   "zh": "他的眼線無所不在！"
+  },
+  "10265": {
+   "en": " RATSPUTIN@",
+   "zh": " 鼠拉斯普丁"
+  },
+  "10266": {
+   "en": "Ratsputin, the gathering paw of the Razuka!",
+   "zh": "鼠拉斯普丁，拉祖卡的召集之爪！"
+  },
+  "10268": {
+   "en": "He's making the rounds, I'm sure!",
+   "zh": "他肯定正在四處巡視！"
+  },
+  "10270": {
+   "en": " BLINDMEIS@",
+   "zh": " 盲麥斯"
+  },
+  "10271": {
+   "en": "Old Blindmeis... &tee hee hee...",
+   "zh": "老盲麥斯……&嘻嘻嘻……"
+  },
+  "10273": {
+   "en": "I'm sure you find him sooner or later!",
+   "zh": "你遲早會找到他的！"
+  },
+  "10275": {
+   "en": " MICK THE PICK@",
+   "zh": " 神偷米克"
+  },
+  "10276": {
+   "en": "He's one of my best customers!",
+   "zh": "他是我最好的主顧之一！"
+  },
+  "10278": {
+   "en": "He comes in to shop here often!",
+   "zh": "他常來這裡買東西！"
+  },
+  "10280": {
+   "en": "!RATTKIN RUINS@",
+   "zh": "鼠人廢墟"
+  },
+  "10282": {
+   "en": "Our home here in the forest...",
+   "zh": "我們這片森林裡的家……"
+  },
+  "10283": {
+   "en": "In the woods, down the valley, through the vale, over the mountains!",
+   "zh": "在林子裡，下到谷底，穿過溪谷，翻過山嶺！"
+  },
+  "10285": {
+   "en": "!FUNHOUSE@",
+   "zh": "玩笑屋"
+  },
+  "10286": {
+   "en": "The old Funhouse, perhaps best to stay away from there...",
+   "zh": "老玩笑屋，最好還是離那裡遠一點……"
+  },
+  "10290": {
+   "en": "!RATSKELL^0'S",
+   "zh": "拉茨凱爾^"
+  },
+  "10291": {
+   "en": "Ratskell's has many unusual items for the fleet of hand!",
+   "zh": "拉茨凱爾店裡有許多怪玩意，留給手快的人！"
+  },
+  "10293": {
+   "en": "Ratskell's shoppe, around and over, through and up, can't miss it!",
+   "zh": "拉茨凱爾的店，繞過再翻過，穿過再往上，絕不會錯過！"
+  },
+  "10295": {
+   "en": "\"GUILD%",
+   "zh": "公會%"
+  },
+  "10297": {
+   "en": "Old Blindmeis might be able to help you!",
+   "zh": "老盲麥斯也許能幫上你的忙！"
+  },
+  "10300": {
+   "en": "\"THIEF^1VES",
+   "zh": "盜賊^"
+  },
+  "10302": {
+   "en": "Masters of the trade belong to the Guild...",
+   "zh": "這一行的大師都屬於公會……"
+  },
+  "10400": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "10401": {
+   "en": "My name is Almagorte...",
+   "zh": "我叫阿爾馬戈特……"
+  },
+  "10402": {
+   "en": "I am but a humble brother in the Fellowship of Dane!",
+   "zh": "我只是丹恩團契裡一名卑微的修士！"
+  },
+  "10403": {
+   "en": "I am here, in the House of Dane!",
+   "zh": "我人在這裡，在丹恩家裡！"
+  },
+  "10405": {
+   "en": "\u001fALMAGORTE@",
+   "zh": "\u001f阿爾馬戈特"
+  },
+  "10410": {
+   "en": "#TRIAL%",
+   "zh": "試煉%"
+  },
+  "10415": {
+   "en": "#FELLOWSHIP%",
+   "zh": "團契%"
+  },
+  "10420": {
+   "en": "\"JONGA@",
+   "zh": "榮加"
+  },
+  "10422": {
+   "en": "The Jonga spice is a special blessing, use it well!",
+   "zh": "榮加香料是特別的祝福，要好好使用！"
+  },
+  "10423": {
+   "en": "Pour it into the sacramental urns as a show of thy good faith!",
+   "zh": "把它倒進聖甕，以示汝之誠心！"
+  },
+  "10425": {
+   "en": "\u001fSACRAMENT%",
+   "zh": "\u001f聖禮%"
+  },
+  "10430": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "10431": {
+   "en": "The Magna Dane, ruler of the House of Dane!",
+   "zh": "大丹恩，丹恩家的統治者！"
+  },
+  "10433": {
+   "en": "The Magna Dane rules from atop the Great Tower of Dane!",
+   "zh": "大丹恩從丹恩巨塔頂端統治一切！"
+  },
+  "10435": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克塞德"
+  },
+  "10440": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "10441": {
+   "en": "The great Kymas Turan, the Deliverer, spreads the word of Dane!",
+   "zh": "偉大的基馬斯·圖蘭，救世者，宣揚丹恩之道！"
+  },
+  "10445": {
+   "en": " TOLLEN DANE@",
+   "zh": " 托倫·丹恩"
+  },
+  "10446": {
+   "en": "Speak kindly of the brother that helps all arise in the House of Dane!",
+   "zh": "好好稱許那位幫助眾人在丹恩家晉升的修士！"
+  },
+  "10448": {
+   "en": "He travels the sacred halls of the Tower of Dane!",
+   "zh": "他行走於丹恩巨塔的聖堂！"
+  },
+  "10450": {
+   "en": " BELCANZOR@",
+   "zh": " 貝爾坎佐"
+  },
+  "10451": {
+   "en": "Brother Belcanzor helps those in need of special assistance...",
+   "zh": "貝爾坎佐修士幫助需要特殊協助的人……"
+  },
+  "10453": {
+   "en": "The good brother Belcanzor is here and there, as he pleases...",
+   "zh": "善良的貝爾坎佐修士隨心所至，四處雲遊……"
+  },
+  "10455": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "10456": {
+   "en": "Dionysceus, the Great Tower, the House of Dane!",
+   "zh": "狄奧尼修斯，巨塔，丹恩家！"
+  },
+  "10458": {
+   "en": "Dionysceus, the Great Tower which shadows the Myrmideon Forest...",
+   "zh": "狄奧尼修斯，籠罩蜜爾米頓森林的巨塔……"
+  },
+  "10460": {
+   "en": "\u001fTOWER@",
+   "zh": "\u001f塔"
+  },
+  "10465": {
+   "en": "\"HOUSE OF DANE@",
+   "zh": "丹恩家"
+  },
+  "10467": {
+   "en": "The holy House of Dane, the Great Tower of the Righteous!",
+   "zh": "神聖的丹恩家，義者的巨塔！"
+  },
+  "10468": {
+   "en": "The House of Dane, the Great Tower of Dionysceus!",
+   "zh": "丹恩家，狄奧尼修斯巨塔！"
+  },
+  "10470": {
+   "en": " HIGH FATHER%",
+   "zh": " 高階神父%"
+  },
+  "10471": {
+   "en": "Only the most deserved may hope to join the ranks of the High Fathers!",
+   "zh": "唯有最夠資格者，方能冀望晉升高階神父之列！"
+  },
+  "10473": {
+   "en": "The High Fathers sit by the throne of the holy Magna Dane!",
+   "zh": "高階神父們坐在神聖大丹恩的王座之旁！"
+  },
+  "10475": {
+   "en": "34}MAGIC@",
+   "zh": "34}魔法"
+  },
+  "10477": {
+   "en": "Those rising high in the House of Dane shall know great power!",
+   "zh": "在丹恩家高升者，將知曉強大的力量！"
+  },
+  "10480": {
+   "en": " XHENG@",
+   "zh": " 鄭大師"
+  },
+  "10481": {
+   "en": "Speak not that sinful name, lest thee summon the Magna Dane!",
+   "zh": "別提那罪惡之名，免得召來大丹恩！"
+  },
+  "10485": {
+   "en": " TSHOBER@",
+   "zh": " 喬伯"
+  },
+  "10486": {
+   "en": "We seek to still the tongue of that drunken evil cur!",
+   "zh": "我們要讓那醉鬼惡犬閉上嘴！"
+  },
+  "10490": {
+   "en": " RULAE@",
+   "zh": " 魯萊"
+  },
+  "10491": {
+   "en": "Father Rulae, the unfortunate fool of the blaspheming Munk!",
+   "zh": "魯萊神父，瀆神穆克的可憐蠢貨！"
+  },
+  "10493": {
+   "en": "They say he spreads the lies of Munk in the heart of New City...",
+   "zh": "據說他在新城中心散播穆克的謊言……"
+  },
+  "10495": {
+   "en": "!MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "10497": {
+   "en": "Let not the righteous set foot within that place of evil!",
+   "zh": "義者切勿踏進那邪惡之地！"
+  },
+  "10500": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "10502": {
+   "en": "By prophecy the world shall end and shallow the unrighteous!",
+   "zh": "依預言，世界將終結，不義者將遭吞沒！"
+  },
+  "10505": {
+   "en": "\"WORD%",
+   "zh": "聖言%"
+  },
+  "10507": {
+   "en": "Repent, O ye sinners! &Repent thy evil and wicked ways before the end!",
+   "zh": "懺悔吧，罪人們！&在終末前懺悔你邪惡的行徑！"
+  },
+  "10510": {
+   "en": "\"DIVINE LIGHT@",
+   "zh": "神聖之光"
+  },
+  "10511": {
+   "en": "May the divine light guide thee!",
+   "zh": "願神聖之光引導你！"
+  },
+  "10515": {
+   "en": " MUNK%",
+   "zh": " 穆克%"
+  },
+  "10516": {
+   "en": "May a thousand diseases plague the lands of Munk!",
+   "zh": "願千般疫病降罰穆克之地！"
+  },
+  "10520": {
+   "en": "\"URN%",
+   "zh": "聖甕%"
+  },
+  "10522": {
+   "en": "The sacramental urns, holy vessels for thy humble offerings...",
+   "zh": "聖甕，供奉你謙卑奉獻的神聖器皿……"
+  },
+  "10523": {
+   "en": "The sacramental urns lie throughout the Great Tower of Dane...",
+   "zh": "聖甕散布在丹恩巨塔各處……"
+  },
+  "10600": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "10601": {
+   "en": "I am Ke-Li, Dame Queen of the Helazoid!",
+   "zh": "我是柯麗，赫詹族的女王陛下！"
+  },
+  "10603": {
+   "en": "I am the Defender of the City of Sky, Higardia!",
+   "zh": "我是天空之城希加爾迪亞的守護者！"
+  },
+  "10605": {
+   "en": "\u001fKE-LI@",
+   "zh": "\u001f柯麗"
+  },
+  "10610": {
+   "en": "\u001eQUEEN@",
+   "zh": "\u001e女王"
+  },
+  "10615": {
+   "en": "!HIGARDIA@",
+   "zh": "希加爾迪亞"
+  },
+  "10617": {
+   "en": "Higardia, City of Sky, home of the Helazoid, Defenders of the Higardi!",
+   "zh": "希加爾迪亞，天空之城，赫詹族的家園，希加爾迪的守護者！"
+  },
+  "10618": {
+   "en": "High atop the Dragon Mountains lies the City of Sky!",
+   "zh": "天空之城高踞龍之山脈之巔！"
+  },
+  "10620": {
+   "en": "\u001fCITY OF SKY@",
+   "zh": "\u001f天空之城"
+  },
+  "10625": {
+   "en": " GREAT MAKER@",
+   "zh": " 偉大造物主"
+  },
+  "10626": {
+   "en": "Blessed be his name!",
+   "zh": "願祂的名受祝福！"
+  },
+  "10628": {
+   "en": "He rules the heavens on high!",
+   "zh": "祂統御至高的天界！"
+  },
+  "10630": {
+   "en": "#HIGARDI@",
+   "zh": "希加爾迪"
+  },
+  "10635": {
+   "en": "#ANCESTOR%",
+   "zh": "祖先%"
+  },
+  "10640": {
+   "en": "#DIVINE PLAN@",
+   "zh": "神聖計畫"
+  },
+  "10645": {
+   "en": "#PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "10650": {
+   "en": "#CREDIT%",
+   "zh": "功勞%"
+  },
+  "10655": {
+   "en": "#GREAT TEST@",
+   "zh": "大考驗"
+  },
+  "10660": {
+   "en": " OTHERS@",
+   "zh": " 其他人"
+  },
+  "10661": {
+   "en": "Like yourself, but different!",
+   "zh": "跟你很像，卻又不同！"
+  },
+  "10665": {
+   "en": " PHOONZANG@",
+   "zh": " 豐贊"
+  },
+  "10666": {
+   "en": "By his name, surely you be the heralds of the prophecy!",
+   "zh": "以他之名，你們必是預言的先驅！"
+  },
+  "10670": {
+   "en": "#PRESERVATION@",
+   "zh": "保存"
+  },
+  "10674": {
+   "en": "The Hall of Preservation lies here, in the City of Sky!",
+   "zh": "保存殿就在這裡，在天空之城！"
+  },
+  "10675": {
+   "en": "\u001fTEMPLE@",
+   "zh": "\u001f神殿"
+  },
+  "10680": {
+   "en": "\u001eLEGACY@",
+   "zh": "\u001e遺產"
+  },
+  "10685": {
+   "en": "\"DESTINY@",
+   "zh": "命運"
+  },
+  "10686": {
+   "en": "Let destiny prevail!",
+   "zh": "願命運得勝！"
+  },
+  "10690": {
+   "en": " CRUSADER%",
+   "zh": " 十字軍%"
+  },
+  "10691": {
+   "en": "Only the fates may decide upon the Crusaders!",
+   "zh": "唯命運諸神能裁決十字軍！"
+  },
+  "10695": {
+   "en": " JAN-ETTE@",
+   "zh": " 珍妮特"
+  },
+  "10696": {
+   "en": "Jan-Ette has been sent to the northlands, in search of the Crusaders!",
+   "zh": "珍妮特已被派往北方國度，尋找十字軍！"
+  },
+  "10700": {
+   "en": "\"ROCKET%",
+   "zh": "火箭%"
+  },
+  "10701": {
+   "en": "Only we of the Helazoid Legion may ride upon the flying steeds...",
+   "zh": "只有我們赫詹軍團能乘飛天坐騎……"
+  },
+  "10703": {
+   "en": "We have many flying machines in the City of Sky!",
+   "zh": "我們在天空之城有許多飛行機器！"
+  },
+  "10705": {
+   "en": "\u001fSLED%",
+   "zh": "\u001f雪橇%"
+  },
+  "10710": {
+   "en": "\"MACHINE%",
+   "zh": "機器%"
+  },
+  "10711": {
+   "en": "In the City of Sky there are many machines...",
+   "zh": "天空之城裡有許多機器……"
+  },
+  "10715": {
+   "en": "#BANNER%",
+   "zh": "旗幟%"
+  },
+  "10716": {
+   "en": "Let me see this banner that you speak of...",
+   "zh": "讓我看看你所說的旗幟……"
+  },
+  "10720": {
+   "en": "#FOREFATHER%",
+   "zh": "先祖%"
+  },
+  "10750": {
+   "en": "#PHOONZANG@",
+   "zh": "豐贊"
+  },
+  "10800": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "10801": {
+   "en": "I am Sogheim...",
+   "zh": "我是索格海姆…"
+  },
+  "10802": {
+   "en": "I live here, by the sea...",
+   "zh": "我住在這裡，在海邊……"
+  },
+  "10805": {
+   "en": "\u001fSOGHEIM@",
+   "zh": "\u001f索格海姆"
+  },
+  "10810": {
+   "en": "#BROMBADEG@",
+   "zh": "布羅姆巴德格"
+  },
+  "10815": {
+   "en": "\u001fDANGER%",
+   "zh": "\u001f危險%"
+  },
+  "10820": {
+   "en": "\u001eSEA MONSTER%",
+   "zh": "\u001e海怪%"
+  },
+  "10825": {
+   "en": "#BIRD%",
+   "zh": "鳥%"
+  },
+  "10830": {
+   "en": "#BOAT%",
+   "zh": "小船%"
+  },
+  "10835": {
+   "en": "\u001fSHIP%",
+   "zh": "\u001f船%"
+  },
+  "10840": {
+   "en": "\u001eVESSEL%",
+   "zh": "\u001e船艦%"
+  },
+  "10845": {
+   "en": "\"SWIM^0MING",
+   "zh": "游泳^0MING"
+  },
+  "10847": {
+   "en": "If you're thinking of swimmming in the sea, you'd better think again!",
+   "zh": "要是你打算在海裡游泳，最好再想想！"
+  },
+  "10850": {
+   "en": "#BEWARE@",
+   "zh": "當心"
+  },
+  "10855": {
+   "en": "\"TROPHY^1IES",
+   "zh": "獎盃^1IES"
+  },
+  "10856": {
+   "en": "Those are just a few little tadpoles from the deep sea!",
+   "zh": "那些只是來自深海的幾隻小蝌蚪！"
+  },
+  "10900": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "10901": {
+   "en": "I am Master Xen Xheng, teacher of the school of 5 Flowers...",
+   "zh": "我是鄭大師，五花門的導師……"
+  },
+  "10905": {
+   "en": "\u001fXHENG@",
+   "zh": "\u001f鄭大師"
+  },
+  "10910": {
+   "en": "\"FLOWER%",
+   "zh": "花%"
+  },
+  "10912": {
+   "en": "Only the worthy may learn the secrets of the 5 Flowers...",
+   "zh": "唯有夠資格者能學五花的奧秘……"
+  },
+  "10915": {
+   "en": " FATHER RULAE@",
+   "zh": " 魯萊神父"
+  },
+  "10916": {
+   "en": "Father Rulae teaches how to walk the holy path!",
+   "zh": "魯萊神父教人行走聖道！"
+  },
+  "10918": {
+   "en": "He spends his days at Thesminster Abbey, in New City...",
+   "zh": "他終日待在新城的希斯敏斯特修道院……"
+  },
+  "10920": {
+   "en": " MOSER@",
+   "zh": " 莫瑟"
+  },
+  "10921": {
+   "en": "I heard he makes very bad tea!",
+   "zh": "聽說他泡的茶很難喝！"
+  },
+  "10923": {
+   "en": "He attends the Apothecary in Munkharama...",
+   "zh": "他在僧侶聖地的藥鋪做事……"
+  },
+  "10925": {
+   "en": "\"HOLY PATH@",
+   "zh": "聖道"
+  },
+  "10927": {
+   "en": "Those that walk the holy path shall know the way!",
+   "zh": "行走聖道者必知其路！"
+  },
+  "10930": {
+   "en": "\"HOLY WORK%",
+   "zh": "聖工%"
+  },
+  "10932": {
+   "en": "We walk the path of the Holy Work, teachings of the divine Munkharam!",
+   "zh": "我們行走聖工之路，神聖穆克哈拉姆的教誨！"
+  },
+  "10933": {
+   "en": "Those who walk the holy path live the Holy Work!",
+   "zh": "行走聖道者，活出聖工！"
+  },
+  "10935": {
+   "en": "\u001fHOLY COVENANT@",
+   "zh": "\u001f聖約"
+  },
+  "10940": {
+   "en": "!PALACE@",
+   "zh": "宮殿"
+  },
+  "10941": {
+   "en": "To walk the land of dreams seek the Palace of Munkharama...",
+   "zh": "想行走夢土，就尋訪僧侶聖地的宮殿……"
+  },
+  "10945": {
+   "en": "\u001fDREAM%",
+   "zh": "\u001f夢%"
+  },
+  "10950": {
+   "en": "!MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "10952": {
+   "en": "The Holy City of Munkharama, the city of the Holy Work...",
+   "zh": "聖城僧侶聖地，聖工之城……"
+  },
+  "10953": {
+   "en": "The Holy City of Munkharama lies east of the Eyrn River...",
+   "zh": "聖城僧侶聖地位於艾恩河以東……"
+  },
+  "10955": {
+   "en": " MUNKHARAM@",
+   "zh": " 穆克哈拉姆"
+  },
+  "10956": {
+   "en": "The divine prophet of all Munk, the holy Munkharam!",
+   "zh": "全體穆克的神聖先知，神聖的穆克哈拉姆！"
+  },
+  "10958": {
+   "en": "The divine Munkharam leads all who walk the holy path...",
+   "zh": "神聖的穆克哈拉姆引領所有行走聖道的人……"
+  },
+  "10960": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "10961": {
+   "en": "The insane Lord of the House of Dane, defiler of the Holy Work!",
+   "zh": "丹恩家病態的主子，聖工的褻瀆者！"
+  },
+  "10963": {
+   "en": "He performs unholy rituals high atop the Tower of Dionysceus...",
+   "zh": "他從狄奧尼修斯塔頂施行邪穢的儀式……"
+  },
+  "10965": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克塞德"
+  },
+  "10970": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "10971": {
+   "en": "Beware the lying deceit and treachery of Kymas Turan!",
+   "zh": "當心基馬斯·圖蘭的謊言、欺瞞與背叛！"
+  },
+  "10973": {
+   "en": "Kymas Turan flings his iniquitous filth upon all who come near...",
+   "zh": "基馬斯·圖蘭把他的邪惡穢物潑向所有靠近的人……"
+  },
+  "10975": {
+   "en": " DANE%",
+   "zh": " 丹恩%"
+  },
+  "10976": {
+   "en": "The misguided Brothers of Dane, may we purge the lands of their evil!",
+   "zh": "丹恩家那群誤入歧途的修士，願我們肅清其邪惡！"
+  },
+  "10978": {
+   "en": "They spread their evil words from the unholy Tower of Dionysceus...",
+   "zh": "他們從邪穢的狄奧尼修斯之塔散播邪惡……"
+  },
+  "10980": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "11000": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11001": {
+   "en": "They call me Blienmeis...",
+   "zh": "他們叫我布林麥斯……"
+  },
+  "11002": {
+   "en": "Alas, not much these days...",
+   "zh": "唉，最近沒什麼好說的……"
+  },
+  "11003": {
+   "en": "I get around all right...",
+   "zh": "我照樣到處趴趴走……"
+  },
+  "11005": {
+   "en": "\u001fBLIENMEIS@",
+   "zh": "\u001f布林麥斯"
+  },
+  "11010": {
+   "en": "\"COIN%",
+   "zh": "錢幣%"
+  },
+  "11012": {
+   "en": "The life of the unfortunate is not easy...",
+   "zh": "不幸之人的人生不好過……"
+  },
+  "11013": {
+   "en": "Such a secret is worth keeping!",
+   "zh": "這種秘密值得守住！"
+  },
+  "11015": {
+   "en": "\"SKILL%",
+   "zh": "技能%"
+  },
+  "11017": {
+   "en": "What you need are some special charms!",
+   "zh": "你需要一些特殊的護符！"
+  },
+  "11018": {
+   "en": "Perhaps you should shoppe at Ratskell's!",
+   "zh": "也許你該去拉茨克爾店逛逛！"
+  },
+  "11020": {
+   "en": "\u001fCHARM%",
+   "zh": "\u001f護符%"
+  },
+  "11025": {
+   "en": "!RATSKELL^0'S",
+   "zh": "拉茨克爾^0"
+  },
+  "11026": {
+   "en": "Ratskell's has many unusual items to help supplement your skills...",
+   "zh": "拉茨克爾店有許多珍奇貨品，可輔助你的技能……"
+  },
+  "11028": {
+   "en": "Seek and ye shall find!",
+   "zh": "尋找，就必尋見！"
+  },
+  "11030": {
+   "en": "\"BLIND@",
+   "zh": "失明"
+  },
+  "11032": {
+   "en": "An unfortunate accident...",
+   "zh": "一場不幸的意外……"
+  },
+  "11035": {
+   "en": "\"ACCIDENT@",
+   "zh": "意外"
+  },
+  "11037": {
+   "en": "I'd prefer not to talk about it...",
+   "zh": "我不想談這件事……"
+  },
+  "11040": {
+   "en": "\"FOOTSTEP%",
+   "zh": "腳步聲%"
+  },
+  "11042": {
+   "en": "Blienmeis hears many things...",
+   "zh": "布林麥斯聽到很多事……"
+  },
+  "11045": {
+   "en": " RAZUKA@",
+   "zh": " 拉祖卡"
+  },
+  "11046": {
+   "en": "The Razuka, bosses of the underworld!",
+   "zh": "拉祖卡，地下世界的老大們！"
+  },
+  "11048": {
+   "en": "It's rumored that the Razuka hole up in the old Funhouse...",
+   "zh": "謠傳拉祖卡窩藏在老玩笑屋裡……"
+  },
+  "11050": {
+   "en": "\u001fBOSS^0ES",
+   "zh": "\u001f頭目^0"
+  },
+  "11055": {
+   "en": "\u001eUNDERWORLD@",
+   "zh": "\u001e地下世界"
+  },
+  "11060": {
+   "en": " BARLONE^0'",
+   "zh": " 巴隆內^0"
+  },
+  "11061": {
+   "en": "Don Barlone', ruthless head of the Razuka!",
+   "zh": "唐·巴隆內，拉祖卡冷酷的首腦！"
+  },
+  "11063": {
+   "en": "It's rumored that the Razuka hole up in the old Funhouse...",
+   "zh": "謠傳拉祖卡窩藏在老玩笑屋裡……"
+  },
+  "11065": {
+   "en": "\"THIEF^1VES",
+   "zh": "盜賊^1"
+  },
+  "11067": {
+   "en": "Masters of the trade belong to the Guild...",
+   "zh": "這一行的頂尖好手都屬於公會……"
+  },
+  "11068": {
+   "en": "Seek and ye shall find!",
+   "zh": "尋找，就必尋見！"
+  },
+  "11070": {
+   "en": "!GUILD@",
+   "zh": "公會"
+  },
+  "11072": {
+   "en": "Ratskell's, the guild of all thieves!",
+   "zh": "拉茨克爾店，眾盜賊的公會！"
+  },
+  "11073": {
+   "en": "Seek and ye shall find!",
+   "zh": "尋找，就必尋見！"
+  },
+  "11075": {
+   "en": "#FUNHOUSE@",
+   "zh": "玩笑屋"
+  },
+  "11080": {
+   "en": "#REFLEXTION@",
+   "zh": "倒影"
+  },
+  "11085": {
+   "en": " RATTKIN MAGI@",
+   "zh": " 鼠人法師"
+  },
+  "11086": {
+   "en": "He died long ago, I know nothing else...",
+   "zh": "他很久以前就死了，其他我一無所知……"
+  },
+  "11090": {
+   "en": " RATSPUTIN@",
+   "zh": " 鼠拉斯普丁"
+  },
+  "11091": {
+   "en": "Ratsputin, the gathering paw of the Razuka!",
+   "zh": "鼠拉斯普丁，拉祖卡的召集之爪！"
+  },
+  "11093": {
+   "en": "He's making the rounds, I'm sure!",
+   "zh": "他肯定正在四處巡視！"
+  },
+  "11095": {
+   "en": " MICK THE PICK@",
+   "zh": " 撬鎖米克"
+  },
+  "11096": {
+   "en": "Mick the Pick, fleetest of them all!",
+   "zh": "撬鎖米克，身手最矯捷的一個！"
+  },
+  "11098": {
+   "en": "Who knows?!",
+   "zh": "誰知道？！"
+  },
+  "11100": {
+   "en": " BERTIE^0'S",
+   "zh": " 伯蒂^0"
+  },
+  "11101": {
+   "en": "Bertie has lots of sharp goodies for sale...",
+   "zh": "伯蒂有好多鋒利的好貨要賣……"
+  },
+  "11103": {
+   "en": "Bertie's shoppe, around and over, through and up, can't miss it!",
+   "zh": "伯蒂的店，繞過去再上去，穿過去爬上來，不會錯過的！"
+  },
+  "11105": {
+   "en": "!RATTKIN RUINS@",
+   "zh": "鼠人遺跡"
+  },
+  "11107": {
+   "en": "Our home here in the forest...",
+   "zh": "我們在森林裡的家……"
+  },
+  "11108": {
+   "en": "In the woods, down the valley, through the vale, over the mountains!",
+   "zh": "在樹林裡，下到谷底，穿過谷地，翻過群山！"
+  },
+  "11200": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11201": {
+   "en": "I'm Sergeant Kabomm, head of the Supply Depot...",
+   "zh": "我是卡邦姆中士，補給庫的主管……"
+  },
+  "11202": {
+   "en": "I run the Supply Depot...",
+   "zh": "我負責補給庫……"
+  },
+  "11203": {
+   "en": "If you need gear or ammo, you'll find me here at the Supply Depot...",
+   "zh": "需要裝備或彈藥，就到補給庫來找我……"
+  },
+  "11205": {
+   "en": "\u001fKABOMM@",
+   "zh": "\u001f卡邦姆"
+  },
+  "11210": {
+   "en": "!SUPPLY DEPOT@",
+   "zh": "補給庫"
+  },
+  "11212": {
+   "en": "The Supply Depot is where all I.U.F.'s requisition gear and ammo...",
+   "zh": "補給庫是 I.U.F. 將士請領裝備彈藥的地方……"
+  },
+  "11213": {
+   "en": "If you need some additional supplies, just let me know...",
+   "zh": "需要額外的補給品就告訴我……"
+  },
+  "11214": {
+   "en": "Well protected, that's for sure!",
+   "zh": "防衛森嚴，這是當然！"
+  },
+  "11215": {
+   "en": "\"SUPPLIES@",
+   "zh": "補給品"
+  },
+  "11217": {
+   "en": "I've got all kinds of gear for the well-equipped soldier!",
+   "zh": "各種裝備應有盡有，讓士兵武裝齊全！"
+  },
+  "11218": {
+   "en": "Take a look at what I've got and let me know if you want something...",
+   "zh": "看看我的貨，想要什麼就說一聲……"
+  },
+  "11219": {
+   "en": "The only supplies I have are kept here at the Depot...",
+   "zh": "我僅有的補給品都存放在補給庫……"
+  },
+  "11220": {
+   "en": "\u001fGEAR@",
+   "zh": "\u001f裝備"
+  },
+  "11225": {
+   "en": "\u001eAMMO@",
+   "zh": "\u001e彈藥"
+  },
+  "11230": {
+   "en": "\"MUSKET%",
+   "zh": "火槍%"
+  },
+  "11231": {
+   "en": "If you want to learn to shoot, go practice at the Firing Range...",
+   "zh": "想學射擊，就去射擊場練習……"
+  },
+  "11235": {
+   "en": "\u001fBLUNDERBUSS^0ES",
+   "zh": "\u001f老式火槍^0"
+  },
+  "11240": {
+   "en": "!FIRING RANGE@",
+   "zh": "射擊場"
+  },
+  "11242": {
+   "en": "You need to put in your target practice at the Firing Range...",
+   "zh": "你得去射擊場好好練打靶……"
+  },
+  "11243": {
+   "en": "See Lieutenant Gromo, he'll set you up with targets...",
+   "zh": "找格羅莫中尉，他會幫你安排靶子……"
+  },
+  "11244": {
+   "en": "It's across from the North Barracks, just over that-a-way...",
+   "zh": "就在北營房對面，往那邊走就是……"
+  },
+  "11245": {
+   "en": " GROMO@",
+   "zh": " 格羅莫"
+  },
+  "11246": {
+   "en": "He's at the Firing Range... &Now either buy something or scram...",
+   "zh": "他在射擊場……&要買就買，不然就滾……"
+  },
+  "11250": {
+   "en": " SPY^1IES",
+   "zh": " 間諜^1"
+  },
+  "11251": {
+   "en": "I hear our forces are tracking a band of spies in our midst!",
+   "zh": "聽說我軍正在追查混進我們之中的間諜！"
+  },
+  "11255": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "11256": {
+   "en": "General Yamo, Commander of the I.U.F., Imperial Umpani Forces!",
+   "zh": "亞莫將軍，恩帕尼帝國軍 I.U.F. 的統帥！"
+  },
+  "11258": {
+   "en": "His office is over at the I.U.F. Command Headquarters...",
+   "zh": "他的辦公室在 I.U.F. 指揮總部……"
+  },
+  "11260": {
+   "en": " LEWARX@",
+   "zh": " 勒瓦克斯"
+  },
+  "11261": {
+   "en": "Rodan Lewarx, Master Tracker under the command of General Yamo...",
+   "zh": "羅丹·勒瓦克斯，亞莫將軍麾下的追蹤大師……"
+  },
+  "11263": {
+   "en": "Laying a trap for the wretched T'Rang insects, I hope!",
+   "zh": "希望是在給卑劣的特蘭格蟲子設陷阱！"
+  },
+  "11265": {
+   "en": " RHALLICK@",
+   "zh": " 拉利克"
+  },
+  "11266": {
+   "en": "Tracker Rhallick is a scout for the I.U.F...",
+   "zh": "追蹤者拉利克是 I.U.F. 的斥候……"
+  },
+  "11268": {
+   "en": "Laying a trap for the wretched T'Rang insects, I hope!",
+   "zh": "希望是在給卑劣的特蘭格蟲子設陷阱！"
+  },
+  "11270": {
+   "en": " GRUNTWRAPPER@",
+   "zh": " 格蘭特瑞普"
+  },
+  "11271": {
+   "en": "Lt. Gruntwrapper is under special orders from General Yamo...",
+   "zh": "格蘭特瑞普中尉奉亞莫將軍的特殊命令行事……"
+  },
+  "11273": {
+   "en": "I haven't seen him around lately...",
+   "zh": "最近都沒看到他……"
+  },
+  "11275": {
+   "en": " ROSSARIAN@",
+   "zh": " 羅薩里安"
+  },
+  "11276": {
+   "en": "Rossarian is a swarthy trader, who came here for his own reasons...",
+   "zh": "羅薩里安是個膚色黝黑的商人，為了自己的緣故來到此地……"
+  },
+  "11278": {
+   "en": "I've heard he's been seen around New City...",
+   "zh": "聽說有人在新城一帶看過他……"
+  },
+  "11280": {
+   "en": " BALBRAK@",
+   "zh": " 巴布拉克"
+  },
+  "11281": {
+   "en": "Sgt. Balbrak is the Recruiting Officer, in charge of enlistments...",
+   "zh": "巴布拉克中士是募兵官，負責招募入伍……"
+  },
+  "11283": {
+   "en": "Why don't you try looking for him down at the Recruiting Station...",
+   "zh": "何不去募兵站那裡找找他……"
+  },
+  "11285": {
+   "en": "\"I.U.F.@",
+   "zh": "I.U.F."
+  },
+  "11287": {
+   "en": "I.U.F., that stands for Imperial Umpani Forces!",
+   "zh": "I.U.F.，就是恩帕尼帝國軍！"
+  },
+  "11288": {
+   "en": "The I.U.F. is always looking for a few good snouts!",
+   "zh": "I.U.F. 永遠在找幾個好鼻子！"
+  },
+  "11290": {
+   "en": "\"HORATHA@",
+   "zh": "霍拉莎"
+  },
+  "11292": {
+   "en": "That information is classified!",
+   "zh": "那是機密情報！"
+  },
+  "11295": {
+   "en": "!UKPYR@",
+   "zh": "烏克皮爾"
+  },
+  "11297": {
+   "en": "Ukpyr is our temporary Command Headquarters on this planet...",
+   "zh": "烏克皮爾是我們在這顆行星上的臨時指揮總部……"
+  },
+  "11298": {
+   "en": "Ukpyr is just this side of the Ukpyr Mountains...",
+   "zh": "烏克皮爾就在烏克皮爾山脈的這一側……"
+  },
+  "11300": {
+   "en": "\u001fHEADQUARTER%",
+   "zh": "\u001f總部%"
+  },
+  "11305": {
+   "en": "\"BLACK MARKET%",
+   "zh": "黑市%"
+  },
+  "11306": {
+   "en": "I've heard there's a Black Market operating in New City somewhere...",
+   "zh": "聽說新城某處有個黑市在營業……"
+  },
+  "11310": {
+   "en": " T'RANG@",
+   "zh": " 特蘭格"
+  },
+  "11311": {
+   "en": "Death to the T'Rang vermin, destroyer of worlds!",
+   "zh": "去死吧，特蘭格害蟲，世界的毀滅者！"
+  },
+  "11313": {
+   "en": "Everywhere, but one day we shall rid the universe of their kind!",
+   "zh": "無所不在，但總有一天我們會把他們從宇宙清除！"
+  },
+  "11400": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11401": {
+   "en": "I am Shritis T'Rang...",
+   "zh": "我是希里提斯特蘭格……"
+  },
+  "11402": {
+   "en": "I am master of T'Rang assassins...",
+   "zh": "我是特蘭格刺客的首領……"
+  },
+  "11403": {
+   "en": "My plans are not for you to know...",
+   "zh": "我的計畫你無須知道……"
+  },
+  "11405": {
+   "en": "\u001fSHRITIS@",
+   "zh": "\u001f希里提斯"
+  },
+  "11410": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
+  "11411": {
+   "en": "The great H'Jenn-Ra, Lord of T'Rang, is very wise...",
+   "zh": "偉大的赫詹拉，特蘭格之主，非常有智慧……"
+  },
+  "11413": {
+   "en": "H'Jenn-Ra is safely guarded in the northern lands...",
+   "zh": "赫詹拉在北方之地受到嚴密保護……"
+  },
+  "11415": {
+   "en": " K'BORRA@",
+   "zh": " 克波拉"
+  },
+  "11416": {
+   "en": "K'Borra T'Rang is the cunning lacky of H'Jenn-Ra...",
+   "zh": "克波拉·特蘭格是赫詹拉狡詐的走狗……"
+  },
+  "11418": {
+   "en": "That is not my concern...",
+   "zh": "那不關我的事……"
+  },
+  "11420": {
+   "en": " D'RANG@",
+   "zh": " 德朗"
+  },
+  "11421": {
+   "en": "D'Rang T'Rang is the reckless young nephew of K'Borra T'Rang...",
+   "zh": "德朗·特蘭格是克波拉·特蘭格魯莽的年輕姪子……"
+  },
+  "11423": {
+   "en": "That is not my concern...",
+   "zh": "那不關我的事……"
+  },
+  "11425": {
+   "en": "\"NARGISST@",
+   "zh": "納吉斯特"
+  },
+  "11427": {
+   "en": "Hsssst! You would do well to keep silent about this...",
+   "zh": "嘶嘶嘶！這件事你最好保持緘默……"
+  },
+  "11430": {
+   "en": "\"EGG%",
+   "zh": "蛋%"
+  },
+  "11432": {
+   "en": "Hsssst! You would do well to keep silent about this...",
+   "zh": "嘶嘶嘶！這件事你最好保持緘默……"
+  },
+  "11435": {
+   "en": "!NYCTALINTH@",
+   "zh": "夜螢城"
+  },
+  "11437": {
+   "en": "The northern ruins of Nyctalinth serves as our temporary base...",
+   "zh": "北方的夜螢城遺跡是我們的臨時基地……"
+  },
+  "11438": {
+   "en": "Nyctalinth lies north of the Red Forest...",
+   "zh": "夜螢城位於赤色森林以北……"
   },
   "14000": {
    "en": "* TEMPLE *",

@@ -72,3 +72,51 @@
   村正刀、THE/AVENGER 復仇者）。
 - **注意**：譯名限 BIG5 字集（stdfont.15）——「脇差」→「脅差」
   （脇 U+8107 不在 BIG5）。
+
+## R7 翻譯規模化批次譯名（2026-09-27 起，subagent 批次沉澱，DRAFT）
+
+**NPC 對話試作批（batch-005，9000 段）**：
+貝爾坎佐（Belcanzor）、基馬斯·圖蘭（Kymas Turan，主題詞作「基馬斯圖蘭」）、
+救世者（the Deliverer）、大丹恩（Magna Dane）、托倫·丹恩（Tollen Dane）、
+阿爾馬戈特修士（Brother Almagorte）、魯萊神父（Father Rulae）、
+馮德蘭教授（Professor Wunderland）、唐·巴隆內（Don Barlone，Don＝黑手黨式尊稱）、
+鼠拉斯普丁（Ratsputin）、老盲麥斯（Old Blindmeis）、莫瑟修士（Brother Moser）、
+羅丹·勒瓦克斯（Rodan Lewarx）、魁薩卡（Quasquet)、波利加德（Boerigard，
+Gorn Army 陸軍 Captain——既有「船長」譯法有誤待修，見 013 追記）、
+亞莫將軍（General Yamo，I.U.F.＝恩帕尼帝國軍統帥）、烏爾加王（King Ulgar）。
+
+**地點/組織/概念**：查封區（Condemned Area）、聖道（Holy Path）、聖工（Holy Work）、
+神聖之光（Divine Light）、秘密學院（Secret School）、森林家園（Forest Home）、
+紅書（Red Book）、夢土（land of dreams）、僧侶聖地的宮殿（Palace of Munkharama）、
+烏克皮爾山脈（Ukpyr Mountains）、高恩大軍（Gorn Army）、邪穢之塔（the Unholy Tower）、
+召集之爪（the gathering paw）、格蘭梅蘭（Gran Melange）、瀆神（blasphemous）。
+
+## R7 波一沉澱＋衝突裁決（2026-09-27，batch-001~008）
+
+**裁決（後續批次一律依此）**：
+- Xen Xheng＝**鄭**（上屏尊稱鄭大師；XHEN 同）｜TShober＝**喬伯**
+- Torquesade＝**托克薩德**｜Mick the Pick＝**撬鎖米克**｜Bertie＝**貝提**
+- ORKOGRE（城/種族）＝**奧高高**（8045 定案）｜DIONYSCEUS＝**狄奧尼修斯**
+- RATTKIN RUINS＝**鼠人遺跡**｜Helazoid＝**赫詹族**（corpus 8042/8211/8218
+  誤譯「異形」待全域掃描修正，與 XENOZOID 撞名）
+- Boerigard＝**波利加德**，Captain of Gorn Army＝**上尉**（corpus「船長」誤譯待修）
+- Blindmeis＝**盲麥斯**（全名老盲麥斯；Blienmeis 布林麥斯＝同一人簡拼，統一盲麥斯）
+
+**波一新譯（DRAFT）**：Shritis 希里提斯、K'Borra 克波拉、D'Rang 德蘭、
+Tracker Rhallick 拉利克、Lt. Gruntwrapper 格蘭特拉普中尉、Sgt. Kabomm 卡邦姆中士、
+Lt. Gromo 格羅莫中尉、Sgt. Balbrak 巴布拉克中士、Dame Ke-Li 柯麗夫人、
+Jan-Ette 珍妮特、Bela 貝拉、Hector 赫克特、HORATHA 霍拉莎（軍事機密話題）、
+Ratskell 拉茨凱爾（鼠人商店兼盜賊公會）、Higardi/Higardia 希加爾迪（亞）、
+Munkharam（先知）穆克哈拉姆（城名 MUNKHARAMA 仍作僧侶聖地）、Sogheim 索格海姆、
+Brombadeg 布羅姆巴德格、Phoonzang 豐贊（赫詹族聖者）、HIGH FATHER 高階神父、
+school of 5 Flowers 五花門、Hall of Preservation 保存殿、Helazoid Legion 赫詹軍團、
+GREAT MAKER 偉大造物主、DIVINE PLAN 神聖計畫、WORD（丹恩教義）聖言、
+HOLY WORD 聖言、Jonga spice 榮加香料、Fellowship of Dane 丹恩團契、
+Holy Covenant 聖約、Isle of Crypt 墓窖之島、Witch Mtns 巫女山脈、
+Dragon Mtns 龍之山脈、Great Wilderness 大荒野、Cosmic Forces 宇宙諸力、
+BLUNDERBUSS 大口徑火槍、MAGIK 奇術（與 MAGIC 魔法分流）。
+
+**控制碼定案（013 既有實證＋波一驗證）**：詞尾 `%` 一律保留（黑市%/聖工%），
+機械計數檢查強制；`^N`＋英文後綴＝「刪前詞 N 字元」的比對鍵壓縮，zh 原樣保留
+（顯示詞^N 後綴），引擎對中文顯示詞的刪除行為待端到端實測；`#` 句中＝填槽保留、
+行首＝成對標記拿掉；`34}` 前綴（10475）語意待查。
