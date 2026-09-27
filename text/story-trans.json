@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1204,
+ "count": 1278,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -4671,6 +4671,302 @@
   "9248": {
    "en": "The Constabulary is here in New City...",
    "zh": "警察局就在新城這裡……"
+  },
+  "14000": {
+   "en": "* TEMPLE *",
+   "zh": "* 神廟 *"
+  },
+  "14001": {
+   "en": "!The complexities of life do distract and disorient, and thee shall",
+   "zh": "人生的紛繁擾亂心神，你將"
+  },
+  "14002": {
+   "en": "know the turmoil of fear and uncertainty...",
+   "zh": "飽嘗恐懼與迷惘的煎熬……"
+  },
+  "14003": {
+   "en": "@He that hath not foundation shall in wandering suffer...",
+   "zh": "無有根基者，必在漂泊中受苦……"
+  },
+  "14004": {
+   "en": "@While he that hath sanctuary shall know peace and stability...",
+   "zh": "有聖所可依者，方得安穩與平靜……"
+  },
+  "14005": {
+   "en": "@Discover thee the builder, that thee may light these eyes...",
+   "zh": "尋得那位建造者，點亮這雙眼……"
+  },
+  "14006": {
+   "en": "@For rooted in he lies the knowledge of structure...",
+   "zh": "因知識的根柢正立於他之中……"
+  },
+  "14007": {
+   "en": "@From encircling waters wrest thee the works of stones...",
+   "zh": "自環繞的水中取出石之造物……"
+  },
+  "14008": {
+   "en": "@As thee make sacrifice twixt all the four corners, thy labor",
+   "zh": "當你在四角之間獻上祭品，你的辛勞"
+  },
+  "14009": {
+   "en": "shall not be in vain, for the opaque yielded from the stone",
+   "zh": "便不會白費——石中產出的渾濁"
+  },
+  "14010": {
+   "en": "will be transformed, and thee shall behold the radiant light...",
+   "zh": "將被轉化，你將親見燦亮的光……"
+  },
+  "14011": {
+   "en": "@Thus may one discover a haven, and assuredly travel onward...",
+   "zh": "如此，或能尋得避風港，篤定地繼續前行……"
+  },
+  "14012": {
+   "en": "@Thus may one discover thyself, and assuredly travel through life...",
+   "zh": "如此，或能發現自我，篤定地走過人生……"
+  },
+  "14050": {
+   "en": "* BOAT *",
+   "zh": "* 船 *"
+  },
+  "14051": {
+   "en": "!The waters of life do move as the weather, and in life as the",
+   "zh": "生命之水如天氣流轉，人生如水，"
+  },
+  "14052": {
+   "en": "waters, thee shall know both calm and storm...",
+   "zh": "你將歷經風平浪靜與狂風暴雨……"
+  },
+  "14053": {
+   "en": "@He that must embrace the storm shall soon be swept away...",
+   "zh": "擁抱風暴者，終將被席捲而去……"
+  },
+  "14054": {
+   "en": "@While he that learns to navigate, shall make his own journey...",
+   "zh": "學會駕馭者，方能開創自己的航程……"
+  },
+  "14055": {
+   "en": "@When thy fear has turned to anger, thee has lost thy soul,",
+   "zh": "當恐懼化作憤怒，你已失去靈魂，"
+  },
+  "14056": {
+   "en": "and shall make the devil laugh...",
+   "zh": "只會令惡魔發笑……"
+  },
+  "14057": {
+   "en": "@But to still thy tongue and become amazed, thee begets enlightenment,",
+   "zh": "但若靜默不言、心懷驚奇，啟蒙便由此而生，"
+  },
+  "14058": {
+   "en": "and thus shall thee know bliss...",
+   "zh": "你將知曉何謂極樂……"
+  },
+  "14059": {
+   "en": "@Thus may one discover a craft, and sail upon the waters...",
+   "zh": "如此，或能尋得一葉扁舟，航行於水上……"
+  },
+  "14060": {
+   "en": "@Thus may one discover thyself, and sail upon life...",
+   "zh": "如此，或能發現自我，航行於人生……"
+  },
+  "14100": {
+   "en": "* SERPENT *",
+   "zh": "* 蛇 *"
+  },
+  "14101": {
+   "en": "!As the serpent winds and coils, so shall thy journey through life...",
+   "zh": "蛇行蜿蜒盤繞，你的人生旅程亦然……"
+  },
+  "14102": {
+   "en": "@He that comprehends the serpent shall ascend its mighty towers...",
+   "zh": "領悟蛇性者，將攀上它巍峨的高塔……"
+  },
+  "14103": {
+   "en": "@While he that sets forth unknowing shall but sail endlessly",
+   "zh": "懵然啟程者，只會在迷雲之中"
+  },
+  "14104": {
+   "en": "within clouds of confusion and without enlightenment...",
+   "zh": "無盡漂流，不見啟蒙……"
+  },
+  "14105": {
+   "en": "@Thus may one engage the mists of darkness and glimpse the light,",
+   "zh": "如此，或能撥開黑暗之霧，窺見光明，"
+  },
+  "14106": {
+   "en": "and recognize the harbour of his twining purpose...",
+   "zh": "認出那盤繞己志的港灣……"
+  },
+  "14107": {
+   "en": "@Thus may one engage the mists of life and glimpse the light,",
+   "zh": "如此，或能撥開人生之霧，窺見光明，"
+  },
+  "14108": {
+   "en": "and recognize the course of his twining destiny...",
+   "zh": "認出那盤繞己命的航向……"
+  },
+  "14150": {
+   "en": "* DRAGON *",
+   "zh": "* 龍 *"
+  },
+  "14151": {
+   "en": "!Inside a dragon's lair doth Man wander, in pursuit of his",
+   "zh": "人在龍穴中徘徊，追尋自我的"
+  },
+  "14152": {
+   "en": "fulfillment, a monster behind every shadow lurking...",
+   "zh": "圓滿——每道陰影後都潛伏著怪物……"
+  },
+  "14153": {
+   "en": "@His inner dreams doth hunger for noble rewards, while his world",
+   "zh": "內心的夢渴望著崇高的報償，眼前的世界"
+  },
+  "14154": {
+   "en": "doth comprise naught but fruitless conflict and frustration...",
+   "zh": "卻盡是徒勞的衝突與挫折……"
+  },
+  "14155": {
+   "en": "@Only he that yet looks again at all he hath discovered, may",
+   "zh": "唯有肯再度凝視自己所發現的一切者，"
+  },
+  "14156": {
+   "en": "find hidden the new meanings which lie concealed between the cracks",
+   "zh": "才能在脆裂知識的縫隙間，"
+  },
+  "14157": {
+   "en": "of his brittle knowledge...",
+   "zh": "尋得隱藏的新意……"
+  },
+  "14158": {
+   "en": "@Thus may one brave the shadowy dragons, and discover the hidden",
+   "zh": "如此，或能直面暗影之龍，"
+  },
+  "14159": {
+   "en": "treasures of the labyrinth...",
+   "zh": "發現迷宮中的隱藏寶藏……"
+  },
+  "14160": {
+   "en": "@Thus may one brave his shadowy fears, and discover the hidden",
+   "zh": "如此，或能直面心中的暗影恐懼，"
+  },
+  "14161": {
+   "en": "treasures of life...",
+   "zh": "發現人生的隱藏寶藏……"
+  },
+  "14200": {
+   "en": "* SPHINX *",
+   "zh": "* 斯芬克斯 *"
+  },
+  "14201": {
+   "en": "!And a vat of slugs shall be her womb, for amongst the hideous and",
+   "zh": "一甕蛞蝓將是她的子宮，因為她靈魂的種子"
+  },
+  "14202": {
+   "en": "foul doth the seed of her spirit lie waiting...",
+   "zh": "正潛藏於醜惡與污穢之間……"
+  },
+  "14203": {
+   "en": "@From a bed of salt upon the pool of churning waters shall come the",
+   "zh": "翻攪的水池上、鹽的溫床中，將誕生"
+  },
+  "14204": {
+   "en": "immaculate rebirth, and deliverance from the Sea of Chaos...",
+   "zh": "無瑕的重生，自混沌之海獲得救贖……"
+  },
+  "14205": {
+   "en": "@So likened too is the life of man, born into a sea of strange",
+   "zh": "人生亦復如是——生於陌生聲音之海，"
+  },
+  "14206": {
+   "en": "voices, living in the land of salt, forever searching for the",
+   "zh": "活在鹽的國度，永遠尋覓那"
+  },
+  "14207": {
+   "en": "secret silent whisper that will ignite him, that he",
+   "zh": "足以點燃自己的祕密低語，"
+  },
+  "14208": {
+   "en": "may open his eyes and stand free against the sky...",
+   "zh": "好睜開雙眼，昂然挺立於天穹之下……"
+  },
+  "14209": {
+   "en": "@Thus may one discover a bridge,",
+   "zh": "如此，或能尋得一座橋，"
+  },
+  "14210": {
+   "en": "and ascend from the bubbling turmoil...",
+   "zh": "自翻騰的亂流中升起……"
+  },
+  "14211": {
+   "en": "@Thus may one discover thyself, and ascend from the chaos of life...",
+   "zh": "如此，或能發現自我，自人生的混沌中超脫……"
+  },
+  "14250": {
+   "en": "* CRYPT *",
+   "zh": "* 墓穴 *"
+  },
+  "14251": {
+   "en": "!In the land of the Dead shall thee travel, an isle of ghosts and",
+   "zh": "你將踏入死亡之國——一座鬼魂與"
+  },
+  "14252": {
+   "en": "demons...",
+   "zh": "惡魔之島……"
+  },
+  "14253": {
+   "en": "@For as thy knowledge be rooted in history past, thy thoughts shall",
+   "zh": "你的知識既根植於逝去的歷史，思緒便只是"
+  },
+  "14254": {
+   "en": "be but echoes from the crypts of the lost and the dead...",
+   "zh": "亡者墓穴中傳出的回聲……"
+  },
+  "14255": {
+   "en": "@They that stare blindly into the hall of the past shall see not...",
+   "zh": "盲目凝視過往之殿者，將一無所見……"
+  },
+  "14256": {
+   "en": "@While he that stands aloof and notes carefully, shall find the",
+   "zh": "超然佇立、細心觀察者，方能尋得"
+  },
+  "14257": {
+   "en": "secrets which lie nestled along its outskirting waters...",
+   "zh": "沿著邊緣水路潛藏的祕密……"
+  },
+  "14258": {
+   "en": "@To embrace the dead as if truth, is to dwell in darkened crypts...",
+   "zh": "把死者當真理來擁抱，便是幽居於黑暗墓穴……"
+  },
+  "14259": {
+   "en": "@To cast thine eyes upon the radiant sun, let this be thy truth...",
+   "zh": "把目光投向燦亮的太陽——讓這成為你的真理……"
+  },
+  "14260": {
+   "en": "@Thus may one escape the crypt, and depart the island cube...",
+   "zh": "如此，或能逃出墓穴，離開這方島嶼立方……"
+  },
+  "14261": {
+   "en": "@Thus may one escape the past, and depart the island mind...",
+   "zh": "如此，或能掙脫過往，離開這座心的孤島……"
+  },
+  "14301": {
+   "en": "!Whatever was written upon the map has long ago faded...",
+   "zh": "地圖上曾寫下的字跡早已褪去……"
+  },
+  "14302": {
+   "en": "@Now it is but a blank piece of parchment, dotted with several",
+   "zh": "如今它只是一張空白的羊皮紙，點綴著"
+  },
+  "14303": {
+   "en": "scattered holes...",
+   "zh": "幾個散落的洞孔……"
+  },
+  "14304": {
+   "en": "@Around the edge of one hole near the center, you can just barely",
+   "zh": "就在中心附近某個洞孔的邊緣，你勉強"
+  },
+  "14305": {
+   "en": "discern the faint remnants of a ring of reddish dye...",
+   "zh": "能辨認出一圈紅色染料的淡淡殘痕……"
   },
   "17860": {
    "en": "You turn back to face the pitiful wretch in the corner... &%]",
