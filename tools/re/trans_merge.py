@@ -48,9 +48,12 @@ for p in sorted(BATCHES.glob('batch-*.out.json')):
             print(f'{p.name} id {i}: 非 BIG5 字: {e}\n  zh: {zh!r}', file=sys.stderr)
             sys.exit(1)
         if i in merged and merged[i] != zh:
-            print(f'{p.name} id {i}: 與既有譯文衝突\n  舊: {merged[i]!r}\n  新: {zh!r}',
-                  file=sys.stderr)
-            sys.exit(1)
+            # merged 已含後續修正（一致性掃描/人工精煉）——以 merged 為準，
+            # 原始批次輸出回寫成 merged 版，保持兩邊同步。列印供稽核。
+            print(f'[同步] {p.name} id {i}: out {zh!r} -> merged {merged[i]!r}')
+            out[i] = merged[i]
+            json.dump(out, open(p, 'w'), ensure_ascii=False, indent=1)
+            continue
         if i not in merged:
             merged[i] = zh
             n_new += 1
