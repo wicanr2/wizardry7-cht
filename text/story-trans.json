@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 7746,
+ "count": 8417,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -30987,6 +30987,2690 @@
   "27413": {
    "en": "Age   : 24 &",
    "zh": "年齡：24 &"
+  },
+  "27414": {
+   "en": "Personality: VOLITILE, AVOID PROVOCATION &",
+   "zh": "性格：暴躁，避免挑釁 &"
+  },
+  "27415": {
+   "en": "Overview: EXPERT,EXTREMELY DANGEROUS &",
+   "zh": "概況：專家，極度危險 &"
+  },
+  "27416": {
+   "en": "Features: EYE-PATCH/RIGHT,CHROMA POWERGLOVE &",
+   "zh": "特徵：右眼眼罩，虹光手套 &"
+  },
+  "27417": {
+   "en": "Comments: Subject possible link to Pz. - Survival impera... &~4]",
+   "zh": "備註：對象疑與Pz.有關——生存至關…… &~4]"
+  },
+  "27418": {
+   "en": "If there's something you want, why don't you ask?",
+   "zh": "你想要什麼的話，何不直接問？"
+  },
+  "27420": {
+   "en": "\bCENTRAL SECURITY/",
+   "zh": "\b中央安全/"
+  },
+  "27422": {
+   "en": "HOST MODULE:",
+   "zh": "主機模組："
+  },
+  "27430": {
+   "en": "\fS/\rC/\u000bE/",
+   "zh": "\fS/\rC/\u000bE/"
+  },
+  "27431": {
+   "en": "Command Not Recognized",
+   "zh": "指令無法辨識"
+  },
+  "27432": {
+   "en": "HOST: Central Security &Options: S)tatus C)ontrol E)xit",
+   "zh": "主機：中央安全 &選項：S)狀態 C)控制 E)離開"
+  },
+  "27436": {
+   "en": "Location: REMOTE OPERATION STATION #2 &",
+   "zh": "位置：遙控操作站#2 &"
+  },
+  "27437": {
+   "en": "Primary Entry: SECURED &",
+   "zh": "主要入口：已鎖定 &"
+  },
+  "27438": {
+   "en": "Terminal CPU : ACTIVE &",
+   "zh": "終端處理器：運作中 &"
+  },
+  "27439": {
+   "en": "Security Cell: SECURED",
+   "zh": "拘留室：已鎖定"
+  },
+  "27443": {
+   "en": "Location: REMOTE OPERATION STATION #2 &",
+   "zh": "位置：遙控操作站#2 &"
+  },
+  "27444": {
+   "en": "Primary Entry: SECURED &",
+   "zh": "主要入口：已鎖定 &"
+  },
+  "27445": {
+   "en": "Terminal CPU : ACTIVE &",
+   "zh": "終端處理器：運作中 &"
+  },
+  "27446": {
+   "en": "Security Cell: DEACTIVATED",
+   "zh": "拘留室：已解除"
+  },
+  "27455": {
+   "en": "\u000fPRIMARY ENTRY/\u0010TERMINAL CPU/\u0011SECURITY CELL/",
+   "zh": "\u000f主要入口/\u0010終端處理器/\u0011拘留室/"
+  },
+  "27457": {
+   "en": "SECURITY DEVICE:",
+   "zh": "安全裝置："
+  },
+  "27460": {
+   "en": "DEVICE NOT FOUND",
+   "zh": "找不到裝置"
+  },
+  "27470": {
+   "en": "DEVICE SECURED",
+   "zh": "裝置已鎖定"
+  },
+  "27475": {
+   "en": "DEVICE DEACTIVATED",
+   "zh": "裝置已解除"
+  },
+  "27480": {
+   "en": "Shocked at the sudden voice, you wheel around to face a panting",
+   "zh": "被突來的聲音嚇了一跳，你猛然轉身，面對一名氣喘吁吁的"
+  },
+  "27481": {
+   "en": "young woman with cropped raven hair, black patch over one eye,",
+   "zh": "短髮烏黑的年輕女子，單眼蒙著黑色眼罩，"
+  },
+  "27482": {
+   "en": "electric blue arcs sparking across one hand and a white sword",
+   "zh": "一手迸射電藍色弧光，另一手白色長劍"
+  },
+  "27483": {
+   "en": "whisking in the other...",
+   "zh": "急揮不停……"
+  },
+  "27485": {
+   "en": "Not very subtle in your attempts at espionage are you... &%]",
+   "zh": "你這間諜行動還真是不夠低調啊…… &%]"
+  },
+  "27486": {
+   "en": "I was monitoring the system when you accessed the files... &%]",
+   "zh": "你存取檔案時，我正在監看系統…… &%]"
+  },
+  "27487": {
+   "en": "You shouldn't be in here... &%]",
+   "zh": "你不該出現在這裡…… &%]"
+  },
+  "27488": {
+   "en": "But then... &%]",
+   "zh": "不過…… &%]"
+  },
+  "27489": {
+   "en": "Neither should I! &Ha ha ha... &%]",
+   "zh": "我也不該！ &哈哈哈…… &%]"
+  },
+  "27490": {
+   "en": "I have come from the Black Ship, the ship of the Dark Savant! &%]",
+   "zh": "我來自黑船，黑暗賢者的船！ &%]"
+  },
+  "27491": {
+   "en": "He's gone completely mad, calling himself a",
+   "zh": "他已經完全瘋了，自稱是個"
+  },
+  "27492": {
+   "en": "divine lord of the universe or something... &%]",
+   "zh": "宇宙的神聖主宰還是什麼的…… &%]"
+  },
+  "27493": {
+   "en": "He keeps talking about destiny and strange prophecies... &%]",
+   "zh": "他不停談論著命運和奇怪的預言…… &%]"
+  },
+  "27494": {
+   "en": "And about an all powerful globe that will transform him",
+   "zh": "還有一顆萬能的寶球，能把他變成"
+  },
+  "27495": {
+   "en": "into a kind of god... &%]",
+   "zh": "某種神明…… &%]"
+  },
+  "27496": {
+   "en": "The As-Trel-Dah-Me-Nay... &%]",
+   "zh": "阿斯-特雷爾-達-梅-內…… &%]"
+  },
+  "27497": {
+   "en": "He said that he needed me to help him find it... &%]",
+   "zh": "他說需要我幫他找到它…… &%]"
+  },
+  "27498": {
+   "en": "That I'm supposed to know something about it... &%]",
+   "zh": "說我理當知道些相關的事…… &%]"
+  },
+  "27499": {
+   "en": "At first, it seemed like a chance for real adventure... &%]",
+   "zh": "起初，這似乎是場真正冒險的機會…… &%]"
+  },
+  "27500": {
+   "en": "Cruise the galaxy in style, you know... &%]",
+   "zh": "你知道的，氣派地暢遊銀河…… &%]"
+  },
+  "27501": {
+   "en": "But he's become more and more obsessed lately... &%]",
+   "zh": "但他最近越來越走火入魔…… &%]"
+  },
+  "27502": {
+   "en": "And it's starting to get a little too spooky for me... &%]",
+   "zh": "而且開始讓我覺得有點太毛骨悚然了…… &%]"
+  },
+  "27503": {
+   "en": "Do you think you could give me a lift off of this burg?",
+   "zh": "你能載我一程，離開這個鬼地方嗎？"
+  },
+  "27510": {
+   "en": "Before you have time to consider a reply, the mysterious",
+   "zh": "你還來不及想好怎麼回答，那位神秘的"
+  },
+  "27511": {
+   "en": "dreadnaught himself materializes within the room...",
+   "zh": "鐵甲巨漢本人已在房內現形……"
+  },
+  "27520": {
+   "en": "RETURN TO THE SHIP AT ONCE! &%]",
+   "zh": "立刻給我回船上來！ &%]"
+  },
+  "27521": {
+   "en": "...Immediately the young whip-like girl jumps",
+   "zh": "……頃刻間，這名身手如鞭的少女"
+  },
+  "27522": {
+   "en": "into action, unleashing a powerful bolt of energy at the titanic",
+   "zh": "躍入行動，朝那巨大身影轟出一道強大"
+  },
+  "27523": {
+   "en": "figure from her glowing hand of blue-white metal... &~\f~\u0005%]",
+   "zh": "的能量光束，出自她藍白金屬的閃亮之手…… &~\f~\u0005%]"
+  },
+  "27524": {
+   "en": "In a dazzling display of fireworks, the Dark Savant returns a blast",
+   "zh": "在一片炫目的煙火中，黑暗賢者回敬一記"
+  },
+  "27525": {
+   "en": "likewise from his outstretched arm, hurling a blistering arc of",
+   "zh": "同樣自他伸出的手臂，拋出一道灼人的"
+  },
+  "27526": {
+   "en": "thunder into her shuddering body... &~\u000b~\u0005%]",
+   "zh": "雷弧，轟進她顫抖的身軀…… &~\u000b~\u0005%]"
+  },
+  "27527": {
+   "en": "As she slumps to the floor, you notice a flurry of sparks and",
+   "zh": "她癱倒在地，而你注意到一陣火花與"
+  },
+  "27528": {
+   "en": "smoke emerging from around his helmet, and he instantly starts",
+   "zh": "濃煙從他頭盔四周冒出，他隨即開始"
+  },
+  "27529": {
+   "en": "clutching at his throat... &%]",
+   "zh": "掐住自己的喉嚨…… &%]"
+  },
+  "27530": {
+   "en": "With a strength surpassing anything human, he hefts up her collapsed",
+   "zh": "以超越人類的力量，他將她癱軟的"
+  },
+  "27531": {
+   "en": "form in one hand and heaves her into the back chamber, the door of",
+   "zh": "身軀單手提起，扔進後面的房間，那房門"
+  },
+  "27532": {
+   "en": "which slams shut as he chokingly vanishes inside a shimmer of blue...",
+   "zh": "隨即砰然關上，他嗆咳著消失在一抹藍光中……"
+  },
+  "27540": {
+   "en": "The forgotten machine beeps impatiently behind you... &%]",
+   "zh": "那台被遺忘的機器在你身後不耐地嗶嗶作響…… &%]"
+  },
+  "27542": {
+   "en": "Auto-Disconnect Sequence Initiated",
+   "zh": "自動斷線程序已啟動"
+  },
+  "27545": {
+   "en": "You notice the light on the doorway of the Security Cell has turned",
+   "zh": "你注意到拘留室門上的燈光已經熄滅"
+  },
+  "27546": {
+   "en": "off...",
+   "zh": "……"
+  },
+  "27550": {
+   "en": "Upon the door of the room where the girl was so tossed like",
+   "zh": "在那女孩像把羽毛般被扔進的房間門上，"
+  },
+  "27551": {
+   "en": "a handful of feathers, a red light blinks on and off...",
+   "zh": "一盞紅燈忽明忽滅地閃爍著……"
+  },
+  "27555": {
+   "en": "Peering in through the window, you can see the fallen body of the",
+   "zh": "透過窗戶窺看，你可以看見那倒下的"
+  },
+  "27556": {
+   "en": "one-eyed warrior-woman crumpled in the corner...",
+   "zh": "獨眼女戰士癱蜷在角落……"
+  },
+  "27557": {
+   "en": "@You cannot tell whether she is dead or alive...",
+   "zh": "你無法判斷她是死是活……"
+  },
+  "27558": {
+   "en": "@And if alive, how much longer she will remain so...",
+   "zh": "就算活著，又還能撐多久……"
+  },
+  "27600": {
+   "en": "The Security System apparently disabled, you enter the room with the",
+   "zh": "安全系統顯然已解除，你走進房間，來到"
+  },
+  "27601": {
+   "en": "unconscious girl...",
+   "zh": "昏迷的女孩身旁……"
+  },
+  "27602": {
+   "en": "@After a few minutes, she groans and awakens...",
+   "zh": "幾分鐘後，她呻吟一聲醒了過來……"
+  },
+  "27610": {
+   "en": "Uunnnnghhh! &%]",
+   "zh": "嗚嗯嗯！ &%]"
+  },
+  "27611": {
+   "en": "My head! &%]",
+   "zh": "我的頭！ &%]"
+  },
+  "27612": {
+   "en": "What happened? &%]",
+   "zh": "發生什麼事？ &%]"
+  },
+  "27613": {
+   "en": "Oh, I remember... &%]",
+   "zh": "啊，我想起來了…… &%]"
+  },
+  "27614": {
+   "en": "He'll be coming back for me... &%]",
+   "zh": "他會回來抓我的…… &%]"
+  },
+  "27615": {
+   "en": "He can't get his precious orb without me... &%]",
+   "zh": "沒有我，他拿不到他的寶貝寶球…… &%]"
+  },
+  "27616": {
+   "en": "I need a ship! &%]",
+   "zh": "我需要艘船！ &%]"
+  },
+  "27617": {
+   "en": "And now that he's seen us together, he'll be looking for you as",
+   "zh": "如今他見過我們在一起，他也會開始"
+  },
+  "27618": {
+   "en": "well... &%]",
+   "zh": "找你…… &%]"
+  },
+  "27619": {
+   "en": "Our only chance is to find the Astral doo-dad before he does... &%]",
+   "zh": "我們唯一的機會，就是搶在他之前找到星界那玩意兒…… &%]"
+  },
+  "27620": {
+   "en": "And try to make some kind of deal... &%]",
+   "zh": "然後試著跟他談個條件…… &%]"
+  },
+  "27621": {
+   "en": "Assuming he's not totally insane by now... &%]",
+   "zh": "前提是他現在還沒完全瘋掉…… &%]"
+  },
+  "27622": {
+   "en": "I heard him say that it was located beneath a",
+   "zh": "我聽他說過，它藏在某個"
+  },
+  "27623": {
+   "en": "morgue on a small island somewhere... &%]",
+   "zh": "小島上的停屍間下面…… &%]"
+  },
+  "27624": {
+   "en": "Here, take this...",
+   "zh": "喏，拿著這個……"
+  },
+  "27630": {
+   "en": "It's a small transmitter, so I can keep track of you... &%]",
+   "zh": "這是個小型發訊器，好讓我能掌握你的行蹤…… &%]"
+  },
+  "27631": {
+   "en": "If you can find the stellar globe then perhaps we can",
+   "zh": "若你能找到那顆星界寶球，或許我們就能"
+  },
+  "27632": {
+   "en": "kiss this chunk of asteroid goodbye... &%]",
+   "zh": "向這塊隕石說拜拜了…… &%]"
+  },
+  "27633": {
+   "en": "I should go back to the ship and try to soften him up... &%]",
+   "zh": "我該回船上去，試著幫他消消火…… &%]"
+  },
+  "27634": {
+   "en": "I'll tell him I was attempting to stop some thieves, and he",
+   "zh": "我會告訴他，我當時是想攔幾個小偷，是他"
+  },
+  "27635": {
+   "en": "misunderstood... &%]",
+   "zh": "誤會了…… &%]"
+  },
+  "27636": {
+   "en": "In the meantime, see what you can discover... &%]",
+   "zh": "這段期間，看看你能查出些什麼…… &%]"
+  },
+  "27637": {
+   "en": "And if you locate the As-Trel-Da-Men-Ah... &%]",
+   "zh": "還有，要是你找到了阿斯-特雷爾-達-門-阿…… &%]"
+  },
+  "27638": {
+   "en": "Press the button on the transmitter... &%]",
+   "zh": "就按下發訊器上的按鈕…… &%]"
+  },
+  "27639": {
+   "en": "It will signal me and I'll beam down to join you... &%]",
+   "zh": "它會通知我，我就會傳送下來與你會合…… &%]"
+  },
+  "27640": {
+   "en": "And see if you can get us a ride on another spaceship",
+   "zh": "還有，看看能不能幫我們弄到別的太空船"
+  },
+  "27641": {
+   "en": "somewhere... &%]",
+   "zh": "哪裡都行…… &%]"
+  },
+  "27642": {
+   "en": "But don't trust the tarantula-heads... &%]",
+   "zh": "但別相信那些鳥蛛頭…… &%]"
+  },
+  "27643": {
+   "en": "They'd sell us out for sure! &%]",
+   "zh": "他們肯定會把我們賣掉！ &%]"
+  },
+  "27644": {
+   "en": "By the way, my name is Vitalia... &%]",
+   "zh": "對了，我的名字是維塔莉亞…… &%]"
+  },
+  "27645": {
+   "en": "But everyone calls me Vi... &%]",
+   "zh": "但大家都叫我薇…… &%]"
+  },
+  "27646": {
+   "en": "Vi Domina...",
+   "zh": "薇多米娜……"
+  },
+  "27655": {
+   "en": "You watched transfixed as the electric girl touched her wrist and",
+   "zh": "你怔怔看著那電光少女碰了碰手腕，"
+  },
+  "27656": {
+   "en": "shimmered away into nothingness...",
+   "zh": "便閃著微光消逝無蹤……"
+  },
+  "27657": {
+   "en": "@It will take some time before among your discussions you are able",
+   "zh": "你們得討論好一陣子，才能"
+  },
+  "27658": {
+   "en": "to piece together exactly what the young girl was talking about,",
+   "zh": "拼湊出那少女究竟在說什麼，"
+  },
+  "27659": {
+   "en": "but the essense of her meaning was clear...",
+   "zh": "但她話中的要義已十分清楚……"
+  },
+  "27660": {
+   "en": "@The Dark Savant is a dangerous threat,",
+   "zh": "黑暗賢者是個危險的威脅，"
+  },
+  "27661": {
+   "en": "and time seems to be running out...",
+   "zh": "而時間似乎所剩無多……"
+  },
+  "27662": {
+   "en": "@She mentioned an island somewhere, and a morgue...",
+   "zh": "她提過某座小島，還有一間停屍間……"
+  },
+  "27663": {
+   "en": "@And at the bottom, perhaps the fabled sphere of power...",
+   "zh": "而在最底下，或許就是傳說中的力量寶球……"
+  },
+  "27664": {
+   "en": "@Of immediate concern, however, is getting out of here before the",
+   "zh": "不過，當務之急是在那"
+  },
+  "27665": {
+   "en": "armored juggernaut can return...",
+   "zh": "裝甲巨人回來之前離開這裡……"
+  },
+  "27670": {
+   "en": "The gate to the fabled tomb open, you almost hesitate to enter...",
+   "zh": "傳說墓塚的大門已開，你幾乎猶豫著不敢踏入……"
+  },
+  "27675": {
+   "en": "Taking a glance across the room, you are disappointed to find the",
+   "zh": "環視房間一圈，你失望地發現"
+  },
+  "27676": {
+   "en": "entire chamber looking quite empty...",
+   "zh": "整個廳室空蕩蕩的……"
+  },
+  "27677": {
+   "en": "@Perhaps you are too late and someone has beaten you to the prize...",
+   "zh": "也許你來晚了，寶物已被人捷足先登……"
+  },
+  "27680": {
+   "en": "Searching carefully along the floor, you detect a faint hairline",
+   "zh": "你沿地面仔細搜查，察覺一道細如髮絲的"
+  },
+  "27681": {
+   "en": "crack which traces the outline of a trap door...",
+   "zh": "裂縫，勾勒出一道暗門的輪廓……"
+  },
+  "27682": {
+   "en": "@But how to open it, that is the question...",
+   "zh": "但要怎麼打開它，是個問題……"
+  },
+  "27685": {
+   "en": "Moving to the center of the chamber, you take the blinking device",
+   "zh": "走到廳室中央，你取出那個"
+  },
+  "27686": {
+   "en": "which the electric warrior-girl gave to you and push the button... %]",
+   "zh": "電光女戰士交給你的閃爍裝置，按下按鈕…… %]"
+  },
+  "27687": {
+   "en": "You wait...",
+   "zh": "你等著……"
+  },
+  "27690": {
+   "en": "A luminous glow of colorful light bathes the room, and within it",
+   "zh": "一片璀璨彩光灑滿房間，光影之中"
+  },
+  "27691": {
+   "en": "a shimmering figure begins to materialize...",
+   "zh": "一道微光人影開始顯形……"
+  },
+  "27697": {
+   "en": "Did you find the special keys?",
+   "zh": "你找到特殊鑰匙了嗎？"
+  },
+  "27700": {
+   "en": "~4You found it! &%]",
+   "zh": "~4你找到了！&%]"
+  },
+  "27701": {
+   "en": "Oh! &%]",
+   "zh": "喔！&%]"
+  },
+  "27702": {
+   "en": "I guess you didn't... &%]",
+   "zh": "我猜你們並沒有……&%]"
+  },
+  "27703": {
+   "en": "Where is the As-Tral-Da-Me-Nah?!? &%]",
+   "zh": "星·界·統·領究竟在哪裡？！？&%]"
+  },
+  "27704": {
+   "en": "What are we supposed to do now? &%]",
+   "zh": "那我們現在該怎麼辦？&%]"
+  },
+  "27705": {
+   "en": "The Dark Savant mentioned something about needing special keys...",
+   "zh": "黑暗賢者提過需要特殊鑰匙的事……"
+  },
+  "27712": {
+   "en": "Do you know what he was talking about?",
+   "zh": "你知道他在說什麼嗎？"
+  },
+  "27715": {
+   "en": "Hmmm... &%]",
+   "zh": "嗯……&%]"
+  },
+  "27716": {
+   "en": "I'd better return to the ship before he misses me... &%]",
+   "zh": "我最好趁他察覺前回到船上……&%]"
+  },
+  "27717": {
+   "en": "Signal me when you have the keys!",
+   "zh": "拿到鑰匙就通知我！"
+  },
+  "27720": {
+   "en": "Dejected, you cuff the dirt with your boot and begin to wonder",
+   "zh": "你沮喪地用靴子尖撥了撥泥土，開始思索"
+  },
+  "27721": {
+   "en": "what you might have missed...",
+   "zh": "自己究竟漏掉了什麼……"
+  },
+  "27732": {
+   "en": "Have you tried using them?",
+   "zh": "你試過用它們了嗎？"
+  },
+  "27737": {
+   "en": "Do you even have them?",
+   "zh": "你們到底有沒有啊？"
+  },
+  "27740": {
+   "en": "I think there is supposed to be more than one key!",
+   "zh": "我記得鑰匙應該不止一把！"
+  },
+  "27747": {
+   "en": "Maybe I should try, what do you say?",
+   "zh": "也許該我來試試，你說呢？"
+  },
+  "27750": {
+   "en": "...You hand the mysterious blue locket and the odd ring from",
+   "zh": "……你將神秘的藍色小盒與那枚取自"
+  },
+  "27751": {
+   "en": "Phoonzang's spaceship to Vi Domina... &%]",
+   "zh": "豐贊太空船的怪戒指，交給薇·多米娜……&%]"
+  },
+  "27752": {
+   "en": "Examining the sapphire locket, she cups it into the palms",
+   "zh": "她端詳那只藍寶石小盒，將它捧在"
+  },
+  "27753": {
+   "en": "of her hands... &%]",
+   "zh": "掌心……&%]"
+  },
+  "27754": {
+   "en": "Suddenly, it starts to glow! &%~\u0012]",
+   "zh": "突然，它開始發光！&%~\u0012]"
+  },
+  "27760": {
+   "en": "Up from the center of the floor arises a dark globe seated upon",
+   "zh": "地板中央升起一顆黑暗球體，安放在"
+  },
+  "27761": {
+   "en": "a magnificent pedestal... &%]",
+   "zh": "華麗的基座上……&%]"
+  },
+  "27762": {
+   "en": "Hey! &%]",
+   "zh": "嘿！&%]"
+  },
+  "27763": {
+   "en": "It worked!! &%]",
+   "zh": "成功了！！&%]"
+  },
+  "27764": {
+   "en": "But it looks kind of lifeless to me... &%]",
+   "zh": "不過我看它有點死氣沉沉……&%]"
+  },
+  "27765": {
+   "en": "If this is some sort of super-dome, I think it's lost it's fizz... &%]",
+   "zh": "如果這是什麼超級圓頂，我看它早沒氣了……&%]"
+  },
+  "27766": {
+   "en": "...And while she is looking it over, a gossamer light appears behind",
+   "zh": "……她端詳之際，一道薄紗般的微光在她"
+  },
+  "27767": {
+   "en": "her in the room... &%]~\u0011",
+   "zh": "身後房裡亮起……&%]~\u0011"
+  },
+  "27780": {
+   "en": "~*DID YOU THINK YOU COULD FOOL ME?!! &%]",
+   "zh": "~*你們以為騙得了我？！！&%]"
+  },
+  "27781": {
+   "en": "I HAD YOU INJECTED WITH A HOMING DEVICE AFTER",
+   "zh": "上次你逃走之後，我就讓人給你"
+  },
+  "27782": {
+   "en": "YOUR LAST ESCAPADE, MY DEAR VITALIA! &%]",
+   "zh": "注射了追蹤器，我親愛的薇塔莉亞！&%]"
+  },
+  "27783": {
+   "en": "AND SOMETHING EXTRA ALONG WITH IT!! &%]",
+   "zh": "還順便加了點東西！！&%]"
+  },
+  "27784": {
+   "en": "~\f...Before anyone can react, the Dark Savant presses a button",
+   "zh": "~\f……眾人來不及反應，黑暗賢者已按下"
+  },
+  "27785": {
+   "en": "upon his forearm and Vi Domina freezes, her eye turning white in the",
+   "zh": "前臂上的按鈕，薇·多米娜渾身僵住，"
+  },
+  "27786": {
+   "en": "back of her head, her body shaking as if being subjected to an",
+   "zh": "眼珠翻白上吊，身體顫抖，彷彿正被"
+  },
+  "27787": {
+   "en": "invisible current of paralyzing pain...",
+   "zh": "一道無形、令人癱瘓的痛楚之流貫穿……"
+  },
+  "27800": {
+   "en": "~*AND NOW MY FRIENDS, SINCE YOU HAVE BEEN GOOD ENOUGH TO LEAD ME TO",
+   "zh": "~*現在，朋友們，既然你們這麼夠意思，"
+  },
+  "27801": {
+   "en": "THE LEGENDARY TOMB OF THE ASTRAL DOMINAE, I WILL DEAL WITH YOU",
+   "zh": "帶我找到了傳說中的星界統領之墓，我會"
+  },
+  "27802": {
+   "en": "QUICKLY AND MOST MERCIFULLY!! &%]",
+   "zh": "迅速又仁慈地解決你們！！&%]"
+  },
+  "27803": {
+   "en": "BUT FIRST, THE GLOBE!!",
+   "zh": "不過首先，那顆球！！"
+  },
+  "27805": {
+   "en": "...Flinging himself upon the dark crystal ball, he grasps and tears",
+   "zh": "……他撲向那顆黑暗水晶球，又抓又扯，"
+  },
+  "27806": {
+   "en": "at it, but it does not budge or move... &%]",
+   "zh": "它卻紋風不動……&%]"
+  },
+  "27807": {
+   "en": "~*WHAT'S THIS! &%]",
+   "zh": "~*這是什麼！&%]"
+  },
+  "27808": {
+   "en": "WHAT HAVE YOU DONE?! &%]",
+   "zh": "你們做了什麼？！&%]"
+  },
+  "27809": {
+   "en": "IT WON'T COME OFF!!! &",
+   "zh": "它拔不下來！！！&"
+  },
+  "27810": {
+   "en": "ARRRRRGGGGHHHHH!!!! &%]",
+   "zh": "啊啊啊啊啊啊——！！！！&%]"
+  },
+  "27811": {
+   "en": "NOW IS THE TIME FOR ALL TO DIE!!",
+   "zh": "現在是所有人受死的時刻！！"
+  },
+  "27820": {
+   "en": "The epic battle over, you stare as his remains shimmer away...",
+   "zh": "大戰結束，你望著他的殘軀閃爍消散……"
+  },
+  "27821": {
+   "en": "@You wonder what secrets he held, and regret the loss of such",
+   "zh": "你猜想他懷著什麼秘密，也惋惜就這麼"
+  },
+  "27822": {
+   "en": "potential booty as his corpse might have contained...",
+   "zh": "錯過了他屍身上可能帶著的戰利品……"
+  },
+  "27823": {
+   "en": "@Not to mention his knowledge of the Astral Dominae...",
+   "zh": "更別提他對星界統領的種種所知……"
+  },
+  "27824": {
+   "en": "@Too late for remorse now, however, and you turn your attention",
+   "zh": "不過此刻悔恨已遲，你把注意力"
+  },
+  "27825": {
+   "en": "back to Vi, who seems to have been released from the grip of",
+   "zh": "轉回薇身上，她似乎已掙脫了那股"
+  },
+  "27826": {
+   "en": "searing pain that had crippled her...",
+   "zh": "令她癱瘓的灼痛……"
+  },
+  "27830": {
+   "en": "Uunngowwahh! &%]",
+   "zh": "嗚嗯啊——！&%]"
+  },
+  "27831": {
+   "en": "Remind me never to go through that again!! &%]",
+   "zh": "提醒我別再經歷一次那種事了！！&%]"
+  },
+  "27832": {
+   "en": "I think you killed him... &%]",
+   "zh": "我想你們殺了他……&%]"
+  },
+  "27833": {
+   "en": "Too bad... &%]",
+   "zh": "真可惜……&%]"
+  },
+  "27834": {
+   "en": "If not for his insane obsession with the Astro-Ball, I think",
+   "zh": "要不是他對占星球走火入魔，我想"
+  },
+  "27835": {
+   "en": "perhaps he might not have been such a sister of bad news... &%]",
+   "zh": "他或許就不會是這麼個壞消息姊妹了……&%]"
+  },
+  "27836": {
+   "en": "Farewell, o mysterious traveller, ye Dark Savant!! &%]",
+   "zh": "再會了，神秘的旅人，黑暗賢者！！&%]"
+  },
+  "27837": {
+   "en": "Now what do we do with the Globe? &%]",
+   "zh": "現在要拿這顆球怎麼辦？&%]"
+  },
+  "27838": {
+   "en": "Perhaps the ring somehow... &%]",
+   "zh": "也許得靠那枚戒指……&%]"
+  },
+  "27839": {
+   "en": "...She approches the black orb and places the ring upon her",
+   "zh": "……她走近黑色球體，將戒指戴上"
+  },
+  "27840": {
+   "en": "finger... &%]",
+   "zh": "手指……&%]"
+  },
+  "27850": {
+   "en": "Behold, The Astral Dominae! &[]",
+   "zh": "看啊，星界統領！&[]"
+  },
+  "27851": {
+   "en": "Very pretty, but what's it for? &%]",
+   "zh": "很漂亮，但它有什麼用？&%]"
+  },
+  "27852": {
+   "en": "It looks like a fancy ornament to me... &%]",
+   "zh": "我看它就像個華麗的擺飾……&%]"
+  },
+  "27853": {
+   "en": "...Everyone crowds around and peers into the glittering orb... &%]",
+   "zh": "……眾人圍攏，湊近凝視那顆閃亮的球……&%]"
+  },
+  "27854": {
+   "en": "Swirling colors, bright luminescent images, dancing around inside",
+   "zh": "流轉的色彩、明亮的發光影像，在"
+  },
+  "27855": {
+   "en": "the astral globe... &%]",
+   "zh": "星界球裡舞動……&%]"
+  },
+  "27856": {
+   "en": "All apparently meaningless... &%]",
+   "zh": "顯然全無意義……&%]"
+  },
+  "27857": {
+   "en": "Then suddenly, Vi becomes quiet and still,",
+   "zh": "突然間，薇靜了下來，一動也不動，"
+  },
+  "27858": {
+   "en": "as if something strange was passing through her... &%]",
+   "zh": "彷彿有什麼怪異的東西正穿過她……&%]"
+  },
+  "27859": {
+   "en": "As if in a deep trance, she does something most unusual... &%]",
+   "zh": "她像陷入深度恍惚，做了件很不尋常的事……&%]"
+  },
+  "27860": {
+   "en": "Squatting before the Astral Globe, she pulls up the patch covering",
+   "zh": "她蹲在星界球前，拉起遮住眼睛的"
+  },
+  "27861": {
+   "en": "her eye... &%]",
+   "zh": "眼罩……&%]"
+  },
+  "27862": {
+   "en": "And inside the deep socket of her head, you gaze upon an",
+   "zh": "而在她頭顱深處的眼窩裡，你看到了"
+  },
+  "27863": {
+   "en": "irridescent pupil-less eye, an undulating veinous orb, hideous upon",
+   "zh": "一隻無瞳的虹彩之眼，一顆血筋浮動的球體，"
+  },
+  "27864": {
+   "en": "her otherwise beautiful countenance... &%]",
+   "zh": "在她原本美麗的臉上顯得駭人……&%]"
+  },
+  "27865": {
+   "en": "Wow! &%]",
+   "zh": "哇！&%]"
+  },
+  "27866": {
+   "en": "...She seems to be lost, staring into the holographic crystal",
+   "zh": "……她似乎看得失了神，凝視那全息"
+  },
+  "27867": {
+   "en": "ball... &%]",
+   "zh": "水晶球……&%]"
+  },
+  "27868": {
+   "en": "This is incredible... &%]",
+   "zh": "真不可思議……&%]"
+  },
+  "27869": {
+   "en": "It's a blueprint... &%]",
+   "zh": "是一張藍圖……&%]"
+  },
+  "27870": {
+   "en": "No, it's... &%]",
+   "zh": "不，它是……&%]"
+  },
+  "27871": {
+   "en": "It's a formula, a code... &%]",
+   "zh": "是一套公式，一組密碼……&%]"
+  },
+  "27872": {
+   "en": "For the creation of Life! &%]",
+   "zh": "用來創造生命！&%]"
+  },
+  "27873": {
+   "en": "Wait... &%]",
+   "zh": "等等……&%]"
+  },
+  "27874": {
+   "en": "It's also a map... &%]",
+   "zh": "它還是一張地圖……&%]"
+  },
+  "27875": {
+   "en": "Of Energy... &%]",
+   "zh": "能量之圖……&%]"
+  },
+  "27876": {
+   "en": "And Matter... &%]",
+   "zh": "物質之圖……&%]"
+  },
+  "27877": {
+   "en": "Of the nexus between Energy and Matter! &%]",
+   "zh": "能量與物質交會之圖！&%]"
+  },
+  "27878": {
+   "en": "But, but... &%]",
+   "zh": "可是，可是……&%]"
+  },
+  "27879": {
+   "en": "Then, that is what Life is... &%]",
+   "zh": "那麼，這就是生命的本質……&%]"
+  },
+  "27880": {
+   "en": "The nexus, the flux, the bridge between Matter and Energy...",
+   "zh": "交界、流變，物質與能量之間的橋樑……"
+  },
+  "27881": {
+   "en": "That is the secret of Life! &%]",
+   "zh": "那就是生命的奧秘！&%]"
+  },
+  "27882": {
+   "en": "By the gods!!! &%]",
+   "zh": "諸神在上！！！&%]"
+  },
+  "27883": {
+   "en": "With the power of this Globe, you could create a living being of",
+   "zh": "有了這顆球的力量，你們可以創造出"
+  },
+  "27884": {
+   "en": "unlimited energy! &%]",
+   "zh": "能量無窮的生命！&%]"
+  },
+  "27885": {
+   "en": "A being with the power of the stars! &%]",
+   "zh": "一個擁有星辰之力的存在！&%]"
+  },
+  "27886": {
+   "en": "A Superman!! &%]",
+   "zh": "一名超人！！&%]"
+  },
+  "27887": {
+   "en": "A God!!! &%]",
+   "zh": "是神！！！&%]"
+  },
+  "27888": {
+   "en": "No wonder the Dark Savant wanted to get his hands on this... &%]",
+   "zh": "難怪黑暗賢者一心想把它弄到手……&%]"
+  },
+  "27889": {
+   "en": "Ut! &%]",
+   "zh": "咦！&%]"
+  },
+  "27890": {
+   "en": "What's this... &%]",
+   "zh": "這是什麼……&%]"
+  },
+  "27891": {
+   "en": "It's a chart of a star-system... &%]",
+   "zh": "是一張星系圖……&%]"
+  },
+  "27892": {
+   "en": "Hey! &I recognize this system... &%]",
+   "zh": "嘿！&這星系我認得……&%]"
+  },
+  "27893": {
+   "en": "But there isn't a... &%]",
+   "zh": "可是這裡並沒有……&%]"
+  },
+  "27894": {
+   "en": "Oh! &%]",
+   "zh": "喔！&%]"
+  },
+  "27895": {
+   "en": "Very clever! &%]",
+   "zh": "真高明！&%]"
+  },
+  "27896": {
+   "en": "This must be where it all started! &%]",
+   "zh": "這裡一定就是一切的起點！&%]"
+  },
+  "27897": {
+   "en": "C'mon, we've got to get moving!! &%]",
+   "zh": "走吧，我們得趕快動身！！&%]"
+  },
+  "27898": {
+   "en": "...Then breaking away, she removes the ring and inserts it into a",
+   "zh": "……回過神來，她取下戒指，將它插進"
+  },
+  "27899": {
+   "en": "small niche at the base of the globe...",
+   "zh": "球座底部的一個小凹槽裡……"
+  },
+  "27910": {
+   "en": "Springing the Astral Dominae free from its perch, she hands the",
+   "zh": "她將星界統領從座上取下，把那顆"
+  },
+  "27911": {
+   "en": "darkening crystal ball back to you...",
+   "zh": "漸暗的水晶球交還給你……"
+  },
+  "27920": {
+   "en": "Keep this safe until we can get away from here... &%]",
+   "zh": "在我們能離開這裡之前，先保管好它……&%]"
+  },
+  "27921": {
+   "en": "Waaay out of here!! &%]",
+   "zh": "離這裡越遠越好！！&%]"
+  },
+  "27922": {
+   "en": "...Though you understood only bits and pieces of what the hysterical",
+   "zh": "……雖然女孩對星辰球裡的景象又驚又嘆，"
+  },
+  "27923": {
+   "en": "girl was trying to tell you as she ooo'd and ahh'd at the sights",
+   "zh": "她想說的話你只聽懂零星片段，"
+  },
+  "27924": {
+   "en": "within the starry sphere,",
+   "zh": "但你很清楚：若有人握有"
+  },
+  "27925": {
+   "en": "you understood well enough what it would mean for someone",
+   "zh": "創造超級怪物與超人的力量，"
+  },
+  "27926": {
+   "en": "with the power to create super monsters and super men, and worse,",
+   "zh": "乃至更糟的——"
+  },
+  "27927": {
+   "en": "super gods... &%]",
+   "zh": "超級神……&%]"
+  },
+  "27928": {
+   "en": "Who among you could have guessed that on this day would the awesome",
+   "zh": "你們之中誰能料到，上天的"
+  },
+  "27929": {
+   "en": "power of the heavens fall into your hands... &%]",
+   "zh": "可畏力量會在今天落入你們手中……&%]"
+  },
+  "27930": {
+   "en": "But before you have time to ponder the blasphemous, unholy, incredible",
+   "zh": "但你還來不及細想這一切是多麼褻瀆、"
+  },
+  "27931": {
+   "en": "and cosmic significances of everything that has unfolded, the",
+   "zh": "不聖、駭人又攸關宇宙，此時，"
+  },
+  "27932": {
+   "en": "lively spacegirl with whom your destiny seems inextricably",
+   "zh": "而那位與你命運似乎緊密相繫、活力充沛的太空少女"
+  },
+  "27933": {
+   "en": "intertwined continues... &%]",
+   "zh": "又繼續說道……&%]"
+  },
+  "27934": {
+   "en": "We need a ship!!",
+   "zh": "我們需要船！！"
+  },
+  "27957": {
+   "en": "Did you find a spacecraft?",
+   "zh": "你找到太空船了嗎？"
+  },
+  "27960": {
+   "en": "I have an idea... &%]",
+   "zh": "我有個主意……&%]"
+  },
+  "27961": {
+   "en": "With the Dark Savant gone, I might be able to sneak back aboard",
+   "zh": "黑暗賢者不在，我或許能偷偷溜回"
+  },
+  "27962": {
+   "en": "the Dedaelis and steal a shuttlecraft... &%]",
+   "zh": "迪達利斯號，偷一艘太空梭下來……&%]"
+  },
+  "27963": {
+   "en": "It's risky, but since there are a few things I need from the",
+   "zh": "很冒險，不過我有幾樣東西需要拿回，就在"
+  },
+  "27964": {
+   "en": "Black Ship, I should try... &%]",
+   "zh": "黑船上，所以我該試一試……&%]"
+  },
+  "27965": {
+   "en": "I would bring you with me, but the transponder on my glove isn't",
+   "zh": "我很想帶你們一起去，但我手套上的傳送器"
+  },
+  "27966": {
+   "en": "powerful enough to beam us all together... &%]",
+   "zh": "功率不夠，沒法一次傳送我們所有人……&%]"
+  },
+  "27967": {
+   "en": "And the Savant Androids are accustomed to seeing me on the ship,",
+   "zh": "而且賢者機器人習慣在船上看到我，"
+  },
+  "27968": {
+   "en": "but you'd be a dead giveaway... &%]",
+   "zh": "但你們一出現就會露餡……&%]"
+  },
+  "27969": {
+   "en": "Return to the Operations Station where we first met... &%]",
+   "zh": "回到我們初次見面的行動站……&%]"
+  },
+  "27970": {
+   "en": "Once I receive your signal, I'll steal the shuttle and come pick you",
+   "zh": "一旦收到你們的訊號，我就偷太空梭來接"
+  },
+  "27971": {
+   "en": "up... &%]",
+   "zh": "你們……&%]"
+  },
+  "27972": {
+   "en": "Wish me luck! &%]",
+   "zh": "祝我好運！&%]"
+  },
+  "27973": {
+   "en": "And don't lose the Globe!!",
+   "zh": "還有，別把球體弄丟了！！"
+  },
+  "27980": {
+   "en": "Still unaccustomed to the magic which she seems to wield, you",
+   "zh": "你對她似乎擁有的那股魔力仍感陌生，"
+  },
+  "27981": {
+   "en": "stand in awe and wonder as she shimmers away, knowing that she",
+   "zh": "只能敬畏又驚嘆地目送她閃爍的身影遠去，心知她"
+  },
+  "27982": {
+   "en": "goes to face a swarm of mad-buzzing Savant Kui'Sa-Ka all alone...",
+   "zh": "將獨自去面對一大群瘋狂嗡鳴的賢者魁薩卡……"
+  },
+  "27983": {
+   "en": "@For now, you have to deal with the problem of leaving the Tomb",
+   "zh": "眼前你還得處理一個難題：怎麼帶著"
+  },
+  "27984": {
+   "en": "with the Astral Dominae...",
+   "zh": "星界統領離開這座墓穴……"
+  },
+  "27985": {
+   "en": "@Too bad you don't have one of those 'Tam-Pondies' in your glove...",
+   "zh": "可惜你手套裡沒有那種「譚龐迪」……"
+  },
+  "27990": {
+   "en": "Xama-Tama! &%]",
+   "zh": "夏瑪塔瑪！&%]"
+  },
+  "27991": {
+   "en": "There are a few things I need to pick up from the Dedaelis, the",
+   "zh": "有幾樣東西我得從黑船迪達利斯號上"
+  },
+  "27992": {
+   "en": "Black Ship, before we leave... &%]",
+   "zh": "拿回來，趁我們還沒離開……&%]"
+  },
+  "27993": {
+   "en": "With the Dark Savant gone, I might be able to sneak aboard without",
+   "zh": "黑暗賢者不在，我或許能偷偷上船，"
+  },
+  "27994": {
+   "en": "arousing too much suspicion... &%]",
+   "zh": "不至於引起太多懷疑……&%]"
+  },
+  "27995": {
+   "en": "I would bring you with me, but the transponder on my glove isn't",
+   "zh": "我很想帶你們一起去，但我手套上的傳送器"
+  },
+  "27996": {
+   "en": "powerful enough to beam us all together... &%]",
+   "zh": "功率不夠，沒法一次傳送我們所有人……&%]"
+  },
+  "27997": {
+   "en": "And the Savant Androids are accustomed to seeing me on the ship,",
+   "zh": "而且賢者機器人習慣在船上看到我，"
+  },
+  "27998": {
+   "en": "but you'd be a dead giveaway... &%]",
+   "zh": "但你們一出現就會露餡……&%]"
+  },
+  "27999": {
+   "en": "Get to the spaceship as soon as possible... &%]",
+   "zh": "盡快趕到太空船那裡……&%]"
+  },
+  "28000": {
+   "en": "Signal me once you're there, and I'll beam down to join you... &%]",
+   "zh": "一到當地就通知我，我會傳送下去與你們會合……&%]"
+  },
+  "28001": {
+   "en": "Better be prepared to leave in a hurry! &%]",
+   "zh": "最好準備好隨時火速撤離！&%]"
+  },
+  "28002": {
+   "en": "Good luck! &%]",
+   "zh": "祝你好運！&%]"
+  },
+  "28003": {
+   "en": "And don't lose the Globe!!",
+   "zh": "還有，別把寶球弄丟了！！"
+  },
+  "28100": {
+   "en": "At last reaching the tarnished craft secreted here by Phoonzang those",
+   "zh": "你們終於抵達這艘斑駁的飛行器，那是豐贊在數千年"
+  },
+  "28101": {
+   "en": "many millennia ago, you are ready to signal your ally, Vitalia",
+   "zh": "前密藏於此之物。你們已準備好通知盟友薇塔莉亞·多米娜，"
+  },
+  "28102": {
+   "en": "Domina, and depart this most peculiar world... &%]",
+   "zh": "並動身離開這個無比奇特的世界……&%]"
+  },
+  "28103": {
+   "en": "You reflect a few moments upon the many adventures that were here",
+   "zh": "你們沉思片刻，回想此地曾有的種種冒險，"
+  },
+  "28104": {
+   "en": "for you, and upon the weight of all that has transpired... &%]",
+   "zh": "以及這一路所發生一切的沉重分量……&%]"
+  },
+  "28105": {
+   "en": "What shall you do with the incredible secret discovered within the",
+   "zh": "對於在豐贊的寶球之中發現的驚人秘密，"
+  },
+  "28106": {
+   "en": "globe of Phoonzang, the Astral Dominae... &%]",
+   "zh": "也就是星界統領，你們將如何處置……&%]"
+  },
+  "28107": {
+   "en": "What is this new place that Vi Domina seems intent upon reaching in",
+   "zh": "薇·多米娜如此急切想要抵達的這個新去處，"
+  },
+  "28108": {
+   "en": "such a hurry... &%]",
+   "zh": "究竟是哪裡……&%]"
+  },
+  "28109": {
+   "en": "And more, will the charms that seem to bless her life be strong",
+   "zh": "更甚者，那似乎守護著她一生的幸運符，"
+  },
+  "28110": {
+   "en": "enough to protect you as well... &%]",
+   "zh": "是否也強得足以保護你們……&%]"
+  },
+  "28111": {
+   "en": "Or will her impulsiveness eventually result in your own hoary",
+   "zh": "又或者，她的衝動魯莽，終究會害你們"
+  },
+  "28112": {
+   "en": "demise... &%]",
+   "zh": "衰朽而亡……&%]"
+  },
+  "28113": {
+   "en": "All of these questions nag at the back of your mind as you stare",
+   "zh": "當你們凝視著飛行器與頭頂的天空，"
+  },
+  "28114": {
+   "en": "at the spacecraft and the sky above, wondering what strange new",
+   "zh": "這些問題在腦海深處揮之不去，你們不禁揣想"
+  },
+  "28115": {
+   "en": "realms may yet await... &%]",
+   "zh": "還有哪些奇異的新國度……&%]"
+  },
+  "28116": {
+   "en": "With a simple sigh, you resign yourself to the notion that only",
+   "zh": "你輕嘆一聲，只能聽天由命地想：唯有未來"
+  },
+  "28117": {
+   "en": "the future will reveal the answers to these many questions and",
+   "zh": "才能揭曉這許多問題的答案，以及你們感到"
+  },
+  "28118": {
+   "en": "the thousand others that you feel pressing upon your shoulders... &%]",
+   "zh": "沉甸甸壓在肩上的千萬個疑問……&%]"
+  },
+  "28119": {
+   "en": "Finally, you decide to summon your new partner...",
+   "zh": "終於，你決定召喚你的新夥伴……"
+  },
+  "28130": {
+   "en": "Using the small device that Vi gave to you, you push the button... &%]",
+   "zh": "你用薇交給你的小裝置，按下了按鈕……&%]"
+  },
+  "28131": {
+   "en": "In a few moments you see the familiar shimmer in the air, and",
+   "zh": "片刻後，你們看見空中熟悉的微光閃動，"
+  },
+  "28132": {
+   "en": "giggle slightly at the funny tinkling sound that always seems",
+   "zh": "也因那總伴隨這閃亮景象而來、叮叮噹噹的"
+  },
+  "28133": {
+   "en": "to accompany the glittering event... &~\u0011%]",
+   "zh": "有趣聲響而輕笑出聲……&~\u0011%]"
+  },
+  "28134": {
+   "en": "Something is wrong...",
+   "zh": "有事情不對勁……"
+  },
+  "28140": {
+   "en": "I BELIEVE YOU HAVE SOMETHING I WANT! &%]",
+   "zh": "我相信你們手上有一件我想要的東西！&%]"
+  },
+  "28141": {
+   "en": "...You recognize instantly the chilling voice that sends shivers",
+   "zh": "……你們立刻認出這個令人背脊發涼的"
+  },
+  "28142": {
+   "en": "down your backs...",
+   "zh": "冰冷嗓音……"
+  },
+  "28145": {
+   "en": "The Dark Savant has returned!!",
+   "zh": "黑暗賢者回來了！！"
+  },
+  "28150": {
+   "en": "Your eyes bulge at the horrible sight before you, a battered and",
+   "zh": "眼前恐怖的景象令你們雙目圓睜：飽受摧殘、"
+  },
+  "28151": {
+   "en": "bloody Vi Domina held in the clutches of the dread Savant... &%]",
+   "zh": "渾身是血的薇·多米娜，正被可怕的賢者緊掐著……&%]"
+  },
+  "28152": {
+   "en": "Her skin and face torn, thrust upon her knees, her thin neck",
+   "zh": "她皮膚與臉孔撕裂，被強壓跪地，"
+  },
+  "28153": {
+   "en": "precariously in the grip of the powerful metal fingers that stem",
+   "zh": "纖細的脖頸岌岌可危地被強力金屬手指"
+  },
+  "28154": {
+   "en": "from the Dark Savant's electro-pneumatic glove...",
+   "zh": "緊扼著——那手指自黑暗賢者的電動氣壓手套伸出……"
+  },
+  "28160": {
+   "en": "YOU HAVE BEEN MY PAWNS ALL ALONG... &%]",
+   "zh": "你們從頭到尾都只是我的棋子……&%]"
+  },
+  "28161": {
+   "en": "I KNEW THAT THE GIRL WOULD NEVER DELIVER TO ME THE SECRET OF",
+   "zh": "我早就知道，那女孩絕不會把這顆寶球——"
+  },
+  "28162": {
+   "en": "THE GLOBE, THE ASTRAL DOMINAE... &%]",
+   "zh": "星界統領——的秘密交給我……&%]"
+  },
+  "28163": {
+   "en": "AND YOU HAVE SERVED MY PURPOSES ADMIRABLY... &%]",
+   "zh": "而你們也漂亮地達成了我的目的……&%]"
+  },
+  "28164": {
+   "en": "DID YOU THINK YOU COULD VANQUISH ONE SUCH AS I SO EASILY? &%]",
+   "zh": "你們以為能這麼輕易打倒我這樣的存在嗎？&%]"
+  },
+  "28165": {
+   "en": "I, THE NEW LORD AND MASTER OF THE UNIVERSE?! &%]",
+   "zh": "我，宇宙的新主宰？！&%]"
+  },
+  "28166": {
+   "en": "I AM THE SAVANT, THE DARK HERALD OF CHANGE! &%]",
+   "zh": "我是賢者，變革的黑暗先聲！&%]"
+  },
+  "28167": {
+   "en": "FOR TOO LONG HAS THE FATE OF MAN BEEN RULED BY THE GHOSTS",
+   "zh": "人類的命運被那些隱身謎團之中的"
+  },
+  "28168": {
+   "en": "OF THOSE ENSHROUDED IN MYSTERY... &%]",
+   "zh": "幽靈們統治得太久了……&%]"
+  },
+  "28169": {
+   "en": "DECIDING HOW AND WHEN MEN MIGHT",
+   "zh": "決定人類該在何時、如何"
+  },
+  "28170": {
+   "en": "BE SLOWLY FED THE SECRETS OF THE HEAVENS... &%]",
+   "zh": "被慢慢餵食諸天的秘密……&%]"
+  },
+  "28171": {
+   "en": "IT IS TIME FOR A NEW ORDER IN THE UNIVERSE! &%]",
+   "zh": "宇宙該建立新秩序了！&%]"
+  },
+  "28172": {
+   "en": "IT IS THE TIME OF A NEW PERCEPTION OF PURPOSE IN THE COSMOS... &%]",
+   "zh": "該是對宇宙使命有全新體認的時代了……&%]"
+  },
+  "28173": {
+   "en": "IT IS THE TIME OF THE COMING OF CHANGE! &%]",
+   "zh": "變革降臨的時代已到來！&%]"
+  },
+  "28174": {
+   "en": "I AM THE HARBINGER OF NEW DESTINY! &%]",
+   "zh": "我是新命運的先驅！&%]"
+  },
+  "28175": {
+   "en": "I WILL CREATE GALAXIES FILLED WITH SUPRAMEN... &%]",
+   "zh": "我將創造充滿超人的星系……&%]"
+  },
+  "28176": {
+   "en": "MEN WHO ARE NOT AFRAID TO CHALLENGE THE OLD GODS... &%]",
+   "zh": "那是一群敢於挑戰古老眾神的人……&%]"
+  },
+  "28177": {
+   "en": "MEN WHO ARE UNAFRAID TO EMBRACE THE TRUTH OF THE HEAVENS... &%]",
+   "zh": "一群勇於擁抱諸天真理的人……&%]"
+  },
+  "28178": {
+   "en": "THIS FRAIL GIRL NEED NOT DIE... &%]",
+   "zh": "這脆弱的女孩不必死……&%]"
+  },
+  "28179": {
+   "en": "HER WOUNDS WILL HEAL AND YOU MAY DEPART... &%]",
+   "zh": "她的傷會痊癒，你們可以離開……&%]"
+  },
+  "28180": {
+   "en": "BUT I SHALL HAVE THE ASTRAL DOMINAE ONE WAY OR ANOTHER! &%]",
+   "zh": "但星界統領我無論如何都會到手！&%]"
+  },
+  "28181": {
+   "en": "THE GLOBE FOR THE GIRL!! &%]",
+   "zh": "以寶球換女孩！！&%]"
+  },
+  "28182": {
+   "en": "...There is no description for the utter shock that is rippling",
+   "zh": "……此刻沒有任何言語能形容你們腦中翻湧的"
+  },
+  "28183": {
+   "en": "through your mind at this moment, but the stark immediacy of the",
+   "zh": "極度震驚，但眼前局勢的嚴峻迫切"
+  },
+  "28184": {
+   "en": "situation is apparent... &%]",
+   "zh": "顯而易見……&%]"
+  },
+  "28185": {
+   "en": "You must deliver the Astral Globe to the Dark Savant, or face",
+   "zh": "你們必須把星界寶球交給黑暗賢者，否則就"
+  },
+  "28186": {
+   "en": "the dire consequences that will surely follow... &%]",
+   "zh": "得面對隨之而來的可怕後果……&%]"
+  },
+  "28187": {
+   "en": "And considering the unknown nature of his awesome powers, perhaps",
+   "zh": "何況他那可畏力量的底細無人知曉，此刻你們"
+  },
+  "28188": {
+   "en": "your role at this time is that of compliance... &%]",
+   "zh": "該扮演的角色，或許就是順從……&%]"
+  },
+  "28189": {
+   "en": "After all, certain death is not the way of the wise... &%]",
+   "zh": "畢竟，坐以待斃非智者之道……&%]"
+  },
+  "28190": {
+   "en": "And to die here shall certainly serve no meaningful purpose... &%]",
+   "zh": "況且死在此地也毫無意義……&%]"
+  },
+  "28191": {
+   "en": "And who knows what tomorrow shall bring... &%]",
+   "zh": "誰知道明天又會帶來什麼呢……&%]"
+  },
+  "28192": {
+   "en": "Better to be alive to see it, than not...",
+   "zh": "活著見證明天，總比死了強……"
+  },
+  "28210": {
+   "en": "\nGLOBE/\u000bGIRL/",
+   "zh": "\n寶球/\u000b女孩/"
+  },
+  "28212": {
+   "en": "Will you keep the GLOBE or trade it for the GIRL?",
+   "zh": "你要留下寶球，還是用它換回女孩？"
+  },
+  "28220": {
+   "en": "You see the Dark Savant nod slightly and raise his hand, and then...",
+   "zh": "你們看見黑暗賢者微微點頭、舉起手來，然後……"
+  },
+  "28230": {
+   "en": "There is darkness all around, and you feel nothing, nothing at all...",
+   "zh": "四周一片黑暗，你們什麼都感覺不到，毫無知覺……"
+  },
+  "28231": {
+   "en": "@You do not know how long you have been here...",
+   "zh": "你不知道自己在這裡多久了……"
+  },
+  "28232": {
+   "en": "@You do not know how long you will remain...",
+   "zh": "你不知道自己還會停留多久……"
+  },
+  "28233": {
+   "en": "@There is only the darkness all around...",
+   "zh": "只有四周無盡的黑暗……"
+  },
+  "28240": {
+   "en": "Most reluctantly and with trembling hand, you hold out the Astral",
+   "zh": "你百般不願、顫抖著手，遞出星界"
+  },
+  "28241": {
+   "en": "Dominae for the Dark Savant to take...",
+   "zh": "統領任黑暗賢者取走……"
+  },
+  "28245": {
+   "en": "~*THE PRIZE IS MINE! &%AHH HA HA HA HA HA!!",
+   "zh": "~*戰利品是我的了！&%啊哈哈哈哈哈！！"
+  },
+  "28250": {
+   "en": "And then he and the globe are gone...",
+   "zh": "然後，他和寶球就這麼消失了……"
+  },
+  "28260": {
+   "en": "The figure of the girl lies slumped upon the ground... &%]",
+   "zh": "女孩的身軀癱倒在地上……&%]"
+  },
+  "28261": {
+   "en": "Racing to her, you pick up her shivering body, your eyes straining for",
+   "zh": "你們奔到她身邊，抱起她顫抖的身軀，"
+  },
+  "28262": {
+   "en": "any signs that the spark of life may yet remain inside her... &%]",
+   "zh": "竭力尋找她體內生命之火尚存的任何跡象……&%]"
+  },
+  "28263": {
+   "en": "And then, a glint of recognition... &%]",
+   "zh": "然後，她眼中閃過一絲認出的光芒……&%]"
+  },
+  "28264": {
+   "en": "She is weak and torn, but she is alive... &%]",
+   "zh": "她虛弱且傷痕累累，但她還活著……&%]"
+  },
+  "28265": {
+   "en": "It is then that you remember the last secret of the globe... &%]",
+   "zh": "就在此時，你們想起了寶球的最後一個秘密……&%]"
+  },
+  "28266": {
+   "en": "The secret that Phoonzang divined to keep his work safe from the",
+   "zh": "那是豐贊以先知之能所悟出的秘密，為的是"
+  },
+  "28267": {
+   "en": "hands of those who would bode ill for the fate of the universe... &%]",
+   "zh": "讓他的傑作免於落入危及宇宙命運之人的手中……&%]"
+  },
+  "28268": {
+   "en": "And you quake as you notice the trickle of blood which drools down",
+   "zh": "而你們注意到那道流下她"
+  },
+  "28269": {
+   "en": "upon her right cheek... &%]",
+   "zh": "右頰的血痕時，不禁發抖……&%]"
+  },
+  "28270": {
+   "en": "With a shaking hand you pull back the black patch which covers her",
+   "zh": "你用顫抖的手，掀開覆在她"
+  },
+  "28271": {
+   "en": "genetic malformity... &%]",
+   "zh": "基因畸變處的黑色眼罩……&%]"
+  },
+  "28272": {
+   "en": "And gaze into the bloody gaping gorge that lies where once her",
+   "zh": "並凝視那道血淋淋、豁開的裂谷——那裡曾是"
+  },
+  "28273": {
+   "en": "precious eye had been...",
+   "zh": "她珍貴眼睛的所在……"
+  },
+  "28280": {
+   "en": "Gently, you carry her limp body into the tarnished spacecraft... &%]",
+   "zh": "你們輕柔地將她癱軟的身體抱進那艘斑駁的飛行器……&%]"
+  },
+  "28281": {
+   "en": "Everyone passes the time in silence, no one speaking of the images",
+   "zh": "眾人在沉默中度過時光，沒有人開口談論"
+  },
+  "28282": {
+   "en": "which continually churn inside them... &%]",
+   "zh": "那些在心中不斷翻騰的景象……&%]"
+  },
+  "28283": {
+   "en": "Until finally, she awakens... &%]",
+   "zh": "直到最後，她醒了過來……&%]"
+  },
+  "28284": {
+   "en": "\"He got it, didn't he?\" she asks softly, already knowing the",
+   "zh": "「他拿到手了，對吧？」她輕聲問道，在你們"
+  },
+  "28285": {
+   "en": "answer before you can nod... &%]",
+   "zh": "點頭之前就已知道了答案……&%]"
+  },
+  "28286": {
+   "en": "\"Don't worry, I know where he's going... &%]",
+   "zh": "「別擔心，我知道他要去哪裡……&%]"
+  },
+  "28287": {
+   "en": "And she picks herself up, takes a look about the ship",
+   "zh": "她撐起身子，環顧船上四周，"
+  },
+  "28288": {
+   "en": "and then sits down at the controls as if nothing at all could",
+   "zh": "然後在操縱台前坐下，彷彿天底下"
+  },
+  "28289": {
+   "en": "possibly be the matter... &%]",
+   "zh": "根本不可能有什麼事……&%]"
+  },
+  "28290": {
+   "en": "Removing the starry sapphire locket from her pouch, she places",
+   "zh": "她從袋子裡取出綴星藍寶石小盒，將它放進"
+  },
+  "28291": {
+   "en": "it within a small nestle upon the console, and you jump as the",
+   "zh": "操縱台上一處小小的凹槽——飛行器轟然啟動，"
+  },
+  "28292": {
+   "en": "spacecraft roars to life... &%]",
+   "zh": "你們嚇了一跳……&%]"
+  },
+  "28293": {
+   "en": "With engines humming and paneled lights flashing, you can only",
+   "zh": "引擎低鳴、儀表燈光閃爍，你們只能驚嘆地"
+  },
+  "28294": {
+   "en": "watch with amazement at this incredible girl, who shows no hint",
+   "zh": "望著這位不可思議的女孩。她絲毫看不出"
+  },
+  "28295": {
+   "en": "of the pain which must still bite at her many wounds, save a brief",
+   "zh": "傷口仍在作痛的樣子——只有一次，她伸手"
+  },
+  "28296": {
+   "en": "moment when she touched her hand to her right cheek",
+   "zh": "碰觸自己的右頰時"
+  },
+  "28297": {
+   "en": "and trembled slightly... &%]",
+   "zh": "輕輕顫抖了一下……&%]"
+  },
+  "28298": {
+   "en": "And then the spaceship bursts into the deep blue of the sky...",
+   "zh": "接著，飛行器猛然衝進天空的深藍……"
+  },
+  "28310": {
+   "en": "There is much to learn upon your journey through the stars, and",
+   "zh": "這趟穿越群星的旅程中有許多事物待你們"
+  },
+  "28311": {
+   "en": "in a way you sense that your adventures are only just beginning...",
+   "zh": "學習，而某種程度上，你們感覺冒險才正要開始……"
+  },
+  "28312": {
+   "en": "@Out there, somewhere, looms the shadow of the Savant, in his",
+   "zh": "在遠方的某處，賢者的陰影籠罩，他手中"
+  },
+  "28313": {
+   "en": "hands the power of the Astral Dominae, and deep within you",
+   "zh": "握著星界統領的力量，而你們內心深處"
+  },
+  "28314": {
+   "en": "know that your paths are destined to cross again...",
+   "zh": "明白你們注定要與他再次交會……"
+  },
+  "28315": {
+   "en": "@During the voyage, you spend many a night listening with",
+   "zh": "航程之中，你們許多夜晚都著迷地聆聽"
+  },
+  "28316": {
+   "en": "fascination to the incredible stories that pass from the",
+   "zh": "這位出色的女孩薇·多米娜口中所流轉的"
+  },
+  "28317": {
+   "en": "lips of the remarkable girl, Vi Domina, who seems to",
+   "zh": "一則則不可思議的故事。她對宇宙的本質"
+  },
+  "28318": {
+   "en": "possess an unquenchable curiosity about the nature of the",
+   "zh": "以及世間一切，似乎懷著永不滿足的好奇，"
+  },
+  "28319": {
+   "en": "universe and everything else as well, and it is through these",
+   "zh": "而正是透過這些故事，你們對生命、"
+  },
+  "28320": {
+   "en": "tales that your own new perception of life",
+   "zh": "群星與其中萬物的全新體認，"
+  },
+  "28321": {
+   "en": "and the stars and all that they contain begins to emerge...",
+   "zh": "才開始慢慢浮現……"
+  },
+  "28322": {
+   "en": "@\"Hey guys, look what I found!\" you hear her cheerfully intone",
+   "zh": "「嘿，大家，看看我找到什麼了！」你聽見她"
+  },
+  "28323": {
+   "en": "at odd times of the day, and are pleased to be in the company",
+   "zh": "在一天中各種奇妙的時刻愉快地這麼說，而你們"
+  },
+  "28324": {
+   "en": "of such a pleasant traveling companion and new partner...",
+   "zh": "也高興有這麼一位討人喜歡的旅伴兼新夥伴……"
+  },
+  "28325": {
+   "en": "@But behind her merry smile, she too, knows...",
+   "zh": "但在她開朗的笑容背後，她也知道……"
+  },
+  "28326": {
+   "en": "@That one day will come a reckoning...",
+   "zh": "總有一天，清算將至……"
+  },
+  "28400": {
+   "en": "Returning to the Forbidden Zone, the Master Control Station of the",
+   "zh": "重返禁制區——黑暗賢者的主控站，"
+  },
+  "28401": {
+   "en": "Dark Savant, you are ready to signal your ally, Vitalia",
+   "zh": "你已準備好向盟友薇塔莉亞·多米娜"
+  },
+  "28402": {
+   "en": "Domina, and depart this most peculiar world...",
+   "zh": "發出訊號，然後離開這個奇異的世界……"
+  },
+  "28403": {
+   "en": "@You reflect a few moments upon the many adventures that were here",
+   "zh": "你細想片刻，這裡曾為你帶來的重重冒險，"
+  },
+  "28404": {
+   "en": "for you, and upon the weight of all that has transpired...",
+   "zh": "以及這一路發生的一切有多沉重……"
+  },
+  "28405": {
+   "en": "@What shall you do with the incredible secret discovered within the",
+   "zh": "你將如何處置豐贊寶球"
+  },
+  "28406": {
+   "en": "globe of Phoonzang, the Astral Dominae...",
+   "zh": "「星界統領」中的驚人秘密……"
+  },
+  "28407": {
+   "en": "@What is this new place that Vi Domina seems intent upon reaching in",
+   "zh": "薇·多米娜如此急切想抵達的新地方"
+  },
+  "28408": {
+   "en": "such a hurry...",
+   "zh": "究竟是哪裡……"
+  },
+  "28409": {
+   "en": "@And more, will the charms that seem to bless her life be strong",
+   "zh": "還有，那庇佑她人生的魅力"
+  },
+  "28410": {
+   "en": "enough to protect you as well...",
+   "zh": "是否也足以保護你……"
+  },
+  "28411": {
+   "en": "@Or will her impulsiveness eventually result in your own hoary",
+   "zh": "又或者，她的衝動任性終將導致你自己"
+  },
+  "28412": {
+   "en": "demise...",
+   "zh": "送命……"
+  },
+  "28413": {
+   "en": "@All of these questions nag at the back of your mind as you stand",
+   "zh": "當你站在空無一人的站內，這些問題"
+  },
+  "28414": {
+   "en": "within the vacated station, wondering what strange new",
+   "zh": "在你心頭縈繞不去，猜想著還有"
+  },
+  "28415": {
+   "en": "realms may yet await...",
+   "zh": "什麼奇境在等著……"
+  },
+  "28416": {
+   "en": "@With a simple sigh, you resign yourself to the notion that only",
+   "zh": "你輕嘆一聲，只能接受："
+  },
+  "28417": {
+   "en": "the future will reveal the answers to these many questions and",
+   "zh": "唯有未來能解答這許多疑問，"
+  },
+  "28418": {
+   "en": "the thousand others that you feel pressing upon your shoulders...",
+   "zh": "以及上千個壓在你肩上的其他問題……"
+  },
+  "28419": {
+   "en": "@Finally, you decide to summon your new partner...",
+   "zh": "最後，你決定召喚你的新夥伴……"
+  },
+  "28550": {
+   "en": "Suddenly a hail of fighting figures burst in through the door...",
+   "zh": "突然，一群打鬥中的人影破門而入……"
+  },
+  "28555": {
+   "en": "It is the T'Rang, and battling fiercly amongst them a troop of",
+   "zh": "是特蘭格，還有一隊恩帕尼士兵正與他們"
+  },
+  "28556": {
+   "en": "Umpani soldiers, blades and guns against sizzling power rods and",
+   "zh": "激戰——刀劍槍械對上劈啪作響的"
+  },
+  "28557": {
+   "en": "shattering spells... &%]",
+   "zh": "能量棒與破毀法術……&%]"
+  },
+  "28558": {
+   "en": "~7HSSST-TO THE DEATH, TOAD-BELLIED HOGS!! &%]",
+   "zh": "~7嘶——決一死戰吧，蟾肚肥豬！！&%]"
+  },
+  "28559": {
+   "en": "~\"DIE, YOU DISEASE-FESTERING INSECTAL-FILTH!! &%]",
+   "zh": "~死吧，你這窩藏瘟疫的蟲子穢物！！&%]"
+  },
+  "28560": {
+   "en": "Drawing your weapons, you prepare to engage...",
+   "zh": "你們抽出武器，準備接戰……"
+  },
+  "28570": {
+   "en": "\u000eUMPANI/\u000fT'RANG/",
+   "zh": "\u000e恩帕尼/\u000f特蘭格/"
+  },
+  "28572": {
+   "en": "Whose side do you join, the UMPANI or the T'RANG?",
+   "zh": "你要加入哪邊，恩帕尼還是特蘭格？"
+  },
+  "28580": {
+   "en": "The battle over, an Umpani Colonel enters through the door...",
+   "zh": "戰鬥結束，一名恩帕尼上校從門口走進來……"
+  },
+  "28590": {
+   "en": "~\"Well done! &%]",
+   "zh": "~幹得好！&%]"
+  },
+  "28591": {
+   "en": "We've got them now! &%]",
+   "zh": "我們逮到他們了！&%]"
+  },
+  "28592": {
+   "en": "Our scanners have detected the Black Ship leaving this sector,",
+   "zh": "我們的掃描器偵測到黑船離開了此區，"
+  },
+  "28593": {
+   "en": "and that could only mean the Dark Savant has obtained the Globe... &%]",
+   "zh": "那只可能表示黑暗賢者已取得寶球……&%]"
+  },
+  "28594": {
+   "en": "We were so close to victory!! &%]",
+   "zh": "我們離勝利就差那麼一點！！&%]"
+  },
+  "28595": {
+   "en": "There is a ship waiting at the SpacePort in Ukypr... &%]",
+   "zh": "烏克皮爾的太空港有一艘船在等……&%]"
+  },
+  "28596": {
+   "en": "We will proceed there immediately for departure... &%]",
+   "zh": "我們將立刻前往那裡啟程……&%]"
+  },
+  "28597": {
+   "en": "And welcome to the S.S.U.F., Secret Service of Umpani Forces! &%]",
+   "zh": "歡迎加入恩帕尼軍秘密部隊S.S.U.F.！&%]"
+  },
+  "28598": {
+   "en": "Medics, attend to these soldiers at once! &%]",
+   "zh": "醫護兵，立刻救治這些士兵！&%]"
+  },
+  "28599": {
+   "en": "...With gentle arms you pick up the unconscious body of the battered",
+   "zh": "……你輕柔地抱起那遍體鱗傷、"
+  },
+  "28600": {
+   "en": "and bleeding girl, and then everything begins to shimmer...",
+   "zh": "血流不止的昏迷少女，四周一切開始閃爍……"
+  },
+  "28610": {
+   "en": "Upon a great metal vessel bearing the insignia of the Umpani",
+   "zh": "在一艘烙著恩帕尼聯邦徽記的"
+  },
+  "28611": {
+   "en": "Federation you peer out into the stars of deep space...",
+   "zh": "巨大金屬艦上，你凝望深空的繁星……"
+  },
+  "28612": {
+   "en": "@Safe in your quarters, your wounds patched and bandaged,",
+   "zh": "你安全待在艙房裡，傷口已包紮妥當，"
+  },
+  "28613": {
+   "en": "everyone passes the time in silence, no one speaking of the images",
+   "zh": "眾人默默度日，沒人提起那些"
+  },
+  "28614": {
+   "en": "which continually churn inside them...",
+   "zh": "在心底翻騰不休的景象……"
+  },
+  "28615": {
+   "en": "@And then finally, she awakens...",
+   "zh": "而最後，她終於醒來……"
+  },
+  "28616": {
+   "en": "@\"He got it, didn't he?\" she asks softly, already knowing the",
+   "zh": "「他拿到了，對吧？」她輕聲問，"
+  },
+  "28617": {
+   "en": "answer before you can nod...",
+   "zh": "你還沒點頭，她已知道答案……"
+  },
+  "28618": {
+   "en": "@\"Don't worry, I know where he's going...",
+   "zh": "「別擔心，我知道他要去哪裡……"
+  },
+  "28619": {
+   "en": "@You look upon the remarkable girl, who shows no sign",
+   "zh": "你看著這出色的少女，她看不出"
+  },
+  "28620": {
+   "en": "of the pain which must still bite at her deep wound, save a brief",
+   "zh": "深創仍啃噬著她的痛苦，只在"
+  },
+  "28621": {
+   "en": "moment when she touches her hand to her right cheek",
+   "zh": "她抬手輕觸右頰、"
+  },
+  "28622": {
+   "en": "and trembles slightly...",
+   "zh": "微微顫抖的那一刻……"
+  },
+  "28623": {
+   "en": "@There is much to learn upon your journey through the stars, and",
+   "zh": "穿越群星的旅途有許多要學習，"
+  },
+  "28624": {
+   "en": "in a way you sense that your adventures are only just beginning...",
+   "zh": "而你有種感覺：冒險才正要開始……"
+  },
+  "28625": {
+   "en": "@Out there, somewhere, looms the shadow of the Savant, in his",
+   "zh": "在遠方的某處，賢者的陰影籠罩，"
+  },
+  "28626": {
+   "en": "hands the power of the Astral Dominae, and deep within you",
+   "zh": "手握星界統領的力量，而你內心深處"
+  },
+  "28627": {
+   "en": "know that your paths are destined to cross again...",
+   "zh": "知道你們的路注定再度交會……"
+  },
+  "28628": {
+   "en": "@During the voyage, you spend your days about the mighty",
+   "zh": "航行途中，你白天在這艘"
+  },
+  "28629": {
+   "en": "Umpani vessel, talking with them, discovering the ways",
+   "zh": "巨大的恩帕尼艦上四處走動，與他們交談，"
+  },
+  "28630": {
+   "en": "and manners of these unusual creatures...",
+   "zh": "認識這些奇特生物的習性與作風……"
+  },
+  "28631": {
+   "en": "@And you spend many a night listening with",
+   "zh": "而許多個夜晚，你滿懷著迷地"
+  },
+  "28632": {
+   "en": "fascination to the incredible stories that pass from the",
+   "zh": "聆聽那位出色少女口中流瀉的"
+  },
+  "28633": {
+   "en": "lips of the remarkable girl, Vi Domina, who seems to",
+   "zh": "奇妙故事——薇·多米娜，"
+  },
+  "28634": {
+   "en": "possess an unquenchable curiosity about the nature of the",
+   "zh": "她對宇宙的本質乃至"
+  },
+  "28635": {
+   "en": "universe and everything else as well, and it is through these",
+   "zh": "萬事萬物，似乎懷著永不滿足的好奇，"
+  },
+  "28636": {
+   "en": "tales that your own new perception of life",
+   "zh": "而正是透過這些故事，"
+  },
+  "28637": {
+   "en": "and the stars and all that they contain begins to emerge...",
+   "zh": "你對生命與群星萬物的新體悟才逐漸浮現……"
+  },
+  "28638": {
+   "en": "@\"Hey guys, look what I found!\" you hear her cheerfully intone",
+   "zh": "「嘿，你們瞧我找到什麼了！」"
+  },
+  "28639": {
+   "en": "at odd times of the day, and are pleased to be in the company",
+   "zh": "你聽見她不時在一天之中歡聲說道，"
+  },
+  "28640": {
+   "en": "of such a pleasant traveling companion and new partner...",
+   "zh": "很開心有這麼討喜的旅伴與新夥伴同行……"
+  },
+  "28641": {
+   "en": "@But behind her merry smile, she too, knows...",
+   "zh": "但在她開朗的笑容背後，她也知道……"
+  },
+  "28642": {
+   "en": "@That one day will come a reckoning...",
+   "zh": "總有一天，清算將至……"
+  },
+  "28650": {
+   "en": "The battle over, a towering T'Rang slithers through the door...",
+   "zh": "戰鬥結束，一隻高大的特蘭格蜿蜒滑進門來……"
+  },
+  "28660": {
+   "en": "~7HSSSTT-YOU WILL COME WITH USSSS!... &%]",
+   "zh": "~7嘶嘶——你們要跟我們一道走！……&%]"
+  },
+  "28661": {
+   "en": "THE SAVANT-MAN HAS STOLEN OUR PRIZE AND WE MUST NOT LET HIM",
+   "zh": "那賢者偷走了我們的寶物，我們絕不能"
+  },
+  "28662": {
+   "en": "ESCAPE... &%]",
+   "zh": "讓他逃走……&%]"
+  },
+  "28663": {
+   "en": "SSSSTTT-WE HAVE A SHIP WAITING... &%]",
+   "zh": "嘶嘶嘶——我們有艘船在等……&%]"
+  },
+  "28664": {
+   "en": "...With gentle arms you pick up the unconscious body of the battered",
+   "zh": "……你輕柔地抱起那遍體鱗傷、"
+  },
+  "28665": {
+   "en": "and bleeding girl, and then everything begins to shimmer...",
+   "zh": "血流不止的昏迷少女，四周一切開始閃爍……"
+  },
+  "28670": {
+   "en": "Within the confines of your somber quarters inside the bulkhead of a",
+   "zh": "在特蘭格主力艦艙壁內你那陰鬱的艙房裡，"
+  },
+  "28671": {
+   "en": "T'Rang Master Ship, you peer out into the stars of deep space...",
+   "zh": "你凝望著深空的繁星……"
+  },
+  "28672": {
+   "en": "@Your wounds now healing,",
+   "zh": "你的傷口正在癒合，"
+  },
+  "28673": {
+   "en": "everyone passes the time in silence, no one speaking of the images",
+   "zh": "眾人默默度日，沒人提起那些"
+  },
+  "28674": {
+   "en": "which continually churn inside them...",
+   "zh": "在心底翻騰不休的景象……"
+  },
+  "28675": {
+   "en": "@And then finally, she awakens...",
+   "zh": "而最後，她終於醒來……"
+  },
+  "28676": {
+   "en": "@\"He got it, didn't he?\" she asks softly, already knowing the",
+   "zh": "「他拿到了，對吧？」她輕聲問，"
+  },
+  "28677": {
+   "en": "answer before you can nod...",
+   "zh": "你還沒點頭，她已知道答案……"
+  },
+  "28678": {
+   "en": "@\"Don't worry, I know where he's going...",
+   "zh": "「別擔心，我知道他要去哪裡……"
+  },
+  "28679": {
+   "en": "@You look upon the remarkable girl, who shows no sign",
+   "zh": "你看著這出色的少女，她看不出"
+  },
+  "28680": {
+   "en": "of the pain which must still bite at her deep wound, save a brief",
+   "zh": "深創仍啃噬著她的痛苦，只在"
+  },
+  "28681": {
+   "en": "moment when she touches her hand to her right cheek",
+   "zh": "她抬手輕觸右頰、"
+  },
+  "28682": {
+   "en": "and trembles slightly...",
+   "zh": "微微顫抖的那一刻……"
+  },
+  "28683": {
+   "en": "@There is much to learn upon your journey through the stars, and",
+   "zh": "穿越群星的旅途有許多要學習，"
+  },
+  "28684": {
+   "en": "in a way you sense that your adventures are only just beginning...",
+   "zh": "而你有種感覺：冒險才正要開始……"
+  },
+  "28685": {
+   "en": "@Out there, somewhere, looms the shadow of the Savant, in his",
+   "zh": "在遠方的某處，賢者的陰影籠罩，"
+  },
+  "28686": {
+   "en": "hands the power of the Astral Dominae, and deep within you",
+   "zh": "手握星界統領的力量，而你內心深處"
+  },
+  "28687": {
+   "en": "know that your paths are destined to cross again...",
+   "zh": "知道你們的路注定再度交會……"
+  },
+  "28688": {
+   "en": "@During the voyage, you spend your days trying to discover more",
+   "zh": "航程中，你花時間設法多了解"
+  },
+  "28689": {
+   "en": "about your spidery hosts, the T'Rang, and of their strange almost",
+   "zh": "你們這群蜘蛛模樣的主人特蘭格，"
+  },
+  "28690": {
+   "en": "mystical nature, and you investigate what you can of their",
+   "zh": "以及他們奇異得近乎神秘的本質，"
+  },
+  "28691": {
+   "en": "ship in the areas where you are allowed to wander under escort...",
+   "zh": "也在護送下獲准活動的區域探索他們的船……"
+  },
+  "28692": {
+   "en": "@But you spend many a night listening with",
+   "zh": "但許多個夜晚，你滿懷著迷地"
+  },
+  "28693": {
+   "en": "fascination to the incredible stories that pass from the",
+   "zh": "聆聽那位出色少女口中流瀉的"
+  },
+  "28694": {
+   "en": "lips of the remarkable girl, Vi Domina, who seems to",
+   "zh": "奇妙故事——薇·多米娜，"
+  },
+  "28695": {
+   "en": "possess an unquenchable curiosity about the nature of the",
+   "zh": "她對宇宙的本質乃至"
+  },
+  "28696": {
+   "en": "universe and everything else as well, and it is through these",
+   "zh": "萬事萬物，似乎懷著永不滿足的好奇，"
+  },
+  "28697": {
+   "en": "tales that your own new perception of life",
+   "zh": "而正是透過這些故事，"
+  },
+  "28698": {
+   "en": "and the stars and all that they contain begins to emerge...",
+   "zh": "你對生命與群星萬物的新體悟才逐漸浮現……"
+  },
+  "28699": {
+   "en": "@\"Hey guys, look at this!\" you hear her cheerfully intone",
+   "zh": "「嘿，你們看看這個！」"
+  },
+  "28700": {
+   "en": "at odd times of the day, and are pleased to be in the company",
+   "zh": "你聽見她不時在一天之中歡聲說道，"
+  },
+  "28701": {
+   "en": "of such a pleasant traveling companion and new partner...",
+   "zh": "很開心有這麼討喜的旅伴與新夥伴同行……"
+  },
+  "28702": {
+   "en": "@But behind her merry smile, she too, knows...",
+   "zh": "但在她開朗的笑容背後，她也知道……"
+  },
+  "28703": {
+   "en": "@That one day will come a reckoning...",
+   "zh": "總有一天，清算將至……"
+  },
+  "29000": {
+   "en": "From the shadows slithers the nine foot giant T'Rang known as Shritis,",
+   "zh": "陰影中滑出那名九呎高的特蘭格巨人，人稱希里提斯，"
+  },
+  "29001": {
+   "en": "as menacing and threatening as ever...",
+   "zh": "依舊殺氣騰騰，威脅十足……"
+  },
+  "29005": {
+   "en": "HSSST! DISGUSTING HUMANS... &%]",
+   "zh": "嘶！令人作嘔的人類……&%]"
+  },
+  "29006": {
+   "en": "SHRITIS HAS-LITTLE TIME FOR-THE LIKES-OF YOU-HSSSST!",
+   "zh": "希里提斯才懶得理你們這種傢伙，嘶！"
+  },
+  "29012": {
+   "en": "HSSST! HAVE-YOU SLAIN-THE FAMED UMPANI-TRACKER, RODAN LEWARX?",
+   "zh": "嘶！你們可曾殺了那位有名的恩帕尼追蹤者羅丹·勒瓦克斯？"
+  },
+  "29015": {
+   "en": "HHSSSSSTTT! WHAT-NEED THEN HAS-SHRITIS FOR-YOU, SSSST! &%]",
+   "zh": "嘶嘶嘶！那希里提斯要你們何用，嘶！&%]"
+  },
+  "29016": {
+   "en": "IF YOU-CAN DESTROY THE-UMPANI HUNTER, LEWARX, FOR-ME, I-SHALL REWARD",
+   "zh": "若你們能替我除掉恩帕尼獵人勒瓦克斯，我必重賞"
+  },
+  "29017": {
+   "en": "YOU-WELL, HSSST!!",
+   "zh": "你們，嘶！！"
+  },
+  "29020": {
+   "en": "SSST-AHHH! THEN YOU-MUST HAVE HIS-GOLDEN MEDALLION AS-PROOF-OF",
+   "zh": "嘶嘶！啊！那你們必定帶著他的黃金徽章作為"
+  },
+  "29021": {
+   "en": "THY-VICTORY!",
+   "zh": "勝利之證！"
+  },
+  "29027": {
+   "en": "HSST! MAY-I SEE-THE MEDALLION?",
+   "zh": "嘶！我能看看那徽章嗎？"
+  },
+  "29030": {
+   "en": "HHHST! SHRITIS THINKS-THEN THAT-YOU-ARE TREACHEROUS FOOLS!!",
+   "zh": "嘶嘶！這麼說，希里提斯就知道你們是奸詐的蠢貨！！"
+  },
+  "29035": {
+   "en": "SSST-YOU-HAVE DONE-WELL! &%]",
+   "zh": "嘶嘶！你們幹得好！&%]"
+  },
+  "29036": {
+   "en": "ONLY-IN DEATH WOULD THE-SON-OF HECTOR LOSE-HIS FATHER'S LEGENDARY",
+   "zh": "赫克特之子唯有死，才會失去他父親的傳奇"
+  },
+  "29037": {
+   "en": "MEDALLION... &%]",
+   "zh": "徽章……&%]"
+  },
+  "29038": {
+   "en": "SSST, I-SHALL REWARD-YOU WELL! &%]",
+   "zh": "嘶，我會好好賞你們！&%]"
+  },
+  "29039": {
+   "en": "...The great hairy T'Rang summons one of his companions, who drags",
+   "zh": "……這隻巨大多毛的特蘭格喚來一名同伴，拖著"
+  },
+  "29040": {
+   "en": "behind him a huge sack of gold and leaves it at your feet... &%]",
+   "zh": "一大袋黃金，放在你們腳邊……&%]"
+  },
+  "29041": {
+   "en": "HHSSST! YOU-MAY KEEP THE-MEDALLION AS-A SOUVENIR OF-YOUR-LOYALTY",
+   "zh": "嘶嘶！徽章你們留著，作為忠於特蘭格"
+  },
+  "29042": {
+   "en": "TO-THE T'RANG EMPIRE...",
+   "zh": "帝國的紀念……"
+  },
+  "29045": {
+   "en": "HSSST! SHRITIS T'RANG BIDS-YOU WELCOME!",
+   "zh": "特蘭格的希里提斯歡迎你們！"
+  },
+  "29050": {
+   "en": "SSST! I-WAS TESTING-YOU... &%]",
+   "zh": "嘶！我只是在試探你們……&%]"
+  },
+  "29051": {
+   "en": "RODAN LEWARX IS-DEAD! &%]",
+   "zh": "羅丹·勒瓦克斯死了！&%]"
+  },
+  "29052": {
+   "en": "SHRITIS IS VICTORIOUS, HSSST!!!",
+   "zh": "希里提斯勝利了，嘶！！！"
+  },
+  "29080": {
+   "en": "A group of clacking T'Rang espies your party, begins approaching,",
+   "zh": "一群喀喀作響的特蘭格發現你們，開始靠近，"
+  },
+  "29081": {
+   "en": "then pauses, and after a few moments slowly draws near... &%]",
+   "zh": "又停住，片刻後緩緩接近……&%]"
+  },
+  "29082": {
+   "en": "Hsssst! &%]I did-not expect to-see-you again so-soon, sssst!",
+   "zh": "嘶嘶嘶！&%]沒想到這麼快又見到你們，嘶！"
+  },
+  "29100": {
+   "en": "A bustle of thundering feet charge into the area before you... &%]",
+   "zh": "一陣如雷的腳步衝進你們面前的區域……&%]"
+  },
+  "29101": {
+   "en": "Stepping up and staring you in the eye, nostrils snorting, is the",
+   "zh": "踏步上前、瞪視你們雙眼、鼻孔噴氣的，正是"
+  },
+  "29102": {
+   "en": "immense Umpani Hunter, the fiery Tracker, Rodan Lewarx...",
+   "zh": "那魁梧的恩帕尼獵人、火爆的追蹤者羅丹·勒瓦克斯……"
+  },
+  "29105": {
+   "en": "SHRITIS T'RANG BEWARE, VENGEANCE SHALL BE MINE! &",
+   "zh": "特蘭格的希里提斯小心，我必復仇！&"
+  },
+  "29106": {
+   "en": "I LIVE ONLY TO FIND SHRITIS, AND HOLD HIS SEVERED HEAD IN MY HANDS!!",
+   "zh": "我活著只為找到希里提斯，親手捧著他斬下的首級！！"
+  },
+  "29108": {
+   "en": "SHRITIS T'RANG IS DEAD! &VENGEANCE IS MINE!!",
+   "zh": "特蘭格的希里提斯死了！&我復仇了！！"
+  },
+  "29110": {
+   "en": "TRAITORS! &%]",
+   "zh": "叛徒！&%]"
+  },
+  "29111": {
+   "en": "DIE, YOU SCHEMING SCUM OF T'RANG LOVERS!!",
+   "zh": "去死吧，你們這些親特蘭格的陰謀渣滓！！"
+  },
+  "29115": {
+   "en": "WELL-WELL, IF IT ISN'T THE NEPS!",
+   "zh": "哎呀呀，這不是內普斯嗎！"
+  },
+  "29120": {
+   "en": "Plodding up is the Gorn officer whom you released from the",
+   "zh": "沉重走來的是那名被你們從賢者護衛"
+  },
+  "29121": {
+   "en": "captive hands of the Savant Guardians, the rotund Capt. Boerigard...",
+   "zh": "手中救出的高恩軍官，圓胖的波利加德上尉……"
+  },
+  "29125": {
+   "en": "The Gorn Army has need of your help...",
+   "zh": "高恩大軍需要你們的幫助……"
+  },
+  "29132": {
+   "en": "Will you assist us?",
+   "zh": "你們願意幫嗎？"
+  },
+  "29135": {
+   "en": "Then I must be on my way, for there is war amongst the empire of Gorn!",
+   "zh": "那我得上路了，高恩帝國正陷戰亂！"
+  },
+  "29140": {
+   "en": "Hail friends! &%]",
+   "zh": "朋友們好！&%]"
+  },
+  "29141": {
+   "en": "The news is not good... &%]",
+   "zh": "消息不太好……&%]"
+  },
+  "29142": {
+   "en": "Civil War has ripped the Gorn Nation, tearing the kingdom apart! &%]",
+   "zh": "內戰撕裂了高恩國，王國四分五裂！&%]"
+  },
+  "29143": {
+   "en": "Everywhere there is battle amongst us, hundreds of Gorn slain at",
+   "zh": "我們之中四處開戰，數百高恩慘死於"
+  },
+  "29144": {
+   "en": "the hands of our own people! &%]",
+   "zh": "自己人手下！&%]"
+  },
+  "29145": {
+   "en": "There is fighting everywhere, usurpers vying for power! &%]",
+   "zh": "到處都在開戰，篡位者爭權奪利！&%]"
+  },
+  "29146": {
+   "en": "If only the wizard Murkatos had not betrayed us! &%]",
+   "zh": "要是巫師穆卡托斯沒背叛我們就好了！&%]"
+  },
+  "29147": {
+   "en": "Now he lies dead, himself betrayed! &%]",
+   "zh": "如今他死了，自己也遭背叛！&%]"
+  },
+  "29148": {
+   "en": "We are doomed!!",
+   "zh": "我們完了！！"
+  },
+  "29150": {
+   "en": "A troop of Gorn soldiers surrounds the area in front of you... &%]",
+   "zh": "一隊高恩士兵包圍你們面前的區域……&%]"
+  },
+  "29151": {
+   "en": "Sallying forth from their midst, you see a regal figure... &%]",
+   "zh": "從隊伍中走出一位氣宇軒昂的人物……&%]"
+  },
+  "29152": {
+   "en": "Hail brave warriors!",
+   "zh": "勇士們好！"
+  },
+  "29165": {
+   "en": "The war goes well for our side! &%]",
+   "zh": "我方戰況順利！&%]"
+  },
+  "29166": {
+   "en": "There may be some hope of saving the kingdom yet!",
+   "zh": "王國或許還有救！"
+  },
+  "29170": {
+   "en": "The war fairs poorly for our side... &%]",
+   "zh": "我方戰況吃緊……&%]"
+  },
+  "29171": {
+   "en": "I fear that we are doomed!",
+   "zh": "恐怕我們完蛋了！"
+  },
+  "29200": {
+   "en": "We of the Razuka have another proposition for you... &%]",
+   "zh": "我們拉祖卡另有個提議要給你們……&%]"
+  },
+  "29201": {
+   "en": "We have made certain arrangements, and will soon be vacating",
+   "zh": "我們已做好安排，不久便要撤離"
+  },
+  "29202": {
+   "en": "the premises... &%]",
+   "zh": "這個地方……&%]"
+  },
+  "29203": {
+   "en": "After careful consideration, we have decided to make you an",
+   "zh": "經過審慎考慮，我們決定給你們"
+  },
+  "29204": {
+   "en": "offer... &%]",
+   "zh": "一個提議……&%]"
+  },
+  "29205": {
+   "en": "You make keep everything that we must leave behind... &%]",
+   "zh": "我們不得不留下的東西，全歸你們……&%]"
+  },
+  "29206": {
+   "en": "The treasure room alone contains many unique artifacts that cannot",
+   "zh": "光是寶物室就有許多獨一無二的珍品，"
+  },
+  "29207": {
+   "en": "be found anywhere at any price... &%]",
+   "zh": "有錢也買不到……&%]"
+  },
+  "29208": {
+   "en": "And I will give you a special bonus as well... &%]",
+   "zh": "我還會額外給你們特別贈禮……&%]"
+  },
+  "29209": {
+   "en": "All this we will do for you... &%]",
+   "zh": "這一切我們都會為你們做到……&%]"
+  },
+  "29210": {
+   "en": "And you only need to deliver to us a small payment... &%]",
+   "zh": "你們只需付給我們一筆小錢……&%]"
+  },
+  "29211": {
+   "en": "The modest sum of 40000 gold pieces... &%]",
+   "zh": "區區四萬金幣……&%]"
+  },
+  "29212": {
+   "en": "So much for so little, how can you refuse...",
+   "zh": "花這麼少得這麼多，怎能拒絕……"
+  },
+  "29217": {
+   "en": "Do we have a deal?",
+   "zh": "成交嗎？"
+  },
+  "29220": {
+   "en": "You don't seem to have enough gold with you at the moment... &%]",
+   "zh": "你們身上現有的黃金似乎不夠……&%]"
+  },
+  "29221": {
+   "en": "But I am patient... &%]",
+   "zh": "不過我有耐心……&%]"
+  },
+  "29222": {
+   "en": "I will give you a little time to obtain the funds... &%]",
+   "zh": "我給你們一點時間籌錢……&%]"
+  },
+  "29223": {
+   "en": "As a matter of fact, I'll do you a favor... &%]",
+   "zh": "其實，我幫你們個忙……&%]"
+  },
+  "29224": {
+   "en": "One of the T'Rang creatures, the big one that is called",
+   "zh": "有個特蘭格傢伙，那個名叫"
+  },
+  "29225": {
+   "en": "Shritis T'Rang, is willing to pay a large reward for the head of the",
+   "zh": "希里提斯的大個子，願出重賞買恩帕尼獵人"
+  },
+  "29226": {
+   "en": "Umpani Hunter, Rodan Lewarx... &%]",
+   "zh": "羅丹·勒瓦克斯的人頭……&%]"
+  },
+  "29227": {
+   "en": "That's a free tip from me, it won't cost you anything... &%]",
+   "zh": "這算我免費送的情報，不收你們錢……&%]"
+  },
+  "29228": {
+   "en": "Come back when you have the gold...",
+   "zh": "籌到黃金再回來……"
+  },
+  "29230": {
+   "en": "That's a very wise thing you have done... &%]",
+   "zh": "你們做了非常明智的事……&%]"
+  },
+  "29231": {
+   "en": "The treasure room is behind us, yours... &%]",
+   "zh": "寶物室就在我們身後，全歸你們……&%]"
+  },
+  "29232": {
+   "en": "I said I would throw in a bonus as well...",
+   "zh": "我說過還會加贈一份禮……"
+  },
+  "29235": {
+   "en": "Perhaps some time we'll do business again... &%]",
+   "zh": "或許改天我們還能再做買賣……&%]"
+  },
+  "29236": {
+   "en": "We won't forget what you've done for us...",
+   "zh": "我們不會忘記你們為我們做的……"
+  },
+  "29240": {
+   "en": "Perhaps you need more time to consider our generous offer... &%]",
+   "zh": "也許你們需要更多時間考慮這份慷慨的提案……&%]"
+  },
+  "29241": {
+   "en": "Come back when you change your mind...",
+   "zh": "改變心意再回來……"
+  },
+  "29245": {
+   "en": "You have betrayed the family! &%]",
+   "zh": "你們背叛了家族！&%]"
+  },
+  "29246": {
+   "en": "I weep for you, and I kiss you...",
+   "zh": "我為你們哭泣，也吻別你們……"
+  },
+  "29250": {
+   "en": "A quick shadow darts from nowhere and stands before you...",
+   "zh": "一道黑影不知從何處竄出，站在你們面前……"
+  },
+  "29255": {
+   "en": "The Razuka asks that you contribute 20% of your gold to cover",
+   "zh": "拉祖卡要求你們繳出20%的黃金，以支付"
+  },
+  "29256": {
+   "en": "the cost of your family obligations...",
+   "zh": "家族義務的開銷……"
+  },
+  "29262": {
+   "en": "Will you pay?",
+   "zh": "願意付嗎？"
+  },
+  "29270": {
+   "en": "Beware the sharp fang of the Razuka!",
+   "zh": "當心拉祖卡的利牙！"
+  },
+  "29275": {
+   "en": "The Razuka are pleased to do business with you... &%]",
+   "zh": "拉祖卡很高興與你們做生意……&%]"
+  },
+  "29276": {
+   "en": "Don Barlone' sends you his blessing, and looks forward to seeing you",
+   "zh": "唐·巴隆內向你們致上祝福，期待"
+  },
+  "29277": {
+   "en": "again some day...",
+   "zh": "改日再見……"
+  },
+  "29300": {
+   "en": "Arms waving high above his head, vociferously espewing a barrage of",
+   "zh": "他雙臂高揮，口沫橫飛地噴出一連串"
+  },
+  "29301": {
+   "en": "animated verbiage, a priest of Dane hones in on your party... &%]",
+   "zh": "激昂言詞，一名丹恩祭司直朝你們而來……&%]"
+  },
+  "29302": {
+   "en": "Repent, O ye Brothers! &%]",
+   "zh": "悔改吧，諸位修士！&%]"
+  },
+  "29303": {
+   "en": "Repent thy evil ways! &%]",
+   "zh": "悔改你們的惡行！&%]"
+  },
+  "29304": {
+   "en": "We embark upon the last days of the world!",
+   "zh": "我們正邁向世界的末日！"
+  },
+  "29310": {
+   "en": "Hail, good brothers!",
+   "zh": "善良的修士們好！"
+  },
+  "29317": {
+   "en": "Hast thou heard the word?",
+   "zh": "你聽過聖言了嗎？"
+  },
+  "29320": {
+   "en": "May the divine light guide ye then!",
+   "zh": "願神聖之光引導你！"
+  },
+  "29325": {
+   "en": "As the holy prophecy becomes fulfilled, all that is shall return to",
+   "zh": "當神聖預言應驗之時，萬物都將回歸"
+  },
+  "29326": {
+   "en": "the darkness from which it arose! &%]",
+   "zh": "它源起的黑暗！&%]"
+  },
+  "29327": {
+   "en": "Repent, O ye sinful Brothers! &%]",
+   "zh": "悔改吧，有罪的修士們！&%]"
+  },
+  "29328": {
+   "en": "Seek ye the good Brother Almagorte in the great Tower of Dane, that",
+   "zh": "去丹恩大塔尋訪善良的阿爾馬戈特修士，"
+  },
+  "29329": {
+   "en": "he may guide ye upon the divine path of the light!",
+   "zh": "讓他引導你走上光的神聖之路！"
+  },
+  "29335": {
+   "en": "The Brotherhood of Dane hast declared that all must make sacrifice,",
+   "zh": "丹恩修士會已宣告：眾人皆須奉獻，"
+  },
+  "29336": {
+   "en": "to purge thy sinful souls of thy unholiness... &%]",
+   "zh": "洗淨你們罪惡靈魂中的不潔……&%]"
+  },
+  "29337": {
+   "en": "Thy donation of 10% of the gold in thy purse shall cleanse the",
+   "zh": "你捐出錢袋中10%的黃金，便能洗淨"
+  },
+  "29338": {
+   "en": "evil from thy mind, and the wickedness from thy heart...",
+   "zh": "心中的邪念與惡念……"
+  },
+  "29342": {
+   "en": "Will ye make the holy contribution?",
+   "zh": "願意奉獻這筆聖捐嗎？"
+  },
+  "29345": {
+   "en": "Thou dost blaspheme the holy name and all Dane! &%]",
+   "zh": "你褻瀆了聖名與整個丹恩！&%]"
+  },
+  "29346": {
+   "en": "Thou shalt burn in hellfire for eternity and suffer at the foot",
+   "zh": "你將永世受地獄之火焚燒，在全能者"
+  },
+  "29347": {
+   "en": "of the almighty! &%]",
+   "zh": "腳下受苦！&%]"
+  },
+  "29348": {
+   "en": "Kill the infidels, my brothers!",
+   "zh": "殺了異教徒，兄弟們！"
+  },
+  "29350": {
+   "en": "May the divine light guide ye, good brothers! &%]",
+   "zh": "願神聖之光引導你們，善良的修士們！&%]"
+  },
+  "29351": {
+   "en": "And may thy path lead ye to illumination!",
+   "zh": "願你的道路通往光明！"
+  },
+  "29400": {
+   "en": "In the blink of an eye, the Master of 5 Flowers is standing before",
+   "zh": "轉眼間，五花門掌門已站到你們面前"
+  },
+  "29401": {
+   "en": "you...",
+   "zh": "……"
+  },
+  "29403": {
+   "en": "Greetings, young masters!",
+   "zh": "少俠們好！"
+  },
+  "29405": {
+   "en": "Your good deed has helped us to preserve the Holy Work, and keep it",
+   "zh": "你們的善行幫助我們保全了聖工，使它"
+  },
+  "29406": {
+   "en": "safe from the hands of the villanous cretins that have",
+   "zh": "免於落入那些卑劣蠢徒之手，他們已"
+  },
+  "29407": {
+   "en": "strayed far from the teachings of the divine Munkharam!",
+   "zh": "遠遠背離了神聖穆克哈拉姆的教誨！"
+  },
+  "29410": {
+   "en": "How may I help you this day?",
+   "zh": "今日我能為你們效勞嗎？"
+  },
+  "29415": {
+   "en": "You have betrayed the holy teachings and have strayed far from the",
+   "zh": "你們背叛了神聖教誨，已遠遠偏離"
+  },
+  "29416": {
+   "en": "righteous path...",
+   "zh": "正道……"
   }
  }
 }
