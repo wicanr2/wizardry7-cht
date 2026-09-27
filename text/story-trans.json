@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1028,
+ "count": 1029,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -983,6 +983,10 @@
    "en": "MANUAL AND ENTER THE $ WORD",
    "zh": "找出該頁第 $ 個字輸入",
    "dy": 13
+  },
+  "1053": {
+   "en": "LOCATED IN PARAGRAPH ^  LINE %",
+   "zh": "請找出第 $ 段第 $ 行的單字"
   },
   "1060": {
    "en": "FIRST",

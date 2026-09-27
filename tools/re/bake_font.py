@@ -171,6 +171,11 @@ def normalize(s: str) -> str:
                 out.append("$")
                 i = j
                 continue
+        if c in "^%":
+            # 原文佔位符（段落/行/物品名等 runtime 填入）——一律正規化成 '$'
+            out.append("$")
+            i += 1
+            continue
         out.append(c)
         i += 1
     return "".join(out)

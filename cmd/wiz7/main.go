@@ -410,6 +410,13 @@ func main() {
 						continue
 					}
 				}
+				if c == '^' || c == '%' {
+					// 原文佔位符（runtime 填數字）——正規化成 '$'
+					// （數字 token 已在上方處理；這裡收非數字的填充）
+					b = append(b, '$')
+					i++
+					continue
+				}
 				b = append(b, c)
 			}
 			return string(b), nums
