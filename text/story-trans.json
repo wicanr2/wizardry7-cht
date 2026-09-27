@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 2845,
+ "count": 4390,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -8944,6 +8944,2238 @@
    "en": "Nyctalinth lies north of the Red Forest...",
    "zh": "夜螢城位於赤色森林以北……"
   },
+  "11440": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "11441": {
+   "en": "General Yamo is the fat-bellied commander of the Umpani toads!",
+   "zh": "亞莫將軍是恩帕尼蟾蜍的大肚皮指揮官！"
+  },
+  "11443": {
+   "en": "He cowers in the jungles of the east, in the Ukpyr Mountains...",
+   "zh": "他龜縮在東方的叢林裡，烏克皮爾山脈之中……"
+  },
+  "11445": {
+   "en": "#LEWARX@",
+   "zh": "勒瓦克斯"
+  },
+  "11450": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
+  },
+  "11451": {
+   "en": "Do not mention this name again...",
+   "zh": "別再提這個名字……"
+  },
+  "11455": {
+   "en": " ASTRAL DOMINAE@",
+   "zh": " 星界統領"
+  },
+  "11456": {
+   "en": "If you know of the legendary globe, tell me more...",
+   "zh": "若你知曉那顆傳說中的球體，多告訴我一些……"
+  },
+  "11460": {
+   "en": " HECTOR@",
+   "zh": " 赫克特"
+  },
+  "11461": {
+   "en": "Hssst-Heh heh... &It gave me great pleasure to watch him suffer!",
+   "zh": "嘶嘶——嘿嘿……&看著他受苦，真讓我心花怒放！"
+  },
+  "11500": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11501": {
+   "en": "I am K'Borra T'Rang, mighty claw of the great H'Jenn-Ra...",
+   "zh": "我是克波拉·特蘭格，偉大赫詹拉的強悍之爪……"
+  },
+  "11503": {
+   "en": "My plans are not for you to know...",
+   "zh": "我的計畫你無須知道……"
+  },
+  "11505": {
+   "en": "\u001fK'BORRA@",
+   "zh": "\u001f克波拉"
+  },
+  "11510": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
+  "11511": {
+   "en": "K'Borra T'Rang does not presume to speak for the great H'Jenn-Ra...",
+   "zh": "克波拉·特蘭格豈敢代偉大的赫詹拉發言……"
+  },
+  "11513": {
+   "en": "H'Jenn-Ra commands from our outpost in the northern lands...",
+   "zh": "赫詹拉在北方之地的前哨坐鎮指揮……"
+  },
+  "11515": {
+   "en": " SHRITIS@",
+   "zh": " 希里提斯"
+  },
+  "11516": {
+   "en": "The mighty Shritis T'Rang, leader of assasins!",
+   "zh": "強大的希里提斯·特蘭格，刺客之首！"
+  },
+  "11517": {
+   "en": "The great T'Rang assassin leads a special mission for the Empire...",
+   "zh": "偉大的特蘭格刺客正為帝國執行一項特殊任務……"
+  },
+  "11518": {
+   "en": "Shritis does as Shritis pleases...",
+   "zh": "希里提斯行事，只憑自己高興……"
+  },
+  "11520": {
+   "en": " D'RANG@",
+   "zh": " 德蘭"
+  },
+  "11521": {
+   "en": "D'Rang T'Rang is my strong and clever young nephew...",
+   "zh": "德蘭·特蘭格是我強壯又機靈的年輕姪子……"
+  },
+  "11523": {
+   "en": "D'Rang is no doubt sending the Umpani toads fleeing, even as we speak!",
+   "zh": "此時此刻，德蘭肯定正把恩帕尼蟾蜍殺得落荒而逃！"
+  },
+  "11525": {
+   "en": "\"NARGISST@",
+   "zh": "納吉斯特"
+  },
+  "11527": {
+   "en": "Hsssst! You would do well to keep silent about this...",
+   "zh": "嘶嘶嘶！這件事你最好保持緘默……"
+  },
+  "11530": {
+   "en": "\"EGG%",
+   "zh": "蛋%"
+  },
+  "11532": {
+   "en": "Hsssst! You would do well to keep silent about this...",
+   "zh": "嘶嘶嘶！這件事你最好保持緘默……"
+  },
+  "11535": {
+   "en": "!NYCTALINTH@",
+   "zh": "夜螢城"
+  },
+  "11537": {
+   "en": "The northern ruins of Nyctalinth serves as our temporary base...",
+   "zh": "北方的夜螢城遺跡是我們的臨時基地……"
+  },
+  "11538": {
+   "en": "Nyctalinth lies north of the Red Forest...",
+   "zh": "夜螢城位於赤色森林以北……"
+  },
+  "11540": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "11541": {
+   "en": "General Yamo is the fat-bellied commander of the Umpani toads!",
+   "zh": "亞莫將軍是恩帕尼蟾蜍的大肚皮指揮官！"
+  },
+  "11543": {
+   "en": "He cowers in the jungles of the east, in the Ukpyr Mountains...",
+   "zh": "他龜縮在東方的叢林裡，烏克皮爾山脈之中……"
+  },
+  "11545": {
+   "en": " LEWARX@",
+   "zh": " 勒瓦克斯"
+  },
+  "11546": {
+   "en": "Rodan Lewarx is the master tracker for the blubbering Umpani cows!",
+   "zh": "羅丹·勒瓦克斯是那些哭嚎恩帕尼母牛的追蹤大師！"
+  },
+  "11548": {
+   "en": "If I could find him, I would destroy him!",
+   "zh": "只要能找到他，我必毀了他！"
+  },
+  "11550": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
+  },
+  "11551": {
+   "en": "Do not mention this name again...",
+   "zh": "別再提這個名字……"
+  },
+  "11555": {
+   "en": " ASTRAL DOMINAE@",
+   "zh": " 星界統領"
+  },
+  "11556": {
+   "en": "If you know of the legendary globe, tell me more...",
+   "zh": "若你知曉那顆傳說中的球體，多告訴我一些……"
+  },
+  "11560": {
+   "en": "\"HORATHA@",
+   "zh": "霍拉莎"
+  },
+  "11561": {
+   "en": "I do not know of what you speak... &Let us not talk of this further...",
+   "zh": "我不知道你在說什麼……&這件事就別再說了……"
+  },
+  "11565": {
+   "en": "\u001fSHIP%",
+   "zh": "\u001f船%"
+  },
+  "11570": {
+   "en": "\u001eGOLD@",
+   "zh": "\u001e黃金"
+  },
+  "11575": {
+   "en": "\u001d10000@",
+   "zh": "\u001d10000"
+  },
+  "11600": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11601": {
+   "en": "I am D'Rang T'Rang, important leader in the T'Rang Empire...",
+   "zh": "我是德蘭·特蘭格，特蘭格帝國舉足輕重的領袖……"
+  },
+  "11603": {
+   "en": "I seek out the whimpering Umpani hogs, to destroy them!",
+   "zh": "我專門追獵那些哀嚎的恩帕尼肥豬，消滅他們！"
+  },
+  "11605": {
+   "en": "\u001fD'RANG@",
+   "zh": "\u001f德蘭"
+  },
+  "11610": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
+  "11611": {
+   "en": "The great H'Jenn-Ra, Lord of T'Rang, is very wise...",
+   "zh": "偉大的赫詹拉，特蘭格之主，非常有智慧……"
+  },
+  "11613": {
+   "en": "H'Jenn-Ra is safely guarded in the northern lands...",
+   "zh": "赫詹拉在北方之地受到嚴密保護……"
+  },
+  "11615": {
+   "en": " SHRITIS@",
+   "zh": " 希里提斯"
+  },
+  "11616": {
+   "en": "The mighty Shritis T'Rang, leader of assassins!",
+   "zh": "強大的希里提斯·特蘭格，刺客之首！"
+  },
+  "11617": {
+   "en": "The great T'Rang assassin leads a special mission for the Empire...",
+   "zh": "偉大的特蘭格刺客正為帝國執行一項特殊任務……"
+  },
+  "11618": {
+   "en": "Shritis does as Shritis pleases...",
+   "zh": "希里提斯行事，只憑自己高興……"
+  },
+  "11620": {
+   "en": " K'BORRA@",
+   "zh": " 克波拉"
+  },
+  "11621": {
+   "en": "K'Borra T'Rang is my uncle, second only to the great H'Jenn-Ra...",
+   "zh": "克波拉·特蘭格是我的叔叔，地位僅次於偉大的赫詹拉……"
+  },
+  "11623": {
+   "en": "K'Borra T'Rang is laying a trap for the blundering Umpani cows!",
+   "zh": "克波拉·特蘭格正在給莽撞的恩帕尼母牛設下陷阱！"
+  },
+  "11625": {
+   "en": "\"NARGISST@",
+   "zh": "納吉斯特"
+  },
+  "11627": {
+   "en": "That is our space shuttle... &Hssst! How do you know of this?",
+   "zh": "那是我們的太空梭……&嘶嘶！你怎麼會知道這件事？"
+  },
+  "11630": {
+   "en": "\"EGG%",
+   "zh": "蛋%"
+  },
+  "11632": {
+   "en": "Hsssst! You would do well to keep silent about this...",
+   "zh": "嘶嘶嘶！這件事你最好保持緘默……"
+  },
+  "11635": {
+   "en": "!NYCTALINTH@",
+   "zh": "夜螢城"
+  },
+  "11637": {
+   "en": "The northern ruins of Nyctalinth serves as our temporary base...",
+   "zh": "北方的夜螢城遺跡是我們的臨時基地……"
+  },
+  "11638": {
+   "en": "Nyctalinth lies north of the Red Forest...",
+   "zh": "夜螢城位於赤色森林以北……"
+  },
+  "11640": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "11641": {
+   "en": "General Yamo is the fat-bellied commander of the Umpani toads!",
+   "zh": "亞莫將軍是恩帕尼蟾蜍的大肚皮指揮官！"
+  },
+  "11643": {
+   "en": "He cowers in the jungles of the east, in the Ukpyr Mountains...",
+   "zh": "他龜縮在東方的叢林裡，烏克皮爾山脈之中……"
+  },
+  "11645": {
+   "en": " LEWARX@",
+   "zh": " 勒瓦克斯"
+  },
+  "11646": {
+   "en": "Rodan Lewarx is the master tracker for the blubbering Umpani cows!",
+   "zh": "羅丹·勒瓦克斯是那些哭嚎恩帕尼母牛的追蹤大師！"
+  },
+  "11648": {
+   "en": "If I could find him, I would destroy him!",
+   "zh": "只要能找到他，我必毀了他！"
+  },
+  "11650": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
+  },
+  "11651": {
+   "en": "I am not afraid of this Dark Savant, let him show his face to D'Rang!",
+   "zh": "我才不怕什麼黑暗賢者，叫他來向德蘭露臉吧！"
+  },
+  "11653": {
+   "en": "I have not seen him... &They say he rides upon his black ship...",
+   "zh": "我沒見過他……&據說他乘著他的黑船……"
+  },
+  "11655": {
+   "en": " ASTRAL DOMINAE@",
+   "zh": " 星界統領"
+  },
+  "11656": {
+   "en": "If you know of the legendary globe, tell me more...",
+   "zh": "若你知曉那顆傳說中的球體，多告訴我一些……"
+  },
+  "11660": {
+   "en": "\"BLACK SHIP@",
+   "zh": "黑船"
+  },
+  "11662": {
+   "en": "The Black Ship, vessel of the Dark Savant, known as the Dedaelis...",
+   "zh": "黑船，黑暗賢者的座艦，人稱迪達利斯……"
+  },
+  "11663": {
+   "en": "Up there somewhere, I am told...",
+   "zh": "據說就在上頭某處……"
+  },
+  "11665": {
+   "en": "\u001fDEDAELIS@",
+   "zh": "\u001f迪達利斯"
+  },
+  "11700": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11701": {
+   "en": "I am Rodan Lewarx, son of Hector, Master of all Umpani Trackers...",
+   "zh": "我是羅丹·勒瓦克斯，赫克特之子，恩帕尼全體追蹤者的大師……"
+  },
+  "11702": {
+   "en": "I seek the head of Shritis T'Rang, vengeance shall be mine!!",
+   "zh": "我要取希里提斯·特蘭格的項上人頭，血債必償！！"
+  },
+  "11705": {
+   "en": "\u001fLEWARX@",
+   "zh": "\u001f勒瓦克斯"
+  },
+  "11710": {
+   "en": " HECTOR@",
+   "zh": " 赫克特"
+  },
+  "11711": {
+   "en": "Hector was my father...",
+   "zh": "赫克特是我的父親……"
+  },
+  "11712": {
+   "en": "He is dead by the claw of an assassin, the claw of Shritis T'Rang!",
+   "zh": "他死於刺客之爪——希里提斯·特蘭格的爪下！"
+  },
+  "11715": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "11716": {
+   "en": "General Yamo is the current Commander-In-Chief of the I.U.F....",
+   "zh": "亞莫將軍是 I.U.F. 現任的最高統帥……"
+  },
+  "11718": {
+   "en": "Command headquarters, at the base in Ukpyr...",
+   "zh": "指揮總部，就在烏克皮爾的基地……"
+  },
+  "11720": {
+   "en": " RHALLICK@",
+   "zh": " 拉利克"
+  },
+  "11721": {
+   "en": "Tracker Rhallick is a scout for the I.U.F...",
+   "zh": "追蹤者拉利克是 I.U.F. 的斥候……"
+  },
+  "11723": {
+   "en": "Laying a trap for the wretched T'Rang insects, I hope!",
+   "zh": "希望是在給卑劣的特蘭格蟲子設陷阱！"
+  },
+  "11725": {
+   "en": " GRUNTWRAPPER@",
+   "zh": " 格蘭特拉普"
+  },
+  "11726": {
+   "en": "Lt. Gruntwrapper is under special orders from General Yamo...",
+   "zh": "格蘭特拉普中尉奉亞莫將軍的特殊命令行事……"
+  },
+  "11727": {
+   "en": "I cannot reveal that information...",
+   "zh": "我不能透露那項情報……"
+  },
+  "11728": {
+   "en": "I have not seen him...",
+   "zh": "我沒見過他……"
+  },
+  "11730": {
+   "en": " ROSSARIAN@",
+   "zh": " 羅薩里安"
+  },
+  "11731": {
+   "en": "Rossarian is a swarthy trader, who came here for his own reasons...",
+   "zh": "羅薩里安是個膚色黝黑的商人，為了自身的緣故來到此地……"
+  },
+  "11733": {
+   "en": "Rumors have it that he is running a Black Market out of New City...",
+   "zh": "謠傳他在新城經營著一處黑市……"
+  },
+  "11735": {
+   "en": " GROMO@",
+   "zh": " 格羅莫"
+  },
+  "11736": {
+   "en": "He's an officer in the I.U.F...",
+   "zh": "他是 I.U.F. 的一名軍官……"
+  },
+  "11738": {
+   "en": "He was at our base in Ukpyr, the last time I saw him...",
+   "zh": "上次見到他時，他就在我們烏克皮爾的基地……"
+  },
+  "11740": {
+   "en": "\u001fKABOMM@",
+   "zh": "\u001f卡邦姆"
+  },
+  "11745": {
+   "en": "\u001eBALBRAK@",
+   "zh": "\u001e巴布拉克"
+  },
+  "11750": {
+   "en": "\"I.U.F.@",
+   "zh": "I.U.F."
+  },
+  "11752": {
+   "en": "I.U.F., that stands for Imperial Umpani Forces!",
+   "zh": "I.U.F.，就是恩帕尼帝國軍！"
+  },
+  "11753": {
+   "en": "The I.U.F. Command Headquarters is at our base in Ukpyr...",
+   "zh": "I.U.F. 指揮總部就在我們烏克皮爾的基地……"
+  },
+  "11755": {
+   "en": "\"HORATHA@",
+   "zh": "霍拉莎"
+  },
+  "11757": {
+   "en": "That information is classified!",
+   "zh": "那是機密情報！"
+  },
+  "11760": {
+   "en": "!UKPYR@",
+   "zh": "烏克皮爾"
+  },
+  "11762": {
+   "en": "Ukpyr is the location of our Command Headquarters...",
+   "zh": "烏克皮爾是我們指揮總部的所在地……"
+  },
+  "11763": {
+   "en": "Ukpyr is east through the jungles, this side of the Ukpyr Mountains...",
+   "zh": "烏克皮爾往東穿過叢林，在烏克皮爾山脈的這一側……"
+  },
+  "11765": {
+   "en": "\u001fHEADQUARTER%",
+   "zh": "\u001f總部%"
+  },
+  "11770": {
+   "en": "\"MUSKET%",
+   "zh": "火槍%"
+  },
+  "11772": {
+   "en": "If you don't know, I can't help you...",
+   "zh": "你不知道的話，我幫不上忙……"
+  },
+  "11773": {
+   "en": "Travel to our base in Ukpyr, they can direct you from there...",
+   "zh": "去我們烏克皮爾的基地，那裡的人能為你指路……"
+  },
+  "11775": {
+   "en": "\u001fBLUNDERBUSS^0ES",
+   "zh": "\u001f大口徑火槍^0ES"
+  },
+  "11780": {
+   "en": "\u001eORDER%",
+   "zh": "\u001e命令%"
+  },
+  "11785": {
+   "en": "\"BLACK MARKET%",
+   "zh": "黑市%"
+  },
+  "11786": {
+   "en": "I've heard there's a Black Market operating in New City somewhere...",
+   "zh": "聽說新城某處有個黑市在營業……"
+  },
+  "11790": {
+   "en": " T'RANG@",
+   "zh": " 特蘭格"
+  },
+  "11791": {
+   "en": "I shall not rest until all T'Rang are eliminated!",
+   "zh": "不把特蘭格斬草除根，我絕不罷休！"
+  },
+  "11793": {
+   "en": "Everywhere, but one day we shall rid the universe of their kind!",
+   "zh": "無所不在，但總有一天我們會把他們從宇宙清除！"
+  },
+  "11795": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
+  "11796": {
+   "en": "H'Jenn-Ra is the diseased head of the T'Rang...",
+   "zh": "赫詹拉是特蘭格病態的禍首……"
+  },
+  "11797": {
+   "en": "H'Jenn-Ra spreads the T'Rang filth throughout the galaxy!",
+   "zh": "赫詹拉把特蘭格的穢物散播到整個銀河！"
+  },
+  "11798": {
+   "en": "The disgusting T'Rang bugs are burrowed up north somewhere...",
+   "zh": "噁心的特蘭格蟲子正窩藏在北方某處……"
+  },
+  "11800": {
+   "en": "#SHRITIS@",
+   "zh": "希里提斯"
+  },
+  "11805": {
+   "en": "\u001fVENGEANCE@",
+   "zh": "\u001f復仇"
+  },
+  "11810": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
+  },
+  "11811": {
+   "en": "This is a name to beware, he is more powerful than any suspect!",
+   "zh": "這名字要當心，他比任何人想像的都強大！"
+  },
+  "11813": {
+   "en": "They say his black ship looms behind every dark cloud of the sky...",
+   "zh": "據說他的黑船潛伏在天上每一朵烏雲之後……"
+  },
+  "11815": {
+   "en": "\"BLACK SHIP@",
+   "zh": "黑船"
+  },
+  "11817": {
+   "en": "The Black Ship, dreadnaught vessel of the Dark Savant!",
+   "zh": "黑船，黑暗賢者的無畏艦！"
+  },
+  "11818": {
+   "en": "I've heard that the Black Ship is close, very close...",
+   "zh": "聽說黑船已經很近了，非常近……"
+  },
+  "11820": {
+   "en": " ASTRAL DOMINAE@",
+   "zh": " 星界統領"
+  },
+  "11821": {
+   "en": "If you know of the legendary globe, tell me more...",
+   "zh": "若你知道那顆傳奇寶球，請多告訴我……"
+  },
+  "11900": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "11901": {
+   "en": "I am Tracker Rhallick, master scout for the I.U.F....",
+   "zh": "我是拉利克，恩帕尼帝國軍的首席斥候……"
+  },
+  "11902": {
+   "en": "I search for the T'Rang fortifications, to exterminate them!",
+   "zh": "我在找特蘭格的堡壘，要將他們趕盡殺絕！"
+  },
+  "11905": {
+   "en": "\u001fRHALLICK@",
+   "zh": "\u001f拉利克"
+  },
+  "11910": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "11911": {
+   "en": "General Yamo, Commander of the I.U.F., Imperial Umpani Forces!",
+   "zh": "亞莫將軍，恩帕尼帝國軍的統帥！"
+  },
+  "11913": {
+   "en": "He commands the I.U.F. from our base in the jungles of Ukpyr...",
+   "zh": "他在烏克皮爾叢林的基地統領恩帕尼帝國軍……"
+  },
+  "11915": {
+   "en": " LEWARX@",
+   "zh": " 勒瓦克斯"
+  },
+  "11916": {
+   "en": "Rodan Lewarx, Master Tracker under the command of General Yamo...",
+   "zh": "羅丹·勒瓦克斯，亞莫將軍麾下的首席追蹤者……"
+  },
+  "11917": {
+   "en": "Rodan searches for the fierce T'Rang called Shritis...",
+   "zh": "羅丹在追蹤那個名叫希里提斯的凶悍特蘭格……"
+  },
+  "11918": {
+   "en": "Laying a trap for the wretched T'Rang insects, I hope!",
+   "zh": "希望是在給那些卑劣的特蘭格蟲子設陷阱！"
+  },
+  "11920": {
+   "en": " GRUNTWRAPPER@",
+   "zh": " 格蘭特拉普"
+  },
+  "11921": {
+   "en": "Lt. Gruntwrapper is under special orders from General Yamo...",
+   "zh": "格蘭特拉普中尉奉亞莫將軍的特別命令行事……"
+  },
+  "11922": {
+   "en": "I cannot reveal that information...",
+   "zh": "我不能透露那項情報……"
+  },
+  "11923": {
+   "en": "I have not seen him...",
+   "zh": "我沒見過他……"
+  },
+  "11925": {
+   "en": " ROSSARIAN@",
+   "zh": " 羅薩里安"
+  },
+  "11926": {
+   "en": "Rossarian is a swarthy trader, who came here for his own reasons...",
+   "zh": "羅薩里安是個黝黑的商人，為自己的目的來到此地……"
+  },
+  "11928": {
+   "en": "I heard he has been seen around New City...",
+   "zh": "聽說有人在新城市附近看過他……"
+  },
+  "11930": {
+   "en": " GROMO@",
+   "zh": " 格羅莫"
+  },
+  "11931": {
+   "en": "He's an officer in the I.U.F...",
+   "zh": "他是恩帕尼帝國軍的軍官……"
+  },
+  "11933": {
+   "en": "He was at our base in Ukpyr, the last time I saw him...",
+   "zh": "上次見到他時，他還在烏克皮爾的基地……"
+  },
+  "11935": {
+   "en": "\u001fKABOMM@",
+   "zh": "\u001f卡邦姆"
+  },
+  "11940": {
+   "en": "\u001eBALBRAK@",
+   "zh": "\u001e巴布拉克"
+  },
+  "11945": {
+   "en": "\"I.U.F.@",
+   "zh": "I.U.F."
+  },
+  "11947": {
+   "en": "I.U.F., that stands for Imperial Umpani Forces!",
+   "zh": "I.U.F.，全稱恩帕尼帝國軍！"
+  },
+  "11948": {
+   "en": "The I.U.F. Command Headquarters is at our base in Ukpyr...",
+   "zh": "恩帕尼帝國軍指揮總部設在烏克皮爾的基地……"
+  },
+  "11950": {
+   "en": "\"HORATHA@",
+   "zh": "霍拉莎"
+  },
+  "11952": {
+   "en": "That information is classified!",
+   "zh": "那是機密情報！"
+  },
+  "11955": {
+   "en": "!UKPYR@",
+   "zh": "烏克皮爾"
+  },
+  "11957": {
+   "en": "Ukpyr is the location of our Command Headquarters...",
+   "zh": "烏克皮爾是我們指揮總部的所在地……"
+  },
+  "11958": {
+   "en": "Ukpyr is east through the jungles, this side of the Ukpyr Mountains...",
+   "zh": "穿過叢林往東就是烏克皮爾，在烏克皮爾山脈這一側……"
+  },
+  "11960": {
+   "en": "\u001fHEADQUARTER%",
+   "zh": "\u001f總部%"
+  },
+  "11965": {
+   "en": "\"MUSKET%",
+   "zh": "火槍%"
+  },
+  "11967": {
+   "en": "If you don't know, I can't help you...",
+   "zh": "你若不知道，我也幫不上忙……"
+  },
+  "11968": {
+   "en": "Travel to our base in Ukpyr, they can direct you from there...",
+   "zh": "前往我們在烏克皮爾的基地，那裡的人可以為你指路……"
+  },
+  "11970": {
+   "en": "\u001fBLUNDERBUSS^0ES",
+   "zh": "\u001f大口徑火槍^0ES"
+  },
+  "11975": {
+   "en": "\u001eORDER%",
+   "zh": "\u001e命令%"
+  },
+  "11980": {
+   "en": "\"BLACK MARKET%",
+   "zh": "黑市%"
+  },
+  "11981": {
+   "en": "I've heard there's a Black Market operating in New City somewhere...",
+   "zh": "聽說有個黑市在新城市某處秘密營業……"
+  },
+  "11985": {
+   "en": " T'RANG@",
+   "zh": " 特蘭格"
+  },
+  "11986": {
+   "en": "Death to the T'Rang vermin, destroyer of worlds!",
+   "zh": "特蘭格害蟲去死吧，你們毀滅世界！"
+  },
+  "11988": {
+   "en": "Everywhere, but one day we shall rid the universe of their kind!",
+   "zh": "到處都是，但總有一天我們會把他們從宇宙清除！"
+  },
+  "11990": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
+  "11991": {
+   "en": "H'Jenn-Ra is the diseased head of the T'Rang...",
+   "zh": "赫詹拉是特蘭格病態的首腦……"
+  },
+  "11992": {
+   "en": "H'Jenn-Ra spreads the T'Rang filth throughout the galaxy!",
+   "zh": "赫詹拉把特蘭格的穢物散播到整個銀河！"
+  },
+  "11993": {
+   "en": "The disgusting T'Rang bugs are burrowed up north somewhere...",
+   "zh": "那些噁心的特蘭格蟲子潛伏在北方某處……"
+  },
+  "11995": {
+   "en": " SHRITIS@",
+   "zh": " 希里提斯"
+  },
+  "11996": {
+   "en": "Shritis T'Rang, the leader of all T'Rang assassins!",
+   "zh": "希里提斯·特蘭格，全體特蘭格刺客的首領！"
+  },
+  "11997": {
+   "en": "Shritis T'Rang is likely cowering in fear from the vengeance of Lewarx!",
+   "zh": "希里提斯·特蘭格八成正為勒瓦克斯的復仇而嚇得發抖！"
+  },
+  "11998": {
+   "en": "If we can find Shritis, we will destroy him and all his kind!",
+   "zh": "只要找到希里提斯，我們就會消滅他和他整個族類！"
+  },
+  "12000": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
+  },
+  "12001": {
+   "en": "The name sends shivers down the backs of all!",
+   "zh": "這名字讓所有人背脊發涼！"
+  },
+  "12002": {
+   "en": "The dread Savant knows no mercy, and spares none!",
+   "zh": "恐怖的賢者毫無慈悲，誰都不放過！"
+  },
+  "12003": {
+   "en": "They say his black ship looms behind every dark cloud of the sky...",
+   "zh": "據說他的黑船潛伏在天上每一朵烏雲之後……"
+  },
+  "12005": {
+   "en": "\"BLACK SHIP@",
+   "zh": "黑船"
+  },
+  "12007": {
+   "en": "The Black Ship, dreadnaught vessel of the Dark Savant!",
+   "zh": "黑船，黑暗賢者的無畏艦！"
+  },
+  "12008": {
+   "en": "I've heard that the Black Ship looms nearby...",
+   "zh": "聽說黑船就在附近出沒……"
+  },
+  "12010": {
+   "en": " ASTRAL DOMINAE@",
+   "zh": " 星界統領"
+  },
+  "12011": {
+   "en": "If you know of the legendary globe, tell me more...",
+   "zh": "若你知道那顆傳奇寶球，請多告訴我……"
+  },
+  "12100": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12101": {
+   "en": "I am Lt. Gruntwrapper, special operations officer for the I.U.F....",
+   "zh": "我是格蘭特拉普中尉，恩帕尼帝國軍的特種作戰軍官……"
+  },
+  "12103": {
+   "en": "That's classified information, son!",
+   "zh": "那是機密情報，小子！"
+  },
+  "12105": {
+   "en": "\u001fGRUNTWRAPPER@",
+   "zh": "\u001f格蘭特拉普"
+  },
+  "12110": {
+   "en": " YAMO@",
+   "zh": " 亞莫"
+  },
+  "12111": {
+   "en": "General Yamo, Commander of the I.U.F., Imperial Umpani Forces!",
+   "zh": "亞莫將軍，恩帕尼帝國軍的統帥！"
+  },
+  "12113": {
+   "en": "He commands the I.U.F. from our base in the jungles of Ukpyr...",
+   "zh": "他在烏克皮爾叢林的基地統領恩帕尼帝國軍……"
+  },
+  "12115": {
+   "en": " LEWARX@",
+   "zh": " 勒瓦克斯"
+  },
+  "12116": {
+   "en": "Rodan Lewarx, Master Tracker under the command of General Yamo...",
+   "zh": "羅丹·勒瓦克斯，亞莫將軍麾下的首席追蹤者……"
+  },
+  "12117": {
+   "en": "Rodan searches for the fierce T'Rang called Shritis...",
+   "zh": "羅丹在追蹤那個名叫希里提斯的凶悍特蘭格……"
+  },
+  "12118": {
+   "en": "Laying a trap for the wretched T'Rang insects, I hope!",
+   "zh": "希望是在給那些卑劣的特蘭格蟲子設陷阱！"
+  },
+  "12120": {
+   "en": " RHALLICK@",
+   "zh": " 拉利克"
+  },
+  "12121": {
+   "en": "Tracker Rhallick, master scout for the I.U.F...",
+   "zh": "追蹤者拉利克，恩帕尼帝國軍的首席斥候……"
+  },
+  "12123": {
+   "en": "Laying a trap for the wretched T'Rang insects, I hope!",
+   "zh": "希望是在給那些卑劣的特蘭格蟲子設陷阱！"
+  },
+  "12125": {
+   "en": " ROSSARIAN@",
+   "zh": " 羅薩里安"
+  },
+  "12126": {
+   "en": "Rossarian is a swarthy trader, who came here for his own reasons...",
+   "zh": "羅薩里安是個黝黑的商人，為自己的目的來到此地……"
+  },
+  "12128": {
+   "en": "I heard he has been seen around New City...",
+   "zh": "聽說有人在新城市附近看過他……"
+  },
+  "12130": {
+   "en": " GROMO@",
+   "zh": " 格羅莫"
+  },
+  "12131": {
+   "en": "He's an officer in the I.U.F...",
+   "zh": "他是恩帕尼帝國軍的軍官……"
+  },
+  "12133": {
+   "en": "He was at our base in Ukpyr, the last time I saw him...",
+   "zh": "上次見到他時，他還在烏克皮爾的基地……"
+  },
+  "12135": {
+   "en": "\u001fKABOMM@",
+   "zh": "\u001f卡邦姆"
+  },
+  "12140": {
+   "en": "\u001eBALBRAK@",
+   "zh": "\u001e巴布拉克"
+  },
+  "12145": {
+   "en": "\"I.U.F.@",
+   "zh": "I.U.F."
+  },
+  "12147": {
+   "en": "I.U.F., that stands for Imperial Umpani Forces!",
+   "zh": "I.U.F.，全稱恩帕尼帝國軍！"
+  },
+  "12148": {
+   "en": "The I.U.F. Command Headquarters is at our base in Ukpyr...",
+   "zh": "恩帕尼帝國軍指揮總部設在烏克皮爾的基地……"
+  },
+  "12150": {
+   "en": "\"HORATHA@",
+   "zh": "霍拉莎"
+  },
+  "12152": {
+   "en": "That information is classified!",
+   "zh": "那是機密情報！"
+  },
+  "12155": {
+   "en": "!UKPYR@",
+   "zh": "烏克皮爾"
+  },
+  "12157": {
+   "en": "Ukpyr is the location of our Command Headquarters...",
+   "zh": "烏克皮爾是我們指揮總部的所在地……"
+  },
+  "12158": {
+   "en": "Ukpyr is east through the jungles, this side of the Ukpyr Mountains...",
+   "zh": "穿過叢林往東就是烏克皮爾，在烏克皮爾山脈這一側……"
+  },
+  "12160": {
+   "en": "\u001fHEADQUARTER%",
+   "zh": "\u001f總部%"
+  },
+  "12165": {
+   "en": "\"MUSKET%",
+   "zh": "火槍%"
+  },
+  "12167": {
+   "en": "If you don't know, I can't help you...",
+   "zh": "你若不知道，我也幫不上忙……"
+  },
+  "12168": {
+   "en": "Travel to our base in Ukpyr, they can direct you from there...",
+   "zh": "前往我們在烏克皮爾的基地，那裡的人可以為你指路……"
+  },
+  "12170": {
+   "en": "\u001fBLUNDERBUSS^0ES",
+   "zh": "\u001f大口徑火槍^0ES"
+  },
+  "12175": {
+   "en": "\u001eORDER%",
+   "zh": "\u001e命令%"
+  },
+  "12180": {
+   "en": "\"BLACK MARKET%",
+   "zh": "黑市%"
+  },
+  "12181": {
+   "en": "I've heard there's a Black Market operating in New City somewhere...",
+   "zh": "聽說有個黑市在新城市某處秘密營業……"
+  },
+  "12185": {
+   "en": " T'RANG@",
+   "zh": " 特蘭格"
+  },
+  "12186": {
+   "en": "Death to the T'Rang vermin, destroyer of worlds!",
+   "zh": "特蘭格害蟲去死吧，你們毀滅世界！"
+  },
+  "12188": {
+   "en": "Everywhere, but one day we shall rid the universe of their kind!",
+   "zh": "到處都是，但總有一天我們會把他們從宇宙清除！"
+  },
+  "12190": {
+   "en": " H'JENN-RA@",
+   "zh": " 赫詹拉"
+  },
+  "12191": {
+   "en": "H'Jenn-Ra is the diseased head of the T'Rang...",
+   "zh": "赫詹拉是特蘭格病態的首腦……"
+  },
+  "12192": {
+   "en": "H'Jenn-Ra spreads the T'Rang filth throughout the galaxy!",
+   "zh": "赫詹拉把特蘭格的穢物散播到整個銀河！"
+  },
+  "12193": {
+   "en": "The disgusting T'Rang bugs are burrowed up north somewhere...",
+   "zh": "那些噁心的特蘭格蟲子潛伏在北方某處……"
+  },
+  "12195": {
+   "en": " SHRITIS@",
+   "zh": " 希里提斯"
+  },
+  "12196": {
+   "en": "Shritis T'Rang, the leader of all T'Rang assassins!",
+   "zh": "希里提斯·特蘭格，全體特蘭格刺客的首領！"
+  },
+  "12197": {
+   "en": "Shritis T'Rang is likely cowering in fear from the vengeance of Lewarx!",
+   "zh": "希里提斯·特蘭格八成正為勒瓦克斯的復仇而嚇得發抖！"
+  },
+  "12198": {
+   "en": "If we can find Shritis, we will destroy him and all his kind!",
+   "zh": "只要找到希里提斯，我們就會消滅他和他整個族類！"
+  },
+  "12200": {
+   "en": " DARK SAVANT@",
+   "zh": " 黑暗賢者"
+  },
+  "12201": {
+   "en": "The name sends shivers down the backs of all!",
+   "zh": "這名字讓所有人背脊發涼！"
+  },
+  "12202": {
+   "en": "The dread Savant knows no mercy, and spares none!",
+   "zh": "恐怖的賢者毫無慈悲，誰都不放過！"
+  },
+  "12203": {
+   "en": "They say his black ship looms behind every dark cloud of the sky...",
+   "zh": "據說他的黑船潛伏在天上每一朵烏雲之後……"
+  },
+  "12205": {
+   "en": "\"BLACK SHIP@",
+   "zh": "黑船"
+  },
+  "12207": {
+   "en": "The Black Ship, dreadnaught vessel of the Dark Savant!",
+   "zh": "黑船，黑暗賢者的無畏艦！"
+  },
+  "12208": {
+   "en": "I've heard that the Black Ship looms nearby...",
+   "zh": "聽說黑船就在附近出沒……"
+  },
+  "12210": {
+   "en": " ASTRAL DOMINAE@",
+   "zh": " 星界統領"
+  },
+  "12211": {
+   "en": "If you know of the legendary globe, tell me more...",
+   "zh": "若你知道那顆傳奇寶球，請多告訴我……"
+  },
+  "12300": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12301": {
+   "en": "I am King Ulgar, ruler of the Gorn Empire!",
+   "zh": "我是烏爾加王，高恩帝國的統治者！"
+  },
+  "12302": {
+   "en": "I seek to save our Empire from the tragedy of Civil War!",
+   "zh": "我要拯救帝國，使其免於內戰的悲劇！"
+  },
+  "12303": {
+   "en": "I shall travel the lands, and weave my own plans!",
+   "zh": "我將行走各地，編織我自己的計畫！"
+  },
+  "12305": {
+   "en": "\u001fULGAR@",
+   "zh": "\u001f烏爾加"
+  },
+  "12310": {
+   "en": " GALIERE@",
+   "zh": " 加列爾"
+  },
+  "12311": {
+   "en": "Lord Galiere, the regal vassal, loyal to my throne!",
+   "zh": "加列爾勳爵，尊貴的封臣，忠於我的王座！"
+  },
+  "12312": {
+   "en": "He gives his sword to preserve the kingdom of Gorn!",
+   "zh": "他奉上長劍，為保全高恩王國！"
+  },
+  "12314": {
+   "en": "He is attempting to thwart the Civil War that plagues the land of Gorn!",
+   "zh": "他正設法阻止蹂躪高恩大地的內戰！"
+  },
+  "12315": {
+   "en": " BOERIGARD@",
+   "zh": " 波利加德"
+  },
+  "12316": {
+   "en": "He disappeared not long ago, and we fear for the worst!",
+   "zh": "他不久前失蹤了，我們擔心最壞的情況！"
+  },
+  "12320": {
+   "en": " MURKATOS@",
+   "zh": " 穆卡托斯"
+  },
+  "12321": {
+   "en": "Alas, poor wizard Murkatos, the betrayer betrayed!",
+   "zh": "唉，可憐的法師穆卡托斯，叛徒反遭背叛！"
+  },
+  "12322": {
+   "en": "Poor Murkatos, once the great Wizard of Gorn, now a pile of bones...",
+   "zh": "可憐的穆卡托斯，昔日的高恩大法師，如今一堆白骨……"
+  },
+  "12323": {
+   "en": "Murkatos is dead!",
+   "zh": "穆卡托斯死了！"
+  },
+  "12325": {
+   "en": "\u001fWIZARD@",
+   "zh": "\u001f法師"
+  },
+  "12330": {
+   "en": "!ORKOGRE@",
+   "zh": "奧高高"
+  },
+  "12331": {
+   "en": "Orkogre Castle, now lying steeped in the blood of Gorn!",
+   "zh": "奧高高城，如今浸在高恩的血泊之中！"
+  },
+  "12335": {
+   "en": "\u001fCASTLE@",
+   "zh": "\u001f城堡"
+  },
+  "12340": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "12341": {
+   "en": "Damn the prophecies, I will have my kingdom restored!",
+   "zh": "去他的預言，我一定要重掌王國！"
+  },
+  "12345": {
+   "en": "!WAR%",
+   "zh": "戰爭%"
+  },
+  "12347": {
+   "en": "Civil War now ravages our land and army, the fall of the Gorn Empire!",
+   "zh": "內戰正肆虐我國的國土與軍隊，高恩帝國就要傾覆了！"
+  },
+  "12348": {
+   "en": "The Civil War that tears our lands, and rips the kingdom apart!",
+   "zh": "這場內戰撕裂我們的國土，把王國扯得四分五裂！"
+  },
+  "12350": {
+   "en": " PLAN%",
+   "zh": " 計畫%"
+  },
+  "12351": {
+   "en": "T'would destory the plan, should I let it pass my lips!",
+   "zh": "若我說出口，計畫就毀了！"
+  },
+  "12400": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12401": {
+   "en": "I am Lord Galiere, loyal servant to the throne of Gorn!",
+   "zh": "我是加列爾勳爵，高恩王座的忠僕！"
+  },
+  "12402": {
+   "en": "I seek to save our Empire from the tragedy of Civil War!",
+   "zh": "我要拯救帝國，使其免於內戰的悲劇！"
+  },
+  "12403": {
+   "en": "I shall fight unto the death to restore my liege's kingdom!",
+   "zh": "我將奮戰至死，恢復我主的王國！"
+  },
+  "12405": {
+   "en": "\u001fGALIERE@",
+   "zh": "\u001f加列爾"
+  },
+  "12410": {
+   "en": " ULGAR@",
+   "zh": " 烏爾加"
+  },
+  "12411": {
+   "en": "King Ulgar, ruler of the mighty Gorn Empire!",
+   "zh": "烏爾加王，強大高恩帝國的統治者！"
+  },
+  "12413": {
+   "en": "He contemplates the fate of our nation!",
+   "zh": "他正在思量我國的命運！"
+  },
+  "12415": {
+   "en": " BOERIGARD@",
+   "zh": " 波利加德"
+  },
+  "12416": {
+   "en": "He disappeared not long ago, and we fear for the worst!",
+   "zh": "他不久前失蹤了，我們擔心最壞的情況！"
+  },
+  "12420": {
+   "en": " MURKATOS@",
+   "zh": " 穆卡托斯"
+  },
+  "12421": {
+   "en": "Alas, poor wizard Murkatos, the betrayer betrayed!",
+   "zh": "唉，可憐的法師穆卡托斯，叛徒反遭背叛！"
+  },
+  "12422": {
+   "en": "Poor Murkatos, once the great Wizard of Gorn, now a pile of bones...",
+   "zh": "可憐的穆卡托斯，昔日的高恩大法師，如今一堆白骨……"
+  },
+  "12423": {
+   "en": "Murkatos is dead!",
+   "zh": "穆卡托斯死了！"
+  },
+  "12425": {
+   "en": "\u001fWIZARD@",
+   "zh": "\u001f法師"
+  },
+  "12430": {
+   "en": "!ORKOGRE@",
+   "zh": "奧高高"
+  },
+  "12431": {
+   "en": "Orkogre Castle, now lying steeped in the blood of Gorn!",
+   "zh": "奧高高城，如今浸在高恩的血泊之中！"
+  },
+  "12435": {
+   "en": "\u001fCASTLE@",
+   "zh": "\u001f城堡"
+  },
+  "12440": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "12441": {
+   "en": "All that unfolds is but the prophecy fulfilled!",
+   "zh": "眼前種種，不過是預言的應驗！"
+  },
+  "12445": {
+   "en": "!WAR%",
+   "zh": "戰爭%"
+  },
+  "12447": {
+   "en": "Civil War now ravages our land and army, the fall of the Gorn Empire!",
+   "zh": "內戰正肆虐我國的國土與軍隊，高恩帝國就要傾覆了！"
+  },
+  "12448": {
+   "en": "The Civil War that tears our lands, and rips the kingdom apart!",
+   "zh": "這場內戰撕裂我們的國土，把王國扯得四分五裂！"
+  },
+  "12500": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12501": {
+   "en": "I am Capt. Boerigard, a commander in the great Gorn Army!",
+   "zh": "我是波利加德上尉，偉大高恩大軍的指揮官！"
+  },
+  "12502": {
+   "en": "I seek to save our Empire from the tragedy of Civil War!",
+   "zh": "我要拯救帝國，使其免於內戰的悲劇！"
+  },
+  "12503": {
+   "en": "I embark upon the trail of our betrayers!",
+   "zh": "我已踏上追緝叛徒的征途！"
+  },
+  "12505": {
+   "en": "\u001fBOERIGARD@",
+   "zh": "\u001f波利加德"
+  },
+  "12510": {
+   "en": " ULGAR@",
+   "zh": " 烏爾加"
+  },
+  "12511": {
+   "en": "King Ulgar, Ruler of the mighty Gorn Empire!",
+   "zh": "烏爾加王，強大高恩帝國的統治者！"
+  },
+  "12513": {
+   "en": "He contemplates the fate of our nation!",
+   "zh": "他正在思量我國的命運！"
+  },
+  "12515": {
+   "en": " GALIERE@",
+   "zh": " 加列爾"
+  },
+  "12516": {
+   "en": "Lord Galiere, the regal knight, loyal to the throne of King Ulgar!",
+   "zh": "加列爾勳爵，尊貴的騎士，忠於烏爾加王的王座！"
+  },
+  "12517": {
+   "en": "He gives his sword to preserve the kingdom of Gorn!",
+   "zh": "他奉上長劍，為保全高恩王國！"
+  },
+  "12519": {
+   "en": "He is attempting to thwart the Civil War that plagues the land of Gorn!",
+   "zh": "他正設法阻止蹂躪高恩大地的內戰！"
+  },
+  "12520": {
+   "en": " MURKATOS@",
+   "zh": " 穆卡托斯"
+  },
+  "12521": {
+   "en": "Alas, poor wizard Murkatos, the betrayer betrayed!",
+   "zh": "唉，可憐的法師穆卡托斯，叛徒反遭背叛！"
+  },
+  "12522": {
+   "en": "Poor Murkatos, once the great Wizard of Gorn, now a pile of bones...",
+   "zh": "可憐的穆卡托斯，昔日高恩的偉大巫師，如今只剩一堆白骨……"
+  },
+  "12523": {
+   "en": "Murkatos is dead!",
+   "zh": "穆卡托斯死了！"
+  },
+  "12525": {
+   "en": "\u001fWIZARD@",
+   "zh": "\u001f巫師"
+  },
+  "12530": {
+   "en": "!ORKOGRE@",
+   "zh": "奧高高"
+  },
+  "12531": {
+   "en": "Orkogre Castle, now lying steeped in the blood of Gorn!",
+   "zh": "奧高高城堡，如今浸在高恩的血泊之中！"
+  },
+  "12535": {
+   "en": "\u001fCASTLE@",
+   "zh": "\u001f城堡"
+  },
+  "12540": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "12541": {
+   "en": "All that unfolds is but the prophecy fulfilled!",
+   "zh": "眼前開展的一切，無非預言應驗！"
+  },
+  "12545": {
+   "en": "!WAR%",
+   "zh": "戰爭%"
+  },
+  "12547": {
+   "en": "Civil War now ravages our land and army, the fall of the Gorn Empire!",
+   "zh": "內戰如今肆虐我國土與軍隊，高恩帝國已然傾覆！"
+  },
+  "12548": {
+   "en": "The Civil War that tears our lands, and rips the kingdom apart!",
+   "zh": "內戰撕裂我方國土，令王國分崩離析！"
+  },
+  "12550": {
+   "en": " BETRAYER%",
+   "zh": " 背叛者%"
+  },
+  "12551": {
+   "en": "Those who would strive to destroy the Gorn Nation!",
+   "zh": "那些處心積慮想毀滅高恩國的人！"
+  },
+  "12552": {
+   "en": "All were deceived, and now all do suffer!",
+   "zh": "眾人皆受騙，如今皆受苦！"
+  },
+  "12553": {
+   "en": "Out there, somewhere, and I shall find them!",
+   "zh": "他們就在某處，我一定會找到！"
+  },
+  "12554": {
+   "en": "\u001fBETRAY^0ED",
+   "zh": "\u001f背叛^0ED"
+  },
+  "12600": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12601": {
+   "en": "I am Master Xheng, Lord of the 5 Flowers...",
+   "zh": "我是鄭大師，五花門之主……"
+  },
+  "12602": {
+   "en": "I teach the school of 5 Flowers, and the way of the Holy Work...",
+   "zh": "我傳授五花門，以及聖工之道……"
+  },
+  "12603": {
+   "en": "I walk the lands to teach the way of the Holy Work!",
+   "zh": "我行走各地，傳授聖工之道！"
+  },
+  "12605": {
+   "en": "\u001fXHENG@",
+   "zh": "\u001f鄭"
+  },
+  "12610": {
+   "en": " TSHOBER@",
+   "zh": " 喬伯"
+  },
+  "12611": {
+   "en": "Brother TShober guards the Bridge to Munkharama...",
+   "zh": "喬伯修士守衛通往僧侶聖地的橋……"
+  },
+  "12615": {
+   "en": " RULAE@",
+   "zh": " 魯萊"
+  },
+  "12616": {
+   "en": "Father Rulae leads those who would walk the holy path!",
+   "zh": "魯萊神父引領欲行聖道之人！"
+  },
+  "12618": {
+   "en": "He spends his days at Thesminster Abbey, in New City...",
+   "zh": "他終日在新城的塞斯敏斯特修道院……"
+  },
+  "12620": {
+   "en": " MOSER@",
+   "zh": " 莫瑟"
+  },
+  "12621": {
+   "en": "I heard he makes very bad tea!",
+   "zh": "聽說他泡的茶很難喝！"
+  },
+  "12623": {
+   "en": "He attends the Apothecary in Munkharama...",
+   "zh": "他在僧侶聖地的藥鋪做事……"
+  },
+  "12625": {
+   "en": "!PALACE@",
+   "zh": "宮殿"
+  },
+  "12626": {
+   "en": "To walk the land of dreams seek the Palace of Munkharama...",
+   "zh": "欲踏上夢土，請尋訪僧侶聖地的宮殿……"
+  },
+  "12630": {
+   "en": "\u001fDREAM%",
+   "zh": "\u001f夢境%"
+  },
+  "12635": {
+   "en": "!MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "12637": {
+   "en": "The Holy City of Munkharama, the city of the Holy Work...",
+   "zh": "僧侶聖地這座聖城，正是聖工之城……"
+  },
+  "12638": {
+   "en": "The Holy City of Munkharama lies east of the Eyrn River...",
+   "zh": "僧侶聖地聖城位於厄恩河以東……"
+  },
+  "12640": {
+   "en": "\"HOLY PATH@",
+   "zh": "聖道"
+  },
+  "12641": {
+   "en": "All good brothers walk the holy path!",
+   "zh": "所有良善修士皆行聖道！"
+  },
+  "12642": {
+   "en": "Those who would live the Holy Work, walk the holy path!",
+   "zh": "想踐行聖工的人，要走聖道！"
+  },
+  "12643": {
+   "en": "Father Rulae of Thesminster Abbey shows the way of the holy path...",
+   "zh": "塞斯敏斯特修道院的魯萊神父會指引聖道……"
+  },
+  "12645": {
+   "en": "\"HOLY WORK%",
+   "zh": "聖工%"
+  },
+  "12647": {
+   "en": "We walk the path of the Holy Work, teachings of the divine Munkharam!",
+   "zh": "我們走聖工之路，那是神聖穆克哈拉姆的教誨！"
+  },
+  "12648": {
+   "en": "Those who walk the holy path live the Holy Work!",
+   "zh": "行聖道者踐行聖工！"
+  },
+  "12650": {
+   "en": "\u001fHOLY COVENANT@",
+   "zh": "\u001f聖約"
+  },
+  "12655": {
+   "en": " MUNKHARAM@",
+   "zh": " 穆克哈拉姆"
+  },
+  "12656": {
+   "en": "The divine prophet of all Munk, the holy Munkharam!",
+   "zh": "全穆克的神聖先知，神聖的穆克哈拉姆！"
+  },
+  "12658": {
+   "en": "The divine Munkharam leads all who walk the holy path...",
+   "zh": "神聖的穆克哈拉姆引領所有行聖道者……"
+  },
+  "12660": {
+   "en": " DANE%",
+   "zh": " 丹恩%"
+  },
+  "12661": {
+   "en": "The misguided Brothers of Dane, may we purge the lands of their filth!",
+   "zh": "誤入歧途的丹恩弟兄，願我們淨化其污穢！"
+  },
+  "12663": {
+   "en": "They spread their wickedness from the unholy Tower of Dionysceus...",
+   "zh": "他們自邪穢的狄奧尼修斯之塔散播邪惡……"
+  },
+  "12665": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "12666": {
+   "en": "The diseased Lord of the House of Dane, defiler of the Holy Work!",
+   "zh": "染病的丹恩家族之主，聖工的褻瀆者！"
+  },
+  "12668": {
+   "en": "He practices his unholy rituals from atop the Tower of Dionysceus...",
+   "zh": "他在狄奧尼修斯之塔頂舉行邪穢儀式……"
+  },
+  "12670": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克薩德"
+  },
+  "12675": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "12676": {
+   "en": "Beware the lying deceit and treachery of Kymas Turan!",
+   "zh": "當心基馬斯圖蘭的謊言、欺瞞與背叛！"
+  },
+  "12678": {
+   "en": "Kymas Turan flings his iniquitous filth upon all who come near...",
+   "zh": "基馬斯圖蘭將其邪穢污物潑向所有靠近者……"
+  },
+  "12680": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "12682": {
+   "en": "Dionysceus, the Unholy Tower, and House of the blaspheming Danes!",
+   "zh": "狄奧尼修斯，邪穢之塔，褻瀆丹恩一族之家！"
+  },
+  "12683": {
+   "en": "Beware, only the wicked walk through the unholy lands of Dane!",
+   "zh": "當心，唯有邪惡之徒才穿行於丹恩的邪穢之地！"
+  },
+  "12685": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "12686": {
+   "en": "The prophecy shall cleanse the evil from our lands!",
+   "zh": "預言將洗淨我方國土的邪惡！"
+  },
+  "12690": {
+   "en": "#FLOWER%",
+   "zh": "花%"
+  },
+  "12695": {
+   "en": "#DAHLIA@",
+   "zh": "大麗花"
+  },
+  "12800": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12801": {
+   "en": "I am Brother TShober, guardian of the Bridge to Munkharama...",
+   "zh": "我是喬伯修士，通往僧侶聖地之橋的守護者……"
+  },
+  "12802": {
+   "en": "I shall trounce the heads of the unholy blasphemous Dane!",
+   "zh": "我要痛毆邪穢瀆神的丹恩之輩！"
+  },
+  "12805": {
+   "en": "\u001fTSHOBER@",
+   "zh": "\u001f喬伯"
+  },
+  "12810": {
+   "en": " XHENG@",
+   "zh": " 鄭"
+  },
+  "12811": {
+   "en": "Master Xheng, Lord of the 5 Flowers...",
+   "zh": "鄭大師，五花門之主……"
+  },
+  "12812": {
+   "en": "Master Xheng keeps safe the Holy Work, and walks the rightful path...",
+   "zh": "鄭大師守護聖工，並行走正道……"
+  },
+  "12813": {
+   "en": "He is master of a secret school in Munkharama...",
+   "zh": "他是僧侶聖地一所秘密學院的院主……"
+  },
+  "12815": {
+   "en": " RULAE@",
+   "zh": " 魯萊"
+  },
+  "12816": {
+   "en": "Father Rulae teaches how to walk the holy path!",
+   "zh": "魯萊神父傳授如何行聖道！"
+  },
+  "12818": {
+   "en": "He spends his days at Thesminster Abbey, in New City...",
+   "zh": "他終日在新城的塞斯敏斯特修道院……"
+  },
+  "12820": {
+   "en": " MOSER@",
+   "zh": " 莫瑟"
+  },
+  "12821": {
+   "en": "I heard he makes very bad tea!",
+   "zh": "聽說他泡的茶很難喝！"
+  },
+  "12823": {
+   "en": "He attends the Apothecary in Munkharama...",
+   "zh": "他在僧侶聖地的藥鋪做事……"
+  },
+  "12825": {
+   "en": "!PALACE@",
+   "zh": "宮殿"
+  },
+  "12826": {
+   "en": "To walk the land of dreams seek the Palace of Munkharama...",
+   "zh": "欲踏上夢土，請尋訪僧侶聖地的宮殿……"
+  },
+  "12830": {
+   "en": "\u001fDREAM%",
+   "zh": "\u001f夢境%"
+  },
+  "12835": {
+   "en": "!MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "12837": {
+   "en": "The Holy City of Munkharama, the city of the Holy Work...",
+   "zh": "僧侶聖地這座聖城，正是聖工之城……"
+  },
+  "12838": {
+   "en": "The Holy City of Munkharama lies east of the Eyrn River...",
+   "zh": "僧侶聖地聖城位於厄恩河以東……"
+  },
+  "12840": {
+   "en": "\"HOLY PATH@",
+   "zh": "聖道"
+  },
+  "12841": {
+   "en": "All good brothers walk the holy path!",
+   "zh": "所有良善修士皆行聖道！"
+  },
+  "12842": {
+   "en": "Those who would live the Holy Work, walk the holy path!",
+   "zh": "想踐行聖工的人，要走聖道！"
+  },
+  "12843": {
+   "en": "Father Rulae of Thesminster Abbey shows the way of the holy path...",
+   "zh": "塞斯敏斯特修道院的魯萊神父會指引聖道……"
+  },
+  "12845": {
+   "en": "#HOLY WORK%",
+   "zh": "聖工%"
+  },
+  "12850": {
+   "en": "#HOLY COVENANT@",
+   "zh": "聖約"
+  },
+  "12855": {
+   "en": " MUNKHARAM@",
+   "zh": " 穆克哈拉姆"
+  },
+  "12856": {
+   "en": "The divine prophet of all Munk, the holy Munkharam!",
+   "zh": "全穆克的神聖先知，神聖的穆克哈拉姆！"
+  },
+  "12858": {
+   "en": "The divine Munkharam leads all who walk the holy path...",
+   "zh": "神聖的穆克哈拉姆引領所有行聖道者……"
+  },
+  "12860": {
+   "en": " DANE%",
+   "zh": " 丹恩%"
+  },
+  "12861": {
+   "en": "The blasphemous scorn of Dane, may their souls burn forever!",
+   "zh": "丹恩的瀆神之輩，願其靈魂永世燃燒！"
+  },
+  "12863": {
+   "en": "They spread their wickedness from the unholy Tower of Dionysceus...",
+   "zh": "他們自邪穢的狄奧尼修斯之塔散播邪惡……"
+  },
+  "12865": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "12866": {
+   "en": "The diseased Lord of the House of Dane, defiler of the Holy Work!",
+   "zh": "染病的丹恩家族之主，聖工的褻瀆者！"
+  },
+  "12868": {
+   "en": "Tis said he practices unholy rituals atop the Tower of Dionysceus...",
+   "zh": "據說他在狄奧尼修斯之塔頂舉行邪穢儀式……"
+  },
+  "12870": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克薩德"
+  },
+  "12875": {
+   "en": " KYMAS TURAN@",
+   "zh": " 基馬斯圖蘭"
+  },
+  "12876": {
+   "en": "Beware the lying deceit and treachery of Kymas Turan!",
+   "zh": "當心基馬斯圖蘭的謊言、欺瞞與背叛！"
+  },
+  "12878": {
+   "en": "Kymas Turan flings his iniquitous filth upon all who come near...",
+   "zh": "基馬斯圖蘭將其邪穢污物潑向所有靠近者……"
+  },
+  "12880": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "12882": {
+   "en": "Dionysceus, the Unholy Tower, and House of the blaspheming Danes!",
+   "zh": "狄奧尼修斯，邪穢之塔，褻瀆丹恩一族之家！"
+  },
+  "12883": {
+   "en": "Beware, only the wicked walk through the unholy lands of Dane!",
+   "zh": "當心，唯有邪惡之徒才穿行於丹恩的邪穢之地！"
+  },
+  "12885": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "12886": {
+   "en": "The prophecy shall purge the unholy, and leads us to salvation!",
+   "zh": "預言將滌除邪穢，引我們走向救贖！"
+  },
+  "12900": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "12901": {
+   "en": "My name is Ratsputin, and I enforce the will of the Razuka!",
+   "zh": "我叫鼠拉斯普丁，我執行拉祖卡的意志！"
+  },
+  "12903": {
+   "en": "That is my business...",
+   "zh": "那是我的事……"
+  },
+  "12905": {
+   "en": "\u001fRATSPUTIN@",
+   "zh": "\u001f鼠拉斯普丁"
+  },
+  "12910": {
+   "en": " BARLONE^0'",
+   "zh": " 巴隆內^0'"
+  },
+  "12911": {
+   "en": "Don Barlone' is head of the family...",
+   "zh": "唐·巴隆內是家族之首……"
+  },
+  "12913": {
+   "en": "That is not for me to say...",
+   "zh": "這輪不到我說……"
+  },
+  "12915": {
+   "en": " MICK THE PICK@",
+   "zh": " 撬鎖米克"
+  },
+  "12916": {
+   "en": "Mick the Pick, fleetest of them all!",
+   "zh": "撬鎖米克，一夥人裡手最快的！"
+  },
+  "12918": {
+   "en": "Who knows?!",
+   "zh": "誰知道？！"
+  },
+  "12920": {
+   "en": " BLINDMEIS@",
+   "zh": " 盲麥斯"
+  },
+  "12921": {
+   "en": "Ah! Old Blindmeis... &heh heh heh...",
+   "zh": "啊！老盲麥斯……&嘿嘿嘿……"
+  },
+  "12923": {
+   "en": "I'm sure you'll bump into him sooner or later...",
+   "zh": "你遲早會撞見他的……"
+  },
+  "12925": {
+   "en": "!RATTKIN RUINS@",
+   "zh": "鼠人遺跡"
+  },
+  "12927": {
+   "en": "Our forest home in the northern lands...",
+   "zh": "我們位於北方的森林家園……"
+  },
+  "12928": {
+   "en": "In the woods, down the valley, through the vale, over the mountains!",
+   "zh": "在林間，下到山谷，穿過溪谷，翻越群山！"
+  },
+  "12930": {
+   "en": "\u001fFOREST HOME@",
+   "zh": "\u001f森林家園"
+  },
+  "12935": {
+   "en": "!FUNHOUSE@",
+   "zh": "趣味屋"
+  },
+  "12936": {
+   "en": "The old Funhouse, perhaps best to stay away from there...",
+   "zh": "老趣味屋，最好別靠近那裡……"
+  },
+  "12940": {
+   "en": "!RATSKELL^0'S",
+   "zh": "拉茨凱爾^0'S"
+  },
+  "12941": {
+   "en": "Ratskell's has many unusual items for the fleet of hand!",
+   "zh": "拉茨凱爾店裡有許多巧手之人的稀奇貨品！"
+  },
+  "12943": {
+   "en": "Ratskell's shoppe is in our forest home...",
+   "zh": "拉茨凱爾的店就在我們的森林家園……"
+  },
+  "12945": {
+   "en": "\"GUILD%",
+   "zh": "公會%"
+  },
+  "13000": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "13001": {
+   "en": "I'm Mick the Pick, baddest Rattkin in the land!",
+   "zh": "我是撬鎖米克，全大地最狠的鼠人！"
+  },
+  "13003": {
+   "en": "I go where I please!",
+   "zh": "我想去哪就去哪！"
+  },
+  "13005": {
+   "en": "\u001fMICK THE PICK@",
+   "zh": "\u001f撬鎖米克"
+  },
+  "13010": {
+   "en": " BARLONE^0'",
+   "zh": " 巴隆內^0'"
+  },
+  "13011": {
+   "en": "Don Barlone' is head of the family of Razuka!",
+   "zh": "唐·巴隆內是拉祖卡家族的首領！"
+  },
+  "13013": {
+   "en": "His eyes are everywhere!",
+   "zh": "他的眼線無所不在！"
+  },
+  "13015": {
+   "en": " RATSPUTIN@",
+   "zh": " 鼠拉斯普丁"
+  },
+  "13016": {
+   "en": "Ratsputin, the gathering paw of the Razuka!",
+   "zh": "鼠拉斯普丁，拉祖卡的召集之爪！"
+  },
+  "13018": {
+   "en": "He's making the rounds, I'm sure!",
+   "zh": "他肯定正在四處巡視！"
+  },
+  "13020": {
+   "en": " BERTIE^0'S",
+   "zh": " 貝提^0'S"
+  },
+  "13021": {
+   "en": "Bertie has lots of sharp goodies for sale...",
+   "zh": "貝提有好多鋒利的好貨要賣……"
+  },
+  "13023": {
+   "en": "Bertie's shoppe, in our forest home...",
+   "zh": "貝提的店，在我們的森林家園……"
+  },
+  "13025": {
+   "en": " BLINDMEIS@",
+   "zh": " 盲麥斯"
+  },
+  "13026": {
+   "en": "Don't be fooled by Old Blindmeis, he's fastest Rattkin in the land!",
+   "zh": "別被老盲麥斯騙了，他是全大地最快的鼠人！"
+  },
+  "13028": {
+   "en": "Not around me, I hope!",
+   "zh": "希望別在我附近！"
+  },
+  "13030": {
+   "en": "!RATTKIN RUINS@",
+   "zh": "鼠人遺跡"
+  },
+  "13032": {
+   "en": "Our forest home in the northern lands...",
+   "zh": "我們在北方的森林家園……"
+  },
+  "13033": {
+   "en": "In the woods, down the valley, through the vale, over the mountains!",
+   "zh": "在樹林裡，下到谷底，穿過谷地，翻過群山！"
+  },
+  "13035": {
+   "en": "\u001fFOREST HOME@",
+   "zh": "\u001f森林家園"
+  },
+  "13040": {
+   "en": "!FUNHOUSE@",
+   "zh": "玩笑屋"
+  },
+  "13041": {
+   "en": "The old Funhouse, it's been closed since I can remember...",
+   "zh": "老玩笑屋，自我有記憶以來就一直關著……"
+  },
+  "13043": {
+   "en": "The old Funhouse, on the south side of our forest home...",
+   "zh": "老玩笑屋，在我們森林家園的南邊……"
+  },
+  "13045": {
+   "en": "!RATSKELL^0'S",
+   "zh": "拉茨凱爾^0'S"
+  },
+  "13046": {
+   "en": "Ratskell's has many unusual items for the fleet of hand!",
+   "zh": "拉茨凱爾店裡有許多怪玩意，留給手快的人！"
+  },
+  "13048": {
+   "en": "Ratskell's shoppe is in our forest home...",
+   "zh": "拉茨凱爾的店在我們的森林家園……"
+  },
+  "13050": {
+   "en": "\"GUILD%",
+   "zh": "公會%"
+  },
+  "13052": {
+   "en": "Old Blindmeis might be able to help you, heh heh...",
+   "zh": "老盲麥斯也許能幫上你的忙，嘿嘿……"
+  },
+  "13055": {
+   "en": " RAZUKA@",
+   "zh": " 拉祖卡"
+  },
+  "13056": {
+   "en": "The Razuka, the mighty paw of the land!",
+   "zh": "拉祖卡，這片土地的強大之爪！"
+  },
+  "13058": {
+   "en": "The Razuka are everywhere!",
+   "zh": "拉祖卡無所不在！"
+  },
+  "13060": {
+   "en": "\"THIEF^1VES",
+   "zh": "盜賊^1VES"
+  },
+  "13062": {
+   "en": "Masters of the trade belong to the Guild...",
+   "zh": "這一行的頂尖好手都屬於公會……"
+  },
+  "13100": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "13101": {
+   "en": "I am he called Kymas Turan, deliverer of the holy word of Dane!",
+   "zh": "我是基馬斯圖蘭，丹恩聖言的傳道者！"
+  },
+  "13103": {
+   "en": "I travel the lands to help the wicked and sinful see the divine light!",
+   "zh": "我行走各地，助惡人罪人看見神聖之光！"
+  },
+  "13105": {
+   "en": "\u001fKYMAS TURAN@",
+   "zh": "\u001f基馬斯圖蘭"
+  },
+  "13110": {
+   "en": " MAGNA DANE@",
+   "zh": " 大丹恩"
+  },
+  "13111": {
+   "en": "The Magna Dane, ruler of the House of Dane!",
+   "zh": "大丹恩，丹恩家之主！"
+  },
+  "13113": {
+   "en": "The Magna Dane rules from atop the Great Tower of Dane!",
+   "zh": "大丹恩從丹恩巨塔的塔頂統治！"
+  },
+  "13115": {
+   "en": "\u001fTORQUESADE@",
+   "zh": "\u001f托克薩德"
+  },
+  "13120": {
+   "en": " ALMAGORTE@",
+   "zh": " 阿爾馬戈特"
+  },
+  "13121": {
+   "en": "Brother Almagorte, welcomes new initiates into the House of Dane!",
+   "zh": "阿爾馬戈特修士，迎接新入會者進入丹恩家！"
+  },
+  "13123": {
+   "en": "Brother Almagorte may be found in the Great Tower of Dane!",
+   "zh": "阿爾馬戈特修士可在丹恩巨塔找到！"
+  },
+  "13125": {
+   "en": " TOLLEN DANE@",
+   "zh": " 托倫·丹恩"
+  },
+  "13126": {
+   "en": "Speak kindly of the brother that helps all arise in the House of Dane!",
+   "zh": "好好稱許那位幫助眾人在丹恩家晉升的修士！"
+  },
+  "13128": {
+   "en": "He travels the sacred halls of the Tower of Dane!",
+   "zh": "他行走於丹恩巨塔的聖堂！"
+  },
+  "13130": {
+   "en": " BELCANZOR@",
+   "zh": " 貝爾坎佐"
+  },
+  "13131": {
+   "en": "Brother Belcanzor helps those in need of special assistance...",
+   "zh": "貝爾坎佐修士幫助需要特殊協助的人……"
+  },
+  "13133": {
+   "en": "The good brother Belcanzor is here and there, as he pleases...",
+   "zh": "善良的貝爾坎佐修士隨心所至，四處雲遊……"
+  },
+  "13135": {
+   "en": "!DIONYSCEUS@",
+   "zh": "狄奧尼修斯"
+  },
+  "13136": {
+   "en": "Dionysceus, the Great Tower, the House of Dane!",
+   "zh": "狄奧尼修斯，巨塔，丹恩家！"
+  },
+  "13138": {
+   "en": "Dionysceus, the Great Tower which shadows the Myrmideon Forest...",
+   "zh": "狄奧尼修斯，籠罩蜜爾米頓森林的巨塔……"
+  },
+  "13140": {
+   "en": "\u001fTOWER@",
+   "zh": "\u001f巨塔"
+  },
+  "13145": {
+   "en": "\"HOUSE OF DANE@",
+   "zh": "丹恩家"
+  },
+  "13147": {
+   "en": "The holy House of Dane, the Great Tower of the Righteous!",
+   "zh": "神聖的丹恩家，義者的巨塔！"
+  },
+  "13148": {
+   "en": "The House of Dane, the Great Tower of Dionysceus!",
+   "zh": "丹恩家，狄奧尼修斯巨塔！"
+  },
+  "13150": {
+   "en": " HIGH FATHER%",
+   "zh": " 高階神父%"
+  },
+  "13151": {
+   "en": "Only the most deserved may hope to join the ranks of the High Fathers!",
+   "zh": "唯有最夠資格者，方能冀望晉升高階神父之列！"
+  },
+  "13153": {
+   "en": "The High Fathers sit by the throne of the holy Magna Dane!",
+   "zh": "高階神父們坐在神聖大丹恩的王座之旁！"
+  },
+  "13155": {
+   "en": "34}MAGIC@",
+   "zh": "34}魔法"
+  },
+  "13157": {
+   "en": "Those rising high in the House of Dane shall know great power!",
+   "zh": "在丹恩家高升者，將知曉強大的力量！"
+  },
+  "13160": {
+   "en": " XHENG@",
+   "zh": " 鄭"
+  },
+  "13161": {
+   "en": "Speak not that sinful name, lest thee summon the Magna Dane!",
+   "zh": "別提那罪惡之名，免得召來大丹恩！"
+  },
+  "13165": {
+   "en": " TSHOBER@",
+   "zh": " 喬伯"
+  },
+  "13166": {
+   "en": "We seek to still the tongue of that drunken evil cur!",
+   "zh": "我們要讓那醉鬼惡犬閉上嘴！"
+  },
+  "13170": {
+   "en": " RULAE@",
+   "zh": " 魯萊"
+  },
+  "13171": {
+   "en": "Father Rulae, the unfortunate fool of the blaspheming Munk!",
+   "zh": "魯萊神父，瀆神穆克的可憐蠢貨！"
+  },
+  "13173": {
+   "en": "They say he spreads the lies of Munk in the heart of New City...",
+   "zh": "據說他在新城中心散播穆克的謊言……"
+  },
+  "13175": {
+   "en": "!MUNKHARAMA@",
+   "zh": "僧侶聖地"
+  },
+  "13177": {
+   "en": "Let not the righteous set foot within that place of evil!",
+   "zh": "義者切勿踏進那邪惡之地！"
+  },
+  "13180": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "13182": {
+   "en": "By prophecy the world shall end and shallow the unrighteous!",
+   "zh": "依預言，世界將終結，不義者將遭吞沒！"
+  },
+  "13185": {
+   "en": "\"WORD%",
+   "zh": "聖言%"
+  },
+  "13187": {
+   "en": "Repent, O ye sinners! &Repent thy evil and wicked ways before the end!",
+   "zh": "懺悔吧，罪人們！&在終末前懺悔你邪惡的行徑！"
+  },
+  "13190": {
+   "en": "\"DIVINE LIGHT@",
+   "zh": "神聖之光"
+  },
+  "13191": {
+   "en": "May the divine light guide thee!",
+   "zh": "願神聖之光引導你！"
+  },
+  "13300": {
+   "en": " YOU@",
+   "zh": " 你"
+  },
+  "13301": {
+   "en": "I am Jan-Ette, of the Helazoid Legions...",
+   "zh": "我是珍妮特，赫詹軍團的一員……"
+  },
+  "13303": {
+   "en": "I am searching for the sign of the coming of the Crusaders!",
+   "zh": "我正在尋找十字軍降臨的預兆！"
+  },
+  "13305": {
+   "en": "\u001fJAN-ETTE@",
+   "zh": "\u001f珍妮特"
+  },
+  "13310": {
+   "en": " KE-LI@",
+   "zh": " 柯麗"
+  },
+  "13311": {
+   "en": "Dame Ke-Li, the Queen of the City of Sky!",
+   "zh": "柯麗夫人，天空之城的女王！"
+  },
+  "13313": {
+   "en": "Dame Ke-Li reigns over the City of Sky!",
+   "zh": "柯麗夫人統治著天空之城！"
+  },
+  "13315": {
+   "en": " HELAZOID@",
+   "zh": " 赫詹族"
+  },
+  "13316": {
+   "en": "We are the Helazoid Legions, Defenders of the City of Sky!",
+   "zh": "我們是赫詹軍團，天空之城的守護者！"
+  },
+  "13320": {
+   "en": " HIGARDI@",
+   "zh": " 希加爾迪"
+  },
+  "13321": {
+   "en": "The Higardi were our distant ancestors, long ago disappeared...",
+   "zh": "希加爾迪人是我們遙遠的祖先，早已消失……"
+  },
+  "13323": {
+   "en": "The Higardi left our world many years ago...",
+   "zh": "希加爾迪人多年前離開了我們的世界……"
+  },
+  "13325": {
+   "en": "!CITY OF SKY@",
+   "zh": "天空之城"
+  },
+  "13326": {
+   "en": "The City of Sky is the home of our Helazoid Legions...",
+   "zh": "天空之城是我們赫詹軍團的家園……"
+  },
+  "13328": {
+   "en": "The City of Sky lies far to the south, across the great sea...",
+   "zh": "天空之城在遙遠的南方，隔著大海……"
+  },
+  "13330": {
+   "en": "\u001fHIGARDIA@",
+   "zh": "\u001f希加爾迪亞"
+  },
+  "13335": {
+   "en": "\"ROCKET%",
+   "zh": "火箭%"
+  },
+  "13336": {
+   "en": "Only we of the Helazoid Legion may ride upon the flying steeds...",
+   "zh": "只有我們赫詹軍團能乘飛天坐騎……"
+  },
+  "13338": {
+   "en": "We have many flying machines in the City of Sky!",
+   "zh": "我們在天空之城有許多飛行機器！"
+  },
+  "13340": {
+   "en": "\u001fSLED%",
+   "zh": "\u001f雪橇%"
+  },
+  "13345": {
+   "en": "\"MACHINE%",
+   "zh": "機器%"
+  },
+  "13346": {
+   "en": "In the City of Sky there are many machines...",
+   "zh": "天空之城裡有許多機器……"
+  },
+  "13350": {
+   "en": " CRUSADER%",
+   "zh": " 十字軍%"
+  },
+  "13351": {
+   "en": "We await the coming of the Crusaders!",
+   "zh": "我們等候十字軍的降臨！"
+  },
+  "13355": {
+   "en": " PHOONZANG@",
+   "zh": " 豐贊"
+  },
+  "13356": {
+   "en": "By his name, surely you be the heralds of the prophecy!",
+   "zh": "以他之名，你們必是預言的先驅！"
+  },
+  "13360": {
+   "en": "\"PROPHECY^1IES",
+   "zh": "預言^1IES"
+  },
+  "13361": {
+   "en": "When the prophecy is complete, we shall sail into the heavens forever!",
+   "zh": "預言完成之時，我們將永遠航向天際！"
+  },
+  "13365": {
+   "en": "\u001fSIGN%",
+   "zh": "\u001f預兆%"
+  },
+  "13370": {
+   "en": "\"DESTINY@",
+   "zh": "命運"
+  },
+  "13371": {
+   "en": "Let destiny prevail!",
+   "zh": "願命運得勝！"
+  },
   "14000": {
    "en": "* TEMPLE *",
    "zh": "* 神廟 *"
@@ -9240,6 +11472,1514 @@
    "en": "discern the faint remnants of a ring of reddish dye...",
    "zh": "能辨認出一圈紅色染料的淡淡殘痕……"
   },
+  "14351": {
+   "en": "!The Mind of Man doth speak a tongue all its own, beyond",
+   "zh": "人類的心靈說著一套自己的語言，超越"
+  },
+  "14352": {
+   "en": "all language and all words...",
+   "zh": "一切語言與一切文字……"
+  },
+  "14353": {
+   "en": "@So too, doth the mind live in meanings and symbols, comprised of",
+   "zh": "心靈亦復如是，活在意義與象徵之中，由"
+  },
+  "14354": {
+   "en": "transient glimpses which signify its ephemeral understanding...",
+   "zh": "瞬息的瞥見所組成，標記其倏忽的領悟……"
+  },
+  "14355": {
+   "en": "@As likened unto the crystal orbs of old mystics, piercing the veils",
+   "zh": "正如古老術士的水晶球，能穿透"
+  },
+  "14356": {
+   "en": "of the unknown as a channel for hidden knowledge, likewise the mind",
+   "zh": "未知的帷幕，作為隱密知識的通道；心靈也"
+  },
+  "14357": {
+   "en": "makes crystal its symbols, that from this may be wrested forth",
+   "zh": "將其象徵凝成水晶，使人得以從中萃取出"
+  },
+  "14358": {
+   "en": "the perceptions of the man...",
+   "zh": "此人的感知……"
+  },
+  "14359": {
+   "en": "@The Dragon for \"D\", the first of a word, and Obelisk for \"O\", that",
+   "zh": "龍代表「D」，居一字之首；方尖碑代表「O」，"
+  },
+  "14360": {
+   "en": "which should follow...",
+   "zh": "緊隨其後……"
+  },
+  "14361": {
+   "en": "@The Moon stands for \"M\", and Island for \"I\", which is marked by the",
+   "zh": "月亮代表「M」，島嶼代表「I」，其上"
+  },
+  "14362": {
+   "en": "sign of the Cross...",
+   "zh": "以十字為記……"
+  },
+  "14363": {
+   "en": "@The Nether and Night, the realms of the dark, reveal the letter of",
+   "zh": "幽冥與黑夜，黑暗的疆域，揭示了"
+  },
+  "14364": {
+   "en": "\"N\" behind Death...",
+   "zh": "死亡背後的「N」……"
+  },
+  "14365": {
+   "en": "@And as the Star signs for Astral, let this be the \"A\", and lastly the",
+   "zh": "星辰象徵星界，此即為「A」；最後是"
+  },
+  "14366": {
+   "en": "Egg which is \"E\"...",
+   "zh": "蛋，即「E」……"
+  },
+  "14367": {
+   "en": "@Thus may thee glimpse one meaning of the crystal, which lies branched",
+   "zh": "如此，你可窺見水晶的一層意義，它分岔於"
+  },
+  "14368": {
+   "en": "among many thousands of combinations...",
+   "zh": "千萬種組合之中……"
+  },
+  "14369": {
+   "en": "@Thus may thee glimpse one meaning of life, which lies branched",
+   "zh": "如此，你可窺見生命的一層意義，它分岔於"
+  },
+  "14370": {
+   "en": "among many thousands of dimensions...",
+   "zh": "千萬個維度之中……"
+  },
+  "14401": {
+   "en": "!As thy gaze doth turn to the heavens to behold the mystery of",
+   "zh": "當你的目光轉向天際，欲一窺"
+  },
+  "14402": {
+   "en": "the stars, thee looks into the mirror of thy soul...",
+   "zh": "星辰的奧秘時，你便是在凝望自己靈魂的鏡子……"
+  },
+  "14403": {
+   "en": "@Dost thou see the deep well of all things...",
+   "zh": "你可曾看見萬物的深井……"
+  },
+  "14404": {
+   "en": "@Or only the swirling chaos of anarchy in motion...",
+   "zh": "或只見亂象的漩渦流轉不息……"
+  },
+  "14405": {
+   "en": "@Therein doth the memories of past meet the visions of future, and",
+   "zh": "在那裡，過去的記憶與未來的幻象交會，"
+  },
+  "14406": {
+   "en": "therein lies the inevitable destiny of all Men...",
+   "zh": "一切人類無可避免的命運也寓於其中……"
+  },
+  "14407": {
+   "en": "@To divine the order from the chaos, the beauty within",
+   "zh": "從混沌中占卜出秩序，在傾瀉喧騰的"
+  },
+  "14408": {
+   "en": "the cascading tumult of the world in which he is both",
+   "zh": "世界裡看出美——人在這世界中，既被它"
+  },
+  "14409": {
+   "en": "surrounded and a part...",
+   "zh": "環繞，亦是其一部分……"
+  },
+  "14410": {
+   "en": "@This is the unique gift of Man, that by which he alone is",
+   "zh": "這是人類獨一無二的天賦，唯獨藉著它，人"
+  },
+  "14411": {
+   "en": "separated from all others...",
+   "zh": "才與萬物分別……"
+  },
+  "14412": {
+   "en": "@This is his purpose, his significance, and his meaning...",
+   "zh": "這是他的目的、他的價值、他的意義……"
+  },
+  "14413": {
+   "en": "@This is that by which he doth witness the relentless torrents",
+   "zh": "藉此，他見證變化無情的洪流，"
+  },
+  "14414": {
+   "en": "of change, as all life doth move both within him and without,",
+   "zh": "一切生命在他之內與之外流動，"
+  },
+  "14415": {
+   "en": "and from thus divine order, that he might realize his purpose and",
+   "zh": "並從這般占得的秩序，領悟自身的"
+  },
+  "14416": {
+   "en": "his meaning...",
+   "zh": "目的與意義……"
+  },
+  "14417": {
+   "en": "@Look upon life as thee may look upon the stone...",
+   "zh": "看待生命，一如你觀看那石頭……"
+  },
+  "14418": {
+   "en": "@And create thee then thine own order...",
+   "zh": "然後，創造出你自己的秩序……"
+  },
+  "14419": {
+   "en": "@Look first at a man, and if thee looks rightly, then soon shall",
+   "zh": "先注視一個人；若你看得正確，不久便將"
+  },
+  "14420": {
+   "en": "ye come full circle...",
+   "zh": "繞回原點……"
+  },
+  "14421": {
+   "en": "@Then look beneath him, and if thee looks rightly, then soon shall",
+   "zh": "再注視他的下方；若你看得正確，不久又將"
+  },
+  "14422": {
+   "en": "thee once again come full circle...",
+   "zh": "再次繞回原點……"
+  },
+  "14423": {
+   "en": "@Thus may thee divine the puzzle from the pieces, and from it derive",
+   "zh": "如此，你便能從碎片占卜出謎題，並從而"
+  },
+  "14424": {
+   "en": "thy solutions...",
+   "zh": "得出解答……"
+  },
+  "14425": {
+   "en": "@Thus may thee divine the order from the chaos, and from it derive",
+   "zh": "如此，你便能從混沌占卜出秩序，並從而"
+  },
+  "14426": {
+   "en": "thy meanings...",
+   "zh": "領悟意義……"
+  },
+  "14451": {
+   "en": "!And one journey leads yet into another, so too doth all life",
+   "zh": "一段旅程引向下一段旅程，一切生命也是如此"
+  },
+  "14452": {
+   "en": "continue onward...",
+   "zh": "繼續前行……"
+  },
+  "14453": {
+   "en": "@Within one seed doth lie the secrets of the universe, within",
+   "zh": "一粒種子裡藏著宇宙的奧秘，一個"
+  },
+  "14454": {
+   "en": "one cell the secrets of life, and within thee the secrets of",
+   "zh": "細胞裡藏著生命的奧秘，而你體內藏著"
+  },
+  "14455": {
+   "en": "thy mystery...",
+   "zh": "你的奧秘……"
+  },
+  "14456": {
+   "en": "@Thou art the key!",
+   "zh": "你就是鑰匙！"
+  },
+  "14500": {
+   "en": "- FOOLS -",
+   "zh": "—愚人—"
+  },
+  "14501": {
+   "en": "!The map is a sketch of a vast wilderness, and drawn within it a",
+   "zh": "這張地圖是一片廣袤荒野的草圖，圖中畫著"
+  },
+  "14502": {
+   "en": "trail which ends with an \"X\"...",
+   "zh": "一條以「X」作結的小徑……"
+  },
+  "15000": {
+   "en": "A gentle wind blows quietly through the trees,",
+   "zh": "微風輕輕吹過樹林，"
+  },
+  "15001": {
+   "en": "and for the first time in many months you feel alive...",
+   "zh": "數月來你第一次感覺到自己活著……"
+  },
+  "15002": {
+   "en": "@At long last free from the stuffy confines of the",
+   "zh": "終於擺脫那台載你來此的"
+  },
+  "15003": {
+   "en": "strange flying machine that brought you here, it is good",
+   "zh": "奇異飛行器悶窒的束縛，暢快"
+  },
+  "15004": {
+   "en": "to breathe deep these primal airs...",
+   "zh": "深吸這原始的氣息，真好……"
+  },
+  "15005": {
+   "en": "@An odd tingling sensation begins to stir inside you,",
+   "zh": "一種奇異的刺麻感開始在你體內甦醒，"
+  },
+  "15006": {
+   "en": "unfamiliar at first, but then you remember...",
+   "zh": "起初陌生，但隨後你想起了……"
+  },
+  "15007": {
+   "en": "@And with memory comes an exciting recognition, as if",
+   "zh": "隨著記憶湧現一股振奮的領悟，彷彿"
+  },
+  "15008": {
+   "en": "suddenly finding a thing thought lost long ago...",
+   "zh": "突然尋回以為早已失去之物……"
+  },
+  "15009": {
+   "en": "@For within the air you once again detect the",
+   "zh": "因為你再度自空氣中察覺到"
+  },
+  "15010": {
+   "en": "unmistakable scent of danger...",
+   "zh": "那錯不了的危險氣息……"
+  },
+  "15020": {
+   "en": "Walking through the trees, you suddenly stop...",
+   "zh": "走在樹林間，你突然停步……"
+  },
+  "15021": {
+   "en": "@A torrent of thought sweeps past you, dark haunted",
+   "zh": "一股思緒的洪流掃過你，陰暗駭人的"
+  },
+  "15022": {
+   "en": "images, escaping from behind the",
+   "zh": "影像，正從你自己內心思緒"
+  },
+  "15023": {
+   "en": "locked confines of your own mentations...",
+   "zh": "緊鎖的禁錮背後竄逃而出……"
+  },
+  "15024": {
+   "en": "@Like a shock, your mind begins to race with the impact",
+   "zh": "如遭電擊，你的思緒開始奔騰，承受著"
+  },
+  "15025": {
+   "en": "of all events that have brought you to this place...",
+   "zh": "將你帶到此地的一切事件的衝擊……"
+  },
+  "15026": {
+   "en": "@Does Mankind have a destiny?",
+   "zh": "人類有宿命嗎？"
+  },
+  "15027": {
+   "en": "@Does the Universe have a destiny?",
+   "zh": "宇宙有宿命嗎？"
+  },
+  "15028": {
+   "en": "@Could it be possible to alter the Universe of all that",
+   "zh": "是否有可能改變這由過往一切"
+  },
+  "15029": {
+   "en": "has been before?",
+   "zh": "所構成的宇宙？"
+  },
+  "15030": {
+   "en": "@Or is all that can be, to remain all that is...",
+   "zh": "抑或可能的一切，終將只是現有的一切……"
+  },
+  "15031": {
+   "en": "@Who is this Dark Savant, this dark herald of change?",
+   "zh": "這黑暗賢者究竟是誰，這變局的黑暗先驅？"
+  },
+  "15032": {
+   "en": "@And what role shall you play?",
+   "zh": "而你又將扮演什麼角色？"
+  },
+  "15033": {
+   "en": "@Will your actions assist the approach of a new",
+   "zh": "你的作為將協助宇宙中新"
+  },
+  "15034": {
+   "en": "order within the universe, or hasten the onslaught of",
+   "zh": "秩序的到來，還是加速它自身"
+  },
+  "15035": {
+   "en": "its own destruction...",
+   "zh": "毀滅的狂潮……"
+  },
+  "15036": {
+   "en": "@And how can you be certain of the difference...",
+   "zh": "而你又如何確定兩者的差別……"
+  },
+  "15037": {
+   "en": "@These thoughts begin to fade as quickly as they",
+   "zh": "這些念頭消退之快一如它們"
+  },
+  "15038": {
+   "en": "appeared, and soon your gaze returns to the forest",
+   "zh": "出現之時，很快你的目光回到你"
+  },
+  "15039": {
+   "en": "where you stand...",
+   "zh": "佇立的森林……"
+  },
+  "15040": {
+   "en": "@Perhaps somewhere here on this new world lie the answers...",
+   "zh": "或許這新世界的某處就藏著答案……"
+  },
+  "15041": {
+   "en": "@And then again, perhaps not...",
+   "zh": "但話說回來，也或許沒有……"
+  },
+  "15060": {
+   "en": "You slowly awaken upon the ground, knowing not",
+   "zh": "你緩緩在地上醒來，不知"
+  },
+  "15061": {
+   "en": "how you got here...",
+   "zh": "自己怎麼來的……"
+  },
+  "15062": {
+   "en": "@The last thing you remember was walking amongst the",
+   "zh": "你記得的最後一件事，是在"
+  },
+  "15063": {
+   "en": "pretty flowers and your eyes began to feel drowsy...",
+   "zh": "美麗的花叢間漫步，眼皮開始沉重……"
+  },
+  "15070": {
+   "en": "Before you lies a vast field of wild orchids, rich in",
+   "zh": "眼前是大片野生蘭花田，色彩"
+  },
+  "15071": {
+   "en": "color, strong in fragrant aroma...",
+   "zh": "濃豔，芳香濃鬱……"
+  },
+  "15072": {
+   "en": "@A light cloud hovers a few feet above the field,",
+   "zh": "一朵輕雲懸在花田上方幾尺處，"
+  },
+  "15073": {
+   "en": "as if made of thick pollen arising from the flowers...",
+   "zh": "彷彿是由花朵升起的花粉積成……"
+  },
+  "15075": {
+   "en": "Standing amidst the pungent polleny poppy field, you stare agape at a",
+   "zh": "站在氣味刺鼻、花粉瀰漫的罌粟田裡，你張口結舌望著"
+  },
+  "15076": {
+   "en": "large grey object which suddenly swooshes through the sky above you...",
+   "zh": "一個突然咻地掠過你頭頂天空的巨大灰色物體……"
+  },
+  "15077": {
+   "en": "@You know what it is, and yet it cannot be...",
+   "zh": "你知道那是什麼，卻又不可能……"
+  },
+  "15078": {
+   "en": "@There, far away and high above, went a great grey flying whale...",
+   "zh": "遠在高處，一頭巨大的灰色飛鯨游過……"
+  },
+  "15080": {
+   "en": "There is a cold dullness to the town of New City...",
+   "zh": "新城市鎮上瀰漫著一股冰冷死寂……"
+  },
+  "15081": {
+   "en": "@As you pause and listen to the howl of the wind, whistling",
+   "zh": "你駐足傾聽風的怒號，那呼嘯"
+  },
+  "15082": {
+   "en": "through the alleyways of the city, you can almost",
+   "zh": "穿過城中巷弄，你幾乎能"
+  },
+  "15083": {
+   "en": "hear faint whispers from behind",
+   "zh": "聽見細微的低語自"
+  },
+  "15084": {
+   "en": "the drawn shuttered windows...",
+   "zh": "緊閉的百葉窗後傳來……"
+  },
+  "15085": {
+   "en": "@And the clatter of footsteps underneath the",
+   "zh": "還有嘈雜的腳步聲，就在紛飛"
+  },
+  "15086": {
+   "en": "rustle of scattering leaves...",
+   "zh": "落葉的沙沙聲之下……"
+  },
+  "15087": {
+   "en": "@As if some dark cloud had descended upon the place, choking",
+   "zh": "彷彿一朵黑雲已然降臨此地，扼殺了"
+  },
+  "15088": {
+   "en": "from it the sparkle of life that perhaps it once possessed...",
+   "zh": "它或許曾擁有的生命光采……"
+  },
+  "15090": {
+   "en": "#!Leaving",
+   "zh": "離開"
+  },
+  "15091": {
+   "en": "!NEW CITY",
+   "zh": "新城市"
+  },
+  "15100": {
+   "en": "#!Entering",
+   "zh": "進入"
+  },
+  "15101": {
+   "en": "!NEW CITY",
+   "zh": "新城市"
+  },
+  "15105": {
+   "en": "The towering trees loom heavy and dark, and the forest dons",
+   "zh": "參天巨樹陰沉壓頂，森林披上了"
+  },
+  "15106": {
+   "en": "a creepy shroud as if to whisper, Beware!",
+   "zh": "一層駭人的裹屍布，彷彿低語著：當心！"
+  },
+  "15110": {
+   "en": "A soft crunching noise can be heard nearby, like the kind",
+   "zh": "附近聽得見輕微的咀嚼碎響，就像"
+  },
+  "15111": {
+   "en": "of sound that might come from an animal chewing branches...",
+   "zh": "動物啃咬樹枝時會發出的那種聲音……"
+  },
+  "15112": {
+   "en": "@Or bones...",
+   "zh": "或者骨頭……"
+  },
+  "15120": {
+   "en": "An old corroded chest is lying underneath the trees...",
+   "zh": "樹下躺著一只老舊鏽蝕的箱子……"
+  },
+  "15121": {
+   "en": "@How strange to be so abandoned, and you wonder if perhaps its",
+   "zh": "就這麼被棄置未免奇怪，你不禁猜想，或許它的"
+  },
+  "15122": {
+   "en": "owner fell victim to the appetites of the local fauna...",
+   "zh": "主人已成了當地野獸的口腹之食……"
+  },
+  "15125": {
+   "en": "Inside the aged chest you find a bundle of items, along with",
+   "zh": "在老舊的箱子裡，你找到一捆物品，還有"
+  },
+  "15126": {
+   "en": "a sack of gold coins...",
+   "zh": "一袋金幣……"
+  },
+  "15130": {
+   "en": "The sea spans outward from the small lagoon, calm and peaceful...",
+   "zh": "大海自小潟湖向外開展，平靜而祥和……"
+  },
+  "15131": {
+   "en": "@A small white dome, half-buried, juts peculiarly from the",
+   "zh": "一座半埋的小白圓頂，突兀地從"
+  },
+  "15132": {
+   "en": "ground at the water's edge...",
+   "zh": "水邊的地面凸出……"
+  },
+  "15135": {
+   "en": "Excavating the odd relic, you discover it isn't a dome at all...",
+   "zh": "挖開這件奇特的遺物後，你發現它根本不是圓頂……"
+  },
+  "15136": {
+   "en": "@It is the fractured remnant of a human skull...",
+   "zh": "那是人類頭骨的破裂殘骸……"
+  },
+  "15137": {
+   "en": "@Somehow, the waters don't seem quite as alluring as they did a",
+   "zh": "不知怎地，這片水域似乎不再像"
+  },
+  "15138": {
+   "en": "few moments ago...",
+   "zh": "片刻前那麼迷人……"
+  },
+  "15145": {
+   "en": "The old parchment reads:",
+   "zh": "舊羊皮紙上寫著："
+  },
+  "15147": {
+   "en": "!If you don't want to lose it, cover it with Palukes'!",
+   "zh": "不想失去它，就用帕盧克的蓋住它！"
+  },
+  "15148": {
+   "en": "@Paluke's Armory",
+   "zh": "帕盧克軍械庫"
+  },
+  "15150": {
+   "en": "!Mail_&_Fine Leathers",
+   "zh": "鎖鏈甲&_高級皮甲"
+  },
+  "15151": {
+   "en": "!Located in New City",
+   "zh": "位於新城市"
+  },
+  "15155": {
+   "en": "The forest grows thick along the roadway here, a perfect place for...",
+   "zh": "這一帶路旁森林濃密，正是絕佳的……"
+  },
+  "15156": {
+   "en": "%Ambush!",
+   "zh": "%埋伏！"
+  },
+  "15160": {
+   "en": "An ominous figure suddenly appears before you...",
+   "zh": "一個不祥的身影突然出現在你面前……"
+  },
+  "15170": {
+   "en": "A vivid red emblem has been attached to the door, the",
+   "zh": "門上被人貼了一枚鮮紅的徽記，其"
+  },
+  "15171": {
+   "en": "significance of which is not clear...",
+   "zh": "意義不明……"
+  },
+  "15175": {
+   "en": "The bunker is crude and dirty, apparently serving as a small guard",
+   "zh": "這座掩體簡陋骯髒，顯然充作賢者軍團的"
+  },
+  "15176": {
+   "en": "station for the Savant Legions...",
+   "zh": "小型警衛哨站……"
+  },
+  "15180": {
+   "en": "\u0002PALUKE/\u0002ARMORY/",
+   "zh": "\u0002帕盧克/\u0002軍械庫/"
+  },
+  "15182": {
+   "en": "What-business have-you in-New-City?",
+   "zh": "你-在-新城市-有-什麼-生意？"
+  },
+  "15185": {
+   "en": "&New-City is-restricted... &%]&Do-not attempt-entry...",
+   "zh": "&新城市-受到-管制……&%]&請勿-嘗試-進入……"
+  },
+  "15190": {
+   "en": "%&Destination-confirmed... &%]&You-may-pass...",
+   "zh": "%&目的地-已-確認……&%]&准予-通行……"
+  },
+  "15195": {
+   "en": "&Halt! &%]",
+   "zh": "&站住！&%]"
+  },
+  "15196": {
+   "en": "&By-order of-the Imperial-Legions of-the Savant-Empire... &%]",
+   "zh": "&奉-賢者帝國-帝國軍團-之命……&%]"
+  },
+  "15197": {
+   "en": "&Access-to New-City is-restricted...",
+   "zh": "&進入-新城市-受-管制……"
+  },
+  "15200": {
+   "en": "#!The Conquerer",
+   "zh": "征服者"
+  },
+  "15201": {
+   "en": "!Inn_&_Tavern",
+   "zh": "旅店&_酒館"
+  },
+  "15210": {
+   "en": "All is quiet as you enter the Inn, and it seems",
+   "zh": "你走進旅店，裡頭一片安靜，看來"
+  },
+  "15211": {
+   "en": "that you are the only likely customers...",
+   "zh": "你們是僅有的客人……"
+  },
+  "15212": {
+   "en": "@The main room is cluttered with junk, and several",
+   "zh": "大廳裡堆滿雜物，還有好幾幅"
+  },
+  "15213": {
+   "en": "scratchy paintings hanging askew adorn the walls...",
+   "zh": "斑駁的畫作歪斜地掛在牆上……"
+  },
+  "15214": {
+   "en": "@Stacks of plates and half-finished meals still remain",
+   "zh": "成疊的盤子和吃了一半的餐點"
+  },
+  "15215": {
+   "en": "from prior days...",
+   "zh": "仍是前幾天的……"
+  },
+  "15216": {
+   "en": "@A testament to the general tidiness of the Innkeeper...",
+   "zh": "足見店主的整潔功夫……"
+  },
+  "15217": {
+   "en": "@Soon, a frumpled grumpy man makes his way from the",
+   "zh": "不一會兒，一個邋遢暴躁的男人從"
+  },
+  "15218": {
+   "en": "back of the messy room...",
+   "zh": "凌亂房間的後頭走來……"
+  },
+  "15220": {
+   "en": "&Hrrumph! &%]",
+   "zh": "&哼嗯！&%]"
+  },
+  "15221": {
+   "en": "Pardon the clutter, but we don't get many visitors these days... &%]",
+   "zh": "抱歉這麼亂，這年頭客人不多……&%]"
+  },
+  "15222": {
+   "en": "You need lodging for the night? &%]",
+   "zh": "今晚需要住宿嗎？&%]"
+  },
+  "15223": {
+   "en": "As long as you don't bring any of those filthy T'Rangs",
+   "zh": "只要你不帶那些骯髒的特蘭格"
+  },
+  "15224": {
+   "en": "with you... &%]",
+   "zh": "一塊兒來……&%]"
+  },
+  "15225": {
+   "en": "But don't just stand there, come on in! &%]",
+   "zh": "別光站著，快進來吧！&%]"
+  },
+  "15226": {
+   "en": "You look like you could use a good round of ale! &%]",
+   "zh": "你看起來正需要好好來杯麥酒！&%]"
+  },
+  "15227": {
+   "en": "Just make yourself at home, we're all family here... &%]",
+   "zh": "別客氣，當自己家一樣，我們都是一家人……&%]"
+  },
+  "15228": {
+   "en": "Now will that be for two nights or just three?!?",
+   "zh": "那麼，是住兩晚還是就三晚呢？！"
+  },
+  "15250": {
+   "en": "Aneur!",
+   "zh": "哇！"
+  },
+  "15255": {
+   "en": "Utbaght!",
+   "zh": "呔！"
+  },
+  "15260": {
+   "en": "\u0001\u0001ARMS OF ARGUS/",
+   "zh": "\u0001\u0001阿戈斯武器行/"
+  },
+  "15265": {
+   "en": "Hmm, I don't see enough change in your pocket!",
+   "zh": "嗯，我看你口袋裡的零錢可不夠！"
+  },
+  "15302": {
+   "en": "You want a room for 50 G.P.?",
+   "zh": "50 金幣一間房，要嗎？"
+  },
+  "15305": {
+   "en": "It's not safe outside, but it's your skin!",
+   "zh": "外頭不太平，不過命是你自己的！"
+  },
+  "15310": {
+   "en": "Take the key, any room you like!",
+   "zh": "拿去鑰匙，喜歡哪間住哪間！"
+  },
+  "15315": {
+   "en": "Best buy in New City!",
+   "zh": "新城市最划算！"
+  },
+  "15322": {
+   "en": "A round of ale will cost 30 G.P., ok?",
+   "zh": "一杯麥酒 30 金幣，可以嗎？"
+  },
+  "15325": {
+   "en": "You want to stay weaklings all your life?",
+   "zh": "你們想一輩子當軟腳蝦嗎？"
+  },
+  "15330": {
+   "en": "Ale's good for the soul! &%",
+   "zh": "麥酒有益靈魂！&%"
+  },
+  "15331": {
+   "en": "By the way, maybe I heard something that might interest you...",
+   "zh": "對了，我或許聽到了你會感興趣的事……"
+  },
+  "15335": {
+   "en": "Made from the finest seeds and stalks!",
+   "zh": "以上等種子與莖稈釀成！"
+  },
+  "15400": {
+   "en": "#!Arms of Argus",
+   "zh": "阿戈斯武器行"
+  },
+  "15401": {
+   "en": "!Weaponry Shoppe",
+   "zh": "兵器專賣店"
+  },
+  "15410": {
+   "en": "The inside of the shoppe is dimly lit, and faint",
+   "zh": "店內光線昏暗，隱約"
+  },
+  "15411": {
+   "en": "outlines can be seen upon the walls where various",
+   "zh": "牆上可以看到各種破壞器具"
+  },
+  "15412": {
+   "en": "implements of destruction were once displayed...",
+   "zh": "曾經陳列的輪廓……"
+  },
+  "15413": {
+   "en": "@The store seems quite bare, other than a few scattered",
+   "zh": "店裡相當空蕩，除了幾個散落"
+  },
+  "15414": {
+   "en": "crates, some open, which are resting on the floor...",
+   "zh": "的板條箱，有些敞著，擱在地板上……"
+  },
+  "15415": {
+   "en": "@Tacked upon the back wall are several illustrations",
+   "zh": "後牆上釘著幾張圖，畫著"
+  },
+  "15416": {
+   "en": "of items not immediately identifiable and whose",
+   "zh": "一時認不出的物品，其用途"
+  },
+  "15417": {
+   "en": "use and purpose is not readily apparent...",
+   "zh": "與目的一眼看不出來……"
+  },
+  "15418": {
+   "en": "@A large horned creature approaches you, brandishing",
+   "zh": "一隻長角的大生物向你走來，揮舞著"
+  },
+  "15419": {
+   "en": "an ominous sword and a strange barrel shaped object,",
+   "zh": "一把不祥的劍和一個奇怪的筒狀物，"
+  },
+  "15420": {
+   "en": "waving them in a threatening exhibition of possible conflict...",
+   "zh": "作勢威嚇，擺出可能開戰的架勢……"
+  },
+  "15430": {
+   "en": "&Haut! &%]&What do you want? &%]",
+   "zh": "&哈特！&%]&你想幹什麼？&%]"
+  },
+  "15431": {
+   "en": "&This shoppe is closed... &%PERMANENTLY! &%]",
+   "zh": "&本店已經關門……&%永久關門！&%]"
+  },
+  "15450": {
+   "en": "Haut!",
+   "zh": "哈特！"
+  },
+  "15455": {
+   "en": "Gutenzeblag!",
+   "zh": "古騰茲布拉格！"
+  },
+  "15460": {
+   "en": "\u0001\u0001OLD CITY/",
+   "zh": "\u0001\u0001舊城/"
+  },
+  "15470": {
+   "en": "\u0002BLACK MARKET/",
+   "zh": "\u0002黑市/"
+  },
+  "15472": {
+   "en": "Who sent you?",
+   "zh": "誰派你來的？"
+  },
+  "15475": {
+   "en": "Shhhh! &%]Spies are everywhere! &%]",
+   "zh": "噓！&%]到處都是間諜！&%]"
+  },
+  "15476": {
+   "en": "Come in and be quick about it!",
+   "zh": "進來，動作快點！"
+  },
+  "15480": {
+   "en": "Get out and stay out! &%]",
+   "zh": "滾出去，別再回來！&%]"
+  },
+  "15481": {
+   "en": "...The huge creature charges, pushing you out the door!",
+   "zh": "……巨大生物衝過來，把你推出門外！"
+  },
+  "15500": {
+   "en": "#!Paluke's Armory",
+   "zh": "帕路克軍械庫"
+  },
+  "15501": {
+   "en": "!Mail_&_Fine Leathers",
+   "zh": "鎖鏈甲_&_精製皮甲"
+  },
+  "15510": {
+   "en": "Naked wooden dummies which once carried various suits",
+   "zh": "赤裸的木製人偶曾披掛著各式"
+  },
+  "15511": {
+   "en": "of armor stand barren in random disarray about the shoppe...",
+   "zh": "盔甲，如今空蕩凌亂立在店中……"
+  },
+  "15512": {
+   "en": "@A few old, ratted garments of mail and leather droop",
+   "zh": "幾件老舊破損的鏈甲和皮甲"
+  },
+  "15513": {
+   "en": "lifelessly from the walls...",
+   "zh": "無生氣地垂掛在牆上……"
+  },
+  "15514": {
+   "en": "@It is hardly an enticing display...",
+   "zh": "這實在稱不上吸引人的陳列……"
+  },
+  "15515": {
+   "en": "@A poster above the door proclaims:",
+   "zh": "門上方一張海報寫著："
+  },
+  "15516": {
+   "en": "@If you don't want to lose it, cover it with Palukes'!",
+   "zh": "不想失去它，就用帕路克罩住它！"
+  },
+  "15517": {
+   "en": "@The floor is unswept, covered with the footprints of",
+   "zh": "地板無人清掃，滿是近期訪客的"
+  },
+  "15518": {
+   "en": "many recent visitors, and a well worn path leads",
+   "zh": "足跡，一條磨損的小徑通向"
+  },
+  "15519": {
+   "en": "into the back...",
+   "zh": "店後方……"
+  },
+  "15520": {
+   "en": "@Suddenly, a stout looking creature appears from behind one",
+   "zh": "突然，一隻矮壯的生物從某個空甲架"
+  },
+  "15521": {
+   "en": "of the empty dummies and charges to meet you...",
+   "zh": "後面現身，朝你衝過來……"
+  },
+  "15530": {
+   "en": "&Ort! &%]&I am Paluke, Armorer of New City! &%]",
+   "zh": "&歐特！&%]&我是帕路克，新城的盔甲匠！&%]"
+  },
+  "15531": {
+   "en": "This is your lucky day! &%]",
+   "zh": "今天你走運了！&%]"
+  },
+  "15532": {
+   "en": "I have a few remaining pieces which I am sure can be",
+   "zh": "我還剩幾件貨，相信一定可以"
+  },
+  "15533": {
+   "en": "easily fitted to suit your needs! &%]",
+   "zh": "輕鬆改得合你們用！&%]"
+  },
+  "15534": {
+   "en": "&*Snortle* &%]Sorry I don't have more to offer right now, but",
+   "zh": "&*哼哼* &%]抱歉，我現在沒有更多貨可給，不過"
+  },
+  "15535": {
+   "en": "it seems everyone is preparing for war!",
+   "zh": "大家似乎都在備戰！"
+  },
+  "15550": {
+   "en": "Ort!",
+   "zh": "歐特！"
+  },
+  "15555": {
+   "en": "Chalu!",
+   "zh": "夏魯！"
+  },
+  "15560": {
+   "en": "\u0001\u0001PRISONER/",
+   "zh": "\u0001\u0001囚犯/"
+  },
+  "15600": {
+   "en": "#!BELCANZOR'S",
+   "zh": "貝爾坎佐的"
+  },
+  "15601": {
+   "en": "!Magik Emporium",
+   "zh": "奇術商行"
+  },
+  "15610": {
+   "en": "Inside the shoppe, the air is filled with smoke and the heavy",
+   "zh": "店裡的空氣中瀰漫著煙，以及燃燒"
+  },
+  "15611": {
+   "en": "scent of burning powders...",
+   "zh": "藥粉的濃重氣味……"
+  },
+  "15612": {
+   "en": "@It is unusually dark, and a spooky sense of enchantment fills",
+   "zh": "店裡異常陰暗，詭異的魔魅感充斥"
+  },
+  "15613": {
+   "en": "the room...",
+   "zh": "房間……"
+  },
+  "15614": {
+   "en": "@Shelves along the walls of the eerie boutique are filled with",
+   "zh": "陰森小店的牆邊架上擺滿"
+  },
+  "15615": {
+   "en": "dusty bottles and ancient books, and peculiar trinkets and",
+   "zh": "蒙塵瓶罐與古籍，奇特的飾物和"
+  },
+  "15616": {
+   "en": "artifacts can be seen perched in between...",
+   "zh": "古物錯落其間……"
+  },
+  "15617": {
+   "en": "@From out of the shadows a tall pale figure emerges...",
+   "zh": "陰影中走出一個高挑蒼白的身影……"
+  },
+  "15630": {
+   "en": "&Welcome, visitors... &%]",
+   "zh": "&歡迎光臨，訪客們……&%]"
+  },
+  "15631": {
+   "en": "&I am Belcanzor! &%]",
+   "zh": "&我是貝爾坎佐！&%]"
+  },
+  "15632": {
+   "en": "&How may I be of service?",
+   "zh": "&有何能為您效勞？"
+  },
+  "15650": {
+   "en": "Greetings...",
+   "zh": "你好……"
+  },
+  "15655": {
+   "en": "Farewell...",
+   "zh": "再會……"
+  },
+  "15660": {
+   "en": "\u0001\u0001STRANGERS/",
+   "zh": "\u0001\u0001陌生人/"
+  },
+  "15680": {
+   "en": "Inside the shoppe, the room is empty, its walls bare, and",
+   "zh": "店裡空無一物，四壁光禿，"
+  },
+  "15681": {
+   "en": "a thin veil of dust covers the floor...",
+   "zh": "地板覆著薄薄一層塵埃……"
+  },
+  "15690": {
+   "en": "In a sudden billow of smoke, the entire contents of the room",
+   "zh": "一陣濃煙陡然湧起，房內所有物品"
+  },
+  "15691": {
+   "en": "vanishes, leaving only bare empty walls with no trace of its",
+   "zh": "憑空消失，只留光禿空牆，不見其"
+  },
+  "15692": {
+   "en": "prior occupancy...",
+   "zh": "先前的痕跡……"
+  },
+  "15700": {
+   "en": "#!New City !CONSTABULARY",
+   "zh": "新城警備隊"
+  },
+  "15701": {
+   "en": "@#!RESTRICTED !AREA",
+   "zh": "管制區域"
+  },
+  "15702": {
+   "en": "@A vivid red emblem has been attached to the door, the",
+   "zh": "門上貼著一枚鮮紅的徽記，其"
+  },
+  "15703": {
+   "en": "significance of which is not clear...",
+   "zh": "含義不明……"
+  },
+  "15710": {
+   "en": "Peering through the window, you see a group of the bizarre Savant",
+   "zh": "透過窗戶窺看，你見到一群詭異的賢者"
+  },
+  "15711": {
+   "en": "Guardians... @Cold and without emotion, they are deadly serious,",
+   "zh": "衛兵……他們冷酷無情、殺氣凜然，"
+  },
+  "15712": {
+   "en": "and are poised to repel any possible attempt at invasion...",
+   "zh": "並嚴陣以待，隨時擊退任何入侵企圖……"
+  },
+  "15720": {
+   "en": "Inside the constabulary, a host of the elite Savant Guardians",
+   "zh": "警備隊內部，一群精銳的賢者衛兵"
+  },
+  "15721": {
+   "en": "stand ready for battle...",
+   "zh": "備戰就緒……"
+  },
+  "15722": {
+   "en": "@Moving swiftly, silently, and with",
+   "zh": "他們行動迅捷、無聲，"
+  },
+  "15723": {
+   "en": "perfect precision, they assume a massive attack formation...",
+   "zh": "且精準無誤，擺出龐大的攻擊陣形……"
+  },
+  "15730": {
+   "en": "The battle over, the vaporized bodies of the mysterious guards",
+   "zh": "戰鬥結束，神秘衛兵汽化的屍體"
+  },
+  "15731": {
+   "en": "have left no trace or clues...",
+   "zh": "沒有留下任何痕跡或線索……"
+  },
+  "15732": {
+   "en": "@It is all inhumanly efficient...",
+   "zh": "這一切高效得不像人類……"
+  },
+  "15740": {
+   "en": "LOCK CODEX",
+   "zh": "鎖定密碼"
+  },
+  "15742": {
+   "en": "YELLOW",
+   "zh": "黃色"
+  },
+  "15743": {
+   "en": "BLUE",
+   "zh": "藍色"
+  },
+  "15744": {
+   "en": "RED",
+   "zh": "紅色"
+  },
+  "15745": {
+   "en": "ABORT",
+   "zh": "中止"
+  },
+  "15750": {
+   "en": "A small black box with three blinking buttons is attached",
+   "zh": "牆上裝著一個小黑盒，上有三個"
+  },
+  "15751": {
+   "en": "to the wall... @It appears to be patiently awaiting instructions",
+   "zh": "閃爍的按鈕……它似乎在耐心等待"
+  },
+  "15752": {
+   "en": "that were presumably lost with the demise of the guards...",
+   "zh": "想必已隨衛兵死亡而失落的指令……"
+  },
+  "15755": {
+   "en": "The colored buttons blink three times and then go out...",
+   "zh": "彩色按鈕閃了三下，然後熄滅……"
+  },
+  "15760": {
+   "en": "You find a thin flexible wafer which had apparently fallen",
+   "zh": "你找到一片薄薄的軟質圓片，顯然"
+  },
+  "15761": {
+   "en": "to the floor sometime earlier, the source of the faint tone...",
+   "zh": "稍早掉落在地，正是那細微聲響的來源……"
+  },
+  "15762": {
+   "en": "@It is inscribed as follows: &%ETX: BYYR",
+   "zh": "上面刻著：&%ETX: BYYR"
+  },
+  "15763": {
+   "en": "@It might be an identification tag of some kind, but",
+   "zh": "它也許是某種識別標籤，但"
+  },
+  "15764": {
+   "en": "what a very odd name indeed...",
+   "zh": "這名字還真是古怪……"
+  },
+  "15766": {
+   "en": "In the quiet of the aftermath, just barely audible, you can hear",
+   "zh": "在事後的寂靜中，你隱約聽見"
+  },
+  "15767": {
+   "en": "a continual \"Eeep Eeep\" sound coming from somewhere in the room...",
+   "zh": "房間某處不斷傳來「咿噗、咿噗」的聲音……"
+  },
+  "15770": {
+   "en": "!ETX: BYYR",
+   "zh": "ETX: BYYR"
+  },
+  "15775": {
+   "en": "You find a key hanging upon the wall...",
+   "zh": "你發現一把鑰匙掛在牆上……"
+  },
+  "15780": {
+   "en": "The prison, like all cages and chambers of confinement, is",
+   "zh": "這座監獄和所有牢籠禁室一樣，"
+  },
+  "15781": {
+   "en": "desolate and somber, and the air is thick with the stale odor",
+   "zh": "荒涼陰鬱，空氣中瀰漫著陳腐的"
+  },
+  "15782": {
+   "en": "of unhealthiness...",
+   "zh": "病穢氣味……"
+  },
+  "15783": {
+   "en": "@Its construction is simple and plain, but quite adequate to",
+   "zh": "它的結構簡單樸素，卻足以"
+  },
+  "15784": {
+   "en": "be effective nonetheless, serving all too well its ultimate",
+   "zh": "發揮效用，將其終極意圖"
+  },
+  "15785": {
+   "en": "intent, to slowly drain the life of those who are",
+   "zh": "執行得淋漓盡致——慢慢榨乾"
+  },
+  "15786": {
+   "en": "deemed threatening or undesirable to the",
+   "zh": "那些被當今得勢者視為威脅"
+  },
+  "15787": {
+   "en": "currently prevailing powers that be...",
+   "zh": "或不容之人的生命……"
+  },
+  "15790": {
+   "en": "The prison cell is occupied by a very rotund and somewhat",
+   "zh": "牢房裡關著一個非常圓胖、有點"
+  },
+  "15791": {
+   "en": "unattractive creature, although his demeanor does not appear",
+   "zh": "其貌不揚的生物，但神情並"
+  },
+  "15792": {
+   "en": "hostile...",
+   "zh": "不敵對……"
+  },
+  "15795": {
+   "en": "!Pssst! %",
+   "zh": "噓！ %"
+  },
+  "15796": {
+   "en": "Get me out of here!!",
+   "zh": "救我出去！！"
+  },
+  "15800": {
+   "en": "I am in your debt... &%]",
+   "zh": "我欠你一份情……&%]"
+  },
+  "15801": {
+   "en": "I was betrayed by a gang of assassins, spies that were",
+   "zh": "我被一夥刺客出賣了，那些間諜"
+  },
+  "15802": {
+   "en": "searching for Orkogre Castle, our secret fortress hidden",
+   "zh": "當時正在尋找奧高高城——我們的祕密堡壘，藏在"
+  },
+  "15803": {
+   "en": "in... &%]&Oops!... &%]",
+   "zh": "……&%]&糟了！……&%]"
+  },
+  "15804": {
+   "en": "&Heh, umm er, ah... &%]",
+   "zh": "&呃，嗯，這個嘛……&%]"
+  },
+  "15805": {
+   "en": "Perhaps we should get out of here before more of the guards",
+   "zh": "也許我們該趁更多衛兵趕到之前"
+  },
+  "15806": {
+   "en": "arrive!",
+   "zh": "快走！"
+  },
+  "15810": {
+   "en": "Ort!",
+   "zh": "歐特！"
+  },
+  "15815": {
+   "en": "Chalu!",
+   "zh": "夏魯！"
+  },
+  "15820": {
+   "en": "\u0001\u0001SAVANT GUARDS/",
+   "zh": "\u0001\u0001賢者衛兵/"
+  },
+  "15830": {
+   "en": "The location of Orkogre Castle is a well kept secret,",
+   "zh": "奧高高城的位置是嚴守的祕密，"
+  },
+  "15831": {
+   "en": "known only by a handful of outsiders... &%]",
+   "zh": "只有少數外人知曉……&%]"
+  },
+  "15832": {
+   "en": "But now I have need of your help and must reveal it to you... &%]",
+   "zh": "但現在我需要你們幫忙，必須向你們透露……&%]"
+  },
+  "15833": {
+   "en": "You must swear never to tell it to anyone!",
+   "zh": "你們必須發誓絕不告訴任何人！"
+  },
+  "15842": {
+   "en": "]Will you vow never to reveal what I tell you?",
+   "zh": "]你們願發誓絕不透露我說的事嗎？"
+  },
+  "15845": {
+   "en": "Then you can't be trusted!",
+   "zh": "那你們不可信任！"
+  },
+  "15850": {
+   "en": "A plot has been unleashed by those who would envisage the",
+   "zh": "一項陰謀已然啟動，策動者圖謀"
+  },
+  "15851": {
+   "en": "destruction of the mighty Gorn Empire... &%]",
+   "zh": "毀滅強大的高恩帝國……&%]"
+  },
+  "15852": {
+   "en": "We survived the years of war with the Dane and Munk",
+   "zh": "我們挺過了與丹恩和穆克的多年"
+  },
+  "15853": {
+   "en": "because we were stronger, but now new forces have",
+   "zh": "戰爭，因為我們更強，但如今新的"
+  },
+  "15854": {
+   "en": "appeared that seek to sway and enflame our old enemies... &%]",
+   "zh": "試圖左右、煽動我們的老敵人……&%]"
+  },
+  "15855": {
+   "en": "I will attempt to find the traitors who deceived me before",
+   "zh": "我會設法找出先前欺騙我的叛徒，趕在"
+  },
+  "15856": {
+   "en": "they can reveal the location of Orkogre Castle... &%]",
+   "zh": "他們洩露奧高高城的位置之前……&%]"
+  },
+  "15857": {
+   "en": "But you must travel to the Castle and warn the King! &%]",
+   "zh": "但你必須前往城堡向國王示警！&%]"
+  },
+  "15858": {
+   "en": "Tell him this, the Dartaen Alliance is broken! &%%]",
+   "zh": "告訴他這句話：達泰恩聯盟已破裂！&%%]"
+  },
+  "15859": {
+   "en": "He will understand its meaning and know what to do... &%]",
+   "zh": "他會明白其中含義，知道該怎麼做……&%]"
+  },
+  "15860": {
+   "en": "East of New City, if you follow the road that forks northward,",
+   "zh": "在新城以東，沿那條向北分岔的路走，"
+  },
+  "15861": {
+   "en": "you will enter our lands... &%]",
+   "zh": "就會進入我們的領地……&%]"
+  },
+  "15862": {
+   "en": "The border is guarded by a special division of the Gorn Army,",
+   "zh": "邊境由高恩大軍的一支特別師鎮守，"
+  },
+  "15863": {
+   "en": "under the command of the great Lord Galiere... &%]",
+   "zh": "由偉大的加利埃爾勳爵統率……&%]"
+  },
+  "15864": {
+   "en": "He is loyal to the King and will allow you passage, if you",
+   "zh": "他忠於國王，只要你向他"
+  },
+  "15865": {
+   "en": "present him with this letter...",
+   "zh": "出示這封信，便會放你通行……"
+  },
+  "15870": {
+   "en": "From there, make your way westward through the forest... &%]",
+   "zh": "從那裡出發，向西穿越森林……&%]"
+  },
+  "15871": {
+   "en": "Be on the lookout for the entry in a small clearing... &%]",
+   "zh": "留意小空地上的入口……&%]"
+  },
+  "15872": {
+   "en": "It is a difficult journey, but you should be able to reach it",
+   "zh": "這是段艱辛的旅程，但你應該能在"
+  },
+  "15873": {
+   "en": "in a day or so... &%]",
+   "zh": "一天左右抵達……&%]"
+  },
+  "15874": {
+   "en": "Uggbah be with you!",
+   "zh": "願烏格巴保佑你！"
+  },
+  "15880": {
+   "en": "The bearer of this letter keeps urgent news",
+   "zh": "持此信者身懷帝國的緊急消息"
+  },
+  "15881": {
+   "en": "of the empire for Ulgar, King of the Gorn.",
+   "zh": "須面呈高恩之王烏爾加。"
+  },
+  "15882": {
+   "en": "Grant them safe passage.",
+   "zh": "請准予他們安全通行。"
+  },
+  "15883": {
+   "en": "@By Order Of:",
+   "zh": "茲命令："
+  },
+  "15885": {
+   "en": "!Capt. Boerigard",
+   "zh": "波利加德上尉"
+  },
+  "15886": {
+   "en": "!Commander 2nd Division",
+   "zh": "第二師指揮官"
+  },
+  "15900": {
+   "en": "#!Welcome All",
+   "zh": "歡迎各位"
+  },
+  "15901": {
+   "en": "!Thesminster Abbey",
+   "zh": "塞斯敏斯特修道院"
+  },
+  "15910": {
+   "en": "Though the cathedral lacks the kind of elegance most often",
+   "zh": "這座大教堂雖然缺乏富裕"
+  },
+  "15911": {
+   "en": "associated with a membership of profitable patronage,",
+   "zh": "施主會眾慣有的那份雅致，"
+  },
+  "15912": {
+   "en": "it nonetheless seems to possess that tranquil reverence",
+   "zh": "卻依然散發著一股寧靜的虔敬，"
+  },
+  "15913": {
+   "en": "which can momentarily soothe the troubled soul...",
+   "zh": "能暫時撫慰煩亂的靈魂……"
+  },
+  "15914": {
+   "en": "@It is empty now, the floors swept clean, and only the slow",
+   "zh": "如今教堂空無一人，地板掃得乾淨，唯有"
+  },
+  "15915": {
+   "en": "deliberate motions of a lone figure standing at the end of",
+   "zh": "立在殿堂盡頭的孤影，以緩慢而從容的"
+  },
+  "15916": {
+   "en": "the temple serve to break the stillness...",
+   "zh": "動作劃破了寂靜……"
+  },
+  "15917": {
+   "en": "@The distant priest has given no sign that he is aware of",
+   "zh": "遠處的神父沒有顯露察覺"
+  },
+  "15918": {
+   "en": "your presence, continuing in his ritual as if no other",
+   "zh": "你們到來的跡象，逕自進行儀式，彷彿"
+  },
+  "15919": {
+   "en": "matters held any import...",
+   "zh": "其他一切都無關緊要……"
+  },
+  "15922": {
+   "en": "The chest lies covered with a thick coat of dust, and you wonder",
+   "zh": "箱子覆著厚厚一層灰，你不禁猜想"
+  },
+  "15923": {
+   "en": "if it is as old as Father Rulae himself...",
+   "zh": "它是否與魯萊神父本人一樣古老……"
+  },
+  "15925": {
+   "en": "Prying open the antiquated coffer, you discover a bundle of waxy",
+   "zh": "撬開這只古舊的木箱，你發現一捆以"
+  },
+  "15926": {
+   "en": "layers, which you begin to peel away...",
+   "zh": "蠟封裹的東西，開始一層層剝開……"
+  },
+  "15927": {
+   "en": "@Under the wax covering is a worn piece of parchment, so old that",
+   "zh": "蠟封之下是一張磨損的羊皮紙，老舊得"
+  },
+  "15928": {
+   "en": "it has several holes in it, and its writing has long faded away...",
+   "zh": "上面破了幾個洞，字跡早已褪盡……"
+  },
+  "15930": {
+   "en": "Drawing near the priest, he turns to face you...",
+   "zh": "你走近神父，他轉身面對你……"
+  },
+  "15935": {
+   "en": "Seek the land where flamingos fly!",
+   "zh": "去尋那紅鶴飛翔之地吧！"
+  },
+  "15940": {
+   "en": "&Welcome my children!",
+   "zh": "&我的孩子們，歡迎！"
+  },
+  "15945": {
+   "en": "Thy virtue doth shine as a radiant sun...",
+   "zh": "汝之美德，光耀如日……"
+  },
+  "15950": {
+   "en": "\u0002HEAL/\u0002BODY/\u0003GUIDANCE/\u0003SPIRIT/\u0004SACRAMENT/",
+   "zh": "\u0002治療/\u0002身體/\u0003指引/\u0003心靈/\u0004聖禮/"
+  },
+  "15951": {
+   "en": "May you find what you seek!",
+   "zh": "願你們尋得所求！"
+  },
+  "15952": {
+   "en": "Do you seek healing for the body, or guidance for the spirit?",
+   "zh": "你尋求的是身體的治癒，還是心靈的指引？"
+  },
+  "15956": {
+   "en": "Nothing is gained without sacrifice...",
+   "zh": "沒有犧牲就沒有所得……"
+  },
+  "15957": {
+   "en": "Are you prepared to make a sacrifice?",
+   "zh": "你準備好獻上犧牲了嗎？"
+  },
+  "15965": {
+   "en": "\bALL/\tLITTLE/",
+   "zh": "\b全部/\t少許/"
+  },
+  "15967": {
+   "en": "Would you sacrifice all or but a little?",
+   "zh": "你願犧牲全部，還是只獻少許？"
+  },
+  "15970": {
+   "en": "You shall receive in accordance with what you have given! &%",
+   "zh": "你的所得將與你的付出相稱！&%"
+  },
+  "15971": {
+   "en": "Enter herein, and follow the path before you!",
+   "zh": "進來吧，沿著眼前的路走！"
+  },
+  "15975": {
+   "en": "Slay not he that cannot hear! &%%]",
+   "zh": "勿殺那聽不見之人！&%%]"
+  },
+  "15976": {
+   "en": "Go now, and repeat these words to Brother TShober who guards the",
+   "zh": "現在去吧，把這些話覆述給守衛"
+  },
+  "15977": {
+   "en": "bridge to the Holy City of Munkharama... &%]",
+   "zh": "僧侶聖地聖城之橋的喬伯修士……&%]"
+  },
+  "15978": {
+   "en": "Your journey shall be long, but you have taken the first step... &%]",
+   "zh": "你們的旅程將很漫長，但已踏出第一步……&%]"
+  },
+  "15979": {
+   "en": "Now you must prepare to make the second!",
+   "zh": "現在要準備踏出第二步了！"
+  },
+  "15985": {
+   "en": "Welcome my children!",
+   "zh": "我的孩子們，歡迎！"
+  },
+  "15990": {
+   "en": "May the heavens watch over you!",
+   "zh": "願上天眷顧你們！"
+  },
+  "15995": {
+   "en": "\u0001\u0001STATUE/",
+   "zh": "\u0001\u0001雕像/"
+  },
   "16000": {
    "en": "Behind a flutter of papers inside the inner chamber of the",
    "zh": "在一間藏書室的層層紙堆之後，你驚動了一隻"
@@ -9492,6 +13232,18 @@
    "en": "Bye!",
    "zh": "再見！"
   },
+  "16110": {
+   "en": "\u0001\u0001HISTORY/",
+   "zh": "\u0001\u0001歷史/"
+  },
+  "16120": {
+   "en": "!#New City",
+   "zh": "新城市"
+  },
+  "16121": {
+   "en": "!LIBRARY",
+   "zh": "圖書館"
+  },
   "16122": {
    "en": "@A vivid red emblem has been attached to the door, the",
    "zh": "門上貼著一枚鮮紅的徽記，"
@@ -9640,6 +13392,10 @@
    "en": "Having vanquished the Guardian, the book is yours...",
    "zh": "擊敗守衛之後，這本書歸你了……"
   },
+  "16190": {
+   "en": "Awrx toquei amndopk dlaie,...",
+   "zh": "Awrx toquei amndopk dlaie,..."
+  },
   "16191": {
    "en": "@The book is written in an ancient tongue, which",
    "zh": "這本書以一種古代語言寫成，"
@@ -9659,6 +13415,14 @@
   "16202": {
    "en": "rodent droppings...",
    "zh": "頗為隨意散布的鼠糞……"
+  },
+  "16210": {
+   "en": "!#Keep Out",
+   "zh": "禁止進入"
+  },
+  "16211": {
+   "en": "!CONDEMNED AREA",
+   "zh": "查封區"
   },
   "16215": {
    "en": "#!__d_C_ty",
@@ -9683,6 +13447,10 @@
   "16231": {
    "en": "attributable to a slick ochre mold which covers the walls",
    "zh": "覆蓋牆面與地板的一層滑膩赭黃黴菌……"
+  },
+  "16232": {
+   "en": "and floor...",
+   "zh": "和地板……"
   },
   "16235": {
    "en": "You detect no trace of footprints in the moldy floor, nor",
@@ -9868,6 +13636,858 @@
    "en": "momentary traveler...",
    "zh": "而他，只是其中一名過客……"
   },
+  "16400": {
+   "en": "#!New City",
+   "zh": "新城市"
+  },
+  "16401": {
+   "en": "!Dock_&_Marina",
+   "zh": "船塢_&_碼頭"
+  },
+  "16410": {
+   "en": "Old nets and a few stuffed trophies of gruesome looking",
+   "zh": "老舊的漁網，以及幾件看來駭人的"
+  },
+  "16411": {
+   "en": "aquatic creatures drape the walls of the small marina...",
+   "zh": "水中生物標本，掛滿了這座小碼頭的牆……"
+  },
+  "16412": {
+   "en": "@An old munk, quietly working in the corner, seems so immersed",
+   "zh": "一名老穆克在角落安靜地工作，他太過專注"
+  },
+  "16413": {
+   "en": "in the block he is carving that he fails to take notice of you...",
+   "zh": "於手中雕刻的木塊，完全沒有注意到你……"
+  },
+  "16414": {
+   "en": "@Looking back at the trophies in detail, any thoughts of taking",
+   "zh": "回頭細看這些標本，方才想下海"
+  },
+  "16415": {
+   "en": "a little dip in the sea are quickly followed by thoughts",
+   "zh": "泡水的念頭，很快就被撕成碎片"
+  },
+  "16416": {
+   "en": "of being ripped to shreds...",
+   "zh": "的想像給取代了……"
+  },
+  "16417": {
+   "en": "@The old munk giggles, looks up, and then goes back to work...",
+   "zh": "老穆克咯咯笑了幾聲，抬頭看了一眼，又低頭繼續工作……"
+  },
+  "16418": {
+   "en": "@On the far wall you notice an empty trophy plaque, though it",
+   "zh": "你注意到遠處牆上有一塊空的戰利品牌，只是"
+  },
+  "16419": {
+   "en": "is too far to read from here...",
+   "zh": "距離太遠，看不清上頭的字……"
+  },
+  "16420": {
+   "en": "@As you turn back to address the munk, he is standing before you...",
+   "zh": "當你轉身想向穆克開口時，他已經站在你面前……"
+  },
+  "16430": {
+   "en": "Thinking of sea faring, are we? &%]",
+   "zh": "在想出海的事嗎？&%]"
+  },
+  "16431": {
+   "en": "Beware the dangers of the deep!",
+   "zh": "當心深海的危險！"
+  },
+  "16450": {
+   "en": "Brombadeg, the Demon of the Sea! &%]",
+   "zh": "布羅姆巴德格，海中之魔！&%]"
+  },
+  "16451": {
+   "en": "Many a ship has set sail, only to never return... &%]",
+   "zh": "多少船隻出了海，就此再也沒有回來……&%]"
+  },
+  "16452": {
+   "en": "Tis rumored that when the moon is full, he rises from the",
+   "zh": "據說每逢月圓，他就會從"
+  },
+  "16453": {
+   "en": "deep in search of human blood... &%]",
+   "zh": "深海中升起，尋找人血……&%]"
+  },
+  "16454": {
+   "en": "But none who have met him have lived to tell the tale... &%]",
+   "zh": "但遇過他的人，沒有一個活著回來說這故事……&%]"
+  },
+  "16455": {
+   "en": "Aye, he's taken many a sailor to a watery grave... &%]",
+   "zh": "是啊，多少水手被他拖進了水底的墳墓……&%]"
+  },
+  "16456": {
+   "en": "And if Brombadeg doesn't get you, then the birds probably will!",
+   "zh": "就算布羅姆巴德格放過你，那些鳥也多半不放過你！"
+  },
+  "16460": {
+   "en": "Birds twice the size of a man, large enough to reach down out",
+   "zh": "那種鳥有兩個人高大，大到能從"
+  },
+  "16461": {
+   "en": "of the sky and pluck you from your ship to carry you off... &%]",
+   "zh": "天上俯下身來，把你從船上叼走……&%]"
+  },
+  "16462": {
+   "en": "Aye, there's many a danger out there on that sea, that's why",
+   "zh": "是啊，那片海上危險多得很，所以"
+  },
+  "16463": {
+   "en": "it's called the Sea of Sorrows...",
+   "zh": "它才叫做悲傷之海……"
+  },
+  "16470": {
+   "en": "There's a tale that in early times ships traveled freely across",
+   "zh": "有個傳說是，早年船隻曾自由地往來"
+  },
+  "16471": {
+   "en": "the seas, but that was before the times of Brombadeg! &%]",
+   "zh": "於諸海之上——但那是布羅姆巴德格的時代之前！&%]"
+  },
+  "16472": {
+   "en": "I lost my last vessel to that creature you see hanging on the",
+   "zh": "我的上一條船，就是栽在你看到掛在那面"
+  },
+  "16473": {
+   "en": "wall over there... &%]",
+   "zh": "牆上的那傢伙手裡……&%]"
+  },
+  "16474": {
+   "en": "No one dares set sail anymore, and I don't blame them! &%]",
+   "zh": "現在沒有人敢出海了，我也不怪他們！&%]"
+  },
+  "16475": {
+   "en": "I've been working on another ship, but she's not yet",
+   "zh": "我一直在造另一艘船，只是她還不"
+  },
+  "16476": {
+   "en": "sea worthy... &%]",
+   "zh": "適航……&%]"
+  },
+  "16477": {
+   "en": "Maybe one day, when I've seen enough of this world, I'll",
+   "zh": "也許有一天，等我看夠了這個世界，"
+  },
+  "16478": {
+   "en": "finish her and set out to meet Brombadeg... &%]",
+   "zh": "我會把她造完，出海去會布羅姆巴德格……&%]"
+  },
+  "16479": {
+   "en": "Maybe one day...",
+   "zh": "也許有一天……"
+  },
+  "16485": {
+   "en": "Ahoi!",
+   "zh": "喂！"
+  },
+  "16490": {
+   "en": "Hieyie!",
+   "zh": "嘿咿！"
+  },
+  "16495": {
+   "en": "\u0001\u0001SEA MONSTER/",
+   "zh": "\u0001\u0001海怪/"
+  },
+  "16500": {
+   "en": "A lonely plaque devoid of trophy hangs from the wall...",
+   "zh": "一面沒有戰利品的空牌，孤零零地掛在牆上……"
+  },
+  "16501": {
+   "en": "@It reads: &BROMBADEG",
+   "zh": "上面寫：&布羅姆巴德格"
+  },
+  "16510": {
+   "en": "Spanning the room, suspended by hoists and beams, the skeleton",
+   "zh": "一艘小帆船的骨架橫跨整個房間，由吊架與"
+  },
+  "16511": {
+   "en": "of a small sailing vessel awaits completion...",
+   "zh": "橫樑懸吊著，等待完工……"
+  },
+  "16512": {
+   "en": "@Looking closely at the unfinished ship, discoloration in",
+   "zh": "細看這艘未完工的船，多處木料的變色"
+  },
+  "16513": {
+   "en": "the wood of various sections suggest the small boat has",
+   "zh": "顯示這艘小船大概已經"
+  },
+  "16514": {
+   "en": "probably been under construction for several years, possibly",
+   "zh": "造了好幾年，甚至可能"
+  },
+  "16515": {
+   "en": "more...",
+   "zh": "更久……"
+  },
+  "16516": {
+   "en": "@It is evident that at this rate of progress, it could be",
+   "zh": "顯然照這種進度，恐怕還要再"
+  },
+  "16517": {
+   "en": "a decade before the ship is ready to sail the open seas...",
+   "zh": "過十年，這艘船才能出海遠航……"
+  },
+  "16518": {
+   "en": "@Clearly, there is little hope of it being of any use in your",
+   "zh": "很明顯，它對你目前的"
+  },
+  "16519": {
+   "en": "current endeavor...",
+   "zh": "任務沒什麼幫助……"
+  },
+  "16530": {
+   "en": "#!T'RSHIECHES !HOUSE",
+   "zh": "特希切斯之家"
+  },
+  "16531": {
+   "en": "@#!Property of the !T'Rang Empire",
+   "zh": "特蘭格帝國財產"
+  },
+  "16532": {
+   "en": "@#!Entry Strictly !Forbidden",
+   "zh": "嚴禁進入"
+  },
+  "16535": {
+   "en": "Inside the window, a grimey gooey brown substance slowly",
+   "zh": "窗內，一種黏糊糊的褐色物質正緩緩"
+  },
+  "16536": {
+   "en": "drips along the walls...",
+   "zh": "順著牆壁往下滴……"
+  },
+  "16540": {
+   "en": "The room invokes a rather queasy sense of dread, as deposits",
+   "zh": "這房間使人泛起一股作嘔的不安，因為"
+  },
+  "16541": {
+   "en": "of an icky brown substance covering the walls and floor suggests",
+   "zh": "覆滿牆壁和地板的噁心褐色沉積物，讓人"
+  },
+  "16542": {
+   "en": "the thought of some kind of weird alien habitat...",
+   "zh": "聯想到某種詭異的外星生物巢穴……"
+  },
+  "16545": {
+   "en": "In the corner of the room you spy a huge foaming brown mass",
+   "zh": "你在房間角落瞥見一大團冒著泡的褐色"
+  },
+  "16546": {
+   "en": "as it begins to move in your direction...",
+   "zh": "塊狀物，此刻它開始朝你的方向移動……"
+  },
+  "16550": {
+   "en": "Afloat within the shallows of the water is a peculiar looking",
+   "zh": "淺淺的水面上漂著一艘模樣奇特"
+  },
+  "16551": {
+   "en": "vessel, a boat, but unlike any other that you have ever seen...",
+   "zh": "的船——但你從未見過這樣的船……"
+  },
+  "16555": {
+   "en": "Stepping aboard the strange craft, you see that while it appears",
+   "zh": "登上這艘奇特的船，你發現它雖然看似"
+  },
+  "16556": {
+   "en": "to be made of wood and steel, further investigation reveals",
+   "zh": "由木頭和鋼鐵造成，進一步檢視卻顯示"
+  },
+  "16557": {
+   "en": "it is actually built of an unknown hard glossy material...",
+   "zh": "它其實是以某種未知的光滑堅硬材料建成……"
+  },
+  "16558": {
+   "en": "@Tough, resilient, and obviously waterproof...",
+   "zh": "堅固、有韌性，而且顯然防水……"
+  },
+  "16559": {
+   "en": "@It makes you wonder about the origin of the boat, and how long it",
+   "zh": "這讓你不禁好奇這艘船的來歷，以及它"
+  },
+  "16560": {
+   "en": "has been harbored here...",
+   "zh": "停在這裡多久了……"
+  },
+  "16561": {
+   "en": "@The most interesting feature of the craft, however, is the tall",
+   "zh": "不過這艘船最有趣的特徵，是豎在"
+  },
+  "16562": {
+   "en": "oven-like barrel which sits at the rear of the ship, the purpose",
+   "zh": "船尾那只像烤爐的大桶子，它的用途"
+  },
+  "16563": {
+   "en": "of which is not clear...",
+   "zh": "不明……"
+  },
+  "16564": {
+   "en": "@It then strikes you that there is no visible means for propelling",
+   "zh": "你接著注意到，這艘小船看不見任何"
+  },
+  "16565": {
+   "en": "the small skiff...",
+   "zh": "推進裝置……"
+  },
+  "16566": {
+   "en": "@Only the rudder pole, a banking oar, and a stange handle attached",
+   "zh": "只有舵桿、一柄操舵槳，以及一個裝在"
+  },
+  "16567": {
+   "en": "to the side of the barrel...",
+   "zh": "大桶側邊的怪把手……"
+  },
+  "16570": {
+   "en": "Gracing the bow of the ship is the carved head of a fierce-looking,",
+   "zh": "船首裝飾著一顆面目兇惡、"
+  },
+  "16571": {
+   "en": "long-nosed, bandit-eyed, furry-faced mongrel...",
+   "zh": "長鼻、賊眼、滿臉毛的雜種頭雕像……"
+  },
+  "16572": {
+   "en": "@Mounted behind the wolflike figurehead is a plate which reads:",
+   "zh": "狼形船首像的後方裝著一塊牌子，上寫："
+  },
+  "16573": {
+   "en": "@#!WIKUM !BOAT",
+   "zh": "維庫姆船"
+  },
+  "16574": {
+   "en": "@You ponder over what a \"WIKUM\" might be...",
+   "zh": "你尋思「維庫姆」究竟是什麼……"
+  },
+  "16575": {
+   "en": "@Investigating the barrel in more detail, you note its odd features...",
+   "zh": "進一步察看那隻大桶，你注意到它的古怪之處……"
+  },
+  "16576": {
+   "en": "@Inside it are number of long round tubes, which arise",
+   "zh": "桶裡有數根長圓管，從大桶"
+  },
+  "16577": {
+   "en": "from underneath one side of the large canister, loop around a",
+   "zh": "一側的底下伸出來，繞過中央的"
+  },
+  "16578": {
+   "en": "black metal tripod at its center, and then descend back into",
+   "zh": "黑色金屬三腳架，再往下沒入"
+  },
+  "16579": {
+   "en": "the bottom of the barrel on the other side...",
+   "zh": "桶子另一側的底部……"
+  },
+  "16580": {
+   "en": "@Banging on the tubes, you detect that they are hollow...",
+   "zh": "敲了敲管子，你發覺它們是空心的……"
+  },
+  "16581": {
+   "en": "@However, you still can find no means of making the vessel move...",
+   "zh": "然而，你還是找不到能讓這艘船移動的辦法……"
+  },
+  "16590": {
+   "en": "Placing the black globe onto the tripod in the center of the",
+   "zh": "你把黑球放上那隻怪桶中央的"
+  },
+  "16591": {
+   "en": "odd canister-barrel, you gasp as it starts to glow...",
+   "zh": "三腳架，它開始發光，令你倒抽一口氣……"
+  },
+  "16592": {
+   "en": "@After a few moments, you can hear water rushing up through the",
+   "zh": "過了片刻，你聽見水從桶內的"
+  },
+  "16593": {
+   "en": "tubes inside the barrel, and soon see a rush of water emerging",
+   "zh": "管子裡衝了上來，很快便見一股水"
+  },
+  "16594": {
+   "en": "out the rear of the craft...",
+   "zh": "從船尾噴出……"
+  },
+  "16595": {
+   "en": "@Grabbing the rudder and pulling the handle on the side of the",
+   "zh": "抓住舵桿，拉動那只"
+  },
+  "16596": {
+   "en": "large can, you are ready to head out upon the open sea...",
+   "zh": "大桶側邊的把手，你已準備好航向大海……"
+  },
+  "16600": {
+   "en": "#!UMPANI !DETACHE",
+   "zh": "恩帕尼分遣隊"
+  },
+  "16601": {
+   "en": "@#!Military Personnel !Only",
+   "zh": "僅限軍事人員"
+  },
+  "16605": {
+   "en": "Peering in through the window, you witness several large greyish",
+   "zh": "從窗外窺看，你目睹幾隻高大的灰白色"
+  },
+  "16606": {
+   "en": "creatures carrying on a conversation, comprised mainly of snorts",
+   "zh": "生物在交談，內容多半是噴鼻聲"
+  },
+  "16607": {
+   "en": "and low rumbling sounds...",
+   "zh": "和低沉的隆隆聲……"
+  },
+  "16608": {
+   "en": "@Soon, one of them begins to get angry, stomping and snorting as",
+   "zh": "不久，其中一隻開始動怒，又頓足又噴氣，"
+  },
+  "16609": {
+   "en": "if enduring some gross miscarriage of justice...",
+   "zh": "彷彿受了天大的冤枉……"
+  },
+  "16610": {
+   "en": "@Then he parades from the room, the others following at a cautious",
+   "zh": "然後他大搖大擺走出房間，其他傢伙小心翼翼地"
+  },
+  "16611": {
+   "en": "distance...",
+   "zh": "跟著……"
+  },
+  "16620": {
+   "en": "TWISTED HEADS",
+   "zh": "扭轉頭顱"
+  },
+  "16622": {
+   "en": "LAUGHING DEVIL",
+   "zh": "大笑惡魔"
+  },
+  "16623": {
+   "en": "HAPPY DEMON",
+   "zh": "快樂惡魔"
+  },
+  "16624": {
+   "en": "SURPRISED IMP",
+   "zh": "驚訝小鬼"
+  },
+  "16625": {
+   "en": "SILENT DEVIL",
+   "zh": "沉默惡魔"
+  },
+  "16626": {
+   "en": "ANGRY DEMON",
+   "zh": "憤怒惡魔"
+  },
+  "16627": {
+   "en": "SCARED IMP",
+   "zh": "驚恐小鬼"
+  },
+  "16630": {
+   "en": "#!TWISTED !HEADS",
+   "zh": "扭轉頭顱"
+  },
+  "16631": {
+   "en": "@An elaborate mural cast in metal hangs from the wall, and",
+   "zh": "一幅鑄成金屬的精緻壁飾掛在牆上，"
+  },
+  "16632": {
+   "en": "sticking out from it in gross profile are the bronzed heads",
+   "zh": "從上頭以誇張側貌凸出的是三顆青銅的"
+  },
+  "16633": {
+   "en": "of three little caricaturish imps...",
+   "zh": "漫畫風小鬼頭……"
+  },
+  "16634": {
+   "en": "@While there does not appear to be any particular meaning to",
+   "zh": "雖然浮雕的抽象背景似乎沒有什麼"
+  },
+  "16635": {
+   "en": "the abstract background of the relief, you discover that the",
+   "zh": "特別的意義，但你發現那些"
+  },
+  "16636": {
+   "en": "small burlesque heads can be twisted around...",
+   "zh": "滑稽的小頭可以扭來轉去……"
+  },
+  "16637": {
+   "en": "@You are surprised to learn that when a head is oriented in one",
+   "zh": "你訝異地發現，一顆頭朝某個方向擺時，"
+  },
+  "16638": {
+   "en": "direction it appears to convey a certain emotion, and by",
+   "zh": "它似乎會傳達某種情緒；而把它"
+  },
+  "16639": {
+   "en": "turning it upside down, the original face reverses",
+   "zh": "倒轉過來，原來的臉便反轉，"
+  },
+  "16640": {
+   "en": "and then extols an opposite expression...",
+   "zh": "再展現出截然相反的表情……"
+  },
+  "16641": {
+   "en": "@You wonder if perhaps there is some meaning in this madness...",
+   "zh": "你懷疑這一團瘋狂裡或許藏著某種意義……"
+  },
+  "16650": {
+   "en": "Cobwebs hang like fine tapestry from the ceiling and walls",
+   "zh": "蛛網如精緻的織錦，懸掛在天花板與牆上"
+  },
+  "16651": {
+   "en": "of the dark museum, creating the illusion of a gossamer maze...",
+   "zh": "陰暗博物館裡，織出薄紗迷宮般的錯覺……"
+  },
+  "16652": {
+   "en": "@Gradually, your eyes adjust to the dimness, and strange",
+   "zh": "漸漸地，你的眼睛適應昏暗，房中"
+  },
+  "16653": {
+   "en": "silhouettes can be seen in the shadows of the room...",
+   "zh": "陰影裡隱約可見奇異的剪影……"
+  },
+  "16660": {
+   "en": "#!CURIO MUSEUM",
+   "zh": "珍奇博物館"
+  },
+  "16661": {
+   "en": "!Amazing Oddities",
+   "zh": "奇珍異寶"
+  },
+  "16665": {
+   "en": "The colorful cartoon of a grinning jester adorns the door of the",
+   "zh": "一幅色彩鮮豔、咧嘴嬉笑的小丑卡通畫，裝飾著博物館的"
+  },
+  "16666": {
+   "en": "museum...",
+   "zh": "大門……"
+  },
+  "16667": {
+   "en": "@A metal tongue is protruding from a small hole in the mouth of",
+   "zh": "小丑口中的小洞伸出一條金屬舌頭"
+  },
+  "16668": {
+   "en": "the jester, and in the tongue is a narrow slot...",
+   "zh": "而舌頭上開著一道窄縫……"
+  },
+  "16669": {
+   "en": "@You discover that the tongue is taut and springy,",
+   "zh": "你發現這條舌頭緊繃而富有彈性"
+  },
+  "16670": {
+   "en": "and when you depress it and quickly release, it flaps",
+   "zh": "當你把它壓下再迅速放開，它便"
+  },
+  "16671": {
+   "en": "up and down, making an odd twanging kind of sound...",
+   "zh": "上下拍動，發出奇特的彈撥聲響……"
+  },
+  "16675": {
+   "en": "Inserting the copper penny into the slot, you depress and",
+   "zh": "你將銅幣投入縫中，壓下"
+  },
+  "16676": {
+   "en": "release the tongue... %]",
+   "zh": "再放開舌頭……%]"
+  },
+  "16677": {
+   "en": "The coin flips into the grinning jester's mouth and disappears...",
+   "zh": "銅幣翻個身落進咧嘴小丑口中，消失不見……"
+  },
+  "16680": {
+   "en": "#!PETRIFIED",
+   "zh": "石化"
+  },
+  "16681": {
+   "en": "!HOMONCULOUS",
+   "zh": "何蒙庫魯茲"
+  },
+  "16682": {
+   "en": "@A large crystal dome sits upon a tarnished metal stand,",
+   "zh": "一只大水晶圓罩立在斑駁的金屬座上"
+  },
+  "16683": {
+   "en": "attached and sealed quite hermetically...",
+   "zh": "接合處完全氣密……"
+  },
+  "16684": {
+   "en": "@Peering inside the dome, you spy a small gargoylian figure,",
+   "zh": "湊近細看，你窺見一個石像鬼般的小人偶"
+  },
+  "16685": {
+   "en": "apparently made of stone or some other hard material...",
+   "zh": "似乎以石頭或其他堅硬材質製成……"
+  },
+  "16686": {
+   "en": "@The quality of the workmanship is exquisite, so perfect to the",
+   "zh": "做工極為精湛，完美到最後"
+  },
+  "16687": {
+   "en": "last detail that one might almost swear the tiny figure was real...",
+   "zh": "一絲細節，讓人幾乎敢發誓這小人是真的……"
+  },
+  "16688": {
+   "en": "@Whatever it is, it doesn't appear too tasty...",
+   "zh": "不管它是什麼，看來不太好吃……"
+  },
+  "16701": {
+   "en": " TOUCH ONE OF THE BALLS ",
+   "zh": "觸摸其中一球"
+  },
+  "16702": {
+   "en": "  TRY TO TAKE THE WAND  ",
+   "zh": "嘗試拿取魔杖"
+  },
+  "16703": {
+   "en": "     LEAVE IT ALONE     ",
+   "zh": "別去動它"
+  },
+  "16710": {
+   "en": "#!Do Not Touch!",
+   "zh": "請勿觸摸！"
+  },
+  "16711": {
+   "en": "!WAND MAJESTIK",
+   "zh": "威嚴魔杖"
+  },
+  "16712": {
+   "en": "@Hovering above a marble pedestal are four glowing balls...",
+   "zh": "四顆發光的球懸浮在大理石基座上方……"
+  },
+  "16713": {
+   "en": "@The balls are aligned in the form of a pyramid, three at the",
+   "zh": "這些球排成金字塔形：底部三顆"
+  },
+  "16714": {
+   "en": "base in the shape of a triangle, and the fourth on top as the",
+   "zh": "構成三角形，第四顆在頂端，即是"
+  },
+  "16715": {
+   "en": "peak...",
+   "zh": "尖……"
+  },
+  "16716": {
+   "en": "@The balls do not appear to be connected to the pedestal in",
+   "zh": "這些球看來並沒有以任何方式"
+  },
+  "16717": {
+   "en": "any way, and you cannot readily explain how it is that they",
+   "zh": "連接在基座上，你也無法立即解釋"
+  },
+  "16718": {
+   "en": "remain suspended above it...",
+   "zh": "它們為何能懸浮其上……"
+  },
+  "16719": {
+   "en": "@Of even more interest however, is that within the pyramid",
+   "zh": "然而更有趣的是，金字塔內部"
+  },
+  "16720": {
+   "en": "floats an ornate and dazzling wand, which bathes the area",
+   "zh": "漂浮著一根華麗奪目的魔杖，將四周"
+  },
+  "16721": {
+   "en": "with a radiant aura...",
+   "zh": "籠罩在燦爛光輝中……"
+  },
+  "16730": {
+   "en": "Your hand passes through the ball as if it was not there!...",
+   "zh": "你的手穿過球體，彷彿那裡什麼都沒有！……"
+  },
+  "16741": {
+   "en": " LEAVE YOUR HAND INSIDE ",
+   "zh": "把手留在裡面"
+  },
+  "16742": {
+   "en": "   PULL YOUR HAND OUT   ",
+   "zh": "把手抽出來"
+  },
+  "16745": {
+   "en": "As your hand reaches into the pyramid it disappears!",
+   "zh": "你的手伸入金字塔，竟然消失了！"
+  },
+  "16746": {
+   "en": "@Although you cannot see your hand, it is still connected to",
+   "zh": "雖然看不見你的手，它仍連在"
+  },
+  "16747": {
+   "en": "you, and it feels as if you have reached inside a vat",
+   "zh": "你身上，感覺像是伸進了一桶"
+  },
+  "16748": {
+   "en": "filled with oozing slug-like worms, crawling all over",
+   "zh": "黏滑的蛞蝓狀蠕蟲，爬滿了"
+  },
+  "16749": {
+   "en": "your digits...",
+   "zh": "你的手指……"
+  },
+  "16755": {
+   "en": "Feeling around inside the invisible vat of slugs, your fingers",
+   "zh": "你在這桶看不見的蛞蝓裡摸索，手指"
+  },
+  "16756": {
+   "en": "detect something hard, round and slightly heavy...",
+   "zh": "摸到一個堅硬、渾圓而略重的東西……"
+  },
+  "16757": {
+   "en": "@As you grasp the object and retract your hand, something",
+   "zh": "當你抓住那東西收回手，某物"
+  },
+  "16758": {
+   "en": "gives you a small burn...",
+   "zh": "燙了你一下……"
+  },
+  "16760": {
+   "en": "Quickly pulling your hand from the pyramid, you are relieved to",
+   "zh": "你迅速把手從金字塔中抽出，慶幸"
+  },
+  "16761": {
+   "en": "find it still there...",
+   "zh": "它還在……"
+  },
+  "16762": {
+   "en": "@The mysterious wand appears quite unaffected by your actions,",
+   "zh": "神秘的魔杖似乎全然不受你舉動的影響"
+  },
+  "16763": {
+   "en": "and continues to hover and glow...",
+   "zh": "繼續懸浮、發光……"
+  },
+  "16800": {
+   "en": "#!BANK_&_LOAN",
+   "zh": "銀行&貸款"
+  },
+  "16801": {
+   "en": "!Closed Holidays",
+   "zh": "假日公休"
+  },
+  "16805": {
+   "en": "Apparently every day is now a holiday, the bank being",
+   "zh": "看來如今天天都是假日，銀行裡"
+  },
+  "16806": {
+   "en": "quite bare and obviously vacated long ago...",
+   "zh": "空空如也，顯然早已人去樓空……"
+  },
+  "16810": {
+   "en": "#!VAULT",
+   "zh": "金庫"
+  },
+  "16811": {
+   "en": "!ROOM",
+   "zh": "室"
+  },
+  "16815": {
+   "en": "Inside the vault rests a heavy chest, sealed and locked securely...",
+   "zh": "金庫裡放著一只沉重的箱子，封得嚴實、牢牢上鎖……"
+  },
+  "16820": {
+   "en": "Buried in the chest, wrapped in a dark sequined shroud, the",
+   "zh": "埋在箱底，裹在綴有亮片的暗色裹屍布中，"
+  },
+  "16821": {
+   "en": "body of something once human met a horrible end...",
+   "zh": "一具曾為人類的軀體，死狀悽慘……"
+  },
+  "16822": {
+   "en": "@The corpse has long turned putrid, and seeing it within such",
+   "zh": "屍體早已腐爛，見它被安置在如此"
+  },
+  "16823": {
+   "en": "a perverted coffin speaks a tale of graven past deeds, and",
+   "zh": "變態的棺槨裡，訴說著昔日的罪業，"
+  },
+  "16824": {
+   "en": "fills your head with images of a crime most foul...",
+   "zh": "你腦中浮現滔天罪行的景象……"
+  },
+  "16825": {
+   "en": "@There is no clue as to the identity of the remains, but gauging",
+   "zh": "這具遺骸的身分無從查考，但從腐肉"
+  },
+  "16826": {
+   "en": "from the soggy squish of its moldered flesh, you can guess it has",
+   "zh": "濕軟黏膩的觸感判斷，你可以猜到它"
+  },
+  "16827": {
+   "en": "been here for at least several months...",
+   "zh": "在這裡至少待了好幾個月……"
+  },
+  "16828": {
+   "en": "@Mistakenly, you take a breath...",
+   "zh": "一時不察，你吸了一口氣……"
+  },
+  "16840": {
+   "en": "The vault room appears to be empty, save for a slight gleam in",
+   "zh": "金庫室看似空無一物，只有房間一角"
+  },
+  "16841": {
+   "en": "the corner of the room which catches your eye...",
+   "zh": "一絲微光攫住了你的視線……"
+  },
+  "16845": {
+   "en": "Wedged within a crack of the floor, you pry up a paltry coin...",
+   "zh": "你從地板裂縫撬出一枚可憐的硬幣……"
+  },
+  "16900": {
+   "en": "#!FORBIDDEN",
+   "zh": "禁區"
+  },
+  "16901": {
+   "en": "!ZONE",
+   "zh": "地帶"
+  },
+  "16902": {
+   "en": "@Two vivid emblems, one red and one black, have been attached to",
+   "zh": "兩枚鮮明的紋章，一紅一黑，貼在"
+  },
+  "16903": {
+   "en": "the door, the significance of which is not clear...",
+   "zh": "門上，含義不明……"
+  },
+  "16910": {
+   "en": "An elaborate device with tiny blinking lights has been implanted",
+   "zh": "一只帶著細小閃燈的精密裝置，嵌在"
+  },
+  "16911": {
+   "en": "into the heavily steeled door...",
+   "zh": "厚重的鋼門裡……"
+  },
+  "16912": {
+   "en": "@Only a thin slot at the base of the device displays any hope of",
+   "zh": "裝置底部僅有一道細縫，是探入其"
+  },
+  "16913": {
+   "en": "an access into its internals...",
+   "zh": "內部的唯一指望……"
+  },
+  "16920": {
+   "en": "You insert the small wafer into the slot... %]",
+   "zh": "你把小薄片插入細縫……%]"
+  },
+  "16921": {
+   "en": "!An alarm rings soundly!",
+   "zh": "警鈴大作！"
+  },
+  "16925": {
+   "en": "You insert the small wafer into the slot...",
+   "zh": "你把小薄片插入細縫……"
+  },
+  "16930": {
+   "en": "Although there is nothing to read on the whithered scroll,",
+   "zh": "儘管枯槁的卷軸上無字可讀，"
+  },
+  "16931": {
+   "en": "you note that there are a number of round holes on the",
+   "zh": "你注意到軸上有若干圓孔，位於"
+  },
+  "16932": {
+   "en": "corners, and another hole in its center which has been",
+   "zh": "四角，中心另有一孔，以紅色"
+  },
+  "16933": {
+   "en": "circled in red...",
+   "zh": "圈了起來……"
+  },
   "17000": {
    "en": "The forest clears a bit, and as you step forward a",
    "zh": "森林稍見開闊，你剛向前邁步，"
@@ -9943,6 +14563,10 @@
   "17036": {
    "en": "Chalu!",
    "zh": "查盧！"
+  },
+  "17037": {
+   "en": "\u0001\u0001BOERIGARD/",
+   "zh": "\u0001\u0001BOERIGARD/"
   },
   "17042": {
    "en": "Do you show Lord Galiere the letter from Capt. Boerigard?",
@@ -10043,6 +14667,10 @@
   "17109": {
    "en": "@As it is, now you must stand against the very fortress itself...",
    "zh": "但眼下，你必須直面這座堡壘本身。"
+  },
+  "17110": {
+   "en": "@The stones of Orkogre Castle are old, centuries old, and it makes",
+   "zh": "奧高高城堡的石塊十分古老，有好幾百年了，而這使得"
   },
   "17111": {
    "en": "you wonder about the history of this place and its people...",
@@ -10148,6 +14776,10 @@
    "en": "A clatter of falling debris hits the floor with a crash!",
    "zh": "一陣雜物落地的鏗噹聲！"
   },
+  "17160": {
+   "en": "The area is stinky and pungent, and judging from the foul deposits",
+   "zh": "這一帶氣味惡臭刺鼻，從那些污穢的沉積物"
+  },
   "17161": {
    "en": "on the ground could easily be mistaken for a sewer, were it not",
    "zh": "要不是沒有活水流動，地上的這灘東西"
@@ -10180,6 +14812,10 @@
    "en": "In the far corner of the supply depot are a number of barrels",
    "zh": "補給庫的角落裡放著幾只木桶"
   },
+  "17181": {
+   "en": "and several crates...",
+   "zh": "以及幾只板條箱……"
+  },
   "17185": {
    "en": "Inspecting the barrels, they contain pieces of a dried horrid",
    "zh": "檢視木桶——裡面是風乾的、恐怖的"
@@ -10191,6 +14827,10 @@
   "17187": {
    "en": "@Sniffing one of the chunks of brown, your stomach immediately",
    "zh": "湊近一嗅，你的胃立刻絞了起來……"
+  },
+  "17188": {
+   "en": "curdles...",
+   "zh": "凝結……"
   },
   "17189": {
    "en": "@Investigating the crates next, you pry one open and discover",
@@ -10244,6 +14884,10 @@
    "en": "a flat wooden slab, undoubtedly a grand display of local taste in",
    "zh": "無疑是本地品味的一大展示……"
   },
+  "17223": {
+   "en": "resting comfort...",
+   "zh": "歇息的舒適……"
+  },
   "17225": {
    "en": "The air is somewhat stale, suggesting the chamber hasn't been",
    "zh": "空氣有些滯悶，看來這房間"
@@ -10251,6 +14895,10 @@
   "17226": {
    "en": "occupied in at least several days...",
    "zh": "至少好幾天沒人住了……"
+  },
+  "17228": {
+   "en": "You discover a faint trail of bloody tracks which cross the room...",
+   "zh": "你發現一串隱約的血腳印橫越房間……"
   },
   "17230": {
    "en": "The room is dry and stolid, its only feature being a single",
@@ -10276,9 +14924,17 @@
    "en": "but accurate reflection of your likeness...",
    "zh": "映出一個模糊而忠實的你……"
   },
+  "17240": {
+   "en": "On the floor of the corridor you notice a few dark red stains... &%]",
+   "zh": "你注意到走廊地板上有幾處暗紅色的污漬……&%]"
+  },
   "17241": {
    "en": "Blood...",
    "zh": "血……"
+  },
+  "17245": {
+   "en": "Inspecting the bloody stains further you detect small faded spots,",
+   "zh": "進一步細看血漬，你察覺一些細小褪色的斑點，"
   },
   "17246": {
    "en": "as if diluted and washed by falling water droplets...",
@@ -10392,6 +15048,10 @@
    "en": "that these represent eras of history now long passed...",
    "zh": "那是早已遠去的時代……"
   },
+  "17295": {
+   "en": "@Once, this masterful stateroom was no doubt a bustle of activity,",
+   "zh": "想當年，這間氣派的艙房想必一片熙攘，"
+  },
   "17296": {
    "en": "filled with endless politics and head-rolling decisions...",
    "zh": "充斥著無休止的權謀與人頭落地的決斷……"
@@ -10427,6 +15087,14 @@
   "17320": {
    "en": "So the gods have decided to put the old king out of his misery",
    "zh": "諸神終於決定讓老國王解脫了，是嗎？&%]"
+  },
+  "17321": {
+   "en": "at last, eh? &%]",
+   "zh": "總算，是吧？&%]"
+  },
+  "17322": {
+   "en": "Look you now upon this soulful guise, but once it were not so... &%]",
+   "zh": "看看我現在這副深情模樣，從前可不是這樣的……&%]"
   },
   "17323": {
    "en": "How the orchard blossoms have faded in the fields... &%]",
@@ -10531,6 +15199,10 @@
   "17348": {
    "en": "Save that small portion which leaks into his momentary vision",
    "zh": "除了那洩進他短暫視野的一小角……"
+  },
+  "17349": {
+   "en": "and births a thousand tales of miracles and divine conception... &%]",
+   "zh": "並孕育出千則奇蹟與神聖感孕的傳說……&%]"
   },
   "17350": {
    "en": "I pray you, grant this king these ramblings... &%]",
@@ -10652,6 +15324,474 @@
    "en": "You will inside find what you seek...",
    "zh": "你要找的東西就在裡面……"
   },
+  "17410": {
+   "en": "Go now, away! &%]",
+   "zh": "去吧，離開！&%]"
+  },
+  "17411": {
+   "en": "In me the seeds of new plans do quickly sprout! &%]",
+   "zh": "新計畫的種子在我體內迅速萌芽！&%]"
+  },
+  "17412": {
+   "en": "And methinks I shall find further sport amongst my own troops!",
+   "zh": "而且我想，我會在自己的部隊裡找到更多樂子！"
+  },
+  "17420": {
+   "en": "Such tales weigh little against matters of more pressing",
+   "zh": "這些傳說無足輕重，比起更迫切的"
+  },
+  "17421": {
+   "en": "import... &%]",
+   "zh": "要事……&%]"
+  },
+  "17422": {
+   "en": "Leave then this king, to ponder his fate alone!",
+   "zh": "那麼離開吧，讓這位國王獨自思索他的命運！"
+  },
+  "17430": {
+   "en": "Then our destiny be cast, decided here and now! &%",
+   "zh": "那麼我等命運就此鑄定，在此刻分曉！&%"
+  },
+  "17431": {
+   "en": "GUARDS!!",
+   "zh": "衛兵！！"
+  },
+  "17440": {
+   "en": "Opening the ancient chest, you wipe away the webs and find an",
+   "zh": "打開這只古老的箱子，你拂去蛛網，發現一件"
+  },
+  "17441": {
+   "en": "old parchment, sealed in wax...",
+   "zh": "以蠟封緘的舊羊皮紙……"
+  },
+  "17442": {
+   "en": "@Carefully removing the wax, you determine that the parchment",
+   "zh": "小心移除蠟封後，你確認這張羊皮紙"
+  },
+  "17443": {
+   "en": "is only a single piece that has been cut from a larger map...",
+   "zh": "只是從一張更大的地圖上裁切下來的片段……"
+  },
+  "17444": {
+   "en": "@You find no other companion pieces in the chest...",
+   "zh": "你在箱中找不到其他成套的殘片……"
+  },
+  "17450": {
+   "en": "Opening the ancient chest, you discover that someone else has",
+   "zh": "打開古老的箱子，你發現有其他人"
+  },
+  "17451": {
+   "en": "been here recently, as it is empty save for the dusty",
+   "zh": "最近來過這裡，因為箱內空空如也，只剩滿是灰塵的"
+  },
+  "17452": {
+   "en": "webs of evaporated spiders...",
+   "zh": "蜘蛛消散後留下的殘網……"
+  },
+  "17460": {
+   "en": "A momentary tingle passes through you as you step inside the",
+   "zh": "你踏進這房間的瞬間，一陣短暫的刺麻感穿透了"
+  },
+  "17461": {
+   "en": "room...",
+   "zh": "身體…"
+  },
+  "17465": {
+   "en": "Gently, a flutter of phosphor wings emerges from empty air...",
+   "zh": "輕輕地，一對磷光之翼自虛空中翩然浮現……"
+  },
+  "17470": {
+   "en": "A gaggle of whispers quickly hushes as you enter the chamber...",
+   "zh": "你走進房間時，一陣嘈雜的竊語迅速安靜下來……"
+  },
+  "17480": {
+   "en": "#!GORKUNGA",
+   "zh": "戈爾昆加"
+  },
+  "17481": {
+   "en": "!The Killer Ape",
+   "zh": "殺手猿"
+  },
+  "17485": {
+   "en": "A large crystal-clear window in front of you permits viewing",
+   "zh": "你眼前一面巨大的清澈水晶窗，可以看進"
+  },
+  "17486": {
+   "en": "into the small chamber beyond it...",
+   "zh": "後方的小房間……"
+  },
+  "17487": {
+   "en": "@As you stand there looking through the transparent wall, a small",
+   "zh": "當你站在那兒透過透明牆觀看時，一隻"
+  },
+  "17488": {
+   "en": "furry ape-like creature whizzes past you inside the enclosed area,",
+   "zh": "毛茸茸的類猿生物在圍籬區內飛快掠過你身邊，"
+  },
+  "17489": {
+   "en": "making faces as he passes...",
+   "zh": "經過時還做著鬼臉……"
+  },
+  "17490": {
+   "en": "@You watch him for a few moments, as he jumps up and down, climbs",
+   "zh": "你看了他一會兒，只見他蹦上蹦下，攀著"
+  },
+  "17491": {
+   "en": "the walls of his cage, and makes occasional obscene gestures from",
+   "zh": "籠壁爬來爬去，還不時做出猥褻手勢，"
+  },
+  "17492": {
+   "en": "which he seems to derive a rather smirking sense of satisfaction...",
+   "zh": "他似乎從中獲得一種賊笑般的滿足感……"
+  },
+  "17493": {
+   "en": "@It appears he enjoys well the role of being Orkogre Castle's star",
+   "zh": "看來他十分享受擔任奧高高城堡的招牌"
+  },
+  "17494": {
+   "en": "attraction...",
+   "zh": "明星……"
+  },
+  "17500": {
+   "en": "Upon seeing the batch of yellow bananas dangling in front of the",
+   "zh": "一看到懸掛在"
+  },
+  "17501": {
+   "en": "window, the playful chimp immediately jumps up and pulls the lever",
+   "zh": "窗前的那串黃香蕉，頑皮的猩猩立刻跳起，拉下"
+  },
+  "17502": {
+   "en": "on the wall...",
+   "zh": "牆上的拉桿……"
+  },
+  "17506": {
+   "en": "The window slides back with a snap! %]",
+   "zh": "窗戶啪地一聲滑了回去！%]"
+  },
+  "17507": {
+   "en": "The frenzied monkey leaps headfirst at the bananas, grabbing them",
+   "zh": "發狂的猴子頭朝前撲向香蕉，抓住它們"
+  },
+  "17508": {
+   "en": "from your hand and sailing on past you, gangwaying out into",
+   "zh": "從你手中奪走，然後掠過你身邊，橫衝直撞地衝進"
+  },
+  "17509": {
+   "en": "the corridor at full speed, rounding the corner out of sight... %]",
+   "zh": "走廊，全速轉過拐角消失無蹤……%]"
+  },
+  "17510": {
+   "en": "Suddenly, a band of passing Gorn calls out, %]",
+   "zh": "突然，一隊路過的高恩人大喊，%]"
+  },
+  "17511": {
+   "en": "&Hey you! &What's the big idea!!",
+   "zh": "&喂！&搞什麼名堂！！"
+  },
+  "17515": {
+   "en": "Clumped in the corner you find several bags of stores, most likely",
+   "zh": "角落裡堆著幾袋儲糧，多半是"
+  },
+  "17516": {
+   "en": "food to fatten up the unlucky captives...",
+   "zh": "用來養肥那些倒楣俘虜的食物……"
+  },
+  "17520": {
+   "en": "You are too late, I am dead... &%]",
+   "zh": "你來得太遲，我已死了……&%]"
+  },
+  "17521": {
+   "en": "And with those words, the open eyes of the king stare no more...",
+   "zh": "話音一落，國王圓睜的雙眼便不再視物……"
+  },
+  "17522": {
+   "en": "@It is only then that you see the pool of blood upon the floor,",
+   "zh": "直到此刻你才看見地板上的一灘血，"
+  },
+  "17523": {
+   "en": "and the dark stains upon his gown...",
+   "zh": "以及他長袍上的暗色污漬……"
+  },
+  "17524": {
+   "en": "@King Ulgar of the Gorn, is dead...",
+   "zh": "高恩的烏爾加王，死了……"
+  },
+  "17530": {
+   "en": "Within a small inner pocket of the King's robes, you find a key...",
+   "zh": "在國王長袍內側的小口袋裡，你找到一把鑰匙……"
+  },
+  "17540": {
+   "en": "The body of the dead King lies slumped upon his throne, the",
+   "zh": "死去的國王癱坐在王座上，"
+  },
+  "17541": {
+   "en": "light in his eyes forever dimmed...",
+   "zh": "眼中的光芒永遠黯滅……"
+  },
+  "17550": {
+   "en": "In the dust of the fading spectre, another apparition appears...",
+   "zh": "在幽魂漸散的塵影中，另一道幻影浮現……"
+  },
+  "17555": {
+   "en": "Mine is the spirit of Murkatos, borne of Gorn, and Wizard of",
+   "zh": "吾乃墨卡托斯之靈，出身高恩，亦是"
+  },
+  "17556": {
+   "en": "this realm... &%]",
+   "zh": "此境的巫師……&%]"
+  },
+  "17557": {
+   "en": "Thou hast shown thyself strong and capable avengers, and thus",
+   "zh": "汝等已展現自己是堅強能幹的復仇者，因此"
+  },
+  "17558": {
+   "en": "shall I bequeath to you the inheritance of my legacy... &%]",
+   "zh": "吾將把吾之遺產傳承於汝等……&%]"
+  },
+  "17559": {
+   "en": "As I did succumb to the allure of great riches and power from they",
+   "zh": "吾曾屈服於來自群星之人的"
+  },
+  "17560": {
+   "en": "who come from the stars, so did this weakness betray me to them,",
+   "zh": "巨富與權勢誘惑，這弱點便將吾出賣給他們，"
+  },
+  "17561": {
+   "en": "and thrust me into their clutches... &%]",
+   "zh": "並將吾推入其魔掌……&%]"
+  },
+  "17562": {
+   "en": "Know you that those borne of deceit and treachery are consumed",
+   "zh": "汝當知，凡由欺瞞與背信所生者，必永受"
+  },
+  "17563": {
+   "en": "eternally, for living amidst their own fears and suspicions,",
+   "zh": "煎熬，因他們活在自身恐懼與猜疑之中，"
+  },
+  "17564": {
+   "en": "they grow blind and further inflamed, till like a warring plague",
+   "zh": "日漸盲目且愈發狂烈，直到宛如一場交相攻伐的瘟疫"
+  },
+  "17565": {
+   "en": "they do become unto themselves... &%]",
+   "zh": "降臨己身……&%]"
+  },
+  "17566": {
+   "en": "And so it was with I, for I did conspire against mine own blood,",
+   "zh": "吾亦如是，因吾曾陰謀對付自己的血親，"
+  },
+  "17567": {
+   "en": "suspiciously and with malice, and now the mighty Gorn Empire lies",
+   "zh": "心懷猜疑與惡意，如今強大的高恩帝國"
+  },
+  "17568": {
+   "en": "in ruin, the gasping victim of my bloody hands, dying so ignobly",
+   "zh": "淪為廢墟，成了吾血手中氣若游絲的犧牲者，如此不名譽地"
+  },
+  "17569": {
+   "en": "in its own civil war... &%]",
+   "zh": "死於自身的內戰……&%]"
+  },
+  "17570": {
+   "en": "Learn well from this tragic misfortune, for to forget is to",
+   "zh": "好好記取這樁悲慘的不幸，因為遺忘即是"
+  },
+  "17571": {
+   "en": "yourself betray... &%]",
+   "zh": "背叛你自己……&%]"
+  },
+  "17572": {
+   "en": "Seek the Tomb of Vilet Kanebe in the old church of Nyctalinth,",
+   "zh": "到尼克塔林斯的古老教堂去尋維列特·卡內貝之墓，"
+  },
+  "17573": {
+   "en": "and deep at the foot of the Creator... &%]",
+   "zh": "就在造物主的腳下深處……&%]"
+  },
+  "17574": {
+   "en": "There shall you find hidden a part of what you seek... &%]",
+   "zh": "在那裡你將尋獲你所求之物的一部分……&%]"
+  },
+  "17600": {
+   "en": "#!Holy City",
+   "zh": "聖城"
+  },
+  "17601": {
+   "en": "!MUNKHARAMA",
+   "zh": "僧侶聖地"
+  },
+  "17610": {
+   "en": "A deep open well descends into darkness, and encircling it are",
+   "zh": "一口深井沒入黑暗，井口四周環刻著"
+  },
+  "17611": {
+   "en": "inscribed these words...",
+   "zh": "這些文字……"
+  },
+  "17612": {
+   "en": "&[]I know a thousand faces",
+   "zh": "&[]我知曉千張面孔"
+  },
+  "17613": {
+   "en": "&And count the tallied heads,",
+   "zh": "&細數清點過的頭顱，"
+  },
+  "17614": {
+   "en": "&Feasting bright upon the eyes",
+   "zh": "&在眾多亡者的雙眼上"
+  },
+  "17615": {
+   "en": "&Of the many who have died;",
+   "zh": "&燦然盛宴；"
+  },
+  "17616": {
+   "en": "&[]Wielding well a mighty power",
+   "zh": "&[]善掌一股強大力量"
+  },
+  "17617": {
+   "en": "&Who hath but humble stature,",
+   "zh": "&身形卻卑微，"
+  },
+  "17618": {
+   "en": "&Masses fall upon their knees",
+   "zh": "&群眾紛紛跪下"
+  },
+  "17619": {
+   "en": "&To scarce behold my only side!",
+   "zh": "&方能勉強得見我唯一的一面！"
+  },
+  "17625": {
+   "en": "\u0002COIN/",
+   "zh": "\u0002COIN/"
+  },
+  "17627": {
+   "en": "What do you shout into the well?",
+   "zh": "你要對井裡喊什麼？"
+  },
+  "17630": {
+   "en": "Rising up from the depths of the murky well, a tin plate",
+   "zh": "從渾濁的井底深處升起，一只錫盤"
+  },
+  "17631": {
+   "en": "bearing four coins floats to the surface, hovering there...",
+   "zh": "載著四枚硬幣浮上水面，懸停在那裡……"
+  },
+  "17637": {
+   "en": "Do you take the coins?",
+   "zh": "你要拿走硬幣嗎？"
+  },
+  "17640": {
+   "en": "Removing the coins from the plate, the tin quickly falls back into",
+   "zh": "將硬幣從盤上取走，錫盤迅速落回"
+  },
+  "17641": {
+   "en": "the well...",
+   "zh": "井中……"
+  },
+  "17650": {
+   "en": "Within an open alcove in the wall rests a chalice carved of",
+   "zh": "牆上一處敞開的壁龕裡，靜置著一只"
+  },
+  "17651": {
+   "en": "stone, securely fastened to an iron mantle...",
+   "zh": "石刻聖杯，牢牢固定在鐵製托架上……"
+  },
+  "17655": {
+   "en": "You plunk the bean into the chalice, and watch as",
+   "zh": "你把豆子丟進聖杯，看著"
+  },
+  "17656": {
+   "en": "the stone receptacle retracts into the wall...",
+   "zh": "那石製容器縮回牆內……"
+  },
+  "17660": {
+   "en": "Inside a large ceramic bowl on the floor, you find",
+   "zh": "在地板上一只大陶碗裡，你發現"
+  },
+  "17661": {
+   "en": "an odd looking stone bean, engraved with a mystical symbol...",
+   "zh": "一顆樣式古怪的石豆，刻著一個神秘符號……"
+  },
+  "17671": {
+   "en": " PULL THE SPINDLE ",
+   "zh": " 拉動紡錘 "
+  },
+  "17672": {
+   "en": "  LEAVE IT ALONE  ",
+   "zh": "  別去動它  "
+  },
+  "17675": {
+   "en": "A long spindle cranes out from a mounted plaque in the floor...",
+   "zh": "一根長紡錘自地板上固定的飾板中探出……"
+  },
+  "17676": {
+   "en": "@Behind four narrow slits in the plaque, you see only the color",
+   "zh": "從飾板上的四道窄縫望進去，你只看見"
+  },
+  "17677": {
+   "en": "white...",
+   "zh": "白色……"
+  },
+  "17680": {
+   "en": "With a heave and grunt you tug the spindle handle...",
+   "zh": "你使勁吆喝，用力一拉紡錘把手……"
+  },
+  "17685": {
+   "en": "The spindle won't budge...",
+   "zh": "紡錘紋絲不動……"
+  },
+  "17690": {
+   "en": "Behind the narrow slits in the plaque you watch the spinning",
+   "zh": "你從飾板上的窄縫注視著旋轉的"
+  },
+  "17691": {
+   "en": "colors... &%]Soon, they wind to a halt... &%",
+   "zh": "顏色……&%]很快，它們漸漸停了下來……&%"
+  },
+  "17692": {
+   "en": "WHITE WHITE WHITE WHITE",
+   "zh": "白 白 白 白"
+  },
+  "17693": {
+   "en": "@A loud buzzer resounds, &EENH!",
+   "zh": "一陣響亮的蜂鳴聲響起，&嗶嗯！"
+  },
+  "17695": {
+   "en": "Behind the narrow slits in the plaque you watch the spinning",
+   "zh": "你從飾板上的窄縫注視著旋轉的"
+  },
+  "17696": {
+   "en": "colors... &%]Soon, they wind to a halt... &%",
+   "zh": "顏色……&%]很快，它們漸漸停了下來……&%"
+  },
+  "17697": {
+   "en": "BLACK WHITE WHITE WHITE",
+   "zh": "黑 白 白 白"
+  },
+  "17698": {
+   "en": "@A loud buzzer resounds, &EENH!",
+   "zh": "一陣響亮的蜂鳴聲響起，&嗶嗯！"
+  },
+  "17700": {
+   "en": "Behind the narrow slits in the plaque you watch the spinning",
+   "zh": "你從飾板上的窄縫注視著旋轉的"
+  },
+  "17701": {
+   "en": "colors... &%]Soon, they wind to a halt... &%",
+   "zh": "顏色……&%]很快，它們漸漸停了下來……&%"
+  },
+  "17702": {
+   "en": "BLACK BLACK WHITE WHITE",
+   "zh": "黑 黑 白 白"
+  },
+  "17703": {
+   "en": "@A loud buzzer resounds, &EENH!",
+   "zh": "一陣響亮的蜂鳴聲響起，&嗶嗯！"
+  },
+  "17705": {
+   "en": "Behind the narrow slits in the plaque you watch the spinning",
+   "zh": "你從飾板上的窄縫注視著旋轉的"
+  },
   "17860": {
    "en": "You turn back to face the pitiful wretch in the corner... &%]",
    "zh": "你轉身面對角落裡那可憐的可悲蟲……&%]"
@@ -10719,6 +15859,1046 @@
   "17879": {
    "en": "Others you do not recognize, and discard... &%]",
    "zh": "有些你辨不出，便棄之不顧……&%]"
+  },
+  "18000": {
+   "en": "\u0002DREAM/",
+   "zh": "\u0002夢/"
+  },
+  "18002": {
+   "en": "What is it that you seek?",
+   "zh": "你尋求的是什麼？"
+  },
+  "18005": {
+   "en": "Then you must seek elsewhere...",
+   "zh": "那你得去別處尋找……"
+  },
+  "18010": {
+   "en": "\u0003LIVING DEAD/",
+   "zh": "\u0003活死人/"
+  },
+  "18012": {
+   "en": "And those that cannot walk the land of dreams?",
+   "zh": "那無法行走夢土者又如何？"
+  },
+  "18015": {
+   "en": "You are not yet ready to walk the land of dreams...",
+   "zh": "你還沒準備好行走夢土……"
+  },
+  "18020": {
+   "en": "You have learned well the lesson of those who would dream...",
+   "zh": "你已充分學會做夢者的課題……"
+  },
+  "18025": {
+   "en": "#!Palace Of !The Gran Melange",
+   "zh": "格蘭梅蘭宮"
+  },
+  "18026": {
+   "en": "@#!The !Land of Dreams",
+   "zh": "夢土"
+  },
+  "18030": {
+   "en": "The lighting is low, seductively illuminating the inner chamber",
+   "zh": "光線幽暗，魅惑地照亮宮殿的內室，"
+  },
+  "18031": {
+   "en": "of the palace, and deep in the background you hear the",
+   "zh": "而在幽深處你聽見"
+  },
+  "18032": {
+   "en": "enchanting melody of some stringed musical instrument softly",
+   "zh": "某種弦樂器輕柔撥弄的迷人旋律，"
+  },
+  "18033": {
+   "en": "twanging as it accompanies the haunting singsong of a flute...",
+   "zh": "正伴著笛子縈繞的吟唱……"
+  },
+  "18034": {
+   "en": "@The den is quite immaculate and exquisite, from",
+   "zh": "這廳堂潔淨無瑕、精緻典雅，從"
+  },
+  "18035": {
+   "en": "the silky colored veils which hang from its ceiling, to the",
+   "zh": "天花板垂掛的柔滑彩紗，到"
+  },
+  "18036": {
+   "en": "many exotic fantasia of murals which adorn its pristine walls...",
+   "zh": "裝點潔白牆面的諸多異國奇幻壁畫……"
+  },
+  "18037": {
+   "en": "@Its atmosphere is sweet and perhaps a bit thick with the",
+   "zh": "這裡的空氣香甜，或許因"
+  },
+  "18038": {
+   "en": "scented fragrance of incense, though not at all unpleasant...",
+   "zh": "薰香氣味而略顯濃重，但毫不難聞……"
+  },
+  "18039": {
+   "en": "@With mild surprise you turn and see a quiet figure, standing",
+   "zh": "你略感訝異地轉身，看見一個安靜身影，"
+  },
+  "18040": {
+   "en": "where there was no one a moment ago...",
+   "zh": "佇立在片刻前空無一人之處……"
+  },
+  "18052": {
+   "en": "Our membership fee is 500 pieces of gold, do you wish to join?",
+   "zh": "入會費是五百枚金幣，你要加入嗎？"
+  },
+  "18055": {
+   "en": "Then perhaps another day...",
+   "zh": "那就改天再說吧……"
+  },
+  "18057": {
+   "en": "You may return when you can afford to pay...",
+   "zh": "等你付得起了再回來……"
+  },
+  "18060": {
+   "en": "Then you are welcome to come as often as you need... &%]",
+   "zh": "歡迎你隨時再來……&%]"
+  },
+  "18061": {
+   "en": "You must find your own place here, for only in your own",
+   "zh": "你必須在此找到屬於自己的位置，因為唯有"
+  },
+  "18062": {
+   "en": "place will you be able to walk the land of dreams... &%]",
+   "zh": "在自己的位置上，你才能行走夢土……&%]"
+  },
+  "18063": {
+   "en": "No one can tell you where that place will be... &%]",
+   "zh": "沒有人能告訴你那個位置在哪……&%]"
+  },
+  "18064": {
+   "en": "It is something you must find for yourself... &%]",
+   "zh": "這是你必須自己尋找的東西……&%]"
+  },
+  "18065": {
+   "en": "And remember this warning,... &%]",
+   "zh": "並記住這個警告……&%]"
+  },
+  "18066": {
+   "en": "If in your dreams you see a black door, you must turn and",
+   "zh": "若你在夢中見到一扇黑門，你必須轉身"
+  },
+  "18067": {
+   "en": "not go through... &%]",
+   "zh": "而不穿過去……&%]"
+  },
+  "18068": {
+   "en": "It is the passageway between the realms of life and death,",
+   "zh": "那是生死兩界之間的通道，"
+  },
+  "18069": {
+   "en": "and if you enter you will be trapped, lost in the land of",
+   "zh": "若你進入便會受困，迷失在"
+  },
+  "18070": {
+   "en": "madness where you shall endlessly wander forever... &%]",
+   "zh": "瘋狂之境，永世無盡徘徊……&%]"
+  },
+  "18071": {
+   "en": "Do not forget the black door! &%]",
+   "zh": "別忘了那扇黑門！&%]"
+  },
+  "18080": {
+   "en": "A sense of dread and foreboding comes over you as you descend",
+   "zh": "走下這個房間時，一股恐懼與不祥之感襲來，"
+  },
+  "18081": {
+   "en": "into the room, a sensation distinct from that of the palace...",
+   "zh": "那感覺與宮殿中的截然不同……"
+  },
+  "18082": {
+   "en": "@Though the area appears empty, you feel a sinister presence,",
+   "zh": "此地看似空無一物，你卻感到一股邪惡的存在，"
+  },
+  "18083": {
+   "en": "something dark and dangerous and deadly...",
+   "zh": "某種黑暗、危險而致命之物……"
+  },
+  "18084": {
+   "en": "@Your thoughts tell you to leave this place, but something here",
+   "zh": "你的思緒叫你離開此地，但這裡的某種東西"
+  },
+  "18085": {
+   "en": "seems to be drawing you in, enticing you to stay...",
+   "zh": "似乎正把你吸入，誘惑你留下……"
+  },
+  "18090": {
+   "en": "The door is ebony black, cold and unholy, and from it emanates",
+   "zh": "這扇門黑如烏木，冰冷而邪穢，從它身上散發出"
+  },
+  "18091": {
+   "en": "an aura of doom...",
+   "zh": "一股末日氣息……"
+  },
+  "18092": {
+   "en": "@You feel it pulling you, urging you to pass through...",
+   "zh": "你感覺它拉扯著你，催促你穿過去……"
+  },
+  "18094": {
+   "en": "You step into oblivion...",
+   "zh": "你步入虛無……"
+  },
+  "18096": {
+   "en": "You are falling... &%]&falling... &%]&&falling... &%]",
+   "zh": "你在墜落……&%]&墜落……&%]&&墜落……&%]"
+  },
+  "18097": {
+   "en": "And then you are falling no longer... &%]",
+   "zh": "然後你不再墜落……&%]"
+  },
+  "18098": {
+   "en": "All is quiet and black... &%]",
+   "zh": "一切寂靜而黑暗……&%]"
+  },
+  "18099": {
+   "en": "Though you can feel a solid surface beneath your feet, you see",
+   "zh": "雖然腳下能摸到堅實的地面，眼前卻"
+  },
+  "18100": {
+   "en": "nothing, and all around you presses the deep void...",
+   "zh": "什麼也看不見，深沉的虛空自四面八方壓來……"
+  },
+  "18102": {
+   "en": "You puff on the pipe... &%]But nothing happens...",
+   "zh": "你吸了吸菸斗……&%]但什麼也沒發生……"
+  },
+  "18104": {
+   "en": "You puff on the pipe... &%]As if by magic the mix starts to smoke! &%]",
+   "zh": "你吸了吸菸斗……&%]菸草彷彿被施了魔法般開始冒煙！&%]"
+  },
+  "18105": {
+   "en": "&Puff... %Puff... &%]",
+   "zh": "&呼……%呼……&%]"
+  },
+  "18106": {
+   "en": "It doesn't appear to be having much effecthftt... &%]",
+   "zh": "好像沒什麼效果hftt……&%]"
+  },
+  "18107": {
+   "en": "Not ttoo mmuuch ogedoe boo tay...",
+   "zh": "不太太多……哦給多……布太……"
+  },
+  "18110": {
+   "en": "A vision of burning flames appears in the distance...",
+   "zh": "遠方浮現一片烈焰燃燒的幻象……"
+  },
+  "18115": {
+   "en": "You draw closer to the fiery blaze, and you see there is something",
+   "zh": "你趨近那片熾烈的火光，看見火焰中有某物"
+  },
+  "18116": {
+   "en": "burning in the flames...",
+   "zh": "正在燃燒……"
+  },
+  "18120": {
+   "en": "It is you...",
+   "zh": "那是你……"
+  },
+  "18121": {
+   "en": "@The fire swells and suddenly you are surrounded by faces from your",
+   "zh": "火焰猛然高漲，剎那間你被來自過去的面孔"
+  },
+  "18122": {
+   "en": "past, faces of those you have both loved and slain...",
+   "zh": "團團圍住，那些你愛過也殺過的人的臉……"
+  },
+  "18123": {
+   "en": "@Their skin bubbles and their eyeballs swell and then explode as",
+   "zh": "他們的皮膚冒泡、眼球暴脹，然後在慘叫中"
+  },
+  "18124": {
+   "en": "they scream...",
+   "zh": "爆開……"
+  },
+  "18125": {
+   "en": "@And you watch as they turn into a host of blackened charred",
+   "zh": "你眼看著他們變成一大群焦黑的"
+  },
+  "18126": {
+   "en": "corpses...",
+   "zh": "屍體……"
+  },
+  "18127": {
+   "en": "@Their screams become a mad cackling, and as they crumble into",
+   "zh": "他們的慘叫化為瘋狂的咯咯笑聲，當他們崩解"
+  },
+  "18128": {
+   "en": "dust you see arise within the flames huge buildings and structures...",
+   "zh": "成塵時，你看見火焰中升起巨大的建築與構造……"
+  },
+  "18129": {
+   "en": "@And you sense that the structures mean something important,",
+   "zh": "你感覺這些建築別有深意，"
+  },
+  "18130": {
+   "en": "but watch as they too crack and fall into the burning inferno...",
+   "zh": "卻只能眼看它們也龜裂，崩落入熾烈的地獄火中……"
+  },
+  "18131": {
+   "en": "@The flame congeals into a flaming ball, and from its smoke and ash",
+   "zh": "火焰凝成一顆火球，從它的煙塵與灰燼中"
+  },
+  "18132": {
+   "en": "forms a sphere of spinning firmament which begins to orbit around",
+   "zh": "形成一個旋轉天穹的球體，開始環繞"
+  },
+  "18133": {
+   "en": "the burning mother...",
+   "zh": "那燃燒的母星運行……"
+  },
+  "18134": {
+   "en": "@And you look upon the sphere as its surface transforms, blossoming",
+   "zh": "你注視那球體，它的表面變化，綻放出"
+  },
+  "18135": {
+   "en": "an infinite variety of features, and soon there are other",
+   "zh": "無窮多樣的地貌，很快又出現其他"
+  },
+  "18136": {
+   "en": "spheres and then behind them still others and then a thousand suns",
+   "zh": "球體，其後還有更多，然後千顆太陽"
+  },
+  "18137": {
+   "en": "dot the black sky...",
+   "zh": "綴滿漆黑天空……"
+  },
+  "18138": {
+   "en": "@A million planets swarm past you, racing through the void, and",
+   "zh": "百萬顆行星成群掠過你身旁，在虛空中疾馳，"
+  },
+  "18139": {
+   "en": "time itself seems to accelerate as you witness the birth and",
+   "zh": "時間本身彷彿加速，你親見萬邦與"
+  },
+  "18140": {
+   "en": "demise of nations and whole worlds...",
+   "zh": "整個世界的誕生與滅亡……"
+  },
+  "18141": {
+   "en": "@You gaze upon the evolution of life as it streams through",
+   "zh": "你凝視生命的演化流淌過"
+  },
+  "18142": {
+   "en": "the galaxies, birthing and growing, warring and dying, and soon",
+   "zh": "諸星系——誕生、成長、爭戰、死亡——不久"
+  },
+  "18143": {
+   "en": "the shapes become a blur until they finally collide in a tremendous",
+   "zh": "這些形影變得模糊，終於在一場巨大的"
+  },
+  "18144": {
+   "en": "explosion and time itself becomes exhausted and collapses...",
+   "zh": "爆炸中相撞，時間本身也耗盡而崩塌……"
+  },
+  "18145": {
+   "en": "@And then all is still and black again...",
+   "zh": "然後一切又歸於靜止與黑暗……"
+  },
+  "18160": {
+   "en": "It is something you do not recognize...",
+   "zh": "那是你不認得的東西……"
+  },
+  "18161": {
+   "en": "@It is something new...",
+   "zh": "那是某種新事物……"
+  },
+  "18162": {
+   "en": "@It emerges from the flames, and the fire diminishes...",
+   "zh": "它從火焰中現身，火勢漸熄……"
+  },
+  "18163": {
+   "en": "@It is something beautiful...",
+   "zh": "那是某種美麗之物……"
+  },
+  "18164": {
+   "en": "@Moving with perfect grace, it appears before you...",
+   "zh": "它以完美的優雅之姿，現身在你面前……"
+  },
+  "18170": {
+   "en": "I am the Spirit of Life, and the spirit that",
+   "zh": "我是生命之靈，是統合一切"
+  },
+  "18171": {
+   "en": "unites all creation and destruction... &%]",
+   "zh": "創造與毀滅的那股靈……&%]"
+  },
+  "18172": {
+   "en": "Your eyes have beheld the magnificence that is life and the",
+   "zh": "你的雙眼已目睹生命之壯麗，以及"
+  },
+  "18173": {
+   "en": "emptiness that is non-life, and this no mortal mind was",
+   "zh": "非生命之空無，而這本非凡人"
+  },
+  "18174": {
+   "en": "meant to hold... &%]",
+   "zh": "心智所能承載……&%]"
+  },
+  "18175": {
+   "en": "For this is the seed that is",
+   "zh": "因為這就是那顆種子——"
+  },
+  "18176": {
+   "en": "the root and heart and mind of all living things... &%]",
+   "zh": "一切活物的根、心與靈智……&%]"
+  },
+  "18177": {
+   "en": "Be not afraid, for you have earned the right to choose",
+   "zh": "別怕，你已為自己贏得選擇的"
+  },
+  "18178": {
+   "en": "for yourself, and choices matter little for aught else... &%]",
+   "zh": "權利，而選擇對此外的一切皆無足輕重……&%]"
+  },
+  "18179": {
+   "en": "For though it is through your acts and the acts",
+   "zh": "因為儘管宇宙是藉由你的作為與"
+  },
+  "18180": {
+   "en": "of all life that the universe breathes, it is the breathing",
+   "zh": "一切生命的作為在呼吸，但呼吸本身"
+  },
+  "18181": {
+   "en": "itself that is the necessary lifegiving force... &%]",
+   "zh": "才是必要的賦生之力……&%]"
+  },
+  "18182": {
+   "en": "Now you may choose a path of divine power to assist you:",
+   "zh": "現在你可以選擇一條神力之路來協助你："
+  },
+  "18185": {
+   "en": "\u0002SWORD/\u0003STAFF/\u0004GOWN/\u0005RING/\u0006STONE/",
+   "zh": "\u0002劍/\u0003杖/\u0004袍/\u0005戒指/\u0006石頭/"
+  },
+  "18187": {
+   "en": "Will you take the SWORD, the STAFF, the GOWN, the RING, or the STONE?",
+   "zh": "你要取劍、杖、袍、戒指，還是石頭？"
+  },
+  "18190": {
+   "en": "So be it...",
+   "zh": "就這樣吧……"
+  },
+  "18192": {
+   "en": "You have seen the miraculous... &%]",
+   "zh": "你已目睹奇蹟……&%]"
+  },
+  "18193": {
+   "en": "But soon shall you open your eyes and remember no longer... &%]",
+   "zh": "但你很快就會睜開眼，不再記得……&%]"
+  },
+  "18194": {
+   "en": "For such is the nature of mortal mind to forget",
+   "zh": "因為凡人心智的天性就是遺忘，"
+  },
+  "18195": {
+   "en": "so that it may see again... &%]",
+   "zh": "如此才能再次看見……&%]"
+  },
+  "18196": {
+   "en": "This is why everything dies, to be born anew, in each blink of",
+   "zh": "正因如此，萬物皆死而後新生——在每一次"
+  },
+  "18197": {
+   "en": "an eye, in each life of a man, in each birth of the cosmos... &%]",
+   "zh": "眨眼、每段人生、每次宇宙誕生之中……&%]"
+  },
+  "18198": {
+   "en": "Fear not that you forget, it is each new moment of life that",
+   "zh": "別怕遺忘，你該銘記的是生命中每個"
+  },
+  "18199": {
+   "en": "you should remember...",
+   "zh": "嶄新的時刻……"
+  },
+  "18300": {
+   "en": "Upon a pedestal of rock there is a golden urn, its base",
+   "zh": "岩石基座上有一只金甕，甕底"
+  },
+  "18301": {
+   "en": "embedded within the rock itself...",
+   "zh": "嵌在岩石本體之中……"
+  },
+  "18302": {
+   "en": "@The urn is decorated with many designs and strange symbols, and",
+   "zh": "甕上飾有許多花紋與奇怪的符號，"
+  },
+  "18303": {
+   "en": "several similar runes have been engraved in the rock around it...",
+   "zh": "周圍岩石上也刻著幾個類似的符文……"
+  },
+  "18310": {
+   "en": "Upon a pedestal of rock there is a silver urn, its base",
+   "zh": "岩石基座上有一只銀甕，甕底"
+  },
+  "18311": {
+   "en": "embedded within the rock itself...",
+   "zh": "嵌在岩石本體之中……"
+  },
+  "18312": {
+   "en": "@The urn is decorated with many designs and strange symbols, and",
+   "zh": "甕上飾有許多花紋與奇怪的符號，"
+  },
+  "18313": {
+   "en": "several similar runes have been engraved in the rock around it...",
+   "zh": "周圍岩石上也刻著幾個類似的符文……"
+  },
+  "18320": {
+   "en": "Upon a pedestal of rock there is a viridian urn, its base",
+   "zh": "岩石基座上有一只碧綠甕，甕底"
+  },
+  "18321": {
+   "en": "embedded within the rock itself...",
+   "zh": "嵌在岩石本體之中……"
+  },
+  "18322": {
+   "en": "@The urn is decorated with many designs and strange symbols, and",
+   "zh": "甕上飾有許多花紋與奇怪的符號，"
+  },
+  "18323": {
+   "en": "several similar runes have been engraved in the rock around it...",
+   "zh": "周圍岩石上也刻著幾個類似的符文……"
+  },
+  "18330": {
+   "en": "Upon a pedestal of rock there is a cuprum urn, its base",
+   "zh": "岩石基座上有一只銅甕，甕底"
+  },
+  "18331": {
+   "en": "embedded within the rock itself...",
+   "zh": "嵌在岩石本體之中……"
+  },
+  "18332": {
+   "en": "@The urn is decorated with many designs and strange symbols, and",
+   "zh": "甕上飾有許多花紋與奇怪的符號，"
+  },
+  "18333": {
+   "en": "several similar runes have been engraved in the rock around it...",
+   "zh": "周圍岩石上也刻著幾個類似的符文……"
+  },
+  "18340": {
+   "en": "You hold the opaque stone up to the statue... &%]",
+   "zh": "你將那不透明的石頭舉向雕像……&%]"
+  },
+  "18341": {
+   "en": "&But nothing happens...",
+   "zh": "&但什麼都沒發生……"
+  },
+  "18350": {
+   "en": "You drop the jewel into the urn and watch as it magically",
+   "zh": "你將寶石投入甕中，看著它神奇地"
+  },
+  "18351": {
+   "en": "disappears...",
+   "zh": "消失無蹤……"
+  },
+  "18355": {
+   "en": "You hold the opaque stone up to the statue... %]",
+   "zh": "你把不透明的石頭舉向雕像……%]"
+  },
+  "18356": {
+   "en": "The stone begins to shimmer... %]",
+   "zh": "石頭開始閃爍微光……%]"
+  },
+  "18357": {
+   "en": "The eyes of the statue start to glow! %]",
+   "zh": "雕像的雙眼開始發光！%]"
+  },
+  "18358": {
+   "en": "And then there is a radiant flash of white light...",
+   "zh": "接著一道燦爛的白光閃過……"
+  },
+  "18360": {
+   "en": "You find yourself standing within a large grimey chamber...",
+   "zh": "你發現自己站在一間寬大而骯髒的廳房裡……"
+  },
+  "18361": {
+   "en": "@A cool steady breeze seems to provide a supply of fresh air",
+   "zh": "一陣涼爽的微風似乎不斷供應著新鮮空氣"
+  },
+  "18362": {
+   "en": "throughout the area, although no visible source of the pleasant",
+   "zh": "到整個區域，但這宜人微風的源頭"
+  },
+  "18363": {
+   "en": "wind is apparent...",
+   "zh": "卻看不見……"
+  },
+  "18364": {
+   "en": "@You can see no sign that would indicate the presence of lurking",
+   "zh": "你看不出任何顯示有潛伏居民"
+  },
+  "18365": {
+   "en": "inhabitants, although this does not rule out the possibility...",
+   "zh": "的跡象，不過這並未排除可能性……"
+  },
+  "18370": {
+   "en": "Standing at the statue, it appears more jovial than before...",
+   "zh": "站在雕像前，它顯得比先前更愉快……"
+  },
+  "18371": {
+   "en": "@The stone looks fresh, as if it were carved only yesterday,",
+   "zh": "石頭看來很新，彷彿昨天才剛雕成，"
+  },
+  "18372": {
+   "en": "although a thick layer of rust around its base suggests",
+   "zh": "但基座四周厚厚的一層鐵鏽卻說明"
+  },
+  "18373": {
+   "en": "it has been here a long time...",
+   "zh": "它已在這裡很久了……"
+  },
+  "18374": {
+   "en": "@Gazing up into the face of the majestic figure, you detect",
+   "zh": "抬頭凝望這威嚴巨像的臉龐，你察覺"
+  },
+  "18375": {
+   "en": "a faint smile and its eyes seem to almost twinkle...",
+   "zh": "一抹淡淡微笑，雙眼似乎還微微閃爍……"
+  },
+  "18380": {
+   "en": "Scraping off the thick rust, you unearth a metal plate at",
+   "zh": "刮除厚厚的鐵鏽後，你在雕像腳邊"
+  },
+  "18381": {
+   "en": "the foot of the statue engraved as follows:",
+   "zh": "掘出一塊金屬板，上頭刻著："
+  },
+  "18382": {
+   "en": "@#!B U I L D E R !OF THE TEMPLE",
+   "zh": "神 殿 建 造 者"
+  },
+  "18390": {
+   "en": "Diving underwater, you find a jewel coin hewn of solid diamond,",
+   "zh": "潛入水中，你找到一枚以整顆鑽石鑿成的錢幣，"
+  },
+  "18391": {
+   "en": "upon a surface of which is carved the likeness of a bearded and",
+   "zh": "幣面上刻著一張蓄鬍而"
+  },
+  "18392": {
+   "en": "twinkling, disturbingly familiar, face...",
+   "zh": "閃爍的、熟悉得令人不安的臉……"
+  },
+  "18395": {
+   "en": "Diving underwater, you find a jewel coin hewn of solid amber,",
+   "zh": "潛入水中，你找到一枚以整顆琥珀鑿成的錢幣，"
+  },
+  "18396": {
+   "en": "upon a surface of which is carved an image of the shining sun...",
+   "zh": "幣面刻著一幅閃亮太陽的圖像……"
+  },
+  "18400": {
+   "en": "Diving underwater, you find a jewel coin hewn of solid ruby,",
+   "zh": "潛入水中，你找到一枚以整顆紅寶石鑿成的錢幣，"
+  },
+  "18401": {
+   "en": "upon a surface of which is carved the picture of a mystical urn...",
+   "zh": "幣面刻著一只神秘甕的圖樣……"
+  },
+  "18405": {
+   "en": "Diving underwater, you find a jewel coin hewn of solid emerald,",
+   "zh": "潛入水中，你找到一枚以整顆翡翠鑿成的錢幣，"
+  },
+  "18406": {
+   "en": "upon a surface of which is carved the symbol of a holy temple...",
+   "zh": "幣面刻著一座聖殿的標記……"
+  },
+  "18500": {
+   "en": "#!ERYN RIVER",
+   "zh": "艾琳河"
+  },
+  "18501": {
+   "en": "!Munkharama Bridge",
+   "zh": "僧侶聖地大橋"
+  },
+  "18502": {
+   "en": "@The sign appears to be out of date, for it is quite plain that",
+   "zh": "這牌子看來已經過時，因為顯而易見"
+  },
+  "18503": {
+   "en": "there is no bridge which crosses the river here...",
+   "zh": "這裡根本沒有橫跨河面的橋……"
+  },
+  "18504": {
+   "en": "@There is, however, a long steel cable which has been drawn taut",
+   "zh": "不過，有一條拉得緊繃的長鋼纜，"
+  },
+  "18505": {
+   "en": "between two trees on each side of the river, and perhaps",
+   "zh": "橫在河兩岸各一棵樹之間，或許"
+  },
+  "18506": {
+   "en": "there is a way to make use of it in some fashion...",
+   "zh": "能想個辦法加以利用……"
+  },
+  "18510": {
+   "en": "From somewhere nearby on the riverbank you hear the slurred sounds",
+   "zh": "河岸附近某處傳來含糊不清的聲音，"
+  },
+  "18511": {
+   "en": "of someone singing, or at least trying to...",
+   "zh": "有人在唱歌，至少算是試著唱……"
+  },
+  "18512": {
+   "en": "@After a moment you decide that it's not singing, it's... &%]",
+   "zh": "過了一會兒，你斷定那不是唱歌，而是……&%]"
+  },
+  "18513": {
+   "en": "it's,... it's crooning, badly out of tune,",
+   "zh": "是……是低吟，而且嚴重走音，"
+  },
+  "18514": {
+   "en": "and you are sure the mysterious minstrel is",
+   "zh": "而你確定這位神秘吟遊詩人若非"
+  },
+  "18515": {
+   "en": "either completely deaf, trying to scare some animal, or is dying",
+   "zh": "全聾，就是在設法嚇走野獸，再不"
+  },
+  "18516": {
+   "en": "in great pain...",
+   "zh": "就是痛得要死……"
+  },
+  "18517": {
+   "en": "@Finally, you spot the wailing figure rising up from the bank,",
+   "zh": "終於，你看見那哀號的身影從河岸上站起，"
+  },
+  "18518": {
+   "en": "and after brushing the leaves and dirt from his robes, he turns",
+   "zh": "拍去長袍上的樹葉和塵土後，他轉向"
+  },
+  "18519": {
+   "en": "in your direction, mercifully desisting in his aria from hell",
+   "zh": "你的方向，仁慈地中止了那地獄詠嘆調"
+  },
+  "18520": {
+   "en": "as he stumbles up to meet you...",
+   "zh": "一邊蹣跚地走上前來見你……"
+  },
+  "18530": {
+   "en": "Welcome brothers! &%]",
+   "zh": "歡迎，弟兄們！&%]"
+  },
+  "18531": {
+   "en": "I am Brother TShober, guardian of Munkharama Bridge... &%]",
+   "zh": "我是喬伯修士，僧侶聖地大橋的守護者……&%]"
+  },
+  "18532": {
+   "en": "That is, I was when there was a bridge here, only now I still",
+   "zh": "這麼說吧，有橋的時候我是，現在也還是"
+  },
+  "18533": {
+   "en": "am but there isn't one... &%]I mean... &%]O nevermind...",
+   "zh": "是，只是橋沒了……&%]我是說……&%]唉，別管了……"
+  },
+  "18535": {
+   "en": "\u0002SLAY NOT HE THAT CANNOT HEAR/\u0002SLAY NOT HE WHO CANNOT HEAR/",
+   "zh": "\u0002勿殺不能聽聞之人/\u0002勿殺無法聽聞之人/"
+  },
+  "18537": {
+   "en": "How may I help you, good brothers?",
+   "zh": "好弟兄們，我能幫上什麼忙？"
+  },
+  "18542": {
+   "en": "Are you traveling to the Holy City of Munkharama?",
+   "zh": "你們是要前往僧侶聖地聖城嗎？"
+  },
+  "18545": {
+   "en": "Well then, I suppose it's none of my business...",
+   "zh": "這樣啊，那就不關我的事了……"
+  },
+  "18550": {
+   "en": "Good fortune you have found me then, for the iniquitous Munks of",
+   "zh": "那你們找到我可真是走運，因為那些邪惡的"
+  },
+  "18551": {
+   "en": "the Dark Forest have been afoot, spreading their foul and",
+   "zh": "黑暗森林穆克一直在活動，散播汙穢"
+  },
+  "18552": {
+   "en": "sinful ways and 'tis not a safe place to venture these days... &%]",
+   "zh": "與罪惡的行徑，如今這一帶不太平……&%]"
+  },
+  "18553": {
+   "en": "They come from the underworld, and though the holy path teaches",
+   "zh": "他們來自地下世界，雖然聖道教我們"
+  },
+  "18554": {
+   "en": "us to be kindly to our brethren, I say cut off their faces... &%]",
+   "zh": "要善待弟兄，我卻說：把他們的臉割掉……&%]"
+  },
+  "18555": {
+   "en": "Er,... I mean, I think they are in need of a few good reminders",
+   "zh": "呃……我是說，我覺得他們需要有人好好"
+  },
+  "18556": {
+   "en": "of the virtues of the rightful path, if you know what I mean... &%]",
+   "zh": "提醒他們正道的美德，你懂我意思……&%]"
+  },
+  "18557": {
+   "en": "Usually they keep to the forests, or make the journey to New City",
+   "zh": "他們通常躲在森林裡，或遠赴新城"
+  },
+  "18558": {
+   "en": "to work their profanities, but that has changed and now",
+   "zh": "去幹瀆神的勾當，但如今情況變了，"
+  },
+  "18559": {
+   "en": "they have infested the Holy City with their filthy ways... &%]",
+   "zh": "他們已帶著汙穢行徑侵占了聖城……&%]"
+  },
+  "18560": {
+   "en": "Methinks they have even been plotting unholy sacrilege",
+   "zh": "我看他們甚至一直在密謀瀆聖的勾當"
+  },
+  "18561": {
+   "en": "with the blaspheming scum born of Dane! &%]",
+   "zh": "與那些丹恩所出的瀆神敗類！&%]"
+  },
+  "18562": {
+   "en": "Um,... er, that is, those unfortunate brethren of the Dane who",
+   "zh": "嗯……呃，我是說，那些丹恩的可憐弟兄，"
+  },
+  "18563": {
+   "en": "are confused and have strayed far, yes, far, o yes very far indeed,",
+   "zh": "他們受了迷惑、偏離，是的，偏離，噢是的實在非常遠，"
+  },
+  "18564": {
+   "en": "from the blessed path of the true and rightful way...",
+   "zh": "偏離了那真正正道的蒙福之路……"
+  },
+  "18572": {
+   "en": "Be you wanting to cross the river?",
+   "zh": "你們可是想過河？"
+  },
+  "18575": {
+   "en": "Good!",
+   "zh": "好！"
+  },
+  "18577": {
+   "en": "Thy purse is lacking!",
+   "zh": "你的荷包不夠啊！"
+  },
+  "18582": {
+   "en": "Um, that is then, you wish to pay the 150 GP fee, er, donation?",
+   "zh": "嗯，這麼說，你想支付那 150 金幣的費用，呃，奉獻？"
+  },
+  "18585": {
+   "en": "Hrrumph! &%]",
+   "zh": "哼嗯！&%]"
+  },
+  "18586": {
+   "en": "May thee be'est prickled by the sharp point of the path!",
+   "zh": "願正道的芒刺扎得你刺痛！"
+  },
+  "18650": {
+   "en": "You watch as Brother TShober climbs up into a tree, attaching an",
+   "zh": "你看著喬伯修士爬上一棵樹，把一個"
+  },
+  "18651": {
+   "en": "odd looking wheel and handle to the cable which spans the river...",
+   "zh": "模樣古怪的輪子和把手裝上橫跨河面的鋼纜……"
+  },
+  "18652": {
+   "en": "@After giving it a convincing tug, he motions for you to approach",
+   "zh": "使勁一拉確認牢靠後，他示意你們走近"
+  },
+  "18653": {
+   "en": "and grab hold of the handle...",
+   "zh": "並握住那個把手……"
+  },
+  "18654": {
+   "en": "@Once everyone is prepared, he begins turning the crank...",
+   "zh": "等大家都準備好，他便開始轉動曲柄……"
+  },
+  "18660": {
+   "en": "Landing safely, you marvel at his enterprising little setup, and",
+   "zh": "平安落地後，你讚嘆他這套別出心裁的小裝置"
+  },
+  "18661": {
+   "en": "wonder just how long the bridge has been gone, presuming it ever",
+   "zh": "並納悶這橋到底不見多久了——如果它"
+  },
+  "18662": {
+   "en": "existed in the first place...",
+   "zh": "當初真的存在過……"
+  },
+  "18670": {
+   "en": "Be thankful ye that hath an ear! &%]",
+   "zh": "有耳可聽的人當感恩！&%]"
+  },
+  "18671": {
+   "en": "You are learning the way of the holy path! &%]",
+   "zh": "你正在領悟聖道！&%]"
+  },
+  "18672": {
+   "en": "I was sure of it the moment I saw you!",
+   "zh": "我一看見你們就確定了！"
+  },
+  "18677": {
+   "en": "Are you willing to face danger to continue thy holy journey?",
+   "zh": "你們願意直面危險，繼續神聖旅程嗎？"
+  },
+  "18680": {
+   "en": "Very well then, brothers...",
+   "zh": "那就這樣吧，弟兄們……"
+  },
+  "18685": {
+   "en": "You must find a way into the Hidden Temple of Munkharama, which",
+   "zh": "你們必須找到進入僧侶聖地隱密神殿的途徑，"
+  },
+  "18686": {
+   "en": "lies underneath the Holy City... &%]",
+   "zh": "它就坐落在聖城底下……&%]"
+  },
+  "18687": {
+   "en": "The Temple was built at the beginning of time, when the",
+   "zh": "這座神殿建於時間之始，即"
+  },
+  "18688": {
+   "en": "heavens were created, to protect and keep safe the holy work... &%]",
+   "zh": "諸天初創之時，為要保護保全聖工……&%]"
+  },
+  "18689": {
+   "en": "But the infernal brethren, may holy lightning burn them all forever,",
+   "zh": "但那些萬惡的弟兄，願神聖閃電永遠焚燒他們，"
+  },
+  "18690": {
+   "en": "from the Dark Forest, have made it an underworld of stench and decay,",
+   "zh": "那些黑暗森林來的，已把它變成惡臭腐朽的地下世界，"
+  },
+  "18691": {
+   "en": "a fortress to hide and harbour their impious lot... &%]",
+   "zh": "一座藏匿並窩藏瀆神之輩的堡壘……&%]"
+  },
+  "18692": {
+   "en": "They seek to discover the secret of the holy work! &%]",
+   "zh": "他們企圖挖出聖工的秘密！&%]"
+  },
+  "18693": {
+   "en": "But only those of the true path know the way... &%]",
+   "zh": "但只有正道上的人才知道路……&%]"
+  },
+  "18694": {
+   "en": "Deep within the Temple, underground waters from the river flow",
+   "zh": "神殿深處，來自河川的地下水"
+  },
+  "18695": {
+   "en": "freely, and keep it flooded... &%]",
+   "zh": "自由湧流，使神殿淹水……&%]"
+  },
+  "18696": {
+   "en": "But we rightful brethren know that beyond those waters lies",
+   "zh": "但我們正道弟兄知道，那些水域之外"
+  },
+  "18697": {
+   "en": "safe the holy work... &%]",
+   "zh": "聖工安然無恙……&%]"
+  },
+  "18698": {
+   "en": "You must brave the unholy Munks, may blessed rotworms forever fester",
+   "zh": "你們必須勇敢面對黑暗森林的邪穆克——"
+  },
+  "18699": {
+   "en": "in their malaised bowels, of the Dark Forest, and find where the",
+   "zh": "願蒙福的腐蟲永遠在他們病壞的肚腸裡潰爛——並找出"
+  },
+  "18700": {
+   "en": "waters flood... &%]",
+   "zh": "水淹之處……&%]"
+  },
+  "18701": {
+   "en": "There, aside the Golden Face, search ye for the true path! &%]",
+   "zh": "在那裡，在黃金之臉旁，尋找正道吧！&%]"
+  },
+  "18702": {
+   "en": "Once you have safely secured the holy work, take it to",
+   "zh": "等你們平安取得聖工後，把它帶去給"
+  },
+  "18703": {
+   "en": "Master Xheng, Lord of the 5 Flowers... &%]",
+   "zh": "鄭大師，五花門主……&%]"
+  },
+  "18704": {
+   "en": "He will know the holy word: &%]&",
+   "zh": "他會知道聖言：&%]&"
+  },
+  "18705": {
+   "en": "Slay not he that cannot hear, &%",
+   "zh": "勿殺不能聽聞之人，&%"
+  },
+  "18706": {
+   "en": "Be thankful ye that hath an ear! &%]",
+   "zh": "有耳可聽的人當感恩！&%]"
+  },
+  "18707": {
+   "en": "Recant this to him, or finish what he begins,",
+   "zh": "向他覆誦此言，或接續他起的頭，"
+  },
+  "18708": {
+   "en": "and he will know thee as disciples of the holy path... &%]",
+   "zh": "他就會認你們為聖道的門徒……&%]"
+  },
+  "18709": {
+   "en": "And good brethren, you shall also have need of this!",
+   "zh": "還有，好弟兄們，你們也會需要這個！"
+  },
+  "18720": {
+   "en": "Hoyo...",
+   "zh": "霍唷…"
+  },
+  "18725": {
+   "en": "Bodendoi...",
+   "zh": "波登多伊…"
+  },
+  "18730": {
+   "en": "\u0001\u0001BROTHER MOSER/",
+   "zh": "\u0001\u0001莫瑟修士/"
+  },
+  "18750": {
+   "en": "Attaching the Munk's trolly to the cable, you crank yourself across",
+   "zh": "把穆克的纜車掛上鋼纜，你搖動曲柄"
+  },
+  "18751": {
+   "en": "the river...",
+   "zh": "渡過河去……"
+  },
+  "18810": {
+   "en": "You stand in a pleasant courtyard, the air smells fresh, and",
+   "zh": "你站在一座宜人的庭院，空氣清新，"
+  },
+  "18811": {
+   "en": "the playful sounds of practicing munks sings in the breeze as",
+   "zh": "練功的穆克們嬉鬧的聲響隨微風飄送，"
+  },
+  "18812": {
+   "en": "they move and frolic in the open grass...",
+   "zh": "他們在開闊草地上活動嬉戲……"
+  },
+  "18813": {
+   "en": "@Soon, one of the young munks sees you, and gives a slight cry",
+   "zh": "不久，一個年輕穆克看見你，輕呼一聲"
+  },
+  "18814": {
+   "en": "pointing in your direction...",
+   "zh": "朝你的方向指來……"
+  },
+  "18815": {
+   "en": "@All of the other munks stop and turn to look, and after brief",
+   "zh": "其他穆克全都停下轉頭張望，短暫"
+  },
+  "18816": {
+   "en": "pause, wildly scramble into the ancient dojo behind them...",
+   "zh": "停頓後便發狂般衝進身後那座古老道場……"
+  },
+  "18820": {
+   "en": "#!Xen Xheng",
+   "zh": "鄭大師"
+  },
+  "18821": {
+   "en": "!School of 5 Flowers",
+   "zh": "五花門"
   },
   "19390": {
    "en": "HSSSS-GOOD-GOOD! &%%]",
