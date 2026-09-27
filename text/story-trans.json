@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 1444,
+ "count": 1640,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -5631,6 +5631,790 @@
   "16392": {
    "en": "momentary traveler...",
    "zh": "而他，只是其中一名過客……"
+  },
+  "17000": {
+   "en": "The forest clears a bit, and as you step forward a",
+   "zh": "森林稍見開闊，你剛向前邁步，"
+  },
+  "17001": {
+   "en": "thunder of gallants approach, surrounding you with swords",
+   "zh": "一陣武士的雷霆便逼近而來——刀劍與長矛"
+  },
+  "17002": {
+   "en": "and spears...",
+   "zh": "將你團團圍住……"
+  },
+  "17003": {
+   "en": "@Soon, a part appears in the crowd of leathered men,",
+   "zh": "很快，皮甲人群中讓開了一條通道，"
+  },
+  "17004": {
+   "en": "and striding up the open channel a tall regal figure",
+   "zh": "一位身形頎長、氣度威嚴的人物"
+  },
+  "17005": {
+   "en": "walks with the poise and stature of seasoned nobility...",
+   "zh": "以沙場貴族般的沉穩步伐走來……"
+  },
+  "17006": {
+   "en": "@Although he appears like the others, deep ochre skin,",
+   "zh": "雖然他看似與旁人無異——深赭的皮膚、"
+  },
+  "17007": {
+   "en": "round barreled body and short tusks ascending out of his",
+   "zh": "桶圓的身軀、嘴裡如野豬般上翹的短牙——"
+  },
+  "17008": {
+   "en": "mouth as from a wild boar, there is something more",
+   "zh": "他身上卻有一種更凝練的氣質，"
+  },
+  "17009": {
+   "en": "concentrated about him, and despite your misgivings about",
+   "zh": "儘管你對眼前處境滿腹疑慮，"
+  },
+  "17010": {
+   "en": "the situation, you feel an unmistakable attraction...",
+   "zh": "仍感受到一股難以言喻的懾人氣場……"
+  },
+  "17020": {
+   "en": "How yet more of your kind do come to plague us! &%]",
+   "zh": "怎麼又有你們這種人來侵擾我們！&%]"
+  },
+  "17021": {
+   "en": "These lands belong to the Gorn Empire, and we shall protect",
+   "zh": "這片土地屬於高恩帝國，我們將"
+  },
+  "17022": {
+   "en": "them unto the last! &%]",
+   "zh": "守護到最後一人！&%]"
+  },
+  "17023": {
+   "en": "Turn back and we shall leave you in peace... &%]",
+   "zh": "回頭，我們便放你們平安離開……&%]"
+  },
+  "17024": {
+   "en": "Enter, and die!",
+   "zh": "再前進，就死！"
+  },
+  "17030": {
+   "en": "You must leave our lands now!",
+   "zh": "你們必須立刻離開我們的領地！"
+  },
+  "17035": {
+   "en": "Ort!",
+   "zh": "奧特！"
+  },
+  "17036": {
+   "en": "Chalu!",
+   "zh": "查盧！"
+  },
+  "17042": {
+   "en": "Do you show Lord Galiere the letter from Capt. Boerigard?",
+   "zh": "要讓加利爾領主看波利加德船長的信嗎？"
+  },
+  "17050": {
+   "en": "I see by this letter you bring important news of the empire",
+   "zh": "從這封信看，你帶來了帝國的"
+  },
+  "17051": {
+   "en": "to the king... &%]",
+   "zh": "重要軍情……&%]"
+  },
+  "17052": {
+   "en": "Very well then, you shall be allowed to pass... &%]",
+   "zh": "很好，准許你們通行……&%]"
+  },
+  "17053": {
+   "en": "But be warned! &%]",
+   "zh": "但別怪我沒提醒！&%]"
+  },
+  "17054": {
+   "en": "Much has happened here recently and I cannot guarantee your",
+   "zh": "這裡最近出了大事，我無法保證"
+  },
+  "17055": {
+   "en": "safety... &%]",
+   "zh": "你們的安全……&%]"
+  },
+  "17056": {
+   "en": "Civil war has erupted amongst our people... &%]",
+   "zh": "內戰已在我們的族人間爆發……&%]"
+  },
+  "17057": {
+   "en": "A band of assassins, infiltrating Orkorge Castle, has slain",
+   "zh": "一伙刺客潛入奧高高城堡，"
+  },
+  "17058": {
+   "en": "the great wizard Murkatos... &%]",
+   "zh": "刺殺了大法師穆卡托斯……&%]"
+  },
+  "17059": {
+   "en": "With Murkatos dead, his spells no longer able to protect our",
+   "zh": "穆卡托斯一死，他的咒語再也無法守護"
+  },
+  "17060": {
+   "en": "lands and keep the peace between us, hordes of dissenting tribes",
+   "zh": "我們的土地、維繫族內和平，不服的部落"
+  },
+  "17061": {
+   "en": "have begun to gather in the surrounding fields... &%]",
+   "zh": "已在周邊曠野集結……&%]"
+  },
+  "17062": {
+   "en": "My army must remain here, ready for the battle that is soon to",
+   "zh": "我的軍隊必須留守於此，迎戰即將到來的"
+  },
+  "17063": {
+   "en": "begin, Gorn against Gorn, brother against brother, and blood",
+   "zh": "戰事——高恩對高恩、兄弟對兄弟、"
+  },
+  "17064": {
+   "en": "against blood... &%]",
+   "zh": "血對血……&%]"
+  },
+  "17065": {
+   "en": "Trust no one, and be wary, for the prophets would dance this",
+   "zh": "別相信任何人，時時警惕——那些先知"
+  },
+  "17066": {
+   "en": "night upon all our graves!",
+   "zh": "今夜就要在我們所有人的墳頭起舞！"
+  },
+  "17100": {
+   "en": "Sprouting from the ground like a descendant beanstalk, the",
+   "zh": "如一株直衝天際的巨莖豆蔓，"
+  },
+  "17101": {
+   "en": "entry to Orkogre Castle lies before you...",
+   "zh": "奧高高城堡的入口就聳立在你面前……"
+  },
+  "17105": {
+   "en": "From above, heavy gusts of fresh air rush past you, winding",
+   "zh": "頭頂上，清新的強風陣陣掠過，"
+  },
+  "17106": {
+   "en": "into the deep recesses of the Castle...",
+   "zh": "旋入城堡的深深內部……"
+  },
+  "17107": {
+   "en": "@Would that you could ride this wind, to make your journey",
+   "zh": "真希望能乘著這風，把旅途"
+  },
+  "17108": {
+   "en": "short and to the point...",
+   "zh": "變得又短又直接……"
+  },
+  "17109": {
+   "en": "@As it is, now you must stand against the very fortress itself...",
+   "zh": "但眼下，你必須直面這座堡壘本身。"
+  },
+  "17111": {
+   "en": "you wonder about the history of this place and its people...",
+   "zh": "你想著這個地方與其人民的歷史……"
+  },
+  "17112": {
+   "en": "@You think of how little you really know about them, and",
+   "zh": "你想到自己對他們所知何其稀少，"
+  },
+  "17113": {
+   "en": "that it is you who are the alien intruders...",
+   "zh": "而你，正是外來的入侵者……"
+  },
+  "17120": {
+   "en": "Upon the old scroll you read this hastily scrawled message:",
+   "zh": "你在古舊的卷軸上讀到一行倉促的字："
+  },
+  "17121": {
+   "en": "@We are betrayed!",
+   "zh": "我們被出賣了！"
+  },
+  "17122": {
+   "en": "@Assasins have penetrated the castle quickly...",
+   "zh": "刺客已經攻入城堡……"
+  },
+  "17123": {
+   "en": "@There is no time to reach my inner sanctum...",
+   "zh": "來不及趕回我的密室了……"
+  },
+  "17124": {
+   "en": "@The answer is there and the prison the key!",
+   "zh": "答案就在那裡，監牢就是鑰匙！"
+  },
+  "17130": {
+   "en": "#!Murkatos",
+   "zh": "#!穆卡托斯"
+  },
+  "17131": {
+   "en": "!Outer Sanctum",
+   "zh": "!外密室"
+  },
+  "17135": {
+   "en": "The sanctum appears to be a small meditation chamber, for quiety",
+   "zh": "密室似乎是一間小小的冥想室——遠牆"
+  },
+  "17136": {
+   "en": "centered underneath the candles of the far wall sits a fluffy",
+   "zh": "燭火下方的正中央，擺著一個蓬軟的紫色坐墊，"
+  },
+  "17137": {
+   "en": "purple cushion, surrounded by numerous symbols engraved upon",
+   "zh": "四周的地板上刻滿了"
+  },
+  "17138": {
+   "en": "the floor...",
+   "zh": "密密麻麻的符號……"
+  },
+  "17140": {
+   "en": "020100",
+   "zh": "020100"
+  },
+  "17141": {
+   "en": "  CHANT MANTRAS  ",
+   "zh": "   誦唸咒語   "
+  },
+  "17142": {
+   "en": " PUSH THE BUTTON ",
+   "zh": " 按下那顆按鈕 "
+  },
+  "17143": {
+   "en": "   LEAVE ALONE   ",
+   "zh": "   別去動它   "
+  },
+  "17145": {
+   "en": "Under the cushion you find a tiny indenture, in which resides",
+   "zh": "坐墊下有一個小小的凹槽，"
+  },
+  "17146": {
+   "en": "a red button...",
+   "zh": "裡面是一顆紅色按鈕……"
+  },
+  "17150": {
+   "en": "Searching through the trash in the dead wizard's closet,",
+   "zh": "翻找死去法師衣櫃裡的垃圾，"
+  },
+  "17151": {
+   "en": "you find a sealed parchment and a ring of keys...",
+   "zh": "你找到一封封好的羊皮紙和一串鑰匙……"
+  },
+  "17153": {
+   "en": "Several year's worth of uncollected garbage lies scattered about",
+   "zh": "經年未清的垃圾散落一地——"
+  },
+  "17154": {
+   "en": "floor, having been dumped when you errantly opened the cache...",
+   "zh": "是你誤開了暗格才倒出來的……"
+  },
+  "17155": {
+   "en": "@Apparently Murkatos took the easy route to good housekeeping...",
+   "zh": "看來穆卡托斯打掃房間走的是捷徑。"
+  },
+  "17158": {
+   "en": "A clatter of falling debris hits the floor with a crash!",
+   "zh": "一陣雜物落地的鏗噹聲！"
+  },
+  "17161": {
+   "en": "on the ground could easily be mistaken for a sewer, were it not",
+   "zh": "要不是沒有活水流動，地上的這灘東西"
+  },
+  "17162": {
+   "en": "for the lack of running water...",
+   "zh": "很容易被誤認為下水道……"
+  },
+  "17165": {
+   "en": "&M m m m m m m m... &%]",
+   "zh": "&嗯 嗯 嗯 嗯……&%]"
+  },
+  "17166": {
+   "en": "&M m m m m m m m...",
+   "zh": "&嗯 嗯 嗯 嗯……"
+  },
+  "17170": {
+   "en": "#!Orkogre !Armory_&_Supply",
+   "zh": "#!奧高高 軍械補給庫"
+  },
+  "17175": {
+   "en": "Inside the armory are racks of spears, lances, bows and arrows,",
+   "zh": "軍械庫裡立著成架的長矛、騎槍、弓與箭，"
+  },
+  "17176": {
+   "en": "and along the far wall are bundles of old leather coverings...",
+   "zh": "遠牆邊堆著一捆捆舊皮革……"
+  },
+  "17180": {
+   "en": "In the far corner of the supply depot are a number of barrels",
+   "zh": "補給庫的角落裡放著幾只木桶"
+  },
+  "17185": {
+   "en": "Inspecting the barrels, they contain pieces of a dried horrid",
+   "zh": "檢視木桶——裡面是風乾的、恐怖的"
+  },
+  "17186": {
+   "en": "brown leathery like substance, completely caked with salt...",
+   "zh": "褐色皮革狀碎塊，完全裹滿了鹽……"
+  },
+  "17187": {
+   "en": "@Sniffing one of the chunks of brown, your stomach immediately",
+   "zh": "湊近一嗅，你的胃立刻絞了起來……"
+  },
+  "17189": {
+   "en": "@Investigating the crates next, you pry one open and discover",
+   "zh": "再看那些木箱，撬開一箱——裡面是"
+  },
+  "17190": {
+   "en": "jars filled with the organs and internals of animals, emersed",
+   "zh": "一罐罐泡在濃稠黏液中的"
+  },
+  "17191": {
+   "en": "within a thick oozing liquid...",
+   "zh": "動物器官與內臟……"
+  },
+  "17192": {
+   "en": "@Dusting off the top of the crate, you discern the following",
+   "zh": "擦去箱蓋的灰塵，你辨認出"
+  },
+  "17193": {
+   "en": "markings: &M_U_N_K",
+   "zh": "這樣的記號：&M_U_N_K"
+  },
+  "17200": {
+   "en": "Inside the barracks stands poised a horde of feisty Gorn!",
+   "zh": "兵營裡昂然站著一群躍躍欲試的高恩戰士！"
+  },
+  "17205": {
+   "en": "#!GUARD !BARRACKS",
+   "zh": "#!衛兵 兵營"
+  },
+  "17210": {
+   "en": "#!Please Do Not",
+   "zh": "#!請勿"
+  },
+  "17211": {
+   "en": "!Poke The Prisoners",
+   "zh": "逗弄俘虜"
+  },
+  "17215": {
+   "en": "You detect faint movements from within the Prison Cell...",
+   "zh": "你察覺到牢房裡有微弱的動靜……"
+  },
+  "17220": {
+   "en": "The room is a rather austere sleeping chamber, being",
+   "zh": "這房間是一間相當簡樸的寢室——木板床上方"
+  },
+  "17221": {
+   "en": "distinguished by the mounted head of a large carnivore above",
+   "zh": "懸掛著一顆大型肉食獸的頭顱，"
+  },
+  "17222": {
+   "en": "a flat wooden slab, undoubtedly a grand display of local taste in",
+   "zh": "無疑是本地品味的一大展示……"
+  },
+  "17225": {
+   "en": "The air is somewhat stale, suggesting the chamber hasn't been",
+   "zh": "空氣有些滯悶，看來這房間"
+  },
+  "17226": {
+   "en": "occupied in at least several days...",
+   "zh": "至少好幾天沒人住了……"
+  },
+  "17230": {
+   "en": "The room is dry and stolid, its only feature being a single",
+   "zh": "房間乾燥而沉悶，唯一的陳設是"
+  },
+  "17231": {
+   "en": "large mattress stuffed with sticks against the far wall...",
+   "zh": "靠牆一張塞滿樹枝的大床墊……"
+  },
+  "17235": {
+   "en": "Under the mattress you discover a set of brushes and combs, made",
+   "zh": "床墊下你找到一組骨製的刷梳，"
+  },
+  "17236": {
+   "en": "of bone and stiff bristly hairs...",
+   "zh": "綴著粗硬的鬃毛……"
+  },
+  "17237": {
+   "en": "@A flat plate of polished steel lying underneath mirrors a dull",
+   "zh": "床板下一塊磨亮的鋼板，"
+  },
+  "17238": {
+   "en": "but accurate reflection of your likeness...",
+   "zh": "映出一個模糊而忠實的你……"
+  },
+  "17241": {
+   "en": "Blood...",
+   "zh": "血……"
+  },
+  "17246": {
+   "en": "as if diluted and washed by falling water droplets...",
+   "zh": "像是被落下來的水滴沖淡、洗開……"
+  },
+  "17247": {
+   "en": "Gazing upward, a small pinpoint of light glimmers from the",
+   "zh": "抬頭望去，天花板上"
+  },
+  "17248": {
+   "en": "ceiling...",
+   "zh": "閃爍著一縷細小的光……"
+  },
+  "17249": {
+   "en": "@No doubt the leak has proven more resourceful than the roof",
+   "zh": "毫無疑問，這道漏光比修屋頂的"
+  },
+  "17250": {
+   "en": "patchers...",
+   "zh": "傢伙們有用多了……"
+  },
+  "17255": {
+   "en": "On a hunch, you reflect the leaking beam of light into the",
+   "zh": "靈光一閃，你把那道漏下的光束"
+  },
+  "17256": {
+   "en": "sanctum gate...",
+   "zh": "反射向密室之門……"
+  },
+  "17260": {
+   "en": "#!Murkatos",
+   "zh": "#!穆卡托斯"
+  },
+  "17261": {
+   "en": "!Inner Sanctum",
+   "zh": "!內密室"
+  },
+  "17265": {
+   "en": "Inside the darkened sanctum, phosphor glows radiate symbols and",
+   "zh": "幽暗的密室裡，地板、牆壁與天花板上"
+  },
+  "17266": {
+   "en": "glyphs from the floor, walls, and ceiling...",
+   "zh": "熒熒發光的符文與 glyphs 交映生輝……"
+  },
+  "17267": {
+   "en": "@A few preserved creatures stare out from a cluttered shelf, and",
+   "zh": "雜亂的架子上瞪著幾隻防腐的生物標本，"
+  },
+  "17268": {
+   "en": "in the corner stands a small desk, littered with flasks and",
+   "zh": "角落裡一張小書桌，散放著燒瓶"
+  },
+  "17269": {
+   "en": "assorted knick-knacks...",
+   "zh": "與各色小玩意……"
+  },
+  "17270": {
+   "en": "@Upon a chest in the far corner are piles of old parchment and",
+   "zh": "遠角的箱子上堆著成疊的舊羊皮紙"
+  },
+  "17271": {
+   "en": "dusty books, and cobwebs hanging in the upper chambers of",
+   "zh": "與蒙塵的書冊，天花板上垂掛的"
+  },
+  "17272": {
+   "en": "the ceiling add a final touch...",
+   "zh": "蛛網成了最後一筆點綴……"
+  },
+  "17273": {
+   "en": "@Softly, without warning, a glowing form begins to materialize...",
+   "zh": "悄然無聲地，一個發光的身影開始凝聚……"
+  },
+  "17280": {
+   "en": "Upon the old wizard's table are several potions, a few",
+   "zh": "老法師的桌上放著幾瓶藥水、"
+  },
+  "17281": {
+   "en": "odd baubles, and a small potted bonsai tree...",
+   "zh": "幾樣古怪的小飾物，和一盆小小的盆栽……"
+  },
+  "17285": {
+   "en": "#!THRONE !ROOM",
+   "zh": "#!王 座 大 廳"
+  },
+  "17287": {
+   "en": "Only the faint distant auras of burning candles are visible",
+   "zh": "門扉之後，只見遠處燭火"
+  },
+  "17288": {
+   "en": "beyond the gate...",
+   "zh": "明滅的微光……"
+  },
+  "17290": {
+   "en": "Shadows dance upon the walls of the dark and gloomy cathedral,",
+   "zh": "陰暗肅穆的大殿牆上舞動著幢幢影子，"
+  },
+  "17291": {
+   "en": "and emptiness pervades the chamber deep within every crevice...",
+   "zh": "空虛滲進每道裂隙……"
+  },
+  "17292": {
+   "en": "@Faded tapestries, illuminated by the candlelight, depict",
+   "zh": "燭光照亮褪色的掛毯，上面織著"
+  },
+  "17293": {
+   "en": "scenes of warring tribes and victorious battles, and you glimmer",
+   "zh": "部落征戰與凱旋的場景——你恍惚覺得，"
+  },
+  "17294": {
+   "en": "that these represent eras of history now long passed...",
+   "zh": "那是早已遠去的時代……"
+  },
+  "17296": {
+   "en": "filled with endless politics and head-rolling decisions...",
+   "zh": "充斥著無休止的權謀與人頭落地的決斷……"
+  },
+  "17297": {
+   "en": "@Now, only the lone figure silhouetted upon the distant throne,",
+   "zh": "如今，唯有遙遠王座上的一個孤影——"
+  },
+  "17298": {
+   "en": "somber, forlorn, staring out as if pondering thoughts a",
+   "zh": "陰鬱、淒涼、凝視遠方，彷彿沉思著"
+  },
+  "17299": {
+   "en": "million miles away, breaks through the depression which so",
+   "zh": "百萬里之外的念頭——劃破這片"
+  },
+  "17300": {
+   "en": "clouds this desolate, desperate arena...",
+   "zh": "荒蕪絕望之地的沉沉死寂……"
+  },
+  "17310": {
+   "en": "Approaching the hunched and staring figure perched upon his",
+   "zh": "你走近那個蜷坐於藤骨王座、凝視前方的身影，"
+  },
+  "17311": {
+   "en": "throne of twine and bone, he gives no motion acknowledging",
+   "zh": "他毫無表示知曉你到來的動作，"
+  },
+  "17312": {
+   "en": "your presence, but in a deep guttering whisper begins to speak...",
+   "zh": "卻以低沉沙啞的耳語開口了："
+  },
+  "17320": {
+   "en": "So the gods have decided to put the old king out of his misery",
+   "zh": "諸神終於決定讓老國王解脫了，是嗎？&%]"
+  },
+  "17323": {
+   "en": "How the orchard blossoms have faded in the fields... &%]",
+   "zh": "果園的花朵在田野間凋零殆盡……&%]"
+  },
+  "17324": {
+   "en": "Though my army still stands strong, their strength is but",
+   "zh": "我的軍隊看似仍然強大，他們的力量"
+  },
+  "17325": {
+   "en": "a shallow weakness, for their spirit is broken... &%]",
+   "zh": "卻只是淺薄的虛弱——因為他們的魂已碎……&%]"
+  },
+  "17326": {
+   "en": "And now they wage war upon themselves, having lost that",
+   "zh": "如今他們同室操戈，因為他們失去了"
+  },
+  "17327": {
+   "en": "fleeting essence which fuels the heart and",
+   "zh": "那點燃心靈、"
+  },
+  "17328": {
+   "en": "makes possible all loves and desires... &%]",
+   "zh": "讓愛與渴望成為可能的短暫本質……&%]"
+  },
+  "17329": {
+   "en": "The vision of their destiny has been broken... &%]",
+   "zh": "他們對命運的願景已然破碎……&%]"
+  },
+  "17330": {
+   "en": "Shattered by the crushing presence of you who come from the",
+   "zh": "被你們這些自星辰而來者的"
+  },
+  "17331": {
+   "en": "stars... &%]",
+   "zh": "沉重存在所粉碎……&%]"
+  },
+  "17332": {
+   "en": "What grim irony that your visage now stands so mockingly before",
+   "zh": "何等殘酷的諷刺——你的容貌此刻"
+  },
+  "17333": {
+   "en": "me... &%]",
+   "zh": "竟如此嘲弄地立在我面前……&%]"
+  },
+  "17334": {
+   "en": "Shall you be the ghosts of my tormentors to haunt my dreams in",
+   "zh": "你會不會是折磨我的人的鬼魂，"
+  },
+  "17335": {
+   "en": "the hereafter?... &%]",
+   "zh": "來世還要糾纏我的夢？……&%]"
+  },
+  "17336": {
+   "en": "Or merely be you that come to put the sword in my heart and",
+   "zh": "又或者，你只是來把劍插進我的心臟，"
+  },
+  "17337": {
+   "en": "end this mortal suffering... &%]",
+   "zh": "終結這凡人的苦難……&%]"
+  },
+  "17338": {
+   "en": "I see it all now, so clear... &%]",
+   "zh": "如今我看清了一切，如此透徹……&%]"
+  },
+  "17339": {
+   "en": "Worlds within worlds continually unfolding... &%]",
+   "zh": "世界之中還有世界，層層開展……&%]"
+  },
+  "17340": {
+   "en": "The boundaries of time crossed and overlapping as easily as one",
+   "zh": "時間的邊界被跨越、交疊，輕易得"
+  },
+  "17341": {
+   "en": "might step from the garden into the forests... &%]",
+   "zh": "就像從花園踏進森林……&%]"
+  },
+  "17342": {
+   "en": "Like simple fish in the oceans, flipping and darting,",
+   "zh": "像海裡的魚，翻游穿梭，"
+  },
+  "17343": {
+   "en": "living out their days unaware of the unseen universes which",
+   "zh": "渾然不知頭頂的天上"
+  },
+  "17344": {
+   "en": "lie in the sky above their heads, so near and yet so far... &%]",
+   "zh": "藏著多少看不見的宇宙——近在咫尺，卻遠在天涯……&%]"
+  },
+  "17345": {
+   "en": "How likened unto every man, that all these galaxies swing",
+   "zh": "世間每個人不也如此——萬千星河"
+  },
+  "17346": {
+   "en": "and orbit around him, continually in his sight and yet never",
+   "zh": "繞著他旋轉運行，始終在他眼前，"
+  },
+  "17347": {
+   "en": "seen nor glimpsed... &%]",
+   "zh": "卻從未被看見、從未被瞥及……&%]"
+  },
+  "17348": {
+   "en": "Save that small portion which leaks into his momentary vision",
+   "zh": "除了那洩進他短暫視野的一小角……"
+  },
+  "17350": {
+   "en": "I pray you, grant this king these ramblings... &%]",
+   "zh": "我求你，容這老國王囉嗦這幾句……&%]"
+  },
+  "17351": {
+   "en": "Would that I could take my mind and thrust it upon you! &%]",
+   "zh": "但願我能把我的思想整個砸進你腦中！&%]"
+  },
+  "17352": {
+   "en": "But instead am forced to fling only the feeble stones of words...",
+   "zh": "可惜我只能擲出話語這些微弱的石子……"
+  },
+  "17360": {
+   "en": "\u0002DARTAEN ALLIANCE IS BROKEN/",
+   "zh": "\u0002達塔恩盟約已經破裂/"
+  },
+  "17362": {
+   "en": "But tell me strangers, what cause brings you this day?",
+   "zh": "那麼告訴我，陌生人，今天是什麼風把你們吹來的？"
+  },
+  "17370": {
+   "en": "What's this?! &%]",
+   "zh": "這是什麼？！&%]"
+  },
+  "17371": {
+   "en": "The Dartaen Alliance at end?!... &%]",
+   "zh": "達塔恩盟約竟到了盡頭？！……&%]"
+  },
+  "17372": {
+   "en": "Then the prophesy is indeed come... &%]",
+   "zh": "那麼預言果然應驗了……&%]"
+  },
+  "17373": {
+   "en": "So be it... &%]",
+   "zh": "就這樣吧……&%]"
+  },
+  "17374": {
+   "en": "We shall all play our part as was foretold... &%]",
+   "zh": "如預言所說，我們都將扮演自己的角色……&%]"
+  },
+  "17375": {
+   "en": "And meet in the infernos of the hereafter... &%]",
+   "zh": "並在來世的煉獄中相會……&%]"
+  },
+  "17376": {
+   "en": "But perhaps there be slack enough for dangerous sport with the",
+   "zh": "但或許，還來得及與那些神諭"
+  },
+  "17377": {
+   "en": "oracles in this... &%]",
+   "zh": "來一場危險的遊戲……&%]"
+  },
+  "17378": {
+   "en": "For who is to say that an end is naught but a gateway to some",
+   "zh": "誰說終結不過是通往"
+  },
+  "17379": {
+   "en": "new beginning... &%]",
+   "zh": "某個新起點的門戶……&%]"
+  },
+  "17380": {
+   "en": "And the pages yet unread be but deliberately concealed! &%]",
+   "zh": "誰說未讀的書頁不是被刻意藏起的！&%]"
+  },
+  "17381": {
+   "en": "I think I see much mischief in the fates... &%]",
+   "zh": "我看命運女神們詭計多端……&%]"
+  },
+  "17382": {
+   "en": "And perhaps it not be too late to learn their game...",
+   "zh": "也許還來得及看穿她們的把戲……"
+  },
+  "17385": {
+   "en": "\u0004NO/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004不／\u0005好／\u0005當然／\u0005可以／"
+  },
+  "17387": {
+   "en": "But what say you, be you willing to take a part?",
+   "zh": "那麼你說，你們願意加入嗎？"
+  },
+  "17390": {
+   "en": "Then listen close and be quick! &%]",
+   "zh": "那就聽清楚，快！&%]"
+  },
+  "17391": {
+   "en": "There be a sacred piece of parchment in my possession... &%]",
+   "zh": "我手上有神聖羊皮紙的一部分……&%]"
+  },
+  "17392": {
+   "en": "And methinks more mischievious deeds it can do in your hands",
+   "zh": "而它若到了你們手上，必能興風作浪，"
+  },
+  "17393": {
+   "en": "than mine own... &%]",
+   "zh": "比在我手裡有用得多……&%]"
+  },
+  "17394": {
+   "en": "I grant you, do as you will with it... &%]",
+   "zh": "我把它交給你，隨你處置……&%]"
+  },
+  "17395": {
+   "en": "For once the writings be done, it is then that we players may yet",
+   "zh": "因為一旦書寫完結，我們這些戲子"
+  },
+  "17396": {
+   "en": "learn to depart from the script... &%]",
+   "zh": "才能學會掙脫劇本……&%]"
+  },
+  "17397": {
+   "en": "In my bedchamber lies a secreted wall... &%]",
+   "zh": "我的寢室裡藏有一面密牆……&%]"
+  },
+  "17398": {
+   "en": "Hurry there, and therein find the gate which fits this key... &%]",
+   "zh": "快去那裡，找到與這把鑰匙相配的門……"
+  },
+  "17399": {
+   "en": "You will inside find what you seek...",
+   "zh": "你要找的東西就在裡面……"
   },
   "17860": {
    "en": "You turn back to face the pitiful wretch in the corner... &%]",
