@@ -182,3 +182,30 @@ LOAD 舊進度→旁白→迷宮八點），autopl2 全跑（58 個 AUTO 全執�
 
 worktree 未提交 main.go 的 IMPORT 改法處置：驗證失敗，下一輪改回 START 序列
 （重排時序）或直接 revert；本輪不動，留給下一輪動手。
+
+## 追記（2026-09-28 R9）：START 路線重排後大幅推進，終點＝DIRECTORY 載入畫面
+
+autoplay 切回 START 序列（主選單 48s 起，窗口 205s），65 個 AUTO 全執行、
+panic 0。**路徑大幅推進：建隊→七項選單→PCVW→主選單→防拷通過→DIRECTORY 卡點**
+（mv-130＝DIRECTORY/FILENAME 對話框，C:\DSAVANT\／SAVEGAME.BCF，中文字正常疊畫）。
+
+步數錨點（決定性，以 steps 為準；wall 僅供參考，啟動 18:00:36 UTC）：
+
+| steps | 畫面 |
+|---|---|
+| 246M | 主選單（48s 建隊點擊命中，建隊對話框 OK/CANCEL） |
+| 254M | THESUS／FIGHTER——建隊流程自動建出預設角色（免打名） |
+| 260M | 七項選單（ADD／REVIEW／DISMISS／**START NEW GAME**／CONFIG／QUIT） |
+| 266M | PCVW（CREATE…EXIT @y190；58s (159,47) 到達） |
+| 273M | 主選單（64s EXIT 回到的是**主選單，不是七項選單**——拓樸修正） |
+| 278M | 防拷 SECURITY CLEARANCE（70s (160,101) 在主選單＝匯入，舊教訓重演） |
+| 287M | AAAA @(98,184) 被接受（76s Type 命中） |
+| 289M | IMPORT 對話框＋DIRECTORY／FILENAME 等輸入——**終點卡點** |
+
+三個結論（confirmed，以翻譯事件＋截圖為據）：
+
+1. **重排時序有效**：R8 零命中 → R9 建隊、防拷全命中，THESUS 自動建出。
+2. **拓樸修正**：PCVW EXIT→主選單；七項選單在建隊對話框後直接出現（260M）。
+   R10 不必繞 PCVW：建隊→七項選單→START。
+3. **wall-clock 不可靠**：同 binary 主選單到達 R8 45s、R9 約 55–65s（host 負載漂移）。
+   R10 改步數門控（steps 決定性已由 M1 保證），按上表 steps＋餘裕觸發。
