@@ -19,3 +19,11 @@ oracle：月夜續推進。
 ## 不在範圍
 
 - 改 golem 本體；#17/#18。
+
+## 結果（實測）
+
+- 三格推進：4386M 第二片蘭花田
+  「Before you lies a vast field of wild orchids, rich in color,
+  strong in fragrant aroma...」，路向前穿過花田。
+- r92-maze.state（4392M，花田前）已存。
+- 下一步 R93：兩小步試睡眠觸發點。
