@@ -19,3 +19,12 @@ oracle：事件收尾（回迷宮／開打／新頁任一）。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- 四頁：「And how can you be certain of the difference...」→
+  「These thoughts begin to fade...」→
+  「Perhaps somewhere here on this new world lie the answers...」→
+  「And then again, perhaps not...」（s3/s4 同頁，事件尾）。
+- r60-maze.state（3385M）已存。
+- 下一步 R61：兩擊看回迷宮。
