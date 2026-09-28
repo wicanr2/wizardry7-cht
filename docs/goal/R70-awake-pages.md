@@ -19,3 +19,11 @@ oracle：後續頁／回迷宮任一。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- 睡眠原因：「The last thing you remember was walking amongst the
+  pretty flowers and your eyes began to feel drowsy...」——野蘭花睡眠陷阱。
+- 3745M 過渡，3752M 起羅盤回來：在哪睡就在哪醒。
+- r70-maze.state（3762M）已存。
+- 下一步 R71：前進兩格離開花叢。
