@@ -348,3 +348,21 @@ park 是「可見游標的重定位服務」，不是鎖定器——但呼叫者
 R17：ida.sh（locked-v1 image 在庫）匯出 VMAZE.code.i64 全文 .asm（唯讀掛載、
 副本跑、輸出驗非空——照 ida.sh 契約），找 position 服務呼叫點＋命中矩形表。
 選單免倍之謎併入（對照選單服務的 READ 路徑有無 shr）。
+
+## 追記（2026-09-28 R17）：VMAZE 無直呼——全經 resident 服務，全文匯出免了
+
+`tools/ida.sh script census.py VMAZE.code.i64`（契約全守：副本跑、雜湊
+`aa134943…` 前後一致、輸出非空）：109 函式，int 指令**僅 1**（int3
+@seg000:2480，bytes `cc`）——overlay 內無 int33、無 driver 直呼。
+ park 呼叫鏈必為 VMAZE far-call → resident 服務（sub_13C9 門）→ AX=4。
+
+附帶定案（confirmed）：golem bios.go int33 注記——虛擬屏恆 640 寬，
+13h 模式回報值是像素兩倍（與遊戲 `shr` 對合，標準 DOS 行為，非 quirks）。
+VGA.DRV 行號存檔：range 設定 2296–2301、halving 群 2309/2429/2491/2556/
+2648/4202、poll 迴圈 sub_12C9（2418–）、park 門 sub_13C9（2633–2662：
+byte_228 門＋FFFF 跳過＋15AC/15AE 代入）、byte_228 設 2323／清 2365。
+
+決策：全文 .asm 匯出**不做**（無直接呼叫可找；far-call 目標要 loader 映射，
+另案）。R18 逮現行：probe 跑到著陸（1.4B 步，前例 16B 步可行）＋
+AX=4 park 的呼叫者含 stack 回溯；或查 resident 服務分發表對 service 號。
+VMAZE.tail 看過了，只是資料檔名表（MAZEDATA.VGA…），非重定位。
