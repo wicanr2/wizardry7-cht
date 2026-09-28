@@ -20,3 +20,10 @@ oracle：事件收尾（回迷宮／開打／新頁任一）。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- 兩頁：「Will your actions assist the approach of a new order...」→
+  「destruction...」（獨白結尾；兩鍵被吃但無效，翻頁只認點擊）。
+- r59-maze.state（3355M，「destruction...」頁）已存。
+- 下一步 R60：連點四次翻完收尾。
