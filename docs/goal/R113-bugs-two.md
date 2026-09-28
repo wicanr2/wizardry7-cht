@@ -20,3 +20,12 @@ oracle：回合結算／蟲減員／THESUS 血量任一。
 ## 不在範圍
 
 - 改 golem 本體；#17/#18。
+
+## 結果（實測）
+
+- THESUS 戰死：s0 頭像旁骷髏，s1 黑屏過渡，s2 起回主選單
+  （CHARACTER MENU／ADD／LOAD／CONFIG／IMPORT／QUIT）。
+  單人 1 級打不過 2 蟲；FIGHT@5215 等點擊落在回合動畫無用。
+- 教訓：深區遭遇先評估，RUN 脫離是必備技能。
+- r111-maze.state（5170M，開打前）仍可用。
+- 下一步 R114：讀 r111，RUN＋START FIGHTING 脫離。
