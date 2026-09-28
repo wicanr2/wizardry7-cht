@@ -560,61 +560,55 @@ func main() {
 		g.screen = ebiten.NewImage(320, 200)
 	}
 
-	// 自動遊玩時序表（oracle 層直接注入，繞過 Ebiten 輸入在 Xvfb 的失效）
+	// 自動遊玩步數門控表（oracle 層直接注入，繞過 Ebiten 輸入在 Xvfb 的失效）。
+	// R10 改用 steps 觸發：wall-clock 在 R8（主選單 +45s）vs R9（約 +60s）間漂移，
+	// steps 有 M1 決定性保證。錨點來自 R9 實測（docs/re/010 R9 追記）。
 	var autos []struct {
-		after float64 // 啟動後秒數
-		fn    func(*oracle.Oracle)
+		at uint64 // 機器步數門檻
+		fn func(*oracle.Oracle)
 	}
 	if *autoplay {
-		add := func(t float64, fn func(*oracle.Oracle)) { autos = append(autos, struct {
-			after float64
-			fn    func(*oracle.Oracle)
-		}{t, fn}) }
+		add := func(s uint64, fn func(*oracle.Oracle)) { autos = append(autos, struct {
+			at uint64
+			fn func(*oracle.Oracle)
+		}{s, fn}) }
 		cl := func(x, y int) func(*oracle.Oracle) {
 			return func(o *oracle.Oracle) { o.Click(x, y) }
 		}
-		// START NEW GAME 路線（010 追記補二輪 4 confirmed，R9 按 +45s 錨點重排）：
-		// 主選單→建隊→角色選單→PCVW→EXIT→七項選單→START→巫6匯入詢問 CANCEL→
-		// 防拷 AAAA→旁白 40 次→迷宮八點。R8 教訓：主選單 +45s（246M steps）
-		// 才出現，舊時序（16s 起）全打在 credits。
-		add(48, cl(160, 62)) // 主選單「新增角色」直達建隊
-		add(50, cl(170, 153))
-		add(51.5, cl(90, 168))
-		add(53, cl(90, 168))
-		// 建隊後回主選單：(160,101) 在主選單＝「匯入隊伍」。正確路徑＝先
-		// (159,47) 角色選單進 PCVW，(160,101) 在 PCVW 熱點系統（y-13）
-		// 才是 START NEW GAME（013 追記二十九、010 追記補二）。
-		add(58, cl(159, 47)) // 角色選單 → PCVW
-		add(64, cl(277, 190)) // PCVW: EXIT → 七項選單（y-13 熱點系統）
-		add(70, cl(160, 101)) // 七項選單: START NEW GAME
-		add(73, cl(82, 169))  // 巫6 匯入詢問: CANCEL（文字 @(82,184)，熱點 y-15）
-		add(76, func(o *oracle.Oracle) { o.Type("AAAA\r") }) // 防拷
-		for i := 0; i < 40; i++ {                            // 旁白推進
-			t := 77.5 + float64(i)*1.2
-			add(t, cl(25, 15))
+		// START NEW GAME 路線（R9 拓樸修正：建隊對話框後直達七項選單，不繞 PCVW）：
+		// 主選單 246M→建隊→THESUS 254M→七項選單 260M→START→巫6匯入詢問 CANCEL→
+		// 防拷→旁白 40 次→迷宮八點。門檻＝錨點＋餘裕（約 4–5M steps）。
+		add(250_000_000, cl(160, 62)) // 主選單「新增角色」直達建隊
+		add(253_000_000, cl(170, 153))
+		add(255_000_000, cl(90, 168))
+		add(257_000_000, cl(90, 168))
+		add(265_000_000, cl(160, 101)) // 七項選單: START NEW GAME（y-13 熱點系統）
+		add(276_000_000, cl(82, 169))  // 巫6 匯入詢問: CANCEL（語意待驗）
+		add(288_000_000, func(o *oracle.Oracle) { o.Type("AAAA\r") }) // 防拷
+		for i := 0; i < 40; i++ {                                    // 旁白推進
+			add(295_000_000+uint64(i)*6_000_000, cl(25, 15))
 		}
-		// 迷宮方向盤十字 sweep（移動實證）。時序：旁白 40 次推進到 ~126s，
+		// 迷宮方向盤十字 sweep（移動實證）。旁白 40 次推進到 ~530M，
 		// 迷宮點擊必須在其後。
-		dirT := []struct {
-			t float64
+		dirS := []struct {
+			s uint64
 			x, y int
-		}{{130, 142, 165}, {134, 160, 155}, {138, 160, 178}, {142, 160, 196},
-			{146, 113, 178}, {150, 188, 178}, {154, 142, 165}, {158, 142, 165}}
-		for _, d := range dirT {
-			add(d.t, cl(d.x, d.y))
+		}{{540_000_000, 142, 165}, {544_000_000, 160, 155}, {548_000_000, 160, 178},
+			{552_000_000, 160, 196}, {556_000_000, 113, 178}, {560_000_000, 188, 178},
+			{564_000_000, 142, 165}, {568_000_000, 142, 165}}
+		for _, d := range dirS {
+			add(d.s, cl(d.x, d.y))
 		}
-		// 每點後 2 秒截圖（移動實證）
-		for _, d := range dirT {
-			shotT := d.t + 2
-			add(shotT, func(o *oracle.Oracle) {
+		// 每點後截圖（移動實證）
+		for _, d := range dirS {
+			shotS := d.s + 9_000_000
+			add(shotS, func(o *oracle.Oracle) {
 				evMu.Lock()
-				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/mv-%.0f-%d-%d.png", d.t, d.x, d.y))
+				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/mv-%d-%d-%d.png", d.s, d.x, d.y))
 				evMu.Unlock()
 			})
 		}
 	}
-
-	startWall := time.Now()
 	autoIdx := 0
 
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
@@ -675,14 +669,14 @@ func main() {
 				log.Printf("機器停止於 steps=%d：%v", o.Steps(), err)
 				return
 			}
-			// 自動遊玩：啟動秒數過點執行
+			// 自動遊玩：步數過門檻執行（R10 步數門控）
 			for autoIdx < len(autos) {
 				a := autos[autoIdx]
-				if time.Since(startWall).Seconds() < a.after {
+				if o.Steps() < a.at {
 					break
 				}
 				sh.mu.Unlock()
-				fmt.Printf("AUTO %.1fs 執行\n", a.after)
+				fmt.Printf("AUTO %d 執行 steps=%d\n", a.at, o.Steps())
 				a.fn(o)
 				autoIdx++
 				sh.mu.Lock()
