@@ -22,3 +22,12 @@
 ## 不在範圍
 
 - #17 錄放；#18 音訊；golem 改動（upstream 另案）。
+
+## 記錄
+
+2026-09-28 實測：race 失敗——三次 racepress＋一次 parkpress 全程
+pos=(302,164)，一次 racepress 內 sets 305→466（park 照跑），新截圖八張全同
+（`1c1c18…`）。pos  transiently 離開都沒有：推測遊戲迴圈順序是先 park 後讀，
+空窗結構性不存在。對照組（park 原地按）同滅，符合預期。
+R16 轉靜態：RE 迷宮滑鼠處理（熱點表、座標映射、40K park 呼叫者、鎖定旗標）。
+詳見 `docs/re/010` R15 追記（待補）。
