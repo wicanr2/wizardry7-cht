@@ -20,3 +20,9 @@ oracle：FINAL ORDERS／回合結算（R43–R44 循環）。
 ## 不在範圍
 
 - 改 golem 本體；#17/#18。
+
+## 結果（實測）
+
+- 第一輪執行：THESUS PUNCHES 落空（BUG MISSED!），BUG BITES 反擊。
+- r112-maze.state（5210M，第一輪中）已存。
+- 下一步 R113：兩輪 FIGHT＋START。
