@@ -24,3 +24,12 @@ vram shots 前後比對、1420M 存檢查點（後輪秒級展開）。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 記錄
+
+2026-09-28 實測：probe 全程送達（149 clicks press/release 對＋handler
+740C:1ED4 有反應），AX=3 poll 83K 次、AX=4 僅 1 次（無 park！），但全輪停在
+防拷——`-type $'AAAA\r'` 被轉義層吃成字面 7 bytes，AH=07 讀了 7 個垃圾字元
+（log-calls AH=07 ×7 對帳）。迷宮段數據作廢；r21-landing.state 實為防拷態；
+mv 差異＝游標位置差。完成定義全未達（R22 修轉義重跑）。詳見 `docs/re/010`
+R21 追記。
