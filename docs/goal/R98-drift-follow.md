@@ -19,3 +19,11 @@ oracle：睡醒文字／新區／遭遇任一。
 ## 不在範圍
 
 - 改 golem 本體；#17/#18。
+
+## 結果（實測）
+
+- 4600M 睡醒文字浮現（壓在羅盤上），4615M 全文
+  「You slowly awaken upon the ground, knowing not how you got here...」。
+  第二輪睡眠總長約 180M。
+- r98-maze.state（4634M）已存。
+- 下一步 R99：點擊翻頁。
