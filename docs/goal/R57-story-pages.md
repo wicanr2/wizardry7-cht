@@ -19,3 +19,11 @@ oracle：連續翻頁（每頁文字記錄，劇情事件全貌）。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- 四頁：「...mentations...」→「Like a shock, your mind begins to race...」→
+  「Does Mankind have a destiny?」→「Does the Universe have a destiny?」
+  （第四擊疑似未翻頁或同頁，s3/s4 僅游標差）。
+- r57-maze.state（3288M）已存。
+- 下一步 R58：再翻四頁。
