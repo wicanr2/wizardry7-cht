@@ -19,3 +19,10 @@ oracle：睡醒／被襲任一。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- 3730M 睡醒：「You slowly awaken upon the ground, knowing not how
+  you got here...」——休息總長約 200M 指令。
+- r69-maze.state（3732M，睡醒文字）已存。
+- 下一步 R70：點擊翻頁。
