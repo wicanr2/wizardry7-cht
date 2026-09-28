@@ -572,20 +572,47 @@ func main() {
 			at uint64
 			fn func(*oracle.Oracle)
 		}{s, fn}) }
+		// R14：游標 park 觀測。每次動作後記 pos／sets／range。
+		logMouse := func(o *oracle.Oracle, op string, x, y int, err error) {
+			mx, my := o.Mouse()
+			sets := o.MouseSets()
+			last := "none"
+			if len(sets) > 0 {
+				l := sets[len(sets)-1]
+				last = fmt.Sprintf("(%d,%d)@%d", l.X, l.Y, l.Step)
+			}
+			n0, n1, n2, n3 := o.MouseRange()
+			log.Printf("AUTO滑鼠 %s (%d,%d) err=%v pos=(%d,%d) sets=%d last=%s range=[%d-%d,%d-%d]",
+				op, x, y, err, mx, my, len(sets), last, n0, n1, n2, n3)
+		}
 		cl := func(x, y int) func(*oracle.Oracle) {
 			// R13：印出 Click error（含 Polls）——畫面不變時區分座標錯／沒準備好。
+			// R14：附游標觀測（park 假說）。
 			return func(o *oracle.Oracle) {
-				if err := o.Click(x, y); err != nil {
+				err := o.Click(x, y)
+				if err != nil {
 					log.Printf("AUTO點擊 (%d,%d)：%v", x, y, err)
 				}
+				logMouse(o, "click", x, y, err)
 			}
 		}
-		clh := func(x, y int) func(*oracle.Oracle) {
-			// 長按變體：int33h 低頻輪詢會跳過太短的按下（input.go 注記）。
+		domouse := func(op string, x, y int) func(*oracle.Oracle) {
 			return func(o *oracle.Oracle) {
-				if err := o.Click(x, y, oracle.Hold(5_000_000)); err != nil {
-					log.Printf("AUTO長按 (%d,%d)：%v", x, y, err)
+				var err error
+				switch op {
+				case "press":
+					o.MoveMouse(x, y)
+					o.PressButton(0)
+				case "release":
+					o.ReleaseButton(0)
+				case "right":
+					err = o.Click(x, y, oracle.Right())
+				case "log":
+					// 純觀測，不動輸入。
+				default:
+					err = o.Click(x, y)
 				}
+				logMouse(o, op, x, y, err)
 			}
 		}
 		// START NEW GAME 路線（R9 拓樸修正：建隊對話框後直達七項選單，不繞 PCVW）：
@@ -601,29 +628,25 @@ func main() {
 		for i := 0; i < 133; i++ { // 旁白推進（R11：引言延續到 1225M＋，每 8M 一次）
 			add(295_000_000+uint64(i)*8_000_000, cl(25, 15))
 		}
-		// 迷宮輸入變體（R13 診斷）：中央視野 plain／長按、羅盤前進長按、
-		// 前後左右。誰先讓 mv md5 變化誰就是答案。
+		// 迷宮 park 診斷（R14）：先純觀測，再中央、前進按住（跨 AUTO）、
+		// 放開、右鍵、左、上。op 參見 domouse（click/hold/press/release/right/log）。
 		type mvAct struct {
 			s  uint64
 			x, y int
-			hold bool
+			op string
 		}
 		dirS := []mvAct{
-			{1_430_000_000, 160, 100, false}, // 中央視野 plain
-			{1_434_000_000, 160, 100, true},  // 中央視野長按
-			{1_438_000_000, 142, 165, true},  // 羅盤前進長按
-			{1_442_000_000, 142, 165, false}, // 羅盤前進 plain
-			{1_446_000_000, 113, 178, false}, // 左
-			{1_450_000_000, 188, 178, false}, // 右
-			{1_454_000_000, 160, 196, false}, // 後退
-			{1_458_000_000, 160, 155, false}, // 前進（上）
+			{1_430_000_000, 0, 0, "log"},        // 純觀測：park 點／range
+			{1_434_000_000, 160, 100, "click"},  // 中央視野
+			{1_438_000_000, 142, 165, "press"},  // 前進按住（不放）
+			{1_446_000_000, 142, 165, "log"},    // 按住 8M 後觀測
+			{1_454_000_000, 0, 0, "release"},    // 放開
+			{1_458_000_000, 142, 165, "right"},  // 前進右鍵
+			{1_462_000_000, 113, 178, "click"},  // 左
+			{1_466_000_000, 160, 155, "click"},  // 前進（上）
 		}
 		for _, d := range dirS {
-			if d.hold {
-				add(d.s, clh(d.x, d.y))
-			} else {
-				add(d.s, cl(d.x, d.y))
-			}
+			add(d.s, domouse(d.op, d.x, d.y))
 		}
 		// 每點後截圖（移動實證）
 		for _, d := range dirS {
