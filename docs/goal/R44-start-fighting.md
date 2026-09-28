@@ -20,3 +20,12 @@ oracle：回合動畫／傷害數字／敵方減員／下一輪選單任一。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- START FIGHTING 生效，回合完整執行：
+  2700M「THESUS PUNCHES／BLACKBIRD」（反擊），
+  2720M「BLACKBIRD BITES／THESUS／MISSED!」（第二隻鳥落空）。
+- 戰鬥機制全通（選動作→FINAL ORDERS→回合結算→下一輪）。
+- r44-maze.state（2725M）已存。
+- 下一步 R45：一次排三輪 FIGHT＋START FIGHTING，看鳥死不死。
