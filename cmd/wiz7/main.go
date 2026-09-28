@@ -573,7 +573,20 @@ func main() {
 			fn func(*oracle.Oracle)
 		}{s, fn}) }
 		cl := func(x, y int) func(*oracle.Oracle) {
-			return func(o *oracle.Oracle) { o.Click(x, y) }
+			// R13：印出 Click error（含 Polls）——畫面不變時區分座標錯／沒準備好。
+			return func(o *oracle.Oracle) {
+				if err := o.Click(x, y); err != nil {
+					log.Printf("AUTO點擊 (%d,%d)：%v", x, y, err)
+				}
+			}
+		}
+		clh := func(x, y int) func(*oracle.Oracle) {
+			// 長按變體：int33h 低頻輪詢會跳過太短的按下（input.go 注記）。
+			return func(o *oracle.Oracle) {
+				if err := o.Click(x, y, oracle.Hold(5_000_000)); err != nil {
+					log.Printf("AUTO長按 (%d,%d)：%v", x, y, err)
+				}
+			}
 		}
 		// START NEW GAME 路線（R9 拓樸修正：建隊對話框後直達七項選單，不繞 PCVW）：
 		// 主選單 246M→建隊→THESUS 254M→七項選單 260M→START→巫6匯入詢問 CANCEL→
@@ -588,16 +601,29 @@ func main() {
 		for i := 0; i < 133; i++ { // 旁白推進（R11：引言延續到 1225M＋，每 8M 一次）
 			add(295_000_000+uint64(i)*8_000_000, cl(25, 15))
 		}
-		// 迷宮方向盤十字 sweep（移動實證）。旁白 133 次推進到 ~1351M，
-		// 迷宮點擊必須在其後。
-		dirS := []struct {
-			s uint64
+		// 迷宮輸入變體（R13 診斷）：中央視野 plain／長按、羅盤前進長按、
+		// 前後左右。誰先讓 mv md5 變化誰就是答案。
+		type mvAct struct {
+			s  uint64
 			x, y int
-		}{{1_380_000_000, 142, 165}, {1_384_000_000, 160, 155}, {1_388_000_000, 160, 178},
-			{1_392_000_000, 160, 196}, {1_396_000_000, 113, 178}, {1_400_000_000, 188, 178},
-			{1_404_000_000, 142, 165}, {1_408_000_000, 142, 165}}
+			hold bool
+		}
+		dirS := []mvAct{
+			{1_430_000_000, 160, 100, false}, // 中央視野 plain
+			{1_434_000_000, 160, 100, true},  // 中央視野長按
+			{1_438_000_000, 142, 165, true},  // 羅盤前進長按
+			{1_442_000_000, 142, 165, false}, // 羅盤前進 plain
+			{1_446_000_000, 113, 178, false}, // 左
+			{1_450_000_000, 188, 178, false}, // 右
+			{1_454_000_000, 160, 196, false}, // 後退
+			{1_458_000_000, 160, 155, false}, // 前進（上）
+		}
 		for _, d := range dirS {
-			add(d.s, cl(d.x, d.y))
+			if d.hold {
+				add(d.s, clh(d.x, d.y))
+			} else {
+				add(d.s, cl(d.x, d.y))
+			}
 		}
 		// 每點後截圖（移動實證）
 		for _, d := range dirS {
