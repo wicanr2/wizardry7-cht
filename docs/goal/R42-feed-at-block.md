@@ -6,9 +6,11 @@
 
 ## 目標
 
--load-state r40 續跑到 2650M：-bios-keys「空白EnterEnterRrF」
-（-bios-key-from 2636M，-bios-key-every 1M）＋-log-calls＋2642/2645/2648M shots。
-oracle：int16 AH=00 出現（吃鍵）＋shots 下一屏。
+-load-state r40 續跑到 2660M：-keys-at 餵「空白／Enter／R」
+（2636/2637/2638M，阻塞點 #2640128703 之前）＋-log-calls＋2642/2648/2655M shots。
+根因：遊戲阻塞讀取走 int21 AH=07（R41 實測 ×100000），讀的是 d.Stdin，
+正是 feedKeys（-keys-at）寫入的通道；R40 的鍵只是送早了一個階段。
+oracle：AH=07 讀到鍵＋shots 下一屏。
 
 ## 完成定義
 
@@ -19,3 +21,12 @@ oracle：int16 AH=00 出現（吃鍵）＋shots 下一屏。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測，r42.log，2635→2660M）
+
+- 三鍵全被 AH=07 取走（#2636051638／#2637065841／#2638084297），
+  無阻塞跑滿；但畫面仍是 2 BLACKBIRDS (2)，無推進。
+- 结论：鍵送達但非正確輸入（被忽略或 flush 吃掉）；單點 RUN 不夠，
+  戰鬥可能要 FIGHT→點目標完整序列（R31 座標越界，白測了）。
+- r42-maze.state（2658M）已存。
+- 下一步 R43：遊戲座標點 FIGHT (26,171) →shots→點鳥 (160,80)→shots。
