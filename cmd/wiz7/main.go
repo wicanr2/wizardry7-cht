@@ -607,6 +607,13 @@ func main() {
 					o.ReleaseButton(0)
 				case "right":
 					err = o.Click(x, y, oracle.Right())
+				case "racepress":
+					// R15：Move 後立即零 hover 按住 20M，賭第一次 park 前的 poll。
+					o.MoveMouse(x, y)
+					err = o.Press(oracle.Hold(20_000_000))
+				case "parkpress":
+					// R15 對照組：不 Move，原地按（讀到的必是 park 點，預期不動）。
+					err = o.Press(oracle.Hold(20_000_000))
 				case "log":
 					// 純觀測，不動輸入。
 				default:
@@ -628,22 +635,21 @@ func main() {
 		for i := 0; i < 133; i++ { // 旁白推進（R11：引言延續到 1225M＋，每 8M 一次）
 			add(295_000_000+uint64(i)*8_000_000, cl(25, 15))
 		}
-		// 迷宮 park 診斷（R14）：先純觀測，再中央、前進按住（跨 AUTO）、
-		// 放開、右鍵、左、上。op 參見 domouse（click/hold/press/release/right/log）。
+		// 迷宮 race 空窗（R15）：Move 後立即按住 20M＋park 原地按對照組。
 		type mvAct struct {
 			s  uint64
 			x, y int
 			op string
 		}
 		dirS := []mvAct{
-			{1_430_000_000, 0, 0, "log"},        // 純觀測：park 點／range
-			{1_434_000_000, 160, 100, "click"},  // 中央視野
-			{1_438_000_000, 142, 165, "press"},  // 前進按住（不放）
-			{1_446_000_000, 142, 165, "log"},    // 按住 8M 後觀測
-			{1_454_000_000, 0, 0, "release"},    // 放開
-			{1_458_000_000, 142, 165, "right"},  // 前進右鍵
-			{1_462_000_000, 113, 178, "click"},  // 左
-			{1_466_000_000, 160, 155, "click"},  // 前進（上）
+			{1_430_000_000, 0, 0, "log"},            // 純觀測：park 點／range
+			{1_434_000_000, 142, 165, "racepress"},  // 前進 race
+			{1_442_000_000, 142, 165, "log"},        // 觀測
+			{1_446_000_000, 0, 0, "parkpress"},      // 對照組：原地按
+			{1_454_000_000, 0, 0, "log"},            // 觀測
+			{1_458_000_000, 160, 155, "racepress"},  // 上 race
+			{1_462_000_000, 113, 178, "racepress"},  // 左 race
+			{1_466_000_000, 160, 100, "click"},      // 中央 plain（連續性）
 		}
 		for _, d := range dirS {
 			add(d.s, domouse(d.op, d.x, d.y))
