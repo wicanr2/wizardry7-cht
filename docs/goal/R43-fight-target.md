@@ -21,3 +21,12 @@ oracle：「看到按著」＞0 ＋ 目標選取反白／回合結算／敵方�
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- FIGHT 點擊生效：2665M 畫面底選單變成
+  「FINAL ORDERS／START FIGHTING／BACKUP TO PREV／TERMINATE GAME」
+  ——THESUS 動作已指定，遊戲在等開打確認。
+- 點鳥（2670M）無副作用，不需要先選目標。
+- r43-maze.state（2690M，FINAL ORDERS）已存。
+- 下一步 R44：點 START FIGHTING (160,166)，看回合結算。
