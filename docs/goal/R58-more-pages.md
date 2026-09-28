@@ -19,3 +19,12 @@ oracle：後續獨白頁（逐頁記錄）或事件結束。
 ## 不在範圍
 
 - 改 golem；#17/#18。
+
+## 結果（實測）
+
+- 四頁：「Could it be possible to alter the Universe...」→
+  「Or is all that can be, to remain all that is...」→
+  「Who is this Dark Savant, this dark herald of change?」→
+  「And what role shall you play?」（s3/s4 同頁，第四擊未翻）。
+- r58-maze.state（3324M）已存。
+- 下一步 R59：兩擊＋兩鍵，看事件收尾。
