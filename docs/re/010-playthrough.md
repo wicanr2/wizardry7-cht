@@ -366,3 +366,18 @@ byte_228 門＋FFFF 跳過＋15AC/15AE 代入）、byte_228 設 2323／清 2365�
 另案）。R18 逮現行：probe 跑到著陸（1.4B 步，前例 16B 步可行）＋
 AX=4 park 的呼叫者含 stack 回溯；或查 resident 服務分發表對 service 號。
 VMAZE.tail 看過了，只是資料檔名表（MAZEDATA.VGA…），非重定位。
+
+## 追記（2026-09-28 R18）：pos 釘住＋按住 22M 仍不動——park 出局，modal 接棒
+
+反打全程 pos=(284,165) 釘住（連續 10 次觀測），按住 22M（1434–1456M），
+park 幾乎停擺（18M 內僅 +1 set）——座標＋按鍵雙雙送達，遊戲照樣不理。
+**park 作為根因出局**（R14–R17 的主假說死）。
+
+改寫案情的新證據：mv-1454 幀底文 "And with memory comes an exciting
+recognition…"（區域描述），且 1403M 後零文字事件——著陸描述疑走非攔截
+管線（VMAZE overlay 內文本渲染？），而描述在屏＝迷宮未真正交出輸入。
+另：鍵盤免測（010 強證據：不讀 BIOS 佇列、port60 輪詢＋IRQ stall，
+golem 缺無 IRQ 投遞模式）。
+
+R19：十動全滑鼠——點底文（關閉？）→點頭像（手形解除？）→羅盤一圈。
+全滅則 R20 轉 probe PressReads（AX=5 呼叫者 CS:IP，golem 有記）查按鍵路徑。
