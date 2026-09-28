@@ -20,21 +20,6 @@
  },
  "items": [
   {
-   "id": "m2-playthrough",
-   "milestone": "M2",
-   "labels": [
-    "verify",
-    "frontend"
-   ],
-   "issue": 16,
-   "title": "模擬試玩：主選單→建隊伍→進遊戲",
-   "body": "真實輸入路徑（Click/Tap/PressKey）從主選單推進到第一個可操作畫面；熱點未知用 -sweep。",
-   "acceptance": "全程截圖＋狀態檔＋轉場記錄（docs/re/010）。",
-   "verify": [
-    "試玩中斷且無法推進"
-   ]
-  },
-  {
    "id": "m2-recording",
    "milestone": "M2",
    "labels": [
@@ -384,6 +369,20 @@
    ],
    "evidence": "docs/re/012/013＋cmd/wiz7（hook 段）＋/tmp/opencode/auto2.log 49 次命中＋hd-1790438268.png（PCVW 六項中文）",
    "done": "2026-09-26"
+  },
+  {
+   "id": "m2-playthrough",
+   "milestone": "M2",
+   "labels": [
+    "verify",
+    "frontend"
+   ],
+   "issue": 16,
+   "title": "模擬試玩：主選單→建隊伍→進遊戲",
+   "body": "真實輸入路徑（Click/Tap/PressKey）從主選單推進到第一個可操作畫面；熱點未知用 -sweep。",
+   "acceptance": "全程截圖＋狀態檔＋轉場記錄（docs/re/010）。",
+   "evidence": "R30-R49 probe 全程：開機→建隊→迷宮→2 BLACKBIRDS遭遇戰（FIGHT→FINAL ORDERS→多輪結算勝利）→迷宮右轉後退移動；docs/goal/R30-R49，檢查點 r49-maze.state（3095M）",
+   "done": "2026-09-28"
   }
  ],
  "dropped": []
