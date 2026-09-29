@@ -13,3 +13,10 @@
 ## 安全
 - 存點 r601（逃後點滿血）已落；敗／散隊／再擋 ⟹ 讀回 r601。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R604 結果（THESUS 亡，本分支廢棄）
+- 再 RUN→FINAL ORDERS ✓；moths 先攻 MISSED；`THESUS RUNS`→`BLOCKED!`（二擋）；
+  續攻 HIT BODY 5 → `THESUS DIES!`（#26482M）→CHARACTER MENU。
+- 定論：EERIE MOTHS 擋脫離（2/2 BLOCKED）＋solo 二輪殺；遭遇 MOTHS 不打，
+  只讀回。PHOOTS 可 RUN（R600 前例）。
+- 讀回 r601（逃後點滿血）。R605 換側（q1）探，避 moth-hot q0 前向。
