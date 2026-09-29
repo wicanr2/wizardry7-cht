@@ -233,7 +233,8 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 | `text/messages.json` 仍含手冊防拷關鍵字段（使用者 2026-09-29 指示擱置另議） | #26 |
 | `docs/worklist.json` 尚未退場；`CONTEXT.md`、`WORKLOG.md`、`docs/re/README.md` 未建；`PLAN.md` 現況表過期 | #27 |
 | 沒有 `docs/spec/`；已上線的印字攔截、高解析合成無規格 | #28 |
-| `cmd/wiz7` 在印字入口寫 `0xC3` 擋英文，違反第 1 節且已證實改變原版座標；殘影判定會丟掉選單與隊員名 | #31 |
+| 覆繪已改為不寫原版（spec 001 READY）；互動視窗 `Draw` 路徑未截圖驗證、2× 畫布行距 6 的畫面中文會壓疊 | #31 |
+| 單獨隊員名撞上序數鍵 `$`（THESUS 顯示成「第六」） | #32 |
 | adapter 在本 repo `cmd/`（go.mod replace 到 `worktrees/dosgolem`），尚未評估是否移到 dosgolem fork 的 `apps/wiz7` | #29 |
 
 ## 13. 定案事項

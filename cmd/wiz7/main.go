@@ -145,98 +145,265 @@ func leadingWordDollar(s string) string {
 	return "$" + s[j:]
 }
 
-// vramHash＝Indexed 色號畫面中事件區域（x..x+w、y..y+14，越界裁切）的
-// FNV-1a。殘影清除：合成時背景區域雜湊與記錄時不同＝畫面已切換→丟棄。
-// evBox 回傳一串中文字在「原版座標」佔的寬高。字形畫在 2× 畫布上，
-// 每字前進 len(g)+2 個 HD 像素、高 len(g) 個 HD 像素，換回原版要除以 2。
-// 去重與背景雜湊都在原版座標運算，單位不可混用。
-func evBox(g [][]uint16) (w, h int) {
-	hd := 0
-	for _, gl := range g {
-		hd += len(gl) + 2
-		if len(gl) > h {
-			h = len(gl)
-		}
+// ── 不寫原版的印字覆繪（docs/spec/001，證據 docs/re/014 E1–E9）──────────
+//
+// 原版每一則字串照常畫出英文（R1）。轉譯層在印字入口與返回各取一張離屏
+// 快照，差異矩形就是英文筆畫所在（E4）；合成時以 A000 判定該處是否仍是
+// 這串英文（E7），是的話把筆畫還原成印字前的背景，再在放大畫布上畫中文。
+
+// offscreen 回傳 VGA.DRV 離屏緩衝（blit 來源段＝740C:01E5 的值，E5）。
+// 段值為 0 時回 nil（尚未初始化）。
+func offscreen(o *oracle.Oracle) []uint8 {
+	seg := o.Word(oracle.Addr{Seg: 0x740C, Off: 0x01E5})
+	if seg == 0 {
+		return nil
 	}
-	return (hd + 1) / 2, (h + 1) / 2
+	return o.Bytes(oracle.Addr{Seg: seg, Off: 0}, 320*200)
 }
 
-func vramHash(idx []uint8, x, y, w, hgt int) uint32 {
+// textEv 是一則有譯文的印字事件（R2.4）。
+type textEv struct {
+	s              string
+	x0, y0, dy     int
+	bx, by, bw, bh int     // 英文筆畫框（原版座標）
+	before, after  []uint8 // 框內離屏色號：印字前／後
+	fg             uint8   // 筆畫色號（差異像素眾數）
+	fgRGB          [3]uint8
+	g              [][]uint16
+	shown          bool
+	img            *ebiten.Image // Draw 時 lazily 預渲染的字形條
+}
+
+// pendingPrint 是已進入、尚未返回的印字（R2.1）。
+type pendingPrint struct {
+	s      string
+	x0, y0 int
+	dy     int
+	sp     uint16
+	ret    oracle.Addr
+	before []uint8
+	g      [][]uint16
+}
+
+// overlay 保存事件與統計；呼叫端持有 evMu。
+type overlay struct {
+	pend    *pendingPrint
+	evs     []*textEv
+	created int
+	shown   int
+	dropped int
+	empty   int
+	nested  int
+	noseg   int
+}
+
+// cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
+const cursorBox = 16
+
+// finish 在返回 hook 取 after 快照、算差異框並建立事件（R2.3–R2.4）。
+func (ov *overlay) finish(o *oracle.Oracle) {
+	p := ov.pend
+	ov.pend = nil
+	after := offscreen(o)
+	if after == nil || p.before == nil {
+		ov.noseg++
+		return
+	}
+	x0, y0, x1, y1 := 320, 200, -1, -1
+	for i := range after {
+		if after[i] != p.before[i] {
+			x, y := i%320, i/320
+			x0, y0 = min(x0, x), min(y0, y)
+			x1, y1 = max(x1, x), max(y1, y)
+		}
+	}
+	if x1 < 0 {
+		ov.empty++
+		return
+	}
+	w, h := x1-x0+1, y1-y0+1
+	e := &textEv{s: p.s, x0: p.x0, y0: p.y0, dy: p.dy, bx: x0, by: y0, bw: w, bh: h, g: p.g}
+	e.before = make([]uint8, w*h)
+	e.after = make([]uint8, w*h)
+	var cnt [256]int
+	for y := 0; y < h; y++ {
+		for x := 0; x < w; x++ {
+			i := (y0+y)*320 + x0 + x
+			k := y*w + x
+			e.before[k], e.after[k] = p.before[i], after[i]
+			if after[i] != p.before[i] {
+				cnt[after[i]]++
+			}
+		}
+	}
+	for c := 1; c < 256; c++ {
+		if cnt[c] > cnt[e.fg] {
+			e.fg = uint8(c)
+		}
+	}
+	e.fgRGB = o.Palette()[e.fg] // 返回 hook 當下的調色盤（R2.4）
+	ov.evs = append(ov.evs, e)
+	ov.created++
+}
+
+// compose 依 R3 判定事件狀態，回傳合成後的低解析色號與 shown 事件（R4.1）。
+// 只在機器 goroutine 的快照節點呼叫（R4.3）。
+func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv) {
+	a := o.Indexed()
+	comp := append([]uint8(nil), a...)
+	off := offscreen(o)
+	mx, my := o.Mouse()
+	inCursor := func(x, y int) bool {
+		return x >= mx && x < mx+cursorBox && y >= my && y < my+cursorBox
+	}
+	kept := ov.evs[:0]
+	var shown []*textEv
+	for _, e := range ov.evs {
+		match := true
+		for y := 0; y < e.bh && match; y++ {
+			for x := 0; x < e.bw; x++ {
+				px, py := e.bx+x, e.by+y
+				if inCursor(px, py) {
+					continue
+				}
+				if a[py*320+px] != e.after[y*e.bw+x] {
+					match = false
+					break
+				}
+			}
+		}
+		switch {
+		case match:
+			if !e.shown {
+				e.shown = true
+				ov.shown++
+			}
+			for y := 0; y < e.bh; y++ {
+				for x := 0; x < e.bw; x++ {
+					k := y*e.bw + x
+					i := (e.by+y)*320 + e.bx + x
+					if a[i] == e.after[k] && e.before[k] != e.after[k] {
+						comp[i] = e.before[k]
+					}
+				}
+			}
+			kept = append(kept, e)
+			shown = append(shown, e)
+		case e.shown:
+			ov.dropped++
+		default:
+			// 尚未上屏：離屏框仍是 after 才保留（R3 表第 3、4 列）
+			still := off != nil
+			for y := 0; y < e.bh && still; y++ {
+				for x := 0; x < e.bw; x++ {
+					if off[(e.by+y)*320+e.bx+x] != e.after[y*e.bw+x] {
+						still = false
+						break
+					}
+				}
+			}
+			if still {
+				kept = append(kept, e)
+			} else {
+				ov.dropped++
+			}
+		}
+	}
+	for i := len(kept); i < len(ov.evs); i++ {
+		ov.evs[i] = nil
+	}
+	ov.evs = kept
+	return comp, shown
+}
+
+func (ov *overlay) stats() string {
+	return fmt.Sprintf("事件 建立=%d 上屏=%d 刪除=%d 無差異=%d 巢狀捨棄=%d 無離屏=%d 存活=%d",
+		ov.created, ov.shown, ov.dropped, ov.empty, ov.nested, ov.noseg, len(ov.evs))
+}
+
+func fnv(b []byte) uint32 {
 	var h uint32 = 2166136261
-	for row := y; row < y+hgt && row < 200; row++ {
-		if row < 0 {
-			continue
-		}
-		x0, x1 := x, x+w
-		if x0 < 0 {
-			x0 = 0
-		}
-		if x1 > 320 {
-			x1 = 320
-		}
-		base := row * 320
-		for px := x0; px < x1; px++ {
-			h = (h ^ uint32(idx[base+px])) * 16777619
-		}
+	for _, v := range b {
+		h = (h ^ uint32(v)) * 16777619
 	}
 	return h
 }
 
-// evAlive 過濾掉背景已變（畫面已切換）的事件。
-// offscreen 回傳 VGA.DRV 離屏緩衝（blit 來源，320 寬線性色號；段在
-// 740C:01E5，docs/re/013）。文字與對話框先畫在這裡、之後才 blit 到 A000，
-// 所以印字當下只有離屏才是「這串字的背景」；A000 可能還是上一個畫面，
-// 且滑鼠游標只畫在 A000。殘影判定一律以離屏為準。
-func offscreen(o *oracle.Oracle) []uint8 {
-	seg := o.Word(oracle.Addr{Seg: 0x740C, Off: 0x01E5})
-	return o.Bytes(oracle.Addr{Seg: seg, Off: 0}, 320*200)
-}
+// hdScale 是 hdFrame 的畫布倍率（與互動視窗 -scale 同義）。行距 6 的畫面
+// （防拷三行）在 2× 只有 12 px，放不下 15 px 的中文字；3× 為 18 px。
+var hdScale = 2
 
-func evAlive(evs []glyphEv, idx []uint8) []glyphEv {
-	kept := evs[:0]
-	for _, e := range evs {
-		w, h := evBox(e.g)
-		if vramHash(idx, e.x, e.y, w, h) == e.hash {
-			kept = append(kept, e)
-		}
-	}
-	return kept
-}
-
-// 前端 ↔ 機器 goroutine 的共享狀態（mu 保護）。
-// entry 是譯文表的一筆（xlate.json）：dy＝行距微調、g＝每字 15×15 位圖。
-// hdFrame 合成高解析幀：A0000 2x 放大＋文字事件（15×15 原字形）。
-func hdFrame(o *oracle.Oracle, evs []glyphEv, path string) {
+// hdFrame 在快照節點合成高解析幀：低解析合成（已還原英文筆畫）放大 hdScale 倍，
+// 中文 15×15 原字形畫在 (x0×k, (y0+dy)×k)。呼叫端持有 evMu。
+func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []*textEv) {
+	comp, shown = ov.compose(o)
 	pal := o.Palette()
-	idx := o.Indexed()
-	evs = evAlive(evs, offscreen(o))
-	img := image.NewRGBA(image.Rect(0, 0, 640, 400))
-	for py := 0; py < 400; py++ {
-		for px := 0; px < 640; px++ {
-			c := pal[idx[(py/2)*320+(px/2)]]
+	k := hdScale
+	img := image.NewRGBA(image.Rect(0, 0, 320*k, 200*k))
+	for py := 0; py < 200*k; py++ {
+		for px := 0; px < 320*k; px++ {
+			c := pal[comp[(py/k)*320+(px/k)]]
 			img.Set(px, py, color.RGBA{c[0], c[1], c[2], 255})
 		}
 	}
-	for _, e := range evs {
-		fr := color.RGBA{e.fgR, e.fgG, e.fgB, 255}
-		cx := e.x * 2
+	for _, e := range shown {
+		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
+		cx := e.x0 * k
 		for _, glyph := range e.g {
 			for row, w := range glyph {
 				for bit := 0; bit < len(glyph); bit++ {
 					if (w>>(len(glyph)-1-bit))&1 != 0 {
-						img.Set(cx+bit, e.y*2+row, fr)
+						img.Set(cx+bit, (e.y0+e.dy)*k+row, fr)
 					}
 				}
 			}
 			cx += len(glyph) + 2
 		}
 	}
-	f, err := os.Create(path)
-	if err != nil {
-		return
+	if f, err := os.Create(path); err == nil {
+		png.Encode(f, img)
+		f.Close()
 	}
-	defer f.Close()
-	png.Encode(f, img)
+	return comp, shown
+}
+
+// hdAtDump 輸出 -hd-at 驗收資料（spec 001 R5 與驗收）：HD 合成 PNG、
+// A000 原始色號、低解析合成色號、shown 事件與雜湊。呼叫端持有 evMu。
+func hdAtDump(o *oracle.Oracle, ov *overlay, dir string, st uint64) {
+	base := fmt.Sprintf("%s/hdat-%d", dir, st)
+	a := append([]uint8(nil), o.Indexed()...)
+	comp, shown := hdFrame(o, ov, base+".png")
+	pal := o.Palette()
+	palB := make([]byte, 0, 768)
+	for _, c := range pal {
+		palB = append(palB, c[0], c[1], c[2])
+	}
+	mem := fnv(o.Bytes(oracle.Addr{Seg: 0, Off: 0}, 0x100000))
+	type evOut struct {
+		S              string
+		X0, Y0, Dy     int
+		BX, BY, BW, BH int
+		Before, After  []uint8
+		Fg             uint8
+	}
+	out := struct {
+		Step           uint64
+		Mem, A000, Pal uint32
+		Stats          string
+		Mouse          [2]int
+		Shown          []evOut
+	}{Step: o.Steps(), Mem: mem, A000: fnv(a), Pal: fnv(palB), Stats: ov.stats()}
+	out.Mouse[0], out.Mouse[1] = o.Mouse()
+	for _, e := range shown {
+		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg})
+	}
+	_ = os.WriteFile(base+".a000", a, 0o644)
+	_ = os.WriteFile(base+".comp", comp, 0o644)
+	if b, err := json.Marshal(out); err == nil {
+		_ = os.WriteFile(base+".json", b, 0o644)
+	}
+	log.Printf("hdat %d steps=%d mem=%08x a000=%08x pal=%08x shown=%d %s",
+		st, out.Step, out.Mem, out.A000, out.Pal, len(shown), out.Stats)
 }
 
 type entry struct {
@@ -245,27 +412,15 @@ type entry struct {
 	D  []int      `json:"d,omitempty"` // '$' 數字槽索引（g 內位置，位圖全 0）
 }
 
-// glyphEv 是一則待合成的中文字串（15×15 原字形、畫在放大後畫布）。
-// Hash＝記錄當下背景（Indexed 色號）事件區域的 FNV——合成時背景已變
-// （畫面切換/重繪）即丟棄，殘影清除不依賴 flip 訊號（013 追記三十三）。
-type glyphEv struct {
-	x, y          int
-	fgR, fgG, fgB uint8
-	g             [][]uint16
-	hash          uint32
-	img           *ebiten.Image // Draw 時 lazily 預渲染的字形條
-}
-
 type shared struct {
 	mu      sync.Mutex
-	rgba    []byte    // 320×200×4 的畫面快照（Draw 用）
-	idx     []uint8   // 320×200 離屏色號快照（事件殘影過濾用，見 offscreen）
-	keys    []uint8   // 待注入的掃描碼（make＋break 成對排程）
+	rgba    []byte  // 320×200×4 的畫面快照（Draw 用）
+	keys    []uint8 // 待注入的掃描碼（make＋break 成對排程）
 	mouseX  int
 	mouseY  int
-	buttons [2]bool   // 左、右
-	evs     []glyphEv // 翻譯文字事件（機器 goroutine 生產、Draw 消費）
-	stdin   []byte    // 待注入的 Stdin 字元（AH=3Fh 路徑）
+	buttons [2]bool              // 左、右
+	evs     []*textEv            // shown 事件（快照節點判定，Draw 只消費，R4.3）
+	stdin   []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks  []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
 
@@ -326,8 +481,7 @@ func (g *game) Update() error {
 func (g *game) Draw(dst *ebiten.Image) {
 	g.sh.mu.Lock()
 	rgba := append([]byte(nil), g.sh.rgba...)
-	idx := append([]uint8(nil), g.sh.idx...)
-	evs := evAlive(g.sh.evs, idx)
+	evs := append([]*textEv(nil), g.sh.evs...)
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
@@ -346,8 +500,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	if hd < 1 {
 		hd = 1
 	}
-	for i := range evs {
-		e := &evs[i]
+	for _, e := range evs {
 		if len(e.g) == 0 || len(e.g[0]) == 0 {
 			continue // 空字形條（純控制碼/純 ASCII 譯文）跳過
 		}
@@ -364,7 +517,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 				for row, w := range glyph {
 					for bit := 0; bit < len(glyph); bit++ {
 						if (w>>(len(glyph)-1-bit))&1 != 0 {
-							img.Set(cx+bit, row, color.RGBA{e.fgR, e.fgG, e.fgB, 255})
+							img.Set(cx+bit, row, color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255})
 						}
 					}
 				}
@@ -374,7 +527,8 @@ func (g *game) Draw(dst *ebiten.Image) {
 		}
 		op2 := ebiten.DrawImageOptions{}
 		op2.GeoM.Scale(float64(hd), float64(hd))
-		op2.GeoM.Translate(float64(e.x*hd), float64(float64(e.y)*float64(hd)))
+		// 平移在縮放之後，單位是視窗像素：原版座標 × 倍率
+		op2.GeoM.Translate(float64(e.x0*g.scale), float64((e.y0+e.dy)*g.scale))
 		op2.Filter = ebiten.FilterNearest
 		dst.DrawImage(e.img, &op2)
 	}
@@ -391,7 +545,9 @@ func main() {
 	hdShotF := flag.Bool("hdshot", false, "每 30 秒輸出 HD 合成幀（PNG）")
 	autoplay := flag.Bool("autoplay", false, "內建自動遊玩時序（建隊→防拷→旁白→迷宮移動）")
 	hdOnly := flag.Bool("hdonly", false, "頭less：不開視窗，只輸出 HD 幀（無 WM 環境驗證用）")
-	hdAt := flag.String("hd-at", "", "步數逗號分隔：到該步數輸出 HD 合成幀 workplace/bake/hdat-<步數>.png（同狀態驗證用）")
+	hdAt := flag.String("hd-at", "", "步數逗號分隔：到該步數輸出 HD 合成幀與驗收資料 <hd-dir>/hdat-<步數>.*（spec 001 R5）")
+	hdDir := flag.String("hd-dir", "workplace/bake", "-hd-at 的輸出目錄")
+	flag.IntVar(&hdScale, "hd-scale", 2, "HD 幀（-hd-at、-hdshot、自動遊玩截圖）的畫布倍率")
 	flag.Parse()
 
 	program := *exe
@@ -406,7 +562,7 @@ func main() {
 	ebiten.SetWindowSize(320**scale, 200**scale)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")
 
-	sh := &shared{rgba: make([]byte, 320*200*4), idx: make([]uint8, 320*200)}
+	sh := &shared{rgba: make([]byte, 320*200*4)}
 	// ── xlate 翻譯層 ──────────────────────────────────────────────
 	// 譯文表（原文 → 每字 15×15 位圖，tools/re/bake_font.py 烘製）。
 	if *xlatePath == "" {
@@ -449,18 +605,11 @@ func main() {
 	hdShot := *hdShotF
 	_ = hdShot
 	os.MkdirAll("workplace/bake/trees", 0o755)
-	palNow := func() [256][3]uint8 { return o.Palette() }
-	_ = palNow
-	// 印字串入口（runtime 0110:3895）的 hook：unpoke → 查譯文 →
-	// 有譯文就記事件＋poke ret 讓原印失效。沿 cmd/xlate1 的實證邏輯。
+	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
+	ov := &overlay{}
 	entry := oracle.Addr{Seg: 0x0110, Off: 0x3895}
-	baseline := o.Byte(entry)
-	poked := false
+	retHooked := map[uint32]bool{}
 	o.OnCall(entry, func(o *oracle.Oracle) {
-		if poked {
-			o.WriteU8(entry, baseline)
-			poked = false
-		}
 		off := o.StackWord(1)
 		ds := o.Regs().DS
 		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
@@ -518,44 +667,38 @@ func main() {
 			ent.G = newG
 		}
 		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
-		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + ent.Dy
-		dl := uint8(o.Regs().DX & 0xFF)
-		fg := palNow()[dl]
-		// 事件區域背景雜湊（離屏色號；原印被 poke 擋掉，此時是純背景）
-		evW, evH := evBox(ent.G)
-		hash := vramHash(offscreen(o), x, y, evW, evH)
+		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
+		r := o.Regs()
+		p := &pendingPrint{
+			s: s, x0: x, y0: y, dy: ent.Dy, g: ent.G,
+			sp:  r.SP,
+			ret: oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}, // near call（E2）
+		}
+		if b := offscreen(o); b != nil {
+			p.before = append([]byte(nil), b...)
+		}
 		evMu.Lock()
-		// 區域重疊去重：同位置重印（jitter）只留最新
-		kept := sh.evs[:0]
-		for _, e := range sh.evs {
-			ow, oh := evBox(e.g)
-			if e.x < x+evW && e.x+ow > x && e.y+oh > y && e.y < y+evH {
-				continue
-			}
-			kept = append(kept, e)
+		if ov.pend != nil {
+			// 防禦性：E2 實測未見巢狀（R2.5）
+			ov.nested++
+			log.Printf("巢狀印字：捨棄未返回的 %q", ov.pend.s)
 		}
-		sh.evs = append(kept, glyphEv{
-			x: x, y: y,
-			fgR: fg[0], fgG: fg[1], fgB: fg[2],
-			g:    ent.G,
-			hash: hash,
-		})
+		ov.pend = p
 		evMu.Unlock()
-		// 大 blit（全屏重繪）＝清文字事件（殘影清除）
-	o.OnCall(oracle.Addr{Seg: 0x740C, Off: 0x4F5D}, func(o *oracle.Oracle) {
-		// rep movsb 的 cx＝行長度；全屏寬（320）＝大重繪 → 清文字事件
-		// ⚠ 實測（9/26）：此位址 OnCall 從未觸發（ovr740c.bin 檔映像該處為零
-		// ——runtime 映像與檔映像不同段）——殘影清除實際靠事件區域取代，
-		// 序數詞命中修正後再驗（013 追記三十二）。
-		if int(o.Regs().CX) >= 320 {
-			evMu.Lock()
-			if len(sh.evs) > 0 {
-				sh.evs = nil
-			}
-			evMu.Unlock()
+		if lin := p.ret.Linear(); !retHooked[lin] {
+			retHooked[lin] = true
+			ret := p.ret
+			o.OnCall(ret, func(o *oracle.Oracle) {
+				evMu.Lock()
+				defer evMu.Unlock()
+				// 只認本次返回：IP＝返回位址且 SP＝進入 SP＋2（R2.2）
+				if ov.pend == nil || ov.pend.ret != ret || o.Regs().SP != ov.pend.sp+2 {
+					return
+				}
+				ov.finish(o)
+			})
 		}
-	})
-	// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
+		// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
 		ts := o.Word(oracle.Addr{Seg: 0x0110, Off: 0x2D4E})
 		if ts != 0 {
 			lastTree, have := treeSeen[ts]
@@ -570,8 +713,6 @@ func main() {
 			}
 		}
 		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
-		o.WriteU8(entry, 0xC3)
-		poked = true
 	})
 	g := &game{sh: sh, scale: *scale}
 	if !*hdOnly {
@@ -586,10 +727,12 @@ func main() {
 		fn func(*oracle.Oracle)
 	}
 	if *autoplay {
-		add := func(s uint64, fn func(*oracle.Oracle)) { autos = append(autos, struct {
-			at uint64
-			fn func(*oracle.Oracle)
-		}{s, fn}) }
+		add := func(s uint64, fn func(*oracle.Oracle)) {
+			autos = append(autos, struct {
+				at uint64
+				fn func(*oracle.Oracle)
+			}{s, fn})
+		}
 		// R14：游標 park 觀測。每次動作後記 pos／sets／range。
 		logMouse := func(o *oracle.Oracle, op string, x, y int, err error) {
 			mx, my := o.Mouse()
@@ -650,30 +793,30 @@ func main() {
 		add(253_000_000, cl(170, 153))
 		add(255_000_000, cl(90, 168))
 		add(257_000_000, cl(90, 168))
-		add(265_000_000, cl(160, 101)) // 七項選單: START NEW GAME（y-13 熱點系統）
-		add(276_000_000, cl(82, 169))  // 巫6 匯入詢問: CANCEL（語意待驗）
+		add(265_000_000, cl(160, 101))                                // 七項選單: START NEW GAME（y-13 熱點系統）
+		add(276_000_000, cl(82, 169))                                 // 巫6 匯入詢問: CANCEL（語意待驗）
 		add(288_000_000, func(o *oracle.Oracle) { o.Type("AAAA\r") }) // 防拷
-		for i := 0; i < 133; i++ { // 旁白推進（R11：引言延續到 1225M＋，每 8M 一次）
+		for i := 0; i < 133; i++ {                                    // 旁白推進（R11：引言延續到 1225M＋，每 8M 一次）
 			add(295_000_000+uint64(i)*8_000_000, cl(25, 15))
 		}
 		// 迷宮精確箭頭（R20）：先點底文清場，再打實測幾何的箭頭。
 		// driver 座標（x 已加倍；羅盤 game px 見 010 R19 追記）。
 		type mvAct struct {
-			s  uint64
+			s    uint64
 			x, y int
-			op string
+			op   string
 		}
 		dirS := []mvAct{
-			{1_430_000_000, 320, 170, "click"},  // 底文（清場，R19 confirmed 有效）
-			{1_434_000_000, 320, 150, "click"},  // 底文上部（保險）
-			{1_438_000_000, 310, 118, "click"},  // 北（上箭頭）
-			{1_442_000_000, 230, 140, "click"},  // 西（左箭頭）
-			{1_446_000_000, 390, 140, "click"},  // 東（右箭頭）
-			{1_450_000_000, 310, 158, "click"},  // 南（下箭頭）
-			{1_454_000_000, 310, 138, "click"},  // 中央
-			{1_458_000_000, 320, 100, "click"},  // 中央視野
-			{1_462_000_000, 310, 118, "click"},  // 北再一次
-			{1_466_000_000, 230, 140, "click"},  // 西再一次
+			{1_430_000_000, 320, 170, "click"}, // 底文（清場，R19 confirmed 有效）
+			{1_434_000_000, 320, 150, "click"}, // 底文上部（保險）
+			{1_438_000_000, 310, 118, "click"}, // 北（上箭頭）
+			{1_442_000_000, 230, 140, "click"}, // 西（左箭頭）
+			{1_446_000_000, 390, 140, "click"}, // 東（右箭頭）
+			{1_450_000_000, 310, 158, "click"}, // 南（下箭頭）
+			{1_454_000_000, 310, 138, "click"}, // 中央
+			{1_458_000_000, 320, 100, "click"}, // 中央視野
+			{1_462_000_000, 310, 118, "click"}, // 北再一次
+			{1_466_000_000, 230, 140, "click"}, // 西再一次
 		}
 		for _, d := range dirS {
 			add(d.s, domouse(d.op, d.x, d.y))
@@ -683,7 +826,7 @@ func main() {
 			shotS := d.s + 9_000_000
 			add(shotS, func(o *oracle.Oracle) {
 				evMu.Lock()
-				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/mv-%d-%d-%d.png", d.s, d.x, d.y))
+				hdFrame(o, ov, fmt.Sprintf("workplace/bake/mv-%d-%d-%d.png", d.s, d.x, d.y))
 				evMu.Unlock()
 			})
 		}
@@ -700,7 +843,7 @@ func main() {
 				fn func(*oracle.Oracle)
 			}{st, func(o *oracle.Oracle) {
 				evMu.Lock()
-				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/hdat-%d.png", st))
+				hdAtDump(o, ov, *hdDir, st)
 				evMu.Unlock()
 			}})
 		}
@@ -782,7 +925,7 @@ func main() {
 			if hdShot && time.Since(lastHD) > 3*time.Second {
 				lastHD = time.Now()
 				evMu.Lock()
-				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/hd-%d.png", time.Now().Unix()))
+				hdFrame(o, ov, fmt.Sprintf("workplace/bake/hd-%d.png", time.Now().Unix()))
 				evMu.Unlock()
 			}
 			if i%60 == 0 {
@@ -802,9 +945,16 @@ func main() {
 				pal := o.Palette()
 				log.Printf("chunk %d steps=%d mode=%d idxNZ=%d rgbNZ=%d pal[15]=%v", i, o.Steps(), o.VideoMode(), nz, nz2, pal[15])
 			}
-			_, _, rgb := o.ScreenRGB()
-			copy(sh.rgba, rgb)
-			copy(sh.idx, offscreen(o))
+			// 快照節點：R3 判定一次，低解析合成（已還原英文筆畫）轉 RGBA 給 Draw（R4.3）
+			evMu.Lock()
+			comp, shown := ov.compose(o)
+			evMu.Unlock()
+			pal := o.Palette()
+			for i, v := range comp {
+				c := pal[v]
+				sh.rgba[i*4], sh.rgba[i*4+1], sh.rgba[i*4+2], sh.rgba[i*4+3] = c[0], c[1], c[2], 255
+			}
+			sh.evs = shown
 			sh.mu.Unlock()
 
 			elapsed := time.Since(last)
