@@ -13,3 +13,9 @@
 ## 安全
 - 存點 r629（遭遇選單）＋r626（X8）已落；敗 → 讀回 r626。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R630 結果
+- RUN→FINAL ORDERS ✓；BUGS 未出手；`THESUS RUNS AWAY!`→`RUNNING!` ⟹ 乾淨脫離 ✓。
+- t3≈q0（93B）⟹ 回 E 朝 q0。脫離四例：X8→E、D2→E、X8h1→E、E→X8。
+  候選：脫離回「對側樞紐」（X8 系→E，E→X8）。
+- r630＝（E 朝 q0，舊傷 7 無新增）。R631 就地再闖 E-z0。
