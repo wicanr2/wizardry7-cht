@@ -13,3 +13,7 @@
 ## 安全
 - 存點 r571（X5）已落；若遇蟲戰→首輪 RUN，敗 → 讀回。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R572 結果
+- j0＝i2（0B）；T1T1 15480B（opp 級）；fwd 靜默 17045B（非凍 ⟹ quirk／位移）。
+- r572＝（X? 或 X5，perp2 朝向）。R573 往返（opp(perp2)＝perp1）。
