@@ -1,134 +1,262 @@
 # wizardry7-cht — 給代理的專案規則
 
-## 授權（使用者定案 2026-09-20）
+本檔依 `~/cht/AGENTS_DOSGOLEM_CHT.md`（dosgolem 執行期覆繪中文化模板）整理，規則寫成現在式。
+模板來自《拯救地球》，該專案的位址、座標與結論不套用到本專案。
+現況尚未符合規則的地方集中列在第 12 節「遷移中」，不散在各節。
 
-- **允許在 host 上使用 `gh`**（wicanr2 帳號）：
-  - 建立 GitHub repo **`wizardry7-cht`**（private）；
-  - 對該 repo push、開立與管理 issues、檢視 Actions。
+## 0. 授權（使用者定案 2026-09-20）
+
+- 允許在 host 上使用 `gh`（wicanr2 帳號）：對 **`wizardry7-cht`**（private）push、開立與管理 issue、檢視 Actions。
 - `gh` 只在 host 跑；docker 一律 `--network none` 的規則不變。
-- repo 預設 private。要轉公開必須使用者明示；授權條款依 RRSAL-1.0
-  （`rulebook/85`，已定案不重問）。
-- git 身分一律 `wicanr2@gmail.com`；進 repo 先檢查 `git config user.email`，
-  再以 `git log --format=%ae | sort -u` 檢查歷史。
+- repo 預設 private。轉公開必須使用者明示；授權條款依 RRSAL-1.0（`rulebook/85`，已定案不重問）。
 
-## 這是什麼
+## 1. 專案定位與邊界
 
 《巫術7》（*Wizardry VII: Crusaders of the Dark Savant*，Sir-Tech 1992）DOS 版的繁體中文化。
+以 **dosgolem 執行期輸出攔截與覆繪** 完成，不是 remake、不是 EXE 二進位翻譯，也不重作遊戲規則或資料格式。
+目的是縮短語言隔閡與鴻溝：讓不諳英文的玩家也能玩到這款經典，其他取捨以此為準。
 
-路線**不是重寫遊戲**，是比照 `~/cht/psychic-war` 的做法：原版執行檔跑在
-[dosgolem](https://github.com/wicanr2/dosgolem) 上，轉譯層在原版畫字的那一刻攔下來，
-把中文畫在放大後的畫布上。原版邏輯一行不動；輔助功能（說明、切換語言、即時存檔）由轉譯層提供。
-
-中文化的目的：**縮短語言隔閡與鴻溝**——讓不諳英文的玩家也能玩到這款經典，
-其他以此為原則取捨。
-
-全景計畫（路線、分層、與 psychic-war 的差異、風險）見 [`PLAN.md`](PLAN.md)。
+- 原版 `DS.EXE`、`.OVR`、資料檔、存檔、規則、條件比較、檔名保持原樣。
+- 只在已證實的玩家可見輸出路徑，以「英文原文＋呼叫位置＋畫面座標」辨識字串，在覆繪層畫中文；
+  原版記憶體、離屏緩衝與 VGA `A000` 一律不寫入。
+- 英文原文是穩定比對鍵。譯文只影響顯示，不得進入比較、查找、序列化、檔名、存檔或任何原版語意路徑。
+  對話關鍵字詞庫（引擎比對玩家輸入的英文，範圍見 `docs/names.md`）因此不譯，玩家照打英文。
+- **手冊防拷（SECURITY CLEARANCE）**：可以覆繪題目與說明，不得繞過驗證、改判定或替玩家作答。
+  手冊防拷關鍵字表（MSG.DBS 內，範圍見 `docs/names.md`）不翻譯、不進版控，
+  也不寫進 commit、issue、測試名稱或任何舉例。
+- 原版遊戲、實體手冊內容屬使用者本機輸入，不進 Git、GitHub、發行包或可散布測試語料。
 
 ### 原版素材（使用者自備）
 
-根目錄的 `Wizardry_VII_-_Crusaders_of_the_Dark_Servant_1992.zip`（已 gitignore）。
-清單（confirmed，unzip -l）：
+- 根目錄 `Wizardry_VII_-_Crusaders_of_the_Dark_Servant_1992.zip`（已 gitignore），250 檔、
+  解壓共 5,414,248 bytes，全在 `wizar7/` 下。
+- 版本是 Interplay《Wizardry Archives》合輯的重印（`CDSBOOT.TXT` 落款 1998，檔案日期 1996-12-24），
+  位址表與雜湊基線只對此版成立。
+- 主執行檔 `DS.EXE`（69,206 bytes）＋ 13 個 `.OVR`；文字在 `MSG.DBS`、劇本在 `SCENARIO.DBS`；
+  圖在 `*.VGA`／`*.PIC`。
 
-- 250 檔、解壓縮共 5,414,248 bytes，全在 `wizar7/` 下（另有 `wizar7/cd/` 子目錄）。
-- 主執行檔 `DS.EXE`（69,206 bytes）、安裝程式 `VINSTALL.EXE`、啟動 `DSAVANT.BAT`／`WIZARDRY.BAT`。
-- **overlay 架構**：`VMAZE.OVR`、`VMELE.OVR`、`VMEXE.OVR`、`VMEXT.OVR`、`VMNPC.OVR`、
-  `VPCLV.OVR`、`VPCMK.OVR`、`VPCVW.OVR`、`VPOPS.OVR`、`VTREA.OVR`、`VINIT.OVR` 等。
-- 資料檔：`*.VGA`（BASEDATA／CAVEDATA／MAZEDATA／MAINSCRN／VIDSCN01–05 等）、
-  `*.PIC`（MON00– 至少 MON21、VIDEO00–15）、`*.HDR`（DISK／MASTER／MISC）。
-- 檔案日期都是 1996-12-24（散布版的重製時間，非原始版）；實際版本與出品資訊待 M0 從
-  遊戲內標題與檔案內容確認（zip 檔名裡的 "Dark Servant" 是副標誤拼，正式副標是 Dark Savant——常識，待驗證）。
+## 2. 架構（三層）
 
-## 分期目標（沿用 psychic-war 的骨架，逐期驗收定義在 `docs/goal/`）
+```text
+玩家（鍵盤、滑鼠、螢幕、喇叭）
+  │ 鍵盤 → BIOS 按鍵字組             ▲ 原版畫格（2× 放大）＋中文覆繪；OPL2 聲音
+  ▼ 滑鼠 → 視窗座標 ÷ 倍率 = DOS 座標  │
+前端 cmd/wiz7（ebiten）：前端保留鍵不送進原版
+  │ Deliver(按鍵、滑鼠)               ▲ Compose(倍率)
+  ▼                                   │
+dosgolem session：int 16h 鍵盤緩衝、int 33h 滑鼠、DOS stdin（名字輸入走 int 21h AH=07h）；
+  依機器時脈推進原版；唯讀回報 BeforeStep、VideoWrite、Frame、音訊事件
+  │ 唯讀觀察
+  ▼
+轉譯層 adapter：① 在印字入口辨識事件 ② 以英文原文查 text/*.zh-TW.tsv
+  ③ 覆繪層畫中文；原版在呼叫外重寫同一區域時移除覆繪
+```
+
+- 通用能力（CPU、DOS／BIOS、EMS、session、xlate、前端框架）放 dosgolem 通用層；
+  巫術7 專屬的位址、流程、攔截點放 adapter。判準是「換一款遊戲之後還成立嗎」。
+- dosgolem 支援不到的，依 DOSBox-X 原始碼（`~/cht/DOSBox-X-MCP-Debugger/dosbox-src/`）補進 dosgolem，
+  不改回去跑 DOSBox。
+- 架構圖放 `docs/architecture.svg` 由 README 引用；圖中函式與路徑要對照實際程式，不憑印象畫。
+
+## 3. 工作流程與證據閘門
+
+每一條輸出路徑遵守下列狀態機，不得跳關：
+
+```text
+原版證據（docs/re）→ DRAFT 規格 → 獨立審查（可多輪）→ READY → 實作 → 同狀態驗證 → CONFORMED
+```
+
+- 規格未 READY 不寫實作。審查由唯讀子代理執行，每輪逐條回「阻擋／應改／建議」並附檔案:行號；
+  只剩文字層級的應改時修完直接 READY，否則再送一輪。
+- 證據等級一律標示：confirmed／強證據／假說／未知。導覽用的函式名稱不是證據；
+  保留原始位址、operand、bytes。IDA 內的別名另存原名與位址對照。
+- 只有被 dosgolem 同狀態收據覆蓋的路徑才能稱「已中文化」。中文畫面、綠色單元測試、DOSBox 截圖
+  都不是原版行為未受影響的充分證據。只有單測覆蓋、實跑未觸發的分支寫「未量到」，維持 READY 不標 CONFORMED。
+- 到不了的畫面照實記錄原因與所需條件（例如需要後期 checkpoint），不修改存檔或模擬記憶體來跳關。
+- 跑原版或改 golem 之前，先讀 `worktrees/dosgolem/CLAUDE.md` 與其 `docs/spec/000-index.md`。
+- 任務分類先查 skill `re-retro-cht-rulebook` 的路由表。
+
+## 4. 辨識印字事件
+
+- 巫術7 所有可見文字走同一條 resident 管線（`docs/re/013`，confirmed）：
+  `sub_102DA`（縮排＋印字）→ **`sub_13895`（runtime 0110:3895，NUL 終止字串入口）**
+  → `sub_13877`（印一字元）→ VGA.DRV 服務 11（字形展開到離屏）→ 服務 16（blit 到 A000）。
+  攔截點在 resident，不在 overlay；辨識呼叫端用 resident 的 CS:IP 與呼叫者返回位址，不用載入段位址。
+- **同一個呼叫端常服務多個畫面**。只按呼叫端註冊會誤收別的畫面；要再以引數（x、字型 ID、前景色）
+  或字串指標來源區分，且只接受已實測的組合。
+- 離屏緩衝經 blit 才上屏：覆繪座標以 blit 的目標矩形為準，不以字形展開當下的離屏座標為準。
+- 判定「這個字串是不是隊員名／資料欄位」優先用結構訊號（字串指標是否直指資料記錄）。
+  MSG.DBS 的 `^`、`$`、`#` 填槽在 runtime 已代入，英文鍵比對要用樣式，不能只比全字串；
+  「內容與名單同形」單獨不足以判定。
+- 快照原版資料（例如隊伍名單）只用無副作用的讀，並做內容防呆（長度、可列印字元、數量上限），
+  不合格就整份捨棄、沿用上一份。
+- 覆繪可延伸到原字格之外，前提是已證實那些格在原版為底色且不會被其他呼叫寫入，並在進入時再檢查一次。
+
+## 5. 譯文、譯名與字型
+
+### 譯文 catalog（使用者定案 2026-09-29）
+
+- 玩家可見譯文以 UTF-8 TSV（`text/*.zh-TW.tsv`）為唯一正式來源，**英文原文（含控制碼）為比對鍵**。
+  同一英文需要不同譯文時，以呼叫位置、座標或情境欄區分；MSG.DBS 訊息 ID 只當出處欄，不當鍵。
+- lint 檢查 key 唯一、欄數、控制碼、placeholder、漏譯、孤兒 key、行寬與字型覆蓋。
+  預先斷行的家族由工具驗證行寬才生效。
+- TSV 以 `\n` 表示換行時，比對工具要把跳脫序列後的字母視為新詞開頭，否則會漏掉緊接換行的詞。
+- 控制碼（`&`、`%`、`]`、`^`、`$`、`#`、高亮標記、`<0x20`）的處置規則以 `text/TRANS-INSTRUCTIONS.md` 為準，
+  計數驗證強制。
+- **沒有翻譯的字串要看得出來**：缺譯文顯示原文並記錄，不靜默略過。
+- 批次翻譯先讀 `~/.claude/knowledge-base/workflows/batch-subagent-localization.md` 與
+  `text/TRANS-INSTRUCTIONS.md`，統一術語表後分批進行。
+
+### 譯名
+
+- 人名、地名、咒語、道具集中一份譯名表（`docs/names.md`），lint 保證全 catalog 一致。
+- 台灣既有譯名（當年代理、中文手冊或攻略本）優先，來源要記；沒有的才依定案的音譯規則。
+  不以文案順口改寫既有譯名。
+
+### 字型（使用者定案 2026-09-29）
+
+- 字型雙軌：發行版用可散布點陣字型（例如 GNU Unifont）；倚天 `stdfont.15`（15×15）只用於本機。
+- 字模子集必須由正式譯文重建，不得為遷就缺字而改譯。缺字會讓該則覆繪退回英文，
+  所以新增譯文後本機與發行字型都要重建再驗收。
+- 不提交第三方字型或產生的字型二進位；`font/` 只放字元清單與重建說明。
+  第三方資料（音譯表等）保留出處、版本與授權，獨立成檔。
+
+### 高解析合成（使用者定案 2026-09-22）
+
+- **畫布放大，不縮字**（`rulebook/81`）：原版 320×200 終幀整數倍放大（2×＝640×400），
+  中文以原字形尺寸（15×15）畫在放大後畫布的對應位置（原座標 ×2）。首例見 `cmd/xlate1`。
+- **絕不縮小中文字**遷就原版低解析按鈕：13×13 縮放實驗已否決（最近鄰破相、OR 重採樣糊筆）。
+- 文字大小依按鈕／欄位尺寸調整（畫布倍率、字形大小），準則是「文字放在按鈕裡面」、與原版介面比例協調。
+
+## 6. 驗收
+
+- **同狀態 A/B**：同一 state、同一輸入、固定停止步數，比較新舊 runner 的 live 合成畫面；
+  原版記憶體、indexed、palette 雜湊必須相同，像素差異只能落在批准的覆繪區域。2× 與 3× 都比。
+- **完整性要有數字**（`rulebook/83`）：抽出幾則、翻了幾則、正常路徑觸發幾則、
+  觸發了卻不在文本檔的有幾則（必須是 0）。
+- **回歸基準**：維持一組長期重跑的回歸腳本，每次結果另存新編號不覆寫。重跑前先保存舊的 expect／live
+  當差異遮罩基準；預期會變的點在規格寫明，並以新一輪為基準。
+- 需要回答手冊防拷才能到達的畫面，只能重播已記錄的輸入收據；不得解碼、推導或寫出答案。
+- 畫面判讀照原版色盤，從快照解幀比對，不用截圖量像素。原版某路徑把某色設成底色時，覆繪跟著不可見，不算漏畫。
+- 驗收 oracle 要獨立：不拿被測函式自己的輸出當期望值；畫面上沒有的字元另用獨立程式計算。
+  交叉 oracle 用 DOSBox-X（`docs/re/005`）。
+
+## 7. 前端與執行期
+
+- 前端保留鍵在規格列清楚（說明、倍率、靜音、全螢幕、截圖、語言切換、即時存檔），
+  其餘標準 BIOS 字組如實送進原版；要改成前端保留的鍵，先量原版是否使用。
+- 原版靠 Mo'Slo 降速，dosgolem 以指令數對齊節拍。模擬器跑不到名目速度時，調低宣告的機器時脈
+  並寫進存檔狀態，而不是讓遊戲時間整體變慢。
+- 音訊用緩衝預填與淡入淡出處理斷流；結束時輸出 fps 與斷流次數。
+- 倍率切換的畫格要檢查尺寸，尺寸不符的那一格跳過繪製。
+
+## 8. 目錄與文件
+
+```
+cmd/wiz7/          可遊玩的主程式（ebiten 前端）
+cmd/<工具>/        RE 探針與一次性工具（msgdump、printtrace、xlate1…）
+text/              譯文 catalog（*.zh-TW.tsv）、術語表、翻譯指令；不放掃描影像或手冊內容
+font/              字元清單與重建說明
+docs/spec/         規格（DRAFT／READY／CONFORMED）
+docs/re/           各階段證據（位址、雜湊、樣本表、推論等級、重跑方法）；docs/re/README.md 是索引
+docs/goal/         每輪 goal markdown
+docs/names.md      譯名表
+docs/screenshots/  少量覆繪後展示截圖（約十張）；不收原版英文對照、素材抽出圖或手冊防拷畫面
+tools/             docker 包裝與腳本
+worktrees/         相關 repo 的本地 clone（gitignore）
+workplace/         唯一可寫研究工作區（gitignore）：原版檔、state、探針輸出、截圖草稿
+```
+
+- 文本檔的原文欄位進版控（使用者定案 2026-09-19）：轉譯層靠原文比對與算長度；
+  例外是手冊防拷關鍵字表，不進版控。
+- **GitHub Issue 是唯一的可執行工作清單**；`CONTEXT.md` 放目前真相；`WORKLOG.md` 追加歷程與勘誤；
+  README 只放用途、架構、穩定入口與現況摘要。正文只寫現況，推翻紀錄集中到 WORKLOG。
+- README 寫法依 `rulebook/80`：遊戲介紹、中文化目的、原版自備。
+
+## 9. 工作循環（使用者定案 2026-09-20、2026-09-21）
+
+每一項工作缺一不可：
+
+1. 登記 GitHub issue
+2. 撰寫 goal markdown：每一輪開工前在 `docs/goal/` 建該輪文件；
+   對齊分期的輪次沿用分期文件，其他用 `Rn-<主題>.md`
+3. 開工（規格先到 READY，見第 3 節）
+4. 測試驗證完成
+5. push
+6. 更新 issue 狀態（關閉或進度留言）
+
+沒有 issue 的工作不開工，驗證未過不 push。
+
+分期（完成定義，逐期驗收在 `docs/goal/M*.md`）：
 
 | 期 | 目標 |
 |---|---|
-| M0 | 探勘與基線：解壓與雜湊、IDA 普查（overlay 是重點）、狀態檔檢查點、DOSBox-X 參照 |
-| M1 | 原版在 golem 上完整可跑：顯示模式、音效、決定性、全程無缺口 |
+| M0 | 探勘與基線 |
+| M1 | 原版在 golem 上完整可跑：顯示、音效、決定性 |
 | M2 | 可遊玩前端：節拍、視窗、鍵盤、滑鼠、音訊、輸入錄放 |
 | M3 | 文字攔截與文本抽取 |
 | M4 | 中文繪製與全文翻譯 |
 | M5 | 輔助功能與作弊 |
 | M6 | README、主題、打包、授權與發行 |
 
-## 預定目錄
+## 10. Docker、Git、GitHub 與發行
 
-```
-cmd/wiz7/          可遊玩的主程式（前端）
-apps/wiz7/         位址、狀態、攔截點（import dosgolem）
-text/              文本檔：原文、譯文、來源位置（JSON，一則一筆）
-font/              CJK 點陣字子集與烘製腳本
-docs/spec/         規格，標 DRAFT／READY
-docs/re/           反組譯與量測紀錄
-docs/worklist.json 未完成項的權威
-tools/             docker 包裝與腳本
-worktrees/         相關 repo 的本地 clone（gitignore）
-workplace/         解開的原版、快照、暫存輸出（gitignore）
-```
+- 分析、解壓、建置、測試、抓圖、遊戲執行一律在 Docker：`--rm`、`--memory`、`--cpus`、`--pids-limit`、
+  預設 `--network none`、`-u "$(id -u):$(id -g)"`、`--log-opt max-size=10m --log-opt max-file=3`。
+  掛載前確認來源存在且型態正確；原版輸入唯讀掛載。事後檢查容器已清理、沒有 root 擁有的檔案。
+- 只清理自己建立的 container；禁止任何 `docker image/system/volume/builder prune`、`rmi`、刪除他人容器。
+- 相關 repo 一律 clone 到 `worktrees/<repo>` 工作，不動 `~/cht/dosgolem` 等主機上的原始工作區；
+  在 worktree 內開分支，推上游前先回報使用者，不動 dosgolem main。
+- git 身分一律 `wicanr2@gmail.com`；進 repo 先看 `git config user.email`，
+  再以 `git log --format=%ae | sort -u` 檢查歷史。commit message 用繁體中文，不放 session 連結。
+- **逐檔 `git add`，不用 `git add -A`／`git add .`**：工作目錄可能有含憑證的本機腳本。
+- 不得散布原版素材：repo 不含 zip 內任何檔案。需要原版的測試缺檔就 skip，不做代用品。
+- 公開發行包不含原版檔案、不可散布字型、手冊內容或防拷關鍵字；打包後做外洩掃描。
+  含原版資料的完整版只留本機。原版由玩家自備，啟動時驗 SHA-256。
 
-## 動手前
+## 11. 子代理分工
 
-1. **SDD：spec 齊了才實作。只有標 `READY` 的規格可以動手**（RE 證據 → READY spec → 實作 → 同狀態驗證）。
-2. 跑原版或改 golem 之前，先讀 `worktrees/dosgolem/CLAUDE.md` 與其 `docs/spec/000-index.md`。
-3. 這款是 **overlay 架構**：解讀 `.OVR` 前先讀
-   `~/.claude/knowledge-base/retro/borland-tpov-overlay-re.md`（是否 Borland 產物待 M0 確認，別預設）。
-4. 任務分類先查 skill `re-retro-cht-rulebook` 的路由表。
+- 每個子代理的 prompt 寫死：可寫目錄、禁止修改的目錄、禁止 commit／push、Docker 規則、
+  容器名前綴、不得寫出手冊防拷關鍵字。沒寫的就等於允許。
+- 工作拆成：證據探針 → 規格審查（唯讀）→ 實作 → 驗收；主代理審閱每份報告後才搬進 `docs/re/` 並提交。
+- 子代理回報「順便做了 X」一律先查影響範圍。刪除被安全檢查擋下時不繞過，列給使用者決定。
 
-## `[HARD]` 硬規則（沿用 psychic-war，違反即停）
+## 12. 遷移中（現況與上述規則的落差）
 
-- **不得散布原版素材。** repo 不含 zip 內任何檔案（`DS.EXE`、`*.OVR`、`*.VGA`、`*.PIC`、`*.HDR`）。
-  根目錄 `*.zip` 由使用者自備，已列入 `.gitignore`。需要原版的測試**缺檔就 skip**，不做代用品。
-- **文本檔的原文欄位進版控**（比照 psychic-war 使用者定案 2026-09-19）：轉譯層靠原文算長度與對位；
-  沒有原版遊戲本來就跑不起來，原文欄位照留。
-- **相關 repo 一律 clone 到 `worktrees/<repo>` 工作**，不動 `~/cht/dosgolem` 等主機上的原始工作區。
-  在 worktree 內開分支，推上游前先回報使用者。
-- **建置、分析、轉檔、測試一律走 docker**：`docker run --rm`、目前 UID/GID、限制記憶體與 CPU、
-  預設 `--network none`、原版素材唯讀掛載。只清理自己建立的 container；禁止任何
-  `docker image/system/volume/builder prune` 或 `rmi`。（`gh` 是唯一例外，見「授權」。）
-- **推論標籤要誠實**：confirmed／強證據／假說／未知。導覽名稱不是證據，
-  保留原始位址、operand、bytes。
-- **驗證以原版為準，不以自己的內部訊號為準。** 拿快照解幀跟原版同一時點比，不用截圖量像素。
+規則已生效；下表是尚未完成的遷移，做完就從表中刪列。
 
-## 中文化的設計約束（沿用 psychic-war）
-
-- **畫布放大，不縮字**（`rulebook/81`）：原版底圖整數倍放大，中文用 16×16 以上點陣畫在放大後的畫布。
-
-### 高解析中文合成（使用者定案 2026-09-22）
-
-- **放大原圖畫面，塞入高解析中文字**：把原版 320×200 終幀整數倍放大
-  （2x＝640×400），中文字以原字形尺寸（15×15）畫在放大後畫布的對應位置
-  （原座標 ×2）——中文相對畫面變小、剛好放進按鈕裡。實作見 `cmd/xlate1`
-  （記錄文字事件→終幀合成，`xlate1-hd.png` 為首例）。
-- **絕不縮小中文字**去遷就原版低解析按鈕——13×13 縮放實驗已否決
-  （最近鄰破相、OR 重採樣糊筆；點陣字筆畫僅 1px，縮小必毀）。
-- **文字大小不固定**：依原圖按鈕/欄位尺寸做適當調整（畫布幾倍、字形多大），
-  準則是「文字放在按鈕裡面」、與原版介面比例協調。
-- **替換單位是「一則訊息」**，key 用來源位置（檔名＋偏移），不用字串內容。
-- **沒有翻譯的字串要看得出來**：缺譯文顯示原文並記錄，不靜默略過。
-- **完整性要有數字**（`rulebook/83`）：抽出幾則、翻了幾則、正常路徑觸發幾則、觸發了卻不在文本檔的有幾則（必須是 0）。
-- 譯名統一：人名、地名、咒語／道具名稱集中一份譯名表；台灣既有譯名（當年代理或攻略本）優先，來源要記。
-
-## 工作追蹤
-
-- 未完成項的權威：`docs/worklist.json`（一條對應一個 GitHub issue；`verify` 為真＝仍未完成）。
-  條目做完改 JSON 並關 issue，不在 markdown 打勾。
-- **每一輪開工前先在 `docs/goal/` 建該輪的 goal markdown**（使用者定案 2026-09-20）；
-  對齊分期的輪次沿用該分期文件，跨分期輪次用 `Rn-<主題>.md`。
-- **每一項工作的完整循環（使用者定案 2026-09-21）**：
-  1. 登記 GitHub repo issue
-  2. 撰寫 goal markdown（輪次文件或項目）
-  3. 開工
-  4. 測試驗證完成
-  5. push
-  6. 更新 issue 狀態（關閉或進度留言）
-  缺一不可——沒有 issue 的工作不開工，驗證未過不 push。
-- README.md 已排入工作（`docs/worklist.json` 的 `readme` 條）：遊戲介紹＋中文化目的（縮短語言隔閡與鴻溝）＋原版自備，
-  寫法依 `rulebook/80`。
-
-## 目前已知
-
-| 事實 | 等級 |
+| 落差 | issue |
 |---|---|
-| 原版是 DOS 磁片版，`DS.EXE` ＋ overlay（`.OVR`）＋資料檔（`.VGA`／`.PIC`／`.HDR`），250 檔 | confirmed（zip 清單） |
-| 顯示模式、字型與印字常式、文字存放位置、音效硬體 | 未知（M0 探勘） |
-| overlay 的編譯器家族（Borland？） | 未知（M0 探勘，先讀 tpov 規則再判） |
-| 防拷形態 | 未知 |
+| 譯文仍是 JSON（`text/*-trans.json`）、以訊息 ID 為鍵；要轉 `text/*.zh-TW.tsv`＋英文鍵 | #24 |
+| 只有倚天字型；發行版可散布字型未建 | #25 |
+| `text/messages.json` 仍含手冊防拷關鍵字段 | #26 |
+| `docs/worklist.json` 尚未退場；`CONTEXT.md`、`WORKLOG.md`、`docs/re/README.md` 未建；`PLAN.md` 現況表過期 | #27 |
+| 沒有 `docs/spec/`；已上線的印字攔截、高解析合成無規格 | #28 |
+| adapter 在本 repo `cmd/`（go.mod replace 到 `worktrees/dosgolem`），尚未評估是否移到 dosgolem fork 的 `apps/wiz7` | #29 |
+
+## 13. 定案事項
+
+使用者定案的產品決定寫進規格的「為什麼要做」並附日期；實作照定案走，不重新詢問。
+與定案衝突的新需求先指出衝突再動手。
+
+| 日期 | 定案 |
+|---|---|
+| 2026-09-19 | 文本原文欄位進版控（手冊防拷關鍵字表除外，2026-09-29 補） |
+| 2026-09-20 | `gh` 授權範圍；每輪先建 goal markdown |
+| 2026-09-21 | 六步工作循環 |
+| 2026-09-22 | 高解析合成：放大畫布、不縮中文字 |
+| 2026-09-29 | 譯文改 TSV＋英文鍵（取代「訊息 ID 為鍵」）；字型雙軌；防拷關鍵字不進版控；追蹤流程全面照模板 |
+
+## 14. 目前已知
+
+| 事實 | 等級 | 來源 |
+|---|---|---|
+| `.OVR` 是自訂容器，不是 Borland TPOV（DS.EXE 無 `CD 3F`、無 `TPOV` magic） | confirmed | `docs/re/002` |
+| 編譯器家族 | 未知（C 家族味道） | `docs/re/004` |
+| DOS／BIOS／EMS 存取都在 resident | 強證據 | `docs/re/004` |
+| 顯示模式 13h（320×200、256 色）；穩定標題與 DOSBox-X 逐像素差異 0 | confirmed | `docs/re/005`、`009` |
+| 同輸入兩次執行：狀態檔、記憶體、幀雜湊全同 | confirmed | `docs/re/009` |
+| 印字管線 `sub_102DA`→`sub_13895`→`sub_13877`→VGA.DRV 服務 11→16 | confirmed | `docs/re/013` |
+| MSG.DBS 全量抽取 11,019 則（訊息 ID 最大 31819） | confirmed | `docs/re/013` 追記三十、`text/messages.json` |
+| 防拷是 SECURITY CLEARANCE 輸入畫面，關鍵字表在 MSG.DBS | confirmed | `docs/re/010`、`docs/names.md` |
+| 譯文規模與完整性對帳 | 見 issue | #22 |
