@@ -16,3 +16,8 @@
 ## 安全
 - 存點 r460（TILE-A）已落；TILE-B 若遇蟲戰→RUN 既定，敗／散隊 → 讀回。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R461 結果（2026-09-29 追加）
+- T1/T2 有效；fwd 無聲位移 17325B（TILE-A→TILE-B！）；TILE-B 上四個 180
+  全有效（18KB 級）。r461 存點（TILE-B，面 G2）。
+- THESUS 存活。R462 從 TILE-B 直行（G2＝來路反方向）。
