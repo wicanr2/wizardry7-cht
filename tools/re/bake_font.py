@@ -19,6 +19,9 @@ import sys
 from pathlib import Path
 
 FONT15 = Path.home() / "cht/etan_font/stdfont.15"
+# 倚天符號區（Big5 A140–A3BF，408 字）另成一檔；stdfont.15 從 A440 起算，
+# 全形標點（，、。！？…「」（））只在這裡。
+SPC15 = Path.home() / "cht/etan_font/ET353S/FILES/SPCFONT.15"
 SEG_SIZE = 7440
 HDR = 16
 WTAB = 256
@@ -56,12 +59,23 @@ def glyph_scaled(b5: bytes) -> list[int]:
 
 
 def glyph_of(b5: bytes) -> list[int]:
-    """stdfont.15 → 15 個 row word（MSB first，15px 用高 15 bits）"""
+    """倚天 15 點陣 → 15 個 row word（MSB first，15px 用高 15 bits）"""
     assert len(b5) == 2
     hi, lo = b5
-    idx = (hi - 0xA4) * 157 + ((lo - 0x40) if lo <= 0x7E else (lo - 0xA1 + 63))
+    col = (lo - 0x40) if lo <= 0x7E else (lo - 0xA1 + 63)
+    if hi < 0xA4:
+        idx, d = (hi - 0xA1) * 157 + col, SPC15.read_bytes()
+    else:
+        idx, d = (hi - 0xA4) * 157 + col, FONT15.read_bytes()
+        if hi >= 0xC9:
+            # stdfont.15 跳過 Big5 保留區 C6A1–C8FE（408 槽）：
+            # 檔長 392,820 B ＝ 13,094 字 ＝ A4–F9 共 13,502 槽 − 408。
+            # 次常用字（C940 起）要往前扣 408 才對得上。
+            idx -= 408
     off = idx * 30
-    d = FONT15.read_bytes()
+    if idx < 0 or off + 30 > len(d):
+        # 負偏移在 Python 會從檔尾切出亂碼字形，必須擋下
+        raise ValueError(f"Big5 {b5.hex()} 不在倚天字型範圍")
     return [int.from_bytes(d[off + r * 2:off + r * 2 + 2], "big") for r in range(HEIGHT)]
 
 

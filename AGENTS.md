@@ -21,9 +21,10 @@
   原版記憶體、離屏緩衝與 VGA `A000` 一律不寫入。
 - 英文原文是穩定比對鍵。譯文只影響顯示，不得進入比較、查找、序列化、檔名、存檔或任何原版語意路徑。
   對話關鍵字詞庫（引擎比對玩家輸入的英文，範圍見 `docs/names.md`）因此不譯，玩家照打英文。
-- **手冊防拷（SECURITY CLEARANCE）**：可以覆繪題目與說明，不得繞過驗證、改判定或替玩家作答。
-  手冊防拷關鍵字表（MSG.DBS 內，範圍見 `docs/names.md`）不翻譯、不進版控，
-  也不寫進 commit、issue、測試名稱或任何舉例。
+- **手冊防拷（SECURITY CLEARANCE）**：維持原版機制（使用者定案 2026-09-29）。題目與說明覆繪中文，
+  玩家照打英文答案；不得繞過驗證、改判定或替玩家作答。
+  手冊防拷關鍵字表（MSG.DBS 內，範圍見 `docs/names.md`）不翻譯，不寫進 commit、issue、
+  測試名稱或任何舉例；是否移出版控另議（#26）。
 - 原版遊戲、實體手冊內容屬使用者本機輸入，不進 Git、GitHub、發行包或可散布測試語料。
 
 ### 原版素材（使用者自備）
@@ -229,9 +230,10 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 |---|---|
 | 譯文仍是 JSON（`text/*-trans.json`）、以訊息 ID 為鍵；要轉 `text/*.zh-TW.tsv`＋英文鍵 | #24 |
 | 只有倚天字型；發行版可散布字型未建 | #25 |
-| `text/messages.json` 仍含手冊防拷關鍵字段 | #26 |
+| `text/messages.json` 仍含手冊防拷關鍵字段（使用者 2026-09-29 指示擱置另議） | #26 |
 | `docs/worklist.json` 尚未退場；`CONTEXT.md`、`WORKLOG.md`、`docs/re/README.md` 未建；`PLAN.md` 現況表過期 | #27 |
 | 沒有 `docs/spec/`；已上線的印字攔截、高解析合成無規格 | #28 |
+| `cmd/wiz7` 在印字入口寫 `0xC3` 擋英文，違反第 1 節且已證實改變原版座標；殘影判定會丟掉選單與隊員名 | #31 |
 | adapter 在本 repo `cmd/`（go.mod replace 到 `worktrees/dosgolem`），尚未評估是否移到 dosgolem fork 的 `apps/wiz7` | #29 |
 
 ## 13. 定案事項

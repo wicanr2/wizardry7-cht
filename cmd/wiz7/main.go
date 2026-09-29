@@ -19,6 +19,8 @@ import (
 	"image/png"
 	"log"
 	"os"
+	"sort"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -145,9 +147,23 @@ func leadingWordDollar(s string) string {
 
 // vramHash＝Indexed 色號畫面中事件區域（x..x+w、y..y+14，越界裁切）的
 // FNV-1a。殘影清除：合成時背景區域雜湊與記錄時不同＝畫面已切換→丟棄。
-func vramHash(idx []uint8, x, y, w int) uint32 {
+// evBox 回傳一串中文字在「原版座標」佔的寬高。字形畫在 2× 畫布上，
+// 每字前進 len(g)+2 個 HD 像素、高 len(g) 個 HD 像素，換回原版要除以 2。
+// 去重與背景雜湊都在原版座標運算，單位不可混用。
+func evBox(g [][]uint16) (w, h int) {
+	hd := 0
+	for _, gl := range g {
+		hd += len(gl) + 2
+		if len(gl) > h {
+			h = len(gl)
+		}
+	}
+	return (hd + 1) / 2, (h + 1) / 2
+}
+
+func vramHash(idx []uint8, x, y, w, hgt int) uint32 {
 	var h uint32 = 2166136261
-	for row := y; row < y+15 && row < 200; row++ {
+	for row := y; row < y+hgt && row < 200; row++ {
 		if row < 0 {
 			continue
 		}
@@ -167,14 +183,20 @@ func vramHash(idx []uint8, x, y, w int) uint32 {
 }
 
 // evAlive 過濾掉背景已變（畫面已切換）的事件。
+// offscreen 回傳 VGA.DRV 離屏緩衝（blit 來源，320 寬線性色號；段在
+// 740C:01E5，docs/re/013）。文字與對話框先畫在這裡、之後才 blit 到 A000，
+// 所以印字當下只有離屏才是「這串字的背景」；A000 可能還是上一個畫面，
+// 且滑鼠游標只畫在 A000。殘影判定一律以離屏為準。
+func offscreen(o *oracle.Oracle) []uint8 {
+	seg := o.Word(oracle.Addr{Seg: 0x740C, Off: 0x01E5})
+	return o.Bytes(oracle.Addr{Seg: seg, Off: 0}, 320*200)
+}
+
 func evAlive(evs []glyphEv, idx []uint8) []glyphEv {
 	kept := evs[:0]
 	for _, e := range evs {
-		w := 0
-		for _, g := range e.g {
-			w += len(g) + 2
-		}
-		if vramHash(idx, e.x, e.y, w) == e.hash {
+		w, h := evBox(e.g)
+		if vramHash(idx, e.x, e.y, w, h) == e.hash {
 			kept = append(kept, e)
 		}
 	}
@@ -187,7 +209,7 @@ func evAlive(evs []glyphEv, idx []uint8) []glyphEv {
 func hdFrame(o *oracle.Oracle, evs []glyphEv, path string) {
 	pal := o.Palette()
 	idx := o.Indexed()
-	evs = evAlive(evs, idx)
+	evs = evAlive(evs, offscreen(o))
 	img := image.NewRGBA(image.Rect(0, 0, 640, 400))
 	for py := 0; py < 400; py++ {
 		for px := 0; px < 640; px++ {
@@ -237,7 +259,7 @@ type glyphEv struct {
 type shared struct {
 	mu      sync.Mutex
 	rgba    []byte    // 320×200×4 的畫面快照（Draw 用）
-	idx     []uint8   // 320×200 色號快照（事件殘影過濾用）
+	idx     []uint8   // 320×200 離屏色號快照（事件殘影過濾用，見 offscreen）
 	keys    []uint8   // 待注入的掃描碼（make＋break 成對排程）
 	mouseX  int
 	mouseY  int
@@ -369,6 +391,7 @@ func main() {
 	hdShotF := flag.Bool("hdshot", false, "每 30 秒輸出 HD 合成幀（PNG）")
 	autoplay := flag.Bool("autoplay", false, "內建自動遊玩時序（建隊→防拷→旁白→迷宮移動）")
 	hdOnly := flag.Bool("hdonly", false, "頭less：不開視窗，只輸出 HD 幀（無 WM 環境驗證用）")
+	hdAt := flag.String("hd-at", "", "步數逗號分隔：到該步數輸出 HD 合成幀 workplace/bake/hdat-<步數>.png（同狀態驗證用）")
 	flag.Parse()
 
 	program := *exe
@@ -463,7 +486,8 @@ func main() {
 			}
 		}
 		if !ok {
-			log.Printf("無譯文 %d %q", o.Steps(), s)
+			log.Printf("無譯文 %d %q @(%d,%d)", o.Steps(), s,
+				o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}), o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
 			return // 無譯文：放行原文
 		}
 		// '$' 槽展開：數字→數字位圖、序數詞→中文字形（__ordinals__）
@@ -497,21 +521,15 @@ func main() {
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})) + ent.Dy
 		dl := uint8(o.Regs().DX & 0xFF)
 		fg := palNow()[dl]
-		// 事件區域背景雜湊（Indexed 色號；原印被 poke 擋掉，此時是純背景）
-		evW := 0
-		for _, g := range ent.G {
-			evW += len(g) + 2
-		}
-		hash := vramHash(o.Indexed(), x, y, evW)
+		// 事件區域背景雜湊（離屏色號；原印被 poke 擋掉，此時是純背景）
+		evW, evH := evBox(ent.G)
+		hash := vramHash(offscreen(o), x, y, evW, evH)
 		evMu.Lock()
 		// 區域重疊去重：同位置重印（jitter）只留最新
 		kept := sh.evs[:0]
 		for _, e := range sh.evs {
-			ow := 0
-			for _, g := range e.g {
-				ow += len(g) + 2
-			}
-			if e.x < x+evW && e.x+ow > x && e.y+15 > y && e.y < y+15 {
+			ow, oh := evBox(e.g)
+			if e.x < x+evW && e.x+ow > x && e.y+oh > y && e.y < y+evH {
 				continue
 			}
 			kept = append(kept, e)
@@ -670,6 +688,24 @@ func main() {
 			})
 		}
 	}
+	// -hd-at：依步數輸出 HD 合成幀（決定性，取代 wall-clock 的 -hdshot 做驗收）。
+	if *hdAt != "" {
+		for _, f := range strings.Split(*hdAt, ",") {
+			st, err := strconv.ParseUint(strings.TrimSpace(f), 10, 64)
+			if err != nil {
+				log.Fatalf("-hd-at %q：%v", f, err)
+			}
+			autos = append(autos, struct {
+				at uint64
+				fn func(*oracle.Oracle)
+			}{st, func(o *oracle.Oracle) {
+				evMu.Lock()
+				hdFrame(o, sh.evs, fmt.Sprintf("workplace/bake/hdat-%d.png", st))
+				evMu.Unlock()
+			}})
+		}
+		sort.SliceStable(autos, func(i, j int) bool { return autos[i].at < autos[j].at })
+	}
 	autoIdx := 0
 
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
@@ -768,7 +804,7 @@ func main() {
 			}
 			_, _, rgb := o.ScreenRGB()
 			copy(sh.rgba, rgb)
-			copy(sh.idx, o.Indexed())
+			copy(sh.idx, offscreen(o))
 			sh.mu.Unlock()
 
 			elapsed := time.Since(last)

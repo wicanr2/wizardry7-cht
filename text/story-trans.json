@@ -1065,16 +1065,16 @@
   },
   "1051": {
    "en": "PLEASE TURN TO PAGE $ OF YOUR",
-   "zh": "請翻開手冊第 $ 頁"
+   "zh": "請翻開手冊第 $ 頁，"
   },
   "1052": {
    "en": "MANUAL AND ENTER THE $ WORD",
-   "zh": "找出該頁第 $ 個字輸入",
+   "zh": "在下列位置找出第 $ 個單字：",
    "dy": 13
   },
   "1053": {
    "en": "LOCATED IN PARAGRAPH ^  LINE %",
-   "zh": "請找出第 $ 段第 $ 行的單字"
+   "zh": "第 $ 段第 $ 行（請輸入英文）"
   },
   "1060": {
    "en": "FIRST",
