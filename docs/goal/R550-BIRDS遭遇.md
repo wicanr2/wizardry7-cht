@@ -14,3 +14,7 @@
 ## 安全
 - 存點 r549（戰鬥選單）已落；敗／散隊 → 讀回 r548（X3 迷宮）。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R550 結果
+- RUN 生效 → FINAL ORDERS（#25550353529）。r550＝FINAL ORDERS 開。
+- R551：START FIGHTING(160,166) 執行。
