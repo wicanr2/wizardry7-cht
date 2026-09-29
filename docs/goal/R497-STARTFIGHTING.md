@@ -14,3 +14,8 @@
 ## 安全
 - 存點 r496（FINAL ORDERS）已落；敗／散隊 → 讀回 r495。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R497 結果
+- `THESUS RUNS AWAY!`→`RUNNING!` 脫離成功，THESUS 存活。
+- y2 無匹配（vs w1/u1/v2 皆 15–18KB）⟹ 脫離附帶位移。
+- r497＝逃後迷宮。R498 原地 C4 定位。
