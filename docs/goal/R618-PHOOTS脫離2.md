@@ -13,3 +13,9 @@
 ## 安全
 - 存點 r617（遭遇選單）＋r616（b5 格）已落；敗 → 讀回 r616（b5 續測 d3）。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R618 結果
+- RUN→FINAL ORDERS ✓；PHOOT 攻擊 MISSED；`THESUS RUNS AWAY!`→`RUNNING!` ⟹
+  脫離成功，無傷 ✓。
+- h3 無 corpus 匹配（最近 Z-b4 11KB）⟹ 又位移到未知視角。
+- r618＝（逃後點2，未定位）。R619 原地 C4 試掛鉤（逃部位移若為鄰格當有面朝舊格）。
