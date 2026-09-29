@@ -13,3 +13,9 @@
 ## 安全
 - 存點 r620（遭遇選單）＋r619（E 格）已落；敗 → 讀回 r619。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R621 結果
+- RUN→FINAL ORDERS ✓；LASH MISSED／BITE HIT LEG 7 傷；`THESUS RUNS AWAY!`→
+  `RUNNING!` ⟹ 脫離成功（帶 7 傷存活）。
+- k3≈e1-R590（208B）⟹ 疑落 X8 朝 G3！脫離位移三例：X8→E、D2→E、E→X8。
+- r621＝（疑 X8，帶傷）。R622 原地 C4 驗（l系≈h系即實錘；順取 h3 未測側）。
