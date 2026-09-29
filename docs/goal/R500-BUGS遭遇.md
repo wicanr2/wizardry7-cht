@@ -14,3 +14,9 @@
 ## 安全
 - 存點 r499（戰鬥選單）已落；敗／散隊 → 讀回 r498（E 格）。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R500 結果
+- RUN→FINAL ORDERS→START FIGHTING 生效，回合結算：
+  `BUG BITES THESUS／MISSED!／THESUS RUNS／BLOCKED!／BUG CLAWS THESUS／HIT! BODY 9 DAMAGE`。
+- 首逃被 BLOCKED（逃脫看臉）；THESUS 存活（-9 BODY）；戰鬥選單開（b3 ASCII 見選項列）。
+- r500＝戰鬥中。R501 再 RUN 一次。
