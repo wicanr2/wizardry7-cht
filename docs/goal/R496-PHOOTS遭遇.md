@@ -15,3 +15,8 @@
 ## 安全
 - 存點 r495（遭遇前）已落；敗／散隊 → 讀回。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R496 結果
+- 遭遇同一步數重放（#22303014385／#22311549648 與 R495 一致，RNG 確定性 ✓）。
+- RUN(262,166)@22360M 生效 → `FINAL ORDERS／START FIGHTING／BACKUP…`。
+- R497：START FIGHTING(160,166) 執行脫離。
