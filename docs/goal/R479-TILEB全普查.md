@@ -16,3 +16,12 @@
 ## 安全
 - 存點 r461 已落；若遇蟲戰→RUN 既定，敗／散隊 → 讀回。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R479 結果（2026-09-29 追加）
+- T1 有效；fwd1 OUCH #21970541685（側一牆）；T2 有效；
+  fwd2 無聲位移 18184B；T3 有效；fwd3 靜默 115B；T4 有效；
+  fwd4 無聲位移 17334B；s8≈s0 179B **折返 TILE-B**。
+- s4≈TILE-A-a0 79B ⟹ X1＝TILE-A。TILE-B 四側全滿：
+  G1 牆／G2→TILE-A／G3→r452？／G4→TILE-C？
+  （r452/TILE-C 归属 G3/G4 待定；R480 测 G3→r452）。
+- THESUS 存活。
