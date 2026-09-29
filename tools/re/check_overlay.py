@@ -23,7 +23,10 @@ COPYPROT = {
     "LOCATED IN PARAGRAPH": (70, 170),
 }
 MENU = ["CHARACTER MENU", "ADD CHARACTER", "REVIEW MEMBER", "DISMISS MEMBER",
-        "START NEW GAME", "CONFIGURATION", "QUIT GAME", "THESUS", "FIGHTER"]
+        "START NEW GAME", "CONFIGURATION", "QUIT GAME", "FIGHTER"]
+# spec 002 R5：隊員名不譯，單獨的名字不得有覆繪事件
+UNTRANSLATED = ["THESUS"]
+XLATE = Path(sys.argv[3]) if len(sys.argv) > 3 else Path("workplace/bake/xlate.json")
 
 fails = []
 
@@ -82,12 +85,19 @@ for st in STEPS:
         # 4. 選單與隊員名
         for m in MENU:
             check(any(e["S"] == m for e in shown), f"{st} 驗收4 shown 含 {m!r}")
+        for m in UNTRANSLATED:
+            check(not any(e["S"] == m for e in shown), f"{st} spec002 R5 shown 不含 {m!r}")
     if st == 286000000:
         # 2. 防拷四行與 E9 座標
         for p, xy in COPYPROT.items():
             hit = find(shown, p)
             check(len(hit) >= 1 and all((e["X0"], e["Y0"]) == xy for e in hit),
                   f"{st} 驗收2 {p!r} (x0,y0)={[(e['X0'], e['Y0']) for e in hit]} 期望 {xy}")
+    if st == 286000000:
+        # spec 002 R5：1052 的序數槽展開為 __ordinals__["SECOND"]（成員比對）
+        sec = json.loads(XLATE.read_text())["__ordinals__"]["SECOND"]
+        hit = find(shown, "MANUAL AND ENTER THE")
+        check(len(hit) == 1 and sec in hit[0].get("G", []), f"{st} spec002 R5 1052 含序數字形 SECOND")
     if st == 330000000:
         # 5. 旁白時防拷四行不殘留
         for p in COPYPROT:

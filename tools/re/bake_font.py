@@ -127,10 +127,19 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     # 序數詞（FIRST..TENTH，防拷第二行）normalize 成 '$'、runtime 填的序數由
     # __ordinals__（中文字形）呈現。
     xlate = {}
+    bare_src = 0          # spec 002 R2：純槽略過來源數
+    bare_keys = set()     # spec 002 R2：純槽略過鍵
     for src, dst, dy in pairs:
         # zh 純 ASCII（不翻照抄類：KIA/V/RAMNAME…）不進 xlate——
         # runtime 查不到 → 原版 ASCII 字形照印，且避免空字形條讓前端 Draw 炸。
         if dst.isascii():
+            continue
+        # spec 002 R1：正規化後只剩槽位（`$`、` $ `）的鍵不寫入。序數與純數字都會
+        # 正規化成 `$`，互相覆寫；單獨的隊員名經前端 leadingWordDollar 也變成 `$` 而誤中。
+        key = normalize(src)
+        if key.replace("$", "").strip() == "":
+            bare_src += 1
+            bare_keys.add(key)
             continue
         entry = []
         slots = []  # '$' 槽索引
@@ -147,6 +156,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
         xlate[normalize(src)] = {"dy": dy, "g": entry}
         if slots:
             xlate[normalize(src)]["d"] = slots
+    print(f"純槽略過來源數 {bare_src}；純槽略過鍵 {sorted(bare_keys)!r}")
     xlate["__digits__"] = {c: digit_glyph(c) for c in DIGIT5x7}
     xlate["__ordinals__"] = {
         w: [int(v) for v in glyph_scaled(zh.encode("big5"))]

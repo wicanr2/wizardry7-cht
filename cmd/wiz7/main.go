@@ -385,6 +385,7 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, dir string, st uint64) {
 		BX, BY, BW, BH int
 		Before, After  []uint8
 		Fg             uint8
+		G              [][]uint16 // 字形（spec 002 R5 的序數檢查用）
 	}
 	out := struct {
 		Step           uint64
@@ -395,7 +396,7 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, dir string, st uint64) {
 	}{Step: o.Steps(), Mem: mem, A000: fnv(a), Pal: fnv(palB), Stats: ov.stats()}
 	out.Mouse[0], out.Mouse[1] = o.Mouse()
 	for _, e := range shown {
-		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg})
+		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g})
 	}
 	_ = os.WriteFile(base+".a000", a, 0o644)
 	_ = os.WriteFile(base+".comp", comp, 0o644)
@@ -420,6 +421,7 @@ type shared struct {
 	mouseY  int
 	buttons [2]bool              // 左、右
 	evs     []*textEv            // shown 事件（快照節點判定，Draw 只消費，R4.3）
+	drawReq string               // 非空＝下一次 Draw 完成後把視窗畫面存到這個路徑（-draw-at）
 	stdin   []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks  []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
@@ -532,6 +534,22 @@ func (g *game) Draw(dst *ebiten.Image) {
 		op2.Filter = ebiten.FilterNearest
 		dst.DrawImage(e.img, &op2)
 	}
+
+	// -draw-at：把互動視窗實際畫面存檔（驗證 Draw 路徑，spec 001 R4.3）
+	g.sh.mu.Lock()
+	req := g.sh.drawReq
+	g.sh.drawReq = ""
+	g.sh.mu.Unlock()
+	if req != "" {
+		w, h := dst.Bounds().Dx(), dst.Bounds().Dy()
+		img := image.NewRGBA(image.Rect(0, 0, w, h))
+		dst.ReadPixels(img.Pix)
+		if f, err := os.Create(req); err == nil {
+			png.Encode(f, img)
+			f.Close()
+			log.Printf("drawat 輸出 %s（%dx%d）", req, w, h)
+		}
+	}
 }
 
 func (g *game) Layout(int, int) (int, int) { return 320 * g.scale, 200 * g.scale }
@@ -548,6 +566,7 @@ func main() {
 	hdAt := flag.String("hd-at", "", "步數逗號分隔：到該步數輸出 HD 合成幀與驗收資料 <hd-dir>/hdat-<步數>.*（spec 001 R5）")
 	hdDir := flag.String("hd-dir", "workplace/bake", "-hd-at 的輸出目錄")
 	flag.IntVar(&hdScale, "hd-scale", 2, "HD 幀（-hd-at、-hdshot、自動遊玩截圖）的畫布倍率")
+	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
 	flag.Parse()
 
 	program := *exe
@@ -847,8 +866,24 @@ func main() {
 				evMu.Unlock()
 			}})
 		}
-		sort.SliceStable(autos, func(i, j int) bool { return autos[i].at < autos[j].at })
 	}
+	if *drawAt != "" {
+		for _, f := range strings.Split(*drawAt, ",") {
+			st, err := strconv.ParseUint(strings.TrimSpace(f), 10, 64)
+			if err != nil {
+				log.Fatalf("-draw-at %q：%v", f, err)
+			}
+			autos = append(autos, struct {
+				at uint64
+				fn func(*oracle.Oracle)
+			}{st, func(o *oracle.Oracle) {
+				sh.mu.Lock()
+				sh.drawReq = fmt.Sprintf("%s/drawat-%d.png", *hdDir, st)
+				sh.mu.Unlock()
+			}})
+		}
+	}
+	sort.SliceStable(autos, func(i, j int) bool { return autos[i].at < autos[j].at })
 	autoIdx := 0
 
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。

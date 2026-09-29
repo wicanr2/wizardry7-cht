@@ -94,4 +94,4 @@ AGENTS.md「1. 專案定位與邊界」：原版記憶體、離屏緩衝與 A000
 ## 驗收紀錄
 
 2026-09-29：`tools/re/check_overlay.py` 失敗 0 項（docs/re/014 追記一）。
-狀態維持 READY 不標 CONFORMED：巢狀捨棄、無離屏兩分支實跑未觸發；互動視窗 `Draw` 路徑未截圖驗證。
+狀態維持 READY 不標 CONFORMED：巢狀捨棄、無離屏兩分支實跑未觸發。互動視窗 `Draw` 路徑已以 `-draw-at` 目視驗證（014 追記二）。
