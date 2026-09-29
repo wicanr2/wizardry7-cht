@@ -13,3 +13,8 @@
 ## 安全
 - 存點 r577（FINAL ORDERS）已落；THESUS 存活是完成定義。
 - 結束追記＋commit＋push。
+
+## R578 結果
+- SF 生效（投递 ✓）；零 hook 文本（戰鬥訊息走別路）；戰鬥進行中（雙 BUG 在，
+  s2 ASCII 驗；CS:IP 0110:5A45 存活）。
+- r578＝戰鬥中（RUN 令已下）。R579 再 SF 一輪（逃脱再 roll）。
