@@ -14,3 +14,9 @@
 - 存點 r599（遭遇選單）＋r598（X8 遭遇前）＋r595（X2 乾淨）三層已落；
   敗／散隊 → 讀回 r598（同遭遇？RNG 或進）或 r595。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R600 結果
+- RUN(262,166)→FINAL ORDERS（#26030M ✓）→START FIGHTING→
+  `THESUS RUNS AWAY!`→`RUNNING!` ⟹ 脫離成功，無傷 ✓✓。
+- p3 無 corpus 匹配（最近 f1-R591/f1-R541 wall-family 5.6KB）⟹ 脫離位移到未知視角。
+- r600＝（逃後點，未定位）。R601 原地 C4 普查。
