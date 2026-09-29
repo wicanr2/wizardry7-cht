@@ -15,3 +15,9 @@
 ## 安全
 - 存點 r598（X8 遭遇前）已落；敗／散隊 → 讀回 r595。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R599 結果
+- o0＝i0（117B）；T1 乾淨完成：o1＝h1-R593（0B）⟹ X8-h1-side 樣本落定 ✓。
+- 遭遇（2 PHOOTS）在三 clicks 之後才開（#25952M／#25961M）：預編 RUN clicks
+  打空，r599＝遭遇選單（THESUS 無傷）。
+- R600 新鮮 RUN（RUN@＋20M／START@＋60M）。
