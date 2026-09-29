@@ -14,3 +14,7 @@
 ## 安全
 - 存點 r585（戰鬥選單）已落；敗 → 讀回 r584（X7 迷宮）。
 - THESUS 存活是完成定義。結束追記＋commit＋push。
+
+## R586 結果
+- RUN 生效 → FINAL ORDERS（#26690333625）。r586＝FINAL ORDERS 開。
+- R587：START FIGHTING(160,166)。
