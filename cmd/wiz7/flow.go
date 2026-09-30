@@ -242,9 +242,21 @@ func flowLayout(zh string, n int) []string {
 	return rows
 }
 
-// flowRowsPerRenderer 回傳某個繪製端（倍率 k、字形放大 hdf）的排版：每列字數上限 N 與各列。
-func flowCols(k, hdf int) int {
-	n := flowWidth * k / (flowGlyphPitch * hdf)
+// flowGS 是旁白中文的字形放大（spec 006 R4，#41）：hdf≥2（Draw 倍率 4 以上）時等於 hdf；
+// 否則倍率 3 以上放大 2 倍，倍率 2 維持 1 倍（列距只有 24 px，放不下 30 px 的字）。
+func flowGS(k, hdf int) int {
+	if hdf >= 2 {
+		return hdf
+	}
+	if k >= 3 {
+		return 2
+	}
+	return 1
+}
+
+// flowCols 回傳某個繪製端（倍率 k、字形放大 gs）每列字數上限 N。
+func flowCols(k, gs int) int {
+	n := flowWidth * k / (flowGlyphPitch * gs)
 	if n < 1 {
 		n = 1
 	}
@@ -252,9 +264,9 @@ func flowCols(k, hdf int) int {
 }
 
 // flowRowPos 是某列在螢幕像素的位置（X0 置中於 160、Y0 依列）。
-func flowRowPos(text string, r, k, hdf int) (x0, y0 int) {
+func flowRowPos(text string, r, k, gs int) (x0, y0 int) {
 	n := len([]rune(text))
-	pitch := flowGlyphPitch * hdf
+	pitch := flowGlyphPitch * gs
 	return flowCenter*k - n*pitch/2, (flowY0 + flowRowStep*r) * k
 }
 
@@ -322,7 +334,7 @@ func (pg *flowPage) retranslate(fd *flowData, step uint64) {
 	pg.res = fd.match(pg.words)
 	pg.rowsOK = false
 	if pg.res.Zh != "" {
-		rows := flowLayout(pg.res.Zh, flowCols(flowK, flowHdf))
+		rows := flowLayout(pg.res.Zh, flowCols(flowK, flowGS(flowK, flowHdf)))
 		pg.rowsOK = len(rows) <= flowMaxRows
 		if !pg.rowsOK {
 			pg.res.Status = "超列"
@@ -455,7 +467,7 @@ func (fd *flowData) flowRowStrip(text string, fg [3]uint8) *image.RGBA {
 	return img
 }
 
-// drawFlow 在 Draw 疊上有效頁的中文列（Draw 的字條放大 hd 倍，pitch＝17×hd）。
+// drawFlow 在 Draw 疊上有效頁的中文列（字條放大 gs 倍，pitch＝17×gs）。
 func (g *game) drawFlow(dst *ebiten.Image, views []flowView) {
 	if g.flow == nil {
 		return
@@ -468,7 +480,7 @@ func (g *game) drawFlow(dst *ebiten.Image, views []flowView) {
 		g.flowImgs = map[string]*ebiten.Image{}
 	}
 	for _, v := range views {
-		rows := flowLayout(v.Zh, flowCols(g.scale, hd))
+		rows := flowLayout(v.Zh, flowCols(g.scale, flowGS(g.scale, hd)))
 		if len(rows) > flowMaxRows {
 			continue
 		}
@@ -479,9 +491,10 @@ func (g *game) drawFlow(dst *ebiten.Image, views []flowView) {
 				img = ebiten.NewImageFromImage(g.flow.flowRowStrip(text, v.Fg))
 				g.flowImgs[key] = img
 			}
-			x0, y0 := flowRowPos(text, r, g.scale, hd)
+			gs := flowGS(g.scale, hd)
+			x0, y0 := flowRowPos(text, r, g.scale, gs)
 			op := ebiten.DrawImageOptions{}
-			op.GeoM.Scale(float64(hd), float64(hd))
+			op.GeoM.Scale(float64(gs), float64(gs))
 			op.GeoM.Translate(float64(x0), float64(y0))
 			op.Filter = ebiten.FilterNearest
 			dst.DrawImage(img, &op)
@@ -503,31 +516,37 @@ type flowJSON struct {
 	Zh        string
 	Scale     int
 	FgRGB     [3]uint8
+	GS        int // 字形放大（R4）
 	Rows      []flowRowJSON
 }
 
-// flowHD 在 hdFrame 的 img 上畫有效頁的中文列（1:1 像素、pitch 17），並回傳 JSON 記錄。
+// flowHD 在 hdFrame 的 img 上畫有效頁的中文列（字形像素放大 gs×gs、pitch 17×gs），並回傳 JSON 記錄。
 func (fd *flowData) flowHD(img *image.RGBA, pages []*flowPage, k int) []flowJSON {
 	var out []flowJSON
+	gs := flowGS(k, 1)
 	for _, pg := range pages {
 		v := pg.view()
-		rows := flowLayout(v.Zh, flowCols(k, 1))
+		rows := flowLayout(v.Zh, flowCols(k, gs))
 		if len(rows) > flowMaxRows {
 			continue
 		}
-		j := flowJSON{Para: pg.res.Para, A: pg.res.A, N: len(pg.words), Lines: pg.res.Lines, Zh: v.Zh, Scale: k, FgRGB: v.Fg}
+		j := flowJSON{Para: pg.res.Para, A: pg.res.A, N: len(pg.words), Lines: pg.res.Lines, Zh: v.Zh, Scale: k, FgRGB: v.Fg, GS: gs}
 		for _, e := range pg.evs {
 			j.Fragments = append(j.Fragments, e.s)
 		}
 		c := color.RGBA{v.Fg[0], v.Fg[1], v.Fg[2], 255}
 		for r, text := range rows {
-			x0, y0 := flowRowPos(text, r, k, 1)
+			x0, y0 := flowRowPos(text, r, k, gs)
 			j.Rows = append(j.Rows, flowRowJSON{x0, y0, text})
 			for i, ch := range []rune(text) {
 				for row, w := range fd.glyphOf(ch) {
 					for bit := 0; bit < 15; bit++ {
 						if (w>>(14-bit))&1 != 0 {
-							img.Set(x0+i*flowGlyphPitch+bit, y0+row, c)
+							for dy := 0; dy < gs; dy++ {
+								for dx := 0; dx < gs; dx++ {
+									img.Set(x0+(i*flowGlyphPitch+bit)*gs+dx, y0+row*gs+dy, c)
+								}
+							}
 						}
 					}
 				}

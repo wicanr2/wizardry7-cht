@@ -27,20 +27,23 @@ func TestFlowLayout(t *testing.T) {
 	}
 }
 
-// R4：每列字數 N 與置中位置（Draw 端 hd＝scale÷2，hdFrame 端 hd＝1）。
+// R4：字形放大 gs、每列字數 N 與置中位置（Draw 端 hd＝scale÷2，hdFrame 端 hd＝1）。
 func TestFlowColsAndPos(t *testing.T) {
-	if got := flowCols(3, 1); got != 32 {
-		t.Errorf("flowCols(3,1)＝%d，期望 32", got)
+	gsCases := []struct{ k, hdf, gs int }{{2, 1, 1}, {3, 1, 2}, {4, 1, 2}, {4, 2, 2}, {5, 2, 2}, {6, 3, 3}}
+	for _, c := range gsCases {
+		if got := flowGS(c.k, c.hdf); got != c.gs {
+			t.Errorf("flowGS(%d,%d)＝%d，期望 %d", c.k, c.hdf, got, c.gs)
+		}
 	}
-	if got := flowCols(2, 1); got != 21 {
-		t.Errorf("flowCols(2,1)＝%d，期望 21", got)
+	colCases := []struct{ k, gs, n int }{{3, 2, 16}, {2, 1, 21}, {4, 2, 21}, {3, 1, 32}}
+	for _, c := range colCases {
+		if got := flowCols(c.k, c.gs); got != c.n {
+			t.Errorf("flowCols(%d,%d)＝%d，期望 %d", c.k, c.gs, got, c.n)
+		}
 	}
-	if got := flowCols(4, 2); got != 21 { // 4× 的 Draw：hd＝2，pitch 34
-		t.Errorf("flowCols(4,2)＝%d，期望 21", got)
-	}
-	x, y := flowRowPos("一二三四", 1, 3, 1) // n＝4，pitch 17：160×3−34＝446；y＝(146＋12)×3
-	if x != 446 || y != 474 {
-		t.Errorf("flowRowPos＝(%d,%d)，期望 (446,474)", x, y)
+	x, y := flowRowPos("一二三四", 1, 3, 2) // n＝4，pitch 34：160×3−68＝412；y＝(146＋12)×3
+	if x != 412 || y != 474 {
+		t.Errorf("flowRowPos＝(%d,%d)，期望 (412,474)", x, y)
 	}
 }
 

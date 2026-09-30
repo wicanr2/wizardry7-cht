@@ -145,8 +145,13 @@ def layout(zh, N):
     return rows
 
 
+def gs_of(k):
+    """字形放大（spec 006 R4，#41）：hdFrame 端 hdf＝1，倍率 3 以上放大 2 倍。"""
+    return 2 if k >= 3 else 1
+
+
 def cols(k):
-    return max(1, 184 * k // 17)
+    return max(1, 184 * k // (17 * gs_of(k)))
 
 
 # ── log 分頁（R2）─────────────────────────────────────────────────
@@ -244,10 +249,11 @@ def check_dumps(zh, en, k, tag):
             # 驗收 6：排版
             rows = layout(exp, cols(k))
             check([r["Text"] for r in fl["Rows"]] == rows and len(rows) <= 4, f"驗收6 {tag} {name} 頁{idx + 1} 列文字 獨立={rows}")
-            check(fl["Scale"] == k, f"驗收6 {tag} {name} Scale={fl['Scale']}")
+            gs = gs_of(k)
+            check(fl["Scale"] == k and fl.get("GS") == gs, f"驗收6 {tag} {name} Scale={fl['Scale']} GS={fl.get('GS')}（期望 {gs}）")
             for ri, (r, text) in enumerate(zip(fl["Rows"], rows)):
-                x0 = 160 * k - len(text) * 17 // 2
-                check(r["Y0"] == (146 + 12 * ri) * k and abs(r["X0"] - x0) <= 2, f"驗收6 {tag} {name} 頁{idx + 1} 列{ri} 位置 ({r['X0']},{r['Y0']}) 期望 ({x0},{(146 + 12 * ri) * k})")
+                x0 = 160 * k - len(text) * 17 * gs // 2
+                check(r["Y0"] == (146 + 12 * ri) * k and abs(r["X0"] - x0) <= gs + 1, f"驗收6 {tag} {name} 頁{idx + 1} 列{ri} 位置 ({r['X0']},{r['Y0']}) 期望 ({x0},{(146 + 12 * ri) * k})")
                 if len(text) > 1:
                     check(text[0] not in NOSTART or ri == 0, f"驗收6 {tag} {name} 頁{idx + 1} 列{ri} 避頭")
                 check(text[-1] not in NOEND or ri == len(rows) - 1, f"驗收6 {tag} {name} 頁{idx + 1} 列{ri} 避尾")
@@ -259,9 +265,12 @@ def check_dumps(zh, en, k, tag):
                     for row, bits in enumerate(glyph(ch)):
                         for bit in range(15):
                             if (bits >> (14 - bit)) & 1:
-                                px = prow[r["Y0"] + row][(r["X0"] + ci * 17 + bit) * bpp:(r["X0"] + ci * 17 + bit) * bpp + 3]
-                                if list(px) != fl["FgRGB"]:
-                                    miss += 1
+                                for dy in range(gs):
+                                    for dx in range(gs):
+                                        xx = r["X0"] + (ci * 17 + bit) * gs + dx
+                                        px = prow[r["Y0"] + row * gs + dy][xx * bpp:xx * bpp + 3]
+                                        if list(px) != fl["FgRGB"]:
+                                            miss += 1
             check(miss == 0, f"驗收7 {tag} {name} 頁{idx + 1} 字形像素不符數 {miss}")
             # 不變式：有效頁的英文仍在 A000（底圖像素等於 After、至少一半筆畫像素與 Before 不同）
             mx0, my0 = j["Mouse"]
