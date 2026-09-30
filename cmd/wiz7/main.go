@@ -177,7 +177,10 @@ type textEv struct {
 	fg             uint8   // 筆畫色號（差異像素眾數）
 	fgRGB          [3]uint8
 	g              [][]uint16
-	shown          bool
+	shown          bool          // 曾與 A000 相符（決定被刪除或等待，與頁有沒有譯文無關）
+	match          bool          // 本次 compose 是否與 A000 相符（頁裁決用）
+	dead           bool          // 已被刪除
+	page           *flowPage     // 流動文字的還原事件所屬頁（spec 006）；nil＝一般事件
 	img            *ebiten.Image // Draw 時 lazily 預渲染的字形條
 }
 
@@ -190,11 +193,19 @@ type pendingPrint struct {
 	ret    oracle.Addr
 	before []uint8
 	g      [][]uint16
+	page   *flowPage // 流動文字片段所屬頁（spec 006）；nil＝一般印字
+	font   uint16
+	seq    int // 流動文字片段序號
 }
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
 type overlay struct {
 	pend    *pendingPrint
+	flow    *flowData                       // flow.json（nil＝流動文字關閉）
+	page    *flowPage                       // 目前的頁（流動文字呼叫點）
+	pages   []*flowPage                     // 尚未被丟棄的頁
+	fragSeq int                             // 流動文字片段的序號（1 起，與 log「流文 片段」同序）
+	onFrag  func(o *oracle.Oracle, seq int) // 測試用：片段返回後的回呼（-hd-after-frag）
 	evs     []*textEv
 	created int
 	shown   int
@@ -214,6 +225,9 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 	after := offscreen(o)
 	if after == nil || p.before == nil {
 		ov.noseg++
+		if p.page != nil {
+			p.page.fail("無離屏", o.Steps())
+		}
 		return
 	}
 	x0, y0, x1, y1 := 320, 200, -1, -1
@@ -226,10 +240,13 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 	}
 	if x1 < 0 {
 		ov.empty++
+		if p.page != nil {
+			p.page.fail("無差異", o.Steps())
+		}
 		return
 	}
 	w, h := x1-x0+1, y1-y0+1
-	e := &textEv{s: p.s, x0: p.x0, y0: p.y0, dy: p.dy, bx: x0, by: y0, bw: w, bh: h, g: p.g}
+	e := &textEv{s: p.s, x0: p.x0, y0: p.y0, dy: p.dy, bx: x0, by: y0, bw: w, bh: h, g: p.g, page: p.page}
 	e.before = make([]uint8, w*h)
 	e.after = make([]uint8, w*h)
 	var cnt [256]int
@@ -249,25 +266,65 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 		}
 	}
 	e.fgRGB = o.Palette()[e.fg] // 返回 hook 當下的調色盤（R2.4）
+	if pg := p.page; pg != nil {
+		// spec 006 R2 片段閘門：字型 2、筆畫色 0x55、離屏差異框中心 x 在 159–161
+		if pg.failed {
+			return
+		}
+		if p.font != flowFont || e.fg != flowFg || 2*x0+w-1 < 318 || 2*x0+w-1 > 322 {
+			pg.fail(fmt.Sprintf("閘門 font=%d fg=%02x 中心2x=%d", p.font, e.fg, 2*x0+w-1), o.Steps())
+			return
+		}
+		pg.evs = append(pg.evs, e)
+		pg.lastStep = o.Steps()
+		pg.band = snapBand(after)
+		pg.retranslate(ov.flow, o.Steps())
+	}
 	ov.evs = append(ov.evs, e)
 	ov.created++
 }
 
-// compose 依 R3 判定事件狀態，回傳合成後的低解析色號與 shown 事件（R4.1）。
-// 只在機器 goroutine 的快照節點呼叫（R4.3）。
-func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv) {
+// compose 依 R3 判定事件狀態，回傳合成後的低解析色號、shown 事件與有效的流動文字頁（R4.1）。
+// 兩趟（spec 006 R5）：第一趟判定每個事件的 match／pending／dropped 並處理一般事件；
+// 第二趟依頁裁決，有效頁才還原筆畫、輸出譯文。可被 hdFrame 等在快照節點之外重複呼叫，
+// 因此計數與 log 都用頁旗標，不靠呼叫次數。
+func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 	a := o.Indexed()
 	comp := append([]uint8(nil), a...)
 	off := offscreen(o)
 	mx, my := o.Mouse()
+	step := o.Steps()
 	inCursor := func(x, y int) bool {
 		return x >= mx && x < mx+cursorBox && y >= my && y < my+cursorBox
 	}
+	restore := func(e *textEv) {
+		for y := 0; y < e.bh; y++ {
+			for x := 0; x < e.bw; x++ {
+				k := y*e.bw + x
+				i := (e.by+y)*320 + e.bx + x
+				if e.before[k] == e.after[k] {
+					continue
+				}
+				if e.page != nil {
+					// 頁事件（spec 006 R5）：所有筆畫像素還原，游標框之外
+					if !inCursor(e.bx+x, e.by+y) {
+						comp[i] = e.before[k]
+					}
+				} else if a[i] == e.after[k] {
+					comp[i] = e.before[k]
+				}
+			}
+		}
+	}
+	// 第一趟
 	kept := ov.evs[:0]
 	var shown []*textEv
 	for _, e := range ov.evs {
 		match := true
-		for y := 0; y < e.bh && match; y++ {
+		if e.page != nil {
+			match = e.pageMatch(a, inCursor)
+		}
+		for y := 0; e.page == nil && y < e.bh && match; y++ {
 			for x := 0; x < e.bw; x++ {
 				px, py := e.bx+x, e.by+y
 				if inCursor(px, py) {
@@ -279,25 +336,23 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv) {
 				}
 			}
 		}
+		e.match = match
 		switch {
 		case match:
 			if !e.shown {
 				e.shown = true
-				ov.shown++
-			}
-			for y := 0; y < e.bh; y++ {
-				for x := 0; x < e.bw; x++ {
-					k := y*e.bw + x
-					i := (e.by+y)*320 + e.bx + x
-					if a[i] == e.after[k] && e.before[k] != e.after[k] {
-						comp[i] = e.before[k]
-					}
+				if e.page == nil {
+					ov.shown++
 				}
 			}
+			if e.page == nil {
+				restore(e)
+				shown = append(shown, e)
+			}
 			kept = append(kept, e)
-			shown = append(shown, e)
 		case e.shown:
 			ov.dropped++
+			e.dead = true
 		default:
 			// 尚未上屏：離屏框仍是 after 才保留（R3 表第 3、4 列）
 			still := off != nil
@@ -313,6 +368,7 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv) {
 				kept = append(kept, e)
 			} else {
 				ov.dropped++
+				e.dead = true
 			}
 		}
 	}
@@ -320,7 +376,55 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv) {
 		ov.evs[i] = nil
 	}
 	ov.evs = kept
-	return comp, shown
+
+	// 第二趟：頁裁決（R5）
+	var active []*flowPage
+	keptPages := ov.pages[:0]
+	for _, pg := range ov.pages {
+		dead := pg.failed
+		for _, e := range pg.evs {
+			if e.dead {
+				dead = true
+			}
+		}
+		if dead {
+			continue // 丟棄頁；仍存活的事件是無效事件，隨 A000 改變被刪除
+		}
+		keptPages = append(keptPages, pg)
+		if pg.res.Zh == "" || !pg.rowsOK || pg.frags == 0 || len(pg.evs) != pg.frags || step-pg.lastStep < flowQuiet {
+			continue
+		}
+		all := true
+		for _, e := range pg.evs {
+			if !e.match {
+				all = false
+			}
+		}
+		if !all {
+			continue
+		}
+		if !pg.bandStatic(a, inCursor) {
+			if !pg.bandLog {
+				pg.bandLog = true
+				log.Printf("流文 帶不符 %d 段落=%d", step, pg.res.Para)
+			}
+			continue
+		}
+		for _, e := range pg.evs {
+			restore(e)
+			shown = append(shown, e)
+		}
+		if !pg.counted {
+			pg.counted = true
+			ov.shown++
+		}
+		active = append(active, pg)
+	}
+	for i := len(keptPages); i < len(ov.pages); i++ {
+		ov.pages[i] = nil
+	}
+	ov.pages = keptPages
+	return comp, shown, active
 }
 
 func (ov *overlay) stats() string {
@@ -342,8 +446,8 @@ var hdScale = 3
 
 // hdFrame 在快照節點合成高解析幀：低解析合成（已還原英文筆畫）放大 hdScale 倍，
 // 中文 15×15 原字形畫在 (x0×k, (y0+dy)×k)。呼叫端持有 evMu。
-func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []*textEv) {
-	comp, shown = ov.compose(o)
+func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []*textEv, flows []flowJSON) {
+	comp, shown, pages := ov.compose(o)
 	pal := o.Palette()
 	k := hdScale
 	img := image.NewRGBA(image.Rect(0, 0, 320*k, 200*k))
@@ -367,19 +471,22 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 			cx += len(glyph) + 2
 		}
 	}
+	if ov.flow != nil {
+		flows = ov.flow.flowHD(img, pages, k)
+	}
 	if f, err := os.Create(path); err == nil {
 		png.Encode(f, img)
 		f.Close()
 	}
-	return comp, shown
+	return comp, shown, flows
 }
 
 // hdAtDump 輸出 -hd-at 驗收資料（spec 001 R5 與驗收）：HD 合成 PNG、
 // A000 原始色號、低解析合成色號、shown 事件與雜湊。呼叫端持有 evMu。
-func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, st uint64) {
-	base := fmt.Sprintf("%s/hdat-%d", dir, st)
+func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name string) {
+	base := fmt.Sprintf("%s/%s", dir, name)
 	a := append([]uint8(nil), o.Indexed()...)
-	comp, shown := hdFrame(o, ov, base+".png")
+	comp, shown, flows := hdFrame(o, ov, base+".png")
 	pal := o.Palette()
 	palB := make([]byte, 0, 768)
 	for _, c := range pal {
@@ -401,9 +508,11 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, st uint64)
 		Mouse          [2]int
 		Shown          []evOut
 		Map            mapJSON
+		Flow           []flowJSON
 	}{Step: o.Steps(), Mem: mem, A000: fnv(a), Pal: fnv(palB), Stats: ov.stats()}
 	out.Mouse[0], out.Mouse[1] = o.Mouse()
 	out.Map = am.json()
+	out.Flow = flows
 	for _, e := range shown {
 		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g})
 	}
@@ -412,8 +521,8 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, st uint64)
 	if b, err := json.Marshal(out); err == nil {
 		_ = os.WriteFile(base+".json", b, 0o644)
 	}
-	log.Printf("hdat %d steps=%d mem=%08x a000=%08x pal=%08x shown=%d %s",
-		st, out.Step, out.Mem, out.A000, out.Pal, len(shown), out.Stats)
+	log.Printf("hdat %s steps=%d mem=%08x a000=%08x pal=%08x shown=%d %s",
+		name, out.Step, out.Mem, out.A000, out.Pal, len(shown), out.Stats)
 }
 
 type entry struct {
@@ -436,21 +545,24 @@ type shared struct {
 	helpPage   int
 	mapOpen    bool                 // F2 自動地圖面板（spec 005 R3）
 	mapView    mapView              // 快照節點產生的地圖狀態
+	flow       []flowView           // 有效的流動文字頁（快照節點產生；Draw 消費，spec 006）
 	stdin      []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks     []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
 
 type game struct {
-	help    *helpData     // F1 說明資料（help.json；nil＝缺檔）
-	helpImg *ebiten.Image // 目前說明頁的預渲染
-	helpKey string
-	sh      *shared
-	scale   int
-	screen  *ebiten.Image
-	lastMX  int
-	lastMY  int
-	lbtn    bool
-	rbtn    bool
+	flow     *flowData                // flow.json（nil＝流動文字關閉）
+	flowImgs map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
+	help     *helpData                // F1 說明資料（help.json；nil＝缺檔）
+	helpImg  *ebiten.Image            // 目前說明頁的預渲染
+	helpKey  string
+	sh       *shared
+	scale    int
+	screen   *ebiten.Image
+	lastMX   int
+	lastMY   int
+	lbtn     bool
+	rbtn     bool
 }
 
 func (g *game) Update() error {
@@ -542,6 +654,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	g.sh.mu.Lock()
 	rgba := append([]byte(nil), g.sh.rgba...)
 	evs := append([]*textEv(nil), g.sh.evs...)
+	flows := append([]flowView(nil), g.sh.flow...)
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
@@ -592,6 +705,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 		op2.Filter = ebiten.FilterNearest
 		dst.DrawImage(e.img, &op2)
 	}
+	g.drawFlow(dst, flows)
 
 	g.sh.mu.Lock()
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
@@ -641,6 +755,8 @@ func main() {
 	helpPageF := flag.Int("help-page", 0, "測試用：-help-at 開啟時停在第幾頁（0 起算）")
 	clicksAt := flag.String("clicks-at", "", "測試用：step:x:y 逗號分隔，到該步數以 o.Click 點擊（遊戲座標；spec 005 R4）")
 	mapAt := flag.Uint64("map-at", 0, "測試用：到該步數開啟自動地圖面板")
+	flowPath := flag.String("flow", "workplace/bake/flow.json", "流動文字資料（tools/re/bake_flow.py 產生；空字串停用，spec 006）")
+	hdAfterFrag := flag.String("hd-after-frag", "", "測試用：流動文字片段序號逗號分隔（1 起）；該片段返回的當下輸出 <hd-dir>/hdfrag-<序號>.*（spec 006 驗收 10）")
 	autoplayStop := flag.Uint64("autoplay-stop", 0, "測試用：autoplay 只執行門檻 ≤ 此步數的動作（0＝全部），之後交給真實輸入")
 	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
 	flag.Parse()
@@ -701,14 +817,84 @@ func main() {
 	_ = hdShot
 	os.MkdirAll("workplace/bake/trees", 0o755)
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
-	ov := &overlay{}
+	ov := &overlay{flow: loadFlow(*flowPath)}
+	fragDump := map[int]bool{}
+	for _, f := range strings.Split(*hdAfterFrag, ",") {
+		if f == "" {
+			continue
+		}
+		n, err := strconv.Atoi(strings.TrimSpace(f))
+		if err != nil {
+			log.Fatalf("-hd-after-frag %q：%v", f, err)
+		}
+		fragDump[n] = true
+	}
+	// 排版倍率：互動視窗用 -scale（Draw 的字條放大 hd＝scale÷2），無頭用 -hd-scale（1:1）
+	if *hdOnly {
+		flowK, flowHdf = hdScale, 1
+	} else {
+		flowK, flowHdf = *scale, max(1, *scale/2)
+	}
 	am := newAutomap() // spec 005：自動地圖（只在快照節點更新）
+	if len(fragDump) > 0 {
+		ov.onFrag = func(o *oracle.Oracle, seq int) { // 呼叫端（返回 hook）持有 evMu
+			if fragDump[seq] {
+				hdAtDump(o, ov, am, *hdDir, fmt.Sprintf("hdfrag-%d", seq))
+			}
+		}
+	}
 	entry := oracle.Addr{Seg: 0x0110, Off: 0x3895}
 	retHooked := map[uint32]bool{}
+	// arm 在返回位址掛一次 hook：只認本次返回（IP＝返回位址且 SP＝進入 SP＋2，spec 001 R2.2）
+	arm := func(ret oracle.Addr) {
+		lin := ret.Linear()
+		if retHooked[lin] {
+			return
+		}
+		retHooked[lin] = true
+		o.OnCall(ret, func(o *oracle.Oracle) {
+			evMu.Lock()
+			defer evMu.Unlock()
+			if ov.pend == nil || ov.pend.ret != ret || o.Regs().SP != ov.pend.sp+2 {
+				return
+			}
+			seq := ov.pend.seq
+			ov.finish(o)
+			if seq > 0 && ov.onFrag != nil {
+				ov.onFrag(o, seq)
+			}
+		})
+	}
 	o.OnCall(entry, func(o *oracle.Oracle) {
+		r0 := o.Regs()
+		ret := oracle.Addr{Seg: r0.CS, Off: o.StackWord(0)} // near call（E2）
 		off := o.StackWord(1)
-		ds := o.Regs().DS
+		ds := r0.DS
 		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
+		if flowSites[ret] {
+			// spec 006 R2：流動文字呼叫點不查表，整頁另行比對
+			x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
+			y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
+			evMu.Lock()
+			if ov.pend != nil {
+				ov.nested++ // 防禦性：E2 實測未見巢狀
+				if ov.pend.page != nil {
+					ov.pend.page.fail("巢狀", o.Steps())
+				}
+			}
+			p := ov.flowEntry(o, raw, ret, r0.SP, o.StackWord(2), x, y)
+			if p != nil {
+				if b := offscreen(o); b != nil {
+					p.before = append([]byte(nil), b...)
+				}
+			}
+			ov.pend = p
+			evMu.Unlock()
+			if p != nil {
+				arm(ret)
+			}
+			return
+		}
 		s := string(raw)
 		for i := 0; i < len(s); i++ {
 			if s[i] == 0 {
@@ -731,8 +917,8 @@ func main() {
 			}
 		}
 		if !ok {
-			log.Printf("無譯文 %d %q @(%d,%d)", o.Steps(), s,
-				o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}), o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
+			log.Printf("無譯文 %d %q @(%d,%d) ret=%04x:%04x", o.Steps(), s,
+				o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}), o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}), ret.Seg, ret.Off)
 			return // 無譯文：放行原文
 		}
 		// '$' 槽展開：數字→數字位圖、序數詞→中文字形（__ordinals__）
@@ -764,11 +950,10 @@ func main() {
 		}
 		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
-		r := o.Regs()
 		p := &pendingPrint{
 			s: s, x0: x, y0: y, dy: ent.Dy, g: ent.G,
-			sp:  r.SP,
-			ret: oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}, // near call（E2）
+			sp:  r0.SP,
+			ret: ret,
 		}
 		if b := offscreen(o); b != nil {
 			p.before = append([]byte(nil), b...)
@@ -778,22 +963,13 @@ func main() {
 			// 防禦性：E2 實測未見巢狀（R2.5）
 			ov.nested++
 			log.Printf("巢狀印字：捨棄未返回的 %q", ov.pend.s)
+			if ov.pend.page != nil {
+				ov.pend.page.fail("巢狀", o.Steps())
+			}
 		}
 		ov.pend = p
 		evMu.Unlock()
-		if lin := p.ret.Linear(); !retHooked[lin] {
-			retHooked[lin] = true
-			ret := p.ret
-			o.OnCall(ret, func(o *oracle.Oracle) {
-				evMu.Lock()
-				defer evMu.Unlock()
-				// 只認本次返回：IP＝返回位址且 SP＝進入 SP＋2（R2.2）
-				if ov.pend == nil || ov.pend.ret != ret || o.Regs().SP != ov.pend.sp+2 {
-					return
-				}
-				ov.finish(o)
-			})
-		}
+		arm(p.ret)
 		// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
 		ts := o.Word(oracle.Addr{Seg: 0x0110, Off: 0x2D4E})
 		if ts != 0 {
@@ -810,7 +986,7 @@ func main() {
 		}
 		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
 	})
-	g := &game{sh: sh, scale: *scale, help: loadHelp(*helpPath)}
+	g := &game{sh: sh, scale: *scale, help: loadHelp(*helpPath), flow: ov.flow, flowImgs: map[string]*ebiten.Image{}}
 	if !*hdOnly {
 		g.screen = ebiten.NewImage(320, 200)
 	}
@@ -949,7 +1125,7 @@ func main() {
 				fn func(*oracle.Oracle)
 			}{st, func(o *oracle.Oracle) {
 				evMu.Lock()
-				hdAtDump(o, ov, am, *hdDir, st)
+				hdAtDump(o, ov, am, *hdDir, fmt.Sprintf("hdat-%d", st))
 				evMu.Unlock()
 			}})
 		}
@@ -1028,8 +1204,13 @@ func main() {
 		am.update(o) // spec 005 R1／R2：只讀
 		sh.mapView = am.view()
 		evMu.Lock()
-		comp, shown := ov.compose(o)
+		comp, shown, pages := ov.compose(o)
 		evMu.Unlock()
+		var views []flowView
+		for _, pg := range pages {
+			views = append(views, pg.view())
+		}
+		sh.flow = views
 		pal := o.Palette()
 		for i, v := range comp {
 			c := pal[v]

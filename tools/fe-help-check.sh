@@ -40,7 +40,7 @@ timeout 90 /tmp/wiz7 -autoplay -root workplace/run -scale 3 -hd-dir $OUT/draw -h
 true" tools/fe.sh 2>&1 | grep -v "XSERV\|XGB\|Xauthority" || true
 
 echo "== 1 雜湊"
-grep -h "hdat 300000000" $OUT/a.log $OUT/b.log | sed 's/.*steps=/steps=/' | cut -d' ' -f1-4
+grep -h "hdat hdat-300000000 " $OUT/a.log $OUT/b.log | sed 's/.*steps=/steps=/' | cut -d' ' -f1-4
 echo "== 2 暫停步數"
 grep -h "說明 暫停" $OUT/b.log
 echo "== 3 截圖"

@@ -268,4 +268,6 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 | 印字管線 `sub_102DA`→`sub_13895`→`sub_13877`→VGA.DRV 服務 11→16 | confirmed | `docs/re/013` |
 | MSG.DBS 全量抽取 11,019 則（訊息 ID 最大 31819） | confirmed | `docs/re/013` 追記三十、`text/messages.json` |
 | 防拷是 SECURITY CLEARANCE 輸入畫面，關鍵字表在 MSG.DBS | confirmed | `docs/re/010`、`docs/names.md` |
+| 迷宮開場旁白由引擎折行成頁，整頁以字詞序列比對訊息段落取譯文（spec 006）；旁白 6 頁中文，中英原版雜湊相同 | confirmed | `docs/re/017`、`docs/spec/006` |
+| 開場故事（`0110:be0c`）仍由 `story.txt` 逐列對應，不在版控 | confirmed | `docs/re/017` F12、#40 |
 | 譯文規模與完整性對帳 | 見 issue | #22 |

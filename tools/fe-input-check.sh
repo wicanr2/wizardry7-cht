@@ -28,7 +28,7 @@ waitfor() { # $1＝log $2＝grep 樣式 $3＝秒
   for _ in $(seq 1 $(( $3 * 2 ))); do grep -qE "$2" "$1" && return 0; sleep 0.5; done
   return 1
 }
-prints() { grep -cE '(翻譯|無譯文) [0-9]+ ' "$1" || true; }  # 有譯文與無譯文的印字都要算（T6 曾因只數翻譯而誤判）
+prints() { grep -cE '(翻譯|無譯文|流文 片段) [0-9]+ ' "$1" || true; }  # 有譯文、無譯文與流動文字片段都要算（T6 曾因只數翻譯而誤判；spec 006 之後旁白片段只印「流文 片段」）
 win() { xdotool search --name '巫術7' | head -1; }
 stop() { kill $PID 2>/dev/null; wait $PID 2>/dev/null || true; }
 
