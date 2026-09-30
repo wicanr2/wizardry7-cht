@@ -21,3 +21,6 @@ __pycache__/
 /fontid
 /wiz7
 /msgdump
+
+# 含 API token 的本機腳本（使用者指示 2026-09-30）
+/claude_glm.sh
