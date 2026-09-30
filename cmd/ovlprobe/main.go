@@ -31,6 +31,7 @@ func main() {
 	stop := flag.Uint64("stop", 286_000_000, "停止步數")
 	from := flag.Uint64("from", 0, "只記錄這個步數之後的印字事件")
 	clicksF := flag.String("clicks", "", "step:x:y 逗號分隔")
+	typeF := flag.String("type-at", "", "step:字串（以 DOS stdin 輸入；\\r 代表 Enter）")
 	flag.Parse()
 
 	var clicks []click
@@ -149,8 +150,27 @@ func main() {
 		})
 	})
 
+	var typed []struct {
+		at uint64
+		s  string
+	}
+	if *typeF != "" {
+		var at uint64
+		var str string
+		if _, err := fmt.Sscanf(*typeF, "%d:%s", &at, &str); err == nil {
+			typed = append(typed, struct {
+				at uint64
+				s  string
+			}{at, strings.ReplaceAll(str, `\r`, "\r")})
+		}
+	}
+	ti := 0
 	ci := 0
 	for o.Steps() < *stop {
+		for ti < len(typed) && o.Steps() >= typed[ti].at {
+			o.Type(typed[ti].s)
+			ti++
+		}
 		for ci < len(clicks) && o.Steps() >= clicks[ci].at {
 			if err := o.Click(clicks[ci].x, clicks[ci].y); err != nil {
 				fmt.Printf("點擊 (%d,%d)：%v\n", clicks[ci].x, clicks[ci].y, err)
