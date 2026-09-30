@@ -419,7 +419,7 @@ type shared struct {
 	keys    []uint8 // 待注入的掃描碼（make＋break 成對排程）
 	mouseX  int
 	mouseY  int
-	buttons [2]bool              // 左、右
+	rbtn    bool                 // 右鍵狀態（左鍵走 clicks，spec 004）
 	evs     []*textEv            // shown 事件（快照節點判定，Draw 只消費，R4.3）
 	drawReq string               // 非空＝下一次 Draw 完成後把視窗畫面存到這個路徑（-draw-at）
 	stdin   []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
@@ -461,6 +461,11 @@ func (g *game) Update() error {
 	sx, sy := mx/g.scale, my/g.scale
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
 		g.lbtn = true
+		// spec 004 R1：左鍵剛按下＝排一次整包點擊（遊戲座標，裁切到 320×200）
+		cx, cy := min(max(sx, 0), 319), min(max(sy, 0), 199)
+		g.sh.mu.Lock()
+		g.sh.clicks = append(g.sh.clicks, struct{ x, y int }{cx, cy})
+		g.sh.mu.Unlock()
 	}
 	if inpututil.IsMouseButtonJustReleased(ebiten.MouseButtonLeft) {
 		g.lbtn = false
@@ -475,7 +480,7 @@ func (g *game) Update() error {
 	if sx != g.sh.mouseX || sy != g.sh.mouseY {
 		g.sh.mouseX, g.sh.mouseY = sx, sy
 	}
-	g.sh.buttons[0], g.sh.buttons[1] = g.lbtn, g.rbtn
+	g.sh.rbtn = g.rbtn
 	g.sh.mu.Unlock()
 	return nil
 }
@@ -906,7 +911,7 @@ func main() {
 				sh.stdin = nil
 			}
 			bx, by := sh.mouseX, sh.mouseY
-			r := sh.buttons[1]
+			r := sh.rbtn
 			if bx != lastX || by != lastY {
 				o.MoveMouse(bx, by)
 				lastX, lastY = bx, by
@@ -925,9 +930,9 @@ func main() {
 			}
 			sh.mu.Unlock()
 			for _, c := range clicks {
-				if err := o.Click(c.x, c.y); err != nil {
-					log.Printf("點擊 (%d,%d)：%v", c.x, c.y, err)
-				}
+				// spec 004 R2／R3：與 autoplay 同一 API；錯誤只記 log
+				err := o.Click(c.x, c.y)
+				log.Printf("左鍵 (%d,%d) steps=%d err=%v", c.x, c.y, o.Steps(), err)
 			}
 			sh.mu.Lock()
 			// 右鍵維持 Press/Release 路徑
