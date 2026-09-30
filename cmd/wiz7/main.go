@@ -331,7 +331,7 @@ func fnv(b []byte) uint32 {
 
 // hdScale 是 hdFrame 的畫布倍率（與互動視窗 -scale 同義）。行距 6 的畫面
 // （防拷三行）在 2× 只有 12 px，放不下 15 px 的中文字；3× 為 18 px。
-var hdScale = 2
+var hdScale = 3
 
 // hdFrame 在快照節點合成高解析幀：低解析合成（已還原英文筆畫）放大 hdScale 倍，
 // 中文 15×15 原字形畫在 (x0×k, (y0+dy)×k)。呼叫端持有 evMu。
@@ -565,7 +565,7 @@ func main() {
 	hdOnly := flag.Bool("hdonly", false, "頭less：不開視窗，只輸出 HD 幀（無 WM 環境驗證用）")
 	hdAt := flag.String("hd-at", "", "步數逗號分隔：到該步數輸出 HD 合成幀與驗收資料 <hd-dir>/hdat-<步數>.*（spec 001 R5）")
 	hdDir := flag.String("hd-dir", "workplace/bake", "-hd-at 的輸出目錄")
-	flag.IntVar(&hdScale, "hd-scale", 2, "HD 幀（-hd-at、-hdshot、自動遊玩截圖）的畫布倍率")
+	flag.IntVar(&hdScale, "hd-scale", 3, "HD 幀（-hd-at、-hdshot、自動遊玩截圖）的畫布倍率（使用者定案 2026-09-30：預設 3）")
 	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
 	flag.Parse()
 
