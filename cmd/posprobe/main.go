@@ -30,6 +30,7 @@ func main() {
 	root := flag.String("root", "", "")
 	ready := flag.Uint64("ready", 1_470_000_000, "進迷宮後開始動作的步數")
 	settle := flag.Uint64("settle", 3_000_000, "每個動作後多跑幾步")
+	walk := flag.String("walk", "", "指定動作序列（R L F K），逐步印位置記錄與面向")
 	flag.Parse()
 
 	o, err := oracle.LoadWith(*exe, *root, oracle.Options{Adlib: true})
@@ -97,10 +98,41 @@ func main() {
 	F := act{"前進", 160, 162}
 	K := act{"後退", 160, 184}
 
+	// 迷宮開場旁白：點擊翻頁，直到某次點擊沒有新印字（旁白結束、羅盤出現；#38）
+	prints := 0
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3895}, func(*oracle.Oracle) { prints++ })
+	for k := 1; k <= 20; k++ {
+		p0 := prints
+		_ = o.Click(160, 170)
+		if err := o.Run(*settle); err != nil {
+			panic(err)
+		}
+		fmt.Printf("旁白點擊 %d：新印字 %d steps=%d\n", k, prints-p0, o.Steps())
+		if prints == p0 {
+			break
+		}
+	}
 	savePNG(o, "workplace/bake/r666-pos-0.png")
+	if *walk != "" {
+		// 指定序列模式：R 右轉、L 左轉、F 前進、K 後退；逐步印位置記錄（19f9c 起 6 個 word）與面向（1934e）
+		acts := map[rune]act{'R': R, 'L': L, 'F': F, 'K': K}
+		rec := func() string {
+			w := func(lin int) uint16 { return o.Word(lin2addr(lin)) }
+			return fmt.Sprintf("面向=%d 記錄=[%d %d %d %d %d %d] 前一步=[%d %d %d %d %d %d]",
+				o.Bytes(lin2addr(0x1934e), 1)[0],
+				w(0x19f9c), w(0x19f9e), w(0x19fa0), w(0x19fa2), w(0x19fa4), w(0x19fa6),
+				w(0x19f90), w(0x19f92), w(0x19f94), w(0x19f96), w(0x19f98), w(0x19f9a))
+		}
+		fmt.Printf("起點 %s\n", rec())
+		for _, c := range *walk {
+			do(acts[c])
+			fmt.Printf("  %c → %s\n", c, rec())
+		}
+		return
+	}
 	m0 := mem()
 	// 右轉×4 回初始面向，再前進、後退（T4 證實初始面向前進會移動），最後左轉
-	seq := []act{R, R, R, R, F, K, L}
+	seq := []act{R, R, R, R, F, K, L, F, K}
 	ms := [][]byte{m0}
 	for _, a := range seq {
 		ms = append(ms, do(a))
@@ -141,8 +173,25 @@ func main() {
 			fmt.Printf("  %05x %v\n", i, row)
 		}
 	}
+	fmt.Println("== 第二組（面向 2 時前進、後退）：ms[7]→ms[8]→ms[9] 變 ±1 又回原值，且第一組前進時不變")
+	for i := 0; i < 0xA0000; i++ {
+		f2 := d(ms[7][i], ms[8][i])
+		if (f2 == 1 || f2 == -1) && ms[9][i] == ms[7][i] && ms[5][i] == ms[4][i] {
+			fmt.Printf("  %05x 值 %v\n", i, []byte{ms[0][i], ms[4][i], ms[5][i], ms[6][i], ms[7][i], ms[8][i], ms[9][i]})
+		}
+	}
+	for _, rg := range [][2]int{{0x19340, 0x19360}, {0x19f90, 0x19fb0}} {
+		fmt.Printf("== %05x–%05x 各步（0 起點、1-4 右轉、5 前進、6 後退、7 左轉、8 前進、9 後退）\n", rg[0], rg[1])
+		for i := rg[0]; i < rg[1]; i++ {
+			row := make([]byte, len(ms))
+			for k := range ms {
+				row[k] = ms[k][i]
+			}
+			fmt.Printf("  %05x %v\n", i, row)
+		}
+	}
 	fmt.Println("== 座標候選（前進 ±1、後退回原值、轉向不變）")
-	for i := range m0 {
+	for i := 0; i < 0xA0000; i++ {
 		f := d(ms[4][i], ms[5][i])
 		if f != 1 && f != -1 {
 			continue
@@ -171,3 +220,6 @@ func savePNG(o *oracle.Oracle, path string) {
 		f.Close()
 	}
 }
+
+// lin2addr 把線性位址換成 段:位移（段取高位，位移 0–15）。
+func lin2addr(lin int) oracle.Addr { return oracle.Addr{Seg: uint16(lin >> 4), Off: uint16(lin & 0xF)} }
