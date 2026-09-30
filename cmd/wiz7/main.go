@@ -40,7 +40,6 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 		ebiten.KeyLeft:      0x4B,
 		ebiten.KeyRight:     0x4D,
 		ebiten.KeyDown:      0x50,
-		ebiten.KeyF2:        0x3C,
 		ebiten.KeyF3:        0x3D,
 		ebiten.KeyF4:        0x3E,
 		ebiten.KeyF5:        0x3F,
@@ -377,7 +376,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 
 // hdAtDump 輸出 -hd-at 驗收資料（spec 001 R5 與驗收）：HD 合成 PNG、
 // A000 原始色號、低解析合成色號、shown 事件與雜湊。呼叫端持有 evMu。
-func hdAtDump(o *oracle.Oracle, ov *overlay, dir string, st uint64) {
+func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, st uint64) {
 	base := fmt.Sprintf("%s/hdat-%d", dir, st)
 	a := append([]uint8(nil), o.Indexed()...)
 	comp, shown := hdFrame(o, ov, base+".png")
@@ -401,8 +400,10 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, dir string, st uint64) {
 		Stats          string
 		Mouse          [2]int
 		Shown          []evOut
+		Map            mapJSON
 	}{Step: o.Steps(), Mem: mem, A000: fnv(a), Pal: fnv(palB), Stats: ov.stats()}
 	out.Mouse[0], out.Mouse[1] = o.Mouse()
+	out.Map = am.json()
 	for _, e := range shown {
 		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g})
 	}
@@ -433,6 +434,8 @@ type shared struct {
 	helpOpen   bool      // F1 說明開啟中＝機器暫停、輸入不送原版（spec 003 R2）
 	helpScreen string    // 開啟當下辨識的畫面（R4）
 	helpPage   int
+	mapOpen    bool                 // F2 自動地圖面板（spec 005 R3）
+	mapView    mapView              // 快照節點產生的地圖狀態
 	stdin      []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks     []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
@@ -480,6 +483,12 @@ func (g *game) Update() error {
 	if open {
 		ebiten.AppendInputChars(nil) // 丟棄本幀字元，不排入 stdin
 		return nil
+	}
+	if inpututil.IsKeyJustPressed(ebiten.KeyF2) { // spec 005 R3：前端處理，不送原版
+		g.sh.mu.Lock()
+		g.sh.mapOpen = !g.sh.mapOpen
+		log.Printf("地圖 面板=%v", g.sh.mapOpen)
+		g.sh.mu.Unlock()
 	}
 	for _, k := range inpututil.AppendJustPressedKeys(nil) {
 		if sc, ok := scanCode(k); ok {
@@ -586,7 +595,11 @@ func (g *game) Draw(dst *ebiten.Image) {
 
 	g.sh.mu.Lock()
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
+	mOpen, mView := g.sh.mapOpen, g.sh.mapView
 	g.sh.mu.Unlock()
+	if mOpen {
+		g.drawMap(dst, mView)
+	}
 	if hOpen {
 		g.drawHelp(dst, hScreen, hPage)
 	}
@@ -626,6 +639,8 @@ func main() {
 	helpAt := flag.Uint64("help-at", 0, "測試用：到該步數開啟 F1 說明（spec 003 R6）")
 	helpFor := flag.Int("help-for", 3000, "測試用：-help-at 開啟後幾毫秒（牆鐘）關閉")
 	helpPageF := flag.Int("help-page", 0, "測試用：-help-at 開啟時停在第幾頁（0 起算）")
+	clicksAt := flag.String("clicks-at", "", "測試用：step:x:y 逗號分隔，到該步數以 o.Click 點擊（遊戲座標；spec 005 R4）")
+	mapAt := flag.Uint64("map-at", 0, "測試用：到該步數開啟自動地圖面板")
 	autoplayStop := flag.Uint64("autoplay-stop", 0, "測試用：autoplay 只執行門檻 ≤ 此步數的動作（0＝全部），之後交給真實輸入")
 	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
 	flag.Parse()
@@ -687,6 +702,7 @@ func main() {
 	os.MkdirAll("workplace/bake/trees", 0o755)
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
 	ov := &overlay{}
+	am := newAutomap() // spec 005：自動地圖（只在快照節點更新）
 	entry := oracle.Addr{Seg: 0x0110, Off: 0x3895}
 	retHooked := map[uint32]bool{}
 	o.OnCall(entry, func(o *oracle.Oracle) {
@@ -933,10 +949,38 @@ func main() {
 				fn func(*oracle.Oracle)
 			}{st, func(o *oracle.Oracle) {
 				evMu.Lock()
-				hdAtDump(o, ov, *hdDir, st)
+				hdAtDump(o, ov, am, *hdDir, st)
 				evMu.Unlock()
 			}})
 		}
+	}
+	for _, f := range strings.Split(*clicksAt, ",") {
+		var st uint64
+		var x, y int
+		if f == "" {
+			continue
+		}
+		if _, err := fmt.Sscanf(f, "%d:%d:%d", &st, &x, &y); err != nil {
+			log.Fatalf("-clicks-at %q：%v", f, err)
+		}
+		autos = append(autos, struct {
+			at uint64
+			fn func(*oracle.Oracle)
+		}{st, func(o *oracle.Oracle) {
+			err := o.Click(x, y)
+			log.Printf("測試點擊 (%d,%d) steps=%d err=%v", x, y, o.Steps(), err)
+		}})
+	}
+	if *mapAt > 0 {
+		autos = append(autos, struct {
+			at uint64
+			fn func(*oracle.Oracle)
+		}{*mapAt, func(o *oracle.Oracle) {
+			sh.mu.Lock()
+			sh.mapOpen = true
+			sh.mu.Unlock()
+			log.Printf("地圖 面板=true（-map-at）")
+		}})
 	}
 	if *helpAt > 0 {
 		autos = append(autos, struct {
@@ -981,6 +1025,8 @@ func main() {
 	// 多個 auto 可能在同一輪連鎖執行，只在輪末快照會讓 sh.evs 過期（R667 實測：
 	// 240M→286M 之間零快照，-help-at 讀到 247M 的舊主選單）。
 	snapshot := func() {
+		am.update(o) // spec 005 R1／R2：只讀
+		sh.mapView = am.view()
 		evMu.Lock()
 		comp, shown := ov.compose(o)
 		evMu.Unlock()
@@ -1016,6 +1062,7 @@ func main() {
 			}
 			for _, sc := range sh.keys {
 				o.PressKey(oracle.Key(sc))
+				log.Printf("送鍵 %02x steps=%d", sc, o.Steps()) // spec 005 驗收：F2（3c）不得出現
 			}
 			sh.keys = nil
 			if len(sh.stdin) > 0 {
@@ -1045,6 +1092,9 @@ func main() {
 				// spec 004 R2／R3：與 autoplay 同一 API；錯誤只記 log
 				err := o.Click(c.x, c.y)
 				log.Printf("左鍵 (%d,%d) steps=%d err=%v", c.x, c.y, o.Steps(), err)
+				sh.mu.Lock()
+				snapshot() // spec 005 R1：每下點擊後快照，避免兩步併成一次
+				sh.mu.Unlock()
 			}
 			sh.mu.Lock()
 			// 右鍵維持 Press/Release 路徑

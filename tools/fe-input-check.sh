@@ -8,7 +8,8 @@
 #   T2 防拷畫面打字 AAAA＋Enter → 進入旁白（log 出現旁白第一頁的印字）
 #   T3 旁白印完（印字靜止 3 秒）後按 Enter → 2 秒內有新印字（對照組 2 秒內無新印字）
 #   T4 迷宮開場旁白期間點擊 → 畫面改變（翻下一頁旁白；對照組不變）
-#   T5 （無效，#38）開場旁白期間點羅盤座標，量到的是旁白翻頁，不能證明轉向；待 T6 取代
+#   T5 （無效，#38）開場旁白期間點羅盤座標，量到的是旁白翻頁，不能證明轉向；由 T6 取代
+#   T6 先點到旁白不再有新印字，再點羅盤前進、右轉 → 畫面大幅改變且無新印字（對照組不點羅盤）
 # 產物在 workplace/r666/（gitignore）。
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -27,7 +28,7 @@ waitfor() { # $1＝log $2＝grep 樣式 $3＝秒
   for _ in $(seq 1 $(( $3 * 2 ))); do grep -qE "$2" "$1" && return 0; sleep 0.5; done
   return 1
 }
-prints() { grep -cE '翻譯 [0-9]+ ' "$1" || true; }
+prints() { grep -cE '(翻譯|無譯文) [0-9]+ ' "$1" || true; }  # 有譯文與無譯文的印字都要算（T6 曾因只數翻譯而誤判）
 win() { xdotool search --name '巫術7' | head -1; }
 stop() { kill $PID 2>/dev/null; wait $PID 2>/dev/null || true; }
 
@@ -93,12 +94,41 @@ t5() { # 羅盤右轉 (180,166)、左轉 (145,166)、後退 (160,184)：每下�
   stop
   echo "T5：左鍵紀錄=$(grep -c '左鍵 (' "$log" || true)"
 }
+t6() { # 羅盤實測（#38）：先翻完開場旁白（點到沒有新印字），再點羅盤
+  local log=/src/$OUT/T6-$1.log
+  start "$log" 1435000000
+  waitfor "$log" 'gentle wind' 300 || { echo "T6-$1：等不到迷宮"; stop; return; }
+  sleep 4
+  local k p0 p1
+  for k in $(seq 1 12); do
+    p0=$(prints "$log")
+    xdotool mousemove --window "$(win)" 480 510 click 1
+    sleep 4
+    p1=$(prints "$log")
+    [ "$p1" = "$p0" ] && break
+  done
+  echo "T6-$1：翻旁白 $k 次後無新印字"
+  import -window root "/src/$OUT/T6-$1-0.png" 2>/dev/null
+  local n=0 xy d q0 q1
+  for xy in "480 486" "540 498"; do   # 前進 (160,162)、右轉 (180,166)
+    n=$((n + 1))
+    q0=$(prints "$log")
+    [ "$2" = yes ] && xdotool mousemove --window "$(win)" $xy click 1
+    sleep 4
+    q1=$(prints "$log")
+    import -window root "/src/$OUT/T6-$1-$n.png" 2>/dev/null
+    d=$(compare -metric AE "/src/$OUT/T6-$1-$((n - 1)).png" "/src/$OUT/T6-$1-$n.png" null: 2>&1 || true)
+    echo "T6-$1：第 $n 下（視窗 $xy）差異像素=$d 新印字=$((q1 - q0))"
+  done
+  stop
+}
 for t in $TESTS; do
   case $t in
     T2) t2 input yes; t2 ctl no ;;
     T3) t3 input yes; t3 ctl no ;;
     T4) t4 input yes; t4 ctl no ;;
     T5) t5 ;;
+    T6) t6 input yes; t6 ctl no ;;
   esac
 done
 EOS
