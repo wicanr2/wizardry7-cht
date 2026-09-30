@@ -1,0 +1,156 @@
+key	zh	source
+names.race1.00	譯名對照：種族	gen_help_names.py 100-110
+names.race1.01	HUMAN　人類	msg100
+names.race1.02	ELF　精靈	msg101
+names.race1.03	DWARF　矮人	msg102
+names.race1.04	GNOME　侏儒	msg103
+names.race1.05	HOBBIT　半身人	msg104
+names.race1.06	FAERIE　妖精	msg105
+names.race1.07	LIZARDMAN　蜥蜴人	msg106
+names.race1.08	DRACON　卓肯	msg107
+names.race1.09	FELPURR　貓人	msg108
+names.race1.10	RAWULF　狼人	msg109
+names.race1.11	MOOK　穆克	msg110
+names.class1.00	譯名對照：職業	gen_help_names.py 120-133
+names.class1.01	FIGHTER　戰士	msg120
+names.class1.02	MAGE　法師	msg121
+names.class1.03	PRIEST　牧師	msg122
+names.class1.04	THIEF　盜賊	msg123
+names.class1.05	RANGER　遊俠	msg124
+names.class1.06	ALCHEMIST　鍊金術士	msg125
+names.class1.07	BARD　吟遊詩人	msg126
+names.class1.08	PSIONIC　心靈術士	msg127
+names.class1.09	VALKYRIE　女武神	msg128
+names.class1.10	BISHOP　主教	msg129
+names.class1.11	LORD　領主	msg130
+names.class1.12	SAMURAI　武士	msg131
+names.class1.13	MONK　武僧	msg132
+names.class1.14	NINJA　忍者	msg133
+names.resist1.00	譯名對照：抗性與屬性	gen_help_names.py 401-413
+names.resist1.01	FIRE　火	msg401
+names.resist1.02	LIGHT　光	msg402
+names.resist1.03	COLD　冰寒	msg403
+names.resist1.04	PARALYSIS　麻痺	msg404
+names.resist1.05	AIR　風	msg405
+names.resist1.06	POISON　毒	msg406
+names.resist1.07	MISSILES　投射	msg407
+names.resist1.08	ACID　強酸	msg408
+names.resist1.09	HYPNOSIS　催眠	msg409
+names.resist1.10	PSIONIC　心靈	msg410
+names.resist1.11	LIFEFORCE　生命力	msg411
+names.resist1.12	MAGIC　魔法	msg412
+names.resist1.13	DEATH　死亡	msg413
+names.maze1.00	譯名對照：迷宮選單	gen_help_names.py 2005-2013
+names.maze1.01	SEARCH　搜索	msg2005
+names.maze1.02	REVIEW　檢視	msg2006
+names.maze1.03	SPELL　咒語	msg2007
+names.maze1.04	USE　使用	msg2008
+names.maze1.05	OPEN　開啟	msg2009
+names.maze1.06	ORDER　隊形	msg2010
+names.maze1.07	REST　休息	msg2011
+names.maze1.08	DISK　磁片	msg2012
+names.maze1.09	EXIT　離開	msg2013
+names.spell1.00	譯名對照：咒語（1）	gen_help_names.py 4000-4101
+names.spell1.01	ENERGY BLAST　能量衝擊	msg4000
+names.spell1.02	BLINDING FLASH　致盲閃光	msg4001
+names.spell1.03	PSIONIC FIRES　靈能之火	msg4002
+names.spell1.04	FIREBALL　火球	msg4003
+names.spell1.05	FIRE SHIELD　火焰護盾	msg4004
+names.spell1.06	DAZZLING LIGHTS　炫目之光	msg4005
+names.spell1.07	FIRE BOMB　火焰炸彈	msg4006
+names.spell1.08	LIGHTNING　閃電	msg4007
+names.spell1.09	PRISMIC MISSILE　稜鏡飛彈	msg4008
+names.spell1.10	FIRESTORM　火焰風暴	msg4009
+names.spell1.11	NUCLEAR BLAST　核能衝擊	msg4010
+names.spell1.12	CHILLING TOUCH　冰冷觸摸	msg4011
+names.spell1.13	STAMINA　耐力	msg4012
+names.spell1.14	TERROR　恐懼	msg4013
+names.spell1.15	WEAKEN　虛弱	msg4014
+names.spell1.16	SLOW　遲緩	msg4015
+names.spell1.17	HASTE　加速	msg4016
+names.spell1.18	CURE PARALYSIS　治療麻痺	msg4017
+names.spell1.19	ICE SHIELD　冰霜護盾	msg4018
+names.spell1.20	RESTFULL　休息術	msg4019
+names.spell1.21	ICEBALL　冰球	msg4020
+names.spell1.22	PARALYZE　麻痺	msg4021
+names.spell1.23	SUPERMAN　超人	msg4022
+names.spell1.24	DEEP FREEZE　極度冰凍	msg4023
+names.spell1.25	DRAINING CLOUD　吸蝕之雲	msg4024
+names.spell1.26	CURE DISEASE　治療疾病	msg4025
+names.spell1.27	POISON　中毒	msg4026
+names.spell1.28	MISSILE SHIELD　飛彈護盾	msg4027
+names.spell1.29	SHRILL SOUND　尖嘯之聲	msg4028
+names.spell1.30	STINK BOMB　臭氣彈	msg4029
+names.spell1.31	AIR POCKET　空氣袋	msg4030
+names.spell1.32	SILENCE　沉默	msg4031
+names.spell1.33	POISON GAS　毒氣	msg4032
+names.spell1.34	CURE POISON　治療中毒	msg4033
+names.spell1.35	WHIRLWIND　旋風	msg4034
+names.spell1.36	PURIFY AIR　淨化空氣	msg4035
+names.spell1.37	DEADLY POISON　劇毒	msg4036
+names.spell1.38	LEVITATE　漂浮	msg4037
+names.spell1.39	TOXIC VAPORS　毒霧	msg4038
+names.spell1.40	NOXIOUS FUMES　毒煙	msg4039
+names.spell1.41	ASPHYXIATION　窒息	msg4040
+names.spell1.42	DEADLY AIR　致命空氣	msg4041
+names.spell1.43	DEATH CLOUD　死亡之雲	msg4042
+names.spell1.44	ACID SPLASH　強酸飛濺	msg4043
+names.spell1.45	ITCHING SKIN　皮癢	msg4044
+names.spell1.46	ARMOR SHIELD　護甲護盾	msg4045
+names.spell1.47	DIRECTION　方位	msg4046
+names.spell1.48	KNOCK-KNOCK　開門	msg4047
+names.spell1.49	BLADES　刀刃	msg4048
+names.spell1.50	ARMORPLATE　裝甲強化	msg4049
+names.spell1.51	WEB　蛛網	msg4050
+names.spell1.52	WHIPPING ROCKS　落石	msg4051
+names.spell1.53	ACID BOMB　強酸炸彈	msg4052
+names.spell1.54	ARMORMELT　護甲溶解	msg4053
+names.spell1.55	CRUSH　壓碎	msg4054
+names.spell1.56	CREATE LIFE　創造生命	msg4055
+names.spell1.57	CURE STONE　治療石化	msg4056
+names.spell1.58	MENTAL ATTACK　精神攻擊	msg4057
+names.spell1.59	SLEEP　睡眠	msg4058
+names.spell1.60	BLESS　祝福	msg4059
+names.spell2.00	譯名對照：咒語（2）	gen_help_names.py 4000-4101
+names.spell2.01	CHARM　魅惑	msg4060
+names.spell2.02	CURE LESSER CND　治療輕度狀態	msg4061
+names.spell2.03	DIVINE TRAP　偵測陷阱	msg4062
+names.spell2.04	DETECT SECRET　偵測密門	msg4063
+names.spell2.05	IDENTIFY　鑑定	msg4064
+names.spell2.06	CONFUSION　混亂	msg4065
+names.spell2.07	WATCHBELLS　警鐘	msg4066
+names.spell2.08	HOLD MONSTERS　定住怪物	msg4067
+names.spell2.09	MINDREAD　讀心	msg4068
+names.spell2.10	SANE MIND　清明心神	msg4069
+names.spell2.11	PSIONIC BLAST　靈能衝擊	msg4070
+names.spell2.12	ILLUSION　幻影	msg4071
+names.spell2.13	WIZARD EYE　法師之眼	msg4072
+names.spell2.14	SPOOKS　驚嚇	msg4073
+names.spell2.15	DEATH　死亡	msg4074
+names.spell2.16	LOCATE OBJECT　尋物	msg4075
+names.spell2.17	MIND FLAY　撕裂心神	msg4076
+names.spell2.18	LOCATE PERSON　尋人	msg4077
+names.spell2.19	HEAL WOUNDS　治療傷勢	msg4078
+names.spell2.20	MAKE WOUNDS　製造傷勢	msg4079
+names.spell2.21	MAGIC MISSILE　魔法飛彈	msg4080
+names.spell2.22	DISPEL UNDEAD　驅散不死	msg4081
+names.spell2.23	ENCHANTED BLADE　附魔之刃	msg4082
+names.spell2.24	BLINK　閃現	msg4083
+names.spell2.25	MAGIC SCREEN　魔法屏障	msg4084
+names.spell2.26	CONJURATION　召喚術	msg4085
+names.spell2.27	ANTI-MAGIC　反魔法	msg4086
+names.spell2.28	REMOVE CURSE　解除詛咒	msg4087
+names.spell2.29	HEALTHFULL　痊癒術	msg4088
+names.spell2.30	LIFESTEAL　吸取生命	msg4089
+names.spell2.31	ASTRAL GATE　星界之門	msg4090
+names.spell2.32	ZAP UNDEAD　電擊不死	msg4091
+names.spell2.33	RECHARGE　充能	msg4092
+names.spell2.34	WORD OF DEATH　死亡之言	msg4093
+names.spell2.35	RESURRECTION　復生	msg4094
+names.spell2.36	DEATH WISH　死亡願望	msg4095
+names.spell2.37	HOLY WATER　聖水	msg4096
+names.spell2.38	HELPFOOD　食物供給	msg4097
+names.spell2.39	MAGICFOOD　魔法食物	msg4098
+names.spell2.40	MAP　地圖	msg4099
+names.spell2.41	RESTORE LIFE　復活	msg4100
+names.spell2.42	INVISIBILITY　隱形	msg4101

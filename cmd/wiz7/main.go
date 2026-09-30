@@ -40,7 +40,6 @@ func scanCode(k ebiten.Key) (uint8, bool) {
 		ebiten.KeyLeft:      0x4B,
 		ebiten.KeyRight:     0x4D,
 		ebiten.KeyDown:      0x50,
-		ebiten.KeyF1:        0x3B,
 		ebiten.KeyF2:        0x3C,
 		ebiten.KeyF3:        0x3D,
 		ebiten.KeyF4:        0x3E,
@@ -150,6 +149,15 @@ func leadingWordDollar(s string) string {
 // 原版每一則字串照常畫出英文（R1）。轉譯層在印字入口與返回各取一張離屏
 // 快照，差異矩形就是英文筆畫所在（E4）；合成時以 A000 判定該處是否仍是
 // 這串英文（E7），是的話把筆畫還原成印字前的背景，再在放大畫布上畫中文。
+
+// evStrings 取 shown 事件的英文原文（畫面辨識用，spec 003 R4）。
+func evStrings(evs []*textEv) []string {
+	out := make([]string, 0, len(evs))
+	for _, e := range evs {
+		out = append(out, e.s)
+	}
+	return out
+}
 
 // offscreen 回傳 VGA.DRV 離屏緩衝（blit 來源段＝740C:01E5 的值，E5）。
 // 段值為 0 時回 nil（尚未初始化）。
@@ -414,29 +422,65 @@ type entry struct {
 }
 
 type shared struct {
-	mu      sync.Mutex
-	rgba    []byte  // 320×200×4 的畫面快照（Draw 用）
-	keys    []uint8 // 待注入的掃描碼（make＋break 成對排程）
-	mouseX  int
-	mouseY  int
-	rbtn    bool                 // 右鍵狀態（左鍵走 clicks，spec 004）
-	evs     []*textEv            // shown 事件（快照節點判定，Draw 只消費，R4.3）
-	drawReq string               // 非空＝下一次 Draw 完成後把視窗畫面存到這個路徑（-draw-at）
-	stdin   []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
-	clicks  []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
+	mu         sync.Mutex
+	rgba       []byte  // 320×200×4 的畫面快照（Draw 用）
+	keys       []uint8 // 待注入的掃描碼（make＋break 成對排程）
+	mouseX     int
+	mouseY     int
+	rbtn       bool      // 右鍵狀態（左鍵走 clicks，spec 004）
+	evs        []*textEv // shown 事件（快照節點判定，Draw 只消費，R4.3）
+	drawReq    string    // 非空＝下一次 Draw 完成後把視窗畫面存到這個路徑（-draw-at）
+	helpOpen   bool      // F1 說明開啟中＝機器暫停、輸入不送原版（spec 003 R2）
+	helpScreen string    // 開啟當下辨識的畫面（R4）
+	helpPage   int
+	stdin      []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
+	clicks     []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
 
 type game struct {
-	sh     *shared
-	scale  int
-	screen *ebiten.Image
-	lastMX int
-	lastMY int
-	lbtn   bool
-	rbtn   bool
+	help    *helpData     // F1 說明資料（help.json；nil＝缺檔）
+	helpImg *ebiten.Image // 目前說明頁的預渲染
+	helpKey string
+	sh      *shared
+	scale   int
+	screen  *ebiten.Image
+	lastMX  int
+	lastMY  int
+	lbtn    bool
+	rbtn    bool
 }
 
 func (g *game) Update() error {
+	// ── F1 說明（spec 003 R1）：F1 永遠由前端處理；說明開啟時其他輸入一律不送原版 ──
+	if inpututil.IsKeyJustPressed(ebiten.KeyF1) {
+		g.sh.mu.Lock()
+		if g.sh.helpOpen {
+			g.sh.helpOpen = false
+		} else {
+			g.sh.helpOpen, g.sh.helpPage = true, 0
+			g.sh.helpScreen = detectScreen(evStrings(g.sh.evs))
+		}
+		log.Printf("說明 %v 畫面=%s", g.sh.helpOpen, g.sh.helpScreen)
+		g.sh.mu.Unlock()
+	}
+	g.sh.mu.Lock()
+	open := g.sh.helpOpen
+	if open {
+		switch {
+		case inpututil.IsKeyJustPressed(ebiten.KeyEscape):
+			g.sh.helpOpen = false
+			log.Printf("說明 false（Esc）")
+		case inpututil.IsKeyJustPressed(ebiten.KeyArrowLeft), inpututil.IsKeyJustPressed(ebiten.KeyPageUp):
+			g.sh.helpPage--
+		case inpututil.IsKeyJustPressed(ebiten.KeyArrowRight), inpututil.IsKeyJustPressed(ebiten.KeyPageDown):
+			g.sh.helpPage++
+		}
+	}
+	g.sh.mu.Unlock()
+	if open {
+		ebiten.AppendInputChars(nil) // 丟棄本幀字元，不排入 stdin
+		return nil
+	}
 	for _, k := range inpututil.AppendJustPressedKeys(nil) {
 		if sc, ok := scanCode(k); ok {
 			g.sh.mu.Lock()
@@ -540,6 +584,13 @@ func (g *game) Draw(dst *ebiten.Image) {
 		dst.DrawImage(e.img, &op2)
 	}
 
+	g.sh.mu.Lock()
+	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
+	g.sh.mu.Unlock()
+	if hOpen {
+		g.drawHelp(dst, hScreen, hPage)
+	}
+
 	// -draw-at：把互動視窗實際畫面存檔（驗證 Draw 路徑，spec 001 R4.3）
 	g.sh.mu.Lock()
 	req := g.sh.drawReq
@@ -571,6 +622,11 @@ func main() {
 	hdAt := flag.String("hd-at", "", "步數逗號分隔：到該步數輸出 HD 合成幀與驗收資料 <hd-dir>/hdat-<步數>.*（spec 001 R5）")
 	hdDir := flag.String("hd-dir", "workplace/bake", "-hd-at 的輸出目錄")
 	flag.IntVar(&hdScale, "hd-scale", 3, "HD 幀（-hd-at、-hdshot、自動遊玩截圖）的畫布倍率（使用者定案 2026-09-30：預設 3）")
+	helpPath := flag.String("help", "workplace/bake/help.json", "F1 說明資料（tools/re/bake_help.py 產生）")
+	helpAt := flag.Uint64("help-at", 0, "測試用：到該步數開啟 F1 說明（spec 003 R6）")
+	helpFor := flag.Int("help-for", 3000, "測試用：-help-at 開啟後幾毫秒（牆鐘）關閉")
+	helpPageF := flag.Int("help-page", 0, "測試用：-help-at 開啟時停在第幾頁（0 起算）")
+	autoplayStop := flag.Uint64("autoplay-stop", 0, "測試用：autoplay 只執行門檻 ≤ 此步數的動作（0＝全部），之後交給真實輸入")
 	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
 	flag.Parse()
 
@@ -738,7 +794,7 @@ func main() {
 		}
 		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
 	})
-	g := &game{sh: sh, scale: *scale}
+	g := &game{sh: sh, scale: *scale, help: loadHelp(*helpPath)}
 	if !*hdOnly {
 		g.screen = ebiten.NewImage(320, 200)
 	}
@@ -855,6 +911,16 @@ func main() {
 			})
 		}
 	}
+	if *autoplay && *autoplayStop > 0 {
+		kept := autos[:0]
+		for _, a := range autos {
+			if a.at <= *autoplayStop {
+				kept = append(kept, a)
+			}
+		}
+		autos = kept
+		log.Printf("autoplay 停在 %d 步之後（autoplay 剩 %d 個動作）", *autoplayStop, len(autos))
+	}
 	// -hd-at：依步數輸出 HD 合成幀（決定性，取代 wall-clock 的 -hdshot 做驗收）。
 	if *hdAt != "" {
 		for _, f := range strings.Split(*hdAt, ",") {
@@ -871,6 +937,24 @@ func main() {
 				evMu.Unlock()
 			}})
 		}
+	}
+	if *helpAt > 0 {
+		autos = append(autos, struct {
+			at uint64
+			fn func(*oracle.Oracle)
+		}{*helpAt, func(o *oracle.Oracle) {
+			sh.mu.Lock()
+			sh.helpOpen, sh.helpPage = true, *helpPageF
+			sh.helpScreen = detectScreen(evStrings(sh.evs))
+			log.Printf("說明 true（-help-at）畫面=%s shown=%q", sh.helpScreen, evStrings(sh.evs))
+			sh.mu.Unlock()
+			time.AfterFunc(time.Duration(*helpFor)*time.Millisecond, func() {
+				sh.mu.Lock()
+				sh.helpOpen = false
+				sh.mu.Unlock()
+				log.Printf("說明 false（-help-for）")
+			})
+		}})
 	}
 	if *drawAt != "" {
 		for _, f := range strings.Split(*drawAt, ",") {
@@ -891,6 +975,23 @@ func main() {
 	sort.SliceStable(autos, func(i, j int) bool { return autos[i].at < autos[j].at })
 	autoIdx := 0
 
+	// snapshot 是快照節點（spec 001 R4.3）：R3 判定一次，低解析合成（已還原英文筆畫）
+	// 轉 RGBA 給 Draw，並更新 shown 事件。呼叫端持有 sh.mu。
+	// 每輪迴圈結尾與每個 auto 執行後都要呼叫：autoplay 的 o.Click 內部會跑數百萬步，
+	// 多個 auto 可能在同一輪連鎖執行，只在輪末快照會讓 sh.evs 過期（R667 實測：
+	// 240M→286M 之間零快照，-help-at 讀到 247M 的舊主選單）。
+	snapshot := func() {
+		evMu.Lock()
+		comp, shown := ov.compose(o)
+		evMu.Unlock()
+		pal := o.Palette()
+		for i, v := range comp {
+			c := pal[v]
+			sh.rgba[i*4], sh.rgba[i*4+1], sh.rgba[i*4+2], sh.rgba[i*4+3] = c[0], c[1], c[2], 255
+		}
+		sh.evs = shown
+	}
+
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
 	// ⚠ MoveMouse 只在座標真的變了才送——遊戲把滑鼠活動當「有人在看」，
 	// 每塊都送會重置故事頁的推進計時（docs/re/009 的教訓）。
@@ -900,8 +1001,19 @@ func main() {
 		last := time.Now()
 		lastR := false
 		lastX, lastY := -1, -1
+		paused := false
 		for i := 0; ; i++ {
 			sh.mu.Lock()
+			// spec 003 R2：說明開啟＝不推進、不投遞任何輸入（含游標位置）
+			if sh.helpOpen != paused {
+				paused = sh.helpOpen
+				log.Printf("說明 暫停=%v steps=%d", paused, o.Steps())
+			}
+			if paused {
+				sh.mu.Unlock()
+				time.Sleep(16 * time.Millisecond)
+				continue
+			}
 			for _, sc := range sh.keys {
 				o.PressKey(oracle.Key(sc))
 			}
@@ -960,6 +1072,7 @@ func main() {
 				a.fn(o)
 				autoIdx++
 				sh.mu.Lock()
+				snapshot()
 			}
 			// HD 幀輸出（每 30 秒）：A0000 2x 放大＋文字事件疊畫
 			if hdShot && time.Since(lastHD) > 3*time.Second {
@@ -985,16 +1098,7 @@ func main() {
 				pal := o.Palette()
 				log.Printf("chunk %d steps=%d mode=%d idxNZ=%d rgbNZ=%d pal[15]=%v", i, o.Steps(), o.VideoMode(), nz, nz2, pal[15])
 			}
-			// 快照節點：R3 判定一次，低解析合成（已還原英文筆畫）轉 RGBA 給 Draw（R4.3）
-			evMu.Lock()
-			comp, shown := ov.compose(o)
-			evMu.Unlock()
-			pal := o.Palette()
-			for i, v := range comp {
-				c := pal[v]
-				sh.rgba[i*4], sh.rgba[i*4+1], sh.rgba[i*4+2], sh.rgba[i*4+3] = c[0], c[1], c[2], 255
-			}
-			sh.evs = shown
+			snapshot()
 			sh.mu.Unlock()
 
 			elapsed := time.Since(last)

@@ -15,7 +15,7 @@
 | H6 | 可辨識畫面的上屏字串：主選單＝`CHARACTER MENU`／`START NEW GAME`；建角對話框＝`ADD CHARACTER`＋`OK`＋`CANCEL`（y≥150）；防拷＝`SECURITY CLEARANCE`。迷宮（14.9 億步）上屏只有職業名與底部旁白，沒有專屬字串 | confirmed（`r665/maze/hdat-*.json`、`r663/zh3/hdat-*.json`） |
 | H7 | 迷宮移動：羅盤按鈕 前進 (160,162)、後退 (160,184)、右轉 (180,166)、左轉 (145,166)，按鈕很小 | confirmed（R102、R104、R120、R124、R126） |
 | H8 | 戰鬥：遭遇後出現指令選單，(262,166)＝RUN 設為逃跑，START 執行回合（`-VS-`、`FINAL ORDERS`） | confirmed（R120） |
-| H9 | 旁白：Enter 推進（H2 對照）；點畫面也可推進（autoplay 點 (25,15)） | confirmed |
+| H9 | 旁白：30M 步（約 1.25 秒）窗口內，Enter 讓旁白提前推進而不按鍵不會（H2 對照）；但旁白也會自行推進（T3），前端實測分不出按鍵效果 | confirmed（短窗口）／前端未量到 |
 | H10 | 名字與防拷答案經 DOS stdin 輸入，Enter 確認 | confirmed（`docs/re/010` 追記二、R663 防拷） |
 | H11 | 倚天 `ascfont.15`：3,840 bytes＝256 字 × 15 列，每列 1 byte（8 px 寬） | confirmed（檔長與 F、1 字形目視） |
 
@@ -30,3 +30,7 @@
 | 編號 | 操作 | 方法 | 結果 |
 |---|---|---|---|
 | T1 | 主選單左鍵點「新增角色」 | `tools/fe-leftclick-check.sh`（Xvfb＋xdotool 真實點擊，spec 004） | 通過：建角對話框出現（OK／CANCEL 印字 2 次；對照組 0） |
+| T2 | 防拷畫面鍵盤打字＋Enter | `tools/fe-input-check.sh T2`（`-autoplay-stop 280000000`） | 通過：旁白第一頁出現（印字 1；對照組 0） |
+| T3 | 旁白印完後按 Enter | `tools/fe-input-check.sh T3`（等印字靜止 3 秒） | 無法判定：按鍵組與對照組 2 秒內都有 4 次新印字，旁白會自行推進 |
+| T4 | 迷宮點羅盤「前進」(160,162) | `tools/fe-input-check.sh T4`（`-autoplay-stop 1435000000`） | 通過：畫面差異 13,192 px（對照組 0） |
+| T5 | 迷宮依序點右轉 (180,166)、左轉 (145,166)、後退 (160,184) | `tools/fe-input-check.sh T5` | 通過：每下差異 13,651／13,122／10,836 px |

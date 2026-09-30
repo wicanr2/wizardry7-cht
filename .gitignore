@@ -18,6 +18,6 @@ __pycache__/
 
 # 發行包產物
 /dist-all/
-fontid
-wiz7
-msgdump
+/fontid
+/wiz7
+/msgdump

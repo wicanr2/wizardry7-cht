@@ -19,3 +19,8 @@
 - spec 004 READY → 實作 → `tools/fe-leftclick-check.sh` 通過（015 T1）。
 - 發現：譯文中的半形字元（如「匯入(巫6)」的 `(6)`）烘製時被丟掉，記入 #24。
 - spec 003 READY，F1 實作接續。
+- 前端實測 T2（打字＋Enter）、T4（前進）、T5（轉向、後退）通過；T3（旁白 Enter）無法判定。
+- F1 實作：`cmd/wiz7/help.go`、`tools/re/bake_help.py`、`tools/gen_help_names.py`、`text/help*.zh-TW.tsv`。
+- `tools/fe-help-check.sh` 六項全過；spec 001 回歸失敗 0 項。
+- 順修：autoplay 連鎖 auto 之間無快照，`sh.evs` 過期（240M→286M 零快照）。
+- 未做：迷宮底部文字需先點掉才見羅盤，前端未實測，說明未寫；迷宮、戰鬥、旁白的專屬畫面說明需辨識訊號。
