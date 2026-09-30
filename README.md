@@ -1,137 +1,64 @@
 # 巫術7 繁體中文化
 
 《巫術7》（*Wizardry VII: Crusaders of the Dark Savant*，Sir-Tech 1992）DOS 版的繁體中文化。
-做法不是重寫遊戲：原版 `DS.EXE` 原封不動跑在 [dosgolem](https://github.com/wicanr2/dosgolem)
-（無頭、決定性的 DOS 執行器）上，轉譯層在原版畫字的那一刻攔下來，
-把中文畫在放大後的畫布上。原版邏輯一行不動。
+原版 `DS.EXE` 在 [dosgolem](https://github.com/wicanr2/dosgolem) 上執行，轉譯層辨識玩家可見輸出，
+在放大後的畫布覆繪中文。目的是讓不諳英文的玩家也能理解迷宮、對話與角色資訊。
 
-<img src="docs/images/wiz7-intro.png" width="320" alt="片頭標題">
+玩家須自備合法的原版遊戲。儲存庫與可散布發行包不提供原版程式、資料、美術、音樂、手冊或防拷答案。
 
-片頭標題頁（Crusaders of the Dark Savant）。dosgolem 執行原版 `DS.EXE` 的實跑輸出，
-模式 13h（320×200、256 色），照 4:3 顯示比例輸出。
+## 遊戲與中文化方式
 
-## 這是什麼遊戲
+《巫術7》是第一人稱迷宮角色扮演遊戲：建立隊伍、探索、對話、戰鬥與培養角色。
+本專案驗證的版本是 Interplay《Wizardry Archives》合輯重印版；其他版本的位址與資料尚未驗證。
 
-Sir-Tech 1992 年推出的《巫術》系列第七作，總設計 David W. Bradley。
-第一人稱迷宮 RPG：組隊、在迷宮裡一格一格推進、打怪練等；
-對話、咒語、道具、NPC 全部是英文。安裝程式 `VINSTALL.EXE` 裡的版權字串：
+中文只影響顯示。英文原文、條件比較、檔名、存檔與遊戲規則保持原樣；
+覆繪層只讀原版記憶體與畫面，缺譯文時顯示英文並記錄。
+對話關鍵字與手冊防拷答案仍照原版要求輸入英文；題目可覆繪中文，驗證機制維持原樣。
+作弊功能另有玩家明確觸發與已證實欄位的例外規則，見 [AGENTS.md](AGENTS.md)。
 
+## 目前能做什麼
+
+前端已能從建隊走進迷宮，中文選單、說明與迷宮開場旁白已有驗收；
+F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
+唯讀覆繪與旁白在已測路線有中英兩模式的原版狀態雜湊比較，見 [覆繪證據](docs/re/014-overlay-evidence.md) 與 [流動文字規格](docs/spec/006-flow-text.md)。
+
+尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移、發行字型及三平台發行包。
+開場故事仍依賴本機逐列譯文；資料表中有譯文不代表所有玩家畫面都已中文化。
+完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
+
+## 開發與本機執行
+
+目前提供開發入口，尚無完成驗收的正式下載包。
+需要 Docker、本機 `worktrees/dosgolem` 相容版本、使用者自備原版與本機字型；
+詳細依賴基線見 [CONTEXT.md](CONTEXT.md)。建置與執行經 [tools/fe.sh](tools/fe.sh) 的 Docker 工具鏈。
+
+```bash
+tools/fe.sh build ./cmd/wiz7
 ```
-Crusaders of the Dark Savant Application Software
-Copyright (C) 1992 by David W. Bradley and Sir-Tech Software, Inc.
-```
 
-原版是 DOS 磁片版，架構是主執行檔加 overlay：`DS.EXE`（69,206 bytes）常駐，
-迷宮、戰鬥、角色、城鎮、寶物等模組放在 13 個 `.OVR` 檔裡按需載入
-（VINIT、VBASE、VPCVW、VPCLV、VPCMK、VMAZE、VMEXT、VMELE、VPOPS、VMEXE、VDOPT、VTREA、VMNPC）。
-硬體支援面很寬：五種顯示模式（VGA/MCGA 256 色、EGA 16 色、CGA、Hercules、Tandy）、
-Sound Blaster 與 Roland MT-32/LAPC-1 音效、滑鼠；需要 580K 傳統記憶體與 x87 浮點運算器。
+主程式入口為 `cmd/wiz7`，原版工作副本以 `-root` 指定，預設 `workplace/run`；
+譯文與字形重建方式見 [tools/re/bake_font.py](tools/re/bake_font.py)、[tools/re/bake_flow.py](tools/re/bake_flow.py) 及 [tools/re/bake_help.py](tools/re/bake_help.py)。
+目前字型使用倚天 `stdfont.15` 與符號字型，僅供本機；可散布字型尚待 [#25](https://github.com/wicanr2/wizardry7-cht/issues/25)。
+這些開發工具不構成已驗收的跨平台安裝流程。
 
-啟動批次檔的錯誤碼目錄裡有 "Password Verification Error"，原版有密碼式防拷
-（形態待查）。散布版並附 Mo'Slo CPU 降速器，先降速再跑遊戲——
-它的行為與 CPU 速度相關，這點在模擬器上要正視。
-
-本專案手上的版本是 1998 年前後 Interplay《Wizardry Archives》合輯裡的重印
-（`CDSBOOT.TXT` 落款 1998 Sir-tech，全部檔案日期 1996-12-24），不是 1992 年的原始磁片。
-位址表與雜湊基線都對這個重印版成立。
-
-## 為什麼做中文化
-
-縮短語言隔閡與鴻溝——讓不諳英文的玩家也能玩到這款經典。其他取捨都以這條為準。
-
-這款的文字量在系列裡數得上：訊息檔 `MSG.DBS` 有 262,144 bytes，劇本檔 `SCENARIO.DBS`
-有 368,320 bytes，對話、物品說明、NPC 反應都在裡面（目前仍是編碼過的資料，格式待解）。
-不懂英文的話，這些內容就是整個遊戲。目標是把遊戲內文字全部換成繁體中文，
-人名、地名、咒語、道具集中一份譯名表，台灣既有譯名優先。
-
-## 怎麼做
-
-原版 `DS.EXE` 零修改跑在 dosgolem 上，CPU、DOS/BIOS、VGA、音效由它模擬；
-轉譯層在原版呼叫印字常式的那一刻攔下來，把中文點陣字畫在整數倍放大後的畫布上，
-不去擠原版的字格。翻譯有缺就顯示原文並記錄，不靜默略過。
-執行節拍綁 CPU 指令數（原版靠 Mo'Slo 降速，dosgolem 對應的是 cycles 對齊）。
-
-目前到哪裡——M0（探勘與基線）完成，M1（原版在 golem 上完整可跑）大部分完成：
-
-| 項目 | 現況 | 證據 |
-|---|---|---|
-| 開機到主選單 | 已可達：開機 → 片頭 → 穩定標題（約 520M 步）→ 故事畫面 → 主選單（940M 步檢查點）。目前靠檢查點與腳本點擊推進 | [`docs/re/003`](docs/re/003-golem-boot.md)、[`006`](docs/re/006-m1-progress.md)、[`009`](docs/re/009-round3.md) |
-| 與 DOSBox-X 對拍 | 穩定標題逐像素比較：版面差異 0、RGB 差異 0（容差 0）；同輸入下兩個模擬器收斂到同一張畫面 | [`docs/re/005`](docs/re/005-dosboxx-parity.md)、[`009`](docs/re/009-round3.md) |
-| 決定性 | 同一輸入跑兩次：狀態檔、記憶體 dump、跨 run 幀雜湊全同 | [`docs/re/009`](docs/re/009-round3.md) |
-| 事件投遞 | 修好 dosgolem 缺的 `INT 33h AX=14h`（滑鼠 handler 註冊），主選單五列都能用真實點擊推進，修復已併入 dosgolem 上游 | [`docs/re/007`](docs/re/007-story-wait-vgadrv.md)、[`008`](docs/re/008-int33-ax14-fix.md) |
-| 逆向普查 | `DS.EXE` 加 13 個 overlay 共 843 個函式（下界）、390,321 code bytes；所有 DOS/BIOS/EMS 呼叫集中在常駐部，overlay 經 far call 進服務層 | [`docs/re/004`](docs/re/004-ida-census.md) |
-| 執行期組態 | 本安裝走模式 13h、OPL2 音效（埠 388/389）、EMS、滑鼠；動畫由計時器推進 | [`docs/re/003`](docs/re/003-golem-boot.md) |
-
-還沒做的：
-
-- OPL2 音效事件層與 DOSBox-X 的逐筆對拍（M1 收尾）。
-- 從主選單往下走：建隊伍、進遊戲（模擬試玩，M2）。
-- M2 圖形前端：骨架開發中，目前還沒有可以給玩家執行的程式。
-- M3 文字攔截與抽取（`MSG.DBS` 等資料檔的格式還沒解）。
-- M4 中文繪製與全文翻譯、M5 輔助功能。
-
-未完成項的權威是 [`docs/worklist.json`](docs/worklist.json)，一條對應一個 GitHub issue。
-
-<img src="docs/images/wiz7-menu.png" width="320" alt="主選單">
-
-主選單（五列選單項）。dosgolem 執行原版 `DS.EXE` 的實跑輸出，
-從 940M 步的檢查點展開，640×400 ＝ 320×200 整數倍放大 2 倍。
-
-<img src="docs/images/wiz7-pcvw.png" width="320" alt="點擊選單後的畫面">
-
-點擊主選單第一列後的畫面（PCVWSCRN 底圖）。dosgolem 實跑輸出：
-滑鼠事件投遞到遊戲自己註冊的 handler 後推進的畫面，與 DOSBox-X 同輸入逐像素一致。
-
-<img src="docs/images/wiz7-hd-menu.png" width="480" alt="轉譯層中文選單">
-
-**主選單中文化（轉譯層上線）**：轉譯層攔截遊戲自己的印字呼叫，
-查譯文表後以倚天 15×15 點陣字型畫進離屏緩衝，隨原版 blit 時序上屏——
-不做 VRAM 事後加工，原版程式碼一行未改。選單項：角色選單、新增角色、
-載入紀錄、系統設定、匯入隊伍、結束遊戲。
-
-<img src="docs/images/wiz7-hd-dialog.png" width="480" alt="角色建立中文化"> <img src="docs/images/wiz7-hd-copyprot.png" width="480" alt="防拷檢查中文化">
-
-進一層的畫面同樣由轉譯層翻譯：角色建立對話框（新增角色／取消）、
-防拷檢查說明（安全檢查、請翻開手冊第35頁……）。沒有譯文的字串
-（OK、角色名、職業代碼）照原文顯示並記錄，不會靜默消失。
-
-## 原版要自備
-
-本 repo 不含 `DS.EXE`、`.OVR`、`.VGA`、`.PIC`、`.HDR`、`.SND` 等任何原版檔案，
-也不提供取得管道。之後的可散布發行包同樣不含，打包時會掃一遍確認沒有夾帶。
-要跑這個中文化，需要自備 DOS 版《巫術7》。
-
-目前驗證過的版本是 Interplay《Wizardry Archives》合輯裡的重印（檔案日期 1996-12-24），
-共 248 個檔案、5,414,248 bytes。關鍵檔案：
+原版檔案基線見 [001 原版基線](docs/re/001-unzip-baseline.md)，其中：
 
 | 檔案 | 大小 | SHA-256 |
 |---|---:|---|
-| `DS.EXE` | 69,206 | `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db` |
+| `DS.EXE` | 69,206 bytes | `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db` |
 
-全部 248 檔的 SHA-256 基線在 [`docs/re/001`](docs/re/001-unzip-baseline.md)。
-位址表只對這個版本成立；文本抽取與之後的工具會先驗雜湊，不符就停下列出不符的檔案，不猜測。
+## 文件入口
 
-## 文件
-
-- [`PLAN.md`](PLAN.md)：路線、分期、與前一個專案 psychic-war 的差異與風險。
-- [`docs/goal/`](docs/goal/)：分期目標與驗收條件。
-- [`docs/re/`](docs/re/)：反組譯與量測紀錄，每項結論帶推論等級標籤
-  （confirmed／強證據／假說／未知）。
-- [`docs/worklist.json`](docs/worklist.json)：未完成項的權威。
+- [CONTEXT.md](CONTEXT.md)：目前真相、限制與最近交接。
+- [PLAN.md](PLAN.md)：穩定路線與分期完成條件。
+- [WORKLOG.md](WORKLOG.md)：歷程與舊結論勘誤。
+- [目標與驗收](docs/goal/README.md)、[輸出路徑規格](docs/spec/)、[研究證據索引](docs/re/README.md)。
+- [譯名表](docs/names.md) 與 [翻譯指令](text/TRANS-INSTRUCTIONS.md)。
 
 ## 授權
 
-本作品將採 **RRSAL-1.0**（復古重製 source-available 授權條款；`LICENSE` 檔建立後，
-全文以 [`LICENSE`](LICENSE) 為準）。摘要：
+本專案採 [RRSAL-1.0](LICENSE)：非商業使用免費，允許修改與再散布，
+實況、錄影、截圖與教學明示允許；修改後散布須提供原始碼與修改說明，貢獻回授本專案。
+商業使用另洽 wicanr2@gmail.com，完整條款以 LICENSE 為準。
 
-- 非商業使用免費，可以修改、可以再散布。
-- 實況、錄影、截圖與教學明示允許。
-- 修改後散布要附上原始碼與修改說明；貢獻回授本專案。
-- 商業使用要另外談，聯絡 wicanr2@gmail.com。
-
-**授權不涵蓋原版素材。** 原版的程式、圖、音樂與文字屬於 Sir-Tech、Interplay
-與原權利人，使用本作品必須自備合法的原版副本。repo 裡為了研究與對照保留的
-原版片段（雜湊基線、量測得出的位址表、含原版底圖的截圖）不在授權範圍內。
-
-本專案與 Sir-Tech、Interplay 沒有隸屬、合作、贊助或授權關係，
-是獨立的第三方保存與研究專案。
+授權不涵蓋原版素材與第三方字型。本專案與 Sir-Tech、Interplay 沒有隸屬、合作、贊助或授權關係。

@@ -1,58 +1,18 @@
-# PLAN — wizardry7-cht 全景計畫（修訂版 2026-09-21）
+# 中文化路線與分期
 
-《巫術7》（*Wizardry VII: Crusaders of the Dark Savant*，Sir-Tech 1992）DOS 版繁體中文化。
-dosgolem 轉譯層路線——原版邏輯一行不動，攔截繪圖換中文。
+本專案以 dosgolem 執行原版《巫術7》，在輸出層覆繪繁體中文；不重寫遊戲規則、不修改原版資料格式。
+目前狀態只在 [CONTEXT.md](CONTEXT.md) 維護，執行工作以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準；歷程與舊計畫勘誤見 [WORKLOG.md](WORKLOG.md)。
 
-## 現況（2026-09-21）
-
-| 里程碑 | 狀態 |
+| 分期 | 完成條件與入口 |
 |---|---|
-| M0 探勘與基線 | ✅ 完成 |
-| M1 golem 完整可跑 | ✅ 完成 |
-| M2 可遊玩前端 | ⏳ 前端骨架 ✓（#15）；剩試玩(#16)/錄放(#17)/音訊(#18) |
-| M3 文字攔截與抽取 | ⏳ **關鍵路徑**：架構已定案，格式解碼進行中 |
-| M4 中文繪製 | ⏳ 未開工；**已知需 UI 參數修改**（按鈕高度 9px→16px） |
-| R3 dosgolem 上游 | ✅ 5 個 commit 已推 |
-| M6 README/發行 | README ✓；其餘待 M4 後 |
+| M0 探勘與基線 | 原版版本、雜湊與初步定位，見 [M0](docs/goal/M0-baseline.md) |
+| M1 原版執行 | 開機、顯示、輸入、音效事件與決定性，見 [M1](docs/goal/M1-golem-runs-original.md) |
+| M2 可遊玩前端 | 正常操作、節拍、錄放與前端音訊，見 [M2](docs/goal/M2-playable-frontend.md) |
+| M3 文字攔截與抽取 | 文字來源與輸出定位可回查，見 [M3](docs/goal/M3-text-capture.md) |
+| M4 中文覆繪與全文翻譯 | 譯文 catalog、譯名、字型、玩家路徑覆蓋與原版狀態不變，見 [規格](docs/spec/) |
+| M5 輔助功能 | F1 說明、即時地圖、作弊等已定案功能，見 [AGENTS.md 第 13 節](AGENTS.md) 與相關 Issue |
+| M6 交付 | README、RRSAL-1.0、合法素材與 Linux／Windows／macOS 可啟動包，依交付契約驗收 |
 
-## 關鍵路徑（修訂）
-
-```
-M3: MSG.DBS 解碼 → 全文抽取 → 印字常式定位
- │
-M4: 中文點陣字型烘製（倚天 stdfont.15 已驗證）
- │   xlate 攔截層（psychic-war 模式）
- │   UI 參數修改（按鈕 9px→16px 容納中文）
- │
- ▼
- 第一個完整中文遊戲畫面
-```
-
-## 架構發現（影響計畫的關鍵認知）
-
-1. **選單文字是執行期繪製的**（不是烤在 .VGA 裡）——
-   MAINSCRN.VGA 是乾淨背景，文字由 resident 字型展開常式畫上去。
-   → 攔截點在字形展開常式（M3 #20）。
-2. **UI 按鈕高度只有 9px**——中文字 15×16 塞不進去。
-   → M4 需要 dosgolem 攔截 UI 繪圖呼叫時修改高度參數。
-3. **名字輸入走 int 21h AH=07h**（DOS stdin）——
-   probe `-type` 可注入文字（已驗證 KAOKI ✓）。
-4. **遊戲配置 24 頁 EMS**——解壓後的訊息可能存放在 EMS 頁框
-   （高位記憶體 C0000-FFFFF 没找到明文，需確認 golem 的 EMS 頁框位址）。
-
-## 修正後的分期
-
-| 期 | 內容 | issue | 優先 |
-|---|---|---|---|
-| M3 | MSG.DBS 格式解碼＋印字常式 | #19 #20 | **最高** |
-| M4 | 中文字型烘製＋xlate 層＋UI 參數修改 | 待 M3 後開 | 高 |
-| M2 剩餘 | 試玩(#16)/錄放(#17)/音訊(#18) | #16-#18 | 中（與 M3 並行） |
-| M5 | 輔助功能 | 待 | 低 |
-| M6 | 打包發行 | #7 已關 | 最後 |
-
-## 不變的判準
-
-1. 原版是唯一的真相——攔截不改變遊戲邏輯。
-2. 不散布原版素材。
-3. 通用的歸 golem，專屬的留這裡。
-4. dosgolem 缺的功能要補齊後推上游（已推 6 個 commit）。
+各輸出路徑依「原版證據 → DRAFT → 獨立審查 → READY → 實作 → 同狀態驗證 → CONFORMED」前進。
+只有實際收據覆蓋的畫面能稱已中文化；未到達的後期畫面與未觸發分支維持未知。
+建立正式交付目錄前須載入 `~/.codex/knowledge-base/local/retro-remake-dist-all-output.md`，版本依同目錄的 `retro-remake-release-versioning.md`；本檔不另創交付結構。

@@ -22,13 +22,13 @@ psychic-war 已用這條路完成一款；本專案要驗證它對 overlay 架�
 |---|---|---|---|
 | M0 | 探勘與基線 | [M0](M0-baseline.md) | #1–#6（完成） |
 | M1 | 原版在 golem 上完整可跑 | [M1](M1-golem-runs-original.md) | #8–#12 |
-| M2 | 可遊玩前端 | 待 M1 後寫 | 待開 |
-| M3 | 文字攔截與文本抽取 | 待 M0 後寫 | 待開 |
-| M4 | 中文繪製與全文翻譯 | 待 M0 後寫 | 待開 |
-| M5 | 輔助功能與作弊 | 待 M0 後寫 | 待開 |
-| M6 | README、主題、打包、授權與發行 | 待 M0 後寫 | #7 |
+| M2 | 可遊玩前端 | [M2](M2-playable-frontend.md) | #15–#18 |
+| M3 | 文字攔截與文本抽取 | [M3](M3-text-capture.md) | #19、#20 |
+| M4 | 中文繪製與全文翻譯 | 逐路徑 [規格](../spec/) 與輪次文件 | #22、#24、#25、#40 |
+| M5 | 輔助功能與作弊 | 逐功能 [規格](../spec/) 與輪次文件 | #34–#36 |
+| M6 | README、主題、打包、授權與發行 | [PLAN](../../PLAN.md) 的交付條件 | #7 僅涵蓋首頁，不能代表發行完成 |
 
-M2–M6 的 goal 文件與細項 issue 等 M1 事實出來再寫（使用者定案 2026-09-20）。
+本目錄保存完成定義；分期現況見 [CONTEXT.md](../../CONTEXT.md)，不由舊輪次狀態反推。
 
 ## 輪次
 
@@ -43,18 +43,22 @@ M2–M6 的 goal 文件與細項 issue 等 M1 事實出來再寫（使用者定�
 | 1 | [M0](M0-baseline.md) | 探勘與基線（完成：#1–#6 全關） |
 | 2 | [M1](M1-golem-runs-original.md) | 原版在 golem 上完整可跑（完成） |
 | 3 | [R3](R3-dosgolem-expansion.md) | dosgolem 擴充上游化＋M1 收尾＋M2 前端骨架（完成） |
-| 4 | [M2](M2-playable-frontend.md) | 可遊玩前端：試玩、輸入錄放、音訊（進行中：#16/#17/#18） |
+| 4 | [M2](M2-playable-frontend.md) | 可遊玩前端：試玩、輸入錄放、音訊 |
 | 5 | [M3](M3-text-capture.md) | 文字攔截與抽取（與輪 4 並行推進） |
+| 667 | [R667](R667-flow-text.md) | 迷宮開場旁白流動文字 |
+| 668 | [R668](R668-flow-zoom.md) | 旁白中文字形放大 |
+| 669 | [R669](R669-closeout-context.md) | 收尾現況與文件遷移（#27） |
 
 第 2 輪起依 M0 的結論再定。
 
 ## 進度看哪裡
 
-- **未完成項的權威**：[`docs/worklist.json`](../worklist.json)。
-- **討論與指派**：GitHub issue／milestone。
+- **可執行工作唯一來源**：[GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
+- **目前真相與歷程**：[CONTEXT.md](../../CONTEXT.md)、[WORKLOG.md](../../WORKLOG.md)。
+- [`docs/worklist.json`](../worklist.json) 已退役，內容只作歷史追溯。
 - 本目錄只寫目標與驗收，**不記進度**——進度寫在這裡會過期。
 
 ## 量測起點
 
-原版 zip 已清點（250 檔、`DS.EXE`＋`.OVR` overlay 架構，清單見 AGENTS.md），
-**尚未在任何執行器上實跑**。第一次實跑是 M0 的 #4。
+原版輸入與執行證據依 [研究索引](../re/README.md) 回查；版本與限制見 [CONTEXT.md](../../CONTEXT.md)。
+本目錄的較早「起點」描述保留該輪歷史語境，不能當作現在尚未實跑的證明。

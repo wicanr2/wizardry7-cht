@@ -1,6 +1,6 @@
 {
  "schema": "wizardry7-worklist/1",
- "note": "未完成項的權威。verify 為真＝仍未完成。做完的條目移到 done，保留 issue 編號與證據。規則見 ~/.claude/rulebook/61。",
+ "note": "已退役的歷史快照（2026-09-30，#27）。內容保留以追溯舊方案，不再更新、不作為可執行工作清單或現況證據。唯一工作來源：https://github.com/wicanr2/wizardry7-cht/issues；目前真相見 CONTEXT.md。items 三項已核對為遠端 open Issue #17、#18、#22。",
  "milestones": {
   "M0": "探勘與基線：解壓與雜湊、IDA 普查、狀態檔檢查點、DOSBox-X 參照",
   "M1": "原版在 golem 上完整可跑：顯示、音效、決定性",

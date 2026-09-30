@@ -235,8 +235,7 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 | 譯文仍是 JSON（`text/*-trans.json`）、以訊息 ID 為鍵；要轉 `text/*.zh-TW.tsv`＋英文鍵 | #24 |
 | 只有倚天字型；發行版可散布字型未建 | #25 |
 | `text/messages.json` 仍含手冊防拷關鍵字段（使用者 2026-09-29 指示擱置另議） | #26 |
-| `docs/worklist.json` 尚未退場；`CONTEXT.md`、`WORKLOG.md`、`docs/re/README.md` 未建；`PLAN.md` 現況表過期 | #27 |
-| 沒有 `docs/spec/`；已上線的印字攔截、高解析合成無規格 | #28 |
+| 已有 `docs/spec/001`–`006`；其他既有輸出路徑的規格覆蓋與未量分支仍待驗收 | #28 |
 | adapter 在本 repo `cmd/`（go.mod replace 到 `worktrees/dosgolem`），尚未評估是否移到 dosgolem fork 的 `apps/wiz7` | #29 |
 
 ## 13. 定案事項
