@@ -17,3 +17,4 @@
 - 獨立唯讀審查入口：`workplace/r820/`（僅保存本候選的審查收據）；由`review_r819_initial_scalars`執行，主代理已完整閱讀並核對71項來源與6項輸出。阻擋0、未解除應改0，僅批准DRAFT回填，不升READY。
 - 日期來源行號訂正後，舊候選及67項索引保留、新69項索引逐項相符；Go未改、不重跑已通過測試。完整SHA與證據等級集中於[研究022](../re/022-input-recording-boundary.md)。
 - 純量定義及擷取邊界回填[013](../spec/013-input-recording.md)，但B2完整啟動配置、正式格式、預設存檔位置及停止錄製方式仍待定稿。本輪沒有原版遊玩或正式封包。
+- `cb18cd5a0e40ac31e53a7241f2d6189c7ad68f46`已推送origin/main；[#17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5941701236)全文回讀與提交標記相符，議題仍OPEN。六份文件檢查及容器回讀通過，R433保持未追蹤。

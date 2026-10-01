@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-02。已推送正式音訊與停止事件計數基線：`f4871c2`，獨立審查與前端競爭檢查通過。本輪收尾開發入口及錄放DRAFT契約，最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
+核對日期：2026-10-02。已推送正式音訊與停止事件計數基線：`f4871c2`，獨立審查與前端競爭檢查通過。錄放起始設定候選`cb18cd5`已推送並回讀議題進度，013仍DRAFT；最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
