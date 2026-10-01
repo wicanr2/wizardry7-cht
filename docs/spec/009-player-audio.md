@@ -139,6 +139,8 @@ Pause前裝置預讀及可聽尾音另量，不能把Step凍結稱為喇叭立�
 欠載／溢出、恢復、捨棄尾段、bank1／CSM／節奏模式未支援及退出畫格率。
 固定核心Write只收Reg／Val，bank1與CSM守門拒絕並計數，節奏模式沿核心Unsupported計數；
 量到0次只能稱這條路線未使用，不外推支援全部OPL功能。
+Received指合成器合法接受，Received＋Rejected只代表送入合成器；來源Recorded與容量Dropped分開。
+A7停止要求後原操作仍可能產生事件，前置停止分支未送合成器的事件另計，不能稱已合成或容量拒絕。
 合成核心按dosgolem授權；原版音樂、PCM、完整輸入／state僅留本機，不進Git或可散布包。
 
 ### A7：快速退出與總期限

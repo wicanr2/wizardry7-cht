@@ -150,3 +150,24 @@ func TestAudioVisualPublicationIndependent(t *testing.T) {
 		t.Fatal("顯示資料仍共享owner別名")
 	}
 }
+
+func TestAudioStopPreservesSynthAndCountsLaterSource(t *testing.T) {
+	d := &fakeAudioDevice{}
+	a := testPlayerAudio(t, big.NewRat(1, 1), d)
+	a.progress(oracle.CompletedOPL{Step: 200000, FirstSequence: 1,
+		Writes: []oracle.OPLWrite{{Step: 100, Reg: 0x20, Val: 0}}})
+	before := a.stream.Stats()
+	a.stop.Request()
+	// 來源仍須完成原操作；停止後不能把其事件送進已凍結的合成器。
+	later := make([]oracle.OPLWrite, 16)
+	for i := range later {
+		later[i] = oracle.OPLWrite{Step: 200001 + uint64(i), Reg: 0x20}
+	}
+	a.progress(oracle.CompletedOPL{Step: 400000, FirstSequence: 2, Writes: later})
+	a.progress(oracle.CompletedOPL{Step: 400000, FirstSequence: 18, Final: true})
+	after := a.stream.Stats()
+	if a.stoppedWrites != 16 || after.Received != before.Received || after.Applied != before.Applied ||
+		after.Frames != before.Frames || after.EndStep != before.EndStep || d.plays != 1 || a.fault != "" {
+		t.Fatalf("停止後合成或計數錯誤：before=%+v after=%+v skipped=%d device=%+v fault=%s", before, after, a.stoppedWrites, d, a.fault)
+	}
+}

@@ -309,3 +309,18 @@ R763／R776的既存錄放僅有Type的kind／seq／Step安全中繼資料，
 不解fresh首次SAVEGAME建立。本案正式修正見[014草稿](../spec/014-original-save-storage.md)，
 Root維持唯讀、預設存檔位置待使用者選定，014與013均未升READY。
 來源漂移0，UID/GID1000，自有容器、root-owned及誤建md目錄0。
+
+## R814：錄放與正式音訊的契約核對
+
+唯讀獨立審查4阻擋、3應改、2建議；逐條行號與來源在本機review.json，
+SHA-256 `a10682f83ca908bfd73dbecc683c78054cc62ca6e11c55258a70e937e5af7c8f`。
+來源索引`06ef1b2c3df85f919db12a71dc3de62f63f6aea668a822ccf4ce64912cfb655e`，
+輸出索引`0865ad072959b3e772df02501f9c27594a10e5570efeeea40d1606e3a7acfb5f`。
+沒有新跑fixture、原版或裝置；現有靜態契約已足以定位，不重開格式／晚到確認／panic測試。
+
+四缺口為正式schema／CLI／profile定稿、新音訊配置與Root＋Scratch閉集合、
+不改原API返回的音訊故障資格、以及Writer／Draw／owner／Close共用退出期限的末註順序。
+正式009已READY且有深拷與5秒監督，不再用舊前端沒有有界owner的文字阻擋。
+R780暖有效flow、R802私人Scratch保存與冷LOAD停在防拷的界線維持；
+真冷含音重播與存讀還原仍是實作後驗收，不需新增遊戲語意逆向。
+來源漂移0，輸出UID/GID1000，自有容器／root-owned／誤建md目錄0。

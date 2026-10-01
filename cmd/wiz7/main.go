@@ -1462,7 +1462,7 @@ func main() {
 		}
 		log.Printf("音訊結束 fault=%s close=%s stream=%+v reader=%+v 畫格率=%.2f", audioOut.fault, result,
 			audioOut.stream.Stats(), audioOut.reader.Stats(), float64(g.draws.Load())/time.Since(runStarted).Seconds())
-		log.Printf("原版完成Step=%d 來源=%+v；consumer Received為合法接受，總送達=Received+Rejected", finalStep, sourceStats)
+		log.Printf("原版完成Step=%d 來源=%+v；Received為合成器合法接受，送入合成器=Received+Rejected；停止後未送入=%d", finalStep, sourceStats, audioOut.stoppedWrites)
 		if result != "" || audioOut.fault != "" {
 			os.Exit(1)
 		}

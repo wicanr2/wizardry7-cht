@@ -128,6 +128,7 @@ type playerAudio struct {
 	stop                     *stopRequest
 	started, paused, stopped bool
 	fault                    string
+	stoppedWrites            uint64 // 停止要求後收到、未送入合成器的來源事件。
 }
 
 func newPlayerAudio(o *oracle.Oracle, k *big.Rat, mute bool, stop *stopRequest) (*playerAudio, error) {
@@ -181,6 +182,7 @@ func (a *playerAudio) stopAtBoundary() {
 }
 func (a *playerAudio) progress(batch oracle.CompletedOPL) {
 	if a.stop.Requested() {
+		a.stoppedWrites += uint64(len(batch.Writes))
 		a.stopAtBoundary()
 		return
 	}
