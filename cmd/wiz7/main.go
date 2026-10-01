@@ -177,11 +177,12 @@ type textEv struct {
 	fg             uint8   // 筆畫色號（差異像素眾數）
 	fgRGB          [3]uint8
 	g              [][]uint16
-	shown          bool          // 曾與 A000 相符（決定被刪除或等待，與頁有沒有譯文無關）
-	match          bool          // 本次 compose 是否與 A000 相符（頁裁決用）
-	dead           bool          // 已被刪除
-	page           *flowPage     // 流動文字的還原事件所屬頁（spec 006）；nil＝一般事件
-	img            *ebiten.Image // Draw 時 lazily 預渲染的字形條
+	shown          bool           // 曾與 A000 相符（決定被刪除或等待，與頁有沒有譯文無關）
+	match          bool           // 本次 compose 是否與 A000 相符（頁裁決用）
+	dead           bool           // 已被刪除
+	page           *flowPage      // 流動文字的還原事件所屬頁（spec 006）；nil＝一般事件
+	img            *ebiten.Image  // Draw 時 lazily 預渲染的字形條
+	compound       *compoundTrace // spec012：完整兩行物品的原子事件與唯讀診斷
 }
 
 // pendingPrint 是已進入、尚未返回的印字（R2.1）。
@@ -205,6 +206,7 @@ type overlay struct {
 	storyLastReturn uint64
 	storyUnknown    bool
 	pend            *pendingPrint
+	compound        *compoundPair                   // spec012：至多一件待配對物品
 	flow            *flowData                       // flow.json（nil＝流動文字關閉）
 	page            *flowPage                       // 目前的頁（流動文字呼叫點）
 	pages           []*flowPage                     // 尚未被丟棄的頁
@@ -310,8 +312,8 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 				if e.before[k] == e.after[k] {
 					continue
 				}
-				if e.page != nil {
-					// 頁事件（spec 006 R5）：所有筆畫像素還原，游標框之外
+				if e.page != nil || e.compound != nil {
+					// 頁／完整物品：原子還原所有筆畫，跳過游標框。
 					if !inCursor(e.bx+x, e.by+y) {
 						comp[i] = e.before[k]
 					}
@@ -325,27 +327,19 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 	kept := ov.evs[:0]
 	var shown []*textEv
 	for _, e := range ov.evs {
-		match := true
+		match := e.rectMatches(a, inCursor)
 		if e.page != nil {
 			match = e.pageMatch(a, inCursor)
-		}
-		for y := 0; e.page == nil && y < e.bh && match; y++ {
-			for x := 0; x < e.bw; x++ {
-				px, py := e.bx+x, e.by+y
-				if inCursor(px, py) {
-					continue
-				}
-				if a[py*320+px] != e.after[y*e.bw+x] {
-					match = false
-					break
-				}
-			}
 		}
 		e.match = match
 		switch {
 		case match:
 			if !e.shown {
 				e.shown = true
+				if e.compound != nil {
+					e.compound.State = "shown"
+					log.Printf("複合物品 上屏 %s step=%d", e.s, step)
+				}
 				if e.page == nil {
 					ov.shown++
 				}
@@ -358,22 +352,22 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 		case e.shown:
 			ov.dropped++
 			e.dead = true
+			if e.compound != nil {
+				e.compound.State = "drop"
+				log.Printf("複合物品 捨棄 %s 原因=上屏域不符 step=%d", e.s, step)
+			}
 		default:
 			// 尚未上屏：離屏框仍是 after 才保留（R3 表第 3、4 列）
-			still := off != nil
-			for y := 0; y < e.bh && still; y++ {
-				for x := 0; x < e.bw; x++ {
-					if off[(e.by+y)*320+e.bx+x] != e.after[y*e.bw+x] {
-						still = false
-						break
-					}
-				}
-			}
+			still := e.rectMatches(off, nil)
 			if still {
 				kept = append(kept, e)
 			} else {
 				ov.dropped++
 				e.dead = true
+				if e.compound != nil {
+					e.compound.State = "drop"
+					log.Printf("複合物品 捨棄 %s 原因=離屏域不符 step=%d", e.s, step)
+				}
 			}
 		}
 	}
@@ -504,7 +498,8 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name strin
 		BX, BY, BW, BH int
 		Before, After  []uint8
 		Fg             uint8
-		G              [][]uint16 // 字形（spec 002 R5 的序數檢查用）
+		G              [][]uint16     // 字形（spec 002 R5 的序數檢查用）
+		Compound       *compoundTrace `json:",omitempty"`
 	}
 	out := struct {
 		Step           uint64
@@ -519,7 +514,7 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name strin
 	out.Map = am.json()
 	out.Flow = flows
 	for _, e := range shown {
-		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g})
+		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g, e.compound})
 	}
 	_ = os.WriteFile(base+".a000", a, 0o644)
 	_ = os.WriteFile(base+".comp", comp, 0o644)
@@ -876,6 +871,11 @@ func main() {
 			evMu.Lock()
 			defer evMu.Unlock()
 			ov.returnedStory(ret, o.Regs().SP, o.Steps())
+			if ov.compound != nil && ov.compound.phase != 1 {
+				if ov.returnCompound(ret, o.Regs().SP, o.Steps(), offscreen(o), o.Palette()) {
+					return
+				}
+			}
 			if ov.pend == nil || ov.pend.ret != ret || o.Regs().SP != ov.pend.sp+2 {
 				return
 			}
@@ -891,7 +891,24 @@ func main() {
 		ret := oracle.Addr{Seg: r0.CS, Off: o.StackWord(0)} // near call（E2）
 		off := o.StackWord(1)
 		ds := r0.DS
-		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
+		// spec012 C2：所有入口在flow/generic早退前先仲裁完整物品配對。
+		// C1：配對專用讀取最多8byte，連NUL亦不跨16-bit offset邊界。
+		partRaw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, min(8, 65536-int(off)))
+		part := string(partRaw)
+		if end := strings.IndexByte(part, 0); end >= 0 {
+			part = part[:end]
+		}
+		in := compoundInput{S: part, DS: ds, Off: off, SP: r0.SP, Font: o.StackWord(2),
+			Ret: ret, Step: o.Steps(), X: int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295})),
+			Y: int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})), raw: partRaw}
+		evMu.Lock()
+		handled := ov.enterCompound(in, func() []byte { return offscreen(o) }, trans, flowK)
+		evMu.Unlock()
+		if handled {
+			arm(ret)
+			return
+		}
+		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64) // 未處理者沿既有flow／一般路由
 		if _, flow := flowSites[ret]; flow {
 			if ret == storySite {
 				arm(ret) // 返回通知先於內容防呆；沒有覆繪事件也要保留邊界。

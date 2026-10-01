@@ -1,6 +1,6 @@
 # 中文化輸出與前端規格索引
 
-新草稿：[012 複合物品名稱](012-compound-item-output.md)（DRAFT）。
+新路徑：[012 複合物品名稱](012-compound-item-output.md)（三組正常路線驗收通過；未量防禦分支維持READY）。
 
 每份規格內文保存有效狀態與實測範圍；單元測試不代替正常玩家路徑收據。
 
@@ -17,3 +17,5 @@
 | [009](009-player-audio.md) | 前端音樂播放（DRAFT） |
 | [010](010-item-name-corrections.md) | 物品名稱錯配校正（READY；名稱與回歸通過，校正鍵上屏未量） |
 | [011](011-message-wording-unification.md) | 同義訊息文案統一（限定CONFORMED；實跑10筆，其他僅靜態驗證） |
+| [012](012-compound-item-output.md) | 三組複合物品名稱（正常路線通過；整份READY） |
+| [013](013-input-recording.md) | 前端輸入錄製／重播（DRAFT） |

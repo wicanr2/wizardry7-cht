@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-01。本輪實作基線：`a724788`，R672訊息修訂與驗收見下列證據；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
+核對日期：2026-10-01。最近已推送：`547a64d`（171組訊息限定驗收）、`d466750`（複合名稱證據與草稿）；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -21,12 +21,13 @@
 | 本機／發行字型雙軌 | [spec 007](docs/spec/007-native-font.md)、[018](docs/re/018-distributable-font.md)：倚天原生15×15與GNU Unifont原生16×16；原字型驗收7,523／5,490／395項失敗0。訊息統一後所需2,872個非ASCII字元、缺字0；字元清單2,919項。F1完整折行及延續頁；未觸發的防禦分支維持READY。 |
 | 物品名稱校正 | [spec 010](docs/spec/010-item-name-corrections.md)、[019](docs/re/019-catalog-migration.md)：28個名稱及兩個共用訊息同步正式表與產生器，重建逐位元相同；雙字型靜態64項、正常角色頁兩倍率1,366項失敗0。實跑校正鍵0／28，僅稱名稱校正及靜態驗證完成。 |
 | 同義訊息文案統一 | [spec 011](docs/spec/011-message-wording-unification.md)、[019](docs/re/019-catalog-migration.md)：171組／373列同步，獨立驗收16,038項、失敗0；兩字型兩倍率31故事頁、6旁白頁、代表選單與F1通過。實際觸發修改訊息10筆，其餘363筆只完成靜態驗證；剩餘11組仍是交付門檻。 |
+| 三組複合物品名稱 | [spec 012](docs/spec/012-compound-item-output.md)、[021](docs/re/021-compound-item-output.md)：皮胸甲、毛皮護腿、小圓盾在正常角色／物品頁通過兩字型兩倍率、470項獨立核對與代表Draw；原版A000與色盤相同。隔離負向58項通過，未量玩家故障分支保持READY。 |
 
 ## 收尾尚缺的證據與交付
 
 - 全文來源仍是 JSON 與訊息 ID；TSV＋英文鍵遷移見 [#24](https://github.com/wicanr2/wizardry7-cht/issues/24)。譯文覆蓋與正常路徑觸發對帳見 [#22](https://github.com/wicanr2/wizardry7-cht/issues/22)，資料已翻譯不能當作已上屏。
 - 發行字型已完成實作與上述驗收（[#25](https://github.com/wicanr2/wizardry7-cht/issues/25)）；倚天字型仍只可本機使用，Unifont子集採OFL-1.1並保留上游全文。正式封包與三平台可啟動性、存讀檔及通關收據仍未完成。
-- 輸入錄放、音訊完成條件仍以 [#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[#18](https://github.com/wicanr2/wizardry7-cht/issues/18) 為準；早期 OPL2 事件比較通過不等於前端聲音與播放對齊驗收完成。
+- 輸入錄放、音訊完成條件仍以 [#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[#18](https://github.com/wicanr2/wizardry7-cht/issues/18) 為準；輸入錄放已查證現有API邊界，見[研究022](docs/re/022-input-recording-boundary.md)及[013草稿](docs/spec/013-input-recording.md)，尚無正式實作。早期 OPL2 事件比較通過不等於前端聲音與播放對齊驗收完成。
 - 作弊功能見 [#35](https://github.com/wicanr2/wizardry7-cht/issues/35)，尚未有正式驗收；不可用作弊建立中文化回歸收據。
 - 規格覆蓋與 adapter 位置仍待 [#28](https://github.com/wicanr2/wizardry7-cht/issues/28)、[#29](https://github.com/wicanr2/wizardry7-cht/issues/29) 驗收。既有六份 spec 並不代表所有玩家文字路徑都已規格化。
 
@@ -39,14 +40,17 @@
 2026-10-01使用者選擇先逐組統一同原文不同譯文，再遷移TSV；不採保留最後寫入文案的方案。
 2026-10-01使用者進一步定案：剩餘八組異義情境與三組短句全部補齊後才交付，
 不採十一組保留英文先發版；這十一組是正式封包交付門檻。
+2026-10-01使用者定案音訊／前端預設依原版虛擬時鐘同步，保留手動加速設定，
+不採目前24M加速作預設再設計變速音樂；原版CPU／PIT時基保持原樣，音訊實作仍受009規格閘門。
 
 ## 本輪交接
 
 [R672](docs/goal/R672-delivery-prerequisites.md)的字型實作與驗收通過；固定字型來源存於本機`workplace/fonts/unifont-17.0.05/`，字元清單及重建入口在[font](font/README.md)。完整收據r682、r687–r691、r694與來源雜湊見研究018；舊失敗收據保留，詳細勘誤追加WORKLOG。
 TSV規格[008](docs/spec/008-english-key-tsv.md)仍為DRAFT；[011](docs/spec/011-message-wording-unification.md)的同義文案及限定回歸已CONFORMED，171組／373列同步正式表與有效產生器，重建逐位元相同，正常玩家畫面獨立驗收16,038項失敗0。排除三組短句超寬與八組情境歧異，剩餘原文11組；排除空鍵／純槽後烘製25／執行期24組碰撞，控制碼問題仍待核。盤點與界線見[019](docs/re/019-catalog-migration.md)。
-物品原文417筆與原版SCENARIO逐筆相符；28筆校正已按READY010套用，兩個安全共用名稱一併同步。r714靜態與r715正常角色頁驗收通過，但不宣稱全部校正名稱已上屏。三個複合名稱的兩次印字證據見[021](docs/re/021-compound-item-output.md)，[012](docs/spec/012-compound-item-output.md)仍DRAFT、獨立審查中；LONGSWORD搬移及新背景仍待證據，尚未接新路徑。
-前端音訊[009](docs/spec/009-player-audio.md)仍DRAFT：R703隔離裝置量到非靜音與原版狀態一致，但仍有欠載／溢出及未解裝置停頓；R701繼續研究，正式程式未接線。
-Docker字型批次容器已清理，未見root-owned檔或誤建`.md`目錄。R433仍不混入提交。
+物品原文417筆與原版SCENARIO逐筆相符；28筆校正已按READY010套用，兩個安全共用名稱一併同步。r714靜態與r715正常角色頁驗收通過，但不宣稱全部校正名稱已上屏。三個複合名稱已經r730獨立正常路線驗收：470項與五項代表回歸零失敗、四張Draw與HD全圖相同；未量防禦分支保持READY。LONGSWORD搬移及新背景仍待證據，未納入這三組實作。
+前端音訊[009](docs/spec/009-player-audio.md)仍DRAFT：R718確認200k進度水位可解決整包Click的交付間隙，絕對節流與快照所有權仍只在隔離副本。R728啟動順序控制在同400M路線溢出0，但仍欠載13,792幀、停止未播672；原版雜湊、事件及PCM相同。舊GUI副本的真文字靜音競爭檢查通過，敘事頁未量，不是新版本含音訊競爭驗收。R701續查殘餘，正式程式未接線。
+R724／R734早期情境探針未取得八詞或三短句；R733原版正常檢查點已成功恢復並實際前進兩格，見[019](docs/re/019-catalog-migration.md)。這不代表中文前端存讀檔或十一組門檻完成；後續從這條已驗來源正常探索。
+Docker r724／r728／r730封存容器已清理、輸出1000:1000、root-owned及誤建`.md`目錄0；後續探索批次另留清理收據。R433仍不混入提交。
 
 [R671](docs/goal/R671-story-overlay.md) 完成故事覆繪與獨立驗收，收據在`workplace/r674`；6M／8M全部31頁有效，旁白六頁回歸通過且56份原版狀態與`r670`全同。
 實作`65e62ad`已推送；[#40](https://github.com/wicanr2/wizardry7-cht/issues/40)已關閉並回讀確認。後續仍以遠端Issue為工作清單，本輪不代表全遊戲收尾完成。

@@ -16,6 +16,9 @@
 
 ## 量測指標
 
+輸入錄放續行入口：[研究022](../re/022-input-recording-boundary.md)、[013草稿](../spec/013-input-recording.md)。
+音訊續行入口：[R701](R701-audio-playability.md)、[研究020](../re/020-player-audio.md)。
+
 - 試玩：每個轉場的步數與到達時間；狀態檔恢復秒級。
 - 音訊：合成輸出與事件流的對應（音符開關對齊事件時間戳）。
 - 錄放：重播後畫面雜湊 100% 一致。
