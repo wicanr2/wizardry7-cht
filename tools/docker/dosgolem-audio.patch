@@ -1,0 +1,2054 @@
+diff --git a/internal/machine/machine.go b/internal/machine/machine.go
+index 406c215..b4b3b2b 100644
+--- a/internal/machine/machine.go
++++ b/internal/machine/machine.go
+@@ -185,6 +185,10 @@ type Machine struct {
+ 	// **這是音樂 parity 的對拍對象**：兩邊的暫存器串一樣，
+ 	// 合成器再怎麼不同，送給晶片的指令是一樣的。
+ 	OPL []OPLWrite
++	// 明示串流僅保存未交付來源；故障不影響原暫存器更新。
++	OPLStream               bool
++	OPLStreamFault          string
++	OPLRecorded, OPLDropped uint64
+ 
+ 	// 寫入監看（WatchWrites）。watchLo > watchHi 表示關閉。
+ 	watchLo, watchHi uint32
+@@ -640,7 +644,7 @@ func (m *Machine) oplWrite(bank int, v uint8) {
+ 			}
+ 		}
+ 	}
+-	m.OPL = append(m.OPL, OPLWrite{Reg: reg, Val: v, Step: m.Steps, Bank: uint8(bank)})
++	m.recordOPL(OPLWrite{Reg: reg, Val: v, Step: m.Steps, Bank: uint8(bank)})
+ }
+ 
+ // OPLRegs 回某一組暫存器的**目前狀態**（256 bytes）。
+@@ -1298,3 +1302,34 @@ func (m *Machine) Find(pattern []byte) []uint32 {
+ 	}
+ 	return hits
+ }
++
++// OPLStreamCapacity 只限制明示串流的未交付紀錄，不限制舊完整 trace。
++const OPLStreamCapacity = 262144
++
++// EnableOPLStream 只在 cold 安裝時呼叫；紀錄退場不改 OPL 暫存器。
++func (m *Machine) EnableOPLStream() {
++	m.OPLStream = true
++}
++func (m *Machine) recordOPL(w OPLWrite) {
++	if !m.OPLStream {
++		m.OPL = append(m.OPL, w)
++		return
++	}
++	if m.OPLStreamFault != "" {
++		if m.OPLDropped != ^uint64(0) {
++			m.OPLDropped++
++		}
++		return
++	}
++	if len(m.OPL) >= OPLStreamCapacity {
++		m.OPLStreamFault = "event_capacity"
++		m.OPLDropped++
++		return
++	}
++	if m.OPLRecorded == ^uint64(0) {
++		m.OPLStreamFault = "sequence_overflow"
++		return
++	}
++	m.OPLRecorded++
++	m.OPL = append(m.OPL, w)
++}
+diff --git a/oracle/input.go b/oracle/input.go
+index 259d9d5..e184bf6 100644
+--- a/oracle/input.go
++++ b/oracle/input.go
+@@ -99,6 +99,18 @@ func RightButton() ClickOpt { return Button(1) }
+ //  3. **回 error**：點了畫面完全沒動要說出來，不要讓呼叫端拿「畫面沒變」
+ //     去猜是點錯位置還是遊戲還沒準備好。
+ func (o *Oracle) Click(x, y int, opts ...ClickOpt) error {
++	active, err := o.beginOPLOperation("Click")
++	if err != nil {
++		return err
++	}
++	var result error
++	if active {
++		defer func() { o.finishOPLOperation(result) }()
++	}
++	result = o.clickOPL(x, y, opts...)
++	return result
++}
++func (o *Oracle) clickOPL(x, y int, opts ...ClickOpt) error {
+ 	// 預設取樣器是 video()：它會**看目前的視訊模式**挑來源。
+ 	// 寫死 Indexed()（mode 13h 的 A0000）的話，平面模式下那裡永遠是全 0，
+ 	// 於是「畫面沒變」恆成立——每一次點擊都被報成沒反應，而畫面其實變了。
+@@ -108,7 +120,7 @@ func (o *Oracle) Click(x, y int, opts ...ClickOpt) error {
+ 		f(&cfg)
+ 	}
+ 	if !cfg.noCursorWait && len(o.d.Mouse.Sets) == 0 {
+-		if err := o.RunUntil(MouseSettled); err != nil {
++		if err := o.runUntilOPL(MouseSettled); err != nil {
+ 			return fmt.Errorf("點 (%d,%d) 之前等程式設游標位置：%w", x, y, err)
+ 		}
+ 	}
+@@ -242,14 +254,14 @@ func (o *Oracle) KeysConsumed() int { return o.d.KeysConsumed }
+ // runWatched 跑 n 道指令，每一道都先呼叫 watch。watch 為 nil 時等同 Run。
+ func (o *Oracle) runWatched(n uint64, watch func(*Oracle)) error {
+ 	if watch == nil {
+-		return o.Run(n)
++		return o.watchedRunOPL(n)
+ 	}
+ 	start := o.m.Steps
+ 	c := NewCond("跑滿指令數", func(o *Oracle) bool {
+ 		watch(o)
+ 		return o.m.Steps-start >= n
+ 	})
+-	return o.RunUntil(c, Budget(n+1))
++	return o.watchedUntilOPL(c, Budget(n+1))
+ }
+ 
+ // ClearInput 丟掉還沒被讀走的按鍵。
+diff --git a/oracle/oracle.go b/oracle/oracle.go
+index 04e63a3..7bf285e 100644
+--- a/oracle/oracle.go
++++ b/oracle/oracle.go
+@@ -78,7 +78,8 @@ type Oracle struct {
+ 
+ 	// scratch 是 screen() 的重用緩衝。**條件函式會反覆呼叫它**，
+ 	// 每次配置 150 KB 的話跑幾千萬道指令就慢到不能用。
+-	scratch []uint8
++	scratch     []uint8
++	oplProgress oplProgressState
+ }
+ 
+ // Options 是「這一支 binary 長什麼樣」。
+@@ -540,6 +541,14 @@ func (o *Oracle) FontStats() (full, half, missing int) {
+ // **收工前看一眼。**「跑得動」與「跑得動但行為不對」的差別在這裡。
+ func (o *Oracle) Unimplemented() []string { return o.d.UnimplementedReport() }
+ 
++// VecSets 回 AH=25h 設中斷向量的完整紀錄（誰在什麼步數把哪個向量設成什麼）。
++func (o *Oracle) VecSets() []dos.VecSet { return o.d.VecSets }
++
++// KeyWaits／IRQ1Delivered／KeyStalls：鍵盤等待與硬體路徑的計數。
++func (o *Oracle) KeyWaits() int         { return o.d.KeyWaits }
++func (o *Oracle) IRQ1Delivered() uint64 { return o.m.IRQ1Delivered() }
++func (o *Oracle) KeyStalls() uint64     { return o.m.KeyStalls() }
++
+ // MemOp 是一次記憶體服務（`MemOps`）。
+ type MemOp = dos.MemOp
+ 
+@@ -660,7 +669,16 @@ func (o *Oracle) OPLRegs(bank int) [256]uint8 { return o.m.OPLRegs(bank) }
+ // ⚠ **不要為了「乾淨」連狀態一起清**：驅動程式開機時把一個預設音色灌進
+ // 全部 18 個 operator，之後的曲子是**疊在那個狀態上**的。狀態清掉之後
+ // 收到的序列會與原版的實際情況不同，而它看起來完全正常。
+-func (o *Oracle) ClearOPL() { o.m.ClearOPL() }
++func (o *Oracle) ClearOPL() {
++	if o.rejectOPLVoidReentry("clear_opl_reentrant") {
++		return
++	}
++	if o.m.OPLStream {
++		o.failOPL("clear_opl_stream")
++		return
++	}
++	o.m.ClearOPL()
++}
+ 
+ // WatchWrites 監看一段 DGROUP 偏移的寫入，回一份逐次紀錄。
+ //
+diff --git a/oracle/run.go b/oracle/run.go
+index f12f80f..6e4c6d9 100644
+--- a/oracle/run.go
++++ b/oracle/run.go
+@@ -66,7 +66,16 @@ func (e *ExitError) Error() string {
+ 
+ // Run 純跑 n 道指令。程式中途結束或 CPU 出錯都回錯誤。
+ func (o *Oracle) Run(n uint64) error {
+-	return o.RunUntil(Steps(n), Budget(n+1))
++	active, err := o.beginOPLOperation("Run")
++	if err != nil {
++		return err
++	}
++	var result error
++	if active {
++		defer func() { o.finishOPLOperation(result) }()
++	}
++	result = o.runOPL(n)
++	return result
+ }
+ 
+ // RunUntil 跑到條件成立。
+@@ -74,6 +83,18 @@ func (o *Oracle) Run(n uint64) error {
+ // 條件在每道指令**執行前**檢查，所以 At(x) 停下來時 CS:IP 正好等於 x，
+ // 那一道還沒跑。
+ func (o *Oracle) RunUntil(c Cond, opts ...RunOpt) error {
++	active, err := o.beginOPLOperation("RunUntil")
++	if err != nil {
++		return err
++	}
++	var result error
++	if active {
++		defer func() { o.finishOPLOperation(result) }()
++	}
++	result = o.runUntilOPL(c, opts...)
++	return result
++}
++func (o *Oracle) runUntilOPL(c Cond, opts ...RunOpt) error {
+ 	cfg := runCfg{budget: DefaultBudget}
+ 	for _, f := range opts {
+ 		f(&cfg)
+@@ -98,9 +119,12 @@ func (o *Oracle) RunUntil(c Cond, opts ...RunOpt) error {
+ 		}
+ 		o.fireCallHooks()
+ 		if o.fireStub() {
++			o.completedOPLStep()
+ 			continue
+ 		}
+-		if err := o.m.Step(); err != nil {
++		stepErr := o.m.Step()
++		o.completedOPLStep()
++		if err := stepErr; err != nil {
+ 			return fmt.Errorf("執行到 %s 出錯：%w", o.IP(), err)
+ 		}
+ 	}
+diff --git a/oracle/state.go b/oracle/state.go
+index cd57bca..260fdb5 100644
+--- a/oracle/state.go
++++ b/oracle/state.go
+@@ -47,6 +47,13 @@ func (o *Oracle) Save() *State {
+ // 快照之後才開的檔會留著開著。實務上沒問題（程式開檔就讀完），
+ // 但要知道這個邊界。
+ func (o *Oracle) Restore(s *State) {
++	if o.rejectOPLVoidReentry("restore_reentrant") {
++		return
++	}
++	if o.m.OPLStream {
++		o.failOPL("restore_stream_unsupported")
++		return
++	}
+ 	o.m.Restore(s.m)
+ 	o.d.Mouse = s.mouse
+ 	o.d.Mouse.Polls = append([]dos.Poll(nil), s.mouse.Polls...)
+diff --git a/oracle/opl_progress.go b/oracle/opl_progress.go
+new file mode 100644
+index 0000000..ed63961
+--- /dev/null
++++ b/oracle/opl_progress.go
+@@ -0,0 +1,251 @@
++package oracle
++
++import (
++	"errors"
++	"github.com/wicanr2/dosgolem/internal/machine"
++)
++
++// OPLProgressQuantum 是完成指令後的觀察間隔。介面只可由同一 owner 使用。
++const OPLProgressQuantum uint64 = 200000
++const OPLSourceCapacity = machine.OPLStreamCapacity
++
++var ErrOPLProgressReentrant = errors.New("OPL 進度觀察期間禁止重入")
++
++type OPLProgressToken struct {
++	owner      *Oracle
++	generation uint64
++}
++type CompletedOPL struct {
++	Step, FirstSequence                   uint64
++	Writes                                []OPLWrite
++	Final                                 bool
++	OperationErrorCode, ObserverFaultCode string
++}
++type OPLProgressOpt func(*oplProgressConfig)
++type oplProgressConfig struct{ stream bool }
++
++// WithOPLStream 保留有界的未交付來源；未指定時保持完整 trace 相容。
++func WithOPLStream() OPLProgressOpt { return func(c *oplProgressConfig) { c.stream = true } }
++
++type OPLSourceStats struct {
++	Stream            bool
++	Pending           int
++	Recorded, Dropped uint64
++	FaultCode         string
++}
++
++func (o *Oracle) OPLSourceStats() OPLSourceStats {
++	return OPLSourceStats{o.m.OPLStream, len(o.m.OPL), o.m.OPLRecorded, o.m.OPLDropped, o.OPLProgressFault()}
++}
++
++type oplProgressState struct {
++	fn                          func(CompletedOPL)
++	token                       OPLProgressToken
++	generation                  uint64
++	cursor                      int
++	nextSequence, deliveredStep uint64
++	busy, callback              bool
++	operation, fault            string
++}
++
++func (o *Oracle) InstallOPLProgress(quantum uint64, fn func(CompletedOPL), opts ...OPLProgressOpt) (OPLProgressToken, error) {
++	p := &o.oplProgress
++	if p.busy || p.callback {
++		return OPLProgressToken{}, ErrOPLProgressReentrant
++	}
++	if quantum != OPLProgressQuantum || fn == nil || p.fn != nil {
++		return OPLProgressToken{}, errors.New("OPL 註冊條件不符")
++	}
++	cfg := oplProgressConfig{}
++	for _, opt := range opts {
++		if opt == nil {
++			return OPLProgressToken{}, errors.New("OPL 選項無效")
++		}
++		opt(&cfg)
++	}
++	if o.m.OPLStream || cfg.stream && (o.m.Steps != 0 || len(o.m.OPL) != 0) {
++		return OPLProgressToken{}, errors.New("OPL 串流只允冷安裝")
++	}
++	if p.generation == ^uint64(0) {
++		return OPLProgressToken{}, errors.New("OPL token 已耗盡")
++	}
++	p.generation++
++	p.token = OPLProgressToken{o, p.generation}
++	p.fn = fn
++	p.cursor = len(o.m.OPL)
++	p.deliveredStep = o.m.Steps
++	p.fault = ""
++	if p.nextSequence == 0 {
++		p.nextSequence = uint64(len(o.m.OPL)) + 1
++	}
++	if cfg.stream {
++		o.m.EnableOPLStream()
++	}
++	return p.token, nil
++}
++func (o *Oracle) RemoveOPLProgress(token OPLProgressToken) error {
++	p := &o.oplProgress
++	if p.busy || p.callback {
++		return ErrOPLProgressReentrant
++	}
++	if token != p.token || token.owner != o || token.generation == 0 {
++		return errors.New("OPL token 不符")
++	}
++	if p.fn == nil && p.fault == "" {
++		return errors.New("OPL 已卸載")
++	}
++	p.fn = nil
++	p.token = OPLProgressToken{}
++	return nil
++}
++func (o *Oracle) OPLProgressFault() string {
++	if o.oplProgress.fault != "" {
++		return o.oplProgress.fault
++	}
++	return o.m.OPLStreamFault
++}
++func (o *Oracle) failOPL(code string) {
++	p := &o.oplProgress
++	if p.fault == "" {
++		p.fault = code
++	}
++	p.fn = nil
++	if o.m.OPLStream && o.m.OPLStreamFault == "" {
++		o.m.OPLStreamFault = p.fault
++	}
++}
++func (o *Oracle) rejectOPLVoidReentry(code string) bool {
++	if !o.oplProgress.callback {
++		return false
++	}
++	if o.oplProgress.fault == "" {
++		o.oplProgress.fault = code
++	}
++	return true
++}
++func (o *Oracle) beginOPLOperation(name string) (bool, error) {
++	p := &o.oplProgress
++	if p.callback || p.busy {
++		return false, ErrOPLProgressReentrant
++	}
++	if p.fn == nil {
++		return false, nil
++	}
++	p.busy = true
++	p.operation = name
++	return true, nil
++}
++func (o *Oracle) finishOPLOperation(err error) {
++	defer func() { o.oplProgress.busy = false; o.oplProgress.operation = "" }()
++	o.deliverOPL(true, err)
++}
++func operationErrorCode(err error) string {
++	if err == nil {
++		return ""
++	}
++	var b *BudgetError
++	var x *ExitError
++	var n *NoResponseError
++	switch {
++	case errors.Is(err, ErrOPLProgressReentrant):
++		return "reentrant"
++	case errors.As(err, &b):
++		return "budget"
++	case errors.As(err, &x):
++		return "exit"
++	case errors.As(err, &n):
++		return "no_response"
++	default:
++		return "execution"
++	}
++}
++func (o *Oracle) completedOPLStep() {
++	p := &o.oplProgress
++	if o.m.OPLStreamFault != "" && p.fn != nil {
++		o.failOPL(o.m.OPLStreamFault)
++		return
++	}
++	if p.fn != nil && p.busy && o.m.Steps >= p.deliveredStep && o.m.Steps-p.deliveredStep >= OPLProgressQuantum {
++		o.deliverOPL(false, nil)
++	}
++}
++func (o *Oracle) deliverOPL(final bool, operationErr error) {
++	p := &o.oplProgress
++	if p.fn == nil {
++		return
++	}
++	if o.m.OPLStreamFault != "" {
++		o.failOPL(o.m.OPLStreamFault)
++		return
++	}
++	step := o.m.Steps
++	if step < p.deliveredStep {
++		o.failOPL("watermark_backward")
++		return
++	}
++	if p.cursor > len(o.m.OPL) {
++		o.failOPL("source_sequence_truncated")
++		return
++	}
++	count := len(o.m.OPL) - p.cursor
++	// 先守門，才配置獨立批次副本；舊完整 trace 本身仍不設總量限制。
++	if count > OPLSourceCapacity {
++		o.failOPL("event_capacity")
++		return
++	}
++	source := o.m.OPL[p.cursor:]
++	previous := p.deliveredStep
++	for i, w := range source {
++		if w.Step > step {
++			o.failOPL("event_after_watermark")
++			return
++		}
++		if w.Step <= p.deliveredStep || i > 0 && w.Step < previous {
++			o.failOPL("event_late_or_reversed")
++			return
++		}
++		previous = w.Step
++	}
++	if uint64(count) > ^uint64(0)-p.nextSequence {
++		o.failOPL("sequence_overflow")
++		return
++	}
++	writes := append([]OPLWrite(nil), source...)
++	batch := CompletedOPL{step, p.nextSequence, writes, final, operationErrorCode(operationErr), p.fault}
++	p.cursor = len(o.m.OPL)
++	p.nextSequence += uint64(count)
++	p.deliveredStep = step
++	p.callback = true
++	returned := false
++	defer func() {
++		p.callback = false
++		if !returned {
++			_ = recover()
++			o.failOPL("callback_panic")
++		}
++	}()
++	p.fn(batch)
++	returned = true
++	if p.fault != "" {
++		o.failOPL(p.fault)
++		return
++	}
++	if o.m.OPLStream {
++		// owner 同步回呼正常返回後，來源批次及其底層陣列退場。
++		o.m.OPL = nil
++		p.cursor = 0
++	}
++}
++func (o *Oracle) runOPL(n uint64) error { return o.runUntilOPL(Steps(n), Budget(n+1)) }
++func (o *Oracle) watchedRunOPL(n uint64) error {
++	if o.oplProgress.busy && o.oplProgress.operation == "Click" && !o.oplProgress.callback {
++		return o.runOPL(n)
++	}
++	return o.Run(n)
++}
++func (o *Oracle) watchedUntilOPL(c Cond, opts ...RunOpt) error {
++	if o.oplProgress.busy && o.oplProgress.operation == "Click" && !o.oplProgress.callback {
++		return o.runUntilOPL(c, opts...)
++	}
++	return o.RunUntil(c, opts...)
++}
+diff --git a/oracle/opl_progress_test.go b/oracle/opl_progress_test.go
+new file mode 100644
+index 0000000..712c54f
+--- /dev/null
++++ b/oracle/opl_progress_test.go
+@@ -0,0 +1,209 @@
++package oracle
++
++import (
++	"crypto/sha256"
++	"github.com/wicanr2/dosgolem/internal/dos"
++	"github.com/wicanr2/dosgolem/internal/machine"
++	"reflect"
++	"testing"
++)
++
++func oplFixture(t *testing.T, code []byte) *Oracle {
++	t.Helper()
++	m := machine.New()
++	m.SetAdLib(true)
++	if e := m.LoadCOM(code); e != nil {
++		t.Fatal("自製COM載入")
++	}
++	d := dos.New(m, t.TempDir())
++	d.Install()
++	return &Oracle{m: m, d: d, onCall: map[uint32][]func(*Oracle){}}
++}
++func oplLoop() []byte {
++	return []byte{0xfa, 0xba, 0x88, 3, 0xb0, 0xa0, 0xee, 0x42, 0xb0, 1, 0xee, 0x4a, 0xeb, 0xf6}
++}
++func oplSame(t *testing.T, a, b *Oracle) {
++	t.Helper()
++	if a.Steps() != b.Steps() || a.Regs() != b.Regs() || sha256.Sum256(a.m.Mem) != sha256.Sum256(b.m.Mem) || a.OPLRegs(0) != b.OPLRegs(0) || a.OPLRegs(1) != b.OPLRegs(1) {
++		t.Fatal("原CPU/記憶體/暫存器不同")
++	}
++}
++func TestOPLStreamLegacyParityAndRelease(t *testing.T) {
++	base := oplFixture(t, oplLoop())
++	o := oplFixture(t, oplLoop())
++	var got []OPLWrite
++	next := uint64(1)
++	batches := 0
++	tok, e := o.InstallOPLProgress(OPLProgressQuantum, func(b CompletedOPL) {
++		if b.FirstSequence != next {
++			t.Fatal("來源序號")
++		}
++		next += uint64(len(b.Writes))
++		got = append(got, b.Writes...)
++		batches++
++	}, WithOPLStream())
++	if e != nil {
++		t.Fatal(e)
++	}
++	for _, n := range []uint64{400037, 300011, 1} {
++		if base.Run(n) != nil || o.Run(n) != nil {
++			t.Fatal("自製Run")
++		}
++		if len(o.OPLWrites()) != 0 || cap(o.m.OPL) != 0 {
++			t.Fatal("交付來源未釋放")
++		}
++	}
++	oplSame(t, base, o)
++	if !reflect.DeepEqual(base.OPLWrites(), got) || batches != 6 {
++		t.Fatal("完整/stream事件不同")
++	}
++	st := o.OPLSourceStats()
++	if st.Recorded != uint64(len(got)) || st.Pending != 0 || st.Dropped != 0 || st.FaultCode != "" {
++		t.Fatal("來源對帳")
++	}
++	if e := o.RemoveOPLProgress(tok); e != nil {
++		t.Fatal(e)
++	}
++	if _, e := o.InstallOPLProgress(OPLProgressQuantum, func(CompletedOPL) {}, WithOPLStream()); e == nil {
++		t.Fatal("warm再次安裝")
++	}
++}
++func TestOPLStreamSourceCapacityAndFaultBound(t *testing.T) {
++	o := oplFixture(t, oplLoop())
++	calls := 0
++	if _, e := o.InstallOPLProgress(OPLProgressQuantum, func(CompletedOPL) { calls++ }, WithOPLStream()); e != nil {
++		t.Fatal(e)
++	}
++	o.m.Out8(0x388, 0xa0)
++	for i := 0; i < OPLSourceCapacity+10; i++ {
++		o.m.Out8(0x389, uint8(i))
++	}
++	if len(o.OPLWrites()) != OPLSourceCapacity || o.OPLProgressFault() != "event_capacity" || o.OPLRegs(0)[0xa0] != uint8((OPLSourceCapacity+9)%256) {
++		t.Fatal("append前容量與regs")
++	}
++	if o.Run(1000) != nil || calls != 0 || len(o.OPLWrites()) != OPLSourceCapacity {
++		t.Fatal("容量故障未有界")
++	}
++	if o.OPLSourceStats().Dropped < 10 {
++		t.Fatal("故障尾段未計數")
++	}
++}
++func TestOPLStreamCallbackPanicPreservesRun(t *testing.T) {
++	for _, final := range []bool{false, true} {
++		a := oplFixture(t, oplLoop())
++		b := oplFixture(t, oplLoop())
++		calls := 0
++		tok, e := b.InstallOPLProgress(OPLProgressQuantum, func(x CompletedOPL) {
++			calls++
++			if x.Final == final {
++				panic("自製回呼違約")
++			}
++		}, WithOPLStream())
++		if e != nil {
++			t.Fatal(e)
++		}
++		if a.Run(400037) != nil || b.Run(400037) != nil {
++			t.Fatal("原返回被改")
++		}
++		oplSame(t, a, b)
++		if b.OPLProgressFault() != "callback_panic" {
++			t.Fatal("有限fault")
++		}
++		before := calls
++		if a.Run(200037) != nil || b.Run(200037) != nil {
++			t.Fatal("後續Run")
++		}
++		oplSame(t, a, b)
++		if calls != before || len(b.OPLWrites()) > OPLSourceCapacity {
++			t.Fatal("故障listener反覆/累積")
++		}
++		if e := b.RemoveOPLProgress(tok); e != nil {
++			t.Fatal("idle故障token清理")
++		}
++	}
++}
++func TestOPLProgressRunUntilClickAndErrors(t *testing.T) {
++	a := oplFixture(t, oplLoop())
++	b := oplFixture(t, oplLoop())
++	finals := 0
++	last := CompletedOPL{}
++	_, e := b.InstallOPLProgress(OPLProgressQuantum, func(x CompletedOPL) {
++		last = x
++		if x.Final {
++			finals++
++		}
++	}, WithOPLStream())
++	if e != nil {
++		t.Fatal(e)
++	}
++	// 條件各自建立以保存原 API 的狀態語意。
++	c1 := NewCond("自製步數", func(o *Oracle) bool { return o.Steps() == 200037 })
++	c2 := NewCond("自製步數", func(o *Oracle) bool { return o.Steps() == 200037 })
++	if a.RunUntil(c1, Budget(200038)) != nil || b.RunUntil(c2, Budget(200038)) != nil || !last.Final || last.Step != 200037 {
++		t.Fatal("RunUntil餘數")
++	}
++	opt := []ClickOpt{NoCursorWait(), Hover(17), Hold(200037), Settle(19), Frame(func(*Oracle) []uint8 { return []byte{1} })}
++	ea, eb := a.Click(10, 10, opt...), b.Click(10, 10, opt...)
++	if reflect.TypeOf(ea) != reflect.TypeOf(eb) || last.OperationErrorCode != "no_response" || finals != 2 {
++		t.Fatal("整包Click Final")
++	}
++	oplSame(t, a, b)
++	for _, code := range [][]byte{{0xfa, 0xf4}, {0xb8, 0, 0x4c, 0xcd, 0x21}} {
++		x := oplFixture(t, code)
++		var last CompletedOPL
++		_, e := x.InstallOPLProgress(OPLProgressQuantum, func(b CompletedOPL) { last = b }, WithOPLStream())
++		if e != nil {
++			t.Fatal(e)
++		}
++		if x.Run(10) == nil || !last.Final || last.Step == 0 || last.OperationErrorCode == "" {
++			t.Fatal("錯誤前進水位")
++		}
++	}
++}
++func TestOPLProgressReentryAndColdGuard(t *testing.T) {
++	o := oplFixture(t, oplLoop())
++	other := oplFixture(t, oplLoop())
++	var token OPLProgressToken
++	token, _ = o.InstallOPLProgress(OPLProgressQuantum, func(b CompletedOPL) {
++		before := o.Steps()
++		regs := o.OPLRegs(0)
++		if o.Run(1) != ErrOPLProgressReentrant || o.RemoveOPLProgress(token) != ErrOPLProgressReentrant {
++			t.Fatal("busy重入")
++		}
++		o.ClearOPL()
++		o.Restore(nil)
++		if o.Steps() != before || o.OPLRegs(0) != regs {
++			t.Fatal("違約side effect")
++		}
++	})
++	if e := o.RemoveOPLProgress(OPLProgressToken{other, 1}); e == nil {
++		t.Fatal("跨owner token")
++	}
++	if o.Run(200037) != nil || o.OPLProgressFault() != "clear_opl_reentrant" {
++		t.Fatal("有限void故障")
++	}
++	w := oplFixture(t, oplLoop())
++	if w.Run(1) != nil {
++		t.Fatal("warm fixture")
++	}
++	if _, e := w.InstallOPLProgress(OPLProgressQuantum, func(CompletedOPL) {}, WithOPLStream()); e == nil {
++		t.Fatal("warm guard")
++	}
++}
++
++// 新進度批次的 copy 有界；舊 OPLWrites 完整 trace 不因該守門退場。
++func TestOPLProgressLegacyCopyCapacity(t *testing.T) {
++	o := oplFixture(t, oplLoop())
++	calls := 0
++	if _, e := o.InstallOPLProgress(OPLProgressQuantum, func(CompletedOPL) { calls++ }); e != nil {
++		t.Fatal(e)
++	}
++	o.m.Steps = 1
++	o.m.Out8(0x388, 0xa0)
++	for i := 0; i <= OPLSourceCapacity; i++ {
++		o.m.Out8(0x389, 1)
++	}
++	if o.Run(0) != nil || calls != 0 || o.OPLProgressFault() != "event_capacity" || len(o.OPLWrites()) != OPLSourceCapacity+1 {
++		t.Fatal("copy前守門與legacy相容")
++	}
++}
+diff --git a/oracle/clock_settings.go b/oracle/clock_settings.go
+new file mode 100644
+index 0000000..f416279
+--- /dev/null
++++ b/oracle/clock_settings.go
+@@ -0,0 +1,12 @@
++package oracle
++
++// ClockSettings 是實際機器時鐘的唯讀值；IRQ0Every 不是名目時基的 IRQ0Base。
++type ClockSettings struct {
++	CPUHz, IRQ0Base, IRQ0Every uint64
++	CycleClock                 bool
++}
++
++// ClockSettings 回目前設定，不改 CPU/PIT，不保留可變別名。
++func (o *Oracle) ClockSettings() ClockSettings {
++	return ClockSettings{CPUHz: o.m.CPUHz, IRQ0Base: o.m.IRQ0Base, IRQ0Every: o.m.IRQ0Every, CycleClock: o.m.CycleClock}
++}
+diff --git a/oracle/clock_settings_test.go b/oracle/clock_settings_test.go
+new file mode 100644
+index 0000000..b705577
+--- /dev/null
++++ b/oracle/clock_settings_test.go
+@@ -0,0 +1,17 @@
++package oracle
++
++import "testing"
++
++func TestOPLClockSettingsReadOnly(t *testing.T) {
++	o := oplFixture(t, oplLoop())
++	before := o.ClockSettings()
++	if before.CycleClock != o.m.CycleClock || before.IRQ0Base != o.m.IRQ0Base || before.IRQ0Every != o.m.IRQ0Every || before.CPUHz != o.m.CPUHz {
++		t.Fatal("未讀實際欄位")
++	}
++	before.CycleClock = !before.CycleClock
++	before.IRQ0Base++
++	after := o.ClockSettings()
++	if after.CycleClock != o.m.CycleClock || after.IRQ0Base != o.m.IRQ0Base {
++		t.Fatal("可變別名")
++	}
++}
+diff --git a/opl2/opl2.go b/opl2/opl2.go
+new file mode 100644
+index 0000000..9f73018
+--- /dev/null
++++ b/opl2/opl2.go
+@@ -0,0 +1,388 @@
++// Package opl2 是 YM3812（OPL2）的近似合成器（`docs/spec/196`）。
++//
++// 音高、節奏與音色都要接近真機：ADSR、TL、KSL、震音、顫音、波形 0–3、FM 與相加、回授。
++// 波形以連續時間近似，不是逐週期複刻真機的定點運算。節奏模式沒做，用到時計數
++// （Unsupported），不安靜忽略。
++//
++// 這個套件不認識機器：呼叫端依時間順序 Write，每產生一個取樣呼叫一次 Sample。
++package opl2
++
++import "math"
++
++// NativeRate 是 YM3812 的內部取樣率（3.579545 MHz ÷ 72）。頻率式以它為基準。
++const NativeRate = 49716.0
++
++var multTable = [16]float64{0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 12, 12, 15, 15}
++
++// 聲道 c 的調變器**槽位編號**（ops 的索引）；載波 ＝ 調變器 ＋ 3。
++// ⚠ 不是暫存器位移：暫存器位移是 0,1,2,8,9,10,16,17,18（中間跳過 6、7、14、15），
++// 經 slotOf 換算後才是連續的槽位 0–17。拿位移當索引會在聲道 6–8 越界。
++var modSlot = [9]int{0, 1, 2, 6, 7, 8, 12, 13, 14}
++
++// 暫存器位移 → 槽位（20h–35h 這一類）；-1 ＝ 不是運算子。
++var slotOf = [22]int{0, 1, 2, 3, 4, 5, -1, -1, 6, 7, 8, 9, 10, 11, -1, -1, 12, 13, 14, 15, 16, 17}
++
++type stage int
++
++const (
++	stOff stage = iota
++	stAttack
++	stDecay
++	stSustain
++	stRelease
++)
++
++type operator struct {
++	sustainHold bool // 20h bit 5：EG 類型
++	ksr         bool
++	am          bool // 20h bit 7：震音
++	vib         bool // 20h bit 6：顫音
++	mult        uint8
++	tl          uint8
++	ksl         uint8 // 40h bit 7–6
++	ar, dr      uint8
++	sl, rr      uint8
++	wave        uint8
++
++	phase float64 // 0..1
++	env   float64 // 衰減 dB，0 ＝ 最大、96 ＝ 靜音
++	st    stage
++}
++
++type channel struct {
++	fnum     uint16
++	block    uint8
++	keyOn    bool
++	fb       uint8
++	additive bool
++	fbHist   [2]float64
++}
++
++// LFO 常數（YM3812 規格，`196` §3.2）：震音 3.7 Hz、顫音 6.4 Hz，都是全晶片共用的三角波。
++const (
++	amHz, vibHz   = 3.7, 6.4
++	amShallowDB   = 1.0 // BDh bit 7 ＝ 0
++	amDeepDB      = 4.8 // BDh bit 7 ＝ 1
++	vibShallowCnt = 7.0 // BDh bit 6 ＝ 0，單位 cent
++	vibDeepCnt    = 14.0
++)
++
++// Feature 是可以個別關掉的合成功能（診斷用）。預設全開；關掉是為了回答
++// 「保真度的哪一項是被哪個功能推動的」——一次只改一個變因才看得出來。
++type Feature uint8
++
++const (
++	FeatKSL Feature = 1 << iota
++	FeatAM
++	FeatVIB
++	FeatExpAttack
++)
++
++// FeatureByName 把旗標名對到位元（呼叫端解析命令列用）。
++var FeatureByName = map[string]Feature{"ksl": FeatKSL, "am": FeatAM, "vib": FeatVIB, "expatk": FeatExpAttack}
++
++// Synth 是一個 OPL2 晶片的狀態。
++type Synth struct {
++	rate       float64
++	off        Feature // 關掉的功能
++	waveSelect bool
++	amDeep     bool // BDh bit 7
++	vibDeep    bool // BDh bit 6
++	lfo        float64
++	ops        [18]operator
++	ch         [9]channel
++	only       int // >= 0 時只混這一個聲道（診斷用，見 OnlyChannel）
++	except     int // >= 0 時這一個聲道不混進輸出（見 ExceptChannel）
++
++	// Unsupported 記錄用到但沒實作的功能各幾次：rhythm、vibrato、tremolo、ksl。
++	Unsupported map[string]int
++}
++
++// New 建一個輸出取樣率為 rate 的合成器。
++func New(rate int) *Synth {
++	s := &Synth{rate: float64(rate), Unsupported: map[string]int{}, only: -1, except: -1}
++	for i := range s.ops {
++		s.ops[i].env = 96
++	}
++	return s
++}
++
++// Write 寫一個暫存器。
++func (s *Synth) Write(reg, val uint8) {
++	switch {
++	case reg == 0x01:
++		s.waveSelect = val&0x20 != 0
++	case reg == 0xBD:
++		if val&0x20 != 0 {
++			s.Unsupported["rhythm"]++
++		}
++		s.amDeep = val&0x80 != 0
++		s.vibDeep = val&0x40 != 0
++	case reg >= 0x20 && reg <= 0x35:
++		if o := s.op(reg - 0x20); o != nil {
++			o.sustainHold = val&0x20 != 0
++			o.ksr = val&0x10 != 0
++			o.mult = val & 0x0F
++			o.am = val&0x80 != 0
++			o.vib = val&0x40 != 0
++		}
++	case reg >= 0x40 && reg <= 0x55:
++		if o := s.op(reg - 0x40); o != nil {
++			o.tl = val & 0x3F
++			o.ksl = val >> 6
++		}
++	case reg >= 0x60 && reg <= 0x75:
++		if o := s.op(reg - 0x60); o != nil {
++			o.ar, o.dr = val>>4, val&0x0F
++		}
++	case reg >= 0x80 && reg <= 0x95:
++		if o := s.op(reg - 0x80); o != nil {
++			o.sl, o.rr = val>>4, val&0x0F
++		}
++	case reg >= 0xA0 && reg <= 0xA8:
++		c := &s.ch[reg-0xA0]
++		c.fnum = c.fnum&0x300 | uint16(val)
++	case reg >= 0xB0 && reg <= 0xB8:
++		i := int(reg - 0xB0)
++		c := &s.ch[i]
++		c.fnum = c.fnum&0xFF | uint16(val&0x03)<<8
++		c.block = val >> 2 & 0x07
++		on := val&0x20 != 0
++		if on && !c.keyOn {
++			for _, k := range []int{modSlot[i], modSlot[i] + 3} {
++				s.ops[k].st = stAttack
++			}
++		} else if !on && c.keyOn {
++			for _, k := range []int{modSlot[i], modSlot[i] + 3} {
++				if s.ops[k].st != stOff {
++					s.ops[k].st = stRelease
++				}
++			}
++		}
++		c.keyOn = on
++	case reg >= 0xC0 && reg <= 0xC8:
++		c := &s.ch[reg-0xC0]
++		c.fb = val >> 1 & 0x07
++		c.additive = val&0x01 != 0
++	case reg >= 0xE0 && reg <= 0xF5:
++		if o := s.op(reg - 0xE0); o != nil {
++			o.wave = val & 0x03
++		}
++	}
++}
++
++func (s *Synth) op(off uint8) *operator {
++	if int(off) >= len(slotOf) || slotOf[off] < 0 {
++		return nil
++	}
++	return &s.ops[slotOf[off]]
++}
++
++// rateTime 回「有效速率」對應的時間倍率：2^-(有效速率 − 1)。R ＝ 0 回 0（不動）。
++func rateScale(r uint8, c *channel, ksr bool) float64 {
++	if r == 0 {
++		return 0
++	}
++	off := int(c.block)*2 + int(c.fnum>>9&1)
++	if !ksr {
++		off >>= 2
++	}
++	eff := float64(r) + float64(off)/4
++	return math.Pow(2, -(eff - 1))
++}
++
++// kslScale 是 KSL 位元對應的強度比例。**位元 1 比位元 2 強**（3 dB/oct vs 1.5），
++// 這是 OPL 的慣例不是筆誤（`196` §3.2）。
++var kslScale = [4]float64{0, 0.5, 0.25, 1}
++
++// kslAtten 回 KSL 造成的衰減（dB）：每八度 6 dB × 強度比例。
++//
++// 八度數以 FNum 的高 4 位（hi）與 Block 合起來算：`Block − 4 ＋ log2(hi)`。
++// ⚠ hi ＝ 0 是特例，**不衰減**——真機的分段表在那一格填一個大到永遠被截成 0 的數，
++// 用 log2(hi＋1) 去「避開 log2(0)」會在 hi ＝ 0 時多扣 18 dB（第一版就是這樣錯的）。
++// 真機用 16 段整數表近似同一條對數曲線，兩者差 ≤ 1.5 dB（`196` §4 第 7 項）。
++func kslAtten(ksl uint8, block uint8, fnum uint16) float64 {
++	hi := fnum >> 6
++	if ksl == 0 || hi == 0 {
++		return 0
++	}
++	oct := float64(block) - 4 + math.Log2(float64(hi))
++	if oct <= 0 {
++		return 0
++	}
++	return kslScale[ksl] * 6 * oct
++}
++
++// stepEnv 推進一個取樣的包絡（`196` §3.2）。
++func (s *Synth) stepEnv(o *operator, c *channel) {
++	dt := 1000 / s.rate // 一個取樣幾 ms
++	switch o.st {
++	case stAttack:
++		// 指數逼近 0：真機每步減去目前值的一個比例，起音是先快後慢的曲線（`196` §3.2）。
++		if o.ar == 15 {
++			o.env = 0
++		} else if k := rateScale(o.ar, c, o.ksr); k > 0 {
++			if s.on(FeatExpAttack) {
++				tau := 2826 * k / 4 // 走完 4 個時間常數 ≈ 98%
++				o.env *= math.Exp(-dt / tau)
++			} else {
++				o.env -= 96 * dt / (2826 * k) // 舊的 dB 線性起音（診斷用）
++			}
++		}
++		if o.env <= 0.05 {
++			o.env = 0
++			o.st = stDecay
++		}
++	case stDecay:
++		target := float64(o.sl) * 3
++		if o.sl == 15 {
++			target = 93
++		}
++		if k := rateScale(o.dr, c, o.ksr); k > 0 {
++			o.env += 96 * dt / (39281 * k)
++		}
++		if o.env >= target {
++			o.env = target
++			o.st = stSustain
++		}
++	case stSustain:
++		if !o.sustainHold {
++			if k := rateScale(o.rr, c, o.ksr); k > 0 {
++				o.env += 96 * dt / (39281 * k)
++			}
++		}
++	case stRelease:
++		if k := rateScale(o.rr, c, o.ksr); k > 0 {
++			o.env += 96 * dt / (39281 * k)
++		}
++	}
++	if o.env >= 96 {
++		o.env = 96
++		if o.st == stRelease {
++			o.st = stOff
++		}
++	}
++}
++
++func (s *Synth) wave(o *operator, ph float64) float64 {
++	x := math.Sin(2 * math.Pi * ph)
++	if !s.waveSelect {
++		return x
++	}
++	frac := ph - math.Floor(ph)
++	switch o.wave {
++	case 1:
++		if x < 0 {
++			return 0
++		}
++	case 2:
++		return math.Abs(x)
++	case 3:
++		if math.Mod(frac, 0.5) >= 0.25 {
++			return 0
++		}
++		return math.Abs(x)
++	}
++	return x
++}
++
++// tri 回 0..1 的三角波（相位 0..1）。
++func tri(ph float64) float64 {
++	ph -= math.Floor(ph)
++	if ph < 0.5 {
++		return ph * 2
++	}
++	return 2 - ph*2
++}
++
++// output 算一個運算子這個取樣的輸出並推進相位。mod 是加到相位上的弧度。
++// c 用來算 KSL（要 Block 與 FNum）。
++func (s *Synth) output(o *operator, c *channel, freq, mod float64) float64 {
++	if o.st == stOff {
++		return 0
++	}
++	atten := o.env + float64(o.tl)*0.75
++	if s.on(FeatKSL) {
++		atten += kslAtten(o.ksl, c.block, c.fnum)
++	}
++	if o.am && s.on(FeatAM) {
++		d := amShallowDB
++		if s.amDeep {
++			d = amDeepDB
++		}
++		atten += d * tri(s.lfo*amHz)
++	}
++	if o.vib && s.on(FeatVIB) {
++		cents := vibShallowCnt
++		if s.vibDeep {
++			cents = vibDeepCnt
++		}
++		freq *= math.Pow(2, cents*(2*tri(s.lfo*vibHz)-1)/1200)
++	}
++	amp := math.Pow(10, -atten/20)
++	y := s.wave(o, o.phase+mod/(2*math.Pi)) * amp
++	o.phase += freq * multTable[o.mult] / s.rate
++	o.phase -= math.Floor(o.phase)
++	return y
++}
++
++// Sample 產生下一個取樣（-1..1）。
++func (s *Synth) Sample() float64 {
++	sum := 0.0
++	for i := range s.ch {
++		c := &s.ch[i]
++		m, cr := &s.ops[modSlot[i]], &s.ops[modSlot[i]+3]
++		s.stepEnv(m, c)
++		s.stepEnv(cr, c)
++		if m.st == stOff && cr.st == stOff {
++			continue
++		}
++		f := float64(c.fnum) * NativeRate / math.Pow(2, float64(20-int(c.block)))
++		fb := 0.0
++		if c.fb > 0 {
++			fb = (c.fbHist[0] + c.fbHist[1]) / 2 * math.Pi * math.Pow(2, float64(c.fb)-5)
++		}
++		mo := s.output(m, c, f, fb)
++		c.fbHist[1], c.fbHist[0] = c.fbHist[0], mo
++		var out float64
++		if c.additive {
++			out = mo + s.output(cr, c, f, 0)
++		} else {
++			out = s.output(cr, c, f, mo*8*math.Pi)
++		}
++		if (s.only < 0 || s.only == i) && s.except != i {
++			sum += out
++		}
++	}
++	s.lfo += 1 / s.rate // 全晶片共用的 LFO 相位（秒）
++	v := sum * 0.12
++	return math.Max(-1, math.Min(1, v))
++}
++
++// Disable 關掉指定功能（診斷用，見 Feature）。
++func (s *Synth) Disable(f Feature) { s.off |= f }
++
++func (s *Synth) on(f Feature) bool { return s.off&f == 0 }
++
++// OnlyChannel 讓 Sample 只混第 ch 個聲道（0–8），-1 恢復全部。診斷用。
++//
++// 整曲是 9 個聲道的混音，**單一聲道錯了會被其他聲道稀釋**——保真度掉下來時，
++// 只看整體數字無法知道是哪一個聲道。包絡照樣推進（不是「關掉那些聲道」），
++// 只是不把它們加進輸出，這樣時間軸與全開時完全相同。
++func (s *Synth) OnlyChannel(ch int) {
++	if ch < -1 || ch >= len(s.ch) {
++		ch = -1
++	}
++	s.only = ch
++}
++
++// ExceptChannel 讓 Sample 把第 ch 個聲道排除在輸出之外（0–8），-1 恢復全部。診斷用。
++//
++// 與 OnlyChannel 互補，而且更有用：**拿掉某一個聲道之後保真度反而上升，
++// 那個聲道就是拖累**。只留單一聲道沒辦法直接跟參照比——參照那邊是混音，拆不開。
++func (s *Synth) ExceptChannel(ch int) {
++	if ch < -1 || ch >= len(s.ch) {
++		ch = -1
++	}
++	s.except = ch
++}
+diff --git a/opl2/stream.go b/opl2/stream.go
+new file mode 100644
+index 0000000..1a5fd2e
+--- /dev/null
++++ b/opl2/stream.go
+@@ -0,0 +1,335 @@
++// Package opl2 提供固定版近似核心及依完成指令水位推進的有界串流。
++// Stream 沒有裝置、牆鐘或遊戲常數；所有方法由同一供應 owner 呼叫。
++package opl2
++
++import (
++	"github.com/wicanr2/dosgolem/oracle"
++	"math"
++	"math/big"
++)
++
++const SampleRate = 44100
++const MaxPCMFrames = 4410
++const MaxPendingEvents = 262144
++
++type StreamConfig struct {
++	H, Tempo                    *big.Rat
++	InitialStep, ExistingWrites uint64
++}
++
++// StreamError 只有有限分類；不包入來源、任意回呼 error 或文字 payload。
++type StreamError struct{ Code string }
++
++func (e *StreamError) Error() string { return "OPL 串流：" + e.Code }
++
++type PCMChunk struct {
++	Start, End    uint64
++	Samples       []int16
++	WatermarkStep uint64
++	// Final 是本次 Accept 的最後 PCM 塊，不是來源 operation Final 或 Reader ACK。
++	Final bool
++	// Phase 是獨立複本；最後塊為精確 P(T)，中塊為 End。節流端再除44100。
++	Phase *big.Rat
++}
++type StreamStats struct {
++	EndStep, SourceStep, Frames, CanonicalFrames uint64
++	Received, Applied, Pending, Rejected         uint64
++	Bank1, CSM                                   uint64
++	Unsupported                                  map[string]int
++	Stopped, Incomplete                          bool
++	FaultCode                                    string
++}
++type pendingEvent struct {
++	frame uint64
++	write oracle.OPLWrite
++}
++type Stream struct {
++	h, tempo, slope, anchorPhase                                           big.Rat
++	anchorStep, endStep, sourceStep, frames, canonicalFrames, nextSequence uint64
++	received, applied, rejected, bank1, csm                                uint64
++	pending                                                                []pendingEvent
++	synth                                                                  *Synth
++	haveWatermark, stopped, incomplete, busy                               bool
++	fault                                                                  string
++}
++
++func positive(r *big.Rat) bool { return r != nil && r.Sign() > 0 }
++func NewStream(c StreamConfig) (*Stream, error) {
++	if c.InitialStep != 0 || c.ExistingWrites != 0 {
++		return nil, &StreamError{"cold_required"}
++	}
++	if !positive(c.H) || !positive(c.Tempo) {
++		return nil, &StreamError{"invalid_config"}
++	}
++	s := &Stream{nextSequence: 1, synth: New(SampleRate)}
++	s.h.Set(c.H)
++	s.tempo.Set(c.Tempo)
++	s.resetSlope()
++	return s, nil
++}
++func (s *Stream) resetSlope() {
++	s.slope.Quo(new(big.Rat).SetInt64(SampleRate), &s.h)
++	s.slope.Quo(&s.slope, &s.tempo)
++}
++func (s *Stream) PhaseAt(step uint64) (*big.Rat, error) {
++	if step < s.anchorStep {
++		return nil, &StreamError{"phase_before_anchor"}
++	}
++	p := new(big.Rat).Mul(&s.slope, new(big.Rat).SetInt(new(big.Int).SetUint64(step-s.anchorStep)))
++	return p.Add(p, &s.anchorPhase), nil
++}
++func ceiling(p *big.Rat) (uint64, error) {
++	if p.Sign() < 0 {
++		return 0, &StreamError{"index_backward"}
++	}
++	q, r := new(big.Int), new(big.Int)
++	q.QuoRem(p.Num(), p.Denom(), r)
++	if r.Sign() != 0 {
++		q.Add(q, big.NewInt(1))
++	}
++	if !q.IsUint64() {
++		return 0, &StreamError{"index_overflow"}
++	}
++	return q.Uint64(), nil
++}
++func (s *Stream) frameAt(step uint64) (uint64, error) {
++	p, e := s.PhaseAt(step)
++	if e != nil {
++		return 0, e
++	}
++	return ceiling(p)
++}
++func (s *Stream) canonicalAt(step uint64) (uint64, error) {
++	p := new(big.Rat).Quo(new(big.Rat).SetInt(new(big.Int).SetUint64(step)), &s.h)
++	p.Mul(p, new(big.Rat).SetInt64(SampleRate))
++	return ceiling(p)
++}
++
++// SetTempo 僅折疊已完成水位；Pending 的已計算全域 frame 永遠不重映射。
++func (s *Stream) SetTempo(step uint64, k *big.Rat) error {
++	if s.busy {
++		return &StreamError{"reentrant"}
++	}
++	if s.stopped {
++		return &StreamError{"stopped"}
++	}
++	if !s.haveWatermark || step != s.endStep {
++		return &StreamError{"tempo_watermark"}
++	}
++	if !positive(k) {
++		return &StreamError{"invalid_tempo"}
++	}
++	p, e := s.PhaseAt(step)
++	if e != nil {
++		return e
++	}
++	s.anchorPhase.Set(p)
++	s.anchorStep = step
++	s.tempo.Set(k)
++	s.resetSlope()
++	return nil
++}
++
++// Stop 是明示停止；已交付的塊不撤回，正在 Accept 的剩餘部分標為不完整。
++func (s *Stream) Stop() {
++	s.stopped = true
++	if s.busy {
++		s.incomplete = true
++	}
++}
++func (s *Stream) Stats() StreamStats {
++	u := make(map[string]int, len(s.synth.Unsupported))
++	for k, v := range s.synth.Unsupported {
++		u[k] = v
++	}
++	return StreamStats{s.endStep, s.sourceStep, s.frames, s.canonicalFrames, s.received, s.applied, uint64(len(s.pending)), s.rejected, s.bank1, s.csm, u, s.stopped, s.incomplete, s.fault}
++}
++func (s *Stream) reject(code string, w []oracle.OPLWrite) error {
++	// 診斷 counter 不屬核心交易；拒收不改相位、核心、水位、序號或 Pending。
++	add := uint64(len(w))
++	if add <= ^uint64(0)-s.rejected {
++		s.rejected += add
++	}
++	for _, x := range w {
++		if x.Bank != 0 && s.bank1 != ^uint64(0) {
++			s.bank1++
++		}
++		if x.Bank == 0 && x.Reg == 8 && x.Val&0x80 != 0 && s.csm != ^uint64(0) {
++			s.csm++
++		}
++	}
++	if s.fault == "" {
++		s.fault = code
++	}
++	return &StreamError{code}
++}
++func (s *Stream) prepare(b oracle.CompletedOPL) ([]pendingEvent, uint64, uint64, *big.Rat, error) {
++	fail := func(c string) ([]pendingEvent, uint64, uint64, *big.Rat, error) {
++		return nil, 0, 0, nil, &StreamError{c}
++	}
++	if b.ObserverFaultCode != "" {
++		return fail("observer_fault")
++	}
++	if b.Step < s.endStep {
++		return fail("watermark_backward")
++	}
++	if b.FirstSequence != s.nextSequence {
++		return fail("sequence")
++	}
++	switch b.OperationErrorCode {
++	case "", "budget", "exit", "no_response", "reentrant", "execution":
++	default:
++		return fail("operation_code")
++	}
++	if b.OperationErrorCode != "" && !b.Final {
++		return fail("operation_not_final")
++	}
++	if len(b.Writes) > MaxPendingEvents || len(s.pending) > MaxPendingEvents-len(b.Writes) {
++		return fail("pending_capacity")
++	}
++	if uint64(len(b.Writes)) > ^uint64(0)-s.nextSequence || uint64(len(b.Writes)) > ^uint64(0)-s.received {
++		return fail("counter_overflow")
++	}
++	phase, e := s.PhaseAt(b.Step)
++	if e != nil {
++		return nil, 0, 0, nil, e
++	}
++	target, e := ceiling(phase)
++	if e != nil {
++		return nil, 0, 0, nil, e
++	}
++	if target < s.frames {
++		return fail("index_backward")
++	}
++	canonical, e := s.canonicalAt(b.Step)
++	if e != nil {
++		return nil, 0, 0, nil, e
++	}
++	// 容量已檢查後才 copy；呼叫端不能在交付期間改寫交易輸入。
++	incoming := append([]oracle.OPLWrite(nil), b.Writes...)
++	next := make([]pendingEvent, len(s.pending), len(s.pending)+len(incoming))
++	copy(next, s.pending)
++	rhythm := uint64(0)
++	// 未施加的既有事件亦可能在本批或後續首幀一起 Write。
++	for _, p := range s.pending {
++		if p.write.Reg == 0xbd && p.write.Val&0x20 != 0 {
++			rhythm++
++		}
++	}
++	for i, w := range incoming {
++		if w.Step <= s.endStep || w.Step > b.Step {
++			return fail("event_watermark")
++		}
++		if i > 0 && w.Step < incoming[i-1].Step {
++			return fail("event_reversed")
++		}
++		if w.Bank != 0 {
++			return fail("bank1")
++		}
++		if w.Reg == 8 && w.Val&0x80 != 0 {
++			return fail("csm")
++		}
++		frame, e := s.frameAt(w.Step)
++		if e != nil {
++			return nil, 0, 0, nil, e
++		}
++		if frame < s.frames {
++			return fail("event_late")
++		}
++		if len(next) > 0 && frame < next[len(next)-1].frame {
++			return fail("event_reversed")
++		}
++		if w.Reg == 0xbd && w.Val&0x20 != 0 {
++			rhythm++
++		}
++		next = append(next, pendingEvent{frame, w})
++	}
++	maxInt := uint64(^uint(0) >> 1)
++	existing := s.synth.Unsupported["rhythm"]
++	if existing < 0 || rhythm > maxInt-uint64(existing) {
++		return fail("counter_overflow")
++	}
++	if uint64(len(next)) > ^uint64(0)-s.applied {
++		return fail("counter_overflow")
++	}
++	return next, target, canonical, phase, nil
++}
++
++// Accept 先驗整批；非法輸入不 yield，且核心、索引及 Pending 不變。
++// 合法批次逐塊提交。stop 或 yield 錯誤是「交付不完整」，不能稱原子拒絕。
++// 零幀批次亦 yield 一個空 Final 塊，其 Phase=P(T)，供唯一節流端對齊。
++func (s *Stream) Accept(b oracle.CompletedOPL, yield func(PCMChunk) error, stop func() bool) error {
++	if s.busy {
++		return &StreamError{"reentrant"}
++	}
++	if s.stopped {
++		return &StreamError{"stopped"}
++	}
++	if yield == nil {
++		return s.reject("nil_yield", b.Writes)
++	}
++	next, target, canonical, phase, e := s.prepare(b)
++	if e != nil {
++		return s.reject(e.(*StreamError).Code, b.Writes)
++	}
++	s.busy = true
++	defer func() { s.busy = false }()
++	// 所有輸入錯誤已在此之前拒絕；以下不再保存全批 PCM 或歷史 Applied。
++	s.pending = next
++	s.sourceStep = b.Step
++	s.received += uint64(len(b.Writes))
++	s.nextSequence += uint64(len(b.Writes))
++	first := true
++	for first || s.frames < target {
++		first = false
++		if s.stopped || stop != nil && stop() {
++			s.stopped = true
++			s.incomplete = true
++			return &StreamError{"stopped"}
++		}
++		start := s.frames
++		count := target - start
++		if count > MaxPCMFrames {
++			count = MaxPCMFrames
++		}
++		out := make([]int16, int(count))
++		j := 0
++		for i := range out {
++			n := start + uint64(i)
++			for j < len(s.pending) && s.pending[j].frame <= n {
++				w := s.pending[j].write
++				s.synth.Write(w.Reg, w.Val)
++				s.applied++
++				j++
++			}
++			out[i] = int16(math.Round(s.synth.Sample() * 32767))
++		}
++		if j > 0 {
++			// 去除已施加的前綴；保留上限內未施加事件，不留下歷史陣列。
++			remain := make([]pendingEvent, len(s.pending)-j)
++			copy(remain, s.pending[j:])
++			s.pending = remain
++		}
++		s.frames = start + count
++		final := s.frames == target
++		q := new(big.Rat).SetInt(new(big.Int).SetUint64(s.frames))
++		if final {
++			q.Set(phase)
++		}
++		if e := yield(PCMChunk{start, s.frames, out, b.Step, final, q}); e != nil {
++			s.incomplete = true
++			s.stopped = true
++			if s.fault == "" {
++				s.fault = "sink_failure"
++			}
++			return &StreamError{"sink_failure"}
++		}
++		if final {
++			break
++		}
++	}
++	s.endStep = b.Step
++	s.canonicalFrames = canonical
++	s.haveWatermark = true
++	return nil
++}
+diff --git a/opl2/stream_test.go b/opl2/stream_test.go
+new file mode 100644
+index 0000000..312918a
+--- /dev/null
++++ b/opl2/stream_test.go
+@@ -0,0 +1,239 @@
++package opl2
++
++import (
++	"github.com/wicanr2/dosgolem/oracle"
++	"math"
++	"math/big"
++	"reflect"
++	"testing"
++)
++
++func rs(n, d int64) *big.Rat { return new(big.Rat).SetFrac64(n, d) }
++func streamTest(t *testing.T, h, k *big.Rat) *Stream {
++	t.Helper()
++	s, e := NewStream(StreamConfig{H: h, Tempo: k})
++	if e != nil {
++		t.Fatal(e)
++	}
++	return s
++}
++func writesTest(step uint64, fnum uint16) []oracle.OPLWrite {
++	regs := [][2]uint8{{0x20, 1}, {0x23, 1}, {0x40, 0x3f}, {0x43, 0}, {0x60, 0xf0}, {0x63, 0xf0}, {0x80, 0}, {0x83, 0}, {0xc0, 0}, {0xa0, uint8(fnum)}, {0xb0, 0x30 | uint8(fnum>>8)}}
++	w := make([]oracle.OPLWrite, len(regs))
++	for i, r := range regs {
++		w[i] = oracle.OPLWrite{Step: step, Reg: r[0], Val: r[1]}
++	}
++	return w
++}
++func acceptTest(t *testing.T, s *Stream, b oracle.CompletedOPL) []int16 {
++	t.Helper()
++	all := []int16{}
++	if e := s.Accept(b, func(c PCMChunk) error {
++		if len(c.Samples) > MaxPCMFrames || uint64(len(c.Samples)) != c.End-c.Start {
++			t.Fatal("塊範圍")
++		}
++		all = append(all, c.Samples...)
++		return nil
++	}, nil); e != nil {
++		t.Fatal(e)
++	}
++	return all
++}
++func ceilTest(p *big.Rat) uint64 {
++	// 獨立 oracle：以 (num+den-1)/den，不用被測 helper。
++	v := new(big.Int).Add(p.Num(), new(big.Int).Sub(p.Denom(), big.NewInt(1)))
++	return v.Quo(v, p.Denom()).Uint64()
++}
++func TestStreamGenericInitialTempo(t *testing.T) {
++	for _, h := range []*big.Rat{rs(100000, 3), rs(65537, 7), rs(3000000, 1)} {
++		for _, k := range []*big.Rat{rs(1, 1), rs(2, 1), rs(4, 1), rs(3, 2), rs(5, 3)} {
++			s := streamTest(t, h, k)
++			w := writesTest(1, 580)
++			got := acceptTest(t, s, oracle.CompletedOPL{Step: 10003, FirstSequence: 1, Writes: w, Final: true})
++			r := new(big.Rat).Quo(rs(44100*10003, 1), h)
++			r.Quo(r, k)
++			if uint64(len(got)) != ceilTest(r) {
++				t.Fatal("獨立有理ceil")
++			}
++			synth := New(SampleRate)
++			j := 0
++			for n, v := range got {
++				// 獨立逆映射 floor(n*H*K/rate)。
++				step := new(big.Rat).Mul(rs(int64(n), 1), h)
++				step.Mul(step, k)
++				step.Quo(step, rs(44100, 1))
++				target := new(big.Int).Quo(step.Num(), step.Denom()).Uint64()
++				for j < len(w) && w[j].Step <= target {
++					synth.Write(w[j].Reg, w[j].Val)
++					j++
++				}
++				want := int16(math.Round(synth.Sample() * 32767))
++				if v != want {
++					t.Fatal("完整時間軸逐位元差")
++				}
++			}
++		}
++	}
++}
++func TestStreamChunkAndPendingPhaseFold(t *testing.T) {
++	h := rs(100000, 1)
++	w := writesTest(1, 580)
++	w = append(w, oracle.OPLWrite{Step: 10003, Reg: 0xb0, Val: 0x10})
++	one := streamTest(t, h, rs(1, 1))
++	all := acceptTest(t, one, oracle.CompletedOPL{Step: 14000, FirstSequence: 1, Writes: w, Final: true})
++	split := streamTest(t, h, rs(1, 1))
++	part := acceptTest(t, split, oracle.CompletedOPL{Step: 10003, FirstSequence: 1, Writes: w, Final: true})
++	part = append(part, acceptTest(t, split, oracle.CompletedOPL{Step: 14000, FirstSequence: uint64(len(w)) + 1, Final: true})...)
++	if !reflect.DeepEqual(all, part) {
++		t.Fatal("分塊PCM不一致")
++	}
++	s := streamTest(t, rs(100000, 1), rs(1, 1))
++	acceptTest(t, s, oracle.CompletedOPL{Step: 13, FirstSequence: 1, Writes: []oracle.OPLWrite{{Step: 13, Reg: 0xa0, Val: 3}}})
++	if len(s.pending) != 1 || s.pending[0].frame != 6 {
++		t.Fatal("邊界pending")
++	}
++	exact := rs(13*44100, 100000)
++	for i, k := range []*big.Rat{rs(2, 1), rs(4, 1), rs(1, 1), rs(3, 2), rs(5, 3)} {
++		T := uint64(13 + i*17)
++		if e := s.SetTempo(T, k); e != nil {
++			t.Fatal(e)
++		}
++		k.SetInt64(99) // 配置不能是可變別名。
++		actual, _ := s.PhaseAt(T)
++		if actual.Cmp(exact) != 0 {
++			t.Fatal("folded anchor")
++		}
++		speed := []*big.Rat{rs(2, 1), rs(4, 1), rs(1, 1), rs(3, 2), rs(5, 3)}[i]
++		exact.Add(exact, new(big.Rat).Quo(rs(17*44100, 100000), speed))
++		acceptTest(t, s, oracle.CompletedOPL{Step: T + 17, FirstSequence: 2})
++		if s.frames != ceilTest(exact) {
++			t.Fatal("跨段不可逐段ceil")
++		}
++	}
++	if s.applied != 1 || len(s.pending) != 0 {
++		t.Fatal("pending索引經fold後保存")
++	}
++}
++func TestStreamAtomicGuards(t *testing.T) {
++	s := streamTest(t, rs(100000, 1), rs(1, 1))
++	acceptTest(t, s, oracle.CompletedOPL{Step: 13, FirstSequence: 1, Writes: []oracle.OPLWrite{{Step: 13, Reg: 0xa0, Val: 3}}})
++	beforeCore := *s.synth
++	beforePhase, _ := s.PhaseAt(13)
++	beforePending := append([]pendingEvent(nil), s.pending...)
++	bad := []oracle.CompletedOPL{
++		{Step: 12, FirstSequence: 2}, {Step: 14, FirstSequence: 4},
++		{Step: 14, FirstSequence: 2, Writes: []oracle.OPLWrite{{Step: 13}}},
++		{Step: 14, FirstSequence: 2, Writes: []oracle.OPLWrite{{Step: 14, Bank: 1}}},
++		{Step: 14, FirstSequence: 2, Writes: []oracle.OPLWrite{{Step: 14, Reg: 8, Val: 0x80}}},
++		{Step: 14, FirstSequence: 2, Writes: []oracle.OPLWrite{{Step: 15}}},
++		{Step: 16, FirstSequence: 2, Writes: []oracle.OPLWrite{{Step: 16}, {Step: 15}}},
++		{Step: 14, FirstSequence: 2, OperationErrorCode: "invalid"},
++		{Step: 14, FirstSequence: 2, OperationErrorCode: "execution"},
++		{Step: 14, FirstSequence: 2, Writes: make([]oracle.OPLWrite, MaxPendingEvents+1)},
++	}
++	calls := 0
++	for _, b := range bad {
++		if e := s.Accept(b, func(PCMChunk) error { calls++; return nil }, nil); e == nil {
++			t.Fatal("錯批未拒絕")
++		}
++		p, _ := s.PhaseAt(13)
++		if calls != 0 || s.endStep != 13 || s.frames != 6 || s.nextSequence != 2 || s.received != 1 || p.Cmp(beforePhase) != 0 || !reflect.DeepEqual(beforeCore, *s.synth) || !reflect.DeepEqual(beforePending, s.pending) {
++			t.Fatal("核心交易污染")
++		}
++	}
++	if s.Stats().Rejected != MaxPendingEvents+7 || s.Stats().Bank1 != 1 || s.Stats().CSM != 1 {
++		t.Fatal("拒收診斷")
++	}
++	acceptTest(t, s, oracle.CompletedOPL{Step: 17, FirstSequence: 2, Final: true, OperationErrorCode: "execution"})
++}
++func TestStreamAliasEmptyAndOverflow(t *testing.T) {
++	h, k := rs(100000, 1), rs(2, 1)
++	s := streamTest(t, h, k)
++	h.SetInt64(1)
++	k.SetInt64(1)
++	calls := 0
++	e := s.Accept(oracle.CompletedOPL{FirstSequence: 1, Final: true}, func(c PCMChunk) error {
++		calls++
++		if !c.Final || len(c.Samples) != 0 || c.Phase.Sign() != 0 {
++			t.Fatal("空水位")
++		}
++		c.Phase.SetInt64(99)
++		return nil
++	}, nil)
++	if e != nil || calls != 1 {
++		t.Fatal("空批")
++	}
++	p, _ := s.PhaseAt(1)
++	if p.Cmp(rs(44100, 200000)) != 0 {
++		t.Fatal("phase別名")
++	}
++	too := streamTest(t, rs(1, 1), rs(1, 1))
++	if e := too.Accept(oracle.CompletedOPL{Step: ^uint64(0), FirstSequence: 1}, func(PCMChunk) error { t.Fatal("溢位已輸出"); return nil }, nil); e == nil || too.frames != 0 {
++		t.Fatal("溢位guard")
++	}
++	// 超過舊原型1000萬全域幀、64段仍有效，空batch不配置歷史。
++	s.frames = 10000001
++	s.endStep = 10000001
++	s.sourceStep = s.endStep
++	s.anchorStep = s.endStep
++	s.anchorPhase.SetInt(new(big.Int).SetUint64(s.frames))
++	s.haveWatermark = true
++	for i := 0; i < 80; i++ {
++		if e := s.SetTempo(s.endStep, rs(1, 1)); e != nil {
++			t.Fatal("非法全域/段上限")
++		}
++	}
++	acceptTest(t, s, oracle.CompletedOPL{Step: s.endStep, FirstSequence: 1})
++}
++func TestStreamBoundedSlowExplicitStop(t *testing.T) {
++	s := streamTest(t, rs(100000, 1), rs(1, 1000))
++	calls := 0
++	e := s.Accept(oracle.CompletedOPL{Step: 100000, FirstSequence: 1}, func(c PCMChunk) error {
++		calls++
++		if len(c.Samples) != 4410 || c.Phase.Cmp(rs(int64(c.End), 1)) != 0 {
++			t.Fatal("低速分塊")
++		}
++		return nil
++	}, func() bool { return calls == 2 })
++	if e == nil || calls != 2 || s.frames != 8820 || !s.stopped || !s.incomplete || s.endStep != 0 {
++		t.Fatal("explicit停止分類")
++	}
++	sink := streamTest(t, rs(100000, 1), rs(1, 1))
++	if e := sink.Accept(oracle.CompletedOPL{Step: 20000, FirstSequence: 1}, func(PCMChunk) error { return &StreamError{"private_sink"} }, nil); e == nil || !sink.incomplete || sink.fault != "sink_failure" {
++		t.Fatal("sink失敗")
++	}
++}
++func TestStreamPitchInitialSpeeds(t *testing.T) {
++	for _, f := range []uint16{580, 870} {
++		for _, k := range []int64{1, 2, 4} {
++			s := streamTest(t, rs(100000, 1), rs(k, 1))
++			a := acceptTest(t, s, oracle.CompletedOPL{Step: 60000, FirstSequence: 1, Writes: writesTest(1, f)})
++			var crossings []float64
++			for i := 1000; i < len(a); i++ {
++				if a[i-1] <= 0 && a[i] > 0 {
++					crossings = append(crossings, float64(i-1)+float64(-int(a[i-1]))/float64(int(a[i])-int(a[i-1])))
++				}
++			}
++			if len(crossings) < 20 {
++				t.Fatal("音源不足")
++			}
++			hz := float64(len(crossings)-1) * 44100 / (crossings[len(crossings)-1] - crossings[0])
++			want := float64(f) * 49716 / 65536
++			if math.Abs(hz-want) > 1 {
++				t.Fatalf("音高差 %.4f vs %.4f", hz, want)
++			}
++		}
++	}
++}
++
++// 待施加 rhythm 也要納入固定核心 int 診斷 counter 的提交前溢位檢查。
++func TestStreamPendingRhythmCounterOverflow(t *testing.T) {
++	s := streamTest(t, rs(100000, 1), rs(1, 1))
++	s.synth.Unsupported["rhythm"] = int(^uint(0)>>1) - 1
++	acceptTest(t, s, oracle.CompletedOPL{Step: 1, FirstSequence: 1, Writes: []oracle.OPLWrite{{Step: 1, Reg: 0xbd, Val: 0x20}}})
++	called := false
++	e := s.Accept(oracle.CompletedOPL{Step: 2, FirstSequence: 2, Writes: []oracle.OPLWrite{{Step: 2, Reg: 0xbd, Val: 0x20}}}, func(PCMChunk) error { called = true; return nil }, nil)
++	if e == nil || called || s.endStep != 1 || len(s.pending) != 1 {
++		t.Fatal("Pending rhythm未納入整批counter guard")
++	}
++}
+diff --git a/opl2/SOURCE-LICENSE.txt b/opl2/SOURCE-LICENSE.txt
+new file mode 100644
+index 0000000..926eebd
+--- /dev/null
++++ b/opl2/SOURCE-LICENSE.txt
+@@ -0,0 +1,327 @@
++復古重製 source-available 授權條款 1.0（RRSAL-1.0）
++Retro Remake Source-Available License, version 1.0 (RRSAL-1.0)
++SPDX-License-Identifier: LicenseRef-RRSAL-1.0
++
++適用作品：dosgolem（DOS 魔像）
++Copyright (c) 2026 Wang Chun-Yu (wicanr2) <wicanr2@gmail.com>
++
++繁體中文為準，英文譯本僅供參考（The Traditional Chinese text governs;
++the English translation below is provided for convenience only）。
++
++────────────────────────────────────────────────────────────
++
++前言
++
++本作品是對大宇資訊 1993 年 DOS 版《大富翁2》的為《大富翁2》remake 對拍而寫的無頭 DOS 執行器，
++目的是文化資產保存。著作權人希望它被廣泛使用、討論與展示，同時保留本作品的
++商業權利。本條款據此設計：非商業用途免費且寬鬆，商業用途保留給著作權人另行洽談。
++
++第 1 條　定義
++
++  (a) 「本作品」指本儲存庫中由著作權人創作的一切內容，包括但不限於：程式碼、
++      建置與打包腳本、工具、文件、規格、反組譯筆記、資料格式分析、譯文、
++      譯名對照與校訂紀錄、由著作權人製作的字型烘製結果與主題素材、依第 7 條
++      納入的貢獻，以及上述內容的編譯或封裝產物。從原版素材抽取或轉檔而成的
++      主題素材不是本作品，屬於原版素材。
++  (b) 「原版素材」指原版遊戲的執行檔、資料檔、美術、地圖、圖塊、臉譜、音樂、
++      音效、點陣字型、遊戲文字，以及任何其他平台版本的對應物。原版素材屬於
++      大宇資訊（Softstar）或其他各自的權利人。
++  (c) 「修改版」指以本作品為基礎，經修改、翻譯、移植、擴充或與其他作品結合
++      而成的作品。
++  (d) 「商業性使用」指以直接或間接取得金錢或其他對價為目的之使用，包括但不
++      限於：販售本作品或修改版；以付費、訂閱或會員形式提供；隨商品、硬體或
++      服務一併散布；在本作品或修改版中加入廣告、內購或贊助置入；在營利事業
++      的營運、產品或服務中使用；以及用於商業性的展覽、活動或行銷。
++  (e) 「貢獻」指任何人有意提交給著作權人以納入本作品的內容，包括程式碼、
++      文件、譯文、素材與其修改建議。
++
++第 2 條　涵蓋範圍與排除事項
++
++  (a) 本條款只適用於本作品。
++  (b) 本條款不適用於原版素材。本作品不散布原版素材；使用本作品的人必須自備
++      合法取得的原版副本。著作權人對原版素材不主張任何權利，也無權授權它們。
++  (c) 本儲存庫為了文件、研究與展示的目的，收錄了少量含有原版素材的片段，
++      包括：由原版執行檔量測得出的位址、常數與時序表（本儲存庫不含原版執行檔或資料檔本身）。這些片段中屬於
++      原版素材的部分不在本條款的授權範圍內；其收錄依據是研究與評論之目的。
++      著作權人創作的譯文與量測所得的資料表屬於本作品，在著作權人享有權利的
++      範圍內依本條款授權；譯文是原版文字的衍生著作，使用譯文重現遊戲仍以
++      自備原版為前提。
++  (d) 本儲存庫或發行包中含有的第三方元件（例如 Go 標準程式庫；測試語料 SingleStepTests/8088 依其自身授權，不隨本儲存庫散布）依各自的授權條款提供，不受本條款拘束；其授權聲明
++      隨同散布。
++
++第 3 條　非商業授權
++
++在遵守第 5 條的前提下，任何人都可以免費、不必事先取得同意：
++
++  (a) 為個人、教育、研究、保存、評論或其他非商業目的，使用、執行、重製與
++      散布本作品；
++  (b) 製作修改版，並在同樣的非商業前提下依本條款散布修改版；散布修改版的人
++      就其修改的部分，同意以與本條款相同的條件授權他人；
++  (c) 製作其他語言的譯文或語言包，並在同樣的非商業前提下依本條款散布。
++
++第 4 條　明示允許的展示與傳播
++
++下列行為即使伴隨收入，也不視為第 1 條 (d) 的商業性使用，著作權人明示允許：
++
++  (a) 以本作品或修改版進行遊戲實況、錄影、直播、評論、教學或報導，包括在
++      YouTube、Twitch、Bilibili 等平台上依該平台一般規則取得廣告分潤、
++      觀眾贊助或會員收入；
++  (b) 在文章、書籍、學術論文、演講、展覽或課程中引用、展示或討論本作品，
++      包括其截圖、程式碼片段與文件；
++  (c) 在保存、學術、非營利或社群性質的活動中展示或提供本作品。
++
++前述行為應依第 5 條 (b) 標示出處。下列行為不在本條範圍內，仍是商業性使用：
++以本作品或修改版作為主要販售標的；將其封裝為付費產品或服務；以其作為
++其他商品、硬體或服務的行銷工具或展示內容。
++
++第 5 條　條件
++
++  (a) 散布本作品或修改版時，要保留本授權條款全文與著作權聲明。
++  (b) 公開散布、展示或傳播本作品或修改版時，要以合理且明顯的方式標示：
++      本作品名稱、著作權人姓名（Wang Chun-Yu／wicanr2），以及原始出處
++      https://github.com/wicanr2/dosgolem 。
++  (c) 散布修改版時，要明確標示這是修改版、改動了什麼、由誰修改。不得讓人
++      誤以為修改版出自著作權人或經其認可，也不得以會造成混淆的方式使用
++      著作權人的姓名或本作品的名稱。
++  (d) 不得為取得或使用本作品或修改版本身收取費用（實體媒介與運送的實際成本
++      除外），不得以本作品或修改版換取其他對價。第 4 條允許的收入不受本款
++      限制。
++  (e) 不得散布原版素材，也不得把原版素材與本作品打包在一起散布。
++  (f) 不得移除、遮蔽或改動本作品中的著作權聲明、授權聲明與出處標示。
++  (g) 不得規避本條款。以自動轉換、重新排版、改寫、翻譯成其他程式語言等方式
++      製作的作品，仍是修改版，受本條款拘束。
++
++第 6 條　保留權利與商業授權
++
++  (a) 本條款未明示授與的一切權利，均由著作權人保留。商業性使用需要事先取得
++      著作權人的書面授權。
++  (b) 著作權人得以本條款以外的條件，向任何人另行授權本作品（包括商業授權與
++      專屬授權）。另行授權不影響他人依本條款已取得的非商業權利。
++  (c) 商業洽談請寄 wicanr2@gmail.com。歡迎來談——本條的用意是保留商業條件的
++      決定權，不是拒絕合作。
++
++第 7 條　貢獻
++
++  (a) 任何人向本作品提交貢獻，即表示同意：授與著作權人一項永久、不可撤銷、
++      全球性、免權利金、可再授權的授權，得以任何方式使用、重製、修改、散布
++      該貢獻，並得將其納入本作品後以本條款或任何其他條件（包括商業條件）
++      授權他人。
++  (b) 貢獻者保證自己有權作出前項授權，且貢獻不含未經授權的原版素材或第三方
++      內容。
++  (c) 貢獻者保留自己對該貢獻的著作權；著作權人會在合理範圍內於專案紀錄中
++      標示貢獻者。
++  (d) 不接受本條的人，請勿提交貢獻。
++
++第 8 條　名稱
++
++「dosgolem」、「dosgolem」及本儲存庫名稱是本作品的
++識別名稱。修改版可以說明自己「基於」本作品，但不得使用相同或近似的名稱作為
++修改版自己的名稱，除非取得著作權人書面同意。
++
++第 9 條　無擔保與責任限制
++
++本作品以「現狀」提供，不附任何明示或默示的擔保，包括但不限於適售性、特定
++目的適用性與未侵權的擔保。在法律允許的最大範圍內，著作權人不就因本作品或其
++使用而產生的任何請求、損害或其他責任負責，也不就使用者取得或使用原版素材
++的合法性負責。
++
++第 10 條　終止與回復
++
++  (a) 違反本條款時，本條款授與違反者的權利自動終止。
++  (b) 若違反者在知悉違反後三十日內改正並通知著作權人，授權自改正之日起回復。
++  (c) 對散布原版素材（第 5 條 (e)）或未經授權的商業性使用（第 6 條 (a)），
++      著作權人得拒絕回復。
++  (d) 終止不影響他人依本條款自違反者處善意取得本作品副本的權利，只要他們
++      自己遵守本條款。
++
++第 11 條　準據法與管轄
++
++本條款以中華民國（台灣）法律為準據法。因本條款所生的爭議，以臺灣臺北地方
++法院為第一審管轄法院。本條款以繁體中文版本為準；譯本與繁體中文版本有出入時，
++以繁體中文版本為準。
++
++第 12 條　與原版權利人的關係
++
++本作品與大宇資訊（Softstar）沒有隸屬、合作、贊助或授權關係，是獨立的
++第三方保存與研究專案。若原版權利人提出合法的權利主張，著作權人保留調整本
++作品內容的權利。
++
++第 13 條　版本
++
++著作權人得發布 RRSAL 的新版本（以版號識別，本版為 1.0）。已依某一版本取得的授權，依該版本的條件繼續
++有效；新版本適用於其發布後散布的本作品副本。
++
++────────────────────────────────────────────────────────────
++English translation (for convenience; the Chinese text governs)
++
++PREAMBLE. This work is a a headless DOS executor written as a parity oracle for the Rich 2 remake of Softstar's 1993 DOS game "Rich 2", made for cultural
++preservation. The copyright holder wants it widely used, discussed and shown,
++while keeping its commercial rights. This license is built accordingly:
++non-commercial use is free and permissive; commercial use is reserved for a
++separate agreement with the copyright holder.
++
++1. DEFINITIONS.
++   (a) "Work" means everything in this repository authored by the copyright
++       holder, including source code, build and packaging scripts, tools,
++       documentation, specifications, disassembly notes, file-format analyses,
++       translations, name tables and revision records, font renderings and
++       theme assets made by the copyright holder, Contributions incorporated
++       under Section 7, and compiled or packaged forms of any of these. Theme
++       assets extracted or converted from Original Assets are not part of the
++       Work; they are Original Assets.
++   (b) "Original Assets" means the original game's executables, data files,
++       artwork, maps, tiles, portraits, music, sound effects, bitmap fonts and
++       game text, and their counterparts in any other platform version.
++       Original Assets belong to Softstar Entertainment or their respective rights holders.
++   (c) "Modified Version" means any work based on the Work through
++       modification, translation, porting, extension or combination.
++   (d) "Commercial Use" means use aimed at obtaining money or other
++       consideration, directly or indirectly, including without limitation:
++       selling the Work or a Modified Version; offering it for a fee, by
++       subscription or membership; bundling it with goods, hardware or
++       services; adding advertising, in-app purchases or sponsorship
++       placements; using it in the operations, products or services of a
++       for-profit entity; and using it in commercial exhibitions, events or
++       marketing.
++   (e) "Contribution" means anything intentionally submitted to the copyright
++       holder for inclusion in the Work: code, documentation, translations,
++       assets and proposed changes.
++
++2. SCOPE AND EXCLUSIONS.
++   (a) This license applies only to the Work.
++   (b) This license does not apply to Original Assets. The Work does not
++       distribute them; users must supply their own lawfully obtained copy of
++       the original game. The copyright holder claims no rights in Original
++       Assets and cannot license them.
++   (c) For documentation, research and demonstration this repository contains
++       small excerpts that include Original Assets: addresses, constants and timing tables measured from the original executable (this repository contains no original executable or data files). The Original-Asset portions of
++       these excerpts are outside this license and are included for research
++       and commentary. Translations and measured tables authored by the
++       copyright holder are part of the Work and are licensed under these
++       terms to the extent of the copyright holder's rights in them; the
++       translations are derivative of the original text, and using them to
++       run the game still requires the user's own original copy.
++   (d) Third-party components in this repository or its packages (for example
++       the Go standard library; the SingleStepTests/8088 test corpus is under its own licence and is not redistributed with this repository)
++       are provided under their own licenses, which are distributed with them,
++       and are not governed by this license.
++
++3. NON-COMMERCIAL GRANT. Subject to Section 5, anyone may, free of charge and
++   without prior permission:
++   (a) use, run, reproduce and distribute the Work for personal, educational,
++       research, preservation, commentary or other non-commercial purposes;
++   (b) make Modified Versions and distribute them under this license on the
++       same non-commercial condition; whoever distributes a Modified Version
++       agrees to license their own changes to others on the same terms as
++       this license;
++   (c) make translations or language packs and distribute them under this
++       license on the same non-commercial condition.
++
++4. EXPRESSLY PERMITTED SHOWCASE AND COVERAGE. The following are not
++   Commercial Use under Section 1(d) even if they generate income, and are
++   expressly permitted:
++   (a) streaming, recording, broadcasting, reviewing, teaching or reporting
++       on the Work or a Modified Version, including earning advertising
++       revenue, viewer donations or membership income under the ordinary
++       rules of platforms such as YouTube, Twitch or Bilibili;
++   (b) quoting, showing or discussing the Work — including screenshots, code
++       excerpts and documentation — in articles, books, academic papers,
++       talks, exhibitions or courses;
++   (c) showing or providing the Work at preservation, academic, non-profit or
++       community events.
++   Attribution under Section 5(b) applies. The following remain Commercial
++   Use and are not covered by this Section: selling the Work or a Modified
++   Version as the main object of sale; packaging it as a paid product or
++   service; and using it as a marketing tool or demonstration content for
++   other goods, hardware or services.
++
++5. CONDITIONS.
++   (a) Keep this license and the copyright notice in every distribution of
++       the Work or a Modified Version.
++   (b) When publicly distributing, showing or transmitting the Work or a
++       Modified Version, give reasonable and visible credit: the name of the
++       Work, the copyright holder (Wang Chun-Yu / wicanr2), and the original
++       source at https://github.com/wicanr2/dosgolem .
++   (c) When distributing a Modified Version, state clearly that it is
++       modified, what was changed and by whom. Do not imply that it comes
++       from or is endorsed by the copyright holder, and do not use the
++       copyright holder's name or the Work's name in a confusing way.
++   (d) Do not charge for obtaining or using the Work or a Modified Version
++       itself (actual cost of physical media and shipping excepted), and do
++       not exchange them for other consideration. Income permitted by
++       Section 4 is not restricted by this paragraph.
++   (e) Do not distribute Original Assets, and do not bundle them with the
++       Work.
++   (f) Do not remove, obscure or alter copyright, license or attribution
++       notices in the Work.
++   (g) Do not circumvent this license. Works produced by automated
++       conversion, reformatting, rewriting or translation into another
++       programming language remain Modified Versions bound by this license.
++
++6. RESERVED RIGHTS AND COMMERCIAL LICENSING.
++   (a) All rights not expressly granted are reserved. Commercial Use requires
++       prior written permission from the copyright holder.
++   (b) The copyright holder may license the Work to anyone on terms other
++       than this license, including commercial and exclusive terms. Such
++       licenses do not affect non-commercial rights others have already
++       obtained under this license.
++   (c) Commercial enquiries: wicanr2@gmail.com. Enquiries are welcome — this
++       Section exists to keep commercial terms negotiable, not to refuse
++       cooperation.
++
++7. CONTRIBUTIONS.
++   (a) By submitting a Contribution, the contributor grants the copyright
++       holder a perpetual, irrevocable, worldwide, royalty-free,
++       sublicensable license to use, reproduce, modify and distribute the
++       Contribution in any way, and to license it as part of the Work under
++       this license or any other terms, including commercial terms.
++   (b) The contributor warrants that they are entitled to grant that license
++       and that the Contribution contains no unlicensed Original Assets or
++       third-party material.
++   (c) Contributors keep copyright in their Contributions; the copyright
++       holder will credit contributors in the project records where
++       reasonable.
++   (d) Do not submit a Contribution if you do not accept this Section.
++
++8. NAMES. "dosgolem", "dosgolem" and this
++   repository's name identify the Work. A Modified Version may state that it
++   is based on the Work, but may not use the same or a confusingly similar
++   name as its own name without the copyright holder's written consent.
++
++9. NO WARRANTY; LIMITATION OF LIABILITY. THE WORK IS PROVIDED "AS IS",
++   WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
++   TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
++   TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT HOLDER IS NOT LIABLE
++   FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM THE WORK OR ITS USE,
++   NOR FOR THE LAWFULNESS OF THE USER'S ACQUISITION OR USE OF ORIGINAL ASSETS.
++
++10. TERMINATION AND REINSTATEMENT.
++   (a) Rights under this license terminate automatically for anyone who
++       breaches it.
++   (b) If the breach is cured within thirty days of becoming aware of it and
++       the copyright holder is notified, the license is reinstated as of the
++       date of cure.
++   (c) The copyright holder may refuse reinstatement for distributing
++       Original Assets (Section 5(e)) or for unauthorised Commercial Use
++       (Section 6(a)).
++   (d) Termination does not affect the rights of others who received copies
++       of the Work from the breaching party in good faith, as long as they
++       themselves comply with this license.
++
++11. GOVERNING LAW AND VENUE. This license is governed by the laws of the
++   Republic of China (Taiwan). The Taiwan Taipei District Court is the court
++   of first instance for disputes arising from it. The Traditional Chinese
++   text governs; in case of discrepancy, the Traditional Chinese text
++   prevails over any translation.
++
++12. RELATIONSHIP TO THE ORIGINAL RIGHTS HOLDER. The Work is not affiliated
++   with, endorsed, sponsored or licensed by Softstar Entertainment; it is an independent
++   third-party preservation and research project. The copyright holder
++   reserves the right to adjust the Work's contents in response to a lawful
++   claim by the original rights holder.
++
++13. VERSIONS. The copyright holder may publish new versions of RRSAL
++   (identified by version number; this is version 1.0).
++   Rights obtained under a given version remain governed by that version; a
++   new version applies to copies of the Work distributed after its
++   publication.

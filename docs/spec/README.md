@@ -14,8 +14,9 @@
 | [006](006-flow-text.md) | 故事與旁白流動文字 |
 | [007](007-native-font.md) | 本機與發行字型原生尺寸 |
 | [008](008-english-key-tsv.md) | 英文鍵TSV來源（DRAFT） |
-| [009](009-player-audio.md) | 前端音樂播放（DRAFT） |
+| [009](009-player-audio.md) | 前端音樂播放（READY；正式接線與限定驗收完成，完整玩家路線待驗） |
 | [010](010-item-name-corrections.md) | 物品名稱錯配校正（READY；名稱與回歸通過，校正鍵上屏未量） |
 | [011](011-message-wording-unification.md) | 同義訊息文案統一（限定CONFORMED；實跑10筆，其他僅靜態驗證） |
 | [012](012-compound-item-output.md) | 三組複合物品名稱（正常路線通過；整份READY） |
 | [013](013-input-recording.md) | 前端輸入錄製／重播（DRAFT） |
+| [014](014-original-save-storage.md) | 原版存檔持久可寫層（DRAFT；預設位置與冷載入還原待確認） |

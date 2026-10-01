@@ -261,3 +261,51 @@ race警告與panic為0，R784獨立複核另行。
 不把送入點擊當成與舊定步數路線完全相同。暖header沿用R755來源索引的限制已明寫，
 由實際binary／candidate-source／checkpoint另綁定，不能當正式I2完整配置。
 輸出1000:1000、擁有權錯誤0、自有主代理容器已清理。
+
+## R784／R786：有效敘事GUI複核與存檔入口探查
+
+R784獨立報告SHA-256 `70da3db3a03be89ab9768b4117cebb4b3599f931ae19732d8419a562219df775`；
+122項索引SHA-256 `316feb4217cc3f7bff3a7ac2b47ef155ac480edc47be15499ac3be7ffe1594aa`。
+R780的2743事件、1368發布、327有效flow快照、2071次flow Draw、
+F1同Step凍結／恢復、一次no_response使資格false及248檔完整中繼資料，獨立核對相符。
+二進位`-race=true`已驗，終態Publication1368／Step3795M的PNG確認與雜湊一致。
+敘事首次Draw圖只記FirstFlowStep3485200000，沒有該張Publication或同發布確認；
+F1視窗圖亦無此確認。不能把終態確認外推到全部三張圖，不另重跑已足夠的長路線。
+暖啟動／NoCursorWait與100共同核心檔加1私人入口的限制維持，正式013仍DRAFT。
+
+R786報告SHA-256 `48cc3f9e48bc44cf63fef3b0a66e10a17e51c4c1b87bd8975185468cb689100a`；
+260項本機索引SHA-256 `18dfb4e6c65dc242d4cd22658da9ab7ab9820f0c2785aaefabf5d12346a72757`。
+沿用R780二進位與合法checkpoint，在真GUI以普通滑鼠點擊(160,15)，至3495M退出0、30.1秒。
+終畫面仍迷宮，未開保存／載入選單；248檔SHA與輸入相同，PNG綁Publication71／Step3495M。
+結構完成true、暖錄放資格false、錯誤事件0。此操作沒有完成原版保存或載入，
+未重新印出的職業欄也不當中文覆繪驗收；沒有新state匯出或正式程式改動。
+後續需查原版實際DISK入口，不能把啟動LOAD SAVEGAME介面當成存讀檔成功。
+輸出1000:1000，自有主代理容器、root-owned與誤建md目錄皆0。
+
+## R802：存檔落盤反例與正常保存證據
+
+報告SHA-256 `67d57de5efcb2b16a64a524e0e00a0a23dff5558061ee9c9a231ea24def19179`；
+970項本機索引`a775d1fdb01f4ad4c60bea180c747d837e46c68b07a267dcc464cf25ed1f2427`。
+以既有R733合法暖checkpoint及私人靜音GUI確認實際DISK入口(212,166)，
+再SAVE & RESUME(160,73)與SAVE(100,170)。Scratch空的對照只回成功，沒有實檔；
+這證實正式main未設定寫檔層是玩家可見缺陷，不能由選單返回宣稱保存成功。
+
+私人v3在LoadWith／既存checkpoint載入之後、原版Run之前SetScratch獨立輸出，
+原版74次DOS寫入生成SAVEGAME.DBS 11404 bytes，SHA-256
+`cd3ac3a0bb8f53e5e0c9fe6eebf5f2010be5ab8f63412bc7ffaa1ec11a508738`。
+保存位置`[0,11,5,3,61,91]`，正常前進後`[0,11,6,3,62,91]`；
+原版Root248檔初末全同，沒有既存同名檔，所以覆寫YES分支未量。
+暖fixture的NoCursorWait、無OPL listener／裝置與資格false維持，未做競爭檢查，
+不當正式音訊、冷錄放或完整存讀檔完成。
+
+冷啟動v5以正式Click且不用NoCursorWait觸發LOAD，先到原版防拷，立即停止該路線。
+沒有讀答案、推導或投遞Type，尚未到檔名介面或還原隊員／位置。
+R763／R776的既存錄放僅有Type的kind／seq／Step安全中繼資料，
+沒有題目身份／初態匹配或防拷成功收據；accepted=true不等於防拷通過，不盲套舊負載。
+首缺/w handle、暖時鐘未初始化、暖cursor等待、保存未落盤與cold沿暖選項等失敗均保留。
+完整存檔與圖片留本機；有界driver收尾不是正式原版Quit／A7驗收。
+
+`SetScratch`的既有通用契約適用首次建檔；`AllowFileWrites`僅Root既存basename，
+不解fresh首次SAVEGAME建立。本案正式修正見[014草稿](../spec/014-original-save-storage.md)，
+Root維持唯讀、預設存檔位置待使用者選定，014與013均未升READY。
+來源漂移0，UID/GID1000，自有容器、root-owned及誤建md目錄0。

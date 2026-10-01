@@ -24,18 +24,30 @@ F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
 
 本機倚天與可散布Unifont字型已有兩倍率畫面與F1操作驗收，見[字型證據](docs/re/018-distributable-font.md)。
 尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移及三平台發行包。
+原版存檔持久層及重新啟動載入仍在修正驗收，見[存檔規格草稿](docs/spec/014-original-save-storage.md)。
 開場故事與迷宮旁白使用訊息譯文表並依原版分頁覆繪；資料表中有譯文不代表所有玩家畫面都已中文化。
 完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
 
 ## 開發與本機執行
 
 目前提供開發入口，尚無完成驗收的正式下載包。
-需要 Docker、本機 `worktrees/dosgolem` 相容版本、使用者自備原版與本機字型；
-詳細依賴基線見 [CONTEXT.md](CONTEXT.md)。建置與執行經 [tools/fe.sh](tools/fe.sh) 的 Docker 工具鏈。
+需要 Docker、本機 `worktrees/dosgolem`、使用者自備原版與字型，以及專案既有的
+`wizardry7-go-ebiten`工具鏈映像檔與鎖版離線模組快取。下列入口已驗固定依賴準備，
+尚未完成全新環境的工具鏈建置驗收；映像檔來源見[Dockerfile](tools/docker/go-ebiten.Dockerfile)。
+音訊相依的dosgolem基線與固定來源列於[來源清單](tools/docker/dosgolem-audio-manifest.json)，
+以[準備腳本](tools/docker/prepare-dosgolem.sh)在容器中套用精確差異並核對SHA；
+腳本不切換既有分支、不丟棄其他修改。建置經 [tools/fe.sh](tools/fe.sh) 的 Docker 工具鏈。
 
 ```bash
+git clone https://github.com/wicanr2/dosgolem.git worktrees/dosgolem
+git -C worktrees/dosgolem switch -c wiz7-cht-opl-stream d16f03a2d8d782024d470606e1f4cb5272b89cd6
+tools/docker/prepare-dosgolem.sh
 tools/fe.sh build ./cmd/wiz7
 ```
+
+上述clone與分支命令供新環境使用；既有工作樹依[CONTEXT.md](CONTEXT.md)核對，不覆寫。
+互動前端預設按原版虛擬時鐘同步；明示`-ips`可手動加速，音樂維持音高，`-mute`關閉裝置播放。
+音訊仍在正式驗收階段，已量範圍與限制見[規格009](docs/spec/009-player-audio.md)。
 
 主程式入口為 `cmd/wiz7`，原版工作副本以 `-root` 指定，預設 `workplace/run`；
 譯文與字形重建方式見 [tools/re/bake_font.py](tools/re/bake_font.py)、[tools/re/bake_flow.py](tools/re/bake_flow.py) 及 [tools/re/bake_help.py](tools/re/bake_help.py)。

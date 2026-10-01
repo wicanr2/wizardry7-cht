@@ -1,6 +1,6 @@
 # 專案目標
 
-近期窄任務：[R725 複合物品名稱](R725-compound-item-output.md)。
+近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)。
 
 ## 終點
 

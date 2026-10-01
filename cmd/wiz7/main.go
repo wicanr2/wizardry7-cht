@@ -4,8 +4,7 @@
 // 架構：機器在背景 goroutine 用大塊 Run 推進（probe 同款快路徑——
 // 60fps 小塊 Run 在 credits→主選單轉場會卡死，docs/re/009），
 // 前端執行緒只抓畫面快照與轉發輸入（鎖保護）。
-// 速度以「每秒指令數」節流（預設 24M ≈ DOSBox-X cycles=20000 的體感：
-// 開機到主選單約 30–40 秒）。
+// 預設按原版虛擬時鐘同步；明示 -ips 可以加速，音樂維持音高（spec 009）。
 //
 //	wiz7 -root workplace/run [-scale 3] [-ips 24000000]
 package main
@@ -23,6 +22,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -564,9 +564,17 @@ type game struct {
 	lastMY   int
 	lbtn     bool
 	rbtn     bool
+	stop     *stopRequest
+	draws    atomic.Uint64
 }
 
 func (g *game) Update() error {
+	if g.stop != nil && ebiten.IsWindowBeingClosed() {
+		g.stop.Request()
+	}
+	if g.stop != nil && g.stop.Requested() {
+		return ebiten.Termination
+	}
 	// ── F1 說明（spec 003 R1）：F1 永遠由前端處理；說明開啟時其他輸入一律不送原版 ──
 	if inpututil.IsKeyJustPressed(ebiten.KeyF1) {
 		g.sh.mu.Lock()
@@ -652,6 +660,7 @@ func (g *game) Update() error {
 }
 
 func (g *game) Draw(dst *ebiten.Image) {
+	g.draws.Add(1)
 	g.sh.mu.Lock()
 	rgba := append([]byte(nil), g.sh.rgba...)
 	evs := append([]*textEv(nil), g.sh.evs...)
@@ -742,7 +751,8 @@ func main() {
 	root := flag.String("root", "workplace/run", "原版素材目錄（可寫複本）")
 	exe := flag.String("exe", "", "執行檔（預設 <root>/DS.EXE）")
 	scale := flag.Int("scale", 3, "畫面放大倍率")
-	ips := flag.Float64("ips", 24_000_000, "每秒指令數（節流基準）")
+	ips := flag.Float64("ips", 3004074.5544433594, "每秒指令數（未指定時採精確原版虛擬時鐘；指定正值可加速）")
+	mute := flag.Bool("mute", false, "靜音（原版音訊事件與遊戲時間仍正常推進）")
 	xlatePath := flag.String("xlate", "workplace/bake/xlate.json", "譯文表（空字串＝純英文模式）")
 	hdShotF := flag.Bool("hdshot", false, "每 30 秒輸出 HD 合成幀（PNG）")
 	autoplay := flag.Bool("autoplay", false, "內建自動遊玩時序（建隊→防拷→旁白→迷宮移動）")
@@ -761,6 +771,16 @@ func main() {
 	autoplayStop := flag.Uint64("autoplay-stop", 0, "測試用：autoplay 只執行門檻 ≤ 此步數的動作（0＝全部），之後交給真實輸入")
 	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
 	flag.Parse()
+	explicitIPS := false
+	flag.Visit(func(f *flag.Flag) {
+		if f.Name == "ips" {
+			explicitIPS = true
+		}
+	})
+	tempo, err := audioTempo(*ips, explicitIPS)
+	if err != nil {
+		log.Fatal("-ips 必須是有限正值")
+	}
 
 	program := *exe
 	if program == "" {
@@ -773,6 +793,8 @@ func main() {
 
 	ebiten.SetWindowSize(320**scale, 200**scale)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")
+	ebiten.SetWindowClosingHandled(true)
+	stop := newStopRequest()
 
 	sh := &shared{rgba: make([]byte, 320*200*4)}
 	// ── xlate 翻譯層 ──────────────────────────────────────────────
@@ -1030,7 +1052,7 @@ func main() {
 		}
 		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
 	})
-	g := &game{sh: sh, scale: *scale, help: loadHelp(*helpPath), flow: ov.flow, flowImgs: map[string]*ebiten.Image{}}
+	g := &game{sh: sh, scale: *scale, help: loadHelp(*helpPath), flow: ov.flow, flowImgs: map[string]*ebiten.Image{}, stop: stop}
 	if !*hdOnly {
 		g.screen = ebiten.NewImage(320, 200)
 	}
@@ -1059,8 +1081,8 @@ func main() {
 				last = fmt.Sprintf("(%d,%d)@%d", l.X, l.Y, l.Step)
 			}
 			n0, n1, n2, n3 := o.MouseRange()
-			log.Printf("AUTO滑鼠 %s (%d,%d) err=%v pos=(%d,%d) sets=%d last=%s range=[%d-%d,%d-%d]",
-				op, x, y, err, mx, my, len(sets), last, n0, n1, n2, n3)
+			log.Printf("AUTO滑鼠 %s (%d,%d) err=%s pos=(%d,%d) sets=%d last=%s range=[%d-%d,%d-%d]",
+				op, x, y, frontendOperationCode(err), mx, my, len(sets), last, n0, n1, n2, n3)
 		}
 		cl := func(x, y int) func(*oracle.Oracle) {
 			// R13：印出 Click error（含 Polls）——畫面不變時區分座標錯／沒準備好。
@@ -1068,7 +1090,7 @@ func main() {
 			return func(o *oracle.Oracle) {
 				err := o.Click(x, y)
 				if err != nil {
-					log.Printf("AUTO點擊 (%d,%d)：%v", x, y, err)
+					log.Printf("AUTO點擊 (%d,%d)：%s", x, y, frontendOperationCode(err))
 				}
 				logMouse(o, "click", x, y, err)
 			}
@@ -1188,7 +1210,7 @@ func main() {
 			fn func(*oracle.Oracle)
 		}{st, func(o *oracle.Oracle) {
 			err := o.Click(x, y)
-			log.Printf("測試點擊 (%d,%d) steps=%d err=%v", x, y, o.Steps(), err)
+			log.Printf("測試點擊 (%d,%d) steps=%d err=%s", x, y, o.Steps(), frontendOperationCode(err))
 		}})
 	}
 	if *mapAt > 0 {
@@ -1240,13 +1262,13 @@ func main() {
 	autoIdx := 0
 
 	// snapshot 是快照節點（spec 001 R4.3）：R3 判定一次，低解析合成（已還原英文筆畫）
-	// 轉 RGBA 給 Draw，並更新 shown 事件。呼叫端持有 sh.mu。
+	// 先在owner建立獨立資料，再短鎖發布；原版推進／合成／節流均不持sh.mu。
 	// 每輪迴圈結尾與每個 auto 執行後都要呼叫：autoplay 的 o.Click 內部會跑數百萬步，
 	// 多個 auto 可能在同一輪連鎖執行，只在輪末快照會讓 sh.evs 過期（R667 實測：
 	// 240M→286M 之間零快照，-help-at 讀到 247M 的舊主選單）。
 	snapshot := func() {
 		am.update(o) // spec 005 R1／R2：只讀
-		sh.mapView = am.view()
+		mapSnapshot := am.view()
 		evMu.Lock()
 		comp, shown, pages := ov.compose(o)
 		evMu.Unlock()
@@ -1254,52 +1276,67 @@ func main() {
 		for _, pg := range pages {
 			views = append(views, pg.view())
 		}
-		sh.flow = views
+		rgba := make([]byte, 320*200*4)
 		pal := o.Palette()
 		for i, v := range comp {
 			c := pal[v]
-			sh.rgba[i*4], sh.rgba[i*4+1], sh.rgba[i*4+2], sh.rgba[i*4+3] = c[0], c[1], c[2], 255
+			rgba[i*4], rgba[i*4+1], rgba[i*4+2], rgba[i*4+3] = c[0], c[1], c[2], 255
 		}
-		sh.evs = shown
+		visual := cloneVisualEvents(shown)
+		sh.mu.Lock()
+		sh.mapView, sh.flow, sh.rgba, sh.evs = mapSnapshot, views, rgba, visual
+		sh.mu.Unlock()
 	}
+
+	audioOut, err := newPlayerAudio(o, tempo, *mute || *hdOnly, stop)
+	if err != nil {
+		log.Fatal("音訊串流初始化失敗")
+	}
+	ownerDone := make(chan struct{})
+	var sourceStats oracle.OPLSourceStats
+	var finalStep uint64
+	runStarted := time.Now()
 
 	// 機器 goroutine：大塊 Run（probe 同款快路徑），節流＋吃前端輸入。
 	// ⚠ MoveMouse 只在座標真的變了才送——遊戲把滑鼠活動當「有人在看」，
 	// 每塊都送會重置故事頁的推進計時（docs/re/009 的教訓）。
 	go func() {
+		defer close(ownerDone)
+		defer stop.Request()
+		defer func() { sourceStats = o.OPLSourceStats(); finalStep = o.Steps() }()
 		chunk := uint64(200_000)
-		minWall := time.Duration(float64(chunk) / *ips * float64(time.Second))
-		last := time.Now()
 		lastR := false
 		lastX, lastY := -1, -1
 		paused := false
 		for i := 0; ; i++ {
+			if stop.Requested() {
+				audioOut.stopAtBoundary()
+				return
+			}
 			sh.mu.Lock()
 			// spec 003 R2：說明開啟＝不推進、不投遞任何輸入（含游標位置）
-			if sh.helpOpen != paused {
-				paused = sh.helpOpen
-				log.Printf("說明 暫停=%v steps=%d", paused, o.Steps())
-			}
+			pauseChanged := sh.helpOpen != paused
+			paused = sh.helpOpen
 			if paused {
 				sh.mu.Unlock()
-				time.Sleep(16 * time.Millisecond)
+				audioOut.Pause(true)
+				if pauseChanged {
+					log.Printf("說明 暫停=true steps=%d", o.Steps())
+				}
+				timer := time.NewTimer(16 * time.Millisecond)
+				select {
+				case <-timer.C:
+				case <-stop.done:
+				}
+				timer.Stop()
 				continue
 			}
-			for _, sc := range sh.keys {
-				o.PressKey(oracle.Key(sc))
-				log.Printf("送鍵 %02x steps=%d", sc, o.Steps()) // spec 005 驗收：F2（3c）不得出現
-			}
+			keys := append([]uint8(nil), sh.keys...)
 			sh.keys = nil
-			if len(sh.stdin) > 0 {
-				o.Type(string(sh.stdin))
-				sh.stdin = nil
-			}
+			stdin := append([]byte(nil), sh.stdin...)
+			sh.stdin = nil
 			bx, by := sh.mouseX, sh.mouseY
 			r := sh.rbtn
-			if bx != lastX || by != lastY {
-				o.MoveMouse(bx, by)
-				lastX, lastY = bx, by
-			}
 			// 整包點擊（Click 路徑——分離的 Press/Release 在部分遊戲失效）
 			var clicks []struct{ x, y int }
 			for len(sh.clicks) > 0 {
@@ -1307,21 +1344,33 @@ func main() {
 				sh.clicks = sh.clicks[1:]
 				clicks = append(clicks, c)
 			}
-			// MoveMouse（游標位置）
+			sh.mu.Unlock()
+			audioOut.Pause(false)
+			if pauseChanged {
+				log.Printf("說明 暫停=false steps=%d", o.Steps())
+			}
+			for _, sc := range keys {
+				o.PressKey(oracle.Key(sc))
+				log.Printf("送鍵 %02x steps=%d", sc, o.Steps())
+			}
+			if len(stdin) > 0 {
+				o.Type(string(stdin))
+			}
+			// MoveMouse（游標位置）：只送真實變化，不重置原版故事計時。
 			if bx != lastX || by != lastY {
 				o.MoveMouse(bx, by)
 				lastX, lastY = bx, by
 			}
-			sh.mu.Unlock()
 			for _, c := range clicks {
 				// spec 004 R2／R3：與 autoplay 同一 API；錯誤只記 log
 				err := o.Click(c.x, c.y)
-				log.Printf("左鍵 (%d,%d) steps=%d err=%v", c.x, c.y, o.Steps(), err)
-				sh.mu.Lock()
+				audioOut.AfterOperation(o)
+				log.Printf("左鍵 (%d,%d) steps=%d err=%s", c.x, c.y, o.Steps(), frontendOperationCode(err))
 				snapshot() // spec 005 R1：每下點擊後快照，避免兩步併成一次
-				sh.mu.Unlock()
+				if stop.Requested() {
+					return
+				}
 			}
-			sh.mu.Lock()
 			// 右鍵維持 Press/Release 路徑
 			if r != lastR {
 				if r {
@@ -1330,10 +1379,15 @@ func main() {
 					o.ReleaseButton(1)
 				}
 				lastR = r
+				log.Printf("右鍵 按下=%v steps=%d", r, o.Steps())
 			}
-			if err := o.Run(chunk); err != nil {
-				sh.mu.Unlock()
-				log.Printf("機器停止於 steps=%d：%v", o.Steps(), err)
+			runErr := o.Run(chunk)
+			audioOut.AfterOperation(o)
+			if runErr != nil {
+				log.Printf("機器停止於 steps=%d：%s", o.Steps(), frontendOperationCode(runErr))
+				return
+			}
+			if stop.Requested() {
 				return
 			}
 			// 自動遊玩：步數過門檻執行（R10 步數門控）
@@ -1342,12 +1396,14 @@ func main() {
 				if o.Steps() < a.at {
 					break
 				}
-				sh.mu.Unlock()
 				fmt.Printf("AUTO %d 執行 steps=%d\n", a.at, o.Steps())
 				a.fn(o)
+				audioOut.AfterOperation(o)
 				autoIdx++
-				sh.mu.Lock()
 				snapshot()
+				if stop.Requested() {
+					return
+				}
 			}
 			// HD 幀輸出（每 30 秒）：A0000 2x 放大＋文字事件疊畫
 			if hdShot && time.Since(lastHD) > 3*time.Second {
@@ -1374,13 +1430,6 @@ func main() {
 				log.Printf("chunk %d steps=%d mode=%d idxNZ=%d rgbNZ=%d pal[15]=%v", i, o.Steps(), o.VideoMode(), nz, nz2, pal[15])
 			}
 			snapshot()
-			sh.mu.Unlock()
-
-			elapsed := time.Since(last)
-			if elapsed < minWall {
-				time.Sleep(minWall - elapsed)
-			}
-			last = time.Now()
 		}
 	}()
 
@@ -1389,7 +1438,52 @@ func main() {
 		// 只跑機器 goroutine＋hdFrame 輸出。
 		select {}
 	}
-	if err := ebiten.RunGame(g); err != nil {
-		log.Fatal(err)
+	gameErr := ebiten.RunGame(g)
+	stop.Request()
+	deadline := time.NewTimer(max(time.Until(stop.Deadline()), 0))
+	defer deadline.Stop()
+	select {
+	case <-ownerDone:
+		if !time.Now().Before(stop.Deadline()) {
+			log.Print("退出失敗：owner_timeout")
+			os.Exit(1)
+		}
+	case <-deadline.C:
+		log.Print("退出失敗：owner_timeout")
+		os.Exit(1)
 	}
+	closed := make(chan string, 1)
+	go func() { closed <- audioOut.shutdownPlayer() }()
+	select {
+	case result := <-closed:
+		if !time.Now().Before(stop.Deadline()) {
+			log.Print("退出失敗：close_timeout")
+			os.Exit(1)
+		}
+		log.Printf("音訊結束 fault=%s close=%s stream=%+v reader=%+v 畫格率=%.2f", audioOut.fault, result,
+			audioOut.stream.Stats(), audioOut.reader.Stats(), float64(g.draws.Load())/time.Since(runStarted).Seconds())
+		log.Printf("原版完成Step=%d 來源=%+v；consumer Received為合法接受，總送達=Received+Rejected", finalStep, sourceStats)
+		if result != "" || audioOut.fault != "" {
+			os.Exit(1)
+		}
+	case <-deadline.C:
+		log.Print("退出失敗：close_timeout")
+		os.Exit(1)
+	}
+	if gameErr != nil {
+		log.Printf("前端結束：%v", gameErr)
+	}
+}
+
+// GUI只持有顯示資料；不共享owner仍可能修改的事件、頁面或字形slice。
+func cloneVisualEvents(in []*textEv) []*textEv {
+	out := make([]*textEv, 0, len(in))
+	for _, e := range in {
+		v := &textEv{s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fgRGB: e.fgRGB}
+		for _, glyph := range e.g {
+			v.g = append(v.g, append([]uint16(nil), glyph...))
+		}
+		out = append(out, v)
+	}
+	return out
 }

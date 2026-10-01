@@ -1,0 +1,74 @@
+{
+  "base_commit": "d16f03a2d8d782024d470606e1f4cb5272b89cd6",
+  "branch": "wiz7-cht-opl-stream",
+  "patch_sha256": "96501a7f2e095a1cebd2cec7798d7dd9fd4d50c5a399dd7cb704ebda051125b9",
+  "spec": "docs/spec/009-player-audio.md",
+  "license": "RRSAL-1.0；來源授權全文保留於opl2/SOURCE-LICENSE.txt",
+  "files": [
+    {
+      "path": "oracle/oracle.go",
+      "sha256": "b4488d10acfeba9fdbc0a8edce88bc2797a0f7f80550d90aaa4fb53b4eeb6191",
+      "size": 30446
+    },
+    {
+      "path": "oracle/run.go",
+      "sha256": "2d529f0a5025cf33fac6d67c2c010c5211aff3d3c047d15594d05547fffcb375",
+      "size": 19729
+    },
+    {
+      "path": "oracle/input.go",
+      "sha256": "71d985cba6af778d36b4bb54a40b82772ef260be43e8fd557d2ac2ab4433b2c8",
+      "size": 15106
+    },
+    {
+      "path": "oracle/state.go",
+      "sha256": "e758c4add20837992381865469cf1dff0c721dbf03b15bc670465facd73901bf",
+      "size": 4716
+    },
+    {
+      "path": "oracle/opl_progress.go",
+      "sha256": "6bd9b77135d68f7de1ba146ab9bc80be538926b8af874e3c8ca44a61ffd2364b",
+      "size": 6609
+    },
+    {
+      "path": "oracle/opl_progress_test.go",
+      "sha256": "528cab0e85eb9fe56f2dd7ecbac049329190118cf4d58c86bbfb6af40f3dbede",
+      "size": 6552
+    },
+    {
+      "path": "oracle/clock_settings.go",
+      "sha256": "686bc501004594dfb3ce43afe4163b9d729303af8cd7e11daaaded0c767c7584",
+      "size": 458
+    },
+    {
+      "path": "oracle/clock_settings_test.go",
+      "sha256": "8668b955cf6c5dc89b5f0996f52e7d96b43fbced77e731945f6c21a8fc5f9713",
+      "size": 515
+    },
+    {
+      "path": "internal/machine/machine.go",
+      "sha256": "814785c275cac0ef2632a0bee39b7b88306a63b8e7e55a6f92fb526e748dbb43",
+      "size": 51426
+    },
+    {
+      "path": "opl2/opl2.go",
+      "sha256": "18786416fc1ad060f6f936b2c4c422af0b78e5fa3b0a356ff88321176f9a84d8",
+      "size": 10918
+    },
+    {
+      "path": "opl2/stream.go",
+      "sha256": "e870364955d3b701caabf886b7deefbe581bdb83f8166c9ed7c823ee5d09e582",
+      "size": 9837
+    },
+    {
+      "path": "opl2/stream_test.go",
+      "sha256": "38cf5c3e68399e327799e8daf0336b74090942fd90c095efc723241291ac6ef4",
+      "size": 9132
+    },
+    {
+      "path": "opl2/SOURCE-LICENSE.txt",
+      "sha256": "d70e70a35fe613d505ea57b97c986b58e2b16c980e37b985811cdf80cf7f8ede",
+      "size": 20223
+    }
+  ]
+}
