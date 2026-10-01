@@ -51,6 +51,7 @@ psychic-war 已用這條路完成一款；本專案要驗證它對 overlay 架�
 | 670 | [R670](R670-story-spec.md) | 開場故事證據與規格修正（#40） |
 | 671 | [R671](R671-story-overlay.md) | 開場故事覆繪實作與獨立驗收（#40） |
 | 672 | [R672](R672-delivery-prerequisites.md) | TSV 與發行字型前置（#24、#25） |
+| 701 | [R701](R701-audio-playability.md) | 前端聲音與可玩性（#18） |
 
 第 2 輪起依 M0 的結論再定。
 
