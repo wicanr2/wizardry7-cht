@@ -31,6 +31,7 @@ func main() {
 	stop := flag.Uint64("stop", 286_000_000, "停止步數")
 	from := flag.Uint64("from", 0, "只記錄這個步數之後的印字事件")
 	clicksF := flag.String("clicks", "", "step:x:y 逗號分隔")
+	msgFn := flag.Bool("msg", false, "另記訊息取得入口 0110:0582（sub_10582，docs/re/013 追記二十四）的參數")
 	typeF := flag.String("type-at", "", "step:字串（以 DOS stdin 輸入；\\r 代表 Enter）")
 	flag.Parse()
 
@@ -47,6 +48,13 @@ func main() {
 		panic(err)
 	}
 
+	if *msgFn {
+		o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
+			if o.Steps() >= *from {
+				fmt.Printf("訊息 %d id=%d arg2=%d ret=%04x\n", o.Steps(), o.StackWord(1), o.StackWord(2), o.StackWord(0))
+			}
+		})
+	}
 	var scr uint16 // 最近一次 blit 的來源段
 	blitDS := map[uint16]int{}
 	o.OnCall(oracle.Addr{Seg: 0x740C, Off: 0x05F5}, func(o *oracle.Oracle) {

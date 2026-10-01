@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-09-30。程式基線：`a63e4f8`；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
+核對日期：2026-10-01。程式基線：`a63e4f8`；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -21,7 +21,7 @@
 ## 收尾尚缺的證據與交付
 
 - 全文來源仍是 JSON 與訊息 ID；TSV＋英文鍵遷移見 [#24](https://github.com/wicanr2/wizardry7-cht/issues/24)。譯文覆蓋與正常路徑觸發對帳見 [#22](https://github.com/wicanr2/wizardry7-cht/issues/22)，資料已翻譯不能當作已上屏。
-- 開場故事 `0110:be0c` 仍依賴本機 `story.txt`。[#40](https://github.com/wicanr2/wizardry7-cht/issues/40) 的 spec 006 修訂為 DRAFT，故事部分不可進正式實作；旁白部分維持 READY。
+- 開場故事 `0110:be0c` 仍依賴本機 `story.txt`。使用者已選擇採用訊息譯文表，逐列來源退場。[#40](https://github.com/wicanr2/wizardry7-cht/issues/40) 的 spec 006 修訂已通過第二輪審查、達 READY，待實作與同狀態驗收。
 - 發行字型尚未完成（[#25](https://github.com/wicanr2/wizardry7-cht/issues/25)），目前使用的倚天字型只可本機使用。沒有可核實的三平台正式交付與通關收據。
 - 輸入錄放、音訊完成條件仍以 [#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[#18](https://github.com/wicanr2/wizardry7-cht/issues/18) 為準；早期 OPL2 事件比較通過不等於前端聲音與播放對齊驗收完成。
 - 作弊功能見 [#35](https://github.com/wicanr2/wizardry7-cht/issues/35)，尚未有正式驗收；不可用作弊建立中文化回歸收據。
@@ -36,6 +36,6 @@
 
 ## 本輪交接
 
-[R669](docs/goal/R669-closeout-context.md) 處理 #27 文件遷移。舊工作清單 [docs/worklist.json](docs/worklist.json) 保留為歷史快照，停止作為待辦來源；其三項未完成工作都已對應遠端 open Issue（#17、#18、#22）。
-工作樹另有 #40 的探針／證據／規格草稿與未追蹤的 R433 goal；本輪不混入提交。
+[R670](docs/goal/R670-story-spec.md) 補 #40 證據與規格。前頁返回下界重算31頁字詞相符；6M／8M的31頁原版像素與背景帶均穩定，收據在 `workplace/r673`。第二輪唯讀審查無阻擋，文字澄清已處理；下一步是故事實作與獨立驗收。
+舊工作清單 [docs/worklist.json](docs/worklist.json) 保留為歷史快照，不再更新；未追蹤的 R433 goal 不混入提交。
 歷史基線 `workplace/r670/` 應保留；現有 `tools/flow-check.sh` 會刪除該路徑，重跑前須調整為新收據目錄，不能覆寫舊基準。

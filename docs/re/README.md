@@ -21,5 +21,5 @@
 | [014 唯讀覆繪](014-overlay-evidence.md) | 印字前後差異、原版 A/B 雜湊及顯示驗收 |
 | [015 F1 說明](015-f1-help-evidence.md) | 前端送鍵與說明面板證據 |
 | [016 隊伍位置](016-party-position.md) | 移動與面向量測；未證實欄位語意維持原等級 |
-| [017 流動文字](017-flow-text-evidence.md) | 旁白分頁與故事取訊息紀錄，故事規格仍 DRAFT |
+| [017 流動文字](017-flow-text-evidence.md) | 旁白分頁與故事取訊息紀錄；故事規格 READY，待實作驗收 |
 | [M3 早期筆記](m3-notes.md)、[後續筆記](m3-notes2.md) | 歷史線索，不能取代後續資料庫或量測證據 |
