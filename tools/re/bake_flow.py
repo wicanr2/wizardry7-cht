@@ -12,6 +12,7 @@
 #   字形   bake_font.glyph_scaled（15 位元靠右，與 xlate.json 同一函式）
 # --drop <id>：移除含該 id 的整個段落（驗收 9 的負向測試檔）。
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -26,6 +27,14 @@ PROT = range(2500, 2575)  # 手冊防拷關鍵字表：一律排除，不寫進�
 
 def strip_ctl(s: str) -> str:
     return "".join(c for c in s if c >= " ")
+
+
+def message_text(s: str):
+    s = strip_ctl(s)
+    if s.startswith(('@', '#')):
+        s = s[1:]
+    terminator = re.search(r'\s*(?:&[%#|\[]*)+\]$', s)
+    return (s[:terminator.start()] if terminator else s), int(terminator is not None)
 
 
 def parse_line(en: str):
@@ -98,8 +107,20 @@ def build(drop=None):
         stats["lines"] += len(lines)
         stats["usable_lines"] += sum(1 for l in lines if l["zh"])
         stats["full_paras"] += all(l["zh"] for l in lines)
-    used = {ch for p in paras for l in p["lines"] for ch in l["zh"]}
-    return {"glyphs": {c: g for c, g in glyphs.items() if c in used}, "paras": paras}, stats
+    msgs = {}
+    for r in records:
+        i = r['id']
+        if i in PROT or i == drop:
+            continue
+        en, term = message_text(r['en'])
+        if not en.split() or any(not 0x20 <= ord(c) <= 0x7E for c in en) or any(c in en for c in '@^$%&]#'):
+            continue
+        zh, _ = message_text(trans.get(str(i), {}).get('zh', ''))
+        msgs[str(i)] = {'w': ' '.join(en.split()), 't': term, 'z': usable_zh(zh, glyphs)}
+    stats['msgs'] = len(msgs)
+    stats['usable_msgs'] = sum(bool(m['z']) for m in msgs.values())
+    used = {ch for p in paras for l in p["lines"] for ch in l["zh"]} | {ch for m in msgs.values() for ch in m['z']}
+    return {"glyphs": {c: g for c, g in glyphs.items() if c in used}, "paras": paras, 'msgs': msgs}, stats
 
 
 def main():
@@ -114,7 +135,7 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     print(f"flow.json：段落 {st['paras']}、可索引行 {st['lines']}、譯文可用的行 {st['usable_lines']}、"
-          f"整段都可翻譯的段落 {st['full_paras']}、字形 {len(data['glyphs'])} → {out}")
+          f"整段都可翻譯的段落 {st['full_paras']}、訊息 {st['msgs']}（可譯 {st['usable_msgs']}）、字形 {len(data['glyphs'])} → {out}")
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ import json
 import re
 import subprocess
 import sys
+from collections import Counter
 from pathlib import Path
 
 OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else Path('workplace/r673')
@@ -137,5 +138,39 @@ def analyze():
     print('逐頁末片段返回步數:', ','.join(str(g[-1]['Step']) for g in groups))
 
 
+def transient():
+    """最後故事頁的帶內暫態：與前頁筆畫及實作前原版樣本交叉驗證。"""
+    source = Path('workplace/r673/timing/traces.json')
+    traces = json.loads(source.read_text())
+    last_page = max(t['Page'] for t in traces)
+    strokes = {p:set() for p in [last_page-1,last_page]}
+    for t in traces:
+        if t['Page'] in strokes:
+            b,a = Path(t['Before']).read_bytes(),Path(t['After']).read_bytes()
+            strokes[t['Page']].update(i for i,(x,y) in enumerate(zip(b,a)) if x!=y)
+    after = Path(traces[-1]['After']).read_bytes()
+    entry = pages()[-1][-1]
+    rows=[]
+    for delay in [1,3,6,8]:
+        name=f'hdat-{entry+delay*1_000_000}'
+        base=OUT/'en'/name
+        meta=json.loads(base.with_suffix('.json').read_text())
+        live=base.with_suffix('.a000').read_bytes()
+        mx,my=meta['Mouse']
+        bad={y*320+x for y in range(146,195) for x in range(12,308)
+             if y*320+x not in strokes[last_page] and not(mx<=x<mx+16 and my<=y<my+16)
+             and live[y*320+x]!=after[y*320+x]}
+        old=Path('workplace/r673/timing')/(name+'.a000')
+        rows.append({'requested':entry+delay*1_000_000,'step':meta['Step'],'mismatches':len(bad),
+                     'previousPageStrokeOverlap':len(bad&strokes[last_page-1]),
+                     'sameAsOriginalBaseline':live==old.read_bytes(),
+                     'colors':{f'{x}->{y}':n for (x,y),n in Counter((after[i],live[i]) for i in bad).items()},
+                     'zhFlow':bool(json.loads((OUT/'zh'/(name+'.json')).read_text()).get('Flow'))})
+    report={'addressSpace':'dosgolem A000／離屏，320×200 色號陣列',
+            'tracesSHA256':hashlib.sha256(source.read_bytes()).hexdigest(),'samples':rows}
+    (OUT/'last-page-transient.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+    print(json.dumps(report,ensure_ascii=False))
+
+
 if __name__ == '__main__':
-    {'prepare': prepare, 'analyze': analyze}[sys.argv[1]]()
+    {'prepare': prepare, 'analyze': analyze, 'transient': transient}[sys.argv[1]]()

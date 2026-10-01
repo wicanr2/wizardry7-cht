@@ -200,19 +200,23 @@ type pendingPrint struct {
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
 type overlay struct {
-	pend    *pendingPrint
-	flow    *flowData                       // flow.json（nil＝流動文字關閉）
-	page    *flowPage                       // 目前的頁（流動文字呼叫點）
-	pages   []*flowPage                     // 尚未被丟棄的頁
-	fragSeq int                             // 流動文字片段的序號（1 起，與 log「流文 片段」同序）
-	onFrag  func(o *oracle.Oracle, seq int) // 測試用：片段返回後的回呼（-hd-after-frag）
-	evs     []*textEv
-	created int
-	shown   int
-	dropped int
-	empty   int
-	nested  int
-	noseg   int
+	reads           []flowRead
+	storyReturn     *storyReturn
+	storyLastReturn uint64
+	storyUnknown    bool
+	pend            *pendingPrint
+	flow            *flowData                       // flow.json（nil＝流動文字關閉）
+	page            *flowPage                       // 目前的頁（流動文字呼叫點）
+	pages           []*flowPage                     // 尚未被丟棄的頁
+	fragSeq         int                             // 流動文字片段的序號（1 起，與 log「流文 片段」同序）
+	onFrag          func(o *oracle.Oracle, seq int) // 測試用：片段返回後的回呼（-hd-after-frag）
+	evs             []*textEv
+	created         int
+	shown           int
+	dropped         int
+	empty           int
+	nested          int
+	noseg           int
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -271,14 +275,15 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 		if pg.failed {
 			return
 		}
-		if p.font != flowFont || e.fg != flowFg || 2*x0+w-1 < 318 || 2*x0+w-1 > 322 {
+		site := flowSites[pg.site]
+		if p.font != flowFont || e.fg != flowFg || 2*x0+w-1 < site.centerMin || 2*x0+w-1 > site.centerMax {
 			pg.fail(fmt.Sprintf("閘門 font=%d fg=%02x 中心2x=%d", p.font, e.fg, 2*x0+w-1), o.Steps())
 			return
 		}
 		pg.evs = append(pg.evs, e)
 		pg.lastStep = o.Steps()
-		pg.band = snapBand(after)
-		pg.retranslate(ov.flow, o.Steps())
+		pg.band = snapBand(after, site)
+		pg.retranslate(ov.flow, ov.reads, o.Steps())
 	}
 	ov.evs = append(ov.evs, e)
 	ov.created++
@@ -818,6 +823,20 @@ func main() {
 	os.MkdirAll("workplace/bake/trees", 0o755)
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
 	ov := &overlay{flow: loadFlow(*flowPath)}
+	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
+		if o.StackWord(0) != flowSites[storySite].reader {
+			return
+		}
+		evMu.Lock()
+		defer evMu.Unlock()
+		r := flowRead{o.Steps(), int(o.StackWord(1))}
+		ov.reads = append(ov.reads, r)
+		if len(ov.reads) > 32 {
+			ov.reads = ov.reads[len(ov.reads)-32:]
+		}
+		log.Printf("流文 取 %d id=%d", r.Step, r.ID)
+	})
 	fragDump := map[int]bool{}
 	for _, f := range strings.Split(*hdAfterFrag, ",") {
 		if f == "" {
@@ -855,6 +874,7 @@ func main() {
 		o.OnCall(ret, func(o *oracle.Oracle) {
 			evMu.Lock()
 			defer evMu.Unlock()
+			ov.returnedStory(ret, o.Regs().SP, o.Steps())
 			if ov.pend == nil || ov.pend.ret != ret || o.Regs().SP != ov.pend.sp+2 {
 				return
 			}
@@ -871,11 +891,17 @@ func main() {
 		off := o.StackWord(1)
 		ds := r0.DS
 		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
-		if flowSites[ret] {
+		if _, flow := flowSites[ret]; flow {
+			if ret == storySite {
+				arm(ret) // 返回通知先於內容防呆；沒有覆繪事件也要保留邊界。
+			}
 			// spec 006 R2：流動文字呼叫點不查表，整頁另行比對
 			x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
 			y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
 			evMu.Lock()
+			if ret == storySite {
+				ov.beginStory(ret, r0.SP)
+			}
 			if ov.pend != nil {
 				ov.nested++ // 防禦性：E2 實測未見巢狀
 				if ov.pend.page != nil {

@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-01。程式基線：`a63e4f8`；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
+核對日期：2026-10-01。最近實作與驗收：R671；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -16,12 +16,12 @@
 | 隊員名鍵衝突修正 | [spec 002](docs/spec/002-bare-slot-key.md)、[#32](https://github.com/wicanr2/wizardry7-cht/issues/32)：單獨隊員名不再誤套序數譯文。 |
 | F1 說明與前端滑鼠 | [spec 003](docs/spec/003-f1-help.md)、[spec 004](docs/spec/004-frontend-left-click.md)：已有驗收紀錄；原版保留鍵調查與畫面說明只涵蓋實測範圍。 |
 | 自動地圖 | [spec 005](docs/spec/005-automap.md)：已驗兩格移動與 F2 面板，整張地圖與記錄持久化未完成；[#36](https://github.com/wicanr2/wizardry7-cht/issues/36) 仍開啟。 |
-| 迷宮開場旁白 | [spec 006](docs/spec/006-flow-text.md)、[017](docs/re/017-flow-text-evidence.md)：6 頁已有同狀態 A/B、獨立譯文及像素驗收；本機 `workplace/r670/check.txt` 結果為失敗 0 項。倍率 3 中文字形已放大 2 倍。 |
+| 迷宮開場旁白 | [spec 006](docs/spec/006-flow-text.md)、[017](docs/re/017-flow-text-evidence.md)：6頁同狀態A/B、獨立譯文及像素驗收；最新`workplace/r674/narr-check.txt`為失敗0，56份原版狀態與r670全同。倍率3中文字形放大2倍。 |
+| 開場故事 | [spec 006](docs/spec/006-flow-text.md)：31頁、71片段、58則訊息；兩倍率、獨立來源／譯文／像素與缺訊息回退驗收7,096項、失敗0。124份原版狀態與修訂前全同，不再依賴story.txt。3個1M暫態的RGB未獨立量到；未量防禦分支維持READY。 |
 
 ## 收尾尚缺的證據與交付
 
 - 全文來源仍是 JSON 與訊息 ID；TSV＋英文鍵遷移見 [#24](https://github.com/wicanr2/wizardry7-cht/issues/24)。譯文覆蓋與正常路徑觸發對帳見 [#22](https://github.com/wicanr2/wizardry7-cht/issues/22)，資料已翻譯不能當作已上屏。
-- 開場故事 `0110:be0c` 仍依賴本機 `story.txt`。使用者已選擇採用訊息譯文表，逐列來源退場。[#40](https://github.com/wicanr2/wizardry7-cht/issues/40) 的 spec 006 修訂已通過第二輪審查、達 READY，待實作與同狀態驗收。
 - 發行字型尚未完成（[#25](https://github.com/wicanr2/wizardry7-cht/issues/25)），目前使用的倚天字型只可本機使用。沒有可核實的三平台正式交付與通關收據。
 - 輸入錄放、音訊完成條件仍以 [#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[#18](https://github.com/wicanr2/wizardry7-cht/issues/18) 為準；早期 OPL2 事件比較通過不等於前端聲音與播放對齊驗收完成。
 - 作弊功能見 [#35](https://github.com/wicanr2/wizardry7-cht/issues/35)，尚未有正式驗收；不可用作弊建立中文化回歸收據。
@@ -36,6 +36,8 @@
 
 ## 本輪交接
 
-[R670](docs/goal/R670-story-spec.md) 補 #40 證據與規格。前頁返回下界重算31頁字詞相符；6M／8M的31頁原版像素與背景帶均穩定，收據在 `workplace/r673`。第二輪唯讀審查無阻擋，文字澄清已處理；下一步是故事實作與獨立驗收。
+[R671](docs/goal/R671-story-overlay.md) 完成故事覆繪與獨立驗收，收據在`workplace/r674`；6M／8M全部31頁有效，旁白六頁回歸通過且56份原版狀態與`r670`全同。
+最後故事頁3M有前頁筆畫淡出殘留，靜態閘門保持英文，6M／8M消退；證據F26與規格訂正經唯讀審查無阻擋。正式判準未放寬。
+前端覆繪、F1暫停、左鍵、T2／T4、地圖兩格與視窗F2均通過（`r675`、`r676`）。T6初次混跑差異為0，未採為通過；`r680`同工具乾淨重跑前進／轉向為157,563／159,975像素，控制組各279，通過。初次原因未定，完整失敗收據保留於r675。
 舊工作清單 [docs/worklist.json](docs/worklist.json) 保留為歷史快照，不再更新；未追蹤的 R433 goal 不混入提交。
-歷史基線 `workplace/r670/` 應保留；現有 `tools/flow-check.sh` 會刪除該路徑，重跑前須調整為新收據目錄，不能覆寫舊基準。
+歷史基線`workplace/r670/`、原版探針`r673`已保留；[tools/flow-check.sh](tools/flow-check.sh) 要求新的`workplace/rNNN`，拒絕覆寫舊基準，所有工作負載在Docker執行。

@@ -161,6 +161,8 @@ for line in open(args.log, encoding="utf-8"):
     m = re.search(r'流文 片段 (\d+) ret=(\S+) font=(\d+) y0=(\d+) x0=(\d+) "(.*)"$', line)
     if not m:
         continue
+    if m.group(2) != '0110:bcfc':
+        continue
     step, y, s = int(m.group(1)), int(m.group(4)), m.group(6)
     if last_y is None or y != last_y + 12 or len(pages[-1]["frags"]) >= 4:
         pages.append({"frags": [], "steps": []})
@@ -178,6 +180,10 @@ for p in pages:
 def load(d):
     out = {}
     for f in sorted(Path(d).glob("hd*.json")):
+        if f.stem.startswith('hdat-') and int(f.stem[5:]) < 1483000000:
+            continue  # 故事收據另由 check_story.py 驗收。
+        if f.stem == 'hdfrag-4':
+            continue
         j = json.loads(f.read_text())
         for e in j.get("Shown") or []:
             e["Before"] = base64.b64decode(e["Before"])

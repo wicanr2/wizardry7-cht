@@ -259,13 +259,7 @@ if __name__ == "__main__":
         for it in trans["items"].values()
     ]
     outdir = Path("workplace/bake")
-    # 開場故事（SCENARIO 系統，非 MSG.DBS 訊息 ID 系統；逐行 1:1 映射）
-    story = Path("workplace/bake/story.txt")
-    if story.exists():
-        for line in story.read_text().splitlines():
-            src, _, dst = line.partition("\t")
-            if src:
-                pairs.append((src, dst, 0))
+    # 故事與旁白由 flow.json 處理；不再依賴本機逐列 story.txt（spec 006）。
     # 怪物譯文（text/monsters-trans.json，key＝名字原文）併入
     mp = "text/monsters-trans.json"
     if Path(mp).exists():
