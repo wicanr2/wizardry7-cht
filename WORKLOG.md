@@ -254,3 +254,4 @@ R779回呼故障窄修及R781獨立審查已封存，精確SHA回填研究020；
 - R816輸出1000:1000、root-owned與誤建md目錄0、實際入口容器0；獨立審查文字修正、最終封存與容器回讀於後續追加。不把工具環境通過宣稱完整可玩。
 - R817封存的14控制面／3路徑案例、34斷言失敗0，功能阻擋0／必要修正0；79項manifest與完整SHA已掛入R816目標，主代理已讀最終報告。R818審查R815回填，C0精確文字與Abort直接呼叫、finish期限起點限制修正後，新增阻擋0／未解除應改0；報告與5項輸出SHA回填研究022，013仍DRAFT，不當READY批准。
 - 主代理逐項核對R816的11、R817的79及R818的5份封存內容，10個報告／索引SHA與5項工具來源全同、UID/GID1000。首誤猜R818索引檔名的工具FAIL已分類，改讀實際output-manifest.json後通過，沒有更動收據。自有Docker前綴回讀空集合，git diff --check通過。
+- `6656d6b94f4fbec49e173ba7968c2938ca97f4af`已提交並推送origin/main；[#43驗收留言](https://github.com/wicanr2/wizardry7-cht/issues/43#issuecomment-5941059670)及[#17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5941059765)全文回讀與提交標記相符。#43限定工具維護已CLOSED，#17仍OPEN／DRAFT；其餘全文、存讀檔與交付門檻沒有縮小。此筆回讀結果一併提交交接文件；R433保持未追蹤。

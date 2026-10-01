@@ -1,6 +1,7 @@
 # R816：前端Docker開發入口收尾
 
 - 日期2026-10-02；程式基線f4871c2；工作[#43](https://github.com/wicanr2/wizardry7-cht/issues/43)。
+- 狀態：工具入口驗收完成，`6656d6b`已推送；#43已關閉並回讀，非完整遊戲交付。
 - 目標是修正README現行`tools/fe.sh`入口的主機工作負載、模組修改模式與逾時容器殘留。
 - 沿用既有`wizardry7-go-ebiten:latest`及鎖版離線模組快取，不重建重複映像檔。
 - 保留Go build／run與`WIZ7_FE_SH`用法；讓已記載的`xvfb '指令'`在容器內檢查與啟動Xvfb。
