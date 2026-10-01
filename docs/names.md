@@ -93,7 +93,7 @@ LT./CROSSBOW＝輕弩、CURE/STONE＝解石化藥水的術語連結為強推論�
 鼠拉斯普丁（Ratsputin）、老盲麥斯（Old Blindmeis）、莫瑟修士（Brother Moser）、
 羅丹·勒瓦克斯（Rodan Lewarx）、魁薩卡（Quasquet)、波利加德（Boerigard，
 Gorn Army 陸軍 Captain——既有「船長」譯法有誤待修，見 013 追記）、
-亞莫將軍（General Yamo，I.U.F.＝恩帕尼帝國軍統帥）、烏爾加王（King Ulgar）。
+亞莫將軍（General Yamo，恩帕尼帝國軍I.U.F.的統帥）、烏爾加王（King Ulgar）。
 
 **地點/組織/概念**：查封區（Condemned Area）、聖道（Holy Path）、聖工（Holy Work）、
 神聖之光（Divine Light）、秘密學院（Secret School）、森林家園（Forest Home）、

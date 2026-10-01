@@ -1,5 +1,7 @@
 # 中文化輸出與前端規格索引
 
+新草稿：[012 複合物品名稱](012-compound-item-output.md)（DRAFT）。
+
 每份規格內文保存有效狀態與實測範圍；單元測試不代替正常玩家路徑收據。
 
 | 規格 | 範圍 |
@@ -13,5 +15,5 @@
 | [007](007-native-font.md) | 本機與發行字型原生尺寸 |
 | [008](008-english-key-tsv.md) | 英文鍵TSV來源（DRAFT） |
 | [009](009-player-audio.md) | 前端音樂播放（DRAFT） |
-| [010](010-item-name-corrections.md) | 物品名稱錯配校正（READY；待正式資料與畫面驗收） |
-| [011](011-message-wording-unification.md) | 同義訊息文案統一（DRAFT） |
+| [010](010-item-name-corrections.md) | 物品名稱錯配校正（READY；名稱與回歸通過，校正鍵上屏未量） |
+| [011](011-message-wording-unification.md) | 同義訊息文案統一（限定CONFORMED；實跑10筆，其他僅靜態驗證） |

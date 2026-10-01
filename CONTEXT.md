@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-01。本輪實作基線：`41e7e9d`，R672名稱修訂見下列證據；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
+核對日期：2026-10-01。本輪實作基線：`a724788`，R672訊息修訂與驗收見下列證據；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -18,8 +18,9 @@
 | 自動地圖 | [spec 005](docs/spec/005-automap.md)：已驗兩格移動與 F2 面板，整張地圖與記錄持久化未完成；[#36](https://github.com/wicanr2/wizardry7-cht/issues/36) 仍開啟。 |
 | 迷宮開場旁白 | [spec 006](docs/spec/006-flow-text.md)、[017](docs/re/017-flow-text-evidence.md)：6頁同狀態A/B、獨立譯文及像素驗收；最新`workplace/r674/narr-check.txt`為失敗0，56份原版狀態與r670全同。倍率3中文字形放大2倍。 |
 | 開場故事 | [spec 006](docs/spec/006-flow-text.md)：31頁、71片段、58則訊息；兩倍率、獨立來源／譯文／像素與缺訊息回退驗收7,096項、失敗0。124份原版狀態與修訂前全同，不再依賴story.txt。3個1M暫態的RGB未獨立量到；未量防禦分支維持READY。 |
-| 本機／發行字型雙軌 | [spec 007](docs/spec/007-native-font.md)、[018](docs/re/018-distributable-font.md)：倚天原生15×15與GNU Unifont原生16×16；原字型驗收7,523／5,490／395項失敗0。名稱校正後所需2,878個非ASCII字元、缺字0；字元清單2,925項。F1完整折行及延續頁；未觸發的防禦分支維持READY。 |
+| 本機／發行字型雙軌 | [spec 007](docs/spec/007-native-font.md)、[018](docs/re/018-distributable-font.md)：倚天原生15×15與GNU Unifont原生16×16；原字型驗收7,523／5,490／395項失敗0。訊息統一後所需2,872個非ASCII字元、缺字0；字元清單2,919項。F1完整折行及延續頁；未觸發的防禦分支維持READY。 |
 | 物品名稱校正 | [spec 010](docs/spec/010-item-name-corrections.md)、[019](docs/re/019-catalog-migration.md)：28個名稱及兩個共用訊息同步正式表與產生器，重建逐位元相同；雙字型靜態64項、正常角色頁兩倍率1,366項失敗0。實跑校正鍵0／28，僅稱名稱校正及靜態驗證完成。 |
+| 同義訊息文案統一 | [spec 011](docs/spec/011-message-wording-unification.md)、[019](docs/re/019-catalog-migration.md)：171組／373列同步，獨立驗收16,038項、失敗0；兩字型兩倍率31故事頁、6旁白頁、代表選單與F1通過。實際觸發修改訊息10筆，其餘363筆只完成靜態驗證；剩餘11組仍是交付門檻。 |
 
 ## 收尾尚缺的證據與交付
 
@@ -36,12 +37,14 @@
 對話關鍵字與防拷答案仍以英文輸入；不得推導、輸出或提交防拷答案。
 儲存庫保持 private，原版與不可散布字型不進公開交付。
 2026-10-01使用者選擇先逐組統一同原文不同譯文，再遷移TSV；不採保留最後寫入文案的方案。
+2026-10-01使用者進一步定案：剩餘八組異義情境與三組短句全部補齊後才交付，
+不採十一組保留英文先發版；這十一組是正式封包交付門檻。
 
 ## 本輪交接
 
 [R672](docs/goal/R672-delivery-prerequisites.md)的字型實作與驗收通過；固定字型來源存於本機`workplace/fonts/unifont-17.0.05/`，字元清單及重建入口在[font](font/README.md)。完整收據r682、r687–r691、r694與來源雜湊見研究018；舊失敗收據保留，詳細勘誤追加WORKLOG。
-TSV規格[008](docs/spec/008-english-key-tsv.md)仍為DRAFT；訊息同義統一尚未正式套用。[011](docs/spec/011-message-wording-unification.md)的現行隔離候選171組／373列已送獨立複審；排除三組短句超寬與八組情境歧異，剩餘原文11／烘製25／執行期24組碰撞，控制碼問題仍待核。盤點與界線見[019](docs/re/019-catalog-migration.md)。
-物品原文417筆與原版SCENARIO逐筆相符；28筆校正已按READY010套用，兩個安全共用名稱一併同步。r714靜態與r715正常角色頁驗收通過，但不宣稱全部校正名稱已上屏。複合名稱被拆成上下兩次印字及搬移後覆繪的缺口另蒐證，尚未接新路徑。
+TSV規格[008](docs/spec/008-english-key-tsv.md)仍為DRAFT；[011](docs/spec/011-message-wording-unification.md)的同義文案及限定回歸已CONFORMED，171組／373列同步正式表與有效產生器，重建逐位元相同，正常玩家畫面獨立驗收16,038項失敗0。排除三組短句超寬與八組情境歧異，剩餘原文11組；排除空鍵／純槽後烘製25／執行期24組碰撞，控制碼問題仍待核。盤點與界線見[019](docs/re/019-catalog-migration.md)。
+物品原文417筆與原版SCENARIO逐筆相符；28筆校正已按READY010套用，兩個安全共用名稱一併同步。r714靜態與r715正常角色頁驗收通過，但不宣稱全部校正名稱已上屏。三個複合名稱的兩次印字證據見[021](docs/re/021-compound-item-output.md)，[012](docs/spec/012-compound-item-output.md)仍DRAFT、獨立審查中；LONGSWORD搬移及新背景仍待證據，尚未接新路徑。
 前端音訊[009](docs/spec/009-player-audio.md)仍DRAFT：R703隔離裝置量到非靜音與原版狀態一致，但仍有欠載／溢出及未解裝置停頓；R701繼續研究，正式程式未接線。
 Docker字型批次容器已清理，未見root-owned檔或誤建`.md`目錄。R433仍不混入提交。
 
