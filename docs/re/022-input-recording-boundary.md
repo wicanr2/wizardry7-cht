@@ -358,3 +358,45 @@ R815的11項輸出全同、9項私人／標準庫來源無漂移；第10項013�
 原版、首次回填與文字訂正三個文件SHA均保留，不當原型漂移。
 沒有重跑fixture或讀取原版／輸入／state／RAM；首次腳本縮排工具FAIL留存。
 輸出UID/GID1000、自有容器及root-owned／誤建md目錄0，規格仍DRAFT。
+
+## R819／R820：起始設定純量候選與獨立審查
+
+2026-10-02；僅讀固定Go來源及自製初始化資料，未讀原版、RAM、state或原版輸入。
+本地dosgolem基線d16f03a、隔離分支wiz7-cht-opl-stream的既有變更以逐檔SHA綁定，
+不是以基線commit冒稱完整來源。56份來源副本加4份對照來源全同；正式前端未修改。
+沿用既有Docker image `sha256:1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`，
+Go1.24.13、Python3.11.2；定位為Go來源檔與行號，不是原版IDA位址。
+
+| 本機收據 | SHA-256 |
+|---|---|
+| r819/contract-candidate.md（訂正後） | `489b96fdbc9dca20aea8cb88838edfec67f25db113f753f543b7951f296a1516` |
+| r819/report.json | `38fcf1382f9facd0f701af6ee47040c7ce3bc11c0ebb0dd07fa035f502a9b5b5` |
+| r819/source-manifest.json | `1d2f85b8964dfca731d013e49d2c80689f417a5f4fd3faba4531cacc3c82e491` |
+| r819/output-manifest.json（69項） | `291f0239f045527fc9544489120957f2416153523e02a4fb2c7922a850bdbf7f` |
+| r820/report.json | `759991744f78a9033a654fdff02c86bc78c67eafd374d637977b64d7d69d4805` |
+| r820/review.md | `d9a210538de5ce715ba505978c6b27c1d908280e5b5aa7ec2e0fc7d7c73bed28` |
+| r820/source-manifest.json（71項） | `5d9ea043bbf337ead40900cf742d1d860db707d051105a512401ba28234ec6cc` |
+| r820/output-manifest.json（6項） | `62bde993c516e6da7f1f10dfda3a9b7c74db378d1f825c3bfe8da95a99bf5d19` |
+
+路徑均在`workplace/`。通用候選getter直接複製DOS設定值，遊戲配置組合只在自製測試；
+精確欄位及Go序列化候選回填[013 DRAFT](../spec/013-input-recording.md)。
+confirmed僅涵蓋來源及自製初始化設定；日期／RTC與時間模型明列來源政策，
+不是實測中斷結果。stored_mouse_x_scale=0為自動，有效倍率與BDA未觀察。
+pristine是單一擁有者生命週期聲明，Step0不是無輸入證據，正式綁定仍未寫入。
+
+唯一自製群組`go test -race -run '^TestR819InitialScalarFixture$' -count=1 ./oracle`
+通過（1.015秒），獨立手寫預設JSON及第二程式重算654 bytes同SHA
+`be68ecaf157861ac3ae4391f0c7951061bf7769dcb3f9dbdac57c6ebb946e735`。
+20次重讀、回傳值修改無別名、三邊界拒絕及自製覆寫通過；沒有整體RAM／CPU A/B、
+GUI／裝置或原版三次重播。有限純量不取代完整啟動配置，B2及013仍未完成。
+
+獨立審查阻擋0、文字應改1已解除、未解除應改0；僅批准DRAFT回填。
+勘誤：日期來源實際為`internal/dos/int21.go:125–129`，舊候選誤列133–137，
+日期語意原已正確；只修定位，未改Go或重跑測試。
+舊候選`contract-before-review.md` SHA `15f27e1ead6f0dbf8b76c64fabd1e727ae5ef40400ef7415a5a09bd6fa12e6d3`，
+舊67項索引`output-manifest-before-review.json` SHA
+`e8ced53c963946a64e6e1a5278e72a4e0810b9f3ae41a144ae07a71b4f9991e0`保留；來源索引依快照回查。
+主代理逐項核對69份候選輸出、60項來源、71項審查來源與6項輸出相符，
+013原SHA `e6b387fb75a3c5138f4809a91674c0082534d39b219c28b9c2d288a1036dd976`
+因本輪回填會變更，不能當成原型漂移。輸出UID/GID1000；檢查210609項的lstat衛生異常0，
+自有分析容器均清理，不升READY或可玩交付。

@@ -217,7 +217,8 @@ R815提供完整啟動配置的具體欄序／型別候選：實際binary與版�
 Root與Scratch各自封閉集合及DOS中繼資料、LoadWith與有效初態、精確約分H／K、
 明示IPS及Float64位元、mute／裝置、音訊固定參數、倍率與三類資源SHA。
 Scratch空集合合法，兩個集合必須保留遮蔽前的Root項目；每次重播在Run前核對乾淨私有副本。
-`initial_scalars_sha256`仍缺唯一有效純量結構來源，不能拿舊R755摘要或任意map補洞。
+R819／R820已補齊`initial_scalars_sha256`的固定型別與唯讀來源候選（見下節）；
+正式getter、擷取生命週期及完整啟動配置仍未移植，不能拿舊R755摘要或任意map補洞。
 以下只列決策前沿，不採用其中任何尚未確認的方案：
 
 | 分支 | 實際取捨／尚待定稿 |
@@ -233,3 +234,43 @@ partial及人工改名的缺末註文件皆拒載；沒有原版、GUI或裝置�
 自製observer_fault標籤未接實際故障回呼。正常finish的總期限起點仍需精確定稿，
 最終Draw亦須納入，已觸發009退出期限不得重設。
 現有Finish不具取消或整體5秒保證，候選順序尚未實作與審查；不由這個fixture升READY。
+
+## R819／R820：起始設定純量的有限候選
+
+獨立審查阻擋0、未解除應改0，僅批准DRAFT回填；來源與封存SHA見
+[研究022](../re/022-input-recording-boundary.md)。本節不是正式schema或已實作API。
+通用私人候選`Oracle.DOSSettings()`直接複製DOS設定；巫術7配置組合只留自製測試，
+不加入通用Oracle介面。既有`Steps()`、`Ticks()`與`ClockSettings()`直接讀機器純量。
+
+| 物件 | 候選JSON欄序與Go型別 |
+|---|---|
+| 頂層 | `schema` string（`wiz7-initial-scalars-candidate/1`）、`step` uint64、`ticks` uint64、`clock`、`dos`、`platform`物件。 |
+| clock | `cpu_hz` uint64、`cycle_clock` bool、`irq0_base` uint64、`irq0_every` uint64。 |
+| dos | `stored_mouse_x_scale` uint16、`font_full`／`font_half` string、`font_full_bytes`／`font_half_bytes` int64、`drive` uint8、`dir` string、`now`物件。 |
+| dos.now | `hour`、`minute`、`second`、`hundredth`，皆uint8。 |
+| platform | `dos_date`物件、`dos_time_model` string、`bios_rtc_read_time_supported`／`bios_rtc_read_date_supported` bool、`bios_bda_ticks_observation`／`effective_mouse_x_scale_observation` string。 |
+| platform.dos_date | `year` uint16、`month`／`day`／`weekday` uint8。 |
+
+候選雜湊為固定Go1.24.13的`SHA256(json.Marshal(上述struct))`，無縮排、無尾LF，
+沿用Go預設HTML跳脫，轉64個小寫十六進位字元；不是跨語言JSON正規化契約。
+唯一自製初始化資料為654 bytes，獨立手寫期望及第二程式重算同為
+`be68ecaf157861ac3ae4391f0c7951061bf7769dcb3f9dbdac57c6ebb946e735`。
+
+單一擁有者須在LoadWith與設定完成後、投遞任何輸入／Run或可推進回呼之前擷取，
+Step與Ticks皆0。私人原型另要求`pristine`生命週期聲明，否則拒絕
+`not_pristine_initial_boundary`；PressKey／MoveMouse不改Step，所以Step0不能證明無輸入。
+正式呼叫端如何綁定此聲明仍待實作；getter不追蹤歷史、不保證外部並行存取。
+
+已證來源及自製設定：DOS儲存倍率0、字型檔名`END_S13.DAT`／`END_S14.DAT`、
+字模bytes 30／15、Drive2、Dir `RICH2`與Now全0；覆寫設定會如實回報。
+日期1993-01-01／星期5、時間模型`now_plus_ticks_5493_div_1000_mod_8640000`
+及RTC讀時／日期旗標false為固定來源導出的政策（source-bound policy），不是本輪中斷實測。
+DOS時間沿來源的Go uint64算術；有效滑鼠倍率及BIOS BDA ticks皆`not_observed`。
+儲存倍率0代表自動，不能替換為2；候選不呼叫會讀RAM的PixelWidth／VideoMode，
+也不呼叫會清跨日旗標的BIOS時鐘中斷。
+
+自製空白初始化群組競爭檢查通過，包含獨立字面值、20次重讀、無可變別名、
+三種邊界拒絕與自製覆寫。未LoadWith原版、Run或做整體RAM／CPU副作用A/B，
+沒有GUI、裝置或三次原版重播；不升READY／CONFORMED。
+這是有限初始化中繼資料，完整來源／binary／LoadWith、Root與Scratch閉集合、
+資源、前端與音訊H／K仍須分別綁定，不能用此SHA取代RuntimeSHA或解除B2全部閘門。
