@@ -4,8 +4,8 @@
 #   tools/re/bake_help.py [輸出路徑]      （預設 workplace/bake/help.json）
 #
 # 讀 text/help.zh-TW.tsv 與 text/help-names.zh-TW.tsv（欄位 key、zh、source），逐字產生字形：
-#   Big5 雙位元組字 → bake_font.glyph_of（SPCFONT.15／stdfont.15），寬 15
-#   ASCII 0x20–0x7E → 倚天 ascfont.15（256 字 × 15 列 × 1 byte），寬 8
+#   本機Big5字 → bake_font.glyph_of（SPCFONT.15／stdfont.15），寬15
+#   本機ASCII → 倚天ascfont.15，寬8；發行後端直接取固定HEX的8／16×16原生字形
 # 任何字元無字形 → 列出後以非零碼結束，不產出檔案（R5、R6 驗收 4）。
 # lint（R6 驗收 5）：ops 頁（序號非 00）每行的 source 必須引用 docs/re/015 實測表中「通過」的 T 編號。
 import json
@@ -16,6 +16,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from bake_font import glyph_of  # noqa: E402
+from font_source import BACKEND, unicode_glyph  # noqa: E402
 
 ASC15 = Path.home() / "cht/etan_font/ascfont.15"
 SOURCES = [Path(p) for p in os.environ.get(
@@ -56,9 +57,16 @@ def main():
             print(f"lint：{k} 的 source {s!r} 不是已通過的前端實測（015 表內通過者：{sorted(passed)}）")
         sys.exit(1)
 
-    asc = ASC15.read_bytes()
+    asc = ASC15.read_bytes() if BACKEND == "eten" else None
     glyphs, missing = {}, []
     for ch in sorted({c for _, zh, _ in rows for c in zh}):
+        if BACKEND == "unifont":
+            try:
+                width, bitmap = unicode_glyph(ch)
+                glyphs[ch] = {"w": width, "rows": bitmap}
+            except ValueError:
+                missing.append(ch)
+            continue
         if " " <= ch <= "~":
             glyphs[ch] = {"w": 8, "rows": list(asc[ord(ch) * 15:ord(ch) * 15 + 15])}
             continue

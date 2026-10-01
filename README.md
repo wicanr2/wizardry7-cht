@@ -22,7 +22,8 @@
 F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
 唯讀覆繪與旁白在已測路線有中英兩模式的原版狀態雜湊比較，見 [覆繪證據](docs/re/014-overlay-evidence.md) 與 [流動文字規格](docs/spec/006-flow-text.md)。
 
-尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移、發行字型及三平台發行包。
+本機倚天與可散布Unifont字型已有兩倍率畫面與F1操作驗收，見[字型證據](docs/re/018-distributable-font.md)。
+尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移及三平台發行包。
 開場故事與迷宮旁白使用訊息譯文表並依原版分頁覆繪；資料表中有譯文不代表所有玩家畫面都已中文化。
 完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
 
@@ -38,7 +39,8 @@ tools/fe.sh build ./cmd/wiz7
 
 主程式入口為 `cmd/wiz7`，原版工作副本以 `-root` 指定，預設 `workplace/run`；
 譯文與字形重建方式見 [tools/re/bake_font.py](tools/re/bake_font.py)、[tools/re/bake_flow.py](tools/re/bake_flow.py) 及 [tools/re/bake_help.py](tools/re/bake_help.py)。
-目前字型使用倚天 `stdfont.15` 與符號字型，僅供本機；可散布字型尚待 [#25](https://github.com/wicanr2/wizardry7-cht/issues/25)。
+烘製支援本機倚天與固定版GNU Unifont，來源、授權、字元清單與重建入口見[字型說明](font/README.md)。
+倚天 `stdfont.15` 與符號字型僅供本機；正式封包採Unifont並保留OFL與著作權。
 這些開發工具不構成已驗收的跨平台安裝流程。
 
 原版檔案基線見 [001 原版基線](docs/re/001-unzip-baseline.md)，其中：
@@ -54,6 +56,7 @@ tools/fe.sh build ./cmd/wiz7
 - [WORKLOG.md](WORKLOG.md)：歷程與舊結論勘誤。
 - [目標與驗收](docs/goal/README.md)、[輸出路徑規格](docs/spec/)、[研究證據索引](docs/re/README.md)。
 - [譯名表](docs/names.md) 與 [翻譯指令](text/TRANS-INSTRUCTIONS.md)。
+- [字型來源與重建](font/README.md)。
 
 ## 授權
 

@@ -241,3 +241,86 @@ func TestStoryEntryKeepsPageBoundary(t *testing.T) {
 		t.Fatal("邊界未知仍建事件")
 	}
 }
+
+// spec007 R3：缺size欄保留15px相容；明示的非法尺寸或字形須拒載整份資料。
+func TestLoadFlowRejectsInvalidNativeGlyphs(t *testing.T) {
+	cases := []struct {
+		name   string
+		size   any
+		height int
+		first  int
+	}{
+		{"明示尺寸零", 0, 15, 0},
+		{"明示尺寸null", nil, 15, 0},
+		{"負尺寸", -1, 15, 0},
+		{"尺寸十四", 14, 14, 0},
+		{"尺寸十七", 17, 17, 0},
+		{"尺寸是字串", "16", 16, 0},
+		{"十五字格十四列", 15, 14, 0},
+		{"十五字格十六列", 15, 16, 0},
+		{"十六字格十五列", 16, 15, 0},
+		{"十六字格十七列", 16, 17, 0},
+		{"空字形", 16, 0, 0},
+		{"十五位元超界", 15, 15, 32768},
+		{"十六位元超界", 16, 16, 65536},
+		{"負位元", 16, 16, -1},
+	}
+	for _, c := range cases {
+		t.Run(c.name, func(t *testing.T) {
+			path := writeNativeFontLoaderFixture(t, map[string]any{
+				"size":   c.size,
+				"glyphs": map[string]any{"甲": nativeFontLoaderRows(c.height, c.first)},
+				"paras": []flowPara{{ID: 500, Words: []string{"sample"},
+					Lines: []flowLine{{ID: 500, End: 1, Zh: "甲"}}}},
+			})
+			if loadFlow(path) != nil {
+				t.Fatal("不合法尺寸或字形仍載入流文資料")
+			}
+		})
+	}
+}
+
+func TestLoadFlowAcceptsNativeGlyphBoundaries(t *testing.T) {
+	for _, c := range []struct {
+		name        string
+		size, first int
+		legacy      bool
+	}{
+		{"舊資料缺尺寸", 15, 32767, true},
+		{"十五字格最高有效位元", 15, 32767, false},
+		{"十六字格最高有效位元", 16, 65535, false},
+	} {
+		t.Run(c.name, func(t *testing.T) {
+			fixture := map[string]any{
+				"glyphs": map[string]any{"甲": nativeFontLoaderRows(c.size, c.first)},
+				"paras": []flowPara{{ID: 500, Words: []string{"sample"},
+					Lines: []flowLine{{ID: 500, End: 1, Zh: "甲"}}}},
+			}
+			if !c.legacy {
+				fixture["size"] = c.size
+			}
+			fd := loadFlow(writeNativeFontLoaderFixture(t, fixture))
+			if fd == nil || fd.size() != c.size || fd.match([]string{"sample"}).Zh != "甲" {
+				t.Fatal("合法原生字格或缺欄相容資料被拒載或索引未建立")
+			}
+		})
+	}
+}
+
+func TestLoadFlowAcceptsActualNativeBakes(t *testing.T) {
+	for _, c := range []struct {
+		backend string
+		size    int
+	}{{"eten", 15}, {"unifont", 16}} {
+		t.Run(c.backend, func(t *testing.T) {
+			path := "../../workplace/r682/" + c.backend + "/flow.json"
+			if _, err := os.Stat(path); os.IsNotExist(err) {
+				t.Skip("缺本機實際烘製字型資料")
+			}
+			fd := loadFlow(path)
+			if fd == nil || fd.size() != c.size || len(fd.Glyphs) == 0 || len(fd.byWord) == 0 {
+				t.Fatal("實際烘製流文資料被拒載、尺寸不符或索引為空")
+			}
+		})
+	}
+}

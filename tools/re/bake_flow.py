@@ -9,7 +9,7 @@
 #   段落   連續訊息 id（相鄰以原始 id 計）的行；剝控制碼後行首是 `@` 的行開新段落；
 #          零字詞行維持相鄰但不加字詞、不記 end；沒有任何字詞的段落丟棄
 #   譯文   story-trans 同 id 的 zh，非空且每個字都是 Big5 雙位元組字、且取得到字形，才可用（否則 zh 為空）
-#   字形   bake_font.glyph_scaled（15 位元靠右，與 xlate.json 同一函式）
+#   字形   bake_font.glyph_char（原生15／16位元靠右，與 xlate.json 同一來源）
 # --drop <id>：移除含該 id 的整個段落（驗收 9 的負向測試檔）。
 import json
 import re
@@ -17,7 +17,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from bake_font import glyph_scaled  # noqa: E402
+from bake_font import glyph_char  # noqa: E402
+from font_source import BACKEND, SIZE, unifont  # noqa: E402
 
 MSG = Path("text/messages.json")
 TRANS = Path("text/story-trans.json")
@@ -62,14 +63,18 @@ def usable_zh(zh: str, glyphs: dict) -> str:
             return ""
         if ch not in glyphs and ch not in got:
             try:
-                got[ch] = [int(v) for v in glyph_scaled(b5)]
+                got[ch] = [int(v) for v in glyph_char(ch)]
             except ValueError:
+                if BACKEND == "unifont":
+                    raise  # spec007：發行來源缺字不得產生部分新檔
                 return ""
     glyphs.update(got)
     return zh
 
 
 def build(drop=None):
+    if BACKEND == "unifont":
+        unifont()  # 不讓錯誤來源被可用譯文檢查誤吞成空白
     records = sorted(json.loads(MSG.read_text())["records"], key=lambda r: r["id"])
     trans = json.loads(TRANS.read_text())["items"]
     raw_paras = []
@@ -120,7 +125,7 @@ def build(drop=None):
     stats['msgs'] = len(msgs)
     stats['usable_msgs'] = sum(bool(m['z']) for m in msgs.values())
     used = {ch for p in paras for l in p["lines"] for ch in l["zh"]} | {ch for m in msgs.values() for ch in m['z']}
-    return {"glyphs": {c: g for c, g in glyphs.items() if c in used}, "paras": paras, 'msgs': msgs}, stats
+    return {"size": SIZE, "glyphs": {c: g for c, g in glyphs.items() if c in used}, "paras": paras, 'msgs': msgs}, stats
 
 
 def main():

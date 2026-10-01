@@ -17,6 +17,7 @@
 import json
 import sys
 from pathlib import Path
+from font_source import BACKEND, SIZE, unicode_glyph
 
 FONT15 = Path.home() / "cht/etan_font/stdfont.15"
 # 倚天符號區（Big5 A140–A3BF，408 字）另成一檔；stdfont.15 從 A440 起算，
@@ -27,7 +28,7 @@ HDR = 16
 WTAB = 256
 COLOR_OFF = HDR + WTAB          # 0x110
 COL_MASK = 30                   # 每字形：15 列 × 2 bytes
-HEIGHT = 15
+HEIGHT = SIZE
 BPR = 2                         # bytes per row
 SCALE = 15                      # 字高（15＝原版倚天字形，不縮）
 
@@ -40,6 +41,8 @@ def glyph_scaled(b5: bytes) -> list[int]:
     """stdfont.15 → SCALE x SCALE 位圖（區間 OR 重採樣：目標像素覆蓋的來源
     像素任一亮即亮。點陣字筆畫僅 1px，最近鄰取樣會跳過筆畫而破相；OR 重採樣
     保留筆畫、代價是略粗）。"""
+    if BACKEND == "unifont":
+        return unicode_glyph(b5.decode("big5"), square=True)[1]
     rows = glyph_of(b5)
     out = []
     for y in range(SCALE):
@@ -56,6 +59,13 @@ def glyph_scaled(b5: bytes) -> list[int]:
                 row |= 1 << (SCALE - 1 - x)
         out.append(row)
     return out
+
+
+def glyph_char(ch: str) -> list[int]:
+    """發行字型保留原始Unicode碼點；不經Big5別名來回轉碼。"""
+    if BACKEND == "unifont":
+        return unicode_glyph(ch, square=True)[1]
+    return glyph_scaled(ch.encode("big5"))
 
 
 def glyph_of(b5: bytes) -> list[int]:
@@ -76,12 +86,11 @@ def glyph_of(b5: bytes) -> list[int]:
     if idx < 0 or off + 30 > len(d):
         # 負偏移在 Python 會從檔尾切出亂碼字形，必須擋下
         raise ValueError(f"Big5 {b5.hex()} 不在倚天字型範圍")
-    return [int.from_bytes(d[off + r * 2:off + r * 2 + 2], "big") for r in range(HEIGHT)]
+    return [int.from_bytes(d[off + r * 2:off + r * 2 + 2], "big") for r in range(15)]
 
 
 def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     strings = [dst for _, dst, _ in pairs]
-    font = FONT15.read_bytes()
     # 收集字元（按出現序）
     chars: list[str] = []
     for s in strings:
@@ -89,7 +98,10 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
             b5 = ch.encode("big5")
             if len(b5) == 2 and ch not in chars:
                 chars.append(ch)
-    seg = bytearray(SEG_SIZE)  # 方案 A 遺物；方案 B 只用 xlate.json
+    # 寫入前先確認全部中文字與序數字形；缺字不留下部分新烘製檔。
+    glyphs = {ch: glyph_char(ch) for ch in chars}
+    ordinal_glyphs = {w: glyph_char(zh) for w, zh in ORDINALS.items()}
+    seg = bytearray(SEG_SIZE)  # 方案 A 遺物；發行後端不產生此檔
     # --- 頭（仿 0x7BB6 原頭）---
     seg[0x03] = BPR                     # 每列 bytes
     seg[0x06] = 0xFF                    # flags bit1 = 寬字形路徑（loc_371）
@@ -105,7 +117,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     msk = bytearray()
     index = {}
     for i, ch in enumerate(chars):
-        rows = glyph_of(ch.encode("big5"))
+        rows = glyph_of(ch.encode("big5")) if BACKEND == "eten" else glyphs[ch]
         for w in rows:                                   # 顏色：bit1=前景（方案 A 遺物）
             col += bytes(((w >> 8) & 0xFF, w & 0xFF))
             msk += bytes(((w >> 8) & 0xFF, w & 0xFF))    # mask = 字形（1=筆畫）
@@ -116,10 +128,12 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     seg[mask_off:mask_off + len(msk)] = msk
 
     outdir.mkdir(parents=True, exist_ok=True)
-    (outdir / "fontseg.bin").write_bytes(seg)
+    if BACKEND == "eten":
+        (outdir / "fontseg.bin").write_bytes(seg)
 
     (outdir / "bake.json").write_text(json.dumps({
         "chars": chars, "index": {f"0x{k:02x}": v for k, v in index.items()},
+        "font": BACKEND, "size": SIZE,
     }, ensure_ascii=False, indent=1))
 
     # xlate.json：譯文串 → 字形位圖（Go 側免 BIG5 編碼器）；key＝normalize(en)
@@ -151,7 +165,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
             b5 = ch.encode("big5")
             if len(b5) != 2:
                 continue
-            rows = glyph_scaled(b5)
+            rows = glyphs[ch]
             entry.append([int(w) for w in rows])
         xlate[normalize(src)] = {"dy": dy, "g": entry}
         if slots:
@@ -159,13 +173,12 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     print(f"純槽略過來源數 {bare_src}；純槽略過鍵 {sorted(bare_keys)!r}")
     xlate["__digits__"] = {c: digit_glyph(c) for c in DIGIT5x7}
     xlate["__ordinals__"] = {
-        w: [int(v) for v in glyph_scaled(zh.encode("big5"))]
-        for w, zh in ORDINALS.items()
+        w: [int(v) for v in rows] for w, rows in ordinal_glyphs.items()
     }
     (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))
     print(f"xlate.json：{len(xlate)} 串")
     print(f"字形 {len(chars)} 個；顏色平面 {len(col)}/3584 bytes")
-    print(f"輸出：{outdir/'fontseg.bin'}、{outdir/'bake.json'}")
+    print(f"輸出：{outdir/'bake.json'}、{outdir/'xlate.json'}；字型 {BACKEND}／{SIZE}像素")
     print("索引：", " ".join(f"{0x80+i:02x}={ch}" for i, ch in enumerate(chars)))
 
 
@@ -233,8 +246,14 @@ ORDINALS = {
 
 
 def digit_glyph(ch: str) -> list[int]:
-    """數字 → 15×15 位圖（5×7 放大 2x＝10×14，置中）。"""
+    """數字 → 原生15／16字格（5×7放大2x＝10×14，置中）。"""
     rows5 = DIGIT5x7[ch]
+    if HEIGHT == 16:
+        out = [0] * 16
+        for y, row5 in enumerate(rows5):
+            bits = sum(3 << (11 - x * 2) for x, c in enumerate(row5) if c == "1")
+            out[1 + y * 2] = out[2 + y * 2] = bits
+        return out
     big = []
     for r in rows5:
         row = 0
@@ -244,9 +263,9 @@ def digit_glyph(ch: str) -> list[int]:
         big.append(row)
         big.append(row)  # 垂直 2x
     # big = 14 列；上移 0 列、兩側置中由使用者位移（此處左 2px）
-    out = [0] * 15
+    out = [0] * HEIGHT
     for i, row in enumerate(big):
-        out[i] = row >> 2  # 10px 內容右移置中（14-10)/2=2
+        out[i] = row >> 2  # 本機15字格維持原有位元，發行16字格由上方分支處理
     return out
 
 
@@ -258,7 +277,7 @@ if __name__ == "__main__":
         (it["en"], it["zh"], it.get("dy", 0))
         for it in trans["items"].values()
     ]
-    outdir = Path("workplace/bake")
+    outdir = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("workplace/bake")
     # 故事與旁白由 flow.json 處理；不再依賴本機逐列 story.txt（spec 006）。
     # 怪物譯文（text/monsters-trans.json，key＝名字原文）併入
     mp = "text/monsters-trans.json"

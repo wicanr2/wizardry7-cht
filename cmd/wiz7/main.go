@@ -523,6 +523,7 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name strin
 	}
 	_ = os.WriteFile(base+".a000", a, 0o644)
 	_ = os.WriteFile(base+".comp", comp, 0o644)
+	_ = os.WriteFile(base+".pal", palB, 0o644) // spec007：獨立像素oracle的唯讀色盤收據
 	if b, err := json.Marshal(out); err == nil {
 		_ = os.WriteFile(base+".json", b, 0o644)
 	}

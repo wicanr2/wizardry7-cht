@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-01。程式基線：`65e62ad`（R671）；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
+核對日期：2026-10-01。本輪實作基線：`632a05c`，R672字型修訂見下列證據；本機 dosgolem：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -18,11 +18,12 @@
 | 自動地圖 | [spec 005](docs/spec/005-automap.md)：已驗兩格移動與 F2 面板，整張地圖與記錄持久化未完成；[#36](https://github.com/wicanr2/wizardry7-cht/issues/36) 仍開啟。 |
 | 迷宮開場旁白 | [spec 006](docs/spec/006-flow-text.md)、[017](docs/re/017-flow-text-evidence.md)：6頁同狀態A/B、獨立譯文及像素驗收；最新`workplace/r674/narr-check.txt`為失敗0，56份原版狀態與r670全同。倍率3中文字形放大2倍。 |
 | 開場故事 | [spec 006](docs/spec/006-flow-text.md)：31頁、71片段、58則訊息；兩倍率、獨立來源／譯文／像素與缺訊息回退驗收7,096項、失敗0。124份原版狀態與修訂前全同，不再依賴story.txt。3個1M暫態的RGB未獨立量到；未量防禦分支維持READY。 |
+| 本機／發行字型雙軌 | [spec 007](docs/spec/007-native-font.md)、[018](docs/re/018-distributable-font.md)：倚天原生15×15與GNU Unifont原生16×16；固定版涵蓋2,877個非ASCII字元、缺字0。Unifont獨立核對7,523項、倚天回歸5,490項、視窗與一般覆繪395項，失敗均0。F1完整折行及延續頁；未觸發的防禦分支維持READY。 |
 
 ## 收尾尚缺的證據與交付
 
 - 全文來源仍是 JSON 與訊息 ID；TSV＋英文鍵遷移見 [#24](https://github.com/wicanr2/wizardry7-cht/issues/24)。譯文覆蓋與正常路徑觸發對帳見 [#22](https://github.com/wicanr2/wizardry7-cht/issues/22)，資料已翻譯不能當作已上屏。
-- 發行字型尚未完成（[#25](https://github.com/wicanr2/wizardry7-cht/issues/25)），目前使用的倚天字型只可本機使用。沒有可核實的三平台正式交付與通關收據。
+- 發行字型已完成實作與上述驗收（[#25](https://github.com/wicanr2/wizardry7-cht/issues/25)）；倚天字型仍只可本機使用，Unifont子集採OFL-1.1並保留上游全文。正式封包與三平台可啟動性、存讀檔及通關收據仍未完成。
 - 輸入錄放、音訊完成條件仍以 [#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[#18](https://github.com/wicanr2/wizardry7-cht/issues/18) 為準；早期 OPL2 事件比較通過不等於前端聲音與播放對齊驗收完成。
 - 作弊功能見 [#35](https://github.com/wicanr2/wizardry7-cht/issues/35)，尚未有正式驗收；不可用作弊建立中文化回歸收據。
 - 規格覆蓋與 adapter 位置仍待 [#28](https://github.com/wicanr2/wizardry7-cht/issues/28)、[#29](https://github.com/wicanr2/wizardry7-cht/issues/29) 驗收。既有六份 spec 並不代表所有玩家文字路徑都已規格化。
@@ -33,8 +34,14 @@
 防拷關鍵字資料移出版控的 [#26](https://github.com/wicanr2/wizardry7-cht/issues/26) 依 2026-09-29 指示擱置，不能自行處理。
 對話關鍵字與防拷答案仍以英文輸入；不得推導、輸出或提交防拷答案。
 儲存庫保持 private，原版與不可散布字型不進公開交付。
+2026-10-01使用者選擇先逐組統一同原文不同譯文，再遷移TSV；不採保留最後寫入文案的方案。
 
 ## 本輪交接
+
+[R672](docs/goal/R672-delivery-prerequisites.md)的字型實作與驗收通過；固定字型來源存於本機`workplace/fonts/unifont-17.0.05/`，字元清單及重建入口在[font](font/README.md)。完整收據r682、r687–r691、r694與來源雜湊見研究018；舊失敗收據保留，詳細勘誤追加WORKLOG。
+TSV規格[008](docs/spec/008-english-key-tsv.md)仍為DRAFT，正式譯文尚未修改：182組原文差異完成候選逐組審閱，其中8組需要原版情境；舊正規化後另有194組衝突，28筆控制碼差異待核。盤點與界線見[019](docs/re/019-catalog-migration.md)。
+物品原文417筆與原版SCENARIO逐筆相符；譯文有19筆明顯類型錯配及3個待查專名、6個術語候選，僅有本機稽核，尚未套用修正或宣稱全物品正確。
+Docker字型批次容器已清理，未見root-owned檔或誤建`.md`目錄。R433仍不混入提交。
 
 [R671](docs/goal/R671-story-overlay.md) 完成故事覆繪與獨立驗收，收據在`workplace/r674`；6M／8M全部31頁有效，旁白六頁回歸通過且56份原版狀態與`r670`全同。
 實作`65e62ad`已推送；[#40](https://github.com/wicanr2/wizardry7-cht/issues/40)已關閉並回讀確認。後續仍以遠端Issue為工作清單，本輪不代表全遊戲收尾完成。

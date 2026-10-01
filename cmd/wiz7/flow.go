@@ -32,6 +32,21 @@ var storySite = oracle.Addr{Seg: 0x0110, Off: 0xBE0C}
 
 func (s flowSite) cols(k, gs int) int { return max(1, s.width*k/(flowGlyphPitch*gs)) }
 
+func (fd *flowData) size() int {
+	if fd == nil || fd.Size == 0 {
+		return 15 // spec007：相容原有資料
+	}
+	return fd.Size
+}
+
+func (fd *flowData) cols(s flowSite, k, gs int) int {
+	return max(1, s.width*k/((fd.size()+2)*gs))
+}
+
+func (fd *flowData) rowPos(text string, r, k, gs int) (int, int) {
+	return flowCenter*k - len([]rune(text))*(fd.size()+2)*gs/2, (flowY0 + flowRowStep*r) * k
+}
+
 type flowMessage struct {
 	W string `json:"w"`
 	T int    `json:"t"`
@@ -79,6 +94,7 @@ type flowPos struct{ P, A int32 }
 
 // flowData 是 flow.json（tools/re/bake_flow.py）載入後的資料與索引。
 type flowData struct {
+	Size   int                 `json:"size"` // spec007：原生15／16像素
 	Glyphs map[string][]uint16 `json:"glyphs"`
 	Paras  []flowPara          `json:"paras"`
 	Msgs   map[int]flowMessage `json:"msgs"`
@@ -99,6 +115,27 @@ func loadFlow(path string) *flowData {
 	if err := json.Unmarshal(b, &fd); err != nil {
 		log.Printf("流文：%s 格式錯誤（%v），流動文字關閉", path, err)
 		return nil
+	}
+	var fields map[string]json.RawMessage
+	if err := json.Unmarshal(b, &fields); err != nil {
+		return nil
+	}
+	_, explicitSize := fields["size"]
+	if (explicitSize && fd.Size != 15 && fd.Size != 16) || (fd.size() != 15 && fd.size() != 16) {
+		log.Printf("流文：%s 字形尺寸不符", path)
+		return nil
+	}
+	for _, rows := range fd.Glyphs {
+		if len(rows) != fd.size() {
+			log.Printf("流文：%s 字形列數不符", path)
+			return nil
+		}
+		for _, row := range rows {
+			if uint32(row) >= uint32(1)<<fd.size() {
+				log.Printf("流文：%s 字形位元超出尺寸", path)
+				return nil
+			}
+		}
 	}
 	fd.byWord = map[string][]flowPos{}
 	for pi, p := range fd.Paras {
@@ -469,7 +506,7 @@ func (pg *flowPage) retranslate(fd *flowData, reads []flowRead, step uint64) {
 	}
 	pg.rowsOK = false
 	if pg.res.Zh != "" {
-		rows := flowLayout(pg.res.Zh, flowSites[pg.site].cols(flowK, flowGS(flowK, flowHdf)))
+		rows := flowLayout(pg.res.Zh, fd.cols(flowSites[pg.site], flowK, flowGS(flowK, flowHdf)))
 		pg.rowsOK = len(rows) <= flowMaxRows
 		if !pg.rowsOK {
 			pg.res.Status = "超列"
@@ -590,17 +627,18 @@ func (ov *overlay) flowEntry(o *oracle.Oracle, raw []byte, ret oracle.Addr, sp u
 
 // ── 繪製端 ────────────────────────────────────────────────────────────────
 
-// flowRowStrip 把一列中文排成一張字條（每字 15 px＋2 px 字距，1× 像素）。
+// flowRowStrip 依資料原生尺寸把中文排成字條，字距2像素。
 func (fd *flowData) flowRowStrip(text string, fg [3]uint8) *image.RGBA {
 	rs := []rune(text)
-	img := image.NewRGBA(image.Rect(0, 0, len(rs)*flowGlyphPitch, 15))
+	pitch := fd.size() + 2
+	img := image.NewRGBA(image.Rect(0, 0, len(rs)*pitch, fd.size()))
 	c := color.RGBA{fg[0], fg[1], fg[2], 255}
 	for i, r := range rs {
 		g := fd.glyphOf(r)
 		for row, w := range g {
-			for bit := 0; bit < 15; bit++ {
-				if (w>>(14-bit))&1 != 0 {
-					img.Set(i*flowGlyphPitch+bit, row, c)
+			for bit := 0; bit < fd.size(); bit++ {
+				if (w>>(fd.size()-1-bit))&1 != 0 {
+					img.Set(i*pitch+bit, row, c)
 				}
 			}
 		}
@@ -621,7 +659,7 @@ func (g *game) drawFlow(dst *ebiten.Image, views []flowView) {
 		g.flowImgs = map[string]*ebiten.Image{}
 	}
 	for _, v := range views {
-		rows := flowLayout(v.Zh, flowSites[v.Site].cols(g.scale, flowGS(g.scale, hd)))
+		rows := flowLayout(v.Zh, g.flow.cols(flowSites[v.Site], g.scale, flowGS(g.scale, hd)))
 		if len(rows) > flowMaxRows {
 			continue
 		}
@@ -633,7 +671,7 @@ func (g *game) drawFlow(dst *ebiten.Image, views []flowView) {
 				g.flowImgs[key] = img
 			}
 			gs := flowGS(g.scale, hd)
-			x0, y0 := flowRowPos(text, r, g.scale, gs)
+			x0, y0 := g.flow.rowPos(text, r, g.scale, gs)
 			op := ebiten.DrawImageOptions{}
 			op.GeoM.Scale(float64(gs), float64(gs))
 			op.GeoM.Translate(float64(x0), float64(y0))
@@ -668,7 +706,7 @@ func (fd *flowData) flowHD(img *image.RGBA, pages []*flowPage, k int) []flowJSON
 	gs := flowGS(k, 1)
 	for _, pg := range pages {
 		v := pg.view()
-		rows := flowLayout(v.Zh, flowSites[v.Site].cols(k, gs))
+		rows := flowLayout(v.Zh, fd.cols(flowSites[v.Site], k, gs))
 		if len(rows) > flowMaxRows {
 			continue
 		}
@@ -678,15 +716,15 @@ func (fd *flowData) flowHD(img *image.RGBA, pages []*flowPage, k int) []flowJSON
 		}
 		c := color.RGBA{v.Fg[0], v.Fg[1], v.Fg[2], 255}
 		for r, text := range rows {
-			x0, y0 := flowRowPos(text, r, k, gs)
+			x0, y0 := fd.rowPos(text, r, k, gs)
 			j.Rows = append(j.Rows, flowRowJSON{x0, y0, text})
 			for i, ch := range []rune(text) {
 				for row, w := range fd.glyphOf(ch) {
-					for bit := 0; bit < 15; bit++ {
-						if (w>>(14-bit))&1 != 0 {
+					for bit := 0; bit < fd.size(); bit++ {
+						if (w>>(fd.size()-1-bit))&1 != 0 {
 							for dy := 0; dy < gs; dy++ {
 								for dx := 0; dx < gs; dx++ {
-									img.Set(x0+(i*flowGlyphPitch+bit)*gs+dx, y0+row*gs+dy, c)
+									img.Set(x0+(i*(fd.size()+2)+bit)*gs+dx, y0+row*gs+dy, c)
 								}
 							}
 						}

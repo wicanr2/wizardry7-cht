@@ -22,4 +22,6 @@
 | [015 F1 說明](015-f1-help-evidence.md) | 前端送鍵與說明面板證據 |
 | [016 隊伍位置](016-party-position.md) | 移動與面向量測；未證實欄位語意維持原等級 |
 | [017 流動文字](017-flow-text-evidence.md) | 旁白分頁、故事31頁來源與返回邊界、淡入／淡出原版像素證據；驗收見spec006 |
+| [018 發行字型](018-distributable-font.md) | GNU Unifont 字元覆蓋、原生尺寸與排版探針 |
+| [019 譯文來源](019-catalog-migration.md) | 重複鍵、跨列對齊與TSV遷移證據 |
 | [M3 早期筆記](m3-notes.md)、[後續筆記](m3-notes2.md) | 歷史線索，不能取代後續資料庫或量測證據 |
