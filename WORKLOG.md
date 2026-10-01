@@ -38,3 +38,4 @@
 - 限制：三個1M暫態的RGB沒有獨立0x55原版像素可讀，2×未有完整英文PNG對照；原版未觸發的防禦分支維持READY，不升CONFORMED。全文TSV、發行字型與全遊戲路徑仍未完成。
 - 重跑入口在spec006；新收據r674–r680，舊r670、r673保留。驗收摘要`r674/verification-summary.json`、版本與輸入雜湊`verification-inputs.json`。使用Go1.24.13／Python3.11.2與既有Docker image `sha256:1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。
 - Docker：本輪容器均已刪除；工作根未見root-owned檔案或誤建的`.md`目錄，抽查輸出與烘製檔全為1000:1000。未改dosgolem上游、未提交原版或字型。
+- 已提交`65e62ad`並推送`origin/main`；[#40驗收留言](https://github.com/wicanr2/wizardry7-cht/issues/40#issuecomment-5924048402)已回填，狀態回讀為CLOSED。20份提交檔僅為程式、工具與文件，R433未追蹤文件保持原樣。
