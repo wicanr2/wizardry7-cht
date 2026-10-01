@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-02。已推送正式音訊與停止事件計數基線：`f4871c2`，獨立審查與前端競爭檢查通過。錄放起始設定候選`cb18cd5`已推送並回讀議題進度，013仍DRAFT；最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
+核對日期：2026-10-02。已推送正式音訊與停止事件計數基線：`f4871c2`，獨立審查與前端競爭檢查通過。一般填槽缺字修正`caeac31`已推送，#44關閉且回讀確認；015仍READY、#28仍OPEN。錄放起始設定候選`cb18cd5`已推送，013仍DRAFT；最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -22,7 +22,7 @@
 | 物品名稱校正 | [spec 010](docs/spec/010-item-name-corrections.md)、[019](docs/re/019-catalog-migration.md)：28個名稱及兩個共用訊息同步正式表與產生器，重建逐位元相同；雙字型靜態64項、正常角色頁兩倍率1,366項失敗0。實跑校正鍵0／28，僅稱名稱校正及靜態驗證完成。 |
 | 同義訊息文案統一 | [spec 011](docs/spec/011-message-wording-unification.md)、[019](docs/re/019-catalog-migration.md)：171組／373列同步，獨立驗收16,038項、失敗0；兩字型兩倍率31故事頁、6旁白頁、代表選單與F1通過。實際觸發修改訊息10筆，其餘363筆只完成靜態驗證；剩餘11組仍是交付門檻。 |
 | 三組複合物品名稱 | [spec 012](docs/spec/012-compound-item-output.md)、[021](docs/re/021-compound-item-output.md)：皮胸甲、毛皮護腿、小圓盾在正常角色／物品頁通過兩字型兩倍率、470項獨立核對與代表Draw；原版A000與色盤相同。隔離負向58項通過，未量玩家故障分支保持READY。 |
-| 一般填槽缺字回退 | [spec 015](docs/spec/015-generic-slot-expansion.md)、[014](docs/re/014-overlay-evidence.md)：所需數字／序數字模缺項或空時整則保留英文，避免略過字元後畫出部分中文。三群組16配置、完整前端競爭回歸與1980個完整字模修前修後對照通過，獨立實作複核阻擋0。玩家缺字分支與新原版A/B未量，維持READY；[#44](https://github.com/wicanr2/wizardry7-cht/issues/44)只涵蓋此缺陷，#28整體仍待驗收。 |
+| 一般填槽缺字回退 | [spec 015](docs/spec/015-generic-slot-expansion.md)、[014](docs/re/014-overlay-evidence.md)：所需數字／序數字模缺項或空時整則保留英文，避免略過字元後畫出部分中文。三群組16配置、完整前端競爭回歸與1980個完整字模修前修後對照通過，獨立實作複核阻擋0。玩家缺字分支與新原版A/B未量，維持READY；[#44](https://github.com/wicanr2/wizardry7-cht/issues/44)限定缺陷已CLOSED，#28整體仍待驗收。 |
 
 ## 收尾尚缺的證據與交付
 

@@ -15,3 +15,4 @@
 - `expandSlots`及caller已接線；正式三群組16配置與完整前端競爭回歸通過，1980完整配置與固定修前結果全同，輸入不變。
 - R822實作複核阻擋0、應改0。主代理讀完報告並核對75項來源／16實作產物及12項複核來源／3項輸出；完整SHA及界線集中於[研究014](../re/014-overlay-evidence.md)。
 - 沒有新原版、GUI或實際玩家缺字驗收，015維持READY、不升CONFORMED；#28整體與其他交付門檻維持。輸出1000:1000、衛生異常及自有容器0；推送與Issue回讀於完成後追加。
+- `caeac31685e1eec57b32831077ce4ab7348be7ee`已推送，HEAD與origin/main一致；[#44驗收](https://github.com/wicanr2/wizardry7-cht/issues/44#issuecomment-5942171198)全文及CLOSED狀態已回讀。[#28進度](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5942174433)及正文已回讀，仍OPEN；過時「沒有docs/spec/」改列歷史，完成條件保留。
