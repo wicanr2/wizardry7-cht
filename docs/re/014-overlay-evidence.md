@@ -47,3 +47,48 @@
 `-draw-at 286000000,340000000`（Xvfb、`-scale 3`）：`Draw` 完成後以 `ReadPixels` 存下 960×600 的實際視窗畫面，
 與 `hdFrame` 3× 目視一致（選單、防拷四行、旁白中文；無英文殘留）。截圖在機器到達步數後的下一幀，
 輸入框游標狀態不同，故不做逐像素比對。
+
+## R821／R822：一般填槽缺字回退
+
+2026-10-02；[#44](https://github.com/wicanr2/wizardry7-cht/issues/44)，關聯[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
+定位為自有Go來源，不是IDA位址；一般印字入口沿研究013與spec001的既有證據。
+本輪只讀Go／規格與自製字模，未讀原版、翻譯正文、RAM、state或防拷資料。
+工具Go1.24.13／Python3.11.2，既有Docker image
+`sha256:1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。
+
+已證（來源與自製案例）：修前缺數字時略過缺項、缺序數時整槽移除、nil序數字模仍被接受。
+`TestOldSlotMissingReproduction`的PASS代表重現這三個缺口，字模完整性false，不是修正驗收。
+固定修前區塊已獨立核對逐字擷取相符，完整數字對照及來源未變也通過。
+既定字型007 R6要求缺字退回英文，故本輪不需新增產品決策。
+
+| 本機收據（均在workplace/） | SHA-256 |
+|---|---|
+| r821/baseline-report.json | `fc51e6a2d02be34a4048a0546de0026e522221010d71f8a73d5982f34df9ed1c` |
+| r821/baseline-output-manifest.json（8項） | `5986ba882024e5665713b6f134d922d3909baa50429dad1e22f8c65af7de20af` |
+| r821/implementation-report.json | `99796c7bedf5eea28676cb3a8bde5788da3fb7a223283cbb7d6a04aeacfb1d22` |
+| r821/implementation-source-manifest.json（75項） | `bc65ce0a6cfc7e98c9cf2ffece85e6cad396583c1cad67197d07cc95c5d73dc3` |
+| r821/implementation-output-manifest.json（16項） | `230db4a564b6cf3535ebe9028dec94fc6c69d06475126d82c9a8e5b8287d9951` |
+| r822/correction-review.json | `1171cf5b8215c11038bd4619635d4ef79d098c88cb6159a69fe66073c9fd216d` |
+| r822/final-output-manifest.json（6項規格審查收據） | `9705679e85a4ef98e1bc42054ebf122506c8c6ce38cc9483793e7ad9be36b8c4` |
+| r822/implementation-review.json | `06cbb17d2e0693e002313c601c3db6e8e0f41d6b7701862646ba2239cb75d201` |
+| r822/implementation-source-manifest.json（12項） | `a7c16be4146cb9c1e994b78cfb4ed538680768477466de231d7681379d873786` |
+| r822/implementation-output-manifest.json（3項） | `31cbcf19c7649158c8ea46ffe8535459ad4705798a74bbc394e743ac00f7ba14` |
+
+規格015經R822唯讀審查後先升READY，再實作`expandSlots`；原R2文字應改已解除，
+明列ordinals key存在但nil／空不得落入digits，已知序數缺key亦整則失敗。
+caller缺字return在建立pendingPrint、取離屏背景及註冊本次返回之前；不交付部分中文事件。
+英文鍵、完整字模的映射順序、D邊界、flow及複合物品路由維持原行為，原版資料不寫入。
+
+正式三群組16自製配置（完整1／缺字10／既有邊界5）與全部前端競爭回歸通過，
+`WIZ7_FE_TIMEOUT=60s tools/fe.sh xvfb 'go test -race -count=1 ./cmd/wiz7'`套件5.042秒。
+實際helper僅更換package名稱的隔離副本與固定修前區塊比對1980個完整配置，
+字模／Dy等結果全同、輸入未改，隔離競爭群組1.187秒。
+自製識別值不是原版或第三方字模；沒有新原版A/B、GUI或玩家缺字故障驗收，不升CONFORMED。
+
+實作獨立複核阻擋0、應改0；75項來源、16實作輸出、8修前輸出相符。
+主代理完整閱讀報告並核對12項複核來源與3項輸出；字詞邊界及首大寫段仍是既有啟發式，
+不冒稱隊員結構身分。main.go修前SHA `90a1b10947b27377773c7b1396baf02d120eaae3e22d2d2c8f0ee2154b5c170b`，
+修後 `c9d5016adfca9a6f81679c38ec6204687d05943b320ee0b72df2bd2b13a38355`；
+來源索引保留規格訂正、READY與實作前後分類，既有收據未覆寫。
+所有輸出1000:1000，210698項lstat衛生檢查異常0，自有容器均已清理。
+本缺陷按#44有限驗收範圍完成；#28整體規格覆蓋、完整可玩交付及其餘原版驗收仍未完成。

@@ -3,6 +3,7 @@
 近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)；
 開發入口維護：[R816 前端Docker入口](R816-frontend-docker-entry.md)。
 錄放純量契約：[R819](R819-recording-initial-scalars.md)。
+填槽缺字回退：[R821](R821-slot-fallback.md)。
 
 ## 終點
 
@@ -58,6 +59,7 @@ psychic-war 已用這條路完成一款；本專案要驗證它對 overlay 架�
 | 701 | [R701](R701-audio-playability.md) | 前端聲音與可玩性（#18） |
 | 816 | [R816](R816-frontend-docker-entry.md) | 前端Docker開發入口、離線與清理（#43） |
 | 819 | [R819](R819-recording-initial-scalars.md) | 錄放啟動純量精確契約（#17） |
+| 821 | [R821](R821-slot-fallback.md) | 一般填槽缺字回退（#44、#28） |
 
 第 2 輪起依 M0 的結論再定。
 

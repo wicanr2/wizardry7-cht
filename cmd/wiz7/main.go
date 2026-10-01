@@ -987,32 +987,12 @@ func main() {
 				o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}), o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}), ret.Seg, ret.Off)
 			return // 無譯文：放行原文
 		}
-		// '$' 槽展開：數字→數字位圖、序數詞→中文字形（__ordinals__）
-		if len(ent.D) > 0 {
-			slotSet := map[int]bool{}
-			for _, s2 := range ent.D {
-				slotSet[s2] = true
-			}
-			newG := make([][]uint16, 0, len(ent.G)+4)
-			ni := 0
-			for i, gl := range ent.G {
-				if slotSet[i] && ni < len(nums) {
-					tok := nums[ni]
-					ni++
-					if dg, ok := ordinals[tok]; ok {
-						newG = append(newG, dg)
-						continue
-					}
-					for _, dc := range tok {
-						if dg, ok := digits[string(dc)]; ok {
-							newG = append(newG, dg)
-						}
-					}
-					continue
-				}
-				newG = append(newG, gl)
-			}
-			ent.G = newG
+		// spec015：所需槽位字模缺項時整則保留英文，不建立部分中文事件。
+		ent, ok = expandSlots(ent, nums, digits, ordinals)
+		if !ok {
+			log.Printf("填槽缺字 %d @(%d,%d) ret=%04x:%04x", o.Steps(),
+				o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}), o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}), ret.Seg, ret.Off)
+			return
 		}
 		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
