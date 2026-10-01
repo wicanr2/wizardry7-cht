@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="480" viewBox="0 0 1040 480" role="img" aria-labelledby="title description">
+  <title id="title">巫術7 中文化目前架構</title>
+  <desc id="description">cmd/wiz7 收集玩家輸入，由主迴圈呼叫 dosgolem 執行原版。覆繪層只讀印字及原版畫面，提供畫格與覆繪資料；前端 Draw 放大畫格並畫中文。OPL 事件經音訊串流與前端播放器輸出。玩家自備原版資料，譯文及字型由專案工具烘製。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#536878"/></marker>
+    <style>
+      text {font-family:"Noto Sans CJK TC","Microsoft JhengHei",sans-serif;fill:#172b3a;font-size:16px}
+      .heading {font-size:22px;font-weight:700}
+      .name {font-size:18px;font-weight:700}
+      .detail {font-size:14px;fill:#425c6c}
+      .box {fill:#f2f6f9;stroke:#8ba1ae;stroke-width:1.5;rx:10}
+      .edge {fill:none;stroke:#536878;stroke-width:2;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1040" height="480" fill="#ffffff"/>
+  <text class="heading" x="28" y="35">巫術7 中文化：目前正式前端</text>
+  <text class="detail" x="28" y="58">目前模組分層與來源證據：docs/re/023-adapter-boundary.md</text>
+
+  <rect class="box" x="28" y="94" width="250" height="162"/>
+  <text class="name" x="46" y="122">玩家與視窗前端</text>
+  <text x="46" y="150">cmd/wiz7：ebiten</text>
+  <text x="46" y="177">Update：收集鍵盤、滑鼠</text>
+  <text x="46" y="204">Draw：放大畫格、畫中文</text>
+  <text class="detail" x="46" y="237">說明、地圖與前端保留鍵</text>
+
+  <rect class="box" x="373" y="94" width="288" height="162"/>
+  <text class="name" x="391" y="122">主迴圈與遊戲專屬覆繪</text>
+  <text x="391" y="150">main.go：輸入、Run、快照</text>
+  <text x="391" y="177">overlay：唯讀印字與清場</text>
+  <text x="391" y="204">flow／compound／slots</text>
+  <text class="detail" x="391" y="237">compose：還原筆畫、選取覆繪</text>
+
+  <rect class="box" x="752" y="94" width="260" height="162"/>
+  <text class="name" x="770" y="122">dosgolem 通用執行層</text>
+  <text x="770" y="150">oracle：Run、輸入、觀察</text>
+  <text x="770" y="177">CPU／DOS／BIOS／VGA</text>
+  <text x="770" y="204">原版規則與資料處理</text>
+  <text class="detail" x="770" y="237">目前 SDK 需固定基線＋受控補丁</text>
+
+  <path class="edge" d="M278 139 H373"/>
+  <text class="detail" x="292" y="129">輸入佇列</text>
+  <path class="edge" d="M661 139 H752"/>
+  <text class="detail" x="677" y="129">原版輸入</text>
+  <path class="edge" d="M752 215 H661"/>
+  <text class="detail" x="670" y="201">畫面／事件</text>
+  <path class="edge" d="M373 215 H278"/>
+  <text class="detail" x="292" y="201">畫格／覆繪</text>
+
+  <rect class="box" x="28" y="320" width="250" height="102"/>
+  <text class="name" x="46" y="348">烘製譯文與字型</text>
+  <text x="46" y="376">字串比對表、flow、help</text>
+  <text class="detail" x="46" y="404">tools/re/bake_*.py</text>
+  <path class="edge" d="M278 350 H338 V280 H450 V256"/>
+  <text class="detail" x="294" y="305">顯示資料</text>
+
+  <rect class="box" x="373" y="320" width="288" height="102"/>
+  <text class="name" x="391" y="348">前端音訊</text>
+  <text x="391" y="376">audio_player／audio_reader</text>
+  <text class="detail" x="391" y="404">opl2.Stream → ebiten 音訊播放器</text>
+  <path class="edge" d="M802 256 V285 H595 V320"/>
+  <text class="detail" x="688" y="279">OPL 事件</text>
+  <path class="edge" d="M373 383 H314 V287 H153 V256"/>
+  <text class="detail" x="206" y="279">聲音</text>
+
+  <rect class="box" x="752" y="320" width="260" height="102"/>
+  <text class="name" x="770" y="348">原版資料：玩家自備</text>
+  <text x="770" y="376">DS.EXE、.OVR、資料檔</text>
+  <text class="detail" x="770" y="404">不隨可散布發行包提供</text>
+  <path class="edge" d="M915 320 V256"/>
+
+  <text class="detail" x="28" y="456">遊戲專屬程式目前仍在 cmd/wiz7；本圖記錄現況，搬移方案另待定案。</text>
+</svg>

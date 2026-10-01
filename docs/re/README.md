@@ -29,4 +29,5 @@
 | [020 前端聲音](020-player-audio.md) | 正常啟動OPL事件與播放器接線證據 |
 | [021 複合物品名稱](021-compound-item-output.md) | 三組兩行名稱及限定正常上屏驗收；另一bitmap背景未量 |
 | [022 輸入錄放](022-input-recording-boundary.md) | 前端實際API順序、Step與錄放草稿界線 |
+| [023 adapter 分層](023-adapter-boundary.md) | 現行模組依賴、未提交 SDK 來源與乾淨提交編譯對照；尚未定案搬移 |
 | [M3 早期筆記](m3-notes.md)、[後續筆記](m3-notes2.md) | 歷史線索，不能取代後續資料庫或量測證據 |

@@ -235,7 +235,7 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 | 譯文仍是 JSON（`text/*-trans.json`）、以訊息 ID 為鍵；要轉 `text/*.zh-TW.tsv`＋英文鍵 | #24 |
 | `text/messages.json` 仍含手冊防拷關鍵字段（使用者 2026-09-29 指示擱置另議） | #26 |
 | 已有 `docs/spec/001`–`006`；其他既有輸出路徑的規格覆蓋與未量分支仍待驗收 | #28 |
-| adapter 在本 repo `cmd/`（go.mod replace 到 `worktrees/dosgolem`），尚未評估是否移到 dosgolem fork 的 `apps/wiz7` | #29 |
+| adapter 在本 repo `cmd/`（go.mod replace 到 `worktrees/dosgolem`）；現況分層及固定補丁重建核對見 `docs/re/023-adapter-boundary.md`，是否移到 dosgolem fork 的 `apps/wiz7` 尚待定案 | #29 |
 
 ## 13. 定案事項
 
