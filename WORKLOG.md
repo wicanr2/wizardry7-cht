@@ -241,3 +241,16 @@ R779回呼故障窄修及R781獨立審查已封存，精確SHA回填研究020；
 - 已封存輸出1000:1000、root-owned／誤建md目錄／自有容器0；原版資料、音訊與存檔仍只留本機。R433未追蹤檔原樣保留。全部11組、TSV、正式存讀檔與錄放、三平台可玩封包及通關仍未完成；未建立dist-all、tag或Release。
 - R814對013與正式音訊的獨立規格核對為4阻擋／3應改／2建議；阻擋是schema／CLI／profile、Scratch初態、新音訊故障資格與同期限末註契約，沒有新的原版語意缺口。已修正009草稿／淺拷／無有界owner的過時正文，R802暖保存與冷LOAD限制回填；既有格式、晚到確認、panic與暖flow測試不重開。013仍DRAFT，正式錄放尚未接線，來源／清理無差。
 - R813完成單次固定女性仙靈CREATE到真正職業選單，獎勵9、六候選無PSIONIC；姓名標籤為CHARACTER NAME，沒有NAME:。主代理已查看最後圖，25對A/B及2480正常檔次SHA同，未保存／重擲，該分支停止。首排程格式錯誤exit2於初態前，修正工具後用同名字重跑，失敗原檔也全同；11組新增仍0，來源漂移與清理0。限制及SHA追加研究019。
+
+## 2026-10-02：Docker入口收尾與錄放契約回填（#43、#17）
+
+- `f4871c2`已推送；進度已寫入並回讀[#18](https://github.com/wicanr2/wizardry7-cht/issues/18#issuecomment-5939641214)、[#17](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5939642403)、[#22](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5939643619)，皆保持OPEN。[#43](https://github.com/wicanr2/wizardry7-cht/issues/43)本輪建立且全文回讀，獨立追蹤工具入口缺陷；dosgolem上游仍未推送。
+- 命中規格閘門、README及文件職責路由，核對既有image的entrypoint與掛載來源。`tools/fe.sh`主機只做Docker控制面；快取建立、擁有權、Xvfb檢查與命令皆在容器，Go依賴離線唯讀、原版ZIP／original另唯讀掛載。名稱查詢與執行有界，查詢失敗即停止。Dockerfile只校正註解，沒有重建或聲稱新鎖版image。
+- R817首自製fixture量到前景wait令INT／TERM延至逾時清理，6.037秒後清0，不是永久洩漏。改為背景控制程序與內建wait，修後143／130、250ms假登錄表0；精確名稱查詢成功且空集合才准執行。映像查詢逾時與缺映像共用診斷文字，屬不阻擋建議；README明列查詢失敗也拒絕。獨立封存另追加於本節。
+- R816實際Go建置及建置後序列CLI通過，Xvfb幾何1024×768、三類唯讀掛載已驗。原指令失敗17、非法逾時2、缺映像1、2秒逾時後強制終止137如實保留。單次TERM返回143並移除本趟容器；工具調度12.064秒與write_stdin等待0.136秒不當停止耗時或A7的5秒證明。舊TERM窗口自然124，未送訊號，不採為TERM證據。
+- 首次平行建置／CLI讀取同一binary的CLI收據已捨棄，建置完成後按序重跑通過。patch錨點與image空Entrypoint檢查的工具失敗已改正，非產品缺陷。原版248檔SHA初末同、沒有遊戲執行；Linux amd64中間binary與11項輸出SHA見[R816目標](docs/goal/R816-frontend-docker-entry.md)，不當發行包或新環境建置證明。
+- R815回填013原型精確欄位、八命令、容量與SHA公式；不再把已證事實寫成待探針。唯一Abort fixture直接呼叫方法，自製observer_fault未接實際回呼，原事件none不變、缺末註及改名後皆拒載，不外推完整失敗重播。正常finish入口、新schema／啟動配置與工作階段故障策略仍pending；舊R776先Finish後Draw不能轉入正式路徑，共用期限含Draw、owner／Close及Writer，總期限起點需定稿。013仍DRAFT，沒有移植正式錄放。
+- 預設存檔位置尚待使用者選定，原型與具體選項已備妥；本輪再次提供同一父層問題，沒有採用默認答案。剩餘11組、TSV、冷存讀還原、正式錄放與平台可玩包未完成，沒有dist-all、tag或Release。R433未追蹤檔保持原樣。
+- R816輸出1000:1000、root-owned與誤建md目錄0、實際入口容器0；獨立審查文字修正、最終封存與容器回讀於後續追加。不把工具環境通過宣稱完整可玩。
+- R817封存的14控制面／3路徑案例、34斷言失敗0，功能阻擋0／必要修正0；79項manifest與完整SHA已掛入R816目標，主代理已讀最終報告。R818審查R815回填，C0精確文字與Abort直接呼叫、finish期限起點限制修正後，新增阻擋0／未解除應改0；報告與5項輸出SHA回填研究022，013仍DRAFT，不當READY批准。
+- 主代理逐項核對R816的11、R817的79及R818的5份封存內容，10個報告／索引SHA與5項工具來源全同、UID/GID1000。首誤猜R818索引檔名的工具FAIL已分類，改讀實際output-manifest.json後通過，沒有更動收據。自有Docker前綴回讀空集合，git diff --check通過。

@@ -1,6 +1,6 @@
 # 目前狀態與交接
 
-核對日期：2026-10-02。已推送正式音訊基線：`5a37e7f`；本輪另補停止後未送入合成器的事件計數，獨立審查與前端競爭檢查通過。最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
+核對日期：2026-10-02。已推送正式音訊與停止事件計數基線：`f4871c2`，獨立審查與前端競爭檢查通過。本輪收尾開發入口及錄放DRAFT契約，最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
@@ -53,11 +53,12 @@ Reader約5毫秒不等於裝置退出時間；R799正常版已確認221幀淡出
 |---|---|
 | 已完成正式實作 | 故事31頁、旁白6頁、雙字型、171組同義文案與三組複合物品名稱維持前表驗收範圍；不重開已完成項目。來源、失敗與勘誤留在各研究文件及WORKLOG。 |
 | 音訊009 | READY，R790規格審查及R798實作審查阻擋0。正式接線含精確H、手動加速維持音高、2秒ring、4410分塊、整數淡化與單一5秒退出監督。R801冷啟動200k／260M原版RAM、CPU、時基、畫面、事件與PCM相同，260M為7835事件／3816817幀。R799四趟競爭版及一趟正常版真GUI正常退出；F1同Step恢復，正常有聲／靜音60M畫面及原版摘要同。正常版欠載3401、溢出0，停止2936幀留221淡出、捨2715，實交付884 bytes／ACK=true／EOF=false。關窗至程序退出0.0624秒，不當5毫秒裝置保證；全玩家音訊鏈／人耳未驗，不稱CONFORMED。R804[固定依賴](tools/docker/dosgolem-audio-manifest.json)與[準備入口](tools/docker/prepare-dosgolem.sh)獨立審查通過，未推dosgolem上游。見[020](docs/re/020-player-audio.md)。 |
-| 錄放013 | 仍DRAFT。R776／R777三次7152對快照及R775觀察開／關2384對相同；R780／R784暖有效flow旁證資格false。R814列四個正式契約缺口：schema／CLI／profile、新音訊與Scratch初態、音訊故障資格、共用退出期限的末註順序；沒有新原版RE缺口。正式冷含音錄放與存讀檔仍待實作後驗收。見[022](docs/re/022-input-recording-boundary.md)。 |
+| 錄放013 | 仍DRAFT。R776／R777三次7152對快照及R775觀察開／關2384對相同；R780／R784暖有效flow旁證資格false。R815已回填原型精確欄位、八命令、容量與SHA公式，不再重開格式探針。新音訊／Root與Scratch啟動配置、正常結束入口與故障文件策略仍待定稿；舊R776先Finish後Draw不得轉入正式路徑，Writer必須沿009同一退出期限。正式冷含音錄放與存讀檔仍待實作後驗收。見[013](docs/spec/013-input-recording.md)及[022](docs/re/022-input-recording-boundary.md)。 |
 | 原版存讀檔 | 正式前端缺SetScratch，原版顯示保存卻不落盤，為實際缺陷。R802私人靜音暖GUI已確認DISK(212,166)→SAVE & RESUME(160,73)→SAVE(100,170)，獨立Scratch寫出SAVEGAME.DBS 11404 bytes／74寫入；正常前進改變位置。冷啟動以正式Click進LOAD後停在原版防拷，沒有匹配合法輸入收據，未計載入還原成功。[014草稿](docs/spec/014-original-save-storage.md)要求Scratch與唯讀Root分離；預設存檔位置待使用者共同決策，不擅自採用。私人fixture資格false，不當正式冷音訊／錄放完成。 |
 | 剩餘11組／TSV | 使用者要求全部補齊才交付，008維持DRAFT。171組／373列完成，11組仍缺實際情境或短句版面證據；排除空鍵／純槽後烘製25、執行期24組碰撞。R768已授權10出處±2鄰則、38唯一ID的窄讀取完成，只有角色候選；原文留本機，不擴讀其他八組鄰文。 |
 | 合法場景路線 | R803正常組成六人隊伍；R805 START進入新防拷題，沒有匹配收據即停止。角色管理／TREON審閱107對A/B與2976檔次SHA同，動態IRQ0Every兩側7069，不誤稱初始時基改變。R813一次固定女性仙靈正常CREATE到職業，獎勵9、六候選無PSIONIC，姓名標籤不是NAME:；25對A/B與2480正常檔次SHA同，未保存、不重擲，該分支停止。11組新增仍0。見[019](docs/re/019-catalog-migration.md)。 |
 | 加速與平台前置 | R808非競爭24M真GUI退出0，關窗至退出0.0645秒、60M原版與合成同正常版；欠載54757幀、溢出0，不稱流暢度或人耳通過。來源881筆／合成器865筆的停止差額16已明列，R812獨立審查解除診斷文字缺口。R810最新172項來源無漂移，Windows amd64可編譯、Wine命令列退出0；未驗Windows遊戲視窗或真機、macOS及正式封包。見[020](docs/re/020-player-audio.md)。 |
+| Docker開發入口 | [R816](docs/goal/R816-frontend-docker-entry.md)、[#43](https://github.com/wicanr2/wizardry7-cht/issues/43)：tools/fe.sh只留主機控制面，Go／Xvfb及UID檢查在既有容器內；離線模組唯讀、原版輸入唯讀、名稱查詢與執行均有界。實際建置／序列CLI／Xvfb通過，命令失敗17、逾時137與單次TERM143如實保留，自有容器0。248原版SHA相同，Linux中間binary不當可玩包；沒有新環境工具鏈、原版遊玩或跨平台聲明。 |
 | 正式交付 | 尚未建立正式dist-all版本、tag或Release；全部11組、TSV、音訊／錄放、正常存讀檔及平台封包仍須完成。#35、#36、#28、#29依遠端Issue繼續；#26保持擱置。 |
 
 已封存批次輸出1000:1000，自有容器、root-owned與誤建`.md`目錄均0；在跑批次另留清理收據。

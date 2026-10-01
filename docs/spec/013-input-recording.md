@@ -25,7 +25,8 @@
   複製前、複製後、LoadWith前皆核對，不含原版位元組、不接受路徑逃逸或symlink。
   前端倍率、譯文／flow／help產物SHA及影響畫面的設定另列；有不同GUI配置不能稱同合成畫面。
   重播啟動前全部核對；不相符即拒絕，不以只驗DS.EXE宣稱遊戲資料與存檔相同。
-  schema的命名、欄位及最大檔案／事件數待隔離探針定稿，未知欄位與型別必須拒載。
+  既有原型的欄位、編碼與容量已由R815明列於下節；正式schema、完整啟動配置及操作入口尚待定稿。
+  未知欄位與型別必須拒載，不沿用私人原型名稱冒稱正式相容。
 - I3：命令由機器goroutine在實際API呼叫處記錄，而非GUI收到按鍵的牆鐘時刻。
   每筆保存嚴格遞增seq、before_step、after_step、kind及該kind限定的參數；
   同Step多筆保持seq順序。對Run、Click記錄實際步數效果與有限錯誤類別，
@@ -70,7 +71,8 @@
    正式CLI與schema仍待READY審查，不將錄製結束後的角色檔當重播初始輸入。
 3. 正式009已有200k安全停止與owner／播放器Close共用5秒監督；
    尚缺錄放Writer、Draw確認與成功末註在同一期限內的收尾順序，不另延長退出預算。
-4. 命令schema、參數範圍、錯誤類別、容量／寫入失敗及獨立oracle仍需探針與唯讀審查。
+4. R815已明列原型命令、參數、錯誤類別及容量，既有R761／R777獨立收據仍有效；
+   正式格式與新配置差異需定稿及唯讀審查，不重跑已足夠的格式大表。
 
 ## 擬定驗收
 
@@ -156,3 +158,78 @@ R802找到DISK並以獨立Scratch在私人暖GUI正常保存11404 bytes；
 NoResponse的Click保留snapshot／續行，原Run錯誤保留直接return，不統一成猜測的錯誤流程。
 正式冷含音GUI、三次重播、有效flow、提前關窗與正常存讀還原列入實作後驗收；
 它們未量到，不應取代上述可定稿的READY契約。013維持DRAFT。
+
+## R815：已核對原型契約與真正待定分支
+
+下列是固定私人來源的已證契約，供正式規格定稿使用，**不是已採用的正式格式**。
+來源為R760的`record.go:22–84,113–374,479–683`與R776的`observe.go:89–136`；
+候選、來源清單及唯一新增自製測試的SHA見[研究022](../re/022-input-recording-boundary.md)。
+正文不再將已證的型別／容量寫成未知；CLI、格式與操作取捨仍pending，維持DRAFT。
+
+### 已證：原型文件與編碼
+
+原型schema是`wiz7-input-prototype/1`；UTF-8 JSON逐列、每列以LF結束，
+順序為一列header、有序事件、最後一列end；end後不允許額外列。
+必要欄位全部存在、不得null；拒絕未知／重複／大小寫別名欄位、錯型別、
+非法UTF-8、孤立代理碼與額外JSON值。SHA一律64個小寫十六進位字元。
+
+| 物件 | 必要欄位及型別 |
+|---|---|
+| header | `kind="header"`、`schema`、`program_sha256`、`runtime_sha256`、`exe_sha256`、`frontend_sha256`為字串；`start_step=0`為uint64；`clock`為物件、`files`為陣列。 |
+| clock | `cpu_hz`、`irq0_base`、`irq0_every`為非零uint64；`cycle_clock`為bool、`ticks=0`為uint64、`model_sha256`為字串。 |
+| files每項 | `path`字串、`size`uint64、`sha256`字串、`dos_date`／`dos_time`為uint16、`attributes`為uint8。 |
+| 事件 | `kind`字串、`seq`／`before_step`／`after_step`為uint64、`error_class`字串、`params`物件。 |
+| end | `kind="end"`、`event_count`／`end_step`為uint64、`content_sha256`字串、`accepted`為bool。 |
+
+| 命令 | params的精確範圍與Step效果 |
+|---|---|
+| `press_key` | 僅`key` uint8；原樣PressKey，Step不變。 |
+| `type` | 僅`bytes`；解碼後1..1024 bytes。Writer寫base64，Loader亦接受uint8陣列，陣列null拒絕；Step不變。 |
+| `move_mouse` | 僅整數`x`／`y`，0..319／0..199；Step不變。 |
+| `click` | 同座標範圍；原Click，保留實際after≥before及原錯誤，不硬編為6M。 |
+| `press_button`／`release_button` | 僅`button` uint8且恰為1，現有右鍵API；Step不變，不補release。 |
+| `run` | 僅`steps` uint64，1..200000；實際差值0..steps，成功時必等於steps。 |
+| `snapshot` | 僅`publication` uint64與`frontend_sha256`字串；發布從1逐次+1、配置SHA等於header；Step不變。 |
+
+seq從1連續，before恰等於前一筆after，同Step維持seq順序。
+錯誤碼僅`none`、`no_response`、`execution`；後兩者僅click／run可用，run不收no_response。
+其他命令只收none。這是原API結果，不能塞入音訊／observer故障。
+正式009的有限操作碼與上述三類不同層；如新增區分類別，須明列格式差異並審查。
+
+全檔最多64MiB、單列JSON本體最多1MiB（另加LF）、事件最多1,000,000筆、
+初始檔案1..4096筆。path最多260 UTF-8 bytes，Clean後不變，以`/`分隔，
+禁止U+0000–U+001F（C0）、反斜線、冒號、絕對與逃逸路徑；依path排序唯一。
+DOS屬性僅0x27遮罩；日1..31、月1..12、時0..23、分0..59、二秒欄0..29。
+此為實際解析界線，未宣稱完整曆法有效性。
+
+`content_sha256`是header與所有事件原始列bytes加各自LF的SHA，不含end；
+驗讀不重排JSON。R776的程式SHA來自實際binary，EXE SHA來自實際選定程式；
+RuntimeSHA是R755冷初始化metadata bytes的SHA；FrontendSHA是固定Go1.24.13的
+`SHA256(json.Marshal(cfg))`。cfg依序為`Scale`、`IPS`、`Resources`、`LoadWith`、
+`Profile`、`SelectedProgram`；物件依結構順序、map鍵排序，無尾LF。
+舊59項來源與3資源不包含新正式音訊和Scratch，不可直接充作新的完整啟動配置。
+私人CLI只有`-prototype-mode`、`-prototype-dir`、`-prototype-input`、`-prototype-stop`，
+尚無正式錄製／重播／停止錄製入口。
+
+### 工程草案與尚待共同決策
+
+R815提供完整啟動配置的具體欄序／型別候選：實際binary與版本、目前來源清單、
+Root與Scratch各自封閉集合及DOS中繼資料、LoadWith與有效初態、精確約分H／K、
+明示IPS及Float64位元、mute／裝置、音訊固定參數、倍率與三類資源SHA。
+Scratch空集合合法，兩個集合必須保留遮蔽前的Root項目；每次重播在Run前核對乾淨私有副本。
+`initial_scalars_sha256`仍缺唯一有效純量結構來源，不能拿舊R755摘要或任意map補洞。
+以下只列決策前沿，不採用其中任何尚未確認的方案：
+
+| 分支 | 實際取捨／尚待定稿 |
+|---|---|
+| 014預設存檔位置 | 系統使用者資料目錄或遊戲旁獨立目錄；兩者均保留明示save-dir。使用者尚未回答。 |
+| 正式格式及啟動配置 | 新schema版本；完整配置內嵌header或必要本機附檔。後者也改變RuntimeSHA與交付結構，不能冒稱prototype/1相容。CLI名稱需精確定稿。 |
+| 工作階段故障 | 故障即Abort留下無末註片段，或新schema保存原操作完整但不具成功資格的文件；後者需要獨立有限故障欄與資格算法。兩者都不偽造原API error。 |
+| 正常錄製結束 | 事先明示Step／安全邊界上限，或玩家「停止錄製」GUI要求及退出／續玩行為。僅關窗Abort無法滿足正常錄製與三次重播，不作完成方案。 |
+| 有界收尾 | 先取得最終同發布Draw確認，再完成owner／音訊Stop及單次Close；資格與剩餘期限有效才Writer.Finish。Sync／Close／發布須納入009同一總5秒監督，不能沿R776先寫成功末註再等Draw。 |
+
+唯一新增自製fixture直接呼叫Abort，證實不改原事件的none、不寫end、不發布正式名稱，
+partial及人工改名的缺末註文件皆拒載；沒有原版、GUI或裝置驗證。
+自製observer_fault標籤未接實際故障回呼。正常finish的總期限起點仍需精確定稿，
+最終Draw亦須納入，已觸發009退出期限不得重設。
+現有Finish不具取消或整體5秒保證，候選順序尚未實作與審查；不由這個fixture升READY。

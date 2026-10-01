@@ -45,6 +45,18 @@ tools/docker/prepare-dosgolem.sh
 tools/fe.sh build ./cmd/wiz7
 ```
 
+前端測試或需要虛擬桌面的命令使用以下入口；Xvfb與命令都在容器內執行：
+
+```bash
+tools/fe.sh xvfb 'go test ./cmd/wiz7'
+```
+
+入口預設離線、Go模組唯讀，每次執行有獨立容器與資源上限；原版ZIP及
+`workplace/original`若已存在，會另掛唯讀。`WIZ7_FE_TIMEOUT`可指定正整數逾時
+（預設`10m`），`WIZ7_FE_IMAGE`可選已備妥的工具鏈映像檔。
+映像檔或Docker查詢失敗即停止，不自動下載或建置；模組快取須事先備妥。
+既有`WIZ7_FE_SH='指令' tools/fe.sh`用法仍可在容器Xvfb內執行。
+
 上述clone與分支命令供新環境使用；既有工作樹依[CONTEXT.md](CONTEXT.md)核對，不覆寫。
 互動前端預設按原版虛擬時鐘同步；明示`-ips`可手動加速，音樂維持音高，`-mute`關閉裝置播放。
 音訊仍在正式驗收階段，已量範圍與限制見[規格009](docs/spec/009-player-audio.md)。

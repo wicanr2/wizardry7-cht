@@ -1,12 +1,12 @@
 # Ebiten 在 Linux 上要 cgo 連 X11／OpenGL，golang 官方 image 沒有那些標頭檔。
-# 這是**本專案自己的 image**（`psychicwar-go-ebiten`），不動任何共用資源。
+# 這是本專案工具鏈映像檔`wizardry7-go-ebiten`的建置來源，不動共用資源。
 #
-# `xdotool` ＋ `imagemagick` 是給 `tools/frontend-playthrough.sh` 用的：
+# `xdotool` ＋ `imagemagick` 用於前端驗證：
 # 把前端跑在 Xvfb 裡、用真正的 X 鍵盤事件操作、用 `import` 截圖。
 # **不是除錯捷徑**——按鍵一樣走 X → GLFW → Ebiten → `inpututil`，
-# 與玩家在自己機器上按的是同一條路（`docs/spec/006` §4 第 5 項驗這一條）。
+# 與玩家在自己機器上按的是同一條前端輸入路徑；驗收範圍依本案規格與收據。
 #
-# `libasound2-plugins` 是給真實裝置上的音訊量測用的（`docs/spec/020`）：
+# `libasound2-plugins` 是給音訊量測用的（`docs/spec/009-player-audio.md`）：
 # ⚠ 它會拉進一大串多媒體相依（ffmpeg、cairo、codec2…），第一次 build 要等很久。
 # 只需要其中的 `libasound_module_pcm_pulse.so`，但 Debian 沒有更小的套件。
 # 不裝 alsa-utils：`aplay` 只是方便，plugin 本身不需要它。
