@@ -278,3 +278,61 @@ review-r842-supplement.json SHA `df433bea99220e15600248c95cfb8f484cb9c5621c0f559
 根doc-guard核對三批准回填、其餘326來源及224產物保持，五正式文件擁有權及新連結通過；
 doc-guard.json SHA `f0ee7b0567f50489e2be2911032843ea5a214df97e86bc9ae4cf9a68e5668a4c`。
 封存後只追加本段及WORKLOG驗收文字，不改原版、程式或凍結收據；自有容器均已清理。
+
+<a id="r843-next-maze-heading"></a>
+
+## R843：暖迷宮換向續行
+
+2026-10-02，基線1eec97e，目標[R843](../goal/R843-next-maze-heading.md)，沿005已實測正常輸入。
+R841完整二十一點前綴與3899M原版RAM SHA核對後，按逐批正常畫格決定下一步。
+十來源及有限正文護欄與R839相同；沒有新MSG、鄰文、手冊、答案或原版資料改寫。
+
+| 批次 | 已觀察後的正常操作 | 比較對數／前綴 | 末步數 | 面向／末六word |
+|---|---|---:|---:|---|
+| next-right | R841羅盤後Click(180,166)一次 | 22／21 | 3925M | 2／[0,10,2,7,58,87] |
+| next-forward | 新視角及面向2後Click(160,162)一次 | 23／22 | 3951M | 2／[0,10,1,7,57,87] |
+| trail1 | 已見移動及新視角後再前進一次 | 24／23 | 3977M | 2／[0,10,1,7,57,87] |
+| branch-right | 面向2未移動即停，正常右轉一次 | 25／24 | 4003M | 3／[0,10,1,7,57,87] |
+| branch-forward | 新視角及面向3後只前進一次 | 26／25 | 4029M | 3／[0,10,1,7,57,87] |
+
+五批120對含重播前綴，只有26唯一停止點，其中R841二十一點、新增5點。
+原始on/off全部snapshot欄位、RAM、indexed、palette、暫存器SHA、固定輸入及停止理由相同。
+每批完整包含前一批全部點；最新取得／印字入口291／572，不把五批次數相加。
+十來源／解碼／同緩衝印字／保護段／來源失配皆0，只證明此零命中觀察路線。
+
+面向2第一次前進+8由58到57，六word第三項2到1只保留原始值，不升級+4語意。
+接著面向2及3各一次前進不動，停止兩方向；牆、區域／世界及傳送未推定。
+五張正常畫格及observations保存逐批決策，不轉寫完整旁白；trail=2未使用，
+這些收據不核准第二次自動前進。後續只在觀察到不同已實測方向後續行。
+
+初334來源、v2為336、v3為338；舊索引main按保存v1／v2核SHA，不誤報現行差異。
+最後341來源及282產物封存；248原版、55已索引SDK及R780私有loader保持，
+現行探針與實際SDK編譯輸入相同。工具Go1.24.13／Python3.11.2，Docker映像Id沿前列並實測相同。
+數值seed未知，同合法初態與固定輸入、無重擲；不是亂數規則對拍。
+
+| 本機收據（workplace/r843/） | SHA-256 |
+|---|---|
+| report.json | `6ee31935be97e072394b4661231c4d2d0ac0993c2ae3a10c38f765729450eb88` |
+| final-source-index.json，341項 | `5bd79b62cfaa9c39ce51a268bcee212995dab42dc27cda9fa3c1186d6e6682a6` |
+| final-output-index.json，282項 | `6f5f0932f25fa26200dfa0040ada356397ee50c4843489887d7248aa7a865751` |
+| final-guard.json | `df5f8b2e1f95ab71e77606c1a23d0f188fde7f2b324c2ca1d84b152686e88915` |
+
+根核對341來源／282產物全同，221649項lstat異常0、十scratch無檔，輸出1000:1000。
+R844獨立技術審查0／0／0，主代理完整讀取JSON與Markdown；只批准回填限定路線。
+review-r844-report.json SHA `21199db05897e026da7a9f4118db05e0f097aec00f6040800b3517c2fad9a60d`；
+review-r844-report.md SHA `e7fabda5f55399e369169d11c2ad9e55147528b390ce154b7e6be1d286a92ef1`。
+私有暖、NoCursorWait、非GUI及冷驗收不合格保持，沒有名字正分支或新中文覆繪。
+015／017仍READY、008仍DRAFT；冷存讀、正式GUI／音訊／錄放、平台與十一組門檻不變。
+完整收據及原始畫格只留本機，凍結索引不覆寫，自有容器已清理。
+
+三文件文字補審0／0／0，主代理完整讀取JSON／Markdown；
+review-r844-supplement.json SHA `079c1cdcbe5615909ac5c6bbe661ceecb61bed27420c42c2aa91e7a7030cbb9d`。
+根doc-guard核對三份批准回填、其餘338來源與282產物保持，五正式文件擁有權及新入口通過；
+doc-guard.json SHA `9945a066bca2ca51022337f81725ade45a96d02a035627536ccad6d7ba2f539a`。
+封存後只追加本段與WORKLOG驗收文字，不覆寫凍結收據或重跑原版。
+
+三文件文字補審0／0／0，主代理完整讀取JSON／Markdown；
+review-r844-supplement.json SHA `079c1cdcbe5615909ac5c6bbe661ceecb61bed27420c42c2aa91e7a7030cbb9d`。
+根doc-guard核對三份批准回填、其餘338來源與282產物保持，五正式文件擁有權及新入口通過；
+doc-guard.json SHA `9945a066bca2ca51022337f81725ade45a96d02a035627536ccad6d7ba2f539a`。
+封存後只追加本段與WORKLOG驗收文字，不覆寫凍結收據或重跑原版。
