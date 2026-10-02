@@ -431,3 +431,14 @@ R779回呼故障窄修及R781獨立審查已封存，精確SHA回填研究020；
 - IDA slice首版誤用不存在的UA_MAXOP，數值入口首版誤設函式邊界前提，caller首匯出起點落在指令中間；保留失敗後各修正有限查詢。像素放大首建置超程序限額，沿同映像限制Go並行後成功；小圖誤讀40／40已用精確6倍放大更正5／10。審查讀取器schema誤解另分類為工具問題，不重跑原版。
 - MP六組累加只有靜態候選，bar動態命中0；正式Go、SDK、catalog與字型未改。十一組、TSV、正常冷存讀、錄放、人耳與三平台封包仍待完成；存檔預設與錄放格式待答，R433未追蹤檔原樣保留。
 - R850阻擋0／應改0／建議0，主代理完整讀取JSON與Markdown，研究024原樣回填並掛入研究索引。兩報告SHA為`c0588dce3a4c8cd33e457f51ed43ecdffc6bd0386d3927090c621b11b3ba0d15`、`63d09c3e0f35713fc3ed71951d2d8559044f862b5d382022e60e3bc6feb14b0a`；根收尾入口為workplace/r849/final-check.json。研究目錄1366項衛生異常0、自有容器0，報告與正式文件owner1000:1000，不以文件回填重跑遊戲。
+- `17a56b9fa98415ceb9ccfed6c7939666d3052054`已推送，[＃35進度](https://github.com/wicanr2/wizardry7-cht/issues/35#issuecomment-5955497739)全文回讀相符，Issue仍OPEN；回讀收據為workplace/r849/github-progress.json，SHA為`793f3172ecff9b79c934cb96a6ee014247c7f8ef7106c2b6c6f42a6a1a7d259f`。
+
+## 2026-10-03：R851，原版戰鬥 HP 回寫（#35）
+
+- 本輪從2026-10-02開始，基線17a56b9；先建並索引R851，遠端#35仍OPEN。命中IDA與規格閘門，沿既有技能與文件職責入口；非root鎖版映像、原始DB／code／state唯讀，沒有新MSG／手冊／答案／autoplay讀取。
+- 既有VPCVW索引只有HP讀取；resident139已定義函式／5100指令直接命中0，不作不存在寫入的結論。VMELE42函式／4902指令取得兩讀一寫。sub_1EA6的133bytes由DS:8482指標的44-byte記錄+2回寫584-byte隊員記錄5C0C；保留sub_F7A尾段歸屬及五直接caller，未深入無關helper或driver。
+- 正常R43 FINAL ORDERS狀態先零步數／零輸入還原，目視確認後兩趟都固定2690M起點、2M等待、一次START FIGHTING及2M／31M續行，Click內部6M，終點2731M。三次原版寫入10→10、10→6、6→6，來源D8B4與AX／後值相同；下一步+1、runtime0110:5371→5375。VMELE載入偏移34AC，不套用VPCVW的5055。
+- 四個觀察開／關停止點RAM、indexed、palette、暫存器與PNG相同，inspect初點同，保護段0、三scratch空。只驗當次第一隊員HP暫存與回寫，不驗傷害公式或舊R44骰序；固定完整checkpoint，seed欄位未識別或改寫。8輸入、53編譯SDK來源、8探針來源與31產物索引入口見研究024；SDK與R849同，正式Go／SDK／catalog／字型未改。
+- 第一個畫格轉送額度不足，後續核完整base64長度並檢視同一原圖，不重跑戰鬥或改圖。摘要首命令混用Python入口與shell表達式，於解析前停止；沿同映像修正入口後通過。審查讀取器把串接JSON當單一JSON而Extra data，改逐筆raw_decode後通過；均為工具問題，原始收據不改。
+- 原版戰鬥有HP暫存回寫，不能未驗就假設只改隊員欄位會保持作弊效果。暫存指標配置／釋放／有效期、其他隊員、死亡／上限、存讀檔與正式暫停安全寫入未量；沒有作弊實作或READY提升。十一組、TSV、冷存讀、錄放、人耳與三平台門檻保持，存檔預設與錄放格式待答，R433未追蹤檔原樣保留。
+- R852阻擋0／應改0／建議0，主代理完整讀取JSON與Markdown；研究024與受審完整草稿相同。兩報告SHA為`b897a17d524a92621820667426064425f849985a6e5e784001d8bc4e267f7c07`、`a3fb13b31034f87bc7a63b1ee958cefe3eca7858fa1774d742969013d4af62f4`，根收尾入口為workplace/r851/final-check.json，只核69來源、31產物、六文件及兩報告。Docker映像首次查詢未取得socket權限，改用既有授權主機呼叫；第二次模板查不存在的Config.User欄位失敗，不涉及遊戲或產物，後續只查映像ID。文件封存首patch未找到goal中預期列，未寫入；改以現有結果列定位後完成。

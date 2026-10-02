@@ -17,6 +17,7 @@ adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 明示存檔接線候選：[R845](R845-explicit-save-wiring.md)。
 存檔平台中繼資料候選：[R847](R847-save-platform-metadata.md)。
 隊員HP／MP資料證據：[R849](R849-character-vitals-evidence.md)。
+HP寫入端證據：[R851](R851-hp-writer-evidence.md)。
 
 ## 終點
 
