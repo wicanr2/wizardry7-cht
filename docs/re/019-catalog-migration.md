@@ -501,3 +501,44 @@ R832初審JSON `93eb4179a8a60d68ddb8fab805d48eb247e65cbbebcd9aae81f7689317ca55d0
 入口`implementation-source-index.json`／`implementation-output-index.json`。
 215,562項衛生檢查異常0，輸出1000:1000、自有容器回讀0。
 索引封存後只追加本段驗收與遠端進度文字，正式譯文及既有產物不再改寫。
+
+## R833／R834：保留提示的特殊數字槽
+
+- 輸入為正式8,825列及R699中1053的既有有限紀錄。原文來源座標MSG blk3／off179，
+  不是CPU或IDA位址；既有dosgolem收據return0110:b56a、step276170620、字型0、
+  座標70／170。confirmed只指此提示的段落／行號兩槽，不外推其他`^`或`%`。
+- Python3.11.2、既有離線映像及SHA同R831；倚天15與固定Unifont17.0.05唯讀。
+  本輪未讀新MSG、完整探針、手冊、答案、鄰文、state或RAM。
+- 修前正式表SHA `ac3770bc84d818a821d65ef1c84616c7d374beaf314881ec5cd1a7054c6f0c78`；
+  修後`6a7c7e4e39ea4a2fcdd55d323f057f34f6ba9c06d6d0aadde8c5e38406af52af`，
+  有效產生器`c2bee7bd60c6e8930e0536072256133cee736c262fb36a7c003caa0030f9a97c`，
+  一般烘製器`9a58a41bffeeaf54420a1335981d09467048c1d66d991cf222b380c4baab26d2`。
+- 來源只把1053中文兩個`$`還原為`^`與`%`，其餘8,824列保持；一般烘製只在該完整
+  英文鍵下產生現有零字模與d索引。其他鍵、normalize、前端、SDK及原版規則不改。
+  安全英文子集的實際產生器基線及候選逐位元同，不是原始MSG重抽。
+- [018](../spec/018-hint-numeric-slots.md)原型與R834初審0／0／0後先轉READY才實作。
+  兩後端原型及正式完整一般bake／xlate與倚天fontseg逐位元同，提示槽1／4與13格、
+  數字／序數保持；各七個明列案例與實際8,825列流文核對通過。指定控制碼15→14。
+- R834實作複核唯一文件時態應改已解除，最終0／0／0；主代理完整讀取全部報告。
+  沒有新正常玩家上屏或原版A/B，018仍READY，不用原型成功解除十一組或可玩封包門檻。
+
+收據只留`workplace/r833/`。原型初始19來源＋2倚天索引SHA
+`d9cc60770a4f8df3ba6d628dc825490d176a896081c68e0aaa60ccb465777be5`；
+受審21來源＋2倚天索引`6161e56be46f2bbf4fb4d2546a1d80b99de429616c5955d77b75349e763ebf5a`，
+83產物索引`6c9905262bab09c8655759b2abcc754b566132f9133f0cf8920ec900978286e7`。
+雙後端原型報告SHA分別`cf9d9e67e826f2da732c190b1138e8b81ab5917f648b6b6fbc5df669be7c2905`、
+`e598f7d0cee1c15f97bcbbe144c5d7c1b9557cd9528a72a82845addc2945b899`；
+正式驗證`4dadc35c4aa99777a6e0cda4bce3bcc9bf36627d03d3ead9a6a61c85c9b8c140`、
+`a992b4b3ae39c066055e14a95d9fd31bed9cb5f7c392cf1612e553bb38ac5aaa`。
+R834初審V2 `79d4e132c4fb493e50ff8b40c1c6dfb429808b7e84b68f9e5e61829799961729`，
+初版`3ff4a3a3322b5b16f4d9088e37cdd722e484ffd25f3bc2dcc360e1ac66fc5d5a`保留行號勘誤；
+實作報告`ffbe0ff410631e0e612d5b599d84ce67aab6be117c37766d4e2f76d4b2cced42`，
+應改解除`ad6c3c0896f7f1cda16e7500080f7ac3605c1bc7c4b874e9aa99ae43103ea00f`。
+
+主代理核對83原型產物全同，正式27來源／100產物索引SHA分別
+`cf9104cd9074c0c4b3a3345ffaa253a049ecf6fc29e921cd763eb1d642dc90aa`、
+`f04d9e7233b61a452967f1ece58345444ac0cce7b0b62a34d668e252ff97b6de`；
+入口`implementation-source-index.json`／`implementation-output-index.json`。
+215,720項衛生檢查異常0、輸出1000:1000、自有容器回讀0。
+文字檢查工具的共用字誤判及訂正見WORKLOG，原始工具與已寫索引不覆寫。
+索引後只追加本段驗收及遠端進度文字，不改三份正式來源或既有產物。

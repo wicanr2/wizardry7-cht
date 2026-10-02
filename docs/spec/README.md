@@ -23,3 +23,4 @@
 | [015](015-generic-slot-expansion.md) | 一般查表與填槽缺字回退（READY；R822獨立審查通過） |
 | [016](016-catalog-control-preservation.md) | 控制碼保留與流文可用性（READY；R830獨立審查通過，正常上屏待驗） |
 | [017](017-dynamic-subject-source.md) | 動態主體來源與兩處文意（READY；R832審查通過，主體顯示仍缺） |
+| [018](018-hint-numeric-slots.md) | 段落與行號提示數字槽（READY；正式雙後端及R834複核通過，新上屏待驗） |

@@ -158,7 +158,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
         entry = []
         slots = []  # '$' 槽索引
         for ch in dst:
-            if ch == "$":
+            if ch == "$" or (src == "LOCATED IN PARAGRAPH ^  LINE %" and ch in "^%"):
                 slots.append(len(entry))
                 entry.append([0] * HEIGHT)
                 continue
