@@ -731,3 +731,32 @@ R867最終獨立審查阻擋0、未解除應改0、建議0；主代理完整讀�
 JSON SHA-256為`b61e7953b56893c989603853a79f8f3f198890aa9b0eca93a1025aa84297c9d7`，Markdown為
 `4a3a7344668ed1a627bd48231b718fb4136f994aff065d056bd1dbe19579a625`。
 根收尾入口`workplace/r866/final-check.json`；不重跑產品或測試、不覆寫凍結索引，013仍DRAFT。
+
+<a id="r868-recording-stop-prototype"></a>
+
+## R868：正常停止錄製的操作比較
+
+2026-10-03；[目標](../goal/R868-recording-stop-prototype.md)、[自製原型](../../tools/recording-stop-prototype.html)、
+[瀏覽器驗證程式](../../tools/recording-stop-prototype-test.cjs)。只比較停止入口，沒有遊戲資料、音訊或錄放Writer。
+候選A預先指定示意停止步數；候選B以按鈕要求下一安全邊界停止。兩者都示意收尾後結束工作階段，
+續玩未製作、未排除，仍是待定分支。示意步數200000及300／200毫秒不能當原版或實機證據。
+
+- confirmed僅限自製UI：初始狀態、自動終點與拒收後續輸入、非法終點拒絕、手動邊界停止與拒收輸入、重設使舊計時器失效、390px寬無水平溢出，六案例通過。
+- Node v22.12.0、Chrome 131.0.6778.204；既有映像`ghcr.io/puppeteer/puppeteer:23.11.1`，ID `6a74444753c00dd2420b241d13d653fff9762b31033d6f7f3eb94fc059fb55ca`。
+- 原型SHA-256 `0eac79888454230d8aee3bd629a469ef9958503e9d202489c7081adff3d9e04a`；驗證程式`b01865b3ea787425e9a03dc175ab36108a33cad1c0170af0abe606760dd704bd`。
+- 收據`workplace/r868/report.json`的SHA-256為`bcdceb365d343fbf6a9530a030da23a372cc75494fc7d3fc94d9f66cd9aee765`；頁面錯誤及外部請求均0。
+- 比較圖`workplace/r868/comparison.png`：`933aedbea240cf8a2a1287547564ec8648f1e8d3d16ff0999582d7c5452f7664`。
+- 等待邊界圖`workplace/r868/manual-waiting.png`：`23b6691748d0b2795f1009a085977701d9dae0f9da37d28a6936307dce7cc41a`。
+
+主代理目視核對兩張圖，中文可讀、按鈕沒有裁切。第一次啟動因HOME換成/tmp後找不到映像預裝Chrome而失敗；
+核對既有快取位置後明示`PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer`重跑通過，屬環境設定。
+第二次成功測試只調整等待圖左側回到預設狀態，六案例仍通過；不是原版回歸基準。
+
+重跑在上述映像內使用`node /src/recording-stop-prototype-test.cjs`；tools目錄掛/src唯讀、
+明確輸出目錄掛/out可寫，UID/GID 1000:1000、network none、HOME=/tmp、
+NODE_PATH=/home/pptruser/node_modules及上述快取位置。容器需init、60秒外層期限、
+1GiB記憶體、2 CPUs、256 PIDs、cap-drop ALL、no-new-privileges及日誌上限。
+每次比較另指定新的輸出目錄，不覆寫已採認收據。Chrome的no-sandbox只用於這個無原版／無網路的可丟棄原型容器。
+
+使用者尚未選定停止操作；既有故障保存策略問題保持待答。本輪不新問相依問題，
+不把原型當定版樣式或正式停止行為。013仍DRAFT，#17保持OPEN。

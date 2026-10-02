@@ -3,6 +3,7 @@
 核對日期：2026-10-03。正式存檔接線`f78f050`已推送，014維持READY、#42仍OPEN；限定暖中英文保存一致，冷載入還原未驗。正式音訊`f4871c2`及填槽缺字修正`caeac31`維持已驗範圍；#44已關閉，#28仍OPEN。R864完成錄放起始設定的私人啟動綁定與13個限定案例，013仍DRAFT；最新提交以git log核對。本機 dosgolem 基線：`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，隔離分支`wiz7-cht-opl-stream`。
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 R866另完成成功收尾私人候選的18個限定案例；使用自製Draw／owner通知與裝置，不當正式錄放完成，013仍DRAFT。
+R868另備妥[停止操作比較](tools/recording-stop-prototype.html)，六個瀏覽器案例通過；只為自製UI示意，停止操作尚未選定。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 

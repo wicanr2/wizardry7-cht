@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'none'; connect-src 'none'">
+<title>巫術7：停止錄製操作比較</title>
+<style>
+:root { color-scheme: dark; font-family: sans-serif; background: #151a23; color: #e4e8ef; }
+body { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+h1 { font-size: 26px; margin-bottom: 8px; } h2 { font-size: 21px; }
+p { line-height: 1.7; } .note { color: #bac5d5; }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+article { padding: 24px; border: 1px solid #526279; border-radius: 8px; background: #202835; }
+.scene { height: 145px; background: #111820; border: 1px solid #607085; display: grid; place-content: center; margin: 20px 0; }
+.scene span { text-align: center; line-height: 2; }
+.status { min-height: 52px; color: #ffdf97; line-height: 1.65; }
+.buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+button,input { font: inherit; border: 1px solid #7185a1; border-radius: 4px; padding: 9px 12px; background: #293c56; color: #fff; }
+button:disabled,input:disabled { opacity: .45; } button:not(:disabled) { cursor: pointer; }
+input { width: 100px; } button:focus-visible,input:focus-visible { outline: 3px solid #ffd37b; }
+label { display: block; min-height: 60px; line-height: 1.8; }
+.placeholder { color: #bac5d5; }
+details { margin-top: 24px; line-height: 1.8; }
+@media(max-width: 760px) { .cards { grid-template-columns: 1fr; } }
+</style>
+<h1>停止錄製操作比較</h1>
+<p class="note">可丟棄原型。畫面、步數及收尾都是示意，不會啟動遊戲或建立錄放檔。</p>
+<p>兩個候選都會結束工作階段。按「模擬一次操作」推進到下一安全邊界，比較停止入口。</p>
+<main class="cards">
+<article id="limit">
+  <h2>A　預先指定終點</h2>
+  <label>停止步數 <input class="target" type="number" min="200000" max="2000000" step="200000" value="600000"></label>
+  <div class="scene"><span>自製操作示意<br>目前步數 <b class="step">0</b><br>已接受操作 <b class="count">0</b></span></div>
+  <p class="status" aria-live="polite">待開始。到達指定步數後自動收尾。</p>
+  <div class="buttons"><button class="start">開始錄製</button><button class="advance" disabled>模擬一次操作</button><button class="reset">重設</button></div>
+  <p class="note">終點事先固定，適合重複驗證；開始後不能延長本次錄製。</p>
+</article>
+<article id="manual">
+  <h2>B　按鈕停止</h2>
+  <label class="placeholder">由玩家決定何時停止。<br>停止後等待下一安全邊界。</label>
+  <div class="scene"><span>自製操作示意<br>目前步數 <b class="step">0</b><br>已接受操作 <b class="count">0</b></span></div>
+  <p class="status" aria-live="polite">待開始。錄製期間可以按停止錄製。</p>
+  <div class="buttons"><button class="start">開始錄製</button><button class="advance" disabled>模擬一次操作</button><button class="stop" disabled>停止錄製並結束</button><button class="reset">重設</button></div>
+  <p class="note">玩家選擇終點，操作較自然；停止要求要等當前操作完成。</p>
+</article>
+</main>
+<details><summary>原型限制</summary>每次操作只增加示意步數200000。手動停止以300毫秒呈現等待邊界，接著以200毫秒呈現收尾。這些時間沒有實機依據。沒有實作續玩、故障保存、Draw確認、音訊或Writer，不代表正式錄放完成。</details>
+<script>
+'use strict';
+for (const card of document.querySelectorAll('article')) {
+  const manual = card.id === 'manual';
+  const start = card.querySelector('.start');
+  const advance = card.querySelector('.advance');
+  const stop = card.querySelector('.stop');
+  const reset = card.querySelector('.reset');
+  const target = card.querySelector('.target');
+  const status = card.querySelector('.status');
+  let phase = 'idle', step = 0, count = 0, limit = 0, epoch = 0;
+  function display() {
+    card.dataset.phase = phase;
+    card.querySelector('.step').textContent = String(step);
+    card.querySelector('.count').textContent = String(count);
+    start.disabled = phase !== 'idle';
+    advance.disabled = phase !== 'recording';
+    if (stop) stop.disabled = phase !== 'recording';
+    if (target) target.disabled = phase !== 'idle';
+  }
+  function finish(expectedEpoch) {
+    if (epoch !== expectedEpoch || phase !== 'waiting') return;
+    phase = 'finalizing';
+    status.textContent = '已到安全邊界，正在收尾。';
+    display();
+    setTimeout(() => {
+      if (epoch !== expectedEpoch || phase !== 'finalizing') return;
+      phase = 'finished';
+      status.textContent = '示意收尾完成，工作階段已結束。沒有產生錄放檔。';
+      display();
+    }, 200);
+  }
+  function requestStop(delay) {
+    if (phase !== 'recording') return;
+    phase = 'waiting';
+    status.textContent = '已要求停止，不再接受新操作；等待安全邊界。';
+    display();
+    const expectedEpoch = epoch;
+    setTimeout(() => finish(expectedEpoch), delay);
+  }
+  start.addEventListener('click', () => {
+    if (phase !== 'idle') return;
+    if (target) {
+      limit = Number(target.value);
+      if (!Number.isInteger(limit) || limit < 200000 || limit > 2000000 || limit % 200000 !== 0) {
+        status.textContent = '請指定200000至2000000之間、200000的整數倍。';
+        return;
+      }
+    }
+    phase = 'recording';
+    status.textContent = manual ? '錄製中。可按停止錄製並結束。' : `錄製中。到${limit}步自動收尾。`;
+    display();
+  });
+  advance.addEventListener('click', () => {
+    if (phase !== 'recording') return;
+    step += 200000;
+    count++;
+    display();
+    if (!manual && step >= limit) requestStop(0);
+  });
+  if (stop) stop.addEventListener('click', () => requestStop(300));
+  reset.addEventListener('click', () => {
+    epoch++;
+    phase = 'idle'; step = 0; count = 0;
+    status.textContent = manual ? '待開始。錄製期間可以按停止錄製。' : '待開始。到達指定步數後自動收尾。';
+    display();
+  });
+  display();
+}
+</script>
+</html>

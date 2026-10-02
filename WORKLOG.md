@@ -537,3 +537,13 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 兩個自製阻塞子程序正常由監督結束，Close實際5.058秒、Sync5.146秒；五秒預算不等於嚴格實機退出保證。Writer失敗清理僅盡力而為，未量斷電、阻塞Link或清理雙故障。
 - 136來源核對項及31產物已封存，六份私人Go來源另列；SDK105項包含Go列出的依賴測試來源，不宣稱皆編譯或執行。來源與SHA見研究022，本輪未讀或載入原版，正式Go／SDK／catalog／字型及無關R433保持，013仍DRAFT。
 - R867獨立審查阻擋0、未解除應改0、建議0，主代理完整讀取兩報告。原goal過度保證所有逾時都不發布成功名稱，已限於已量正常案例；Link後清理／回報仍可能超時，撤回僅盡力，完整B4不宣稱完成。只修追加文字，不重跑候選或改31產物。最終報告SHA為`b61e7953b56893c989603853a79f8f3f198890aa9b0eca93a1025aa84297c9d7`及`4a3a7344668ed1a627bd48231b718fb4136f994aff065d056bd1dbe19579a625`；根收尾入口workplace/r866/final-check.json，013保持DRAFT，#17保持OPEN。
+
+- R866提交`b4454bd8c77afd09acd45dfa5197ec098d3fbf5a`已推送；[＃17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5962293480)全文含尾LF回讀相符，Issue仍OPEN。收據workplace/r866/github-progress.json，正文SHA為`3ec10ea073959b6e0b86fad8d4bb096d33c26204431e0a20c671550d4261fb73`。
+
+## 2026-10-03：R868，正常停止錄製的操作比較（#17）
+
+- 已核對單檔內嵌完整設定定案；#17保持OPEN。命中規格閘門及文件職責，載入grilling。既有故障保存與合法冷LOAD收據問題仍待答，不重問或代選。
+- 新增兩個不含原版資料的可丟棄停止操作候選及真瀏覽器驗證程式，入口見[R868](docs/goal/R868-recording-stop-prototype.md)。A預先指定終點，B按鈕要求下一安全邊界停止；兩者只示意結束工作階段，續玩尚未製作或排除。
+- 沿用既有Puppeteer映像，離線、非root、移除capabilities且不掛載原版。首次因HOME造成預裝Chrome快取位置不同而失敗，核對路徑後同映像重跑通過；沒有另建工具映像。改善等待圖左側狀態後再跑相同六案例，均通過。
+- 六案例含停止後拒收新操作及重設阻止舊計時器誤結束。頁面錯誤、外部請求均0；兩圖目視可讀且無裁切，雜湊及重跑入口見[研究022](docs/re/022-input-recording-boundary.md#r868-recording-stop-prototype)。這是UI模擬，沒有原版、正式Draw、Writer或音訊驗證，013維持DRAFT。
+- 輸出擁有權1000:1000；全工作根root-owned與誤建.md目錄均0，收尾自有Docker容器0。正式Go、SDK、catalog、字型及無關R433保持。停止取捨仍待選定，尚不能宣稱完整可玩或發行完成。
