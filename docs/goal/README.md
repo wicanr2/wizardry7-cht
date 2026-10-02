@@ -12,6 +12,7 @@ adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 兩列敘述及終止碼：[R835](R835-cross-row-terminator.md)。
 動態主體名字顯示：[R837](R837-dynamic-subject-display.md)。
 主體來源窄觀察：[R839](R839-subject-observation.md)。
+休息後正常續行：[R841](R841-rest-route-continuation.md)。
 
 ## 終點
 
