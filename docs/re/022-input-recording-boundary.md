@@ -823,3 +823,75 @@ R870獨立審查阻擋0、應改0、建議0，主代理完整讀取兩報告。
 `5d3b5768ede024b925acdfb4415fca7f8f1e348004de99104d891ce43e73c6f9`。
 首次審查因「尚未追加」整檔相等假設停下，按明示批准的追加政策核完整前綴及新增段後通過，屬核對時點問題。
 審查未重跑產品或測試，自有容器0；只採認DRAFT回填，不解除正式錄放或交付門檻。
+
+<a id="r871-recording-startup-wire"></a>
+
+## R871：單檔與實際啟動核對
+
+2026-10-03；[目標](../goal/R871-recording-startup-wire.md)、[013候選契約](../spec/013-input-recording.md#r871-recording-startup-wire)。
+confirmed僅限以下私人接線及冷執行，不是正式格式、GUI或完整可玩性證據。
+
+- 沿R864啟動擁有者與R869嚴格整檔解析；後者原始SHA為`f4a9d825048b43158c386d47e13c267affc353d51da396ef3a5cf3a7f6ad2d32`。
+- 原版輸入`workplace/original/wizar7`唯讀，248檔逐檔SHA與R859基線相同；前後完整清單保存本機，不解碼手冊內容或送入答案。
+- Go1.24.13／Python3.11.2，既有映像ID `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。
+- 候選入口`workplace/r871/entry.go`、生成`prepare.py`、建置`build.py`、驗證`run.py`，正式Go與SDK保持。
+
+外部檔案先完整Load，通過才核Root／Scratch及同次讀取的資源結果，並建構實際擁有者。
+候選不從錄放檔設定自行改用另一個EXE、資源或選項；預期值與實際值逐項比對。
+不使用R864的可信設定json.Unmarshal入口；該入口已從私人副本移除。
+內部Config的json.Unmarshal只接本擁有者產生的bytes，外部仍走嚴格wire解析。
+本輪沿既有輸入獨占、原版唯讀及啟動單一goroutine假設，不增加並行換檔保證。
+
+`attempt-2/report.json`記錄27案例：七正向、二十負向。
+正向為獨立LoadWith控制、記錄一次、重播三次、等價檔頭欄序及使用內嵌來源清單。
+三筆Run各200k，全部0／200k／400k／600k的RAM、暫存器、indexed、色盤、Step及Ticks摘要相同。
+不是完整CPU內部狀態、中文合成像素或固定亂數判定對拍；沒有玩家輸入及手冊答案。
+資源沿實際載入器讀取，但沒有真正GUI Draw或聲音裝置，不能稱已完成正常玩家錄放。
+
+十二種設定或來源差異及七種wire／候選子集差異於LoadWith前拒絕；
+一個合法但錯誤的cpu_hz自述於實際載入後、交出前拒絕。
+二十個負向owner_take_calls／run_calls均0，十九個load_with_calls=0，初態差異一例為1。
+變異檔的配置及內容SHA由獨立Python按既有Go欄序與HTML跳脫重算；
+巢狀重複、null、缺省及未知欄位案例有正確內容SHA，並非只測到校驗錯誤。
+獨立控制組繞過設定擷取及錄放，直接同Options載入、SetScratch及Run，沒有拿候選輸出當控制期望。
+
+首次負向測試把program.sha256誤寫成binary_sha256，實際回wire_rejected而非預期的靜態不符；
+屬驗證樣本錯誤。原腳本`run-before-fixture-fix.py`、cases及fixtures保留，候選程式未改。
+修正欄名後在相同映像與參數重跑，另存attempt-2及run-2.stdout／stderr，27例符合預期。
+不是因產品故障改規格或加入例外。
+
+編譯閉集合75項：72個本專案／私人SDK選定Go來源及三份模組鎖定檔；
+同旗標go list -race清單逐項相同，來源清單與SHA嵌在binary，無需設定附檔。
+內嵌來源模式仍掛載研究工作區，本輪不稱無Go來源獨立包；R864的獨立包證據另留原範圍。
+stdlib及第三方依賴沿映像、Go建置設定與模組鎖定，不宣稱本輪逐檔驗證。
+
+| 收據 | SHA-256 |
+|---|---|
+| bind | `9742fe7d1460cd9a50d30d5f03e4db1c8770e939842651c74ecf7743290d8171` |
+| compiled-sources.json | `9649be9bbff9e4568ff9c4a5bce032eb76ba885825b4c2fdce02d05eda23a7a6` |
+| attempt-2/report.json | `10f79327b7860a8155c556810ce2774711832706b6d76ba6a5d9c072c3665dde` |
+| attempt-2/limited-run.jsonl | `cfffd79c5ae5287119be6b12cb0669d953b51c774c97c35baf9658f9ee7d1ec3` |
+| race-source-check.json | `8257b4b7d63a98b9150bd6bed291810bb455bfd79e01739deacfa880d13c2559` |
+
+配置SHA為`83096d6ff32f77a0cd0e98e461de640d3fb54e58f6d98de4d5837af00e2045e6`。
+重建入口先在上述映像跑prepare.py再build.py；驗證run.py需另選新attempt名稱，不能覆寫採認輸出。
+專案掛/src唯讀、研究輸出掛/out可寫、原版掛/original唯讀，UID/GID1000:1000、network none、
+2GiB／2 CPUs／128 PIDs、init及日誌上限、外層240秒；建置用256 PIDs及260秒。
+Xvfb由有界Python父程序持有，finally逐一終止子程序；模組快取唯讀、Go快取只寫/out/cache。
+
+候選只驗三筆成功Run。測試自行FinishAt，沒有正式停止操作、最終Draw、音訊關閉或故障保存。
+B3／B4與發布後撤回限制保持；013仍DRAFT、#17仍OPEN，十一組、TSV及正式封包未完成。
+封存及獨立審查另列，不能由這批短段測試解除正式試玩閘門。
+
+封存165來源及115產物，含159個保持來源及六份只允批准追加的完整文件前綴。
+來源索引`workplace/r871/source-index.json` SHA-256為`c79b68b07d684e654be2efd7a50e032fee53409e4813c6fd141a01b885058cc0`；
+產物索引`frozen-output-index.json`為`b013c494f72e67fbce20add43b0c7c086138344a8ec9d32172e60f7920e0ea88`。
+來源包括實際編譯副本與其輸入，不把165當獨立編譯檔數；binary閉集合仍為75。
+
+R872獨立審查阻擋0、應改0、建議0，主代理完整讀取兩報告，只採認上述限定DRAFT回填。
+逐項核165來源、115產物、75編譯項、27原始stdout與報告；13個完整變異檔的配置及內容SHA正確，
+另兩檔刻意附尾資料或截斷。初次測試欄名修正不改候選，範圍與拒絕順序符合文件。
+`workplace/r871/review/review-r872.json` SHA-256為`86521333512b19560f4806248fe6703b5c54723b49c5e26d30ba5d503aa76c4b`；
+Markdown為`0599ff7221628c9acfbcc629720c160f4f0fd0ccb07ec4a917a9c3f091c2a220`。
+審查首次誤把索引包裝當陣列，核對前退出，按sources／outputs修正後完成，屬審查工具假設錯誤。
+審查未重跑產品或讀原版正文，報告owner1000:1000、自有容器0；正式錄放與交付門檻保持。
