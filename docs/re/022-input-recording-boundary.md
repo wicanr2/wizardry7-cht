@@ -625,3 +625,61 @@ JSON SHA為`a7e3fa7cf69be90c4ad426f2bfc106d3542ed2cc6e97d2db0c50f5d2ba50ab66`，
 Markdown SHA為`c7fb7ada3258119537d14b55ac11eeb9009c9829839c46a14359c60651a389ed`。
 封存後只追加本審查紀錄，不覆寫凍結收據；根收尾入口workplace/r862/final-check.json。
 工作根衛生異常0，自有R862／R863容器0。
+
+<a id="r864-recording-startup-binding"></a>
+
+## R864：起始設定與實際啟動的綁定
+
+2026-10-03，基線cc0db32；[goal](../goal/R864-recording-startup-binding.md)、
+[013 DRAFT](../spec/013-input-recording.md)、[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+私人擁有者自行LoadWith及SetScratch，完整設定封存前不交出Oracle。
+沒有接受外部pristine聲明或既存指標，交出後即使Step0亦拒絕再次交出及重新取得配置。
+實際EXE路徑／Options及同一次資源ReadFile的bytes、解析結果共同生成配置；正式前端與SDK未改。
+
+來源沿現行53份SDK檔，私人副本只增加R819純量getter；資源解析規則沿現行main、flow.go與help.go。
+go list實際選用54份SDK、15份前端／私人候選、1份配置Go及3份模組鎖定檔，共73項。
+編譯前生成來源JSON／SHA，以ldflags嵌入同一候選binary；執行時核嵌入清單，研究模式可另核實際檔案。
+第三方與stdlib不逐檔列入，依模組鎖定、Go建置中繼資料及實際binary SHA綁定。
+工具Go1.24.13、Python3.11.2及既有離線非root Docker；定位採Go來源／API與Step，不是IDA線性位址。
+原版Archives DS.EXE SHA為`14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。
+
+| 驗證 | 結果與資格 |
+|---|---|
+| 12個起始案例 | 控制、英文、中文、24M靜音、同配置與嵌入來源六個正案例；六個負案例均於交出Oracle前拒絕，沒有CPU指令執行或玩家輸入 |
+| 初態 A/B | 各正案例Step／Ticks=0，全1MiB RAM、indexed、palette及暫存器摘要相同；擷取前後亦同，只涵蓋LoadWith初態 |
+| 負向預核 | 靜音、EXE角色、Scratch、資源及編譯來源差異在LoadWith前拒絕；純量差異在載入後、交出前拒絕。沒有已寫配置殘留 |
+| 無專案來源掛載 | 另1案例只掛候選、配置、資源與原版，未掛本專案／SDK Go來源或go.mod；配置與帶來源模式逐位元相同 |
+| 原版不變性 | 248檔先與R859全部SHA核對，初末相同；只必要載入及盲雜湊，不解碼MSG、手冊、防拷或原版state，RAM位元組不保存 |
+| 封存 | 76來源及170產物，owner1000:1000；原版EXE的本機外部副本排除正文審查與提交 |
+
+新候選binary SHA為`429e82fcff584d460b264a5ff65692167f414e4e31dc7228266cd0cf83851da1`，
+73項編譯來源JSON SHA為`73a54993c522d950ccc1ed1770beed92d0baf51a4f4e5c11c1d19cef56502d9a`。
+24M靜音中文配置51321 bytes，SHA為`0d913736e97713958aaca060bb7f24a054477aff748a499b15b84746d54f3533`。
+LoadWith呼叫有動態計數；Run及輸入沒有計數器，明列source-controlled load-only，不虛構零次動態觀察。
+來源要求唯讀且獨占不變，沒有惡意並行換檔或內部單次EXE buffer hash保證。
+可信自製expected解析不當正式wire安全證據，GUI／Draw與音訊裝置未驗。
+
+| 本機收據（workplace/r864/） | SHA-256 |
+|---|---|
+| report.json | `68b549601957a0507f148feaf9c7c6f97e476d6ffa547ccf1140a0a5b541a432` |
+| isolated-no-source/result.json | `a0b073b6dc58f453f0af974405fe0d4d5201dccfb0013485bc28fd1e669d6163` |
+| contract.md | `6b8bb916504d8c2d5eb7d315c7483a405fa3f15a1aeb84472276fb4338027d3a` |
+| source-index.json | `a9e5fa4bc16454c5347984a89d82d5bb1ce94b3675dc139e7fc8fd67a381ac72` |
+| frozen-index.json | `e7d4b7a8137a7b0e2f42ced49892f946c021ec3731b1a5909d39911936453487` |
+
+首次編譯誤用Palette的RGB struct欄位，實際為[256][3]uint8；匯入偵測又誤收flowPos字樣，均修正且保留失敗來源。
+首次執行誤掛含6575檔的workplace/run研究目錄，248檔護欄在LoadWith／Xvfb前停止。
+改用既有workplace/original/wizar7，先核全部基線，不放寬條件；前次只盲雜湊，不解碼研究資料。
+首批11案例及原binary保存在before-baked；因修正外部Go來源依賴才重建、重跑12案例，沒有換亂數或挑結果。
+隔離副本首次copyfile未保留執行權限，候選未啟動；核owner後改copy2，同容器及命令重跑通過。
+前者為私人候選程式錯誤，後兩者為輸入選擇／產物準備問題，不當原版遊戲缺陷。
+
+confirmed只涵蓋以上私人初始化及來源核對，固定日期／RTC政策仍沿R819 source-bound policy。
+沒有正式錄放、原版指令、Draw、裝置、三次完整重播或存讀還原證據，013保持DRAFT，#17保持OPEN。
+
+R865最終獨立審查阻擋0、應改0、建議0，主代理完整讀取兩報告。
+審查逐項核對74項未變來源、2份批准文件變動、73項編譯輸入及170項凍結產物；
+只採認以上私人初始化與六文件回填。JSON SHA-256為
+`7ad888ba516e01cfa827d38dcf7e2bf22801d0bbd2a44832efcd99b4835e7a76`，Markdown為
+`095b481fd5c6c83e4b9c5e907baa77db24f07c54296b23810f813a856eb296da`。
+根收尾入口為`workplace/r864/final-check.json`；沒有重跑原版或覆寫凍結索引，013維持DRAFT。

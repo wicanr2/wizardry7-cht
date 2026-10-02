@@ -314,3 +314,30 @@ Build只驗具型別DTO及複製slice，沒有新wire decoder；未知／重複�
 
 R863獨立審查阻擋0／應改0／建議0，僅批准限定DRAFT回填。
 正式owner與wire解析、故障及正常結束契約仍待完成，不轉READY。
+
+## R864：私人啟動綁定
+
+R862的宣告配置已在私人啟動器綁定實際LoadWith、選定EXE與資源讀取，013仍DRAFT。
+擁有者自行建立Oracle並立即SetScratch，擷取與封存設定前不交出指標。
+沒有外部既存Oracle或pristine引數；R819內部聲明由這條建構流程保證，Step0不單獨當歷史證據。
+封存後只能交出一次；即使Step仍0，交出後再取得配置或再次交出均拒絕。
+配置bytes回傳副本，指標及資源狀態仍由單一goroutine管理，不保證外部並行呼叫。
+
+| 綁定 | 候選契約與已驗界線 |
+|---|---|
+| EXE／LoadWith | 同一實際路徑及Options生成配置；EXE與兩層清單於載入前後核對，原版來源唯讀且不變。未觀察LoadWith內部單次ReadFile buffer hash，不保證抵抗外部並行換檔。 |
+| 資源 | 沿實際xlate解析區塊、loadFlow及loadHelp；同次ReadFile的bytes計SHA，loaded由解析結果判定。沒有正式Draw或GUI接線驗收。 |
+| 編譯來源 | go list取得本專案／SDK的GoFiles／CgoFiles，加三份模組鎖定檔，共73項。JSON與SHA在建置時嵌入同一binary，不要求交付包帶Go原始碼；研究模式可再核實際來源。第三方及stdlib沒有逐檔列入，以模組鎖定、Go建置資料與實際binary SHA綁定。 |
+| 預核 | 可信自製expected配置先驗DTO，初態外的全部欄位於LoadWith前比對；實際純量只能在載入後核對，不符就關閉未交出的Oracle。expected的json.Unmarshal不是正式wire decoder。 |
+
+12個起始綁定案例及1個無專案來源掛載案例通過，使用競爭檢查版候選。
+正常／中文／明示24M靜音的初始RAM、indexed、palette、暫存器摘要相同，Step／Ticks皆0。
+靜音、選定EXE角色、Scratch、資源及已編譯來源差異在LoadWith前拒絕；純量差異在載入後、交出前拒絕。
+無來源掛載模式與帶來源模式的配置逐位元相同，248原版資料SHA不變。
+
+LoadWith呼叫有動態計數；Run與輸入未裝計數器，來源明示只走LoadWith，沒有CPU指令執行或玩家輸入。
+完整原型與失敗、SHA入口見[研究022](../re/022-input-recording-boundary.md#r864-recording-startup-binding)。
+正式機器goroutine、錄放Writer、Draw、冷含音重播及成功收尾仍未接線，不將這些初態收據稱為完整B2或READY。
+
+R865獨立審查阻擋0、應改0、建議0，只批准上述私人候選及DRAFT證據回填。
+正式錄放、正常結束與故障策略仍須定稿及接線，不轉READY。

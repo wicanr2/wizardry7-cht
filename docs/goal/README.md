@@ -23,6 +23,7 @@ HP寫入端證據：[R851](R851-hp-writer-evidence.md)。
 剩餘十一組的定向迷宮觀察：[R857](R857-targeted-maze-route.md)。
 正式原版存檔接線：[R859](R859-original-save-wiring.md)。
 錄放完整起始設定候選：[R862](R862-recording-initial-config.md)。
+錄放設定與實際啟動綁定：[R864](R864-recording-startup-binding.md)。
 
 ## 終點
 

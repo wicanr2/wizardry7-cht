@@ -511,3 +511,17 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 沒有執行原版或讀MSG、手冊、原版state／存檔正文；不重開既有格式表或R819getter測試。完整原型、來源與SHA入口見研究022。正式Go、SDK、catalog、字型及R433未追蹤檔保持；013、正常存讀還原、十一組、TSV及封包仍未完成。
 
 - R863獨立審查阻擋0／應改0／建議0，主代理完整讀取兩報告；只採認限定DRAFT回填。審查逐項重算83來源及69產物SHA／大小，owner1000:1000；報告SHA為`a7e3fa7cf69be90c4ad426f2bfc106d3542ed2cc6e97d2db0c50f5d2ba50ab66`、`c7fb7ada3258119537d14b55ac11eeb9009c9829839c46a14359c60651a389ed`。根收尾再次核對封存與六文件入口，僅goal／013追加審查文字為批准變動。工作根root-owned及誤建.md目錄異常0，自有R862／R863容器0；根入口workplace/r862/final-check.json。
+
+- R862提交`cc0db32b4636efd4021489303fada4c827b84255`已推送；[＃17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5961042696)全文回讀相符、Issue仍OPEN。回讀入口workplace/r862/github-progress.json，正文SHA為`19df6dd482d59de0039780483928c73b3b4ae7df7f316b76478ec9f1e7fe73f4`。
+
+## 2026-10-03：R864，錄放起始設定與實際啟動綁定（#17）
+
+- 上輪為進度，cc0db32改變正式文件與下一步；本輪核對git、Issue及容器現況，先建與索引R864。命中規格閘門及文件職責，沿已載入技能；故障及正常錄製結束不代選。
+- 私人擁有者自行LoadWith／SetScratch，封存前不交出Oracle；EXE路徑、Options與資源同次讀取及解析結果綁定實際設定。Take只允一次，交出後即使Step0亦拒重取Config；沒有外部pristine或既存Oracle。
+- go list列73個實際編譯Go及模組輸入，JSON／SHA於建置時嵌入同一binary，免交付Go來源。12案例與另一無來源掛載案例通過，Step／Ticks皆0，初始RAM／indexed／palette／暫存器摘要同；來源、靜音、EXE角色、Scratch與資源差異於LoadWith前拒絕，純量於交出前拒絕。248原版SHA與R859基線及初末相同。
+- 首次編譯誤用Palette欄位並誤判os匯入，修正後保留失敗來源與指紋。首次執行誤掛workplace/run的6575檔研究目錄，基線護欄在LoadWith／Xvfb前停止；正確唯讀原版位置是workplace/original/wizar7，逐檔核基線後才重跑。只盲雜湊，沒有解碼研究資料。
+- 首批11案例保留before-baked；因免來源接線改動而重建並驗12案例。隔離副本因copyfile漏執行位元而在候選啟動前失敗，核owner後改copy2，同容器與命令重跑通過。這些不當原版遊戲缺陷，不調seed或挑結果。
+- 76來源、170產物封存，SHA入口見研究022；本機原版EXE副本不交審正文或提交。沒有Run、玩家輸入、MSG／手冊／防拷解碼或原版state載入；Run／輸入無動態計數器，明列來源控制。正式Go、SDK、catalog、字型及R433保持，013仍DRAFT，完整錄放、存讀還原、十一組、TSV及封包仍未完成。
+
+- R865最終獨立審查阻擋0、應改0、建議0；主代理完整讀取兩報告，採認私人候選及六文件的限定DRAFT回填。74項來源保持，013及goal為批准文字變動，73編譯輸入與170凍結產物保持。最終報告SHA為`7ad888ba516e01cfa827d38dcf7e2bf22801d0bbd2a44832efcd99b4835e7a76`及`095b481fd5c6c83e4b9c5e907baa77db24f07c54296b23810f813a856eb296da`；根收尾入口workplace/r864/final-check.json，沒有重跑產品或改索引。013維持DRAFT，#17保持OPEN。
+- 根收尾腳本首次把編譯清單的size欄誤作bytes，核對在寫成功收據前停止。修正欄位轉接後於同一映像及命令重跑，只重核來源與產物，不重跑候選或原版；屬驗證腳本錯誤。
