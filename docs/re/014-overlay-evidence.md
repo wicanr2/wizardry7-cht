@@ -160,3 +160,60 @@ ida-vbase-subject.json:8的substitution只是選取標籤；原指令支持行�
 根核對49未改來源及76凍結產物全同，回填連結通過；215924項lstat異常0、輸出1000:1000。
 `final-guard.json` SHA為`14835bd180489259b74143b408ca636c0480758e72e07aa144537dd7c137cd4e`。
 本段僅追加已讀補審及清理核對，未覆寫索引、程式或原版收據；自有容器均已清理。
+
+<a id="r839-subject-observation"></a>
+## R839：十來源窄觀察與正常暖路線（2026-10-02）
+
+入口[R839](../goal/R839-subject-observation.md)、[017](../spec/017-dynamic-subject-source.md)，
+議題#24／#28，基線0d6ca7d。沿既有合法暖checkpoint；原版及輸入state唯讀。
+沒有正式Go、SDK、catalog或產生器變更；探針只在workplace/r839。
+工具Go1.24.13／Python3.11.2，映像沿本節前列的Go／Python SHA。
+來源、原始248檔、暖起點及私有loader的完整路徑與SHA見final-source-index.json。
+
+runtime位址0110:0582先讀SS:SP+2來源ID，排除保護段，再以正文觀察開關及十ID白名單
+限定後續引數。0110:0659只採最多64 bytes且與正式十來源英文相符的目的緩衝；
+0110:3895再要求已解碼、同DS／目的指標及1M步時間窗。ID只作研究選取，沒有正式路由。
+正文觀察關閉仍保留來源ID及保護段檢查。本輪保護段未觸發；不宣稱Click內可即時停止。
+同指標護欄可能漏掉另段印字或間接組字，不能據此排除原版另印名字。
+
+| 批次 | 正常輸入 | 停止點對數 | 取得入口／印字入口次數 | 十來源／解碼／同緩衝印字 |
+|---|---|---|---|---|
+| hardware | 一次PressKey(0x48)，未交付即停止 | 3 | 0／0 | 0／0／0 |
+| mouse | 兩次前進箭頭Click(160,162) | 4 | 5／7 | 0／0／0 |
+| narrative | 同mouse前綴，再最多三次Click(160,170) | 7 | 54／104 | 0／0／0 |
+
+上述次數是各批正文觀察開啟側，不跨重播相加。三批14對、8個唯一停止點；
+mouse四對是narrative前綴。各對RAM、indexed、palette、暫存器SHA、步數、輸入及停止理由相同。
+這是限定零命中分支的唯讀觀察比較，沒有中文覆繪或白名單正文正分支驗證。
+
+位置讀數沿005：前進後+8欄61→62，第二次點擊停在花朵旁白。
+兩次文字區點擊後六word為[0,10,2,7,58,87]、face=0，畫面顯示RESTING。
+第三次文字點擊於3595M回NoResponseError，兩側同狀態停止；不算產品故障。
+區域／世界欄位語意維持005假說，不推定傳送、休息規則或完整玩法。
+
+mouse／narrative同暖起點觀察IRQ1向量為0080:0024；SDK StubSeg=0080時keyTick暫不交付。
+hardware批沒有向量欄，只量IRQ1Delivered=0；後批觀察不冒稱前批逐點向量量測。
+正式前端使用PressKey，但本輪只證此暖條件，沒有冷前端或全原版鍵盤缺陷結論。
+
+所有Click使用NoCursorWait，私有暖checkpoint且非GUI；沒有新存讀還原、冷啟動、
+正式音訊／錄放、人耳或跨平台封包驗收。下一條件為同固定路線的RESTING，
+不重擲、不強制呼叫、不注入座標。十來源零命中，015／017仍READY，008仍DRAFT。
+
+| 本機收據（workplace/r839/） | SHA-256 |
+|---|---|
+| report.json | `8dcde708f27582b6fccecfcc9e8d32178d6fb32226e091757f65e913cdb56cc3` |
+| final-source-index.json，321項 | `f059ed933dbc9d653b9c429e05852af18c036705a0dfc56460aa9a8e7e50d096` |
+| final-output-index.json，53項 | `6ee991e7e1fbc9497d3597a155ccd7625997ebc5f1d2ea083403b359666735b2` |
+| review-r840-report.json | `6cc247a6537dec3d23c67adcc7b490f97ce2f19ee74880019a644a670d28cf4e` |
+| review-r840-report.md | `691d0172c1d9f8392ce13fe1041157c89c382fb5b95440aa86e8971cff2d3719` |
+
+R840獨立核對321來源／53輸出、55 SDK來源、十列期待值、全部停止點及三張正常畫格，
+阻擋0／應改0／建議0；主代理完整讀取兩份報告。只核准記錄有限證據，不核准名字實作。
+原PNG、原文、完整輸入與收據只留本機；凍結索引不覆寫。十一組及完整交付門檻保持。
+
+文字補審亦無阻擋／應改／建議，主代理完整讀取；review-r840-supplement.json SHA
+`9d46a356d323fdaaeb27ae6a0129f1d1b6ce013566ad7daa5ffc1e02638b4217`。
+根核對321來源只有四份批准文件回填，53凍結產物保持；217709項lstat衛生異常0、
+六份正式文件UID/GID1000:1000，七個scratch目錄檔案0，自有容器0。
+final-guard.json SHA `5058f611afc07545fe964c3dec325cf8b7758a64be50ec2327ff0d6ad6e599c5`。
+封存後僅追加本段及WORKLOG驗收文字，不改正式程式、原版或凍結收據。
