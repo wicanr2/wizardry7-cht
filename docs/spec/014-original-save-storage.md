@@ -71,8 +71,8 @@ R802私人原型（完整收據僅本機）已證實；報告SHA-256
 防拷只用既存且條件匹配的合法收據或使用者正常操作，不讀答案表、不推導或代答。
 沒有匹配條件時停止該分支，仍可完成不依賴它的目錄與保存驗證。
 
-目前待定：使用者預設位置、精確路徑fixture、獨立審查、
-正式保存與冷載入還原。014維持DRAFT，不宣稱CONFORMED。
+已有Linux可丟棄路徑fixture；使用者預設位置、跨平台路徑契約、
+正式規格READY審查、保存與冷載入還原仍待完成。014維持DRAFT，不宣稱CONFORMED。
 
 R807明示可寫層的可丟棄路徑原型已封存，18項自製fixture通過；
 報告`8c024938548051bf0c454062fe7d51d866c685c86bb4c9e85a9aadac1661514b`，
@@ -81,3 +81,14 @@ R807明示可寫層的可丟棄路徑原型已封存，18項自製fixture通過�
 既有DOS OpenFile會追隨連結，不能假設通用API已守門；Linux UID／Nlink實測，
 跨平台及檢查後外部替換未量，不擴張通用DOS策略或把惡意並行修改列為新交付條件。
 寫入故障為唯讀descriptor自製注入，不能當作實際磁碟滿／斷電驗收；預設位置仍未選定。
+
+## R845：明示目錄的啟動接線候選
+
+入口[研究022](../re/022-input-recording-boundary.md#r845-explicit-save-wiring)、
+[goal](../goal/R845-explicit-save-wiring.md)。私有副本沿R807原樣守門，
+只加明示save-dir、Prepare有限拒絕及LoadWith後的SetScratch，原型不採任何預設位置。
+五CLI自製預檢通過，四例在載入前拒絕；合法目錄Prepare成功後拒載自製非MZ。
+SetScratch成功載入後分支只編譯、未動態量到；沒有原版Run、GUI遊玩或新的保存／載入證據。
+SDK索引55及實際編譯53來源副本分開核對相同，其他13前端及go.mod／sum同，正式程式未改。
+R846限定審查0／0／0，只批准DRAFT回填；Linux UID／Nlink及檢查後替換限制保持。
+跨平台、預設位置、正式READY與正常冷存讀門檻未解除，不以CLI通過移植正式接線。

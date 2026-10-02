@@ -14,6 +14,7 @@ adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 主體來源窄觀察：[R839](R839-subject-observation.md)。
 休息後正常續行：[R841](R841-rest-route-continuation.md)。
 下一迷宮方向：[R843](R843-next-maze-heading.md)。
+明示存檔接線候選：[R845](R845-explicit-save-wiring.md)。
 
 ## 終點
 

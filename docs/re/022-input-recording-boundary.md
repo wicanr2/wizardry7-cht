@@ -400,3 +400,52 @@ GUI／裝置或原版三次重播。有限純量不取代完整啟動配置，B2
 013原SHA `e6b387fb75a3c5138f4809a91674c0082534d39b219c28b9c2d288a1036dd976`
 因本輪回填會變更，不能當成原型漂移。輸出UID/GID1000；檢查210609項的lstat衛生異常0，
 自有分析容器均清理，不升READY或可玩交付。
+
+<a id="r845-explicit-save-wiring"></a>
+
+## R845：明示存檔目錄的啟動接線候選
+
+2026-10-02，基線c30bd5e，目標[R845](../goal/R845-explicit-save-wiring.md)，
+[#42](https://github.com/wicanr2/wizardry7-cht/issues/42)仍OPEN。
+沿SDK009 READY及014 DRAFT，候選只在workplace/r845；本輪沒有執行原版、讀state／RAM／MSG／手冊。
+
+現行main副本只加明示save-dir旗標、Prepare有限錯誤分流及LoadWith後SetScratch。
+SetScratch在Run、輸入及音訊播放器安裝之前；成功載入分支只有編譯證據，未動態執行。
+守門與R807逐位元同，其他13前端及go.mod／sum保持；原型要求明示目錄，不代選預設。
+
+| 自製CLI案例 | 實際結果 | 邊界 |
+|---|---|---|
+| 缺save-dir | explicit_save_required | LoadWith前拒絕 |
+| 存檔目錄與Root重疊 | overlap | LoadWith前拒絕 |
+| 存檔路徑是一般檔案 | mkdir | LoadWith前拒絕 |
+| 存檔目錄不可寫 | directory_not_writable | LoadWith前拒絕 |
+| 獨立合法fresh目錄 | Prepare成功，再拒載自製非MZ | 沒有到SetScratch |
+
+五案例的stdout、stderr及退出碼收據已核對，自製來源初末SHA相同，fresh空目錄。
+Xvfb僅供圖形套件初始化，沒有玩家視窗流程；finally收尾、退出0。沒有原版Run或輸入，
+不把合法目錄的預檢正分支當原版保存／冷LOAD、GUI遊玩、音訊或錄放驗收。
+R807十八案例只沿既有收據，不再重跑。UID／Nlink僅Linux，檢查後外部替換與跨平台未量。
+
+85初來源保持，91最終來源及43產物凍結；55已索引SDK與53實際編譯來源分開核對同。
+Go1.24.13、Ebitengine2.9.9、Linux amd64及本地SDK replace由實際build-metadata核對，
+映像Id沿既有Go／Python工具鏈。根lstat224506項異常0，產物UID/GID1000:1000、自有容器0。
+
+| 本機收據（workplace/r845/） | SHA-256 |
+|---|---|
+| report.json | `dc01b28251cc9075fe3942dd11f42dcd135f2f736ddcf05ef5452dc4bdd8b972` |
+| final-source-index.json，91項 | `d52dde3a0b86c003bf4ea1ba577094d848b6a8d34a8c648fde04a226b030f27d` |
+| final-output-index.json，43項 | `f0f1868354821f8e386b4da2fbe3c90700705dbfc1ce410cdf9551f943dd0b5e` |
+| freeze-guard.json | `14f9d094bb12210aa1ad22a468b6df37d9142af4dcee360c73ab8a6023fd38a8` |
+| review-r846-report.json | `da8dbaae24f43e8eb64b37aa86baae29ce48db827c6c77bcfe91d07f938156ae` |
+| review-r846-report.md | `9ca021a26eabf68009d9023e0dfca23235d2a8284e6d0724d752e8e9f1abbc33` |
+
+R846獨立核對初／末來源、輸出、編譯來源與五CLI，阻擋0／應改0／建議0。
+主代理完整讀取兩報告，只採認限定DRAFT回填；014仍DRAFT，預設位置待答，正式程式未改。
+原始失敗描述與freezer v1保留，不改凍結收據來驗文件；十一組及完整可玩門檻保持。
+
+R846四文件文字補審阻擋0／應改0／建議0，主代理完整讀取JSON／Markdown。
+根doc-guard確認四份批准回填、其餘87來源與43產物保持，六文件擁有權與入口通過。
+封存只追加驗收文字，保留受審文件前綴，不改凍結索引或產品資格。
+補審JSON SHA為`5ec295e1a9edff35932ba58b1805a34b61225fff6e65f3526db340396c4cc60a`；
+Markdown SHA為`fb4ae1efc0e95cd14ba29cf7aeda01daee7fcfa92d2ce04115f0f5b2f8212e71`；
+doc-guard SHA為`0a707e197833b70a28a4224c8b0d43df5bda1cc6160d3158af9993a0a10df1a4`。

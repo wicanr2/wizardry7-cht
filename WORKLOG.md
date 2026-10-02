@@ -394,4 +394,16 @@ R779回呼故障窄修及R781獨立審查已封存，精確SHA回填研究020；
 - R844技術審查阻擋0／應改0／建議0，獨立核對歷史版本索引、原始五批A/B及完整前綴、五張正常畫格。主代理完整讀取JSON／Markdown，報告繁體文字另修正；限定零命中、暖、NoCursorWait、非GUI資格保持。015／017仍READY、008仍DRAFT，十一組、TSV、正常存讀、錄放、人耳及三平台封包仍未完成，R433未追蹤檔原樣保留。
 - 另讀013現行決策前沿及grilling，正式錄放檔內嵌設定或附檔尚未定案，已提出單一問題並繼續獨立工作；存檔預設位置仍待答。沒有把建議當授權、移植DRAFT或建立正式交付目錄。
 - R844三文件文字補審0／0／0，主代理完整讀取最終JSON／Markdown。根doc-guard確認三份批准回填、其餘338來源與282產物保持，五文件擁有權與新入口通過，git diff --check通過；完整SHA入口見研究014。封存後只追加本段及研究驗收文字，不改凍結索引或重跑遊戲，自有容器0。
-- R844三文件文字補審0／0／0，主代理完整讀取最終JSON／Markdown。根doc-guard確認三份批准回填、其餘338來源與282產物保持，五文件擁有權與新入口通過，git diff --check通過；完整SHA入口見研究014。封存後只追加本段及研究驗收文字，不改凍結索引或重跑遊戲，自有容器0。
+- `c30bd5e6d07b36ddf840fed37c511ba7ad4f53f5`已推送，[＃24進度](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-5951638174)全文回讀相符，議題仍OPEN；收據留workplace/r843/github-progress.json。
+
+## 2026-10-02：R845，明示存檔目錄的接線候選（#42）
+
+- 基線c30bd5e；#42仍OPEN，先建R845並掛入goal索引。命中顯示／語意隔離、規格閘門、正常玩家路徑與平台API入口，沿已載入規則並讀retro-platform-spec-first；以SDK009 READY、014 DRAFT及R802／R807證據為準，不重新研究原版存檔格式。
+- 只在workplace/r845複製現行前端與SDK，沿R807 guard接明示save-dir旗標。順序為Prepare有限錯誤碼、LoadWith、SetScratch，再安裝觀察與音訊播放器及Run；原型必須明示目錄，不代選預設。main只有三處接線差異、其他13前端與go.mod／sum保持，正式Go與SDK未改。
+- 五CLI自製案例通過：缺參數、Root重疊、非目錄及不可寫在LoadWith前拒絕，非目錄實際碼為mkdir；合法fresh通過Prepare後由LoadWith拒絕自製非MZ。自製來源SHA不變，fresh無檔。沒有成功載入、原版Run／輸入或GUI遊玩；SetScratch成功分支只編譯，不稱存檔已修好。
+- 初85來源保持，最終91來源／43產物凍結。55已索引SDK及53實際編譯來源逐檔同，兩種數字分開記；Go1.24.13、Ebitengine2.9.9及映像Id相符。224506項lstat衛生異常0，產物1000:1000，Xvfb有finally收尾且退出0，自有容器0。
+- 首唯讀讀取器括號語法錯誤，未讀檔或寫入；同映像修正後成功。首建置沒掛既有模組快取，GOPROXY=off停止；核對fe-entry後只讀掛入workplace/gomodcache，離線建置成功，不換映像或開網路。失敗是工具描述紀錄，不冒稱有原始stderr檔。
+- freezer v1混用/out來源與/src相對基準，索引寫入前失敗；保留原版腳本及失敗描述，v2只修該映射並納入保留檔。來源與CLI斷言先已通過，沒有重跑建置或CLI來修索引。另刪前輪R844重複的同一驗收句，單份原文及歷程保留。
+- R846獨立核對85／91來源與43產物、實際53編譯來源、三處差異及五CLI原始輸出；阻擋0／應改0／建議0，主代理完整讀取JSON／Markdown。審查串接JSON解析初誤修正後核對通過；來源讀取器另多輸出既有autoplay防拷輸入行，立即停止該額外讀取。未執行或投遞，輸入內容不進報告、正式回填或Issue，後續只讀啟動接線行號與差異摘要。
+- R807十八既有案例不重跑；Linux UID／Nlink、檢查後外部替換及平台限制保持。014仍DRAFT、預設位置待答，沒有正式保存、冷載入、錄放、音訊或可玩封包資格增加；十一組、TSV與三平台門檻保持，R433原樣未追蹤。完整候選、binary、fixture與收據只留本機。
+- R846四文件文字補審阻擋0／應改0／建議0，主代理完整讀取JSON／Markdown。doc-guard確認四份批准回填、其餘87來源與43產物保持，六文件擁有權與入口通過；封存只追加本段及研究驗收文字，不改受審前綴、凍結索引或產品資格。補審JSON SHA為5ec295e1a9edff35932ba58b1805a34b61225fff6e65f3526db340396c4cc60a，Markdown SHA為fb4ae1efc0e95cd14ba29cf7aeda01daee7fcfa92d2ce04115f0f5b2f8212e71，doc-guard SHA為0a707e197833b70a28a4224c8b0d43df5bda1cc6160d3158af9993a0a10df1a4。
