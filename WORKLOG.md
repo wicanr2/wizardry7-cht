@@ -442,3 +442,14 @@ R779回呼故障窄修及R781獨立審查已封存，精確SHA回填研究020；
 - 第一個畫格轉送額度不足，後續核完整base64長度並檢視同一原圖，不重跑戰鬥或改圖。摘要首命令混用Python入口與shell表達式，於解析前停止；沿同映像修正入口後通過。審查讀取器把串接JSON當單一JSON而Extra data，改逐筆raw_decode後通過；均為工具問題，原始收據不改。
 - 原版戰鬥有HP暫存回寫，不能未驗就假設只改隊員欄位會保持作弊效果。暫存指標配置／釋放／有效期、其他隊員、死亡／上限、存讀檔與正式暫停安全寫入未量；沒有作弊實作或READY提升。十一組、TSV、冷存讀、錄放、人耳與三平台門檻保持，存檔預設與錄放格式待答，R433未追蹤檔原樣保留。
 - R852阻擋0／應改0／建議0，主代理完整讀取JSON與Markdown；研究024與受審完整草稿相同。兩報告SHA為`b897a17d524a92621820667426064425f849985a6e5e784001d8bc4e267f7c07`、`a3fb13b31034f87bc7a63b1ee958cefe3eca7858fa1774d742969013d4af62f4`，根收尾入口為workplace/r851/final-check.json，只核69來源、31產物、六文件及兩報告。Docker映像首次查詢未取得socket權限，改用既有授權主機呼叫；第二次模板查不存在的Config.User欄位失敗，不涉及遊戲或產物，後續只查映像ID。文件封存首patch未找到goal中預期列，未寫入；改以現有結果列定位後完成。
+
+- `9a167087e921b09b631da215e5877dfc290f0cde`已推送，[＃35進度](https://github.com/wicanr2/wizardry7-cht/issues/35#issuecomment-5956599252)全文回讀相符，Issue仍OPEN；本機回讀入口workplace/r851/github-progress.json，SHA為`59e94d4ea8ba290b145bc55b07976ec7c998b5615b9cf1a477f347df3c8c64c8`。
+
+## 2026-10-03：R853，明示存檔層成功冷啟動（#42）
+
+- 基線9a16708，先核對遠端#42 OPEN並建立、索引R853。命中規格閘門、正常玩家試玩及文件職責入口；只做DRAFT可丟棄成功啟動候選，不代選預設位置或錄放格式。
+- 現行前端副本沿R847已修正守門，Prepare／LoadWith成功後Step0設定Scratch，再啟動音訊及owner。兩側觀察與260M停止控制相同，對照側不接Scratch；正式Go／SDK／譯文／字型未改。
+- 英文、靜音、零玩家輸入與autoplay=false的冷GUI到主選單，兩側退出0；實際250M Draw及260M原始PNG已完整目視。200k／260M原版RAM、indexed、palette及暫存器與原始PNG相同，248素材檔不變，兩Scratch沒有自然寫檔；不當保存／LOAD或封包驗收。
+- 首讀spec路徑錯、整批main輸出截斷及原型API／縮排假設，均在建置前以有限窗口更正。首次GUI就緒查詢缺xdpyinfo，原版未spawn，改既有xdotool。第二次baseline被過嚴ID護欄中止，退出2及早期收據保留；改只計數自然內部讀取，各1次，不解碼或輸出答案，不改判定或原版流程。
+- 19正式／守門來源、53實際編譯SDK及42候選／腳本來源，62產物凍結；入口workplace/r853/report.json、inputs-final.json、frozen-index.json。014維持DRAFT，正式SetScratch未移植，預設位置及錄放格式待答；十一組、冷存讀、人耳與三平台門檻保持，R433未追蹤檔不變。
+- R854阻擋0／未解除應改0／建議0；新022英文定位點應改1已解除，候選及生成來源同步修正。主代理完整讀取兩報告，另修「初版binary保留」與「stderr／200k收據列入62項凍結」的報告文字，不改凍結索引或重跑產品。最終JSON SHA為`2d75bdf16fb4641dc298b1e1a86c1a76387b500c61939fa846c157d40a8e5227`，Markdown SHA為`4deda96e0b5bed0aab79bcee1c59c0be3cd5f92f38f6773c87d1c468a3c59e03`；六文件原樣回填，根收尾入口workplace/r853/final-check.json。

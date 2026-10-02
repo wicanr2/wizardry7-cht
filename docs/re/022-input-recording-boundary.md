@@ -495,3 +495,38 @@ ACL負案例雖拒絕O_RDWR，較窄的寫入控制也被拒絕，無法區分�
 存檔預設及錄放格式仍待答覆，十一組、TSV、人耳及三平台交付門檻保持。
 
 R848修正及四文件補審阻擋0／應改0／建議0，主代理完整讀取兩報告。根護欄核對二十二項未變來源、四份批准回填與138產物保持；六文件擁有權及入口通過。補審JSON SHA為`7df829acacb6cfb576a88918590bace96b5f3df3bd4e2d7bcfacdb676158e27a`，Markdown SHA為`a0280bc7f638e775e31bd662a7cff09503997df9551c366cb22dd0184f4f6492`，doc-guard SHA為`0fe37638b4468f9c4e8df9cb032d921a1ec3fb57e8c6262e7a67e29df710ad67`。014保持DRAFT，封存只追加本驗收文字，不重跑產品或改凍結收據。
+
+
+<a id="r853-save-startup-success"></a>
+
+## R853：明示存檔層的成功冷啟動
+
+2026-10-03，基線9a16708；[goal](../goal/R853-save-startup-success.md)、
+[#42](https://github.com/wicanr2/wizardry7-cht/issues/42)。
+補齊R845尚未執行的成功LoadWith／SetScratch分支，正式Go、SDK、譯文與字型未改。
+候選沿現行前端與R847修正後共用守門、Unix後端，使用明示獨立可寫目錄；沒有選定預設位置。
+來源為Archives原版DS.EXE，SHA`14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。
+工具沿Go1.24.13、Ebitengine2.9.9與既有離線非root Docker，位址基準為Go API及原版Step。
+
+| 驗證 | 實測結果與資格 |
+|---|---|
+| 啟動順序 | Prepare成功、LoadWith成功後，SetScratch在Step0完成；之後才建立音訊及開始owner。對照側沒有接Scratch，其他觀察與停止控制相同 |
+| 冷GUI | 英文、靜音、零玩家輸入及autoplay=false；兩側到主選單，取得250M的實際960×600 Draw與260M的320×200原始PNG，主代理完整目視 |
+| 原版對拍 | 200k及260M兩點RAM、indexed、palette及暫存器相同；原始PNG精確相同，不能外推未量到的保存及載入 |
+| 原版檔案 | 248個素材檔初末SHA全同，原版唯讀掛載；兩個Scratch實際沒有自然寫檔 |
+| 來源與凍結 | 19正式／守門來源、53實際編譯SDK及42候選／腳本來源不變，62產物凍結；未把測試／忽略檔當成實際編譯來源 |
+
+260M兩側只計數保護範圍的自然內部取訊息，各1次；觀察器不記ID值、不解碼或輸出答案，沒有代答、跳過或改判定。
+固定整份冷初態與零輸入，沒有改RAM、存檔、原版CPU／PIT時基或識別／改寫seed。
+此次不驗傷害或RNG規則，不把相同seed數字當作對拍證明。
+
+原始收據與候選只留本機workplace/r853，入口report.json、inputs-final.json及frozen-index.json。
+report SHA為`87b59087e6f482155290fe75db1a2cdfb78930722fafa36f8b7d3b6b47f8d741`；
+frozen-index SHA為`bd4916ffbdfb46e0927bfdb48bf5da909ccc6610278cae87af982fb6da3804be`。
+首次Xvfb就緒查詢缺xdpyinfo，原版尚未開始；改用映像既有xdotool後正常。
+原型首個原版執行在200k之後被過嚴ID護欄中止，退出2及早期收據保留；
+該護欄誤阻斷正常內部讀取，修為單純計數後沿同映像與命令重跑，不改原版流程或正文。
+前兩項為環境／觀察器問題，不當作產品缺陷或保存失敗。
+
+014仍DRAFT，成功候選不代表正式SetScratch已移植、正常保存／冷載入或完整可玩。
+預設位置及錄放格式仍待答覆；十一組、TSV、人耳與三平台交付門檻保持。

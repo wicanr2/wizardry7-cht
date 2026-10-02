@@ -110,3 +110,19 @@ Windows的Wine輔助驗證十六項通過；三項符號連結及一項讀寫權
 權限測試改用預先取得的控制代碼還原，已正常還原、自製內容不變；不把未量案例計為通過。
 Linux amd64、macOS amd64／arm64及Windows amd64的獨立候選可編譯，未驗原生平台GUI。
 正式前端及SDK未改，仍缺SetScratch；014保持DRAFT，預設位置、正常冷存讀及全部交付門檻保持。
+
+
+## R853：明示可寫層的成功冷啟動候選
+
+2026-10-03，入口[goal](../goal/R853-save-startup-success.md)、
+[研究022](../re/022-input-recording-boundary.md#r853-save-startup-success)。
+候選沿R847修正後的守門，Prepare成功、LoadWith成功後，在Step0呼叫SetScratch，再啟動既有音訊及owner。
+對照側使用相同唯讀觀察與停止控制，僅不接可寫層；兩側實際編譯的53項SDK來源相同。
+
+英文、靜音、無玩家輸入的Linux Xvfb冷GUI到主選單，260M停止並正常退出。
+200k／260M原版RAM、indexed、palette、暫存器及PNG相同，248素材檔逐檔不變。
+兩目錄實際沒有自然寫檔，只證明啟動成功及有限不變性，不證明保存、載入還原或寫入行為。
+私有觀察器初版誤阻斷正常內部取訊息；修為只計數，不解碼或輸出答案、不改原版流程。
+
+正式前端及SDK未改，014保持DRAFT。預設位置仍待答覆，成功候選不移植正式接線。
+正常冷保存／LOAD、錄放、人耳、十一組與三平台封包門檻保持。
