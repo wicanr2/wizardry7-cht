@@ -15,6 +15,7 @@ adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 休息後正常續行：[R841](R841-rest-route-continuation.md)。
 下一迷宮方向：[R843](R843-next-maze-heading.md)。
 明示存檔接線候選：[R845](R845-explicit-save-wiring.md)。
+存檔平台中繼資料候選：[R847](R847-save-platform-metadata.md)。
 
 ## 終點
 

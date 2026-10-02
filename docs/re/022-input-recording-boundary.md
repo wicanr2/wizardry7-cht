@@ -449,3 +449,49 @@ R846四文件文字補審阻擋0／應改0／建議0，主代理完整讀取JSON
 補審JSON SHA為`5ec295e1a9edff35932ba58b1805a34b61225fff6e65f3526db340396c4cc60a`；
 Markdown SHA為`fb4ae1efc0e95cd14ba29cf7aeda01daee7fcfa92d2ce04115f0f5b2f8212e71`；
 doc-guard SHA為`0a707e197833b70a28a4224c8b0d43df5bda1cc6160d3158af9993a0a10df1a4`。
+
+<a id="r847-save-platform-metadata"></a>
+
+## R847：平台存檔預檢候選
+
+2026-10-02，基線61d6070；[goal](../goal/R847-save-platform-metadata.md)、
+[#42](https://github.com/wicanr2/wizardry7-cht/issues/42)。只使用自製檔案及公開平台API，
+沒有原版執行、MSG、state、RAM、手冊或autoplay輸入讀取，正式Go、SDK、譯文與字型未變。
+
+R807的Linux守門分成共用路徑、Unix及Windows後端。Unix沿UID、權限及Nlink；
+Windows以檔案控制代碼核對SID、NumberOfLinks及重解析屬性，SID候選接受TokenUser或TokenOwner。
+共用路徑在mkdir之前以os.SameFile核對實體祖先，新增EXE硬連結別名拒絕案例。
+依據是Go1.24.13本機原始碼、x/sys v0.36.0及
+[CreateFileW](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilew)、
+[GetSecurityInfo](https://learn.microsoft.com/en-us/windows/win32/api/aclapi/nf-aclapi-getsecurityinfo)、
+[SetSecurityInfo](https://learn.microsoft.com/en-us/windows/win32/api/aclapi/nf-aclapi-setsecurityinfo)。
+位址空間為Go來源及OS API，不涉及原版反組譯位址；自製案例結果已證實，原生平台行為仍未量。
+
+R848首審阻擋0／應改1／建議0。主代理核對SDK internal/dos/files.go的O_RDWR契約，
+及Go syscall_windows.go的GENERIC_READ／GENERIC_WRITE映射後，修正候選既有檔案權限查詢。
+Unix開啟O_RDWR後關閉；Windows採GENERIC_READ及GENERIC_WRITE、OPEN_EXISTING。
+不讀寫內容、不建立或截斷。修正後結果如下。
+
+| 驗證 | 結果與限制 |
+|---|---|
+| Linux自製案例 | 二十項通過，前十九項保持；只能寫不能讀的檔案在寫探針前拒絕 |
+| Wine輔助Windows API | 十六項通過，結果與前批相同；三項符號連結及一項讀寫權限負案例未量 |
+| ACL測試收尾 | 首批依路徑還原被拒，失敗收據保留；改以事先取得的控制代碼還原，退出0、自製內容不變 |
+| 平台編譯 | Linux amd64、macOS amd64／arm64、Windows amd64可編譯；不代表原生GUI或遊戲可玩 |
+| 不變性 | 凍結時二十六項輸入相同；文件回填後四份批准變動，其餘二十二項及十八項依賴保持。首批108產物保存在frozen-r848，僅六份候選檔有批准修正 |
+
+Wine的os.Symlink回傳成功，但實際未建立連結；已在Prepare前驗證，不能據此判守門通過或失敗。
+ACL負案例雖拒絕O_RDWR，較窄的寫入控制也被拒絕，無法區分修前修後，因此仍未量。
+這些是驗證環境限制，不繼續調整案例來湊通過。索引工具讀取刻意不可讀的自製檔失敗，
+保留失敗版，改索引候選、編譯產物及原始結果收據；不改測試權限，不重跑產品測試。
+
+| 本機收據（workplace/r847/） | SHA-256 |
+|---|---|
+| report-rw.json | `f90ccbffca6bac2d265a4dc026946da071d9c3eaaed3483b7c7da6a1ecab9ae6` |
+| final-output-index-rw.json | `b8b21a37c6fdc0a3b2ae9487266a614f2799c300064089b1591b0c716a725221` |
+| freeze-guard-rw.json | `843fa5bf6ea9242b52d2d92fc00985cdbc10761002f2fa6d1fbf3b6eaa06d2a8` |
+
+014仍DRAFT；沒有正式SetScratch接線、正常保存／冷載入、錄放或可玩封包證據增加。
+存檔預設及錄放格式仍待答覆，十一組、TSV、人耳及三平台交付門檻保持。
+
+R848修正及四文件補審阻擋0／應改0／建議0，主代理完整讀取兩報告。根護欄核對二十二項未變來源、四份批准回填與138產物保持；六文件擁有權及入口通過。補審JSON SHA為`7df829acacb6cfb576a88918590bace96b5f3df3bd4e2d7bcfacdb676158e27a`，Markdown SHA為`a0280bc7f638e775e31bd662a7cff09503997df9551c366cb22dd0184f4f6492`，doc-guard SHA為`0fe37638b4468f9c4e8df9cb032d921a1ec3fb57e8c6262e7a67e29df710ad67`。014保持DRAFT，封存只追加本驗收文字，不重跑產品或改凍結收據。

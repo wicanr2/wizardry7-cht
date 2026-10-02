@@ -92,3 +92,21 @@ SetScratch成功載入後分支只編譯、未動態量到；沒有原版Run、G
 SDK索引55及實際編譯53來源副本分開核對相同，其他13前端及go.mod／sum同，正式程式未改。
 R846限定審查0／0／0，只批准DRAFT回填；Linux UID／Nlink及檢查後替換限制保持。
 跨平台、預設位置、正式READY與正常冷存讀門檻未解除，不以CLI通過移植正式接線。
+
+## R847：平台存檔預檢候選
+
+入口[研究022](../re/022-input-recording-boundary.md#r847-save-platform-metadata)、
+[goal](../goal/R847-save-platform-metadata.md)。共用路徑檢查與平台中繼資料只在本機候選分離。
+Linux及macOS核對UID、權限與連結數；Windows核對擁有者SID、連結數及重解析屬性。
+Windows擁有者候選接受TokenUser或TokenOwner，不據此宣布正式平台契約已定案。
+
+R848首審指出DOS既有檔案以O_RDWR開啟，只驗寫入權限不足。
+候選已修正：Unix以O_RDWR開啟既有檔後關閉；Windows以GENERIC_READ及GENERIC_WRITE、
+OPEN_EXISTING查詢既有檔權限。兩者不讀寫內容、不建立或截斷檔案。
+共用路徑另以實體檔案身分拒絕大小寫及硬連結別名重疊，仍在建立目錄之前檢查。
+
+Linux二十項自製案例通過，前十九項結果保持，新增只能寫不能讀的檔案在寫探針前拒絕。
+Windows的Wine輔助驗證十六項通過；三項符號連結及一項讀寫權限負案例未具有效測試條件。
+權限測試改用預先取得的控制代碼還原，已正常還原、自製內容不變；不把未量案例計為通過。
+Linux amd64、macOS amd64／arm64及Windows amd64的獨立候選可編譯，未驗原生平台GUI。
+正式前端及SDK未改，仍缺SetScratch；014保持DRAFT，預設位置、正常冷存讀及全部交付門檻保持。
