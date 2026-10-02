@@ -7,6 +7,7 @@
 adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 法師建角技能情境：[R827](R827-mage-skill-context.md)。
 譯文控制碼核對：[R829](R829-catalog-control-codes.md)。
+剩餘控制碼與名字槽：[R831](R831-remaining-controls.md)。
 
 ## 終點
 
@@ -66,6 +67,7 @@ psychic-war 已用這條路完成一款；本專案要驗證它對 overlay 架�
 | 823 | [R823](R823-adapter-boundary-audit.md) | adapter 分層與乾淨建置依賴盤點（#29） |
 | 827 | [R827](R827-mage-skill-context.md) | 正常法師建角技能情境（#24、#22） |
 | 829 | [R829](R829-catalog-control-codes.md) | 正式控制碼保留與流文可用性（#24） |
+| 831 | [R831](R831-remaining-controls.md) | 剩餘控制碼與名字填槽（#24） |
 
 第 2 輪起依 M0 的結論再定。
 

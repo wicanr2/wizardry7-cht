@@ -95,7 +95,7 @@ fj = json.loads(Path(args.flow_json).read_text())
 theirs = (len(fj["paras"]), sum(len(p["lines"]) for p in fj["paras"]),
           sum(1 for p in fj["paras"] for l in p["lines"] if l["zh"]),
           sum(1 for p in fj["paras"] if all(l["zh"] for l in p["lines"])))
-check(own == theirs == (2906, 6307, 4921, 2166), f"驗收1 段落／行／可用行／整段可譯 獨立={own} flow.json={theirs} 規格=(2906, 6307, 4921, 2166)")
+check(own == theirs == (2906, 6307, 4922, 2167), f"驗收1 段落／行／可用行／整段可譯 獨立={own} flow.json={theirs} 規格=(2906, 6307, 4922, 2167)")
 
 
 # ── R3 比對（獨立實作）────────────────────────────────────────────
