@@ -499,3 +499,15 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 已目視中文DISK五選項與保存後森林及隊員畫面，未截到檔名對話框。來源索引初誤將新引入state套件視為來源變動，查證為私人helper額外引入的同一未改套件；正式共同53來源同，暖編譯55。沒有調整遊戲參數、seed或重跑挑結果。
 - 160來源與2245產物已封存、owner1000:1000。入口workplace/r859/report.json及frozen-index.json，SHA見研究022。014維持READY，冷載入還原、原生平台、人耳、錄放、十一組、TSV、地圖／作弊及正式封包仍未完成。R433無關未追蹤檔保持。
 - R861最終實作審查阻擋0／未解除應改0／建議0，主代理完整讀取兩報告。審查獨立核正式來源及SDK SHA，封存產物只核metadata，沒有開存檔正文或冒稱全部SHA重算；根收尾另逐項重算160來源及2245產物。兩報告SHA為`67fc0b1beff39d81f60517a3510cb29d7c80ff4d5c32bac8a297c6d3f569a32a`、`0d13bb8ef2bf6dd71ac2c97019b533b3bcb576863498bcb59ea6a8fdbb70af3f`。自有容器0，工作根root-owned及誤建.md目錄檢查異常0；最終入口workplace/r859/final-check.json。
+
+- R859提交`f78f0506bab56c26c72776c4fbc66c0e0f5733b0`已推送；[＃42進度](https://github.com/wicanr2/wizardry7-cht/issues/42#issuecomment-5960316231)全文回讀相符、Issue仍OPEN。回讀入口workplace/r859/github-progress.json。
+
+## 2026-10-03：R862，錄放完整起始設定候選（#17）
+
+- 沿單檔內嵌完整設定定案，先建與索引R862，命中規格閘門及文件職責路由。013仍DRAFT，只寫本輪私人候選；故障策略已提問、尚未答，不代選。
+- 組合實際程式／來源、LoadWith五引數、R819純量、Root及Scratch兩層清單、選定EXE、音訊H／K及前端資源。移除無來源的倍率2..6限制，如實記錄flag.Int值。候選宣告尚未與正式擁有者及載入結果綁定，不當B2正式完成。
+- 五組Go競爭測試通過，八種設定差異改變SHA、十五種非法DTO拒絕；兩層閉集合保留被遮蔽Root，辨識新增、刪除、內容及DOS日期變化，空Scratch合法。Python獨立重算音訊分數／位元、自製檔案SHA／DOS位元及真實自製binary SHA。
+- 首次有界Docker呼叫受socket權限限制，命令未進容器；使用已授權的隔離執行權限後測試正常。來源核對腳本首次把Reader常數查到Player，核對失敗收據保留；修正定位後沿同映像重跑，候選及Go測試未改。兩者屬執行環境／驗證腳本問題。
+- 沒有執行原版或讀MSG、手冊、原版state／存檔正文；不重開既有格式表或R819getter測試。完整原型、來源與SHA入口見研究022。正式Go、SDK、catalog、字型及R433未追蹤檔保持；013、正常存讀還原、十一組、TSV及封包仍未完成。
+
+- R863獨立審查阻擋0／應改0／建議0，主代理完整讀取兩報告；只採認限定DRAFT回填。審查逐項重算83來源及69產物SHA／大小，owner1000:1000；報告SHA為`a7e3fa7cf69be90c4ad426f2bfc106d3542ed2cc6e97d2db0c50f5d2ba50ab66`、`c7fb7ada3258119537d14b55ac11eeb9009c9829839c46a14359c60651a389ed`。根收尾再次核對封存與六文件入口，僅goal／013追加審查文字為批准變動。工作根root-owned及誤建.md目錄異常0，自有R862／R863容器0；根入口workplace/r862/final-check.json。

@@ -575,3 +575,53 @@ v4只修正該測試分支，固定相同座標、步數及起點重跑成功；
 
 confirmed僅適用上表限定工程接線及暖保存支路，014保持READY。
 冷正常保存與LOAD隊員／位置還原、原生平台、人耳、錄放、十一組、TSV及正式封包未完成，#42保持OPEN。
+
+<a id="r862-recording-initial-config"></a>
+
+## R862：完整起始設定的私人候選
+
+2026-10-03，基線f78f050；[goal](../goal/R862-recording-initial-config.md)、
+[013 DRAFT](../spec/013-input-recording.md)、[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+使用者已定案單檔內嵌完整設定，本輪組合B2技術候選，不重問檔案形式，不代選待答的故障策略。
+
+來源採R859實際編譯的53份現行SDK檔與R819私人getter；正式來源唯讀，僅本輪副本增加getter。
+候選保存完整LoadWith引數、純量、binary／來源、兩層檔案、音訊H／K及前端資源宣告，
+型別與欄序見013及本機contract.md。沒有正式程式、SDK、譯文或字型變更。
+定位採Go來源與API，工具Go1.24.13、Python3.11.2、既有離線非root Docker。
+沒有原版LoadWith／Run、MSG、手冊、state或原版存檔正文讀取。
+
+| 驗證 | 結果與界線 |
+|---|---|
+| Go自製競爭測試 | 五組通過，1.041秒；八種配置差異改變SHA、十五種非法DTO拒絕。未重跑既有21格式文件及R819getter純量表 |
+| 檔案閉集合 | Root／Scratch同path不同內容均保留，辨識新增、刪除、被遮蔽Root內容及DOS日期變動；空Scratch合法、symlink拒絕 |
+| 獨立Python | 按自製內容重算檔案SHA／DOS位元，獨算H／K／IPS位元及真實自製binary SHA；ASCII fixture重編碼相同不外推Unicode canonical契約 |
+| 實際來源核對 | 十項音訊／LoadWith／預設倍率來源核對通過；倍率無2..6限制，候選只記錄原值 |
+| 封存 | 83項來源及69項產物，owner1000:1000；包含已保留的驗證腳本首次失敗收據 |
+
+自製配置2844 bytes，SHA為`2fb54a8ddf0395d17f3984a55f25208bb1f776469c34f6a90e217289ebf77c9d`。
+H既約為12304689375/4096，24M的K為52428800/6562501；正常與手動加速的既定行為不變。
+日期沿DOS來源的ModTime本地時間位元與0x20屬性，不改UTC政策或把Unix唯讀屬性當DOS屬性。
+候選掃描要求獨占且不變來源，不保證抵抗並行換檔；所有自製內容明示不是原版替身。
+
+| 本機收據（workplace/r862/） | SHA-256 |
+|---|---|
+| report.json | `161d4b9ab26564ca9a5fab10a174989cf818431a094cf9192ee5bab7a217c858` |
+| contract.md | `d7d440fef04a0b52a67dcf6332781e76616c96de62a4627feabac766117f0da1` |
+| source-index.json | `d63e08b3780cca7448fc9587ba7c7ad437f5ed029e4148fff5a2d0db703153ba` |
+| frozen-index.json | `d92c6b4b9587825440fe0ea32d4c4a837e4bdcbd9d5e18f37b0b6b52e50b5259` |
+
+首次有界Docker呼叫在進容器前受socket權限限制，依已授權隔離執行權限後正常。
+Python核對首次把Reader常數查到Player，收據保留；修正定位後同映像重跑成功，候選及Go測試未改。
+這些是環境／驗證腳本問題，沒有原版執行或產品缺陷結論。
+
+confirmed僅涵蓋來源定位與自製測試，固定平台政策仍沿R819 source-bound policy。
+Build只驗已具型別DTO，沒有新的wire decoder；pristine仍是呼叫端聲明。
+正式編譯閉集合、選定EXE、資源載入結果與同一LoadWith實例尚未由owner綁定。
+沒有GUI／裝置／原版三次重播或存讀還原，不解除B2全部閘門；013保持DRAFT，#17保持OPEN。
+
+R863獨立審查阻擋0／應改0／建議0，主代理完整讀取兩報告。
+審查另逐項重算83來源與69產物的SHA及大小，owner均1000:1000，沒有重跑產品或原版。
+JSON SHA為`a7e3fa7cf69be90c4ad426f2bfc106d3542ed2cc6e97d2db0c50f5d2ba50ab66`，
+Markdown SHA為`c7fb7ada3258119537d14b55ac11eeb9009c9829839c46a14359c60651a389ed`。
+封存後只追加本審查紀錄，不覆寫凍結收據；根收尾入口workplace/r862/final-check.json。
+工作根衛生異常0，自有R862／R863容器0。

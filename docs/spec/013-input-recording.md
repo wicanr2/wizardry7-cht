@@ -280,3 +280,37 @@ DOS時間沿來源的Go uint64算術；有效滑鼠倍率及BIOS BDA ticks皆`no
 2026-10-03使用者選定單一錄放檔，完整起始設定內嵌檔頭，便於搬移與核對。
 仍需玩家自備相符原版資料；原版內容與可能含防拷輸入的錄放檔只留本機。
 這項定案解除單檔或附檔的產品決策；完整schema、擁有者與故障收尾契約仍須定稿及審查。
+
+## R862：完整起始設定候選
+
+候選只在`workplace/r862`，依單檔定案組合完整設定；013保持DRAFT。
+頂層固定欄序為schema、program、sources、load_with、initial_scalars、selected_program、storage、audio、frontend。
+schema為`wiz7-startup-config-candidate/1`，不冒稱沿用prototype/1。
+
+| 物件 | 候選內容與綁定限制 |
+|---|---|
+| program／sources | 實際binary SHA、GoVersion、GOOS／GOARCH、Main.Version與排序建置設定SHA；來源為相對path、size uint64、SHA。候選只核呼叫端提供的來源集合，正式編譯閉集合仍須建置端交付。 |
+| load_with／initial_scalars | 保留LoadWith五項引數與R819純量。正式main目前只傳Adlib=true，其餘零值；DTO驗證不證明宣告來自同一次LoadWith，正式單一擁有者仍須綁定。 |
+| selected_program | root／external來源角色及完整File；root宣告須與Root一項逐欄相同。實際-exe選擇與LoadWith讀取仍待接線。 |
+| storage | Root與Scratch分開的完整集合，保留同path被遮蔽的Root；空Scratch合法。File沿既有相對path、大小、SHA及DOS日期／時間／屬性型別。重播前逐層核對新增、刪除、內容及DOS中繼資料。 |
+| audio | H與初始K為既約分數字串；明示IPS、float64位元16位小寫hex、mute與device_requested。固定取樣／緩衝／淡化／進度與退出參數沿009；device_requested不代表裝置成功開啟。 |
+| frontend | Scale int64如實保存flag.Int值，不新增2..6限制；三項停用旗標與xlate／flow／help的requested、loaded、大小及SHA，資源載入結果仍須正式載入器綁定。 |
+
+H為196875030000/65536，未明示IPS的初始K=1，明示時為精確Float64/H。
+固定參數為44100Hz、雙聲道16位元、88200 ring、4410預填及最大塊、221淡化、
+50ms裝置緩衝、200000進度量與5000ms總退出期限。
+DOS日期位元沿現行ModTime的本地時間，不強制UTC，不把Unix唯讀mode當DOS屬性；屬性沿來源0x20。
+跨平台須核對實際DOS位元，不符即拒，不改原版時間政策。
+
+SHA沿固定Go1.24.13的`SHA256(json.Marshal(Config))`、struct欄序、預設HTML跳脫、無縮排／尾LF。
+配置最多1MiB、來源及每層各最多4096項，路徑沿R815界線。
+Build只驗具型別DTO及複製slice，沒有新wire decoder；未知／重複／null欄位解析仍屬B1。
+掃描要求呼叫端獨占、不變輸入，未保證抵抗並行換檔；pristine仍是呼叫端聲明。
+
+五組自製競爭測試通過，八種配置差異改變SHA、十五種非法DTO拒絕；
+獨立Python重算H／K、IPS位元、檔案SHA、DOS位元及實際自製binary SHA。
+沒有原版LoadWith／Run、GUI、裝置或三次重播，不解除正式B2全部閘門。
+來源、測試及獨立審查入口見[研究022](../re/022-input-recording-boundary.md#r862-recording-initial-config)。
+
+R863獨立審查阻擋0／應改0／建議0，僅批准限定DRAFT回填。
+正式owner與wire解析、故障及正常結束契約仍待完成，不轉READY。
