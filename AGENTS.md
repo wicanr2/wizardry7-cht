@@ -259,6 +259,9 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 | 2026-10-01 | 前端預設按原版虛擬時鐘同步，保留手動加速；不改原版CPU／PIT時基（入口docs/spec/009-player-audio.md，仍DRAFT） |
 | 2026-10-01 | 手動加速時音樂節奏同步加快、維持音高，不採加速期間靜音（入口docs/spec/009-player-audio.md；須另外驗收，正常速度基準不變） |
 | 2026-10-01 | 退出採快速淡出並結束，記錄捨棄的未播尾段；不等整段尾音。約5毫秒只為Reader淡出原型，實際有界退出須驗證（入口docs/spec/009-player-audio.md A7） |
+| 2026-10-03 | 原版存檔預設採系統使用者資料目錄，保留-save-dir覆寫，原版資料唯讀；跨平台精確路徑與接線另走規格閘門（入口docs/spec/014-original-save-storage.md） |
+| 2026-10-03 | 輸入錄放採單一檔案，完整起始設定內嵌檔頭，仍需玩家自備相符原版；正式schema與收尾契約另走規格閘門（入口docs/spec/013-input-recording.md） |
+| 2026-10-03 | 明示授權剩餘十一組29個既有出處的窄範圍唯讀runtime觀察，最多64 bytes目的緩衝；不讀鄰文或防拷答案，完整收據僅本機（入口docs/goal/R857-targeted-maze-route.md） |
 
 ## 14. 目前已知
 

@@ -20,6 +20,7 @@ adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 HP寫入端證據：[R851](R851-hp-writer-evidence.md)。
 明示存檔層的冷啟動驗證：[R853](R853-save-startup-success.md)。
 未走方向的正常迷宮路線：[R855](R855-untried-maze-route.md)。
+剩餘十一組的定向迷宮觀察：[R857](R857-targeted-maze-route.md)。
 
 ## 終點
 
