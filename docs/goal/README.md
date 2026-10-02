@@ -5,6 +5,7 @@
 錄放純量契約：[R819](R819-recording-initial-scalars.md)。
 填槽缺字回退：[R821](R821-slot-fallback.md)。
 adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
+法師建角技能情境：[R827](R827-mage-skill-context.md)。
 
 ## 終點
 
@@ -62,6 +63,7 @@ psychic-war 已用這條路完成一款；本專案要驗證它對 overlay 架�
 | 819 | [R819](R819-recording-initial-scalars.md) | 錄放啟動純量精確契約（#17） |
 | 821 | [R821](R821-slot-fallback.md) | 一般填槽缺字回退（#44、#28） |
 | 823 | [R823](R823-adapter-boundary-audit.md) | adapter 分層與乾淨建置依賴盤點（#29） |
+| 827 | [R827](R827-mage-skill-context.md) | 正常法師建角技能情境（#24、#22） |
 
 第 2 輪起依 M0 的結論再定。
 
