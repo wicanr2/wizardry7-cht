@@ -33,7 +33,7 @@
 - 全文來源仍是 JSON 與訊息 ID；TSV＋英文鍵遷移見 [#24](https://github.com/wicanr2/wizardry7-cht/issues/24)。譯文覆蓋與正常路徑觸發對帳見 [#22](https://github.com/wicanr2/wizardry7-cht/issues/22)，資料已翻譯不能當作已上屏。
 - 發行字型已完成實作與上述驗收（[#25](https://github.com/wicanr2/wizardry7-cht/issues/25)）；倚天字型仍只可本機使用，Unifont子集採OFL-1.1並保留上游全文。正式封包與三平台可啟動性、存讀檔及通關收據仍未完成。
 - 輸入錄放、音訊完成條件仍以 [#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[#18](https://github.com/wicanr2/wizardry7-cht/issues/18) 為準；輸入錄放已查證現有API邊界，見[研究022](docs/re/022-input-recording-boundary.md)及[013草稿](docs/spec/013-input-recording.md)，尚無正式實作。早期 OPL2 事件比較通過不等於前端聲音與播放對齊驗收完成。
-- 作弊功能見 [#35](https://github.com/wicanr2/wizardry7-cht/issues/35)，尚未有正式驗收；不可用作弊建立中文化回歸收據。
+- 作弊功能見 [#35](https://github.com/wicanr2/wizardry7-cht/issues/35)；[研究024](docs/re/024-character-vitals.md)已證實第一位隊員HP5／10的顯示讀取，三個觀察開／關停止點相同。MP、寫入、其他隊員與存讀檔資料流未證實，尚無正式作弊實作或驗收；不可用作弊建立中文化回歸收據。
 - 規格覆蓋與 adapter 位置仍待 [#28](https://github.com/wicanr2/wizardry7-cht/issues/28)、[#29](https://github.com/wicanr2/wizardry7-cht/issues/29) 驗收。既有六份 spec 並不代表所有玩家文字路徑都已規格化。
 - adapter 現況分層已盤點，見 [研究023](docs/re/023-adapter-boundary.md) 與 [架構圖](docs/architecture.svg)。裸 SDK 提交缺 OPL 套件，但 README 的完整受控準備流程已在乾淨副本重建：13 檔符合固定清單、559 個未改基線檔一致，Linux 產物與現行來源逐位元相同。`f68a00c` 已推送，[＃29進度](https://github.com/wicanr2/wizardry7-cht/issues/29#issuecomment-5942950186)全文回讀相符；搬移方案未選定，議題保持開啟。此結果不代表全新工具鏈、試玩或三平台封包通過。
 
