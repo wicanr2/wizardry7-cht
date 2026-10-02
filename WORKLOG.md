@@ -547,3 +547,17 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 沿用既有Puppeteer映像，離線、非root、移除capabilities且不掛載原版。首次因HOME造成預裝Chrome快取位置不同而失敗，核對路徑後同映像重跑通過；沒有另建工具映像。改善等待圖左側狀態後再跑相同六案例，均通過。
 - 六案例含停止後拒收新操作及重設阻止舊計時器誤結束。頁面錯誤、外部請求均0；兩圖目視可讀且無裁切，雜湊及重跑入口見[研究022](docs/re/022-input-recording-boundary.md#r868-recording-stop-prototype)。這是UI模擬，沒有原版、正式Draw、Writer或音訊驗證，013維持DRAFT。
 - 輸出擁有權1000:1000；全工作根root-owned與誤建.md目錄均0，收尾自有Docker容器0。正式Go、SDK、catalog、字型及無關R433保持。停止取捨仍待選定，尚不能宣稱完整可玩或發行完成。
+
+- R868提交`46df634b431fc450f5f8ce07ea6f4137925f777a`已推送；[＃17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5962493205)全文含尾LF回讀相符，Issue仍OPEN。收據workplace/r868/github-progress.json，正文SHA為`72d3b248b18826ddbf1d41af018c44d8338082787d5e0a0e9ba882067ade9912`。
+
+## 2026-10-03：R869，單檔錄放完整設定解析（#17）
+
+- 上輪完成操作原型及提交，屬進度；本輪核對工作樹及遠端#17，命中規格閘門／文件職責，建立並索引R869。故障保存與合法冷LOAD收據仍待答；不代選停止操作。
+- 在私人候選接合R862設定DTO及R866逐列格式，完整設定內嵌header，配置SHA與原始內容SHA分開；外部expected不符回傳空Document。正式前端、SDK與原版保持，013仍DRAFT。
+- 第一輪因測試font_full搜尋同時命中兩個物件而停止，屬測試定位錯誤；保留來源後縮小到DOS欄位，22例通過。補查Writer的Go編碼器失真，單一探針重現非法UTF-8被替換；保留舊來源後加入JSON往返值一致性守門。
+- 最後競爭驗證23個限定leaf案例通過；118個必要欄位各刪除及置null，共236次拒絕，變異均重新計算正確內容SHA。另有1MiB完整包裝界線與無損字串守門；八個Python獨立手寫檔案由真Go候選核對，全部符合預期。來源、收據及界線見[研究022](docs/re/022-input-recording-boundary.md#r869-recording-config-wire)。
+- 候選沒有原版LoadWith、Run、GUI、音訊裝置或正式三次重播；Footer工作階段資格與發布撤回缺口保持，正式格式、停止操作及故障保存尚未定稿。封存與唯讀審查完成後再提交，#17仍OPEN。
+
+- 68來源、53產物封存，55項binary選定來源及兩份本候選TestGoFiles分列；不把SDK依賴測試表當已編譯。根核對65未變來源、三份批准追加快照前綴及53產物相符，23限定案例、236欄位變異及八獨立檔案計數相符。157連結存在，擁有權1000:1000、全工作根衛生0，根容器0；入口workplace/r869/final-check.json。
+
+- R870獨立審查阻擋0、應改0、建議0，主代理完整讀取JSON及Markdown，只採認私人解析候選及限定DRAFT回填。兩報告SHA為`a02b52e195e11b5da8e5df6c89f7830d1b2243ef4ec534a0cb6f4f699b70a19b`及`5d3b5768ede024b925acdfb4415fca7f8f1e348004de99104d891ce43e73c6f9`。審查首次因RE022追加時點的整檔相等假設而停下，按批准前綴及有限新增段核對後通過，不屬候選失敗。最後另核-race同旗標55項來源相同，未重跑產品；013仍DRAFT、#17保持OPEN。

@@ -760,3 +760,66 @@ NODE_PATH=/home/pptruser/node_modules及上述快取位置。容器需init、60�
 
 使用者尚未選定停止操作；既有故障保存策略問題保持待答。本輪不新問相依問題，
 不把原型當定版樣式或正式停止行為。013仍DRAFT，#17保持OPEN。
+
+<a id="r869-recording-config-wire"></a>
+
+## R869：完整設定的單檔解析
+
+2026-10-03；[目標](../goal/R869-recording-config-wire.md)、[013候選契約](../spec/013-input-recording.md#r869-recording-config-wire)。
+confirmed僅限自製格式候選與下面驗證，不是正式格式、擁有者或可玩性證據。
+
+- 固定來源R862 `candidate/initial.go`：14774 bytes，SHA-256 `b698a2bbffbbc6240c67889ebc91b6e3562c92b05272f6737c37a59b581d587d`。
+- 固定來源R866 `recording/record.go`：19221 bytes，SHA-256 `65d805c303ded144e10bc40c3063da9b607340117eec9a6674c7afcdb9c6595b`。
+- 私人生成入口`workplace/r869/prepare.py`、競爭驗證`run.py 3`、獨立驗證`independent.py 3`；只有自製設定與逐列檔案，不讀原版資料。
+- Go1.24.13，既有`wizardry7-go-ebiten:latest`映像ID `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。
+
+候選檔頭將完整Config嵌入，config_sha256沿R862固定struct的Go預設JSON編碼；外層schema改candidate/2，
+不宣稱舊prototype/1相容。header／配置依精確JSON標記遞迴驗欄，兩層檔案、來源與資源均涵蓋。
+欄序與空白可以不同，配置SHA按型別重建，內容SHA按原始列；snapshot的frontend_sha256綁定完整配置SHA。
+外部expected SHA由呼叫端提供，本輪沒有實際啟動擁有者，不能宣稱已核原版Root／Scratch或目前binary。
+
+競爭收據`workplace/r869/report-3.json`：23個限定leaf案例通過，Go的24個pass包含一個群組標頭，不能多計。
+其中必要欄位群組有118個路徑，各刪除及置null，共236次負向檢查；所有變異檔重算正確內容SHA。
+另有配置SHA不符、重算SHA仍不合法的速度／路徑、完整包裝恰1MiB及超限前不建partial、Writer拒失真Unicode。
+本輪不重跑舊命令大表；正常往返抽樣run、press_key、type及snapshot四命令。
+
+獨立Python收據`workplace/r869/independent-3/independent-report.json`含八例：兩個合法檔及六個拒載，
+拒載CLI退出2且不回傳文件摘要。設定由Python逐欄手寫，含中文、補充平面字元、HTML字元及U+2028。
+獨立配置SHA `b7895f1b49df5cdc84c622b366d22f5acc9f64164938e182b13f7d810adbeb7d`；
+競爭版讀檔binary SHA `0b90b8a1d9bedd8eebf0986ef5f21f7a7fc4774af1a0043aa65a1e1c8560b0a4`。
+這個binary只解析自製檔案，沒有LoadWith、遊戲、視窗、音訊裝置或投遞API。
+
+第一次競爭跑在測試樣本的曖昧font_full編輯停下，屬測試定位錯誤；保存來源後縮小到DOS字型值。
+第二次22個限定案例通過；另開單一探針重現Writer把非法UTF-8轉成替代字元，屬候選編碼缺口。
+保存修前來源及收據後只加JSON往返一致性守門，再跑23例及相同八個獨立例，均通過。
+初次紀錄`report.json`、`tests.jsonl`，第二次`report-2.json`、`tests-2.jsonl`，失真探針`unicode-probe.jsonl`均保留。
+
+重跑將專案掛/src唯讀，本輪輸出掛/out可寫，使用UID/GID1000:1000、network none、
+2GiB／2 CPUs／256 PIDs、init及日誌上限；競爭驗證外層220秒、Go子程序180秒，獨立驗證外層120秒。
+Go環境沿`GOPROXY=off GOSUMDB=off GOFLAGS=-mod=readonly GOMAXPROCS=2`，快取只寫/out/cache，模組快取唯讀。
+每次run.py用新編號，independent.py另建新編號子目錄，不能覆寫已採認收據。
+
+正式Go、SDK、譯文及字型保持。故障保存、正常停止、正式擁有者／Draw及發布後期限缺口仍未解除；
+013維持DRAFT，#17保持OPEN。封存來源、產物與獨立審查另列。
+
+本輪封存68來源及53產物：65來源保持、三份規格／目標／證據只允批准追加。
+`compiler-inputs.json`為讀檔binary的55項選定來源，另將本候選兩份TestGoFiles納入來源索引；
+不把SDK自己的測試來源或stdlib當本輪全部已測試，工具鏈依上述映像及Go版本綁定。
+來源索引`workplace/r869/source-index.json` SHA-256 `ec15d6317734108c2a4dff88a8d3609e4fed1bc769e7a67a7e984c56e22921ca`；
+產物索引`frozen-output-index.json`為`12011731017129b2cf033baba9273835621e1da15f70324a33dd277d37b8c1a1`。
+最後競爭報告SHA為`b006a0b979aa2289bacb5a10e449e0fe9f157df3baad76be8aa89d447069966c`；
+獨立報告為`e6532d1ec7292fe890cd2d4bcf73862cea98d13a408a7eaeb158ca3ab06cadec`。
+根核對入口`workplace/r869/final-check.py`及`final-check.json`，驗65來源、三快照前綴及53產物相符，
+157個文件連結存在、全工作根衛生0，正式前端保持，沒有重跑產品。
+
+另核同旗標的`go list -race -deps -json ./cmd/checkwire`，55項選定來源與封存清單逐項相同。
+追加收據`workplace/r869/race-source-check.json`及`go-list-race.json`，後者SHA-256為
+`b4843d4403ac8d703710cffb849c415c161ac9e14f1c737306b14b80d48429ac`；這是metadata核對，未再執行候選測試。
+
+R870獨立審查阻擋0、應改0、建議0，主代理完整讀取兩報告。
+審查核對65未變來源、三份快照前綴、53產物、55選定來源、23限定案例、236欄位拒絕及八獨立例相符。
+報告`workplace/r869/review/review-r870.json` SHA-256為
+`a02b52e195e11b5da8e5df6c89f7830d1b2243ef4ec534a0cb6f4f699b70a19b`；Markdown為
+`5d3b5768ede024b925acdfb4415fca7f8f1e348004de99104d891ce43e73c6f9`。
+首次審查因「尚未追加」整檔相等假設停下，按明示批准的追加政策核完整前綴及新增段後通過，屬核對時點問題。
+審查未重跑產品或測試，自有容器0；只採認DRAFT回填，不解除正式錄放或交付門檻。

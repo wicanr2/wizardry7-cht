@@ -364,3 +364,31 @@ Writer在Sync、Close及Link返回後核期限，失敗盡力撤回自己建立�
 R867獨立審查阻擋0、未解除應改0、建議0；僅批准限定DRAFT回填。
 發布後仍可能在清理或協調器回報時超時，撤回成功名稱僅盡力，不宣稱所有逾時皆無成功名稱。
 完整B4及正式GUI／owner移植仍未完成，不能由18個限定案例轉READY。
+
+<a id="r869-recording-config-wire"></a>
+
+## R869：完整設定的單檔解析候選
+
+依單檔定案接合R862配置及R866格式候選，只在`workplace/r869`，013仍DRAFT。
+候選schema為`wiz7-input-config-candidate/2`；檔頭依序為kind、schema、start_step、config_sha256、config。
+kind固定header、start_step固定0；config完整保留R862型別及固定Go欄序。
+config_sha256為Go1.24.13的SHA256(json.Marshal(Config))，預設HTML跳脫、無尾LF。
+解析允許等價欄序與空白，配置SHA以型別化Config重建；全檔內容SHA仍核原始列及LF。
+
+檔頭的精確欄名、重複鍵、必要欄位、null、UTF-8及代理碼檢查遞迴涵蓋完整配置。
+外層檔頭JSON本體也須不超過1MiB，包含配置與包裝，LF另計；其他容量沿R815。
+NewHeader先驗DTO，再確認JSON往返不改動值，拒絕Go編碼器默默替換非法字串。
+這只驗自述配置，不以Build的pristine=true證明實際擁有者生命週期。
+
+snapshot仍用既有frontend_sha256欄名，在本候選綁定檔頭config_sha256，涵蓋全配置。
+命令順序、原API錯誤、footer的API資格及R866期限候選保持；未補工作階段故障資格或解決發布後撤回缺口。
+LoadExpected先完整驗檔，再核呼叫端提供的預期配置SHA，錯誤時回傳空Document；
+預期SHA的實際LoadWith／資源綁定仍須正式擁有者供應，不以自述一致代替。
+
+23個限定競爭案例通過，其中一例覆蓋118個必要欄位各自缺省與null，共236次拒絕。
+八個獨立Python建檔案例通過，包含中文／HTML跳脫、等價欄序、合法但不同的配置及非法型別。
+沒有原版、GUI、音訊、正式冷啟動或三次重播；CLI、schema採認、B3及B4仍未定稿。
+來源、失敗紀錄與收據見[研究022](../re/022-input-recording-boundary.md#r869-recording-config-wire)，獨立審查另列。
+
+R870獨立審查阻擋0、應改0、建議0，只批准上述私人解析候選及限定DRAFT證據回填。
+實際啟動、正式格式、停止及工作階段資格仍須定稿，不能由23加8案例轉READY。

@@ -4,6 +4,7 @@
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 R866另完成成功收尾私人候選的18個限定案例；使用自製Draw／owner通知與裝置，不當正式錄放完成，013仍DRAFT。
 R868另備妥[停止操作比較](tools/recording-stop-prototype.html)，六個瀏覽器案例通過；只為自製UI示意，停止操作尚未選定。
+R869另完成[完整設定單檔解析候選](docs/re/022-input-recording-boundary.md#r869-recording-config-wire)，23個限定競爭案例及八個獨立建檔案例通過；沒有正式錄放接線，013仍DRAFT。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 

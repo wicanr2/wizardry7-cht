@@ -26,6 +26,7 @@ HP寫入端證據：[R851](R851-hp-writer-evidence.md)。
 錄放設定與實際啟動綁定：[R864](R864-recording-startup-binding.md)。
 錄放成功收尾的完整順序：[R866](R866-recording-shutdown-chain.md)。
 正常停止錄製的操作比較：[R868](R868-recording-stop-prototype.md)。
+單檔錄放的完整設定解析：[R869](R869-recording-config-wire.md)。
 
 ## 終點
 
