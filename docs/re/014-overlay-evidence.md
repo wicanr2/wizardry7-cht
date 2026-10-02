@@ -92,3 +92,71 @@ caller缺字return在建立pendingPrint、取離屏背景及註冊本次返回�
 來源索引保留規格訂正、READY與實作前後分類，既有收據未覆寫。
 所有輸出1000:1000，210698項lstat衛生檢查異常0，自有容器均已清理。
 本缺陷按#44有限驗收範圍完成；#28整體規格覆蓋、完整可玩交付及其餘原版驗收仍未完成。
+
+
+<a id="r837-subject-boundary"></a>
+## R837：十來源主體顯示邊界（2026-10-02）
+
+入口[R837](../goal/R837-dynamic-subject-display.md)、[015](../spec/015-generic-slot-expansion.md)、
+[017](../spec/017-dynamic-subject-source.md)；議題#24／#28。基線5d43d0c。
+十來源為1541、1542、1543、1544、1547、1548、1549、2040、2061、5010；
+ID只作研究選取及出處，不當正式鍵或執行期路由。正式Go、SDK、catalog及產生器未改。
+
+自有Go helper精確副本的40個合成案例直接匹配0、首詞回退9。只有單詞全大寫主體
+的九列回退命中；括號內1547、含空白、混合大小寫與字母數字案例均未命中。
+案例名字合法性與原版整串替換格式未驗。九列烘製沒有D槽，5010只有D=[4]數字槽；
+十列沒有主體字模或名字token契約。原版可能另成印字事件，不能稱十個實際畫面都漏名字。
+
+原版靜態指令支持[013定位勘誤](013-print-pipeline.md#r837-pipeline-correction)。
+IDA線性0x11C1E直接call的記錄指標式已證；名字語意仍強推論。
+0x10582只證記錄查找與傳入sub_13E02的引數，供後續十來源窄觀察定位。
+目的緩衝語意沿既有decoder證據，不由本輪推定完整記錄容量。
+
+resident及13個overlay僅查IDA既有code heads的cmp/sub立即值5Eh，取得三候選：
+VBASE.code 0x6D86、VMAZE.code 0x6C76、VTREA.code 0x0AD6。
+VBASE的sub_6D11在末字判斷後截尾，取DS:A4A8並在結尾回存位置；位置重用為強推論，
+沒有名字指標證據。零命中不排除switch、字串查找或其他間接路徑，不再盲掃原碼。
+位址以各code的IDA seg000起點0為準；OVR檔案偏移為code offset＋14，
+不是runtime或DS.EXE線性位址。全部13份code與原OVR的已解碼code區逐位元相同。
+
+| 有限輸入與工具 | SHA-256 |
+|---|---|
+| DS.EXE | `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db` |
+| DS.EXE.i64 | `477f73a17b7abcaf3eef70d9baae16c77d9730f3bf7e0b4c0c9c9ed91c612412` |
+| VBASE.OVR | `7919a6eddd0f7b65905ad4ab3a301604cccb8bf0f213ebebc190d5d1227104d6` |
+| VBASE.code | `f2af41d5bd0e394f7fab514a4ace8bd0ba8de718efcca5e544879a781fe68e87` |
+| IDA9.4 locked-v1映像 | `6f6d59af49d0008c4109a5295b5f374bdc007e2d1ab28cb9de08779584de2780` |
+| Go／Python既有工具映像 | `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7` |
+
+私人收據皆在workplace/r837。source-index.json含53項，output-index.json含76項，
+各有路徑、長度及SHA；凍結索引不覆寫。
+
+| 收據 | SHA-256 |
+|---|---|
+| subject-boundary.json | `0228f3c9bf4165e2a339ba0df990bf1a65733b40f5ce5c2cf39e9d3f9ed6eda4` |
+| source-index.json | `bed5768821d4395b94ae4b59e2242b350a91e30fde75abcc29aa9f6c415767d5` |
+| output-index.json | `3ffcd9722d0828d3acac091d73b4ebb745283caa98ffa4c10748e3645dc66d58` |
+| review-r838-report.md | `9938be06689d8ed9f89830302728787f354e78d70cf9b7b734bbfc4ae92adf89` |
+
+R838獨立重算40案例，核對53來源及76凍結輸出，並獨立核對217個不同DS指令位置
+及72個VBASE位置，原始bytes全同。新增唯讀MZ頭28 bytes確認header為512 bytes；
+DS檔案偏移與IDA線性位址逐項分列於review-r838-check.json。
+審查阻擋0、文字應改2、建議1；兩項應改在本節及013／015／017回填。
+首詞回退的程式註解建議保持為後續文字整理項目，匹配行為不改。
+
+凍結收據選取描述的追加勘誤：ida-message-fetch.json:8稱sub_10582為sub_13895 caller，
+實際本體沒有直接call後者；只證記錄查找及傳入sub_13E02的引數。
+ida-vbase-subject.json:8的substitution只是選取標籤；原指令支持行尾標記與位置處理，
+不支持名字代入。subject-boundary.json的名字與共同入口結論一律限本節所列範圍，
+不含正常畫面漏字或所有單字元必經NUL入口。原收據保持原樣。
+
+017限定來源修正、015限定數字／序數回退仍READY，尚無名字顯示READY契約。
+下一步先量實際主體、完整字串與caller，再定契約。本輪沒有新正常遊戲、MSG、手冊、
+答案、鄰文、存檔或RAM讀取，沒有新上屏／原版A/B。十一組、TSV、正常存讀檔、
+錄放、人耳與三平台封包門檻保持，不能宣稱中文化或可玩交付完成。
+
+文字補審`review-r838-supplement.json`解除兩項應改，阻擋0／未解除應改0；SHA
+`66cfd8b1eb7d4c541f5a3042026ea568ce99de0ded341ca66310eaa0a3580f00`。
+根核對49未改來源及76凍結產物全同，回填連結通過；215924項lstat異常0、輸出1000:1000。
+`final-guard.json` SHA為`14835bd180489259b74143b408ca636c0480758e72e07aa144537dd7c137cd4e`。
+本段僅追加已讀補審及清理核對，未覆寫索引、程式或原版收據；自有容器均已清理。

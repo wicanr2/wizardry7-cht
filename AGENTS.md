@@ -81,9 +81,11 @@ dosgolem session：int 16h 鍵盤緩衝、int 33h 滑鼠、DOS stdin（名字輸
 
 ## 4. 辨識印字事件
 
-- 巫術7 所有可見文字走同一條 resident 管線（`docs/re/013`，confirmed）：
-  `sub_102DA`（縮排＋印字）→ **`sub_13895`（runtime 0110:3895，NUL 終止字串入口）**
+- 已證的 NUL 字串輸出路徑位於 resident（`docs/re/013` R837 勘誤）：
+  **`sub_13895`（runtime 0110:3895，NUL 終止字串入口）**
   → `sub_13877`（印一字元）→ VGA.DRV 服務 11（字形展開到離屏）→ 服務 16（blit 到 A000）。
+  `sub_102DA` 是其中一條含數值轉換及寬度處理的路徑，部分字串直接呼叫 `sub_13895`；
+  不把 `sub_102DA` 列為所有文字必經，也不推定單字元輸出必經 NUL 入口。
   攔截點在 resident，不在 overlay；辨識呼叫端用 resident 的 CS:IP 與呼叫者返回位址，不用載入段位址。
 - **同一個呼叫端常服務多個畫面**。只按呼叫端註冊會誤收別的畫面；要再以引數（x、字型 ID、前景色）
   或字串指標來源區分，且只接受已實測的組合。
@@ -267,7 +269,7 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 | DOS／BIOS／EMS 存取都在 resident | 強證據 | `docs/re/004` |
 | 顯示模式 13h（320×200、256 色）；穩定標題與 DOSBox-X 逐像素差異 0 | confirmed | `docs/re/005`、`009` |
 | 同輸入兩次執行：狀態檔、記憶體、幀雜湊全同 | confirmed | `docs/re/009` |
-| 印字管線 `sub_102DA`→`sub_13895`→`sub_13877`→VGA.DRV 服務 11→16 | confirmed | `docs/re/013` |
+| 已證 NUL 字串路徑 `sub_13895`→`sub_13877`→VGA.DRV 服務 11→16；`sub_102DA` 不是所有文字必經 | confirmed 靜態呼叫；數值轉換語意為強推論 | `docs/re/013` R837 勘誤、`docs/re/014` |
 | MSG.DBS 全量抽取 11,019 則（訊息 ID 最大 31819） | confirmed | `docs/re/013` 追記三十、`text/messages.json` |
 | 防拷是 SECURITY CLEARANCE 輸入畫面，關鍵字表在 MSG.DBS | confirmed | `docs/re/010`、`docs/names.md` |
 | 迷宮開場旁白由引擎折行成頁，整頁以字詞序列比對訊息段落取譯文（spec 006）；旁白 6 頁中文，中英原版雜湊相同 | confirmed | `docs/re/017`、`docs/spec/006` |

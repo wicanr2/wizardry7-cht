@@ -10,6 +10,7 @@ adapter 分層盤點：[R823](R823-adapter-boundary-audit.md)。
 剩餘控制碼與名字槽：[R831](R831-remaining-controls.md)。
 段落與行號數字槽：[R833](R833-hint-numeric-slots.md)。
 兩列敘述及終止碼：[R835](R835-cross-row-terminator.md)。
+動態主體名字顯示：[R837](R837-dynamic-subject-display.md)。
 
 ## 終點
 
