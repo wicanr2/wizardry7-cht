@@ -530,3 +530,48 @@ frozen-index SHA為`bd4916ffbdfb46e0927bfdb48bf5da909ccc6610278cae87af982fb6da38
 
 014仍DRAFT，成功候選不代表正式SetScratch已移植、正常保存／冷載入或完整可玩。
 預設位置及錄放格式仍待答覆；十一組、TSV、人耳與三平台交付門檻保持。
+
+<a id="r859-original-save-wiring"></a>
+
+## R859：正式存檔接線與限定保存驗證
+
+2026-10-03，基線fd85707；[goal](../goal/R859-original-save-wiring.md)、
+[014 READY](../spec/014-original-save-storage.md)、[#42](https://github.com/wicanr2/wizardry7-cht/issues/42)。
+使用者已選定系統使用者資料目錄與單檔錄放檔頭。R860技術阻擋0，唯一歷史文字應改修正後才接入正式程式。
+
+正式前端先解析及預檢目錄，LoadWith成功後立即SetScratch，再安裝觀察、音訊及啟動owner。
+Linux採絕對XDG_DATA_HOME或HOME下.local/share，macOS採Application Support，Windows採KnownFolderPath的LocalAppData。
+保留-save-dir；拒絕與原版雙向重疊、別名、非一般項目及不可讀寫來源，探針清理失敗也拒啟動。
+所有原版格式、檔名、規則及防拷保持。正式既有Go只有main變動，另增十份存檔程式及測試；SDK與正式音訊未改。
+
+| 驗證 | 實測結果與限制 |
+|---|---|
+| 自製候選 | 十三路徑、二十守門及一清理故障通過；候選四平台可編譯，未當原生平台GUI通過 |
+| 正式測試及建置 | go test -race ./cmd/wiz7退出0，22.357秒；Linux正式產物可建置，版本及依賴另封存。兩項沿主代理工具收據，沒有另保存完整本機測試日誌 |
+| 正式冷GUI | 英文、靜音、明示24M及零玩家輸入，到主選單正常退出；關窗至退出0.1099秒。沒有自然寫檔 |
+| 冷對拍 | 私人接線開／關200k與260M的RAM SHA、indexed、palette及CPU相同；正式產物hdat及幀檔兩點與私人對照相同。正式run本身未輸出Step0原始觀察，不混稱同一收據 |
+| 暖保存 | 同一R733合法3475M進度，固定DISK、SAVE & RESUME、SAVE正常選單輸入，中英文各寫11404 bytes並退出0；檔案逐位元相同，兩點原版FNV摘要及A000／色盤相同 |
+| 原版與畫面 | 248素材檔初末SHA不變；已目視中文DISK五選項與保存後返回森林及隊員畫面。沒有截到檔名對話框 |
+
+新存檔SHA為`cd3ac3a0bb8f53e5e0c9fe6eebf5f2010be5ab8f63412bc7ffaa1ec11a508738`，
+與R802既有保存相同。新暖測試未量寫入次數，不沿用R802的74次作本輪計數。
+暖工具僅載入既存checkpoint，使用NoCursorWait與靜音相對節拍；沒有新state、RAM或存檔注入。
+正式編譯53份SDK來源與暖側共同來源相同，暖側另編checkpoint輔助及其引入的未修改state套件，共55份。
+定位採Go來源／API與原版Step，非IDA線性位址；工具Go1.24.13、Ebitengine2.9.9及離線非root Docker。
+原版Archives DS.EXE SHA為`14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。
+
+首批實際冷GUI以xdotool直接摧毀視窗而遇BadWindow，收據保留；改既有WM_DELETE正常關窗後退出0。
+暖測試先因缺歷史/w別名、再因正式cold_required音訊守門於Run前停止；私人工具沿R802相對節拍處理。
+v3產生器只改GUI點擊，漏掉固定步數點擊，仍等待checkpoint未保存的Mouse.Sets，沒有寫存檔。
+v4只修正該測試分支，固定相同座標、步數及起點重跑成功；不調參數或更換亂數結果。
+未安裝的保護段讀取計數欄已從私人觀察器移除，沒有虛構零讀取保證。
+完整失敗及封存索引只留本機，160來源與2245產物owner均1000:1000。
+
+| 本機收據（workplace/r859/） | SHA-256 |
+|---|---|
+| report.json | `ee2924472d3c7a2af86ae912c876806592f008aa140e09dcc27274fcd38abe2d` |
+| frozen-index.json | `19c6555041c6418f5b9fac0632a14c7c798483d45b335fc5777d5d6bb5bac563` |
+| R860規格審查JSON | `90a785e8c2eeb93a0a593e679bcf01903f04c2adfb8063342427809dd0ac9916` |
+
+confirmed僅適用上表限定工程接線及暖保存支路，014保持READY。
+冷正常保存與LOAD隊員／位置還原、原生平台、人耳、錄放、十一組、TSV及正式封包未完成，#42保持OPEN。

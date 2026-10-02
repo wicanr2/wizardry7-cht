@@ -19,7 +19,7 @@
 | [011](011-message-wording-unification.md) | 同義訊息文案統一（限定CONFORMED；實跑10筆，其他僅靜態驗證） |
 | [012](012-compound-item-output.md) | 三組複合物品名稱（正常路線通過；整份READY） |
 | [013](013-input-recording.md) | 前端輸入錄製／重播（DRAFT） |
-| [014](014-original-save-storage.md) | 原版存檔持久可寫層（DRAFT；預設位置與冷載入還原待確認） |
+| [014](014-original-save-storage.md) | 原版存檔持久可寫層（READY；精確路徑已定稿，正常存讀及冷載入還原待驗） |
 | [015](015-generic-slot-expansion.md) | 一般查表與填槽缺字回退（READY；R822獨立審查通過） |
 | [016](016-catalog-control-preservation.md) | 控制碼保留與流文可用性（READY；R830獨立審查通過，正常上屏待驗） |
 | [017](017-dynamic-subject-source.md) | 動態主體來源與兩處文意（READY；R832審查通過，主體顯示仍缺） |

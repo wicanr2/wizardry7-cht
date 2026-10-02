@@ -748,8 +748,9 @@ func (g *game) Draw(dst *ebiten.Image) {
 func (g *game) Layout(int, int) (int, int) { return 320 * g.scale, 200 * g.scale }
 
 func main() {
-	root := flag.String("root", "workplace/run", "原版素材目錄（可寫複本）")
+	root := flag.String("root", "workplace/run", "原版素材目錄（唯讀）")
 	exe := flag.String("exe", "", "執行檔（預設 <root>/DS.EXE）")
+	saveDir := flag.String("save-dir", "", "原版存檔目錄（預設系統使用者資料目錄）")
 	scale := flag.Int("scale", 3, "畫面放大倍率")
 	ips := flag.Float64("ips", 3004074.5544433594, "每秒指令數（未指定時採精確原版虛擬時鐘；指定正值可加速）")
 	mute := flag.Bool("mute", false, "靜音（原版音訊事件與遊戲時間仍正常推進）")
@@ -786,10 +787,21 @@ func main() {
 	if program == "" {
 		program = *root + "/DS.EXE"
 	}
+	resolvedSaveDir, err := resolveSavePath(*saveDir)
+	if err != nil {
+		log.Fatal("存檔設定錯誤：default_save_path")
+	}
+	preparedSaveDir, err := prepareSaveStorage(*root, program, resolvedSaveDir, nil)
+	if err != nil {
+		log.Fatalf("存檔設定錯誤：%s", saveErrorCode(err))
+	}
 	o, err := oracle.LoadWith(program, *root, oracle.Options{Adlib: true})
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	o.SetScratch(preparedSaveDir)
+	log.Printf("原版存檔目錄：%s", preparedSaveDir)
 
 	ebiten.SetWindowSize(320**scale, 200**scale)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")

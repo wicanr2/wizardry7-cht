@@ -28,7 +28,7 @@ F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
 
 本機倚天與可散布Unifont字型已有兩倍率畫面與F1操作驗收，見[字型證據](docs/re/018-distributable-font.md)。
 尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移及三平台發行包。
-原版存檔持久層及重新啟動載入仍在修正驗收，見[存檔規格草稿](docs/spec/014-original-save-storage.md)。
+原版存檔已接入獨立持久可寫層，正常保存與重新啟動載入仍在驗收，見[存檔規格](docs/spec/014-original-save-storage.md)。
 開場故事與迷宮旁白使用訊息譯文表並依原版分頁覆繪；資料表中有譯文不代表所有玩家畫面都已中文化。
 完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
 
@@ -65,11 +65,26 @@ tools/fe.sh xvfb 'go test ./cmd/wiz7'
 互動前端預設按原版虛擬時鐘同步；明示`-ips`可手動加速，音樂維持音高，`-mute`關閉裝置播放。
 音訊仍在正式驗收階段，已量範圍與限制見[規格009](docs/spec/009-player-audio.md)。
 
-主程式入口為 `cmd/wiz7`，原版工作副本以 `-root` 指定，預設 `workplace/run`；
+主程式入口為 `cmd/wiz7`，原版唯讀素材以 `-root` 指定，預設 `workplace/run`；
 譯文與字形重建方式見 [tools/re/bake_font.py](tools/re/bake_font.py)、[tools/re/bake_flow.py](tools/re/bake_flow.py) 及 [tools/re/bake_help.py](tools/re/bake_help.py)。
 烘製支援本機倚天與固定版GNU Unifont，來源、授權、字元清單與重建入口見[字型說明](font/README.md)。
 倚天 `stdfont.15` 與符號字型僅供本機；正式封包採Unifont並保留OFL與著作權。
 這些開發工具不構成已驗收的跨平台安裝流程。
+
+### 原版存檔位置
+
+存檔預設放在使用者資料目錄，更新程式不會改變這個位置。啟動時會印出實際路徑。
+
+| 平台 | 預設位置 |
+|---|---|
+| Linux | `$XDG_DATA_HOME/wizardry7-cht/save`；未設定或不是絕對路徑時採 `~/.local/share/wizardry7-cht/save`。 |
+| Windows | 系統的LocalAppData資料夾下 `wizardry7-cht\save`，通常為 `%LOCALAPPDATA%\wizardry7-cht\save`。 |
+| macOS | `~/Library/Application Support/wizardry7-cht/save`。 |
+
+`-save-dir`可指定另一個獨立目錄。備份整個存檔目錄即可；保存與載入仍由原版選單操作。
+存檔目錄不能與原版素材重疊，無法讀寫時程式會明確停止，不會顯示保存成功卻只記帳。
+`tools/fe.sh`的開發容器使用暫存HOME；在容器試玩時，請指定工作樹內的持久路徑，
+例如`-save-dir /src/workplace/player-save`，以保留容器結束後的進度。
 
 原版檔案基線見 [001 原版基線](docs/re/001-unzip-baseline.md)，其中：
 
