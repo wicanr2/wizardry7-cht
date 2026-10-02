@@ -2977,7 +2977,7 @@
   },
   "2900": {
    "en": "\u0002\u0001Written & Programmed by",
-   "zh": "編寫與程式設計"
+   "zh": "\u0002\u0001編寫與程式設計"
   },
   "2901": {
    "en": "\u0002D.W.Bradley",
@@ -2989,7 +2989,7 @@
   },
   "2903": {
    "en": "\u0001Technical Programming",
-   "zh": "技術程式設計"
+   "zh": "\u0001技術程式設計"
   },
   "2904": {
    "en": "\u0002Gary Speegle",
@@ -2997,7 +2997,7 @@
   },
   "2905": {
    "en": "\u0005\u0001Graphics Maestro",
-   "zh": "美術總監"
+   "zh": "\u0005\u0001美術總監"
   },
   "2906": {
    "en": "\u0002Chris Appel",
@@ -3005,7 +3005,7 @@
   },
   "2907": {
    "en": "\u0001Graphic Artists",
-   "zh": "美術設計"
+   "zh": "\u0001美術設計"
   },
   "2908": {
    "en": "\u0002Suzanne Snelling  Dan Mintor",
@@ -3017,7 +3017,7 @@
   },
   "2910": {
    "en": "\u0002\u0001Music Score & Sound Effects",
-   "zh": "音樂與音效"
+   "zh": "\u0002\u0001音樂與音效"
   },
   "2911": {
    "en": "\u0002Steve Miller",
@@ -3025,7 +3025,7 @@
   },
   "2912": {
    "en": "\u0002\u0001Manual & Documentation",
-   "zh": "手冊與文件"
+   "zh": "\u0002\u0001手冊與文件"
   },
   "2913": {
    "en": "\u0002Brenda Garno",
@@ -3049,7 +3049,7 @@
   },
   "2919": {
    "en": "\u0002\u0001Sound Programming",
-   "zh": "音效程式設計"
+   "zh": "\u0002\u0001音效程式設計"
   },
   "2920": {
    "en": "\u0002Jeff Noyle   David Triggerson",
@@ -13321,7 +13321,7 @@
   },
   "16049": {
    "en": "Soon, newer cities were constructed in the surrounding regions... &%]",
-   "zh": "很快，周邊地區建起了新的城市……&%"
+   "zh": "很快，周邊地區建起了新的城市……&%]"
   },
   "16050": {
    "en": "And Old City was abandoned... &%]",
@@ -15029,7 +15029,7 @@
   },
   "17170": {
    "en": "#!Orkogre !Armory_&_Supply",
-   "zh": "#!奧高高 軍械補給庫"
+   "zh": "奧高高 軍械補給庫"
   },
   "17175": {
    "en": "Inside the armory are racks of spears, lances, bows and arrows,",
@@ -15549,7 +15549,7 @@
   },
   "17398": {
    "en": "Hurry there, and therein find the gate which fits this key... &%]",
-   "zh": "快去那裡，找到與這把鑰匙相配的門……"
+   "zh": "快去那裡，找到與這把鑰匙相配的門…… &%]"
   },
   "17399": {
    "en": "You will inside find what you seek...",

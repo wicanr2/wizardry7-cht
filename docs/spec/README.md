@@ -21,3 +21,4 @@
 | [013](013-input-recording.md) | 前端輸入錄製／重播（DRAFT） |
 | [014](014-original-save-storage.md) | 原版存檔持久可寫層（DRAFT；預設位置與冷載入還原待確認） |
 | [015](015-generic-slot-expansion.md) | 一般查表與填槽缺字回退（READY；R822獨立審查通過） |
+| [016](016-catalog-control-preservation.md) | 控制碼保留與流文可用性（READY；R830獨立審查通過，正常上屏待驗） |

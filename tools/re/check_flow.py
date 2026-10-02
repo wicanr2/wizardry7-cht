@@ -83,7 +83,7 @@ for r in recs:
     ws = body.split()
     if ws:
         cur["words"] += ws
-        z = trans.get(str(i), {}).get("zh", "")
+        z = ctl_free(trans.get(str(i), {}).get("zh", ""))
         cur["lines"].append((i, len(cur["words"]), z if big5_ok(z) else ""))
     prev_id = i
 paras = [p for p in paras if p["lines"]]
@@ -95,7 +95,7 @@ fj = json.loads(Path(args.flow_json).read_text())
 theirs = (len(fj["paras"]), sum(len(p["lines"]) for p in fj["paras"]),
           sum(1 for p in fj["paras"] for l in p["lines"] if l["zh"]),
           sum(1 for p in fj["paras"] if all(l["zh"] for l in p["lines"])))
-check(own == theirs == (2906, 6307, 4915, 2167), f"驗收1 段落／行／可用行／整段可譯 獨立={own} flow.json={theirs} 規格=(2906, 6307, 4915, 2167)")
+check(own == theirs == (2906, 6307, 4921, 2166), f"驗收1 段落／行／可用行／整段可譯 獨立={own} flow.json={theirs} 規格=(2906, 6307, 4921, 2166)")
 
 
 # ── R3 比對（獨立實作）────────────────────────────────────────────

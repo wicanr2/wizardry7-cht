@@ -8,7 +8,7 @@
 #   被排除 含 & % ] ^ $ # ! " 任一字元、含數字、含行首以外的 `@`、訊息 id 2500–2574；被排除的行截斷段落
 #   段落   連續訊息 id（相鄰以原始 id 計）的行；剝控制碼後行首是 `@` 的行開新段落；
 #          零字詞行維持相鄰但不加字詞、不記 end；沒有任何字詞的段落丟棄
-#   譯文   story-trans 同 id 的 zh，非空且每個字都是 Big5 雙位元組字、且取得到字形，才可用（否則 zh 為空）
+#   譯文   story-trans 同 id 的 zh，先剝 <0x20；非空且每字 Big5 雙位元組、取得到字形才可用
 #   字形   bake_font.glyph_char（原生15／16位元靠右，與 xlate.json 同一來源）
 # --drop <id>：移除含該 id 的整個段落（驗收 9 的負向測試檔）。
 import json
@@ -50,7 +50,8 @@ def parse_line(en: str):
 
 
 def usable_zh(zh: str, glyphs: dict) -> str:
-    """可用的譯文：非空、每個字 Big5 雙位元組、取得到字形。順便把字形收進 glyphs。"""
+    """剝低位碼後非空、每字 Big5 雙位元組且有字形才可用；整則通過才更新 glyphs。"""
+    zh = strip_ctl(zh)
     if not zh:
         return ""
     got = {}

@@ -23,6 +23,7 @@
 | 同義訊息文案統一 | [spec 011](docs/spec/011-message-wording-unification.md)、[019](docs/re/019-catalog-migration.md)：171組／373列同步，獨立驗收16,038項、失敗0；兩字型兩倍率31故事頁、6旁白頁、代表選單與F1通過。實際觸發修改訊息10筆，其餘363筆只完成靜態驗證；剩餘11組仍是交付門檻。 |
 | 三組複合物品名稱 | [spec 012](docs/spec/012-compound-item-output.md)、[021](docs/re/021-compound-item-output.md)：皮胸甲、毛皮護腿、小圓盾在正常角色／物品頁通過兩字型兩倍率、470項獨立核對與代表Draw；原版A000與色盤相同。隔離負向58項通過，未量玩家故障分支保持READY。 |
 | 一般填槽缺字回退 | [spec 015](docs/spec/015-generic-slot-expansion.md)、[014](docs/re/014-overlay-evidence.md)：所需數字／序數字模缺項或空時整則保留英文，避免略過字元後畫出部分中文。三群組16配置、完整前端競爭回歸與1980個完整字模修前修後對照通過，獨立實作複核阻擋0。玩家缺字分支與新原版A/B未量，維持READY；[#44](https://github.com/wicanr2/wizardry7-cht/issues/44)限定缺陷已CLOSED，#28整體仍待驗收。 |
+| 控制碼保留與流文可用性 | [spec 016](docs/spec/016-catalog-control-preservation.md)：10列與有效產生器同步補碼／去高亮；顯示副本先剝低位碼，再驗Big5及字模。雙後端各8,825列、13邊界案例通過，一般烘製逐位元同；六筆可用值變化尚無正常上屏收據，維持READY。指定控制碼差異32→26，其他槽及十一組門檻保持。 |
 
 ## 收尾尚缺的證據與交付
 
@@ -62,7 +63,7 @@ Reader約5毫秒不等於裝置退出時間；R799正常版已確認221幀淡出
 | 加速與平台前置 | R808非競爭24M真GUI退出0，關窗至退出0.0645秒、60M原版與合成同正常版；欠載54757幀、溢出0，不稱流暢度或人耳通過。來源881筆／合成器865筆的停止差額16已明列，R812獨立審查解除診斷文字缺口。R810最新172項來源無漂移，Windows amd64可編譯、Wine命令列退出0；未驗Windows遊戲視窗或真機、macOS及正式封包。見[020](docs/re/020-player-audio.md)。 |
 | Docker開發入口 | [R816](docs/goal/R816-frontend-docker-entry.md)、[#43](https://github.com/wicanr2/wizardry7-cht/issues/43)：工具驗收完成、6656d6b已推送，Issue已關閉回讀。tools/fe.sh只留主機控制面，Go／Xvfb及UID檢查在既有容器內；離線模組唯讀、原版輸入唯讀、名稱查詢與執行均有界。實際建置／序列CLI／Xvfb通過，命令失敗17、逾時137與單次TERM143如實保留，自有容器0。248原版SHA相同，Linux中間binary不當可玩包；沒有新環境工具鏈、原版遊玩或跨平台聲明。 |
 | 正式交付 | 尚未建立正式dist-all版本、tag或Release；全部11組、TSV、音訊／錄放、正常存讀檔及平台封包仍須完成。#35、#36、#28、#29依遠端Issue繼續；#26保持擱置。 |
-| 固定建角續驗 | R827延續同一女性仙靈正常CREATE，固定MAGE、全部能力點加STR及保持肖像，1510M到ACADEMIA五技能；沒有PSIONIC，未分配技能或保存，此路線停止。23對A/B、7唯一（6新）停點及2480原檔次同；R828獨立複核阻擋0。十一精確事件0，沒有解除任何一組。見[019](docs/re/019-catalog-migration.md)與[R827](docs/goal/R827-mage-skill-context.md)；接著核對008的28筆控制碼差異，不循環建角資格／亂數。 |
+| 固定建角續驗 | R827固定法師技能路線已停止，十一精確事件0，不循環建角資格／亂數。R829已修正10列控制碼，指定集合剩26筆，008仍DRAFT；後續依[019](docs/re/019-catalog-migration.md)核對未決槽及情境，不再沿用28筆為目前總數。 |
 
 已封存批次輸出1000:1000，自有容器、root-owned與誤建`.md`目錄均0；在跑批次另留清理收據。
 字型重建入口在[font/README.md](font/README.md)，流文回歸入口在[tools/flow-check.sh](tools/flow-check.sh)，
