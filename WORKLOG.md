@@ -525,3 +525,15 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 
 - R865最終獨立審查阻擋0、應改0、建議0；主代理完整讀取兩報告，採認私人候選及六文件的限定DRAFT回填。74項來源保持，013及goal為批准文字變動，73編譯輸入與170凍結產物保持。最終報告SHA為`7ad888ba516e01cfa827d38dcf7e2bf22801d0bbd2a44832efcd99b4835e7a76`及`095b481fd5c6c83e4b9c5e907baa77db24f07c54296b23810f813a856eb296da`；根收尾入口workplace/r864/final-check.json，沒有重跑產品或改索引。013維持DRAFT，#17保持OPEN。
 - 根收尾腳本首次把編譯清單的size欄誤作bytes，核對在寫成功收據前停止。修正欄位轉接後於同一映像及命令重跑，只重核來源與產物，不重跑候選或原版；屬驗證腳本錯誤。
+
+- R864提交`d2c5ee7ae238c9ffa7d488ea04c528967a9d5d2e`已推送；[＃17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5961933792)全文含尾LF回讀相符，Issue仍OPEN。首核對誤移除本地尾LF而失敗，改逐位元比較後同命令通過，不改Issue；收據workplace/r864/github-progress.json，正文SHA為`1ef07092514dfdacdcbb87d1393902b6cff660f07f4381027db2ab51ee6de7a0`。
+
+## 2026-10-03：R866，錄放成功收尾鏈（#17）
+
+- 上輪完成實際綁定、獨立審查及提交，屬進度；本輪核對工作樹、容器與遠端Issue後建立並索引R866。命中規格閘門與文件職責，沿既有入口；尚未答覆的故障策略及正常錄製停止入口不代選。
+- 原版DISK選單目視核對只有續玩、設定及保存／退出，沒有遊戲內直接LOAD。冷還原仍需原版主選單LOAD及匹配合法防拷收據，不用暖checkpoint替代。
+- 本輪只寫私人協調器及Writer期限候選，正式兩份音訊來源原樣複製。最終Draw確認、允許owner完成、音訊關閉及工作階段資格都通過後才FinishAt，沿同一stopRequest五秒期限。
+- 首批17個限定案例通過；因Stop／Reader只作既有完成狀態，保存舊來源及收據後補入正式Stream.Stop、Reader.Stop與自製裝置的成功鏈，再重跑18個限定案例。Reader實交付884 bytes淡出且ACK，不當硬體或人耳驗收。
+- 兩個自製阻塞子程序正常由監督結束，Close實際5.058秒、Sync5.146秒；五秒預算不等於嚴格實機退出保證。Writer失敗清理僅盡力而為，未量斷電、阻塞Link或清理雙故障。
+- 136來源核對項及31產物已封存，六份私人Go來源另列；SDK105項包含Go列出的依賴測試來源，不宣稱皆編譯或執行。來源與SHA見研究022，本輪未讀或載入原版，正式Go／SDK／catalog／字型及無關R433保持，013仍DRAFT。
+- R867獨立審查阻擋0、未解除應改0、建議0，主代理完整讀取兩報告。原goal過度保證所有逾時都不發布成功名稱，已限於已量正常案例；Link後清理／回報仍可能超時，撤回僅盡力，完整B4不宣稱完成。只修追加文字，不重跑候選或改31產物。最終報告SHA為`b61e7953b56893c989603853a79f8f3f198890aa9b0eca93a1025aa84297c9d7`及`4a3a7344668ed1a627bd48231b718fb4136f994aff065d056bd1dbe19579a625`；根收尾入口workplace/r866/final-check.json，013保持DRAFT，#17保持OPEN。

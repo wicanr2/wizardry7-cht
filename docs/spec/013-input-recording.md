@@ -341,3 +341,26 @@ LoadWith呼叫有動態計數；Run與輸入未裝計數器，來源明示只走
 
 R865獨立審查阻擋0、應改0、建議0，只批准上述私人候選及DRAFT證據回填。
 正式錄放、正常結束與故障策略仍須定稿及接線，不轉READY。
+
+## R866：成功收尾順序的私人候選
+
+自製最終發布及Draw通知，依序通過同配置／Step／發布確認、允許owner完成、
+音訊shutdownPlayer返回且工作階段無故障，才呼叫私人Writer.FinishAt。
+整條鏈沿同一stopRequest.Deadline，沒有重新起算五秒；Reader ACK只證明位元組交付。
+Writer在Sync、Close及Link返回後核期限，失敗盡力撤回自己建立的成功名稱與末註。
+阻塞中的系統呼叫不能由Go直接取消，須由程序監督結束工作程序；不並行Abort正在Finish的Writer。
+
+18個限定案例通過競爭檢查，含完整順序、錯誤／晚到Draw、owner未回報、音訊Close錯誤、
+工作階段不具資格、Writer錯誤、已耗期限、晚Sync／Close與兩個實際阻塞子程序。
+另一成功案例使用正式Stream.Stop、Reader.Stop及自製裝置，實交付884 bytes淡出並ACK。
+兩阻塞子程序的監督預算皆五秒，實際程序退出各5.058與5.146秒；不稱嚴格五秒實機退出保證。
+
+本輪是自製通知及裝置串接，沒有真正GUI Draw、正式owner循環、音訊硬體、原版Run或錄放三次重播。
+自製fixture的Abort只用於釋放descriptor，不採用待定的正式故障策略。
+寫入前後檢查不保證抵抗惡意並行替換或斷電，未量真實阻塞Link與清理雙故障。
+正式停止入口、故障格式、GUI關窗及全鏈移植仍待定稿，013維持DRAFT。
+來源、收據及限制見[研究022](../re/022-input-recording-boundary.md#r866-recording-shutdown-chain)。
+
+R867獨立審查阻擋0、未解除應改0、建議0；僅批准限定DRAFT回填。
+發布後仍可能在清理或協調器回報時超時，撤回成功名稱僅盡力，不宣稱所有逾時皆無成功名稱。
+完整B4及正式GUI／owner移植仍未完成，不能由18個限定案例轉READY。

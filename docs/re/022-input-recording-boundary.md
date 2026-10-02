@@ -683,3 +683,51 @@ R865最終獨立審查阻擋0、應改0、建議0，主代理完整讀取兩報�
 `7ad888ba516e01cfa827d38dcf7e2bf22801d0bbd2a44832efcd99b4835e7a76`，Markdown為
 `095b481fd5c6c83e4b9c5e907baa77db24f07c54296b23810f813a856eb296da`。
 根收尾入口為`workplace/r864/final-check.json`；沒有重跑原版或覆寫凍結索引，013維持DRAFT。
+
+<a id="r866-recording-shutdown-chain"></a>
+
+## R866：成功收尾的同一期限與完成順序
+
+2026-10-03，基線d2c5ee7；[goal](../goal/R866-recording-shutdown-chain.md)、
+[013 DRAFT](../spec/013-input-recording.md)、[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+工具Go1.24.13、Python3.11.2、既有離線非root Docker；定位採Go函式與單調時間，沒有CPU／IDA位址。
+沒有原版輸入或載入；自製header與事件不含原版內容，不能當原版替身或玩家收據。
+
+來源為現行audio_player.go、audio_reader.go與R776的record.go。
+前兩檔原樣複製，Writer只在私人副本加入同一絕對期限的FinishAt與返回後核對。
+協調器以最終發布、Step及配置SHA確認Draw，通過後才允許owner完成；
+同一期限內依序關閉音訊、判定工作階段資格、完成Writer。
+沒有將工作階段故障偽造成原API錯誤，也沒有代選正式故障紀錄策略。
+
+| 驗證 | 已量範圍 |
+|---|---|
+| 收尾鏈11案例 | 正確順序成功；錯誤發布／配置、Draw錯誤、晚到確認、已耗期限、Close錯誤、資格故障、Writer錯誤、owner未回報及共享期限皆無成功檔 |
+| Writer4案例 | 正常完成可載入；過期起點、晚payload Sync及晚Close失敗，無成功名稱，清理成功時改名片段亦因缺末註拒載 |
+| 正式串流與Reader | 使用真正Stream.Stop及Reader.Stop，自製裝置在F1暫停模型解除暫停後消費淡出；ACK=true、884 bytes，不當實體裝置或人耳確認 |
+| 實際阻塞2案例 | 自製Close與Sync分別永不返回，五秒監督結束子程序；Close退出5.058秒、Sync退出5.146秒，沒有Writer成功或被阻塞Sync後的末註 |
+| 來源及封存 | 136來源核對項、31凍結產物、6份私人Go來源。105項SDK包含go list列出的依賴測試檔，屬來源核對集合，不宣稱105項皆編譯或測試執行 |
+
+18個限定案例通過，Go競爭檢查無失敗；兩個僅供子程序呼叫的測試入口在主suite顯示skip，
+由實際子程序各執行一次，不把skip計為另一個成功案例。群組標題也不重複計數。
+首批成功案例沒有實際Stream／Reader停止，新版另加入該成功鏈才重跑；舊來源及收據保存在before-reader-phase。
+正式Go、SDK、catalog與字型未改；原版檔案未讀，沒有GUI／冷錄放／存讀還原或可玩完成聲明。
+
+| 本機收據（workplace/r866/） | SHA-256 |
+|---|---|
+| report.json | `b2e095b53c86ef81a2bc32a53726786ebca21f6dc7b01286d2ca82488422c626` |
+| source-index.json | `d8fafd627e48ae3d8b0d5b204ec46694b6818bae439d743547e32369f40bf5ce` |
+| frozen-index.json | `5d33977f0024580f443597c7ec9dda794e5ccf651e3e5e04e144dcc547457381` |
+
+confirmed只涵蓋上述私人協調器及自製通知／裝置，沒有真正Draw或正式機器goroutine關閉。
+五秒是同一監督預算，實際排程與程序退出量到5.058／5.146秒，不作五秒硬時限保證。
+Go不能取消正在阻塞的系統呼叫；晚回失敗要由呼叫程序結束工作程序，不能並行關閉同一Writer。
+現有清理是盡力而為，沒有斷電耐久、惡意並行替換、真實阻塞Link或清理雙故障驗收。
+故障策略及正常停止入口待使用者定稿，013維持DRAFT，#17保持OPEN。
+
+R867最終獨立審查阻擋0、未解除應改0、建議0；主代理完整讀取兩報告。
+原goal的全面發布聲明已限於已量正常案例。Writer先Link發布，再清理片段，
+協調器仍可能逾時；撤回僅盡力，不保證所有逾時均無成功名稱，完整B4未完成。
+審查逐項重算134項未變來源、31產物及6份私人Go的SHA／size，兩份批准追加的快照前綴相符。
+JSON SHA-256為`b61e7953b56893c989603853a79f8f3f198890aa9b0eca93a1025aa84297c9d7`，Markdown為
+`4a3a7344668ed1a627bd48231b718fb4136f994aff065d056bd1dbe19579a625`。
+根收尾入口`workplace/r866/final-check.json`；不重跑產品或測試、不覆寫凍結索引，013仍DRAFT。
