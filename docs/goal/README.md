@@ -31,6 +31,7 @@ HP寫入端證據：[R851](R851-hp-writer-evidence.md)。
 Windows遊戲視窗與存檔路徑啟動：[R873](R873-windows-gui-startup.md)。
 錄放的真實Draw與成功收尾候選：[R875](R875-recording-live-shutdown.md)。
 整張地圖的資料讀取入口：[R877](R877-map-resource-boundary.md)。
+地圖資源的載入映射：[R879](R879-map-loader-mapping.md)。
 
 ## 終點
 

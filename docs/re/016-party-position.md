@@ -99,3 +99,49 @@ R878獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩份�
 `1b1085ff4d99bd1900463aa58f3e2d9daa31d75b764875724045e2c774877869`及
 `ae510d725381e38e459f4b756f4e371e4eda4e3d4824b6c5313fbc9e7616e5c4`。
 報告owner1000:1000，審查自有容器0；原版執行、地圖實作及玩家驗收未由本輪補齊。
+
+<a id="r879-map-loader-mapping"></a>
+
+## R879：VMAZE檔名指標的快照比對
+
+2026-10-03；[#36](https://github.com/wicanr2/wizardry7-cht/issues/36)，[目標](../goal/R879-map-loader-mapping.md)。
+本輪載入既有合法迷宮檢查點，原版執行0步；不注入呼叫，不匯出記憶體或鄰文。
+
+### 輸入與觀察
+
+- DS.EXE、VMAZE.OVR、VMEXT.OVR的雜湊與R877相同。
+- `workplace/r733/two-forward.state`為299,208 bytes，SHA-256
+  `beecc0c54302d6304628d60f385fb4f3f6748e77c6bc859dfc153f669e337e6c`。
+  來源及3,475,000,000步停止點見`workplace/r733/position-progress.json`。
+- 使用dosgolem既有`PrivateLoadCheckpoint`唯讀輔助檔，Go建置覆蓋表只增加本地helper，正式SDK沒有修改。
+  工具為Go1.24.13、既有`wizardry7-go-ebiten:latest`，映像ID
+  `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。
+- SDK基底commit為`d16f03a2d8d782024d470606e1f4cb5272b89cd6`，含既有未提交修改，不能只用commit指認建置輸入。
+  執行後另記89個SDK來源及helper雜湊於`workplace/r879/toolchain.json`，SHA-256為
+  `5b4e1773d7985b874aab5a440aec18793d709ae759c5ad28be592dde70b32906`；來源及helper掛載唯讀。
+- 遊戲資料段`1106`依本文P2／P4定位。檢查點當下CPU的DS為`312C`、CS為`740C`，不能把driver的當前DS當遊戲資料段。
+
+| runtime位址 | 唯讀觀察 | 等級 |
+|---|---|---|
+| `1106:90A0`，線性`0x1A100` | 13 bytes與`MAZEDATA.VGA`加NUL完全相同 | confirmed，限此快照 |
+| `1106:9098`，線性`0x1A0F8` | 同一13-byte精確檔名比對不相符，不輸出所讀內容 | confirmed，限比對結果；不證VMEXT載入映射錯誤 |
+| VMAZE附加區對應 | 原始檔案`0xAC76`及指令的`0x90A0`與快照檔名相合 | 強推論；loader寫入端尚未實測 |
+
+只有兩次13-byte讀取，共26 bytes。觀察前後步數與全部CPU暫存器相同；
+未讀整份RAM作掃描或雜湊，沒有記憶體未變的全量A/B聲明。
+零步快照不能證明near-call服務、實際開檔／讀取目的、VMAZE程式碼載入段或地圖格式。
+原版程式及檢查點雜湊未變，完整地圖仍未READY。
+
+### 本機收據
+
+探針與收據在`workplace/r879/`，`report.json`的SHA-256為
+`157d651cfea19b4485ad44e097ca3f25135e1d89ffdc36772225b2978f699133`；
+`sealed.json`為`0ec5b007c13a57a95307cc02b30ceb1ce73cbca3a62d9b189c59f9c7cff217c5`。
+封存4份來源、6份產物，產物owner1000:1000；獨立唯讀審查另列。
+
+R880獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告。
+4來源、6產物與另記89個SDK來源及helper雜湊相符；沒有重跑產品或解析state正文。
+僅採認限定快照，loader、服務與完整地圖資格保持未知。
+`workplace/r879/review/review-r880.json`及`review-r880.md`的SHA-256依序為
+`b1e33eed9086cd89758fdf48347a3b71f906ae02ba372b2b8e33562861f03a19`及
+`efbe57c15a57ad4de1e96ac26998ba0b4c4786e1d971d32d147eb3e95dab02ee`。

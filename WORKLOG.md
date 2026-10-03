@@ -615,3 +615,15 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 原始驗證命令重複Python參數，工具在載入腳本前退出2；修正後同一映像與腳本乾淨重跑通過。沒有產品缺陷、遊戲重跑、原版寫入或防拷資料讀取。來源及停止線見[研究016](docs/re/016-party-position.md#r877-map-resource-boundary)，獨立唯讀證據審查另列。
 - 封存20來源與29產物，索引SHA `af56650547ec1852aab952f64a86e8d319b3482f4f46e79e9b7016d4c9e7084a`，驗證報告SHA `7280083dc102e8d12cec6923bb6b4c2890575a2aae216d357b01de43fc75f7df`。MAZEDATA雜湊與開工時同，原庫保持；產物owner1000:1000、R877自有容器0。正式地圖、TSV、十一組、冷存讀及封包門檻保持。
 - R878獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告。20來源／29產物與103指令／20相對call目標全符，只採限定靜態證據。兩SHA為`1b1085ff4d99bd1900463aa58f3e2d9daa31d75b764875724045e2c774877869`及`ae510d725381e38e459f4b756f4e371e4eda4e3d4824b6c5313fbc9e7616e5c4`；owner1000:1000、審查自有容器0。審查首個核對誤用exact-decode根路徑，按凍結索引修正；摘要超出輸出預算後改有限結果核對，沒有產品或IDA重跑。全工作根root-owned／誤建.md目錄0，封存索引保持。
+- R877提交`67e3f664314c7756a649ce1e698e8296f845f9d1`已推送。[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5964951846)及正文含尾LF回讀相符，仍OPEN。收據`workplace/r877/github-progress.json`，正文與留言SHA依序`b516bdf56bf538eeb670c4b71bafc755a7b96fff1d098988658bff9f20b343b6`及`f572569d3ac5a9932e6256ac27c9d1c6226ca29cc3d4b316e04bb5ebdad94282`。
+
+## 2026-10-03：R879，地圖檔名的載入快照（#36）
+
+- 核遠端#36、主機GitHub授權及git身分，建立並索引[R879](docs/goal/R879-map-loader-mapping.md)。命中原版執行與文件職責，沿用dosgolem能力契約、研究016及R877封存；不重開已通過的靜態指令驗證。
+- 原版、SDK與合法檢查點唯讀，私人Go建置覆蓋表增加既有載入helper。最初準備誤找不存在的SDK go.sum，修正為無外部依賴的實際module；沒有改SDK。
+- 第一版整RAM簽章掃描被自動核准拒絕，沒有建置或執行。依拒絕理由刪除整RAM讀取、搜尋與雜湊，只留兩個候選檔名各13 bytes的布林比對，安全替代獲准。沒有擴張先前29來源的授權。
+- 首次窄探針把driver當前DS誤當遊戲資料段，在候選讀取前停止。改用研究016已確認的遊戲資料段1106，同工具鏈重建後通過；快照當前DS=312C、CS=740C。不把環境／探針假設誤判寫成產品故障。
+- 合法3,475,000,000步檢查點中`1106:90A0`精確檔名為真，`1106:9098`為假，總讀26 bytes；前後步數及全部CPU暫存器同。只採快照事實，不稱loader執行、完整程式碼映射或全RAM無變。
+- 4來源與6產物封存，原始輸入雜湊保持、owner1000:1000。收據與停止線見[研究016](docs/re/016-party-position.md#r879-map-loader-mapping)；正式地圖、TSV、十一組、錄放、冷存讀及封包門檻保持。
+- 另補89個既有SDK來源及helper的執行後雜湊，記錄基底commit與未提交修改；不把commit當乾淨建置輸入。`toolchain.json`為另記索引，原sealed沒有覆寫。
+- R880獨立唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩報告，4來源／6產物及89個另記SDK來源／helper相符。兩報告SHA依序`b1e33eed9086cd89758fdf48347a3b71f906ae02ba372b2b8e33562861f03a19`及`efbe57c15a57ad4de1e96ac26998ba0b4c4786e1d971d32d147eb3e95dab02ee`。限定快照證據回填通過，沒有重跑產品或解析state；本輪root-owned／誤建.md目錄0，自有研究及審查容器0。
