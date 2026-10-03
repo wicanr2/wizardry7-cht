@@ -9,6 +9,7 @@ R871另完成[單檔與實際啟動核對](docs/re/022-input-recording-boundary.
 最新R875完成[真GUI錄放候選](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)：300M正常選單路線一次錄製及三次重播，1,471發布畫面、38原版完整雜湊抽樣與獨立控制一致。正常左鍵後自然PCFILE.DBS 9,368 bytes也一致；改一筆左鍵有119發布畫面差異。正式Go保持，停止／故障策略仍待定，013仍DRAFT，不當遊戲進度冷還原或交付完成。
 地圖入口沿[R883證據](docs/re/016-party-position.md#r883-position-terrain-consumer)：位置消費端使用區塊原點加局部座標，靜態判定8×8範圍並以模16搜尋區塊；資料選擇值2／3接到SCENARIO.DBS控制代碼，格子及牆／門格式仍未知。R881共同載入器及VGA資源路由保持原已驗範圍；MAZEDATA不能僅憑檔名稱為世界地圖。R883未執行原版，正式地圖未改；設定頁點擊仍待明示授權。
 R885補上[記錄數值及格子位元存取](docs/re/016-party-position.md#r885-scenario-grid-records)：合法快照的選擇值2／3長度為2,768／2,896 bytes；34-byte零步唯讀觀察開／關原版摘要同。靜態證實128-byte複製、格子索引、單位元查詢及四位元寫入；沒有讀格子正文或證實牆／門意義，完整地圖仍未READY。
+R887完成[目前格子讀取](docs/re/016-party-position.md#r887-current-cell-reader)：原版主畫面前進一次從(61,91)到(62,91)，第二次位置保持；四對原版摘要同，取得89筆兩類四位元回傳與三個真實呼叫定位。數值0／4的牆／門語意及第二次保持原因未知，沒有正式地圖實作或Ebiten視窗驗收。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 
