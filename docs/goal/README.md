@@ -34,6 +34,7 @@ Windows遊戲視窗與存檔路徑啟動：[R873](R873-windows-gui-startup.md)�
 地圖資源的載入映射：[R879](R879-map-loader-mapping.md)。
 迷宮模組的重載路由：[R881](R881-map-loader-route.md)。
 位置記錄的地形消費端：[R883](R883-position-terrain-consumer.md)。
+SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 
 ## 終點
 
