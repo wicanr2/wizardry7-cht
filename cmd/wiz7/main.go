@@ -459,7 +459,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	for _, e := range shown {
 		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
 		cx := e.x0 * k
-		cy := menuLabelY(e, shown, k)
+		cy := buttonLabelY(e, shown, k)
 		for _, glyph := range e.g {
 			for row, w := range glyph {
 				for bit := 0; bit < len(glyph); bit++ {
@@ -712,7 +712,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 		op2 := ebiten.DrawImageOptions{}
 		op2.GeoM.Scale(float64(hd), float64(hd))
 		// 平移在縮放之後，單位是視窗像素：原版座標 × 倍率
-		op2.GeoM.Translate(float64(e.x0*g.scale), float64(menuLabelY(e, evs, g.scale)))
+		op2.GeoM.Translate(float64(e.x0*g.scale), float64(buttonLabelY(e, evs, g.scale)))
 		op2.Filter = ebiten.FilterNearest
 		dst.DrawImage(e.img, &op2)
 	}

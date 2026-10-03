@@ -1,5 +1,7 @@
 # 專案目標
 
+新增角色小按鈕排版：[R925](R925-character-dialog-labels.md)。
+
 近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)；
 開發入口維護：[R816 前端Docker入口](R816-frontend-docker-entry.md)。
 錄放純量契約：[R819](R819-recording-initial-scalars.md)。
@@ -49,6 +51,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 新事件文字頁的正常續行：[R909](R909-event-pages.md)。
 事件返回畫面與正常路線：[R912](R912-event-return-route.md)。
 按鈕、訊息及圖片按鈕中文重查：[R915](R915-ui-localization-audit.md)。
+新增角色對話框及取消返回：[R921](R921-character-dialog-ui.md)。
 
 ## 終點
 
