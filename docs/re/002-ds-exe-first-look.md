@@ -2,6 +2,8 @@
 
 日期：2026-09-20。issue #2。工具：`tools/re/ovr_probe.py`（docker python:3.13-alpine）。
 
+OVR檔頭的後續定位見[R881](016-party-position.md#r881-map-loader-route)：首四位元組包含二位元組magic與code目的偏移，`+12`為入口控制值，舊checksum是假說。下文保留本輪原始觀察。
+
 ## DS.EXE 檔頭（confirmed）
 
 | 欄位 | 值 |

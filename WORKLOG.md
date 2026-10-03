@@ -627,3 +627,17 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 4來源與6產物封存，原始輸入雜湊保持、owner1000:1000。收據與停止線見[研究016](docs/re/016-party-position.md#r879-map-loader-mapping)；正式地圖、TSV、十一組、錄放、冷存讀及封包門檻保持。
 - 另補89個既有SDK來源及helper的執行後雜湊，記錄基底commit與未提交修改；不把commit當乾淨建置輸入。`toolchain.json`為另記索引，原sealed沒有覆寫。
 - R880獨立唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩報告，4來源／6產物及89個另記SDK來源／helper相符。兩報告SHA依序`b1e33eed9086cd89758fdf48347a3b71f906ae02ba372b2b8e33562861f03a19`及`efbe57c15a57ad4de1e96ac26998ba0b4c4786e1d971d32d147eb3e95dab02ee`。限定快照證據回填通過，沒有重跑產品或解析state；本輪root-owned／誤建.md目錄0，自有研究及審查容器0。
+- R879提交`8ba2dcb746bee3e6214e656f7dade8baa856f3fd`已推送。[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5965114268)及正文含尾LF回讀相符，仍OPEN。收據`workplace/r879/github-progress.json`，正文／留言SHA依序`b61bbbc614f63a6687a197802044f9e5f5a7426389c7b3a97f931bb183a9b338`及`843276a4382109ee3b9439bdd131db64ad26eaa924814a556cab7a223aaa77ca`。
+
+## 2026-10-03：R881，共同載入器與地圖資源服務（#36）
+
+- 上一輪分類為進展：VMAZE檔名指標的快照證據已推送，下一步仍須實際code映射與服務。核現行#36、git／主機GitHub身分，建立並索引[R881](docs/goal/R881-map-loader-route.md)。命中原版執行、逆向、IDA與文件職責，沿既有dosgolem及IDA契約，不新建工具鏈。
+- 舊seg392a dump的四個固定指令候選不符VMAZE／VMEXT，不能用檔名把舊dump當目前模組映射。改採既有DOS讀取元資料，所有正式來源保持；私人helper只回報指定OVR讀取、四byte指標及有界返回位址，原版RAM只作A/B不可逆摘要，不掃描或輸出正文。
+- 暖檢查點兩分支三停止點／三PNG皆同，正常DISK選單已到，指定地圖檔讀取0。CONFIGURATION座標經目視，但自動核准兩次拒絕且沒有送入遊戲；提出明示授權問題後正常結束兩分支，不以替代輸入繞過。
+- 獨立冷開機於400k批次末觸發防拷來源停止閘門，沒有輸出正文或PNG。總核對腳本最初錯把符合規格的protected stop當失敗，改核既有terminal收據，原版沒有重跑。另固定1,000步做開檔BP返回鏈的16-byte觀察／控制，原版摘要同；直接定位共同loader，未靠反覆猜候選函式名。
+- IDA新副本直接解碼及原始source核對取得檔頭+2=code目的、+6/+8=DS附加區目的／大小、+12=入口控制值。VINIT三讀目的為1106:FFCA、0110:5055、1106:9098；13OVR均有5055／9098。補正002的四byte magic／checksum及004的far-call／fixup假說，保留歷史與回查入口；VGA.DRV自身含DOS讀取，普查強證據不涵蓋driver。
+- 合法迷宮快照兩個VMAZE 16-byte指令anchor比對為真，定位caller／callee於0110:54DE／5345。四byte函式指標為740C:0123；原VGA thunk及103條直接解碼皆同。實際核432筆resident紀錄含重查；唯一差異為正式MZ relocation 4B3B的IDA加1000paras，原始word與差異另存，不猜補或改來源。
+- MAZEDATA候選呼叫走VGA圖形資源服務為強證據，未實際量到其讀取，不能稱取得地形或完整世界。下一切片追位置的地形消費端；正式地圖／TSV／十一組／冷讀檔及封包門檻保持。收據見[研究016](docs/re/016-party-position.md#r881-map-loader-route)。
+- 封存20來源、58產物及另記89SDK來源，SHA與前值相符、owner1000:1000、自有容器0。封存SHA為`a5c93249cabbedfab0eb157d38a045ce71d184974dd228b33ec2827df724bf08`，驗證SHA為`1c0832755f21005c0ae12f2451d81c8a482ea2dac695d0cf7b12547db940330d`；獨立唯讀審查另列。
+- R882獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告。20來源／58產物／89SDK來源及31個相對呼叫相符，限定文件回填通過，不升級整張地圖或MAZEDATA實際讀取。兩報告SHA依序`398ce2aef15df8b4ca5d41b584f7189c7692cc0de68be20e4a98ece0101710ff`及`5ebfd5315f1143e57f1c56b575f39f733c531b3536ae13e6169e80750102d8a8`。
+- 最初逐位元核對遇唯一MZ重定位差異，保存差異收據後依EXE宣告正規化，其他指令全部相同。根衛生核對首命令誤把封存字典當陣列而退出，修工具後同環境通過；審查首次列舉快取檔名超出輸出預算，改按精確封存清單核對。都沒有重跑產品、改正式來源或覆寫封存。全工作根275200項衛生0，公開文件與報告owner1000:1000，自有研究及審查容器0。

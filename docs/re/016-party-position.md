@@ -145,3 +145,83 @@ R880獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報�
 `workplace/r879/review/review-r880.json`及`review-r880.md`的SHA-256依序為
 `b1e33eed9086cd89758fdf48347a3b71f906ae02ba372b2b8e33562861f03a19`及
 `efbe57c15a57ad4de1e96ac26998ba0b4c4786e1d971d32d147eb3e95dab02ee`。
+
+<a id="r881-map-loader-route"></a>
+
+## R881：共同載入器、VMAZE程式碼與VGA資源路由
+
+2026-10-03；[#36](https://github.com/wicanr2/wizardry7-cht/issues/36)，[目標](../goal/R881-map-loader-route.md)。
+本輪補上原版載入位置及服務路由。沒有實際觸發MAZEDATA讀取、取得完整地圖格式或修改正式程式。
+
+### 玩家路線與停止線
+
+- 合法R733檢查點與原版DS基線沿R879。觀察開／關分支先執行10M步穩定，再正常點DISK `(212,166)`，
+  固定停止點為3,475M、3,485M及3,511M。三對記憶體、indexed、palette與CPU暫存器SHA相同，三對PNG逐位元同。
+  隊伍位置保持`[0,11,5,3,61,91]`、面向0；指定VMAZE／VMEXT／VPOPS／MAZEDATA的讀取紀錄為0。
+- CONFIGURATION `(160,60)`的點擊被自動核准兩次拒絕，沒有送入遊戲。已詢問明示授權；兩分支正常退出，沒有選SAVE／LOAD。
+- 獨立無輸入冷開機先量VINIT載入。防拷來源閘門在100k指令批次末停止於400k，兩對摘要相同，沒有輸出正文或PNG。
+  不能稱指令即刻停止，原版本身仍照正常資料路徑執行；探針沒有讀訊息正文或作答。
+- 另以已量到的啟動前綴執行固定1,000步，在VINIT開檔時最多讀四個BP框架共16 bytes，僅記返回位址。
+  開／關觀察的記憶體、暫存器及讀取紀錄相同；此分支沒有玩家輸入、防拷正文讀取或遊戲進度還原。
+
+### OVR檔頭與共同載入器
+
+工具為dosgolem既有修改版，基底`d16f03a2d8d782024d470606e1f4cb5272b89cd6`；
+89個SDK來源及helper身分按`workplace/r881/toolchain-before.json`核對，正式SDK未改。
+Go1.24.13，映像沿R879；IDA Pro9.4／Python3.12.3沿R877映像，查詢全部使用新資料庫副本。
+原始DS.EXE.i64及ovr740c.bin.i64的SHA與R877相同，原始庫保持。
+
+VINIT開檔於350步，當下`0110:4B1C`；16-byte返回鏈為`4977 → 41B5 → 4184 → 4D62`，
+由此定位原名`sub_14186`及其呼叫端`sub_14179`。IDA resident EA為`0x10000+runtime IP`，
+與raw OVR的程式碼偏移分開記錄。
+
+| 檔頭偏移 | 載入器的原始定位 | 結論與等級 |
+|---|---|---|
+| `+0` | EA `0x141E6`比較`[bp-12h]`與`0x00F2` | 二位元組magic，confirmed；舊002將首四位元組一起列為magic不完整 |
+| `+2` | EA `0x1420C`檢查`[bp-10h]`，`0x14225`傳給`sub_142B4` | 程式碼目的偏移；13個OVR皆`0x5055`。confirmed於檔頭／控制流，VINIT實際讀取目的見下 |
+| `+4` | EA `0x14222`傳入`[bp-0Eh]` | 程式碼長度，confirmed；VINIT為5,641 bytes |
+| `+6`、`+8` | EA `0x14236`／`0x14239`傳入`[bp-0Ah]`及`[bp-0Ch]`，`0x1423F`呼叫讀取helper | 附加區目的偏移與長度；13個OVR目的皆`0x9098`。confirmed於檔頭／控制流及VINIT讀取 |
+| `+10` | EA `0x141FB`只見其加到容量檢查 | 完整語意未知，不命名為fixup或BSS |
+| `+12` | EA `0x14259`回傳`[bp-6]`，`0x14184`執行`jmp ax` | 入口控制值，confirmed於靜態控制流；舊checksum假說不適用 |
+
+VINIT實際三次讀取為：409步讀檔案`0`起14 bytes到`1106:FFCA`；
+440步讀檔案`14`起5,641 bytes到`0110:5055`；461步讀檔案`5655`起288 bytes到`1106:9098`。
+全部為DOS現成讀取元資料，不讀其正文。13個OVR的檔案長度均等於`14+code_size+data_size`。
+這補上R877／R879的資料基址假說，但VINIT收據不能單獨宣稱VMAZE資源呼叫已執行。
+
+### VMAZE與資源服務定位
+
+| 證據 | 定位與等級 |
+|---|---|
+| 程式碼快照 | 同R733合法檢查點，raw VMAZE `0x0489`及`0x02F0`各16 bytes，精確符合`0110:54DE`及`0110:5345`。共32-byte唯讀比對，只出布林，前後Step／regs同。confirmed，限兩個anchor。 |
+| near-call映射 | 加檔頭code base `0x5055`並取16-bit IP，raw `D153/F8FB/F004/FD97/F3FD`分別指向runtime `21A8/4950/4059/4DEC/4452`。confirmed於算式與原始指令；不代表所有callee本輪已執行。 |
+| 檔名與開關檔 | 原名`sub_121A8`回傳組合字串位置，`sub_14950`依flags走DOS開檔wrapper；目前候選呼叫傳flags=0。`sub_14DEC`含AH=3Eh關檔。靜態服務序列confirmed；本輪沒有MAZEDATA開檔收據。 |
+| driver橋接 | EA `0x1405D`為`call cs:dword_12DA7`。暖快照只讀`0110:2DA7`四位元組，得到`740C:0123`，前後Step／regs同。指標confirmed，限此快照。 |
+| VGA thunk | runtime dump IDA EA `0x0123`的`e8 88 0b cb`與原始VGA.DRV檔案`0x23`相同，near-call指向runtime `0x0CAE`，原始檔案`0x0BAE`。confirmed於位元組／算式。 |
+| driver消費端 | 從CAE有界解碼103條指令；含bank索引檢查、DOS AH=3Fh讀取及資料目錄長度計算。經VGA圖形資源服務載入是強證據，不能因此宣稱取得地形、牆／門、樓層或世界地圖。 |
+
+driver原始庫的舊項目與disasm部分失準，保存它們只作導覽。
+本輪以IDA直接解碼的mnemonic／operands及原始VGA.DRV逐條位元組核對，不沿用那些假函式／變數名作語意。
+runtime dump EA到原始VGA.DRV檔案偏移的`EA-0x100`只在已比對的區段成立。
+MAZEDATA的實際payload格式及讀取仍未驗證；下一切片應追隊伍位置的地形消費端，不由檔名推論世界地圖來源。
+
+### 驗證與封存
+
+432筆resident解碼紀錄與103條driver指令核對通過，resident紀錄含重複查詢。
+resident僅一處差異：MZ宣告的image `0x4B3B`重定位word，原始`0x0FF6`、IDA為`0x1FF6`，
+正好增加IDA載入基址`0x1000` paragraphs。其餘指令與原始檔逐位元同；driver全部103條與原檔同。
+沒有改資料庫項目、名稱、正式程式、原版素材、譯文或字型。
+
+VINIT.OVR的SHA、原始VGA.DRV及其餘來源在`workplace/r881/sealed.json`，
+20來源、58產物及另記89個SDK來源已核對；來源保持、產物owner1000:1000、自有容器0。
+封存索引SHA-256為`a5c93249cabbedfab0eb157d38a045ce71d184974dd228b33ec2827df724bf08`，
+`verified.json`為`1c0832755f21005c0ae12f2451d81c8a482ea2dac695d0cf7b12547db940330d`。
+獨立唯讀審查另列。005仍READY，整張地圖格式未READY，#36保持OPEN。
+
+R882獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀JSON及Markdown。
+20來源、58產物、89個SDK來源、31個相對呼叫與限定文件回填相符；沒有重跑產品或IDA。
+只採認載入器、快照及靜態資源路由，不升級MAZEDATA實際讀取或完整地圖的驗收資格。
+`workplace/r881/review/review-r882.json`及`review-r882.md`的SHA-256依序為
+`398ce2aef15df8b4ca5d41b584f7189c7692cc0de68be20e4a98ece0101710ff`及
+`5ebfd5315f1143e57f1c56b575f39f733c531b3536ae13e6169e80750102d8a8`。
+報告owner1000:1000；全工作根root-owned／誤建.md目錄0，自有研究及審查容器0。

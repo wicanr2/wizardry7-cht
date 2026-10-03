@@ -1,5 +1,9 @@
 # 004 — IDA 建庫與函式普查（M0 #3）
 
+後續共同loader與VGA資源路由見[R881](016-party-position.md#r881-map-loader-route)。
+同CS的OVR near-call已量到；附加區讀入DS。下文的far-call／fixup假說保留作歷史，不作目前架構結論。
+原版VGA.DRV也含DOS讀檔指令，原先「全部DOS存取在resident」的強證據只限當時resident／OVR比較，不包含driver。
+
 日期：2026-09-20。issue #3。工具：`tools/ida.sh`（image `ida-pro-9.4-idapython:locked-v1`）、
 `tools/ida/census.py`（沿用 psychic-war）、`tools/ida/seed_ovr.py`（本輪新寫）、
 `tools/re/ovr_split.py`。
