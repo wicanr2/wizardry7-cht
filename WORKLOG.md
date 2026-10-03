@@ -730,3 +730,13 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 初次建置漏宣告commands，修後同命令通過；候選受阻前進被must(NoResponseError)截斷，完整核input.go及opl_progress.go後，私人探針只記具名靜止畫面結果，其他錯誤仍停。A/B各記一次相同no_response後正常轉向及結束。兩者為驗證工具問題，不作產品故障；未覆寫候選收據。
 - 本輪70產物封存，seal／verified SHA依序`12b21a3db7bf748b70a51612c4598331a8d8d0795001a8b078c1da5c9b7fc485`及`46c6b164bbb3a4e6f22374159f009151fa8f031d9eafcbe33d0f832d92b6de2e`，owner1000:1000。正常暖路線與非GUI資格保持，獨立審查及衛生另列；十一組、TSV、正式錄放、冷LOAD及封包門檻仍未完成。
 - R897獨立唯讀審查通過，未解除阻擋0／應改0／建議0。首候選Wait文字精確化已解除，補核70封存不變及既有命令欄位／預設等價；prefix-config-check.json SHA為`7f40cd7cbeead40ae9b3f3cd6d878e579c2e245659175a259830ebeb42c1f320`。JSON／Markdown審查SHA依序`9b40f3ec515e8e3de3b132cd9825bfcec1fd3da9caacdf762b6a161f23da988b`及`4a14af891ce6697536c7f91d9c3b0d21bb88e91c71663c6e704273fa305ffc1a`，owner1000:1000。全工作根281004項衛生異常0，研究及審查自有容器0，git diff --check通過。
+
+- R896提交`e5f754d3f896fe3556fc009c2332e75a389ed987`已推送，[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5967817732)及正文含尾LF精確回讀，仍OPEN；70產物保持。收據`workplace/r896/github-progress.json`，正文／留言SHA為`abf4455bcc8fdddefc330247fe8457ee22bb8fd46d8a738102366069a0204ecd`及`d232a1235f8e5965849adfef98a7d819ef52a3d8b6f0a0fdf3b3dbcca4754f1d`，自有容器0。
+
+## 2026-10-03：R898，正常東向路線與待補譯文（#24、#22）
+
+- 上輪屬進展；核目前HEAD、身分與遠端#24，建立並索引[R898](docs/goal/R898-normal-east-translation.md)。命中正常玩家路徑、dosgolem重播及文件職責，載入入口與SDK契約。沿用已授權29出處觀察器；錄放停止與故障決策待定，不代選。
+- 沿R896十四點前綴，以每次先看畫面再選輸入的十二新點擊，補面向0由57,87→58,87後受阻，回57,87再面向1前進到57,90。最終26對完整原版摘要與PNG同；四點初候選、十七點東向候選及R896前綴同，29目標命中0。重新核R857舊證據已走到56,92，南向不稱全專案新道路；後續沿較遠已驗終點，不重走已完成區段。
+- 首次工具stdin關閉，四點後exit0；改TTY後通過。圖片轉送預算不足及PIL缺件，改直接轉送同一原PNG；沒有更換工具鏈。具名NoResponseError兩側相同，正常轉向續行；輸入管線完成後主程序已打印finished，外層cat等待EOF，以正常EOF結束，terminal exit0。這些為驗證工具問題，不作產品故障。
+- 生成器與探針相同；13來源、SDK1132／原版248及R89670產物不變。112產物封存，seal／verified SHA依序`75c9dba3249cf4faf8e3124e572f6370ed9cc2164cab906dcf97b022108fb405`及`fff043a8f8f684c8dc8a693feffc966e175a0b90a9b566cecec2ecdc77ce141a`。入口[研究019](docs/re/019-catalog-migration.md#r898-normal-east-translation)；十一組、TSV、冷LOAD、音訊錄放及封包門檻保持，獨立審查與衛生另列。
+- R899獨立唯讀審查通過，阻擋0／應改0／建議0；主代理完整核讀兩份報告。JSON／Markdown SHA依序`398f27721f9a4cc82db7da92285a17428706c7071def8fb08a2986679e8aabc9`及`c048e6193de638fae79bb16892e8350e11e952e36c4a0fcccc234a134c0e5fb4`，owner1000:1000。審查索引兩次沿舊格式讀取失敗，修正欄位型態後唯讀核對通過，未重跑產品。原版印字903只為觀察開側計數，不稱此欄A/B同；六具名末段畫格已獨立目視。全工作根初檢282232項異常0，研究與審查工具均terminal、自有容器0。

@@ -41,6 +41,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 停止錄製後退出或續玩：[R893](R893-recording-stop-continue.md)。
 正常前進的分流與返回：[R894](R894-forward-dispatch.md)。
 完成旁白後的正常移動：[R896](R896-narration-normal-move.md)。
+正常東向路線與待補譯文：[R898](R898-normal-east-translation.md)。
 
 ## 終點
 
