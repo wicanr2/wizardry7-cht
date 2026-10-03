@@ -588,3 +588,19 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 首衛生核對跟隨既有測試失效連結，保留腳本後改lstat，未重跑產品。封存80來源與145產物，擁有權1000:1000、全工作根衛生0及本輪自有容器0。Windows真機、音訊人耳、冷讀檔、錄放、十一組、TSV與正式包仍待完成；不標全遊戲可玩、不建立dist-all或Release。
 
 - R874獨立審查阻擋0、應改0、建議0；主代理完整讀取JSON與Markdown。80來源、145產物、PE與兩條GUI收據全符，只採Wine9早期靜音GUI。兩報告SHA為`b24224142d18436e85eca3eca11ed4ad1b6ef877d8976972d17aee6621469df0`及`877e90feb15c97d14934e070bd87bf10b5441f540a7137e2c0d55bd422f4a7c8`；根核對入口workplace/r873/final-check.json。審查掛載前缺輸出目錄及元資料篩選／PE比較錯誤均修核對工具，沒有重跑產品或改凍結索引。#18、#42保持OPEN。
+
+- R873提交`0fb5f6d0a5ae5aae1e9fda299147d369a3154be5`已推送；[＃18進度](https://github.com/wicanr2/wizardry7-cht/issues/18#issuecomment-5963716650)及#42現況正文全文含尾LF回讀相符，兩Issue仍OPEN。收據workplace/r873/github-progress.json，#18正文SHA為`f2a739cbc530494a49e710d538232bfa8465e097a8bb55308545e47a2cc6d540`，#42正文為`60bb3bf15004200a165e2b5ce50acbb0ab34b7d4a21f8064e621f2430715afd6`。
+
+## 2026-10-03：R875，真GUI錄放與成功收尾候選（#17、#42旁證）
+
+- 核對現行#17、#42及git身分，建立並索引[R875](docs/goal/R875-recording-live-shutdown.md)。命中試玩、規格閘門與文件職責，載入相應入口；單檔與系統資料目錄定案沿用，不代選待答的故障保存或停止操作。
+- 私人副本接合正式機器循環／Draw與R871啟動、R866收尾。新增候選3的同Draw面板狀態，不採正式schema或舊候選2相容性。禁止其他有狀態合成，正式Go、SDK、譯文與字型保持。
+- 首建置誤把PressButton／ReleaseButton的int參數轉成uint8，保存first-build後修正。attempt-1的F1測試靠固定等待假設失敗，畫面實際已開；改核機器真正暫停確認。attempt-2／3競爭長段分別遇180／240秒工作期限，父程序終止子程序後才另批執行；不當產品故障或完整錄放成功。
+- attempt-4正常版記錄及三重播1350發布一致，但早期move_mouse變異的狀態／像素差異皆0，總驗收incomplete。改走已目視的主選單正常左鍵，不用無效早期游標作差異oracle。
+- attempt-5正常300M錄製與收尾成功，1471發布／2952事件；自然PCFILE.DBS 9368 bytes觸發驗證腳本「空目錄」錯誤假設。保留成功錄製與失敗總收據，後續改比三重播／控制的自然檔案SHA，不讀正文、不改原版格式。
+- attempt-7第一次重播完整成功，第二次遇240秒擷取期限；先確認terminal與容器清理，再回查試玩路由。attempt-8沿用成功錄製及第一次重播，補其餘兩次、獨立控制及左鍵變異，個案研究期限600秒；原版時鐘、命令與遊戲Stop五秒期限不變。結果及時間全保留，不把部分執行拼成成功。
+- 最終三重播1471首次完成發布畫面相同，全部Step／Ticks及38完整原版雜湊抽樣與控制一致，PCFILE.DBS逐位元同，248原版檔不變。變異左鍵119發布像素／Ticks不同、四完整雜湊抽樣不同。全部7355 PNG SHA及75份獨立RGBA8解碼通過；3M短段競爭15發布及17面板格式案例通過。真Draw兩負向都是重播且沒有Writer，只採Draw拒收，不採Writer負向發布證據。
+- 乾淨重建先缺離線模組快取，再因模組絕對路徑不同而binary不同；76來源始終相同。核原候選debug路徑為/mods，沿同一鎖版快取及映像在repro-3重建，76來源、race／normal binary皆逐位元同。環境失敗產物保留，不改正式工具鏈或另建映像。
+- 首封存的/out與/src別名映射錯誤在索引寫出前停止，保存腳本後修正，未重跑產品。封存186來源及16581產物，owner1000:1000、全工作根衛生0及本輪自有容器0。來源、SHA及停止線見[研究022](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)。
+- 原版stream軟體統計一致，但Reader靜音、裝置交付0、ACK=false；不當音訊人耳或實機。自然角色資料寫入不當遊戲進度冷存讀。013保持DRAFT，全部十一組、TSV、正式錄放、冷LOAD及封包保持未完成；待獨立審查後提交，#17及#42保持OPEN。
+- R876完成封存後唯讀審查，186來源及16581產物全同，阻擋0、應改0、建議0。主代理完整核讀JSON與Markdown，SHA分別c20bd9af79e5c505d97826a40f9033c1de17c72e81e1acc3d152676d01bb87fa與075f54ca4178a3cc4b45204d716883f4077c37a2a96d445e4ce5e72f7243755e；只採限定DRAFT證據。報告owner1000:1000、審查自有容器0，沒有產品重跑或封存索引改寫。

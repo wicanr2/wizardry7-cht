@@ -895,3 +895,77 @@ R872獨立審查阻擋0、應改0、建議0，主代理完整讀取兩報告，�
 Markdown為`0599ff7221628c9acfbcc629720c160f4f0fd0ccb07ec4a917a9c3f091c2a220`。
 審查首次誤把索引包裝當陣列，核對前退出，按sources／outputs修正後完成，屬審查工具假設錯誤。
 審查未重跑產品或讀原版正文，報告owner1000:1000、自有容器0；正式錄放與交付門檻保持。
+
+<a id="r875-recording-live-shutdown"></a>
+
+## R875：真實GUI錄放與收尾
+
+2026-10-03；[目標](../goal/R875-recording-live-shutdown.md)、[013候選契約](../spec/013-input-recording.md#r875-recording-live-shutdown)。
+confirmed只限下面私人副本與實測路線，正式Go、SDK、譯文與字型保持；013仍DRAFT。
+
+- Go1.24.13、Python3.11.2、既有wizardry7-go-ebiten映像，ID沿R871；原版248檔與三份既有烘製資源唯讀。
+- 本輪未重烘全catalog，既有資源不當最新TSV、控制碼或剩餘十一組的完整驗收。
+- 76項編譯集合包含73個本專案／私人SDK Go來源及三個模組鎖定檔。copied inputs包含未選定的中間來源，不能當編譯檔數；stdlib／第三方沿映像、鎖版依賴與實際binary，不逐檔宣稱。
+- 私人schema為wiz7-input-live-candidate/3；起始設定、資源同次讀取、實際LoadWith與單次交出沿R871。panel只保存Draw實際使用的說明／地圖開關、說明畫面及頁碼。
+- 禁用autoplay、hd-at等額外有狀態合成，不用作弊、狀態注入或防拷答案；輸入從XTest經正常前端佇列交付。完整本機錄放檔不進Git或發行包。
+
+### 已驗路線
+
+| 核對 | 結果與界線 |
+|---|---|
+| 正常版冷啟動與主選單 | 300M步，2,952事件，包含run、snapshot、press_key、type、move_mouse、click、press_button及release_button。F1在8.2M收到真正暫停確認並同Step恢復，發布41保存說明面板；主代理目視中文可讀且無裁切。 |
+| 正常左鍵 | 270.4M於原座標160,61點擊，實際after=276.4M、原API結果none，新增角色面板及游標可見；不由API預設常數推導結果。 |
+| 三次重播 | 1,471發布的序號、Step、配置SHA、像素SHA及PNG SHA逐項相同，軟體stream統計也相同。每個ID只採首次完成Draw，不是全部GUI畫格。 |
+| 原版控制 | 不經覆繪／compose／音訊，直接相同Options的LoadWith、SetScratch及命令。全部發布Step／Ticks與38抽樣點的RAM、暫存器摘要、indexed、色盤、A000相同；不是全CPU內部狀態或全部發布完整RAM比對。 |
+| 自然角色資料寫入 | PCFILE.DBS 9,368 bytes，錄製、三重播及控制SHA相同；248原版檔不變。只核檔名、大小與SHA，不讀正文。不是保存遊戲進度、關窗保存或冷LOAD還原。 |
+| 輸入差異 | 只把左鍵y改為43，合法文件重算內容SHA。119發布像素及Ticks不同，1,471發布Step仍相同；完整雜湊差異四抽樣點。 |
+| 獨立圖片解碼 | 7,355份PNG全部重算檔案SHA；每路15個發布由ImageMagick解碼為RGBA8，75份完整像素SHA與Draw相同，含F1及最終發布。 |
+| 真Draw負向 | 錯發布回draw_mismatch，缺Draw回draw_timeout，均退出2且無成功階段。兩例皆重播、沒有Writer，不採Writer負向發布證據。 |
+| 短段競爭檢查 | 3M錄製、一次重播及控制通過，15發布，含F1、鍵盤、移動與右鍵；沒有左鍵。無DATA RACE；左鍵長段為正常版。 |
+| 面板wire | 17案例，兩接受／十五拒絕；缺省、null、未知欄、錯型別、非snapshot附panel、非法文字拒載，等價欄序接受。未LoadWith。 |
+| 音訊軟體 | stream Received／Applied皆7,835，CanonicalFrames／Frames皆4,404,019，SourceStep／EndStep皆300M，Pending／Rejected皆0。Reader靜音，DeviceFrames／DeliveredBytes皆0、ACK=false；不當裝置或人耳驗收。 |
+
+最終發布先取得同ID／Step／配置SHA的真Draw，再放行owner、關閉正式音訊，最後完成Writer；
+使用R866同一Stop.Deadline，不另起五秒。私人明示Step只為蒐證，正式停止操作／故障保存仍待定。
+發布後盡力撤回及阻塞系統呼叫的限制沿R866，沒有由本輪解除完整B3／B4。
+
+### 收據與重建
+
+成功錄製在attempt-5/record，第一次重播在attempt-7/replay-1，第二、第三次、控制及變異在attempt-8。
+三次成功重播分別核相同起始配置，跨批次只沿用已完成收據，不把逾時的部分執行當成功。
+完整彙整workplace/r875/verified-report.json，原版檔案與錄放原文只留本機。
+
+| 檔案或內容 | SHA-256 |
+|---|---|
+| 正常版bind-normal | `36c7832676f8f3f0a0554e5f32285187eb872a032465c585e26f36bc93b40d4b` |
+| 競爭版bind | `5c73cde4701d51760e74bc85de77d6c136d7cb497e03767153a63b0c593fd86d` |
+| compiled-sources.json | `f5b51f96e05b5bc0c8de92ec5078e47f750e2faef62c4cce4bdb5b73d820f06d` |
+| 300M起始配置 | `b44635d15a49c0b93f22f64161b2ee60d2ec78578cddcc3808aa26fa897b6acd` |
+| attempt-5/record.jsonl | `f2bfcc9fed077d3733b474bfdca1657cb9d2997e1894ab20da7c354d70cb79f8` |
+| verified-report.json | `e72a51887c5795e13a0f4cfdcb1cb6d6efec6c88d41f806abea55ee76343afc8` |
+| attempt-8/report.json | `068ca0f305a1af7586d2b3c92dc431091cbad73d174c6818aacb3223bc8a83cc` |
+| 自然PCFILE.DBS | `24d94441e5b32e7abbcbffa9dad972b41544da6a7bb06096b967281f639d9c1b` |
+| sealed-sources.json，186項 | `e463b5b871689bc9fd6f927050e11338fa221843a0bce939f083a60cb04247ae` |
+| sealed-outputs.json，16,581項 | `f6402fdc93f22db4eb07a98b254346a1bb1f17b2be02be86519c606bd2ca5c69` |
+
+來源索引包含正式輸入、私人編譯副本、工具及六份文件快照，不把186當獨立編譯檔數。
+工作樹只允CONTEXT現況修正及規格／證據／goal／WORKLOG批准追加；快照與凍結索引不重寫。
+建置依序prepare.py、R864 build.py及build_normal.py，rebuild.py在乾淨輸出驗證兩binary及76來源逐位元相同。
+須把已存在的workplace/gomodcache唯讀掛到/mods並設GOMODCACHE=/mods，Go快取只放明確可寫目錄；
+其他Go環境為GOPROXY=off、GOSUMDB=off、GOFLAGS=-mod=readonly、GOMAXPROCS=1或2。
+專案掛/src唯讀、研究目錄掛/out可寫，原版及烘製資源分別掛/original、/resources唯讀；
+UID/GID1000:1000、network none、init、記憶體／CPU／PID及日誌上限。
+完整執行用run_left_click.py產生一次冷錄製，再依run_left_complete.py／run_left_remaining.py核重播；
+重跑需另選輸出編號，不覆寫採認收據。GUI批次上限2000秒、個案擷取600秒，遊戲Stop總期限仍五秒。
+Xvfb及遊戲由Python父程序持有，finally逐一終止子程序；原版前後清單與R859基線一致。
+
+失敗歷程只在WORKLOG；首封存工具誤把/out當/src子路徑，修正索引映射後通過，沒有重跑產品。
+來源／產物owner1000:1000，全工作根root-owned及誤建.md目錄0，自有容器0；獨立審查另列。
+正式CLI、故障策略、正常停止、冷遊戲進度還原、音訊人耳、十一組、TSV與封包保持未完成。
+
+R876封存後唯讀審查逐項重算186來源與16,581產物，核實際76編譯輸入、兩個乾淨重建程式、三次成功重播及限定狀態抽樣。
+阻擋0、應改0、建議0；主代理完整核讀JSON與Markdown，只採認限定DRAFT證據，不重跑產品。
+報告留在`workplace/r875/review/review-r876.json`與`review-r876.md`，SHA-256依序為
+`c20bd9af79e5c505d97826a40f9033c1de17c72e81e1acc3d152676d01bb87fa`及
+`075f54ca4178a3cc4b45204d716883f4077c37a2a96d445e4ce5e72f7243755e`。
+報告owner1000:1000，審查自有容器0；封存索引保持，後續審查與文件追加另存，不回寫凍結收據。

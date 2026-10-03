@@ -6,6 +6,7 @@ R866另完成成功收尾私人候選的18個限定案例；使用自製Draw／o
 R868另備妥[停止操作比較](tools/recording-stop-prototype.html)，六個瀏覽器案例通過；只為自製UI示意，停止操作尚未選定。
 R869另完成[完整設定單檔解析候選](docs/re/022-input-recording-boundary.md#r869-recording-config-wire)，23個限定競爭案例及八個獨立建檔案例通過；沒有正式錄放接線，013仍DRAFT。
 R871另完成[單檔與實際啟動核對](docs/re/022-input-recording-boundary.md#r871-recording-startup-wire)：27個限定案例通過，600k冷執行記錄一次及重播三次與獨立控制摘要相同。沒有玩家輸入、GUI Draw或聲音裝置，不當#17正式試玩完成；013仍DRAFT。
+最新R875完成[真GUI錄放候選](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)：300M正常選單路線一次錄製及三次重播，1,471發布畫面、38原版完整雜湊抽樣與獨立控制一致。正常左鍵後自然PCFILE.DBS 9,368 bytes也一致；改一筆左鍵有119發布畫面差異。正式Go保持，停止／故障策略仍待定，013仍DRAFT，不當遊戲進度冷還原或交付完成。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 
@@ -67,7 +68,7 @@ Reader約5毫秒不等於裝置退出時間；R799正常版已確認221幀淡出
 |---|---|
 | 已完成正式實作 | 故事31頁、旁白6頁、雙字型、171組同義文案與三組複合物品名稱維持前表驗收範圍；不重開已完成項目。來源、失敗與勘誤留在各研究文件及WORKLOG。 |
 | 音訊009 | READY，R790規格審查及R798實作審查阻擋0。正式接線含精確H、手動加速維持音高、2秒ring、4410分塊、整數淡化與單一5秒退出監督。R801冷啟動200k／260M原版RAM、CPU、時基、畫面、事件與PCM相同，260M為7835事件／3816817幀。R799四趟競爭版及一趟正常版真GUI正常退出；F1同Step恢復，正常有聲／靜音60M畫面及原版摘要同。正常版欠載3401、溢出0，停止2936幀留221淡出、捨2715，實交付884 bytes／ACK=true／EOF=false。關窗至程序退出0.0624秒，不當5毫秒裝置保證；全玩家音訊鏈／人耳未驗，不稱CONFORMED。R804[固定依賴](tools/docker/dosgolem-audio-manifest.json)與[準備入口](tools/docker/prepare-dosgolem.sh)獨立審查通過，未推dosgolem上游。見[020](docs/re/020-player-audio.md)。 |
-| 錄放013 | 仍DRAFT。既有三次7152對快照與觀察開／關2384對旁證維持。R864私人啟動器已綁定實際LoadWith、選定EXE及資源同次讀取／解析結果；12案例與1無Go來源掛載案例通過，初始原版摘要同，完整來源清單嵌入binary。擁有者封存前不交出指標，交出後即使Step0也拒重取配置；不是正式機器goroutine或完整B2接線。已定案單檔內嵌完整設定；正常結束及故障策略仍待定稿。Writer必須在最終Draw及音訊／owner收尾之後、009同一退出期限內完成。正式冷含音錄放及存讀還原仍待驗。見[013](docs/spec/013-input-recording.md)及[022](docs/re/022-input-recording-boundary.md)。 |
+| 錄放013 | 仍DRAFT，單檔內嵌完整設定已定案，正常停止與故障策略待定。R875私人副本接真正機器循環、Draw與同一五秒收尾；300M一次錄製、三重播及獨立原版控制通過，1,471首次完成發布畫面一致，38個完整原版雜湊抽樣一致。含F1、鍵盤、移動、左右鍵及自然角色資料寫入；變異左鍵有119發布像素差異。3M競爭版只驗15發布，沒有左鍵。正式錄放、冷遊戲進度還原、人耳及完整B3／B4仍未完成，#17保持OPEN。見[013](docs/spec/013-input-recording.md#r875-recording-live-shutdown)及[022](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)。 |
 | 原版存讀檔 | [014](docs/spec/014-original-save-storage.md)已經R860審查轉READY，R859正式前端已在LoadWith後、音訊及Run之前接入SetScratch。系統使用者資料目錄為預設，保留-save-dir，不能讀寫或與原版重疊即拒啟動。Linux十三路徑、二十守門及一清理故障候選案例通過，正式前端競爭回歸及建置通過；四平台候選可編譯，原生Windows／macOS未驗。正式英文靜音24M冷GUI到主選單正常退出，兩停止點正式hdat與私人原始觀察相同，沒有自然寫檔。私人合法暖進度中英文保存各11404 bytes，檔案逐位元相同，兩點原版摘要及A000／色盤相同、248素材不變。暖工具使用NoCursorWait及靜音相對節拍，不當正式冷保存、音訊或錄放完成；新暖收據未量DOS寫入次數。冷LOAD仍缺匹配合法防拷收據，尚未證明隊員及位置還原。見[R859證據](docs/re/022-input-recording-boundary.md#r859-original-save-wiring)，#42保持OPEN。 |
 | 錄放成功收尾候選 | [R866](docs/goal/R866-recording-shutdown-chain.md)及[022](docs/re/022-input-recording-boundary.md#r866-recording-shutdown-chain)：自製最終Draw確認、owner通知、正式音訊關閉及私人Writer依同一五秒期限串接，18個限定案例通過。正式Stream／Reader停止案例交付884 bytes且ACK；阻塞Close／Sync子程序實際退出5.058／5.146秒，不作嚴格實機五秒保證。真正GUI Draw、正式owner及硬體未驗；正常停止入口、故障策略與完整錄放仍待定稿，013維持DRAFT。 |
 | 剩餘11組／TSV | 使用者要求全部補齊才交付，008維持DRAFT。171組／373列完成，11組仍缺實際情境或短句版面證據；排除空鍵／純槽後烘製25、執行期24組碰撞。R768已授權10出處±2鄰則、38唯一ID的窄讀取完成，只有角色候選；原文留本機，不擴讀其他八組鄰文。2026-10-03明示授權29出處的runtime目的緩衝窄觀察，不授權新增鄰文讀取；[R857](docs/re/019-catalog-migration.md#r857-targeted-maze-route)36對檢查點一致，目標命中0，十一組仍待補齊。 |

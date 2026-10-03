@@ -417,3 +417,33 @@ RAM、暫存器、indexed、色盤、Step及Ticks摘要相同。
 
 R872獨立審查阻擋0、應改0、建議0，只採認限定DRAFT回填。
 短段一次記錄三重播不解除正式玩家試玩、B3／B4或交付閘門，013維持DRAFT。
+
+<a id="r875-recording-live-shutdown"></a>
+
+## R875：真實視窗錄放與成功收尾候選
+
+私人副本接合正式機器循環、真正Ebiten Draw、R871啟動綁定與R866收尾。
+候選schema為`wiz7-input-live-candidate/3`，初始設定仍為`wiz7-startup-config-candidate/1`。
+snapshot新增必要panel物件，欄序為help_open bool、help_screen string、help_page int64、map_open bool。
+help_screen最多64 bytes，拒絕NUL／CR／LF；其餘命令不得帶panel，完整巢狀欄位沿嚴格解析。
+這是可丟棄的工程候選，不採認正式格式或舊candidate/2相容性。
+
+每個發布ID只採首次完成的真Draw，保存同次Draw實際使用的面板狀態，然後由機器擁有者寫snapshot事件。
+重播逐命令核Step及API結果，依該事件還原面板；不是所有GUI畫格或面板開啟時間的錄影。
+最終發布沿同一五秒期限取得Draw確認，再放行owner完成、關閉音訊，最後才完成Writer末註。
+正常結束使用私人明示Step邊界，不替使用者選定正式停止入口或故障保存策略。
+
+300M正常冷啟動路線，含F1、鍵盤、滑鼠與主選單左鍵，錄製一次及重播三次。
+1,471發布的Step／Ticks、合成像素與PNG雜湊一致；38個抽樣發布另核完整RAM、暫存器摘要、indexed、色盤及A000。
+獨立控制直接LoadWith／SetScratch與同命令，沒有覆繪或音訊，全部發布的有限原版摘要一致。
+原版自然產生PCFILE.DBS 9,368 bytes，三重播與控制檔案SHA相同；不是遊戲進度冷保存還原證據。
+改一筆左鍵選項後119發布像素及Ticks不同，完整雜湊差異落在四個抽樣點，證實這條路線可觀察輸入差異。
+
+短段3M競爭版錄製／一次重播／控制通過，15發布，沒有左鍵。
+面板格式17例通過，兩接受／十五拒絕；錯誤最終發布及未完成Draw各以真GUI重播拒絕。
+後兩例沒有Writer，不能稱實際Writer負向不發布證據。
+靜音Reader無裝置交付／ACK，未驗人耳、正式關窗錄製、冷LOAD或完整B3／B4，013仍DRAFT。
+來源、完整數值及獨立審查入口見[研究022](../re/022-input-recording-boundary.md#r875-recording-live-shutdown)。
+
+R876封存後唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩份報告。
+只採認上述私人候選與限定DRAFT證據，正式停止、故障保存及完整B3／B4閘門保持，013不轉READY。
