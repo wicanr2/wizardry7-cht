@@ -4,6 +4,7 @@
 本專案是 dosgolem 執行期覆繪中文化，原版遊戲規則與資料保持原樣。
 R866另完成成功收尾私人候選的18個限定案例；使用自製Draw／owner通知與裝置，不當正式錄放完成，013仍DRAFT。
 R868另備妥[停止操作比較](tools/recording-stop-prototype.html)，六個瀏覽器案例通過；只為自製UI示意，停止操作尚未選定。
+R893補齊[停止後退出或續玩比較](tools/recording-stop-continue-prototype.html)，七個瀏覽器案例通過；續玩示意只增加遊戲操作，不改錄製截止值。舊原型與正式來源保持，沒有正式Writer／音訊／遊戲接線，停止與故障策略仍待定，013仍DRAFT。
 R869另完成[完整設定單檔解析候選](docs/re/022-input-recording-boundary.md#r869-recording-config-wire)，23個限定競爭案例及八個獨立建檔案例通過；沒有正式錄放接線，013仍DRAFT。
 R871另完成[單檔與實際啟動核對](docs/re/022-input-recording-boundary.md#r871-recording-startup-wire)：27個限定案例通過，600k冷執行記錄一次及重播三次與獨立控制摘要相同。沒有玩家輸入、GUI Draw或聲音裝置，不當#17正式試玩完成；013仍DRAFT。
 最新R875完成[真GUI錄放候選](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)：300M正常選單路線一次錄製及三次重播，1,471發布畫面、38原版完整雜湊抽樣與獨立控制一致。正常左鍵後自然PCFILE.DBS 9,368 bytes也一致；改一筆左鍵有119發布畫面差異。正式Go保持，停止／故障策略仍待定，013仍DRAFT，不當遊戲進度冷還原或交付完成。

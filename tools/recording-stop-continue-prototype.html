@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'">
+<title>巫術7：停止錄製後的操作比較</title>
+<style>
+:root { color-scheme:dark; font-family:sans-serif; background:#151a23; color:#e4e8ef; }
+body { max-width:1100px; margin:32px auto; padding:0 24px; }
+h1 { font-size:26px; } h2 { font-size:21px; } p { line-height:1.7; }
+.cards { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+article { padding:24px; border:1px solid #526279; border-radius:8px; background:#202835; }
+.scene { background:#111820; border:1px solid #607085; padding:18px; line-height:2; }
+.status { min-height:78px; color:#ffdf97; }
+.buttons { display:flex; flex-wrap:wrap; gap:10px; }
+button { font:inherit; border:1px solid #7185a1; border-radius:4px; padding:9px 12px; background:#293c56; color:white; }
+button:disabled { opacity:.45; } button:not(:disabled) { cursor:pointer; }
+button:focus-visible { outline:3px solid #ffd37b; } .note { color:#bac5d5; } a { color:#a8d1ff; }
+@media(max-width:760px) { .cards { grid-template-columns:1fr; } }
+</style>
+<h1>停止錄製後的操作比較</h1>
+<p class="note">可丟棄原型。只有自製計數器，沒有遊戲、聲音或錄放檔。等待時間是示意。</p>
+<p>兩個候選都由玩家按停止，等待安全邊界與收尾。差別在收尾完成後能否繼續操作。
+預先指定終點的候選仍可看<a href="recording-stop-prototype.html">原本的比較</a>。</p>
+<main class="cards">
+<article id="exit">
+<h2>停止錄製並結束</h2>
+<div class="scene">遊戲步數 <b class="step">0</b><br>遊戲操作 <b class="total">0</b><br>已錄製操作 <b class="count">0</b><br>錄製截止步數 <b class="end">尚未停止</b></div>
+<p class="status" aria-live="polite">待開始。</p>
+<div class="buttons"><button class="start">開始錄製</button><button class="advance" disabled>模擬一次操作</button><button class="stop" disabled>停止錄製並結束</button><button class="reset">重設</button></div>
+<p class="note">收尾後結束工作階段。這與目前私人錄放候選的結束方向相同，正式停止入口仍待定。</p>
+</article>
+<article id="continue">
+<h2>停止錄製後繼續遊戲</h2>
+<div class="scene">遊戲步數 <b class="step">0</b><br>遊戲操作 <b class="total">0</b><br>已錄製操作 <b class="count">0</b><br>錄製截止步數 <b class="end">尚未停止</b></div>
+<p class="status" aria-live="polite">待開始。</p>
+<div class="buttons"><button class="start">開始錄製</button><button class="advance" disabled>模擬一次操作</button><button class="stop" disabled>停止錄製並續玩</button><button class="reset">重設</button></div>
+<p class="note">收尾後恢復操作，後續操作不納入本次錄製。正式遊戲中仍需另外驗證錄製收尾與音訊持續執行。</p>
+</article>
+</main>
+<p class="note">每次操作只增加示意步數200000；等待300毫秒、收尾200毫秒都沒有實機依據。
+沒有故障保存或再次錄製功能，不能證明正式錄放完成。</p>
+<script>
+'use strict';
+for (const card of document.querySelectorAll('article')) {
+  const keepsPlaying = card.id === 'continue';
+  const get = cls => card.querySelector('.' + cls);
+  let phase='idle',step=0,total=0,count=0,end=null,epoch=0;
+  function display() {
+    card.dataset.phase=phase;
+    get('step').textContent=String(step); get('total').textContent=String(total);
+    get('count').textContent=String(count); get('end').textContent=end===null?'尚未停止':String(end);
+    get('start').disabled=phase!=='idle';
+    get('advance').disabled=phase!=='recording'&&phase!=='playing';
+    get('stop').disabled=phase!=='recording';
+  }
+  get('start').addEventListener('click',()=>{
+    if(phase!=='idle')return; phase='recording';get('status').textContent='錄製中。';display();
+  });
+  get('advance').addEventListener('click',()=>{
+    if(phase!=='recording'&&phase!=='playing')return;
+    step+=200000;total++;if(phase==='recording')count++;display();
+  });
+  get('stop').addEventListener('click',()=>{
+    if(phase!=='recording')return;
+    phase='waiting';get('status').textContent='已要求停止，不再接受新操作；等待安全邊界。';display();
+    const capturedEpoch=epoch;
+    setTimeout(()=>{
+      if(epoch!==capturedEpoch||phase!=='waiting')return;
+      end=step;phase='finalizing';get('status').textContent='已到安全邊界，正在完成錄製收尾。';display();
+      setTimeout(()=>{
+        if(epoch!==capturedEpoch||phase!=='finalizing')return;
+        phase=keepsPlaying?'playing':'finished';
+        get('status').textContent=keepsPlaying?'示意錄製已完成。可繼續操作，後續操作不會錄製。':'示意錄製已完成，工作階段已結束。';display();
+      },200);
+    },300);
+  });
+  get('reset').addEventListener('click',()=>{
+    epoch++;phase='idle';step=total=count=0;end=null;get('status').textContent='待開始。';display();
+  });
+  display();
+}
+</script>
+</html>

@@ -969,3 +969,35 @@ R876封存後唯讀審查逐項重算186來源與16,581產物，核實際76編�
 `c20bd9af79e5c505d97826a40f9033c1de17c72e81e1acc3d152676d01bb87fa`及
 `075f54ca4178a3cc4b45204d716883f4077c37a2a96d445e4ce5e72f7243755e`。
 報告owner1000:1000，審查自有容器0；封存索引保持，後續審查與文件追加另存，不回寫凍結收據。
+
+<a id="r893-recording-stop-continue"></a>
+
+## R893：停止後退出或續玩的操作比較
+
+2026-10-03；[目標](../goal/R893-recording-stop-continue.md)、[原型](../../tools/recording-stop-continue-prototype.html)、
+[瀏覽器驗證](../../tools/recording-stop-continue-prototype-test.cjs)。補齊R868未製作的續玩比較，舊原型與測試保持。
+兩候選均由玩家停止，等待示意安全邊界及收尾；一個結束工作階段，另一個回到可操作狀態。
+沒有原版、錄放Writer、Draw、音訊或再次錄製，不採為正式行為或停止期限。
+
+confirmed僅限自製UI：七個真瀏覽器案例通過，包含退出後拒收操作、等待與收尾拒收操作、
+續玩只增加遊戲操作且錄製截止保持、重設取消等待／收尾舊計時器，以及390px寬無水平溢出。
+續玩示意的遊戲操作由2到5、步數400000到1000000，已錄製操作仍2、截止仍400000。
+頁面錯誤與外部請求均0；主代理目視核三張圖，文字及按鈕無裁切。
+Node v22.12.0、Chrome 131.0.6778.204及Puppeteer映像沿R868，映像ID本輪重新核對相同。
+
+| 證據 | SHA-256 |
+|---|---|
+| 新原型 | `4624e21403c793511b1f8d3e0e1a1cfb5f85eae2aa042a2b8a85cd9f300cf971` |
+| 新瀏覽器驗證 | `73e109656b19d5c3573ef6cb4c2d4c3eac338dcfd23ff4037f8e0e70ced246c4` |
+| workplace/r893/report.json | `e12eaa3ae5f0715fb03d931d25a0726380860f4e1f2d1e6f69a12c94103558e2` |
+| comparison.png | `e17ac07b99ffa0e270cf759302502662cdc6b3e1da680160f34247ed4fcfc88a` |
+| continue-waiting.png | `f3492d6bce64ee7bf6d9a4203e2bb22bc492706ce270aa85b85d173d35b29e18` |
+| continue-playing.png | `bf1f5b6bb4393c8ffce50846b01edee172fa602537c33554a85bcb70f4833bf0` |
+
+重跑沿R868隔離瀏覽器契約，改用上述新驗證程式並掛獨立新輸出目錄；不覆寫採認圖與收據。
+只掛tools唯讀及輸出可寫，不掛原版、SDK或錄放檔。示意步數與300／200毫秒均非實機證據。
+1,159個正式前端、SDK、013與舊原型檔案前後SHA相同，產物owner1000:1000。
+`workplace/r893/sealed.json`封存兩來源、七產物與未改輸入，SHA-256為
+`f131955eff53028ff11036982fdfc8c069b3dfd5855e2e0a0a8cde29b5ad7833`；
+`verified.json`為`b4fff8956f5e079ea09042267a7fb54e6bce2995f4d9cf412a7d19942384721c`。
+停止操作與故障保存仍待使用者定案，不重問既有待答問題或先寫正式分支。013保持DRAFT，#17保持OPEN。

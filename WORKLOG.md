@@ -699,3 +699,13 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 八來源、1,132個SDK檔案、248原版檔案及R887的37產物保持。兩查詢114筆bytes、10相對call、12相對分支核原始程式碼通過，含相鄰導航及線性解碼；不稱全部可達。封存33產物，seal／verified SHA依序`16fccfabf52727a168fc13b7d07e0a8e914508a4fa8d52efe372cd4377e5316d`及`8936cb68c57371c0fbf05533dc79a93ef193c52c9acca640fc2deafe4d7cb229`。獨立審查及衛生另列，正式程式、完整地圖與交付資格保持。
 - 最初讀取誤找probe/overlay.json，改核既有r887/overlay.json後通過；文件批次patch因WORKLOG定位不符整批未套用，依實際末段重新套用。沒有改舊收據或產品。
 - R892獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告。JSON／Markdown SHA依序`e4f6ae8f54245cba57347caa513036624174be0b5ea47c3c24ba659ad01047b8`及`bdf1e1eafba122f233f0534f6447ed31107dc5a6158798e9d792959e0bac7236`，owner1000:1000。封存、原始bytes、四點完整摘要及未知界線相符；全工作根278676項衛生異常0，研究及審查自有容器0，正式程式與交付資格保持。
+
+- R891提交`b75f3585eedf57324b6dc8c19e984c5cf081d632`已推送，[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5966918901)及正文含尾LF精確回讀，仍OPEN；33產物保持。收據`workplace/r891/github-progress.json`，正文／留言SHA為`d2b1e3a7e931b0432a768525e8fb845abbf04bbbb759726f8e6e3c575aaba166`及`85d9049fe79e31d9068682fd76f25282b0a597729f1e7744c5558ea09ed3c7c3`，自有容器0。
+
+## 2026-10-03：R893，停止錄製後退出或續玩（#17）
+
+- 上輪屬進展；核目前工作樹、git身分、主機gh授權與遠端#17。命中文件職責，實際載入該入口及grilling技能；正常停止與故障保存仍待定，不重問或代選。先建立並索引[R893](docs/goal/R893-recording-stop-continue.md)。
+- 保留R868原型、舊測試及013，新建自製停止後續玩比較。等待與收尾拒收操作，續玩後遊戲操作可增加但錄製截止保持；沒有原版、Writer、Draw或音訊接線。入口[研究022](docs/re/022-input-recording-boundary.md#r893-recording-stop-continue)。
+- 沿R868既有Puppeteer映像及已驗快取位置，離線非root、cap-drop及有界資源。七個真瀏覽器案例通過，錯誤／外部請求0；三張圖已目視核讀，無裁切。1,159個正式來源與舊原型SHA保持，未掛載原版；013仍DRAFT，不當完整可玩或發行完成。
+- 本輪兩來源／七產物封存，seal／verified SHA依序`f131955eff53028ff11036982fdfc8c069b3dfd5855e2e0a0a8cde29b5ad7833`及`b4fff8956f5e079ea09042267a7fb54e6bce2995f4d9cf412a7d19942384721c`，owner1000:1000。衛生、容器清理與GitHub回讀另列；正式程式、十一組、TSV、冷LOAD及交付門檻保持。
+- 收尾再核1,159來源及七封存產物相同，七份公開檔owner1000:1000。全工作根278713項衛生異常0，自有瀏覽器及核對容器0，git diff --check通過；沒有新增產品故障或重跑原版。

@@ -38,6 +38,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 目前格子的讀取端：[R887](R887-current-cell-reader.md)。
 格子數值的消費端：[R889](R889-cell-value-consumers.md)。
 移動與格子判定呼叫鏈：[R891](R891-movement-edge-consumer.md)。
+停止錄製後退出或續玩：[R893](R893-recording-stop-continue.md)。
 
 ## 終點
 
