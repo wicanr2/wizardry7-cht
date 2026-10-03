@@ -677,3 +677,14 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 五查詢482筆含部分函式／導航的位元組紀錄、16舊項目及30相對call核原始檔通過。8來源、89SDK及248原版檔案保持；封存37產物，seal／verified SHA依序`4b63eda9ca9c44b6ffcdd6b5bbdb8e07a1a92c7e1128b38926829374d50c75f5`及`0cbe5ebd9c4a59fb1cf1b36f00a6348fb4782684dbac844457e9549cc544fb58`。按鈕兩分支與IDA全部terminal exit0，正式Go／SDK／譯文／字型保持；獨立審查與衛生另列。
 - R888獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告；8來源／37產物／89SDK／248原版雜湊及限定讀取契約相符。報告SHA依序`b823cc74df6cbbf90baca35ce22faafa2112dcb8091183141abdb0278502a253`及`d1917b71ed44cea1b811d1a1c64b57ffd50107eb0568ea6c5339078e26331a7e`，owner1000:1000。全工作根277498項衛生0，自有研究／審查容器0；005、完整地圖及交付資格保持。
 - 審查摘要工具在雜湊核對後誤將BIOS的samples=null當陣列，修正空值處理後只核有限收據；未重跑產品或改來源。後續唯讀文件核對曾遇Docker socket權限，改用已授權的主機Docker權限後同命令通過；分類為工具環境，沒有新增產品缺陷。
+- R887提交`16c6521ca79c62d24a6f6a5b6f666aef981020d6`已推送，[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5966422770)及正文含尾LF精確回讀，仍OPEN；`workplace/r887/github-progress.json`記錄正文／留言SHA為`b918ea9da8d5b0134d1e3c14c3790158ac7b9b2beeecbdf11eb3378d766f1710`及`f37386c76c8ed3f84532579577786c9360b33231e1df9ab49add1e3a7ed40e29`。37封存產物保持，自有容器0。
+
+## 2026-10-03：R889，格子數值消費端（#36）
+
+- 上輪分類為進展：正常前進及格子getter證據已審查、推送及回讀。核目前工作樹、git身分、映像與遠端#36；命中IDA、原版決定性觀察及文件職責，載入現行技能及工具契約，建立並索引[R889](docs/goal/R889-cell-value-consumers.md)。舊re-retro-cht-rulebook技能及受控retro-cht入口未找到，本輪依現行reverse-engineer-retro-game-remake技能與專案證據分類，不套模板位址。
+- 本輪沒有執行原版，先核已命中caller的有界程式碼。原始IDA種子在34E0切開後續分支；從直接跳轉與六個程式碼跳表接到357D返回，保留原名及原始邊界。方向選擇、特殊分類替換及9B36–9B46寫入取得靜態證據，不把getter AX直接命名牆／門。入口[研究016](docs/re/016-party-position.md#r889-cell-value-consumers)。
+- 首控制流查詢誤用ida_bytes.get_dtype_size，來源未改、工具終止1且無收據；移除不必要的暫存器文字導覽後，由原始庫新副本再查。第二次指令跨切片邊界觸發守門，同樣終止1且無收據。回查IDA路由與隔離契約後，保持原界線並以結構化未知停止；另依已測直接跳轉核17 bytes至首返回及24-byte有界表。兩失敗腳本及元資料保留，不當產品缺陷。
+- 直線尾段在3559內嵌表格無法解碼；不放寬解碼或沿用資料當指令，改從已證356D直接跳轉入口取得比較上限及返回。四份成功查詢全部terminal exit0，原始來源與IDA項目保持。
+- 兩來源、1,129筆含重複／資料的位元組紀錄、84導航、55相對call、185相對分支及六表54 word核原始檔通過。合併局部圖355／163節點、405／183邊，未追callee或證所有路徑可達。R887的37產物、89SDK及248原版SHA保持；本輪封存42產物，seal／verified SHA依序`d1a903352a4579d7834d3fe744b3ca6829058447f26e660ca0ab61baac047de2`及`5dcbe021ca5231624f91db34f84bf35e19097a3697d2318c5a1f94ce8ad4b86e`。獨立審查及衛生另列，正式Go、規格資格與完整交付聲明保持。
+- R890獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告；方向、signed remainder、分類替換、九個寫入端與未知界線相符。報告SHA依序`c9d6be8c1543bc812f491ab841dba5233a63a404509e612eb2237141cd8f40ef`及`e155177f32b2126baa066d02c46d340d707e60b327100aacb4b7c865c92c9f79`，owner1000:1000。全工作根277572項衛生異常0，五份公開文件owner1000:1000，goal索引及git diff --check通過；自有研究／審查容器0。005及完整地圖資格保持，#36仍OPEN。
+- 審查輸出曾因token上限截斷，改用同範圍精簡bytes核對；沒有重跑研究工具或產品，也不改封存收據。
