@@ -14,6 +14,7 @@ R887完成[目前格子讀取](docs/re/016-party-position.md#r887-current-cell-r
 R889補上[方向與回傳轉換](docs/re/016-party-position.md#r889-cell-value-consumers)：兩個呼叫函式依面向／方向偏移選格子，四位元原始值可能被特殊分類替換後寫入9B36–9B46。六個有界跳表及限定局部圖已核原始bytes；沒有執行原版，畫面消費端、移動判定及牆／門用途仍未知，完整地圖未READY。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 R891完成[短函式實際呼叫](docs/re/016-party-position.md#r891-short-getter-caller)：同R887兩次前進及四點原版摘要相同。raw1157只在第一次由1813呼叫一次，參數0／11／3／5／91／61，回傳0；第二次未進入此函式。後續分流、未移動原因及牆／門用途仍未知，完整地圖未READY。
+R894完成[前進分流與畫格判讀](docs/re/016-party-position.md#r894-forward-dispatch)：八個實際分支點只在第一次前進命中，161D呼叫前後609步間位置由(61,91)到(62,91)，四點原版摘要與R891控制組同。兩次前進後的畫格均為旁白文字，第二次顯示後續段落；場景判讀為強證據，沒有新攔截旁白輸入handler。下一正常移動驗收須先完成旁白、回到方向控制，不能以這趟位置保持推論牆／門。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 
 ## 已完成的實作與驗證範圍
