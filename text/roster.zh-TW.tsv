@@ -1,0 +1,7 @@
+en	zh	context	dy	source
+M-FIG	男戰士	character.add.roster	0	runtime:0110:0fcc
+F-FIG	女戰士	character.add.roster	0	runtime:0110:0fcc
+M-THI	男盜賊	character.add.roster	0	runtime:0110:0fcc
+M-PRI	男牧師	character.add.roster	0	runtime:0110:0fcc
+M-MAG	男法師	character.add.roster	0	runtime:0110:0fcc
+F-ALC	女鍊金術士	character.add.roster	0	runtime:0110:0fcc

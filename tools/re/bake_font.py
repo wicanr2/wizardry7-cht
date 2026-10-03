@@ -90,6 +90,10 @@ def glyph_of(b5: bytes) -> list[int]:
 
 
 def bake(pairs: list[tuple[str, str, int]], outdir: Path):
+    from bake_roster import CATALOG, build, write_payload
+    if (outdir / 'roster.json').exists():
+        raise FileExistsError(outdir / 'roster.json')
+    roster = build(CATALOG, glyph_char, HEIGHT)
     strings = [dst for _, dst, _ in pairs]
     # 收集字元（按出現序）
     chars: list[str] = []
@@ -176,6 +180,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
         w: [int(v) for v in rows] for w, rows in ordinal_glyphs.items()
     }
     (outdir / "xlate.json").write_text(json.dumps(xlate, ensure_ascii=False))
+    write_payload(outdir / 'roster.json', roster)
     print(f"xlate.json：{len(xlate)} 串")
     print(f"字形 {len(chars)} 個；顏色平面 {len(col)}/3584 bytes")
     print(f"輸出：{outdir/'bake.json'}、{outdir/'xlate.json'}；字型 {BACKEND}／{SIZE}像素")

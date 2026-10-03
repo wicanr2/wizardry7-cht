@@ -1,6 +1,7 @@
 # 專案目標
 
 新增角色小按鈕排版：[R925](R925-character-dialog-labels.md)。
+角色列表性別與職業文字：[R928](R928-character-roster-text.md)。
 
 近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)；
 開發入口維護：[R816 前端Docker入口](R816-frontend-docker-entry.md)。

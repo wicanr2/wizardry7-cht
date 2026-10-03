@@ -183,6 +183,7 @@ type textEv struct {
 	page           *flowPage      // 流動文字的還原事件所屬頁（spec 006）；nil＝一般事件
 	img            *ebiten.Image  // Draw 時 lazily 預渲染的字形條
 	compound       *compoundTrace // spec012：完整兩行物品的原子事件與唯讀診斷
+	roster         *rosterWitness // spec022：碼帶事件的完整列身分
 }
 
 // pendingPrint 是已進入、尚未返回的印字（R2.1）。
@@ -197,6 +198,7 @@ type pendingPrint struct {
 	page   *flowPage // 流動文字片段所屬頁（spec 006）；nil＝一般印字
 	font   uint16
 	seq    int // 流動文字片段序號
+	roster *rosterRow
 }
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
@@ -219,6 +221,8 @@ type overlay struct {
 	empty           int
 	nested          int
 	noseg           int
+	roster          map[string]rosterEntry
+	rosterEnabled   bool
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -229,6 +233,15 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 	p := ov.pend
 	ov.pend = nil
 	after := offscreen(o)
+	if p.roster != nil {
+		if e := finishRoster(p, after, o.Palette()); e != nil {
+			ov.evs = append(ov.evs, e)
+			ov.created++
+		} else {
+			log.Printf("職業碼缺譯：印字差異不符 y=%d", p.y0)
+		}
+		return
+	}
 	if after == nil || p.before == nil {
 		ov.noseg++
 		if p.page != nil {
@@ -327,7 +340,14 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 	kept := ov.evs[:0]
 	var shown []*textEv
 	for _, e := range ov.evs {
+		if e.dead {
+			ov.dropped++
+			continue
+		}
 		match := e.rectMatches(a, inCursor)
+		if e.roster != nil {
+			match = e.rosterMatches(a, inCursor)
+		}
 		if e.page != nil {
 			match = e.pageMatch(a, inCursor)
 		}
@@ -359,6 +379,9 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 		default:
 			// 尚未上屏：離屏框仍是 after 才保留（R3 表第 3、4 列）
 			still := e.rectMatches(off, nil)
+			if e.roster != nil {
+				still = e.rosterMatches(off, nil)
+			}
 			if still {
 				kept = append(kept, e)
 			} else {
@@ -854,6 +877,8 @@ func main() {
 	os.MkdirAll("workplace/bake/trees", 0o755)
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
 	ov := &overlay{flow: loadFlow(*flowPath)}
+	ov.roster = loadRoster(*xlatePath, trans)
+	ov.rosterEnabled = len(ov.roster) == 6 && *scale == 3 && hdScale == 3
 	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
 		if o.StackWord(0) != flowSites[storySite].reader {
@@ -943,8 +968,8 @@ func main() {
 			arm(ret)
 			return
 		}
-		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64) // 未處理者沿既有flow／一般路由
 		if _, flow := flowSites[ret]; flow {
+			raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
 			if ret == storySite {
 				arm(ret) // 返回通知先於內容防呆；沒有覆繪事件也要保留邊界。
 			}
@@ -974,6 +999,17 @@ func main() {
 			}
 			return
 		}
+		if ov.rosterEnabled && ret == (oracle.Addr{Seg: 0x0110, Off: 0x0fcc}) && rosterKnownY(in.Y) {
+			raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, min(16, 65536-int(off)))
+			evMu.Lock()
+			handled := ov.enterRoster(ret, r0.SP, o.StackWord(2), off, in.X, in.Y, raw, offscreen(o))
+			evMu.Unlock()
+			if handled {
+				arm(ret)
+				return
+			}
+		}
+		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64) // 一般路由
 		s := string(raw)
 		for i := 0; i < len(s); i++ {
 			if s[i] == 0 {

@@ -1,7 +1,7 @@
 # 中文字型重建
 
 本機可選倚天15×15；發行包採 GNU Unifont 17.0.05 原生16×16。
-字元取正式譯文與F1說明，不能為缺字改譯或裁掉字形筆畫。
+字元取正式譯文與F1說明，包含[text/roster.zh-TW.tsv](../text/roster.zh-TW.tsv)，不能為缺字改譯或裁掉字形筆畫。
 本目錄只保存碼點清單與重建說明，不提交第三方字型或烘製資料。
 
 ## 固定來源
@@ -31,6 +31,23 @@ python3 tools/re/bake_help.py workplace/bake-unifont/help.json
 ```
 
 主程式以`-xlate`、`-flow`、`-help`指定這三份JSON；字型選項只影響烘製與顯示。
+`bake_font.py`同時從職業碼TSV產生`roster.json`，主程式依`-xlate`的目錄載入它。
+六個已量角色列的中文目前限互動與HD皆3倍，規格見[022](../docs/spec/022-character-roster-text.md)。
+只重建此家族可用下列入口，不需原版訊息表；環境變數沿上列設定，輸出必須是新檔：
+
+```sh
+python3 tools/re/bake_roster.py /out/roster.json
+```
+
+倚天後端可另傳`--eten-font /eten/stdfont.15`指定唯讀原字型。
+六列獨立驗證入口為[check_character_roster.py](../tools/re/check_character_roster.py)，
+需要本輪新舊程式的固定路線收據及合法原字型；輸出報告須是新檔。
+
+```sh
+python3 tools/re/check_character_roster.py workplace/r928/implementation \
+  --unifont-hex /font/unifont_all-17.0.05.hex.gz \
+  --eten-font /eten/stdfont.15 --output /out/new-roster-validation.json
+```
 倚天後端改用`WIZ7_FONT=eten`，並將使用者自備字型目錄唯讀掛到
 容器`$HOME/cht/etan_font`；不將倚天加入可散布封包。
 

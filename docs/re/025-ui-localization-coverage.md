@@ -109,7 +109,36 @@ python3 tools/re/check_character_dialog.py workplace/r925 \
 
 R927最終獨立複核0／0／0，主代理完整回讀後採認。私人報告workplace/r925/review/review-r927-final.json／.md的SHA為c8bc00f9ed49b8de9808a3c1c59c910dcd97b6c6b0e7ebe67838476a594ebc81／3c26613057a75d0c4fd91b45b323c1c225fff9389f8af89705cb80edc76ee491。R921的244檔與R925的137檔封存保持，closed-inputs.json SHA依序為4e83af8f928ce462e954e292e29b3f18d112f9ff41b6e25d87263b0bb9736eb4／37c4ffec07794e7f6c865cd9ec97457185657ac524de59d98a770950d52b8f5b；來源、SDK及原版雜湊保持，輸出owner1000:1000，自有容器0。
 
+## R928 角色列的目的區域
+
+沿R921固定路線及同一原版載入設定，以私人唯讀探針在0110:3895限制CS0110、返回0fcc、x150、六個已量y後，只讀16 bytes確認六個精確英文鍵及NUL。0110:3877只在目標呼叫期間讀字元目的座標；返回只接受SP＝入口SP+2。沒有讀MSG、鄰文、手冊答案或詞庫，沒有修改原版記憶體。這是同一正常GUI路線的無頭補充量測，不能當新GUI或角色選取驗收。
+
+confirmed：六列字型均0，各15字元，x依序150、156、162、168、174、180、186、192、198、204、210、216、222、228、234，y在該列保持，返回x240。姓名筆畫只在x150起的前十格；性別職業碼筆畫在x210..239、y..y+5，未選取時差異色號均195→180。碼帶固定x210..240、y..y+6。初次只量90×6區域；後續全64,000像素補量證實六次的已知姓名格、碼帶之外差異0，未知色號0。補量來源SHA `5791f78851bf78f2b58243b9298946a91079c2cd656d95c43708206497fbde15`，whole-offscreen-validation.json SHA `d53dba9969b62966237c8e7d53ebaed6debd056e5d9d74cf7522e91d6ea34093`。
+
+272M及400M原版Step／Mem／A000／Pal／Mouse與R921英文3倍收據全同，indexed逐位元相同。PCFILE只有與原版相同的9,368 bytes複本；原版248與SDK1,132雜湊保持。私人探針來源SHA `04466d99e7b86581256bee67f7b47cd2b7598ae1b6731e9850b26c1d6127981d`、binary SHA `12f0497d7e60aa67657989aeb622ce8ba72236ea258ed34ac50491ad3c12a047`；observation.json SHA `02c2ac5c8bcdba51339e661f43eae502c9c79f25db08a1f7d5c00ac616993c01`、observation-validation.json SHA `c08a9114fe74560b83801b5d13be6392cb07c9888dc62b573bfca7dca72c8b36`、probe-integrity.json SHA `5bcc05374e9608bfb4d7a5070361e79d15ffccad17d26773261a5a618076cbef`。檔案均位於workplace/r928，沒有原版素材加入Git。
+
+原生15／16列字型在3倍的18像素列距內；最長候選「女鍊金術士」寬83／88，在90像素碼欄內。2倍列距12、碼欄60不足，不能縮字或省略職業譯名來掩蓋。私人Canvas原型workplace/r928/roster-layout-prototype.html，SHA `c8a09212cfb172e8f6a2203b0cb124467d23709155294fcc128b89064cda1d8c`，只展示既有Draw底圖的2倍限制與3倍候選，不是正式GUI或玩家操作收據。後續契約為[022](../spec/022-character-roster-text.md)，R930複審後為READY；正式六列中文驗收進行中，原版任意姓名格式、捲動生命週期及2倍完整中文仍未完成。
+
+實際GUI後續完成新增、選取THESUS、選取PENTAS、取消返回及正常退出0，退出0.119秒，未按確定、沒有建立角色，PCFILE內容保持。首輪控制器等待父代理操作超過120秒，failure.json保留；同控制器、同預定操作以新目錄重跑成功，沒有調整遊戲時基或程式。成功收據selection-retry/selection-primary/captures.json SHA `dd4165b53fc0495af2663c1ca6b5568015da425cbe2760a388fb9e679add7355`。
+
+無頭補量三批共18次精確印字，兩個被選取的印字為1→0，另16次為195→180。每次姓名與碼均有差異，其外差異0。實際GUI白底範圍x148..240，首列y149..155、末列y179..185；末列選取時較晚畫的白底會改上一列TREON第六列空白。獨立oracle曾漏算此後續重畫，失敗紀錄保留；先量indexed邊界及原字模，再修正oracle，不改有效收據。12個Unifont原生字模末列均0，3倍中文筆畫不碰此原版底邊。獨立18,818項通過，selection-validation.json SHA `ee67ebc0adc5146840be214b50d31c4b0e407fc04b05c9861af5d36889967c86`；probe-selection binary SHA `aa6b8f755ffb7a18a053af659094ef30e8d3e07abbc2a3c41b079ecf7f7783ce`，觀察SHA `1f0813c724971703fcf1c72cbeeb120a029e1eef5455680179e05ec009921aee`。全部位於workplace/r928。原版248、SDK1,132及持久角色內容保持，root-owned輸出0。無頭與GUI輸入時間不同，未宣稱兩者完整Mem相同；未實作正式六列中文。
+
+## R928 正式六列覆繪
+
+R930契約複審通過後，新增[text/roster.zh-TW.tsv](../../text/roster.zh-TW.tsv)作唯一正式文案；[bake_roster.py](../../tools/re/bake_roster.py)烘製兩種原生字型，既有xlate／flow／help bytes保持。[roster.go](../../cmd/wiz7/roster.go)在一般查表早退前辨識六個完整原文及精確呼叫訊號。專用事件只清除30×6碼帶，完整90×6列只作身分見證，包含已量白底邊界例外；選取前景0合法。未知完整列會撤掉舊事件。譯文不寫入原版或存檔。TSV接線另核路由43的顯示與語意隔離契約，原版流程保持。
+
+正式binary SHA `aca682fdcba57cb56225fd43164961805d53899a9e3847f49356433d70d87d54`。cmd/wiz7測試通過；新TSV與typed資源守門另驗九種格式拒絕及禁止覆寫。真正GUI完成新增、首列與末列選取、取消返回，正常退出0、0.072秒；主代理每步先看實際Draw才送下一個操作。兩種字型的最長五字完整在欄位內，姓名保持。這趟靜音／手動加速GUI只驗顯示及操作，不當完整音訊試玩。
+
+修前／後八組固定路線，各五停止點，共20對Step／Mem／A000／Pal／Mouse摘要相同，原始indexed及色盤bytes全同。HD及Draw各20張修前後全圖比較，批准碼帶之外差異0；2倍及主選單／取消後全圖差異0。3倍三個列表畫面每張倚天改3,185像素、Unifont改3,282像素。獨立原字型核180個字模、輔助116,640及真正GUI58,320個局部像素，共174,960項；中文框與筆畫均在90×18欄位內，取消後六列中文全移除。原版248、SDK1,132、九程序持久角色內容全保持。這是六個已量實例的中文化，不推廣到任意姓名、其他職業或捲動。
+
+3倍兩後端及真正GUI此家族缺譯0，其他缺譯仍80次；2倍此家族仍18次、總98次。2倍不能縮字，目前仍有完整中文閘門，不代表批准交付時留英文。圖片字樣及箭頭操作仍未驗。022防禦分支只有單測，整份維持READY，不標CONFORMED。
+
+獨立檢查器[check_character_roster.py](../../tools/re/check_character_roster.py)需要本輪固定路線與合法原字型，入口見[字型說明](../../font/README.md)。初次60秒期限不足，未產成功報告；只快取PNG解碼、按工作量給300秒後，同收據與判準通過，正式Go及binary未改。私人implementation/roster-validation.json SHA `3bf34ff9ac9875bab759da697680cf676aa2cd2d02d92005e1c60029870acb03`，candidate-integrity.json SHA `5b43b08c4551212eb4a5bc0981348193c0e7b95948b0fd05ca06929b15f9c383`，parser-validation.json SHA `b1ff370437324c214395db3c41927463a3d0660dd1cd317d3d6c532fb42018fc`，位於workplace/r928。
+
+R931實作及結果窄補審均0／0／0，主代理完整回讀後採認。結果JSON／Markdown SHA `34fcad80e19bbee53a474a2bc042ba244b4107989958f8201b64e911d877966f`／`0d300ba1ace41c5583e0a60e3d5f97b3bbe469a7be61b58558102a14f9092557`。不改十一組、完整TSV、冷存讀、音訊／錄放及交付門檻。
+
 ## 生成來源一致性與審查
+
 
 R919最終正式實作及生成來源同步補充計畫審查各0／0／0，主代理已完整回讀。報告JSON／Markdown的SHA-256為90a7d415007bfbba287460ce3d506c639d79a5e819d760e5bf5747732ccd416a及f288f1aaaefda67ea0a9f1ed9e7426aa69d17eba235e0166ba622a5d3e6c40fe，兩份owner1000:1000。checker末段現以open('x')獨占建立，新目的地重跑同306,172項，拒絕既有報告退出2且bytes保持；三份像素報告逐位元相同，SHA-256為2dab43c45aed77d681eaf26647dcbb673eaca5f508f5b3de2dd3339f80a1e317。
 
