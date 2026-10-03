@@ -4,6 +4,7 @@
 待補譯文正常路線：[R898 東向受阻與南向續行](019-catalog-migration.md#r898-normal-east-translation)。
 最遠合法路線與取樣時序勘誤：[R900](019-catalog-migration.md#r900-farthest-maze-continuation)。
 正常路線及重複休息流程：[R902](019-catalog-migration.md#r902-normal-route-context)。
+正常岔路及排除範圍分類：[R904](019-catalog-migration.md#r904-safe-branch-context)。
 
 本目錄保存可回查的原版定位、量測與推論等級。[目前狀態](../../CONTEXT.md)、[規格](../spec/)、[工作歷程](../../WORKLOG.md) 各有獨立職責。
 較早研究中的舊方案與假說不直接成為現況；以後續勘誤、目前程式及同狀態收據判定。
