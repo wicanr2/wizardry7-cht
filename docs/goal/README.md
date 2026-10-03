@@ -42,6 +42,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 正常前進的分流與返回：[R894](R894-forward-dispatch.md)。
 完成旁白後的正常移動：[R896](R896-narration-normal-move.md)。
 正常東向路線與待補譯文：[R898](R898-normal-east-translation.md)。
+最遠合法迷宮路線續行：[R900](R900-farthest-maze-continuation.md)。
 
 ## 終點
 

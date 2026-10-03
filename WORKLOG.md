@@ -740,3 +740,14 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 首次工具stdin關閉，四點後exit0；改TTY後通過。圖片轉送預算不足及PIL缺件，改直接轉送同一原PNG；沒有更換工具鏈。具名NoResponseError兩側相同，正常轉向續行；輸入管線完成後主程序已打印finished，外層cat等待EOF，以正常EOF結束，terminal exit0。這些為驗證工具問題，不作產品故障。
 - 生成器與探針相同；13來源、SDK1132／原版248及R89670產物不變。112產物封存，seal／verified SHA依序`75c9dba3249cf4faf8e3124e572f6370ed9cc2164cab906dcf97b022108fb405`及`fff043a8f8f684c8dc8a693feffc966e175a0b90a9b566cecec2ecdc77ce141a`。入口[研究019](docs/re/019-catalog-migration.md#r898-normal-east-translation)；十一組、TSV、冷LOAD、音訊錄放及封包門檻保持，獨立審查與衛生另列。
 - R899獨立唯讀審查通過，阻擋0／應改0／建議0；主代理完整核讀兩份報告。JSON／Markdown SHA依序`398f27721f9a4cc82db7da92285a17428706c7071def8fb08a2986679e8aabc9`及`c048e6193de638fae79bb16892e8350e11e952e36c4a0fcccc234a134c0e5fb4`，owner1000:1000。審查索引兩次沿舊格式讀取失敗，修正欄位型態後唯讀核對通過，未重跑產品。原版印字903只為觀察開側計數，不稱此欄A/B同；六具名末段畫格已獨立目視。全工作根初檢282232項異常0，研究與審查工具均terminal、自有容器0。
+
+- R898提交`02c2fee5e9fdabee657488537e00e3cd8ab10ed6`已推送，[＃24進度](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-5968325828)含尾LF精確回讀，正文保持、仍OPEN；112產物保持。收據`workplace/r898/github-progress.json`，正文／留言SHA為`904c65c55d71062aba1c378856f174ccef49a8aa3ae48e94f704be915afecf33`及`6d081b941f630d502394851868cd7e733b37510fb38119b510f29f08dfc30a43`，自有容器0。
+
+## 2026-10-03：R900，最遠合法迷宮路線續行（#24、#22）
+
+- 上輪有實際收據與推送，屬進展；核目前HEAD／origin、身分及遠端#24。命中正常玩家、dosgolem重播及文件職責，重讀入口與SDK的CLAUDE／000-index／001-scope；舊rulebook技能路徑及同名知識快照未找到，沿現行路由核範圍，不套用Rich2種子修改或防拷繞過。建立並索引[R900](docs/goal/R900-farthest-maze-continuation.md)。
+- 由R85736點完整固定前綴續24次正常點擊，14轉向、5移動、5受阻；新量56,91及58,91，末4913M／六word`[0,11,2,3,58,91]`／面向0。每個受阻方向只試一次，後續接此終點，不回R857／R898較短路線。29目標命中0，沒有新十一組或中文覆繪資格。
+- 追加勘誤R898與本輪候選的操作取樣說法：部分圖像及下一輸入同一工具呼叫，主代理收到圖前已送出下一操作，不稱初次全部事前目視。原版輸出保持，沒有改圖或原版狀態；看完本輪具名畫格後，只重播同一固定序列。前四點由Go核舊證據再續行，Python在四點穩定後核批次；其餘每個停止點先核完整摘要與PNG，再發下一命令，沒有新增輸入或重新挑結果。
+- 第一個固定重播驗證器錯把Go空切片的null當空串列，退出1，保留原腳本及局部輸出；修空集合與初始四點讀取時機後沿同映像同命令重跑。候選與兩成功程序60完整摘要／PNG全同、48點擊／56命令及三筆具名靜止畫面紀錄同，兩側120核對點、正常退出0，Scratch均空。只改私人驗證工具，不作產品缺陷。
+- 17來源、SDK1132／原版248及R898112產物保持，生成器與探針相同。214產物封存，seal／verified SHA依序`2971eecc66d8de12d5786df43cb42b84dac0799ce5f2d9b76583b15c3ed5a12a`及`dc2929a9b1320fd6e115bb41cc10111197fdae56c110be873f5d61390291f366`。入口[研究019](docs/re/019-catalog-migration.md#r900-farthest-maze-continuation)；十一組、TSV、冷LOAD、音訊錄放與封包仍未完成，獨立審查及衛生另列。
+- R901獨立唯讀審查通過，阻擋0／應改0／建議0；主代理完整核讀兩份報告，未追認首次全部事前目視。JSON／Markdown SHA依序`1beedbd8072f3068e65250ec0fc74c14a5dd14978156f557a50dc0cdbb5e89ea`及`04e497d9ddd65446b6bababe7b2b3eabad9ec1c43f03ebca0f59fbfee5b93968`，owner1000:1000。審查工具曾誤設舊點擊Y及前三筆守門欄位，核實際輸入後修正，未重跑產品。研究及審查工具均terminal，自有容器0。
