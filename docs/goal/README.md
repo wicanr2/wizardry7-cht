@@ -40,6 +40,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 移動與格子判定呼叫鏈：[R891](R891-movement-edge-consumer.md)。
 停止錄製後退出或續玩：[R893](R893-recording-stop-continue.md)。
 正常前進的分流與返回：[R894](R894-forward-dispatch.md)。
+完成旁白後的正常移動：[R896](R896-narration-normal-move.md)。
 
 ## 終點
 

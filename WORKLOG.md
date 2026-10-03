@@ -720,3 +720,13 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 四對原版PNG同，三張已目視。起點有方向箭頭，第一次前進後及第二次停止點均在旁白文字畫面，第二點為後續段落。沿既有006／017將場景判讀為強證據，不假稱新換頁handler或中文覆繪驗收。勘誤R887／R891路線分類：第二次位置保持不能作牆／門測試，下一正常路線先完成旁白再回方向控制；不重開六頁覆繪或深挖無關helper。
 - 八來源、1,132 SDK檔案、248原版及R89133產物保持。本輪封存40產物，seal／verified SHA依序`f9034c25695295c68c5f4e63b28ead8e7fd2c2a572975d3c9d45822032046878`及`5981bd88f5615f5ce39f58e9225674fb69c3c1819ce575f56e6293d63e4a5be7`。原版圖、庫與二進位留本機，獨立審查及衛生另列；完整地圖與交付資格保持。
 - R895獨立唯讀審查通過，阻擋0／應改0／建議0。JSON／Markdown SHA依序`59128871241a162918d369331215aeb3a85e6cfab5e9fa0c8c02846c329e07d9`及`b9ecbfe77f2064464e4a3ab6caa1f4547f9b1774daeafb2a88084a67c052371c`，owner1000:1000。審查的PNG轉送曾有handle／空stdout處理錯誤，沿同一封存圖修正後完成目視，沒有重跑產品。全工作根279829項衛生異常0，研究及審查自有容器0。
+- R894提交`d4fd7ae59682d5b02db7f20f0f30ca24f2b4c820`已推送，[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5967310926)及正文含尾LF精確回讀，仍OPEN；40產物保持。收據`workplace/r894/github-progress.json`，正文／留言SHA為`5f51b65ee46313e004f8e7247b0e2ff48c199b6bf9631c16207c9bc04bcea1d3`及`8a936906ceb2abae8066b2cea989018bab97bdfcabe4e898c84e0dc2723072cf`，自有容器0。
+
+## 2026-10-03：R896，完成旁白後的正常移動（#36）
+
+- 上輪屬進展；遠端#36仍OPEN。命中正常玩家驗收、dosgolem決定性重播及文件職責，重新載入入口與SDK契約，建立並索引[R896](docs/goal/R896-narration-normal-move.md)。以玩家畫面選擇後續輸入，不將旁白換頁當移動受阻；正式程式與交付資格保持。
+- 逐張目視後選定八次正常新點擊。旁白退回箭頭後，原版前進到63,91，再自然轉到58,87及RESTING；一次休息中點擊沒有進移動分支，不作受阻判斷。沿R841契約被動等共200M步，醒來兩頁後回方向控制，正常前進58,87→57,87；下一次原始值4的正常前進保持位置及畫格，右轉面向2→3正常回應，不推廣全地圖分類。
+- 29筆八個既有數值點樣本、三組呼叫前後位置及十四對完整原版摘要／PNG相同；新程序控制組精確重播。全部snapshot及PNG前綴亦與R894控制及三候選相同；首候選命令未有Wait欄，既有欄位相同，與最後Wait:false等價，不稱命令JSON逐字相同。生成器與最終探針全同，來源8／SDK檔案1132／原版248及R89440產物保持，沒有原版寫入或新正文讀取。
+- 初次建置漏宣告commands，修後同命令通過；候選受阻前進被must(NoResponseError)截斷，完整核input.go及opl_progress.go後，私人探針只記具名靜止畫面結果，其他錯誤仍停。A/B各記一次相同no_response後正常轉向及結束。兩者為驗證工具問題，不作產品故障；未覆寫候選收據。
+- 本輪70產物封存，seal／verified SHA依序`12b21a3db7bf748b70a51612c4598331a8d8d0795001a8b078c1da5c9b7fc485`及`46c6b164bbb3a4e6f22374159f009151fa8f031d9eafcbe33d0f832d92b6de2e`，owner1000:1000。正常暖路線與非GUI資格保持，獨立審查及衛生另列；十一組、TSV、正式錄放、冷LOAD及封包門檻仍未完成。
+- R897獨立唯讀審查通過，未解除阻擋0／應改0／建議0。首候選Wait文字精確化已解除，補核70封存不變及既有命令欄位／預設等價；prefix-config-check.json SHA為`7f40cd7cbeead40ae9b3f3cd6d878e579c2e245659175a259830ebeb42c1f320`。JSON／Markdown審查SHA依序`9b40f3ec515e8e3de3b132cd9825bfcec1fd3da9caacdf762b6a161f23da988b`及`4a14af891ce6697536c7f91d9c3b0d21bb88e91c71663c6e704273fa305ffc1a`，owner1000:1000。全工作根281004項衛生異常0，研究及審查自有容器0，git diff --check通過。
