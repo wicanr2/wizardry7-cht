@@ -7,7 +7,7 @@ R868另備妥[停止操作比較](tools/recording-stop-prototype.html)，六個�
 R869另完成[完整設定單檔解析候選](docs/re/022-input-recording-boundary.md#r869-recording-config-wire)，23個限定競爭案例及八個獨立建檔案例通過；沒有正式錄放接線，013仍DRAFT。
 R871另完成[單檔與實際啟動核對](docs/re/022-input-recording-boundary.md#r871-recording-startup-wire)：27個限定案例通過，600k冷執行記錄一次及重播三次與獨立控制摘要相同。沒有玩家輸入、GUI Draw或聲音裝置，不當#17正式試玩完成；013仍DRAFT。
 最新R875完成[真GUI錄放候選](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)：300M正常選單路線一次錄製及三次重播，1,471發布畫面、38原版完整雜湊抽樣與獨立控制一致。正常左鍵後自然PCFILE.DBS 9,368 bytes也一致；改一筆左鍵有119發布畫面差異。正式Go保持，停止／故障策略仍待定，013仍DRAFT，不當遊戲進度冷還原或交付完成。
-地圖入口沿[R881證據](docs/re/016-party-position.md#r881-map-loader-route)：VINIT實際讀入`0110:5055`及`1106:9098`，13個OVR檔頭相符；合法迷宮快照的VMAZE兩段指令與此基址相合。MAZEDATA候選服務經VGA driver，尚未實際量到資源讀取或完整地圖格式；下一步追位置的地形消費端。DISK三對A/B同，設定頁點擊被自動核准拒絕、待明示授權；正式地圖沒有變更。
+地圖入口沿[R883證據](docs/re/016-party-position.md#r883-position-terrain-consumer)：位置消費端使用區塊原點加局部座標，靜態判定8×8範圍並以模16搜尋區塊；資料選擇值2／3接到SCENARIO.DBS控制代碼，格子及牆／門格式仍未知。R881共同載入器及VGA資源路由保持原已驗範圍；MAZEDATA不能僅憑檔名稱為世界地圖。R883未執行原版，正式地圖未改；設定頁點擊仍待明示授權。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 

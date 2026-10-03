@@ -269,7 +269,7 @@ workplace/         唯一可寫研究工作區（gitignore）：原版檔、stat
 |---|---|---|
 | `.OVR` 是自訂容器，不是 Borland TPOV（DS.EXE 無 `CD 3F`、無 `TPOV` magic） | confirmed | `docs/re/002` |
 | 編譯器家族 | 未知（C 家族味道） | `docs/re/004` |
-| DOS／BIOS／EMS 存取都在 resident | 強證據 | `docs/re/004` |
+| resident／OVR普查的DOS／BIOS／EMS存取集中在resident；VGA.DRV另有DOS讀檔，此結論不涵蓋driver | 強證據（普查範圍）；driver讀檔指令confirmed | `docs/re/004`、[R881](docs/re/016-party-position.md#r881-map-loader-route) |
 | 顯示模式 13h（320×200、256 色）；穩定標題與 DOSBox-X 逐像素差異 0 | confirmed | `docs/re/005`、`009` |
 | 同輸入兩次執行：狀態檔、記憶體、幀雜湊全同 | confirmed | `docs/re/009` |
 | 已證 NUL 字串路徑 `sub_13895`→`sub_13877`→VGA.DRV 服務 11→16；`sub_102DA` 不是所有文字必經 | confirmed 靜態呼叫；數值轉換語意為強推論 | `docs/re/013` R837 勘誤、`docs/re/014` |
