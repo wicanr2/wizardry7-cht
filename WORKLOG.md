@@ -688,3 +688,14 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 兩來源、1,129筆含重複／資料的位元組紀錄、84導航、55相對call、185相對分支及六表54 word核原始檔通過。合併局部圖355／163節點、405／183邊，未追callee或證所有路徑可達。R887的37產物、89SDK及248原版SHA保持；本輪封存42產物，seal／verified SHA依序`d1a903352a4579d7834d3fe744b3ca6829058447f26e660ca0ab61baac047de2`及`5dcbe021ca5231624f91db34f84bf35e19097a3697d2318c5a1f94ce8ad4b86e`。獨立審查及衛生另列，正式Go、規格資格與完整交付聲明保持。
 - R890獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告；方向、signed remainder、分類替換、九個寫入端與未知界線相符。報告SHA依序`c9d6be8c1543bc812f491ab841dba5233a63a404509e612eb2237141cd8f40ef`及`e155177f32b2126baa066d02c46d340d707e60b327100aacb4b7c865c92c9f79`，owner1000:1000。全工作根277572項衛生異常0，五份公開文件owner1000:1000，goal索引及git diff --check通過；自有研究／審查容器0。005及完整地圖資格保持，#36仍OPEN。
 - 審查輸出曾因token上限截斷，改用同範圍精簡bytes核對；沒有重跑研究工具或產品，也不改封存收據。
+
+- R889提交`dd6a8f11b571bccb78b9c6ead3f2880518c78000`已推送，[＃36進度](https://github.com/wicanr2/wizardry7-cht/issues/36#issuecomment-5966679816)及正文含尾LF精確回讀，仍OPEN；`workplace/r889/github-progress.json`記錄正文／留言SHA為`ba8ca02365060566c9ea2bdc3738bab92481fcc88287d7daf4da4d200fc988b8`及`a96dc06d876e04fdbd0f077d80dd94b0b18916ab55e406227428d8e3f2133651`，42封存產物保持，自有容器0。
+
+## 2026-10-03：R891，短格子函式的實際呼叫（#36）
+
+- 核目前工作樹、git身分及遠端#36，命中IDA、原版決定性觀察及文件職責，沿用現行IDA技能與工具契約，重新載入SDK能力與規格入口；建立並索引[R891](docs/goal/R891-movement-edge-consumer.md)。
+- raw1157沒有IDA函式種子或直接xref，先以有界程式碼核分流。首查詢內建輸入雜湊為None，terminal exit1、無JSON；保留失敗腳本與元資料。新副本補相符程式碼輸入後，內建及載入雜湊均相符，兩成功查詢terminal exit0。這是工具身分問題，不當產品缺陷。
+- 私人唯讀探針重播R887同一起點、兩次前進與四停止點。觀察開／關原版摘要全同，並與R887控制組同。第一次raw1813呼叫1157、AX=0，第二次未進入；不猜滑鼠未取用或牆／門。caller保存到局部word及後續跳轉為靜態證據，未追新表格。入口[研究016](docs/re/016-party-position.md#r891-short-getter-caller)。
+- 八來源、1,132個SDK檔案、248原版檔案及R887的37產物保持。兩查詢114筆bytes、10相對call、12相對分支核原始程式碼通過，含相鄰導航及線性解碼；不稱全部可達。封存33產物，seal／verified SHA依序`16fccfabf52727a168fc13b7d07e0a8e914508a4fa8d52efe372cd4377e5316d`及`8936cb68c57371c0fbf05533dc79a93ef193c52c9acca640fc2deafe4d7cb229`。獨立審查及衛生另列，正式程式、完整地圖與交付資格保持。
+- 最初讀取誤找probe/overlay.json，改核既有r887/overlay.json後通過；文件批次patch因WORKLOG定位不符整批未套用，依實際末段重新套用。沒有改舊收據或產品。
+- R892獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告。JSON／Markdown SHA依序`e4f6ae8f54245cba57347caa513036624174be0b5ea47c3c24ba659ad01047b8`及`bdf1e1eafba122f233f0534f6447ed31107dc5a6158798e9d792959e0bac7236`，owner1000:1000。封存、原始bytes、四點完整摘要及未知界線相符；全工作根278676項衛生異常0，研究及審查自有容器0，正式程式與交付資格保持。

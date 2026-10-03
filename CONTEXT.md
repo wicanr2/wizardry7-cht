@@ -12,6 +12,7 @@ R885補上[記錄數值及格子位元存取](docs/re/016-party-position.md#r885
 R887完成[目前格子讀取](docs/re/016-party-position.md#r887-current-cell-reader)：原版主畫面前進一次從(61,91)到(62,91)，第二次位置保持；四對原版摘要同，取得89筆兩類四位元回傳與三個真實呼叫定位。數值0／4的牆／門語意及第二次保持原因未知，沒有正式地圖實作或Ebiten視窗驗收。
 R889補上[方向與回傳轉換](docs/re/016-party-position.md#r889-cell-value-consumers)：兩個呼叫函式依面向／方向偏移選格子，四位元原始值可能被特殊分類替換後寫入9B36–9B46。六個有界跳表及限定局部圖已核原始bytes；沒有執行原版，畫面消費端、移動判定及牆／門用途仍未知，完整地圖未READY。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
+R891完成[短函式實際呼叫](docs/re/016-party-position.md#r891-short-getter-caller)：同R887兩次前進及四點原版摘要相同。raw1157只在第一次由1813呼叫一次，參數0／11／3／5／91／61，回傳0；第二次未進入此函式。後續分流、未移動原因及牆／門用途仍未知，完整地圖未READY。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 
 ## 已完成的實作與驗證範圍
