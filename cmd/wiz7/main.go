@@ -459,11 +459,12 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	for _, e := range shown {
 		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
 		cx := e.x0 * k
+		cy := menuLabelY(e, shown, k)
 		for _, glyph := range e.g {
 			for row, w := range glyph {
 				for bit := 0; bit < len(glyph); bit++ {
 					if (w>>(len(glyph)-1-bit))&1 != 0 {
-						img.Set(cx+bit, (e.y0+e.dy)*k+row, fr)
+						img.Set(cx+bit, cy+row, fr)
 					}
 				}
 			}
@@ -678,7 +679,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	// ── 高解析中文合成 ──
 	// 語意（AGENTS.md 高解析中文合成）：原版 320×200 終幀放大後，
 	// 中文字以原字形尺寸畫在對應位置——字相對畫面變小、剛好放進按鈕。
-	// hd＝放大比例的一半：scale 2 時字 15px、scale 3 時 22px。
+	// hd＝max(1,scale/2)：2×與3×都保留後端15／16px原生字形。
 	hd := g.scale / 2
 	if hd < 1 {
 		hd = 1
@@ -711,7 +712,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 		op2 := ebiten.DrawImageOptions{}
 		op2.GeoM.Scale(float64(hd), float64(hd))
 		// 平移在縮放之後，單位是視窗像素：原版座標 × 倍率
-		op2.GeoM.Translate(float64(e.x0*g.scale), float64((e.y0+e.dy)*g.scale))
+		op2.GeoM.Translate(float64(e.x0*g.scale), float64(menuLabelY(e, evs, g.scale)))
 		op2.Filter = ebiten.FilterNearest
 		dst.DrawImage(e.img, &op2)
 	}

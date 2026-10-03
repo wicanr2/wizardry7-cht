@@ -8,6 +8,7 @@
 對話詞庫守門修正及正常續行：[R906](019-catalog-migration.md#r906-lexicon-guard)。
 新事件文字翻頁及返回邊界：[R909](019-catalog-migration.md#r909-event-pages)。
 事件返回畫面及正常路線：[R912](019-catalog-migration.md#r912-event-return-route)。
+正式中文介面的文字與圖片按鈕覆蓋重查：[025](025-ui-localization-coverage.md)。
 
 本目錄保存可回查的原版定位、量測與推論等級。[目前狀態](../../CONTEXT.md)、[規格](../spec/)、[工作歷程](../../WORKLOG.md) 各有獨立職責。
 較早研究中的舊方案與假說不直接成為現況；以後續勘誤、目前程式及同狀態收據判定。
@@ -38,4 +39,5 @@
 | [022 輸入錄放](022-input-recording-boundary.md) | 前端實際API順序、Step與錄放草稿界線 |
 | [023 adapter 分層](023-adapter-boundary.md) | 現行模組依賴、未提交 SDK 來源與乾淨提交編譯對照；尚未定案搬移 |
 | [024 隊員 HP／MP](024-character-vitals.md) | 第一位隊員HP顯示與正常戰鬥10→6回寫；MP、暫存有效期及作弊實作未完成 |
+| [025 中文介面覆蓋](025-ui-localization-coverage.md) | 按鈕、訊息及圖片字樣的正式畫面與操作驗收矩陣；重查中 |
 | [M3 早期筆記](m3-notes.md)、[後續筆記](m3-notes2.md) | 歷史線索，不能取代後續資料庫或量測證據 |

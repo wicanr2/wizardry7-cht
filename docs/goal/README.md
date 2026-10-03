@@ -48,6 +48,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 對話詞庫與手冊防拷的工具守門：[R906](R906-lexicon-guard.md)。
 新事件文字頁的正常續行：[R909](R909-event-pages.md)。
 事件返回畫面與正常路線：[R912](R912-event-return-route.md)。
+按鈕、訊息及圖片按鈕中文重查：[R915](R915-ui-localization-audit.md)。
 
 ## 終點
 
