@@ -576,3 +576,15 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 
 - R872獨立審查阻擋0、應改0、建議0，主代理完整讀取JSON及Markdown。165來源、115產物、75編譯項、27原始案例及13完整變異檔的雙SHA相符；另兩變異刻意截斷或附尾。審查首次把索引包裝當陣列而退出，修正核對工具假設後通過，沒有候選修改或產品重跑。
 - 兩審查報告SHA為`86521333512b19560f4806248fe6703b5c54723b49c5e26d30ba5d503aa76c4b`及`0599ff7221628c9acfbcc629720c160f4f0fd0ccb07ec4a917a9c3f091c2a220`。根核對workplace/r871/final-check.json通過，原版248不變、165來源與115產物保持；owner1000:1000、全工作根衛生0、根及審查自有容器0。只採認限定DRAFT證據，013與#17保持。
+
+- R871提交`5670800df41d1cb94dd7728cfec734ae2de2330b`已推送；[＃17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5963254098)全文回讀相符，Issue仍OPEN。收據workplace/r871/github-progress.json，正文SHA為`ea5ac58317c459c5804a3eb53c130e9b34a0420c0751ac01c5742dcba05a4560`。
+
+## 2026-10-03：R873，Windows 程式的 Wine 視窗驗證（#18、#42）
+
+- 核對git與遠端議題，建立並索引[R873](docs/goal/R873-windows-gui-startup.md)。命中Wine／Xvfb／試玩路由及文件職責，載入試玩契約、驗證reference與文件職責；Docker-only及原版防拷規則優先於來源快照。
+- 沿既有Go1.24.13／Wine9映像，離線重建正式Windows amd64 PE，65選定Go來源、70建置輸入保持。原版及三份既有烘製資源唯讀，沒有原版按鍵、答案、作弊、狀態注入或新圖形後端。
+- 首建置清單誤認SDK必有go.sum，修正研究腳本後同環境重跑；第一趟視窗發現超時、第二趟F1成功但xdotool關窗未正常停止。第三趟有界X樹觀察證實實際視窗與屬性，第四趟依實際屬性及標準關窗訊息完成兩路徑，正式程式保持。
+- 明示與系統預設資料目錄各有960×600真視窗、中文F1第一頁、同Step暫停恢復及程序退出0。兩個固定停止點四項原版摘要同，248原版檔不變、自然寫檔0。完整數值與SHA見[研究020](docs/re/020-player-audio.md#r873windows-程式在-wine-的實際視窗)。
+- 首衛生核對跟隨既有測試失效連結，保留腳本後改lstat，未重跑產品。封存80來源與145產物，擁有權1000:1000、全工作根衛生0及本輪自有容器0。Windows真機、音訊人耳、冷讀檔、錄放、十一組、TSV與正式包仍待完成；不標全遊戲可玩、不建立dist-all或Release。
+
+- R874獨立審查阻擋0、應改0、建議0；主代理完整讀取JSON與Markdown。80來源、145產物、PE與兩條GUI收據全符，只採Wine9早期靜音GUI。兩報告SHA為`b24224142d18436e85eca3eca11ed4ad1b6ef877d8976972d17aee6621469df0`及`877e90feb15c97d14934e070bd87bf10b5441f540a7137e2c0d55bd422f4a7c8`；根核對入口workplace/r873/final-check.json。審查掛載前缺輸出目錄及元資料篩選／PE比較錯誤均修核對工具，沒有重跑產品或改凍結索引。#18、#42保持OPEN。

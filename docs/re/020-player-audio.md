@@ -471,3 +471,39 @@ Go1.24.13，Wine9.0；最新程式與前一版的`-h`皆退出0並列出預期�
 索引只含R810頂層檔，Wineprefix為工具狀態、未當程式建置來源；完整邊界留報告。
 以上封存輸出1000:1000，root-owned、誤建md目錄及本輪自有容器0。
 沒有建立dist-all、tag或Release，009保持READY，十一組及可玩交付門檻維持。
+
+## R873：Windows 程式在 Wine 的實際視窗
+
+本輪入口為[R873](../goal/R873-windows-gui-startup.md)，沿目前正式來源及既有烘製資源，未改Go、SDK、譯文或字型。
+Go1.24.13離線重建65個選定Go來源、70個建置輸入，來源前後SHA相同。
+這70項限定本專案／SDK及鎖定檔；標準庫與第三方來源未逐檔雜湊，第三方版本依應用go.mod／go.sum鎖定。
+Windows amd64 PE32+為14,836,736 bytes，Machine`0x8664`、OptionalMagic`0x20b`；
+SHA-256 `208260345f38c6ed8d22a076f92a2e576e7c4edea6aa9a82a007a25294fb4cfa`。
+既有Wine9與Xvfb容器共用專用X socket，網路關閉、使用者1000:1000；原版及烘製資源唯讀。
+
+兩個正式冷啟動案例均省略IPS、保持原版虛擬時鐘預設、靜音。
+明示存檔路徑為`Z:\out\attempt-4\explicit\save`；預設實際為`C:\users\ubuntu\AppData\Local\wizardry7-cht\save`。
+兩目錄存在且無自然寫檔，原版248檔SHA保持。
+200k與60M的Step／Mem／A000／Pal摘要在兩案例相同，60M的正式Draw圖均960×600。
+這是兩種儲存設定的有限一致性，不是中英模式新同狀態A/B或完整CPU／RAM SHA驗收。
+
+真視窗的F1與Esc經X鍵盤事件操作，暫停／恢復分別維持62M及61.8M Step。
+兩張第一頁中文說明目視可讀，未見裁切；沒有逐字或其他頁的新像素驗收。
+對已宣告`WM_DELETE_WINDOW`的視窗投遞標準關窗訊息，兩趟程序退出0，
+投遞至工具觀察退出約2.129秒，含Wine及100ms輪詢開銷；不等同原生Windows退出時間。
+程式結束沒有panic或音訊fault，靜音的DeviceFrames／DeliveredBytes為0，不能當音訊人耳驗收。
+
+保留首次缺SDK獨立go.sum的建置清單錯誤，鎖檔實際是應用go.mod／go.sum與SDKgo.mod。
+第一趟視窗發現超時；第二趟已開關F1，但xdotool關窗沒有讓Wine程式正常停止。
+第三趟完整X視窗樹證實視窗已映射、具有完整`_NET_WM_NAME`與正確WM_CLASS；有界診斷結束X server，非正常退出。
+第四趟改依實際屬性找視窗並投遞標準關窗訊息才通過；前述非零退出皆保留，不列為產品崩潰證據。
+首次封存衛生腳本跟隨既有刻意失效的測試連結而停止，保留腳本後改用lstat重跑；未重跑GUI或修改產品。
+
+本機收據`workplace/r873/verified-report.json`，SHA-256
+`4d5a38a24eb1509d29fdeb0227af7e8ec8918fb95f1300163e57b0bacb870140`；
+80項來源索引`519e6bd03ef2585c5817647a55aa4de43ef32b735905bca00eb4b0082af72563`，
+145項輸出索引`ec7af751ce233af62f1c6baea8c52537fc8c7e081470bf368851eef89de9f775`。
+索引不含工具cache、Wineprefix／HOME及X socket；來源含七個研究腳本及三份既有烘製資源。
+輸出1000:1000、工作根root-owned／誤建md目錄0，本輪容器0。
+此結果只證明Wine9早期靜音GUI，沒有Windows真機、macOS、正式存讀還原、錄放、全遊戲或正式封包驗收。
+009仍READY、#18與#42保持OPEN，十一組及TSV門檻保持。

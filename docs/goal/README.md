@@ -28,6 +28,7 @@ HP寫入端證據：[R851](R851-hp-writer-evidence.md)。
 正常停止錄製的操作比較：[R868](R868-recording-stop-prototype.md)。
 單檔錄放的完整設定解析：[R869](R869-recording-config-wire.md)。
 單檔錄放與實際啟動核對：[R871](R871-recording-startup-wire.md)。
+Windows遊戲視窗與存檔路徑啟動：[R873](R873-windows-gui-startup.md)。
 
 ## 終點
 
