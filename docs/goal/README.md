@@ -45,6 +45,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 最遠合法迷宮路線續行：[R900](R900-farthest-maze-continuation.md)。
 正常迷宮路線與譯文情境：[R902](R902-normal-route-context.md)。
 休息流程前的正常岔路：[R904](R904-safe-branch-context.md)。
+對話詞庫與手冊防拷的工具守門：[R906](R906-lexicon-guard.md)。
 
 ## 終點
 
