@@ -604,3 +604,14 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 首封存的/out與/src別名映射錯誤在索引寫出前停止，保存腳本後修正，未重跑產品。封存186來源及16581產物，owner1000:1000、全工作根衛生0及本輪自有容器0。來源、SHA及停止線見[研究022](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)。
 - 原版stream軟體統計一致，但Reader靜音、裝置交付0、ACK=false；不當音訊人耳或實機。自然角色資料寫入不當遊戲進度冷存讀。013保持DRAFT，全部十一組、TSV、正式錄放、冷LOAD及封包保持未完成；待獨立審查後提交，#17及#42保持OPEN。
 - R876完成封存後唯讀審查，186來源及16581產物全同，阻擋0、應改0、建議0。主代理完整核讀JSON與Markdown，SHA分別c20bd9af79e5c505d97826a40f9033c1de17c72e81e1acc3d152676d01bb87fa與075f54ca4178a3cc4b45204d716883f4077c37a2a96d445e4ce5e72f7243755e；只採限定DRAFT證據。報告owner1000:1000、審查自有容器0，沒有產品重跑或封存索引改寫。
+- R875提交`089a0bd00a8701e30cb19e73f449db090a11276d`已推送。[＃17進度](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5964674210)及[＃42旁證](https://github.com/wicanr2/wizardry7-cht/issues/42#issuecomment-5964674751)全文含尾LF回讀相符，兩議題仍OPEN。收據`workplace/r875/github-progress.json`，正文SHA依序`9684833f5d79c9d16b01a12e0beb807efe19040320cc66dc6b0c6b7875211b10`及`08f4eb4818e4e377a25e58b518ab34db213e9065c0c279b61ee3f1b93dfff935`。
+
+## 2026-10-03：R877，整張地圖的資源入口（#36）
+
+- 核對遠端未完成議題、目前正式來源及005／013／015；錄放停止／故障策略與合法冷LOAD收據仍待外部條件，不把既有候選轉正式。建立並索引[R877](docs/goal/R877-map-resource-boundary.md)，沿已定案整張地圖功能查最小讀取入口。
+- 命中規格、文件、逆向與IDA路由。IDA技能安裝連結不存在，依知識入口找到`/home/anr2/ida_94_official/skills/use-ida-pro-9-4/SKILL.md`並載入權威技能、README及工具契約，未另建映像或改安裝連結。
+- 原始IDA庫及原版唯讀，獨立副本的最小IDA JSON核DS身分、139函式、版本及UID。四庫精確MAZEDATA.VGA搜尋皆空；改核原始檔名位置，確認兩個OVR的附加區不在code-only資料庫內，沒有把搜尋空當原版無入口。
+- 兩指標候選與有界callee定位通過。既有線性種子部分分支及歸屬不可靠，使用IDA直接解碼API保存原始項目／名稱，不重種庫。103條指令逐條核原始OVR位元組，relative call獨立算式相符；資料基址仍假說、檔名映射強推論，runtime服務及完整地圖格式未知。
+- 原始驗證命令重複Python參數，工具在載入腳本前退出2；修正後同一映像與腳本乾淨重跑通過。沒有產品缺陷、遊戲重跑、原版寫入或防拷資料讀取。來源及停止線見[研究016](docs/re/016-party-position.md#r877-map-resource-boundary)，獨立唯讀證據審查另列。
+- 封存20來源與29產物，索引SHA `af56650547ec1852aab952f64a86e8d319b3482f4f46e79e9b7016d4c9e7084a`，驗證報告SHA `7280083dc102e8d12cec6923bb6b4c2890575a2aae216d357b01de43fc75f7df`。MAZEDATA雜湊與開工時同，原庫保持；產物owner1000:1000、R877自有容器0。正式地圖、TSV、十一組、冷存讀及封包門檻保持。
+- R878獨立唯讀審查阻擋0、應改0、建議0，主代理完整核讀兩報告。20來源／29產物與103指令／20相對call目標全符，只採限定靜態證據。兩SHA為`1b1085ff4d99bd1900463aa58f3e2d9daa31d75b764875724045e2c774877869`及`ae510d725381e38e459f4b756f4e371e4eda4e3d4824b6c5313fbc9e7616e5c4`；owner1000:1000、審查自有容器0。審查首個核對誤用exact-decode根路徑，按凍結索引修正；摘要超出輸出預算後改有限結果核對，沒有產品或IDA重跑。全工作根root-owned／誤建.md目錄0，封存索引保持。

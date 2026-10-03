@@ -7,6 +7,7 @@ R868另備妥[停止操作比較](tools/recording-stop-prototype.html)，六個�
 R869另完成[完整設定單檔解析候選](docs/re/022-input-recording-boundary.md#r869-recording-config-wire)，23個限定競爭案例及八個獨立建檔案例通過；沒有正式錄放接線，013仍DRAFT。
 R871另完成[單檔與實際啟動核對](docs/re/022-input-recording-boundary.md#r871-recording-startup-wire)：27個限定案例通過，600k冷執行記錄一次及重播三次與獨立控制摘要相同。沒有玩家輸入、GUI Draw或聲音裝置，不當#17正式試玩完成；013仍DRAFT。
 最新R875完成[真GUI錄放候選](docs/re/022-input-recording-boundary.md#r875-recording-live-shutdown)：300M正常選單路線一次錄製及三次重播，1,471發布畫面、38原版完整雜湊抽樣與獨立控制一致。正常左鍵後自然PCFILE.DBS 9,368 bytes也一致；改一筆左鍵有119發布畫面差異。正式Go保持，停止／故障策略仍待定，013仍DRAFT，不當遊戲進度冷還原或交付完成。
+R877另定位[整張地圖的資源入口](docs/re/016-party-position.md#r877-map-resource-boundary)：MAZEDATA檔名在兩個OVR附加區，兩個指標呼叫及103條原始指令核對通過。載入後映射、服務身分與地圖格式仍未知，沒有原版執行或正式地圖變更。
 可執行工作唯一來源是 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔記錄目前真相；[WORKLOG.md](WORKLOG.md) 保存歷程與勘誤。
 
