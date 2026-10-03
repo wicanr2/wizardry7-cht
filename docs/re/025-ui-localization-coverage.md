@@ -1,7 +1,7 @@
 # 按鈕與訊息的中文覆蓋驗收
 
-狀態：主選單六標籤修正通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
-入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[目前狀態](../../CONTEXT.md)。
+狀態：主選單、角色選單及新增角色對話框限定驗收通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
+入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[目前狀態](../../CONTEXT.md)。
 
 使用者要求把圖片內的英文按鈕納入完整中文化。本文保存目前正式來源及實際畫面的覆蓋矩陣；譯文存在、原版畫格及舊測試完成數量不直接當作本次介面已驗證。
 
@@ -27,10 +27,11 @@
 |---|---|---|---|
 | 冷啟動2M，廠商標誌 | 正式Draw可見圖像；Shown事件0；實際素材檔與繪製呼叫尚未追到 | 無操作按鈕；品牌字樣仍是原版 | 已量畫面，圖片來源待定位 |
 | 冷啟動60M，廠商標誌及呈獻字樣 | 正式Draw可見英文PRESENTS；Shown事件0；圖像來源為強證據，確切檔案與呼叫未知 | 呈獻字樣尚無中文覆繪；沒有按鈕操作收據 | 圖片文字缺口，不能以catalog查表通過 |
-| 主選單六個標籤 | 正常無輸入272M，六個resident文字覆繪事件；不是圖片內固定字樣 | 六標籤完整；「匯入巫術六」五字；雙字型2×／3×的HD及實際Draw都在按鈕內 | 顯示修正通過；未操作各按鈕，防禦分支僅單測，見[020](../spec/020-main-menu-labels.md) |
+| 主選單六個標籤 | 正常無輸入272M，六個resident文字覆繪事件；不是圖片內固定字樣 | 六標籤完整；「匯入巫術六」五字；雙字型2×／3×的HD及實際Draw都在按鈕內 | 角色選單與新增角色入口／返回通過，其餘入口未量；防禦分支僅單測，見[020](../spec/020-main-menu-labels.md) |
 | 片頭製作名單的未翻譯事件 | 四組中文run.log各80次；75次精確對應15個去低位碼後的正式英文鍵，5次空字串 | 15筆來源的zh與en相同；尚未逐項確認保留內容的分類及實際畫面 | 不當75個新漏譯，也不計全文覆蓋通過 |
 | 新增角色對話框標題及確定／取消 | R921、R925正常GUI及固定步數已量；既有resident文字覆繪 | 雙字型兩倍率字格與筆畫在框內；正常取消返回 | 限定通過，[021](../spec/021-character-dialog-labels.md)仍READY |
-| 新增角色清單六列 | 完整名字＋性別職業動態文字，返回位置0110:0fcc | 名字依既定規則保留英文，六個性別職業仍缺中文 | 必須補譯，不能當圖片字樣 |
+| 新增角色清單六列 | 完整名字＋性別職業動態文字，返回位置0110:0fcc | 名字依既定規則保留英文；六個性別職業3倍雙字型完整，選取及取消正常 | 六個實例通過；2倍、任意姓名與捲動未完成，見[022](../spec/022-character-roster-text.md) |
+| 角色選單六按鈕 | R932正常GUI及resident0110:5686、六個精確原文／座標 | 創建／檢視／刪除／改名／頭像／離開完整；雙字型兩倍率字格及筆畫在框內，離開返回正常 | 限定通過；五個子畫面未量，見[023](../spec/023-character-menu-labels.md) |
 | 清單上下箭頭 | 已見無英文圖示，操作及說明未量 | 尚未完成控制驗收 | 另沿正常GUI核對 |
 | 建立角色、其餘人物／物品／咒語／對話／戰鬥／存讀及圖片按鈕 | 此次重查尚未到達；既有規格與歷史收據須逐項核現行來源 | 未量到，不計本次通過 | 依可見畫面走合法操作 |
 
@@ -136,6 +137,42 @@ R930契約複審通過後，新增[text/roster.zh-TW.tsv](../../text/roster.zh-T
 獨立檢查器[check_character_roster.py](../../tools/re/check_character_roster.py)需要本輪固定路線與合法原字型，入口見[字型說明](../../font/README.md)。初次60秒期限不足，未產成功報告；只快取PNG解碼、按工作量給300秒後，同收據與判準通過，正式Go及binary未改。私人implementation/roster-validation.json SHA `3bf34ff9ac9875bab759da697680cf676aa2cd2d02d92005e1c60029870acb03`，candidate-integrity.json SHA `5b43b08c4551212eb4a5bc0981348193c0e7b95948b0fd05ca06929b15f9c383`，parser-validation.json SHA `b1ff370437324c214395db3c41927463a3d0660dd1cd317d3d6c532fb42018fc`，位於workplace/r928。
 
 R931實作及結果窄補審均0／0／0，主代理完整回讀後採認。結果JSON／Markdown SHA `34fcad80e19bbee53a474a2bc042ba244b4107989958f8201b64e911d877966f`／`0d300ba1ace41c5583e0a60e3d5f97b3bbe469a7be61b58558102a14f9092557`。不改十一組、完整TSV、冷存讀、音訊／錄放及交付門檻。
+
+## R932 角色選單六按鈕
+
+沿正式R928 binary及Unifont3倍，真正GUI正常點角色選單160,47，400M完整檢視六按鈕，再點離開287,193，528M返回主選單。正常退出0、0.129秒，持久內容保持。首輪父代理再次超過120秒操作期限，失敗收據保留；同控制器／程式／預定操作以新目錄重跑成功，未調遊戲參數。重跑primary/captures.json SHA `ab4d1bd4ff9689b56b5ffdb0e81c4f8e384bb1b4cf4eea728cd2f2fd484a5b20`。
+
+六個標籤為CREATE／REVIEW／DELETE／RENAME／PICTURE／EXIT，現有文案為創建／檢視／刪除／改名／頭像／離開。唯讀正常路線補量確認全部走resident0110:3895，返回0110:5686，字型0，y190；x依序11、63、115、167、216、277。這六個標籤是印字文字，沒有證明其他圖片按鈕已中文化。背景美術及未操作的頭像子畫面不外推。
+
+原版indexed量到六個按鈕皆49×9，左上為x4／56／108／160／212／264、y188。四組中文及兩組純英文正常退出0；三個停止點共12對Step／Mem／A000／Pal／Mouse相同，indexed及色盤bytes全同。獨立原字型核48字模及141,120個HD／Draw局部像素通過，真正GUI400M的indexed／色盤與HD／Draw PNG也與已核Unifont3倍逐位元一致；不宣稱真正GUI與固定輔助路線的Mem相同。
+
+confirmed修前排版缺陷：2倍倚天完整字格超底邊1像素，本次六詞筆畫超框0；2倍Unifont字格超2像素，六詞的筆畫超框依序18／12／9／12／7／16像素。3倍兩後端字格及筆畫超框均0。正確畫出舊排版不能算按鈕內排版通過。限定修正契約見[023](../spec/023-character-menu-labels.md)，R933審查後READY，修後結果見下節。四組中文總缺譯事件仍80，這六詞缺譯0；不能稱全遊戲缺譯0。
+
+私人workplace/r932/menu-validation.json SHA `fb236a9f4d2fba933033d783c47e3a2011310801174b020ea3ca270c7c00fdde`，primary-integrity.json SHA `600dcc3d77bfdcd31710a616a5dab771d36e461d7a7af6d32e287bd000df9145`。探針source／binary／observation SHA `1dac0e28ad6246384836bf2da7b4b69f2d40fa3f4af45ed5786ae650cf78b691`／`b9c1148b639fcacb0f8a954e1f61ac2394d9b16506eef1c450be92109861b10a`／`1541a2bb0a689248f68339056078bcc82d20bb87c7e5250d701ad550445438d3`。三個探針停止點與英文輔助摘要及indexed全同；原版248、SDK1,132保持。這段觀察未改正式Go／catalog／字型，也未進入建立、檢視、刪除、改名或頭像子畫面。
+
+## R932 六按鈕正式置中
+
+R933獨立審查0／0／0、主代理完整回讀後，023轉READY。新增[character_menu_labels.go](../../cmd/wiz7/character_menu_labels.go)，六個精確訊號皆在Shown且字模為一致的原生15／16行才調畫筆y。全家族高度、位元及各自寬度均守門；失敗沿020／021位置。HD及Draw共同走buttonLabelY，不改x、原版矩形、事件生命週期、文案或字型。2倍倚天y378、Unifonty377，3倍皆570保持。
+
+正式binary SHA `9796d372ce53cef7528f9ad5d3a8fc57206af15cfa411cb37ab3f2499a20ed22`，完整cmd/wiz7測試通過。真正GUI正常進角色選單、按離開返回及退出0、0.073秒；持久角色內容保持。主代理每次看圖後才送左鍵，沒有預注入輸入。400M的HD／Draw／indexed／色盤與已獨立核過的Unifont3倍輔助逐位元一致，沒有宣稱兩條路線Mem相同。
+
+四組固定中文程序正常退出0；12個停止點與R932英文及修前原版摘要、indexed／色盤相同，Shown及.comp保持。HD及Draw各12張全圖比較：2倍400M倚天各改892像素、Unifont各改1,108像素，批准舊／新字格聯集之外差異0；主選單、返回及全部3倍全圖差異0。原字型獨立核48字模、141,120個局部像素，24個按鈕／字型／倍率組合的完整字格及筆畫超框全0。主代理檢視四組實際Draw。
+
+原版248、SDK1,132、R928封存464檔及兩後端各四資源保持，五程序正常退出及持久內容保持。四組80次無譯文事件與修前逐列相同，六標籤此路線缺譯0。防禦分支只有單測，023保持READY；其他子畫面、圖片字樣、十一組、TSV、錄放、冷存讀及交付閘門保持。
+
+可重跑獨立檢查器為[check_character_menu.py](../../tools/re/check_character_menu.py)，原版、字型與基準唯讀，新報告目錄可寫；拒絕既有輸出exit2且報告bytes保持已核。一律在既有離線非root Docker，原字型入口見[font/README.md](../../font/README.md)：
+
+```text
+python3 tools/re/check_character_menu.py workplace/r932/implementation \
+  --baseline-root workplace/r932/retry \
+  --unifont-hex workplace/fonts/unifont-17.0.05/unifont_all-17.0.05.hex.gz \
+  --eten-font /eten/stdfont.15 \
+  --output /reports/new-character-menu.json
+```
+
+私人workplace/r932/implementation/menu-validation.json SHA `72caceae97226b6acb69d55e8a29b995e1893c71ce298651b0a07cec64072a4b`，integrity.json SHA `ac04632f97c7e45f4bcf840de02c7fce08655498caa061b25c194c320141da31`，primary/captures.json SHA `f32a75ed0f0b3234d24644f5061506a0940c4dbe5a5b15a6386cf747e3af770c`。完整來源SHA與報告拒絕覆寫見同目錄formal-summary.json。
+
+R934最終獨立複核0／0／0，主代理於FINAL後完整回讀JSON／Markdown採認；SHA依序`b60e8a651023924217baf1b80945e2d6db5781fb1afb53134804e6c930804b08`／`079f4426de21d9ac3a850bf363a23dfcd8899677fe11f6a88fced28817ea3963`，本機workplace/r932/review-r934.json及.md。335個產物一次封存，closed-inputs.json SHA `73089cfbdcfe6086a73bb544e11777f1c24311d5ef2aaee9faa9dd19ec852fb5`，原版及SDK保持，工作根root-owned及.md目錄異常0，自有容器0。023仍READY，推送回讀另補。
 
 ## 生成來源一致性與審查
 

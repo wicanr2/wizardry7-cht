@@ -13,6 +13,9 @@ var characterDialogLabels = [...]struct {
 
 func buttonLabelY(e *textEv, shown []*textEv, scale int) int {
 	oldY := menuLabelY(e, shown, scale)
+	if y, ok := characterMenuLabelY(e, shown, scale); ok {
+		return y
+	}
 	if scale != 2 && scale != 3 || len(e.g) == 0 {
 		return oldY
 	}
