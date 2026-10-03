@@ -46,6 +46,7 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 正常迷宮路線與譯文情境：[R902](R902-normal-route-context.md)。
 休息流程前的正常岔路：[R904](R904-safe-branch-context.md)。
 對話詞庫與手冊防拷的工具守門：[R906](R906-lexicon-guard.md)。
+新事件文字頁的正常續行：[R909](R909-event-pages.md)。
 
 ## 終點
 
