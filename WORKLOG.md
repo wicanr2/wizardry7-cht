@@ -1050,3 +1050,5 @@ R950回讀紀錄`87af544`已推送，工作樹僅既有未追蹤R433。再次命
 R951獨立契約審查最初找到錄放目的檔污染Root／Scratch的阻擋，已明列Oracle／Writer前按實際父目錄身份排除兩層及輸入別名；候選未接此新守門，不宣稱已動態通過。最終阻擋0／應改0／建議0，主代理於FINAL後完整回讀兩報告及SHA：JSON為`3d19cb871200f825eaa28d5a32eb9adc61d2c3c1b24e17f6b55a3d0705bd6f5b`、Markdown為`688bc60e3c26331f110ea6f347b2a50df839e3f5d1af120633d8197c6a84f8e1`，入口`workplace/r951/review-contract.{json,md}`。
 
 結構檢查v2通過，SHA為`9ee63fe5ad7ed38efeca9ca41496ae90d0c49ab8b21d3145fcafb6fb572f4618`；只證連結、索引及HTML兩選項，不證瀏覽器渲染。21審查輸入再核相同，六文件原bytes另存快照，私人15檔封存，`closed-inputs.json` SHA為`1755e399be7387de21145f0e41da07dc77c74c1c3b75b7680add759aef8997fa`。已提出具體契約及甲頁尾／乙F1的採認問題，待回覆，未代選或升READY；共同決策來源為grilling「在使用者確認共同理解前，只做不依賴決策的查證與可撤回prototype」，路徑`/home/anr2/.codex/skills/grilling/SKILL.md`。原版及產品未執行，自有容器0、UID/GID1000:1000。
+
+R951草稿與原型`972132b`已推送；[#17留言5979795019](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5979795019)含末尾LF逐字回讀相同，議題保持OPEN。15封存檔及其餘15審查輸入SHA保持；六受審文件只更新CONTEXT的審查狀態及追加WORKLOG，其他核心內容相同。`workplace/r951/github-readback.json` SHA為`1424b9ddd76787312ee9aea622e02b4caded56f6d5494c523e3764c99b1b3568`。輸出衛生異常0，自有容器0；未追蹤R433保持，013仍DRAFT，總目標未完成。
