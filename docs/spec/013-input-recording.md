@@ -526,3 +526,13 @@ revision-7已量到真正按鈕停止、35次續玩、三次完整重播及無�
 輸出片段另存本機，核停止前後SHA及原版前後248檔盲SHA；重播器拒絕.partial及另名的同bytes片段。此驗收不證明其他磁碟故障、立即故障UI、發布後撤回、阻塞呼叫或斷電耐久，不改正式CLI／schema或013的DRAFT狀態。正常控制若不能通過，先修觀察工具，不採認故障結果。
 
 本輪健康磁碟控制正常停止、14次續玩及關窗退出0。故障側真正Write請求285、實寫27 bytes後返回ENOSPC；保留73,728 bytes且尾列未完成，沒有成功末註或正式名。10.2M安全邊界承認停止後再15次操作，片段SHA保持，軟體音訊Frames149737→184969；原檔及改名副本皆拒絕重播，關窗退出2。這是單次實際空間耗盡證據，不替代其他故障與完整退出驗收；來源、獨立核對及重跑入口見[研究022](../re/022-input-recording-boundary.md#r949-recording-disk-failure)。
+
+<a id="r950-recording-audio-fault"></a>
+
+## R950：音訊故障資格蒐證契約
+
+私人副本在9M後各注入一次真正進度回呼panic或取樣yield錯誤，沿既有Oracle捕捉及Stream錯誤路徑，不替換原API回傳或錄製收尾判斷。故障後原Run仍可成功前進，owner讀到觀察／消費故障後須否定成功末註；正常按鈕停止留下片段，後續遊戲照常，原檔與改名副本皆拒絕重播。健康控制必須能正常停止。
+
+只保存有限故障、Step及來源摘要；新片段只在本機核對。真正音訊故障的續玩不要求繼續音訊，仍依009以同一時間軸fallback Pace。關窗造成的中止取樣與關窗前故障分開，以截止時原版OPL觀察碼、playerAudio.fault及Stream摘要判定。本輪不是裝置故障、原版全狀態parity、完整退出交錯或正式格式驗收，013維持DRAFT。
+
+三個真正GUI案例及獨立核對通過。正常控制9.8M停止、15次續玩及關窗exit0；兩種故障9M觸發，故障後各三筆none／完整200k Run。9.6M按鈕停止均回recording_ineligible，72,895 bytes片段無成功末註或正式名，各15次續玩不改檔，原檔與改名副本都拒播，關窗exit2。觀察panic沿Oracle故障碼callback_panic及前端observer_fault，消費錯誤沿Stream／前端sink_failure；故障側沒有繼續合成資格。本輪只解除這兩種已量到的B3路徑，其他故障及正式契約仍待，完整證據見[研究022](../re/022-input-recording-boundary.md#r950-recording-audio-fault)。

@@ -1207,3 +1207,52 @@ confirmed只限本次真正ENOSPC及健康控制。沒有量其他IO、立即故
 最終限定結果審查0／0／0，音訊時點文句T1已解除；主代理於FINAL後完整回讀兩報告及SHA。`workplace/r949/review-final.json`／`.md` SHA依序為`533f7dea0499d57e205bbb9c9a715569d8968271bb59f3f99bc49d70742bc35f`、`31ab535bad45b586acc45c1b4f4247514dfcf7235f42c9c3d3914cf1c67898a3`。六份受審文件與技術輸入大小／SHA再核相同，另存原bytes快照；本段只追加中繼資料。
 
 私人259份技術檔一次封存，`workplace/r949/closed-inputs.json` SHA為`6ed4e683692f96bb42621881c680148cbd11e0545aa7b1b1804f5d5312921223`，排除快取及後續GitHub回讀。來源、錄放片段、圖像及binary都留本機，不進Git。輸出UID/GID1000:1000，自有容器0；正式程式與SDK保持，013不升READY。
+
+<a id="r950-recording-audio-fault"></a>
+
+## R950：原版成功返回與音訊失敗的資格分離
+
+2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[目標](../goal/R950-recording-audio-fault.md)、[013候選契約](../spec/013-input-recording.md#r950-recording-audio-fault)。沿R948 revision-7私人副本及R943 GNU Unifont六資源，原版248檔唯讀；不改正式程式、SDK或舊候選。只盲SHA原版，不讀MSG、state或手冊；新錄放僅本機解析，不輸出payload。
+
+關窗分類先依[009 A3／A7](../spec/009-player-audio.md)：明示退出可中止未播取樣並記不完整。來源已證實audio_player.progress在全局停止要求到達時可從yield返回stopped，Stream.Accept把yield錯誤記為sink_failure；前端在停止要求已存在時不將它另記playerAudio.fault。R949最終sink_failure由這條退出路徑形成為強推論，該輪沒有記錄逐分支時點，不能改稱動態已證實根因。本輪故障明確在關窗前9M觸發，資格以截止時來源／串流及前端故障判定，不單看關窗後Incomplete。
+
+私人r950_fault.go只在同一owner記一次有限mode／Step。observer包裝實際進度回呼，9M時真正panic，Oracle.deliverOPL的recover記callback_panic並卸下listener；consumer在實際Stream.Accept的yield返回錯誤，沿原分支記sink_failure。原API、事件Append、單次AfterOperation、Boundary及末註資格判斷保持，只有report新增有限audio_fault。不能以自製原API回傳代替這次真實Run。
+
+87項選定來源／模組及同一非競態binary固定，新副本83個舊項保持，audio_player.go、r875_live.go及生成的r947_source_paths.go共三舊項改變，新增一份故障Go。R948原副本86項與binary另核保持，這兩種保持分開。Go1.24.13、Python3.11.2；既有映像wizardry7-go-ebiten:latest ID為`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。
+
+來源預審0／0／0於FINAL後完整回讀採認；`workplace/r950/review-source.json`及`.md` SHA依序為`6a6e4660f90199f817bfa8f7b2e5b50ae278c8eee67a94b64b7c5608919b6784`、`3d9af1fa853284ae80e53ed84a2aabca52cfdda5e68e1e402bb2367dff3c8b36`。預審只准私人蒐證，沒有先採認GUI或013 READY。
+
+三個真正冷GUI案例通過，先健康控制再兩種故障。正常鍵盤輸入非空，9M故障後各三筆Run仍返回none、完整前進200k，原成功回傳沒有被錄製故障取代。真正頁尾按鈕停止後各15次原操作不改錄放，最後WM_DELETE_WINDOW關窗。故障後前端仍沿同epoch／PhaseAt fallback Pace的已審來源，不以本輪短路線另外宣稱牆鐘或裝置同步。
+
+| 有限結果 | 健康控制 | 觀察panic | 取樣yield錯誤 |
+|---|---|---|---|
+| 注入Step | 無 | 9,000,000 | 9,000,000 |
+| 停止邊界Step | 9,800,000 | 9,600,000 | 9,600,000 |
+| 原版觀察故障碼 | 空 | callback_panic | 空 |
+| 前端audio_fault | 空 | observer_fault | sink_failure |
+| 截止Stream.FaultCode | 空 | 空 | sink_failure |
+| 截止Stream.Incomplete／Stopped | false／false | false／false | true／true |
+| 保留檔bytes／完整JSON列 | 73,728／105 | 72,895／101 | 72,895／101 |
+| 成功末註／正式名 | 均有 | 均無 | 均無 |
+| 停止／正常關窗 | passed／exit0 | recording_ineligible／incomplete／exit2 | recording_ineligible／incomplete／exit2 |
+
+正常控制串流Frames143865→176161，最終關窗Stopped=true、Incomplete=false。觀察側最後合成Frames129185，消費側132121；截止至最終保持，沒有繼續合成新幀。觀察側Stream.Stopped在截止仍false、關窗後true，不能把「未再合成」寫成已呼叫Stream.Stop。兩故障片段SHA皆為`df2130accc2f397360f4b273cb2f65f0b5ca7170cdbb9fe22984fd0044460537`，原API事件同bytes，音訊資格仍分別由來源／消費狀態否定。成功控制檔SHA為`0966340a72054e4752ad6859fa48c5d451b09967699c8746cef17c226111f224`。
+
+每種故障的原片段與同bytes改名副本均wire_rejected／exit2，共四次拒播。沒有補末註或改原事件。獨立Python核canonical配置SHA、實際六資源大小／SHA及各讀一次、LoadWith一次、連續seq、正常末註前綴SHA／事件數／最後snapshot、故障後完整Run及片段保持；87選定來源、binary、R948舊來源與原版248檔盲SHA保持，工作根衛生異常0。不採GUI報告中的source_unchanged佔位欄位，本輪沒有新增完整原版狀態A/B或裝置／人耳驗收。
+
+| workplace/r950私人輸入／收據 | SHA-256 |
+|---|---|
+| compiled-sources.json | `dd404bf101b431afb8f29eb2361d0b0f1010737c62d38acc9be0e9863e67d96b` |
+| bind | `1bea822a6fad3a1424df6df15f8a6e708a9b7892b9ea8f266d8b47274bfdd747` |
+| audio_fault_gui.py | `c3f1c21082a86e63ecc4d3989f10d7de536c100b207185a92e569f87cdf5bc1d` |
+| verify.py | `29a23afae879b54e3f3113a2e253a97ffad010bc4df62d10ae7f505d7c381dc8` |
+| attempt-1/report.json | `2e28b4bd90ce09acb5eb2dc69e30300b15a6206790a09b450d3bf38a8b16057f` |
+| independent.json | `2bab4dadbb851f88087850a05f4d6acce015642b3ec26df7f71d86817ab90701` |
+
+重跑在新的已存在輸出目錄依序prepare.py、build.py、audio_fault_gui.py、verify.py，不覆寫採認收據。repo掛/src、原版/original、六資源/resources唯讀，輸出/out可寫；建置另掛gomodcache到/mods唯讀，快取/out/cache。離線Docker、--rm／init、UID/GID1000:1000、3GiB／2 CPUs／128 PIDs及日誌上限，建置240秒、三GUI外層360秒；獨立核對512MiB／1 CPU／32 PIDs、60秒。fault環境變數只為私人負向fixture，不是正式可接受的輸入生產者或配置欄位。Xvfb與個案由有界父程序finally回收，自有容器0。
+
+confirmed限上述兩種真正故障的API／資格及正常控制，不泛稱所有來源／消費故障已覆蓋。013保持DRAFT；正式getter、CLI／schema、按鈕位置、其他IO、全部退出交錯、發布後撤回、阻塞系統呼叫及裝置仍待。十一組、TSV、其他圖片按鈕、冷存讀檔、完整可玩及封包門檻不縮。
+
+最終限定審查0／0／0，主代理於FINAL後完整回讀兩報告及SHA；`workplace/r950/review-final.json`／`.md` SHA依序為`e6964950c7d25a47f64658aa17b655bec2a048159fc945e6d87c946b32b03c5e`、`f9f75987bc2e3c4c63b756ffa554f8614de498beac7bfc3011a0f00dd55f2730`。六份受審文件與24份技術輸入大小／SHA再核保持，另存原bytes快照，本段只追加中繼資料。
+
+私人333份技術檔一次封存，`workplace/r950/closed-inputs.json` SHA為`491687a4fee111977adee244cd9c4a7053cb5955b1770dc534abfb6310721d4f`。排除快取及後續GitHub回讀，原版、錄放、圖像與binary不進Git。輸出UID/GID1000:1000，自有容器0；正式程式及SDK保持，013不升READY。

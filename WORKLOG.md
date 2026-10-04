@@ -1023,3 +1023,16 @@ R948限定證據`0d32c98`已推送；[#17留言5978981934](https://github.com/wi
 R949最終限定窄審0／0／0，原Stopped=false文句已區分截止與關窗時點；主代理於FINAL後完整回讀兩報告及SHA。六份受審文件另存原bytes快照，技術輸入再核保持。私人259份技術檔一次封存，`closed-inputs.json` SHA為`6ed4e683692f96bb42621881c680148cbd11e0545aa7b1b1804f5d5312921223`，排除快取及後續GitHub回讀；報告SHA與入口見研究022。UID/GID1000:1000，自有容器0，013及所有交付門檻保持。
 
 R949限定證據`a5d277b`已推送；#17正文與[留言5979279342](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5979279342)含末尾LF逐字回讀相同，議題保持OPEN。259封存檔與六份受審文件前綴全數保持，工作根衛生異常0；`workplace/r949/github-readback.json` SHA為`1a598c90950f14435ea756336cec48f99203867a7e3c73ec955bafab0e59b3ea`。正式程式、SDK及未追蹤R433保持，自有容器0。下一步沿正式錄放契約與尚未量到的來源／音訊故障推進，不把本次ENOSPC當所有IO或完整交付完成。
+
+## R950 音訊故障與錄製資格（2026-10-04）
+
+上一輪真實磁碟故障、審查及推送已完成，屬有效進度。本輪命中規格閘門及文件職責，讀現在狀態、#17及009 A3／A7後建立並索引目標；指定舊rulebook未見於已安裝及專案技能，沿現行knowledge-router的規格入口。R949關窗sink_failure與明示停止來源相符為強推論，沒有逐分支時點，不假稱已動態證實根因，也不新增正式修正。
+
+- 私人副本沿R948固定來源，只有9M後一次回呼panic／yield錯誤、有限audio_fault報告及生成清單變動；原版及原API返回、錄製資格判斷保持。87來源與binary建置通過，來源預審0／0／0於FINAL後完整回讀採認。
+- 真正冷GUI正常控制9.8M停止、15次續玩、關窗exit0。兩故障9M觸發後各有三筆none／完整200k Run，9.6M停止均回recording_ineligible，片段72,895 bytes、無末註或成功名；各15次續玩保持，原檔與改名副本共四次拒播，關窗exit2。
+- 觀察碼callback_panic及前端observer_fault、消費碼sink_failure均量到。觀察／消費側沒有再合成新幀；觀察Stream在截止仍Stopped=false，關窗後才true，不將有限串流狀態冒稱裝置音訊持續或立即停止。
+- 獨立Python核完整配置、實際六資源、事件／末註／片段與Run進度、87來源／binary、R948舊86來源及原版248檔盲SHA通過，工作根衛生異常0。首次主機Docker權限被sandbox限制後改已授權Docker權限；一次猜測r946_binding.go不存在，屬工具定位錯誤。子代理一次JSON縮排誤作bytes等價及首次保存未傳stdin已修，沒有產品重跑。
+
+完整數字、SHA與停止線見研究022本輪入口。正式程式、SDK、舊候選與未追蹤R433保持，013仍DRAFT；其他故障、正式契約及全文／圖片／可玩封包門檻保持，不重跑已充分的完整三次重播。
+
+R950最終限定窄審0／0／0，主代理於FINAL後完整回讀兩報告及SHA。六份受審文件與24技術輸入再核保持，文件原bytes另存快照。私人333份技術檔一次封存，`closed-inputs.json` SHA為`491687a4fee111977adee244cd9c4a7053cb5955b1770dc534abfb6310721d4f`，排除快取及後續GitHub回讀；報告SHA及入口見研究022。UID/GID1000:1000，自有容器0，013及所有交付門檻保持。
