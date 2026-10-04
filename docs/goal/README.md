@@ -10,6 +10,7 @@
 片頭圖片角色扮演敘述：[R944](R944-intro-picture-description.md)。
 錄製停止與續玩擁有者：[R945](R945-recording-stop-owner.md)。
 錄放六類資源起始綁定：[R946](R946-recording-resource-binding.md)。
+六類資源與單一啟動擁有者：[R947](R947-six-resource-owner.md)。
 
 近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)；
 開發入口維護：[R816 前端Docker入口](R816-frontend-docker-entry.md)。

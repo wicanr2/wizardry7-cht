@@ -1081,3 +1081,45 @@ Go1.24.13、Python3.11.2；既有映像`wizardry7-go-ebiten:latest` ID為`1d7a34
 這些證據補六資源的私人解析與配置集合，不是正式起始owner、實際錄放／GUI／音訊／三重播。私人schema只識別候選，不對玩家定案新格式；全域啟動紀錄需在正式單一擁有者契約中替換，與R875／R945尚未整合，013保持DRAFT。
 
 最終獨立窄審阻擋0、應改0、建議0；主代理於FINAL後完整核讀JSON／Markdown，只採認限定DRAFT證據。報告`workplace/r946/review.json`與`review.md` SHA-256依序為`d53db246476395b8b2259a31e12f9783939826d791cc43827d8d113e065946b0`及`61628843fc2e5cda61f052e980fb6beb930085c30b170b897080aa4320199104`。核審查輸入保持後，私人196份技術檔一次封存；`closed-inputs.json` SHA為`684540c2cdbbad8b2aa1ae815b8f31f05625a80efa864fa053261f523f0ee849`。排除快取與後續GitHub回讀，輸出及報告UID/GID1000:1000、自有容器0。
+
+<a id="r947-six-resource-owner"></a>
+
+## R947：六資源與單一啟動擁有者
+
+2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[目標](../goal/R947-six-resource-owner.md)、[013候選契約](../spec/013-input-recording.md#r947-six-resource-owner)。原版為玩家本機`workplace/original/wizar7`的248檔，前後盲SHA與R859基線全部相同；沒有MSG正文、state或手冊解碼。資源使用R943的GNU Unifont與本機倚天各六份烘製資料，原檔唯讀，不重新烘製或改文案。
+
+私人prepare.py先核R946來源與94項選定編譯輸入，再複製目前正式非測試cmd、私人SDK及R946資源／配置候選；原main僅改名formalMainUnused，不呼叫。R864啟動綁定改私人R947定位，移除舊三資源讀取器，改由R946同次載入六份；配置使用相同candidate/2，超限capture fault先拒絕。實際Options、儲存清單、binary與編譯來源、LoadWith及單一指標交出規則沿原候選，不新增正式架構決定。
+
+Go1.24.13、Python3.11.2；既有映像`wizardry7-go-ebiten:latest` ID為`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。建置競爭檢查版binary，83份複製輸入；Go來源與go.mod／go.sum／sdk/go.mod共81項清單由go list重生，來源JSON／SHA由ldflags內嵌到同一binary。第三方與stdlib沿鎖定模組／映像與binary中繼資料，不逐檔宣稱閉集合。
+
+attempt-1的17個私人案例通過，六成功、十一拒絕，無DATA RACE。confirmed限下表的load-only路徑：
+
+| 案例 | 結果 |
+|---|---|
+| 原始控制 | 直接LoadWith／SetScratch，沒有候選純量／配置擷取，建構一次。 |
+| 英文、Unifont、倚天 | 英文六角色未要求；兩套目前烘製資源六角色均讀到且解析成功，大小／SHA與實際資源相同。指標均只交出一次，回傳配置bytes不別名。沒有Draw／字形畫面驗收。 |
+| 相符expected、內嵌來源清單 | 相符配置核對成功；不核外部來源目錄時仍用binary內嵌清單，配置與Unifont基準逐位元相同。仍掛同一來源repo，不當無來源封包啟動驗收。 |
+| 三側車各換空白／缺檔／無效JSON | 九例皆initial_static_mismatch，實際LoadWith呼叫0，不寫配置、不交出指標。已讀但解析無效的SHA與缺檔不同；換空白仍解析成功也拒絕原始bytes差異。 |
+| 片頭側車超過1MiB | resource_capture_fault，LoadWith0，不以未完整SHA建立配置。 |
+| 初態CPUHz不符 | 可信expected只改CPUHz，LoadWith1；initial_scalars_mismatch在交出前拒絕，未寫配置，指標由失敗defer關閉。 |
+
+五份成功配置與六條成功初態摘要另由Python獨立核對。擷取前／後／交出時的1MiB RAM、indexed、palette、暫存器SHA與Step0／Ticks0均等於原始控制。只保存摘要，不保存或解碼RAM／畫面bytes。Run與輸入沒有裝計數器，未執行聲明來自私人入口及建構器只呼叫LoadWith／SetScratch／唯讀擷取的源碼；Step0本身不是充分證據。
+
+每個程序的stderr只有完全相同、重複兩次的XGB授權檔缺失與無授權連線通知。首次Python核對誤要求空stderr，修正為只接受這個已保存的精確四行通知，其他訊息仍拒絕；產品17案例不重跑。原失敗腳本與分類收據保留，非產品缺陷。獨立核83來源、81選定編譯清單、binary、五配置、原版248、R945封存111及R946封存196全部相符；正式SDK選定差異仍只有私人getter，擁有權及工作根衛生異常0。
+
+| 私人來源／收據 | SHA-256 |
+|---|---|
+| cmd/wiz7/r947_binding.go | `4212859c22850e3e0be2c289d8fc0766accdfb08de71a2b0de07a0d0d5e03024` |
+| source-inputs.json | `a6106c66954f2150cfcb4d47de0aa381b5964268fc29ceca5759183106c07ac7` |
+| compiled-sources.json | `e0971ad5e4b3307f8ceef8b13af056c950d1191050525216443814b2ce361b7b` |
+| bind | `a0f9f21ea03e6372441ef97f461e3ef4f8a765d53a44670046916449f02862a5` |
+| attempt-1/report.json | `e690ecbf07292b91c27379c895856e9fecdb32a1db492001b1f17f706753cc94` |
+| attempt-1/independent.json | `dfe6fe90496aab2a374dfbf5b7f81e32a6fe816ce361b856f8e90ab3ca69fde3` |
+
+重跑依序執行本機prepare.py、build.py，再run.py及verify.py；後兩者設定同一R947_ATTEMPT，預設attempt-1。新的已存在輸出目錄掛/out可寫，repo掛/src及原版掛/original唯讀，建置另掛既有gomodcache到/mods唯讀。離線非root Docker、init、2GiB／2 CPUs／128 PIDs與日誌上限；建置外層220秒，17案例外層600秒，個案30秒，核對50秒。不覆寫採認收據；Go快取只寫/out/cache，GOPROXY／GOSUMDB為off，GOFLAGS為-mod=readonly。Xvfb與個案由Python有界父程序於finally逐一終止回收。
+
+本輪只把六資源紀錄接入真正建構／釋出邊界，bundle未交給正式Draw，R945停止未整合。expected僅可信自製JSON，沒有不可信wire載入；正式getter、CLI／schema、機器goroutine、GUI／音訊／故障／退出競態及三次重播保持未完成。原版與資源的並行換檔防護仍未宣稱，013維持DRAFT，不外推為可玩或封包完成。
+
+最終獨立唯讀窄審阻擋0、應改0、建議0；主代理於FINAL後完整核讀JSON與Markdown，採認限定私人DRAFT證據。審查另由ELF64符號及PT_LOAD獨立定位實際binary的兩個Go字串，內嵌來源清單與SHA逐位元符合。`workplace/r947/review.json`與`review.md`的SHA-256依序為`aae3c40c07f38b577b8671e5b74721dae9ec566258d7a0db0644608ebe6e93c4`及`971e5394fc172bfcb66a64037c99732cf60424e2fd2635cd9faaccc6f51fab02`；這是候選ELF位址空間，不是原版位址。兩報告UID/GID1000:1000，自有容器0，013不升READY。
+
+私人219份技術檔一次封存，`workplace/r947/closed-inputs.json` SHA-256為`ae0aa2079238afcf78ad73ee258a2a2079a865200032ff052ff3ee148d2c0d23`。排除Go快取及後續GitHub回讀；二進位、資源與原版摘要均留本機。全數SHA與UID/GID再核相同，工作根衛生異常0；正式程式與SDK保持。

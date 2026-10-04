@@ -488,3 +488,15 @@ R876封存後唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩�
 私人Build驗證六個固定角色的數量與順序，配置凍結後複製資源slice；重播候選先比對所有資源紀錄，任一差異都拒絕呼叫後續載入hook。此hook是自製計數，沒有接Oracle.LoadWith。候選依序執行，使用私人全域紀錄與測試換檔回呼，尚未整合R875單一owner或R945停止候選。
 
 22個限定案例競爭檢查通過；15／16字高使用自製字模，五個載入結果與正式loader對照相同。一般譯文map直接沿候選，沒有獨立一般譯文解析oracle，不能外推為兩套發行字型驗收。獨立Python核19份資源紀錄與兩份六資源配置的原始bytes／SHA。完整來源、重跑及限制見[研究022](../re/022-input-recording-boundary.md#r946-six-resources)。完整正式schema、CLI、owner綁定、GUI停止、實際故障、退出競態及三次重播仍待，013保持DRAFT。
+
+<a id="r947-six-resource-owner"></a>
+
+## R947：六資源與單一啟動擁有者候選
+
+2026-10-04；將R946資源紀錄接入R864／R875的私人啟動生命週期。只有私人建構器呼叫LoadWith，使用實際Options產生配置；先核來源、目前binary、儲存清單、選定EXE、音訊及全部六個資源紀錄。可信expected的靜態差異在LoadWith前拒絕；側車不能完整擷取也在建構前拒絕，不以缺SHA繼續配置。
+
+建構後立即SetScratch，指標尚未釋出，才擷取Step0／Ticks0純量與初始摘要。初態不符、擷取改變摘要或清單變化都拒絕並關閉未釋出的指標。完成後Config只回傳bytes副本，Take僅交出一次；即使仍Step0，釋出後也不能再擷取或再次Take。這是同goroutine私人生命週期，未保證並行呼叫。
+
+17個load-only案例通過：六成功、十一拒絕。目前GNU Unifont及本機倚天六份烘製資源都成功載入與綁定；三側車的換空白、缺檔及無效JSON各在LoadWith前拒絕，超限亦拒絕；初態差異則LoadWith一次後、交出前拒絕。中文、英文、相符expected與內嵌來源清單模式的1MiB RAM／indexed／palette／暫存器初始摘要皆等於原始控制。
+
+這裡只綁定已載入資源的紀錄，bundle尚未交給正式Draw，也未整合R945停止續玩。expected只為可信自製fixture，沒有正式不可信wire decoder；實際SDK仍沿私人getter。沒有Run／輸入計數器，無執行與輸入聲明限於已審的load-only源碼路徑，Step0不能單獨證明它。正式CLI／schema、機器goroutine、GUI／故障／退出競態與三次重播仍待，013保持DRAFT。來源與收據見[研究022](../re/022-input-recording-boundary.md#r947-six-resource-owner)。
