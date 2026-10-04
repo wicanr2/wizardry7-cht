@@ -9,6 +9,7 @@
 新事件文字翻頁及返回邊界：[R909](019-catalog-migration.md#r909-event-pages)。
 事件返回畫面及正常路線：[R912](019-catalog-migration.md#r912-event-return-route)。
 正式中文介面的文字與圖片按鈕覆蓋重查：[025](025-ui-localization-coverage.md)。
+低倍率人物數值與原生字型排版原型：[R953](025-ui-localization-coverage.md#r953-兩倍人物欄位原型)。
 
 本目錄保存可回查的原版定位、量測與推論等級。[目前狀態](../../CONTEXT.md)、[規格](../spec/)、[工作歷程](../../WORKLOG.md) 各有獨立職責。
 較早研究中的舊方案與假說不直接成為現況；以後續勘誤、目前程式及同狀態收據判定。

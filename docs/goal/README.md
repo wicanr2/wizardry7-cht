@@ -1,5 +1,7 @@
 # 專案目標
 
+低倍率人物欄位排版證據：[R953](R953-profile-layout-evidence.md)。
+
 新增角色小按鈕排版：[R925](R925-character-dialog-labels.md)。
 角色列表性別與職業文字：[R928](R928-character-roster-text.md)。
 角色選單按鈕與圖片控制：[R932](R932-character-menu-audit.md)。

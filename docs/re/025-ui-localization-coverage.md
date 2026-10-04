@@ -7,6 +7,40 @@
 
 使用者要求把圖片內的英文按鈕納入完整中文化。本文保存目前正式來源及實際畫面的覆蓋矩陣；譯文存在、原版畫格及舊測試完成數量不直接當作本次介面已驗證。
 
+## R953 兩倍人物欄位原型
+
+2026-10-04，入口：[本輪目標](../goal/R953-profile-layout-evidence.md)、[排版候選](../spec/024-character-review-output.md#r953-兩倍人物排版候選)。這是唯讀原版測量及離線原型，未接正式前端，也不是新GUI驗收。
+
+原版`DS.EXE`為69,206 bytes，SHA-256 `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。工具為Go1.24.13 linux/amd64、Python3.11.2及既有dosgolem隔離工作樹；Docker沿固定映像`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。下表地址皆為原版runtime段址，不是檔案偏移或IDA線性址。
+
+| 已量事件 | 入口、辨識及結果 |
+|---|---|
+| 性別 | `0110:3877`，返回`0110:6c42`；font0，90,6→96,6，SP增加2。擴大取88,4,8,8的背景，M／F差異13／11像素且範圍外0。 |
+| 十一個數值 | `0110:3895`，返回`0110:032a`；八屬性y35至77、每6一列，兩位數x139、一位數x145；等級126,18，經驗306,12，擊殺306,18。font均0，返回SP增加2，游標前進字數×6，差異只在各自6像素高字格。 |
+| 生命／體力兩列 | 已量6,93入口至`0110:3895`、返回位址032a、游標225,138的下一輸出入口，取6,93,78,12的差異。未讀字串正文；男女177／181個變更像素、範圍外0。這是時間順序邊界，SP差為−306，不是匹配函式返回。 |
+
+探針只在性別返回已通過後、664M至784M之間讀已量數值座標的目的緩衝，最多8 bytes，只接受1至3位十進位數字及NUL。沒有讀MSG、鄰文、詞庫或手冊答案。男女各一趟固定輔助輸入，各13筆事件及7個停止點，退出0。與R935的indexed、R937英文控制的palette完整bytes及Step／1MiB Mem FNV／A000 FNV／Pal FNV／Mouse相比，14對全同。這不包含完整CPU暫存器或新正常GUI。
+
+四組原型為男女×兩字型，640×400；原生15／16字模保持。31個欄位含17標籤、性別、11數值及生命／體力兩個數值列。屬性改18像素行距，性別字格擴至16像素；數值直接搬原版差異墨點，仍以2倍整數放大，不重算或重新編碼。只還原原版前後差異的像素到精確before，不用固定底色補底。四份現行對照圖完整RGB與R937既有圖相同；四份重排圖由另一個檢查器逐像素重建期望。八份PNG共2,048,000像素相符；四張重排圖各31欄位交疊及墨點交集皆0，四張現行對照圖仍保留既有交疊。主代理實際檢視四份重排圖。
+
+字模沿用R937已獨立原字型核過的資源；本輪沒有重讀第三方原字型，不能稱新原字型oracle。原版248檔與38份列出的cmd/wiz7 Go來源SHA保持，四個Scratch的PCFILE.DBS完整bytes與原版同；這不證SDK完整來源閉集合。其他職業、長數值、更新／撤除與正式HD／Draw尚未驗，正式排版仍待定版與新契約READY。
+
+V1男女均在探針自身13筆計數檢查退出2，14份indexed仍與R935相同。V1把font0篩選套到所有NUL入口，V2移除這項整體篩選後完成；十一個實際數值仍全部font0。故障原因為生命／體力結束訊號被篩掉的強推論，結束訊號的確切font未記錄，不猜補。V2另在計數檢查前保存觀察；兩版來源、binary與初輪輸出均保留。獨立檢查器首跑把正式來源的純SHA欄當成物件，修正欄位讀法後同容器／同輸入重跑通過，屬驗證器問題。
+
+| 私人來源／收據 | SHA-256 |
+|---|---|
+| `profile_probe.go` | `fa657dbb9a9749e6e2170472b96d45972eafe04ec80c3d3a70cd0da58d4da60d` |
+| `profile-probe-v2` | `af88a4835a2afc445d5592cb50ddf66a5f6ad50c1d5be086765d9643ad29af88` |
+| `make_layout_prototype.py` | `54d612dab5f50c8e1acb9e15d62a70eea1e3a9740fcffe9a3407c13ff7a2a45f` |
+| `prototype/result.json` | `834eaf6be5fccb917094a211ccd0a1bbc8cb703e89c4378d408b99093da37efa` |
+| `prototype/compare.html` | `04b82d023fe59cfdcab94cee3346e0faf3ef7d4879e486bac5f9b50b071e5356` |
+| `check_layout.py` | `b3391052c112e5d4a15011b38d068747900f401f92d3c95e0aaabce232a8c986` |
+| `independent-layout-check.json` | `0fc80ccfd1665a2d63ee7486ee6dfd08ba92589e02ee63dc46fac89f354a6449` |
+
+收據根為`workplace/r953`；[比較頁](../../workplace/r953/prototype/compare.html)只留本機，不提交圖片或原版。重跑沿上述映像，repo及原版唯讀、新且已存在的輸出目錄可寫；在容器內為新輸出建立可寫`gocache`，提供本輪來源及`before.json`，既有離線模組快取掛`/src/workplace/gomodcache:ro`。`go.mod`、`go.sum`與既有SDK隨repo掛`/src:ro`；SDK受控準備入口為[prepare-dosgolem.sh](../../tools/docker/prepare-dosgolem.sh)，不能換成裸上游提交或主機runtime。以`build_probe.py`建置探針，再用`profile-probe-v2 /src/workplace/original/wizar7 /out/male-v2 male`及female對應參數。需同層提供R935／R937／R943已核本機輸入，依序執行`make_layout_prototype.py`、`check_layout.py`；完整性檢查另需保留V1的male／female Scratch收據，缺項不可充作重跑通過。既有輸出拒絕覆寫。所有命令在離線、非root、有界Docker內執行，不用主機工具或注入存檔。
+
+獨立窄審阻擋0／應改0／建議0，主代理於FINAL後完整回讀JSON與Markdown採認，只涵蓋上述唯讀測量及離線原型，不批准正式2倍實作。報告`workplace/r953/review-layout.json`／`.md` SHA依次為`b68546549aa096143b6d62ca6be6d868ed4898eeae4c48adfb94263ca5ee74f1`／`f31e51b03c0a05928f0d8c60c6cbe93945762c5da0f502c201b3b8425518851b`。已補可寫Go快取、唯讀模組與SDK入口，並收窄零交疊只適用四張重排圖。024既有READY範圍保持，2倍候選仍待選；輸出1000:1000、自有審查容器0。
+
 ## R952 人物頁圖片操作與2倍行距
 
 入口：[R952](../goal/R952-character-review-pages.md)，2026-10-04。從目前正式來源乾淨重建Linux前端，Go1.24.13 linux/amd64，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`；正式程式與SDK未修改。使用既有六份Unifont資源、3倍畫布、靜音與手動加速，原版唯讀。這不驗預設節拍、裝置音訊或人耳。
