@@ -1,5 +1,7 @@
 # 專案目標
 
+森林事件的正常翻頁情境：[R957](R957-forest-event-context.md)。
+
 預設速度的正常點擊與音訊：[R956](R956-default-audio-clicks.md)。
 
 頭像子畫面的中文覆蓋：[R955](R955-character-portrait-ui.md)。

@@ -772,3 +772,37 @@ confirmed僅限這條暖非GUI同狀態路線，不是中文覆繪、冷遊玩�
 `7771056e8254a48c4bc0e7f07490dc7e6aa88dc31af5775d9565f2db7187b901`；
 `comparison.json` SHA為`e01ee1f21d9b813428dee88cfdee4508df003be106e6d111afc3a97c8c2a3043`。
 實作審查及衛生另列；下一輪依使用者新要求優先重查文字及圖片按鈕的中文覆蓋，不盲點新提示或循環舊迷宮路線。
+
+<a id="r957-forest-event-context"></a>
+
+## R957：森林提示的一次正常點擊
+
+2026-10-05，入口[私人工具契約](../goal/R957-forest-event-context.md)。回查原版決定性對拍、規格閘門及文件職責路由；獨立規格審查0／0／0後才轉READY、產生候選。補足兩側純數值首次目標停止，使控制側不補跑已截短的Run；新增NoResponse跳過Run，既有三筆仍保留。這兩個停止分支本輪未觸發，不稱動態驗收。
+
+- Archives版DS.EXE、合法R733初態3475M、seed及時鐘沿R912。重播80個完整摘要及PNG、76命令／66點擊到5407.1M後，主代理另次工具完整檢視本輪旁白畫格，才送Click(160,162,NoCursorWait)及Run20M。新畫格呈現三個持武器人物，旁白及方向控制消失；沒有可沿用的控制，停止輸入。不推定人物名稱、handler、戰鬥選單或後續操作。
+- 觀察開／關81對完整原版摘要及320×200 PNG逐位元相同，77命令／67點擊，三筆歷史NoResponse保持、新增0。末5433.1M／六word`[0,12,5,3,61,99]`／面向1，位置不變；兩程序退出0，Scratch空。原版取訊息494次；一般印字657只在觀察側，控制側不安裝印字回呼。目標取得、解碼、同指標印字、來源不符、首次ID／Step及128事件上限皆0。
+- 手冊0、詞庫102次，前64筆數值、捨棄38筆與完整分類保持。不讀詞庫正文、目的指標或答案，不增加29來源／64-byte觀察範圍。110個現行選定來源含52個cmd Go檔、SDK1132、原版248及R912的191封存產物保持；不稱完整編譯輸入閉集合。
+- 首次Docker未接stdin，完成80點前綴後EOF／exit0，保存在`attempt-prefix-eof`，沒有新操作。只加`-i`與控制PTY，同候選／初態／前綴重跑。首次圖像轉送12000輸出額度被截斷，未處理圖像、未送輸入；24000額度完整重試後才點擊。三筆轉送紀錄含一筆明示失敗、兩筆成功；身分與次序核對不單獨當主代理目視證據。兩項均為工具通道問題，不列產品缺陷。
+
+工具為Go1.24.13／Python3.11.2，映像`wizardry7-go-ebiten:latest` ID
+`sha256:1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`；定位皆dosgolem runtime段址與Step。
+私人候選`probe-run` SHA `426b6db2e84e8fad3c8e478f30a5c29fcfed4d0fe1c93000a7943231e257e672`，
+`check.py` SHA `1224f4f8c228f2fc7bf9735ab1812aca8d06824275a8ee3c68fccb4f6e1e8b32`。
+本機重跑入口為`workplace/r957/prepare.py`、`probe/main.go`、`drive.py`、`control.py`及`check.py`；
+使用上述既有映像、SDK與模組快取唯讀、Go快取及輸出只開r957可寫，原版掛`/w:ro`、repo掛`/src:ro`。
+互動觀察須接Docker `-i`，每張圖先另次轉送／檢視再送命令；離線非root、2CPU／2GiB／96pids、900秒上限及10MiB×3 log限制。
+前綴依原收據固定，不另設seed或改存檔／位置；完整建置及控制命令見目標契約及私人收據，不用此工具當正式GUI驗收。
+
+獨立結果審查0／0／0，主代理於FINAL後完整回讀JSON與Markdown並核SHA採認；另核81 PNG尺寸／CRC／filter及各源碼基線。
+`review-result.json`／`.md` SHA依序
+`21479c3f4709446a11ff2b85d5c6b6769219f3fdce32287334a4721594128d0d`、
+`4b7e77091dd1648031a021e0a7ecd219ddd1ee4efe059940d8f9b9fb13c5ced9`。
+289份私人技術檔一次封存，`sealed.json`／`verified.json` SHA依序
+`0fc207e4738bb0a0844be3d4fb6e247fb16555550487bd7bc47a0935dc146f95`、
+`5bcfbd221723a7ab83955aa316b8dedf56cd5420ea8ab7885ed6d5322bfe9006`；
+`comparison.json` SHA `5f6b554abc8a6b60dbe8f84136eb62b725341077a4d775d0bc828f38660755bc`。
+輸出擁有權1000:1000，異常0；容器清理另列。
+
+confirmed只限這條暖原版、NoCursorWait、非GUI的一次正常點擊與同狀態結果。
+正式程式、SDK、catalog及字型未改；008仍DRAFT，十一組、TSV、冷存讀、錄放／音訊與封包門檻保持。
+新畫面尚無可見控制，後續先訂有界完成契約，不盲點人物或重走已完成路線。
