@@ -1,5 +1,7 @@
 # 專案目標
 
+頭像子畫面的中文覆蓋：[R955](R955-character-portrait-ui.md)。
+
 定版人物欄位正式重排：[R954](R954-profile-reflow.md)。
 
 低倍率人物欄位排版證據：[R953](R953-profile-layout-evidence.md)。
