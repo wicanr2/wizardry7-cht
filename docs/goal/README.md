@@ -1,5 +1,7 @@
 # 專案目標
 
+預設速度的正常點擊與音訊：[R956](R956-default-audio-clicks.md)。
+
 頭像子畫面的中文覆蓋：[R955](R955-character-portrait-ui.md)。
 
 定版人物欄位正式重排：[R954](R954-profile-reflow.md)。

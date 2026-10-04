@@ -2,6 +2,40 @@
 
 日期2026-10-01；[#18](https://github.com/wicanr2/wizardry7-cht/issues/18)；[R701](../goal/R701-audio-playability.md)。
 
+## R956 預設速度的正常點擊音訊
+
+2026-10-05，入口：[本輪目標](../goal/R956-default-audio-clicks.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`；38份列出cmd來源及R943六份Unifont資源保持。沒有新建置、正式程式或SDK修改，不稱完整編譯閉集合。原版DS.EXE SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`，248檔盲SHA保持；擷取後七份Scratch與退出後角色檔9368 bytes保持。
+
+沿既有`eob-audio-capture:20260922-r2`，image ID `90933bf64c453a75d307d0b1c2b591bb67aa1eca57b82e779859164b92f9cde6`；4CPU、2GiB、160pids、GOMAXPROCS4、離線非root。沿R799既有PulseAudio null-sink、20ms零音預啟動及44100Hz立體聲monitor，沒有主機音訊或實體裝置。原版與repo唯讀，只有r956可寫；不使用-mute／-ips、state、作弊、內建autoplay或原版資料注入，不讀MSG／防拷／詞庫。
+
+真正X11 GUI從冷啟動走六次正常點擊：角色選單160,47、頭像236,193、第一列175,152、確定100,170、完成160,155、離開287,193。七停止畫格272M至1040M，每128M一點，14張HD／Draw的CRC、解碼、960×600及SHA保持。首點依R955已檢視且SHA相同的Draw確認位置，本輪檢視工具與送命令同次編排，不稱該點當輪事前目視；其餘五點先檢視本輪實際Draw再送。最後另檢視返回主選單，正常關窗exit0；未選新頭像。七對F1承認的暫停／恢復Step相同，未把預讀尾段當立即無聲。
+
+軟體monitor共28,141,372幀，非零15,291,128、peak8739、RMS1219.452554，左右不等0；六個恢復至Click返回的獨立收集段皆非零。這些段以收集器塊及牆鐘標記切分，包含非同步緩衝，不是精確原操作聲音邊界。PCM SHA `ff8655a202b1f23f0d950010de553e389fe57165843b6b801e9d0748486591a4`只作本機固定收據；原音不進Git。Reader欠載32,893幀、溢出0、復原78次、最大排隊34,969；不以非靜音聲稱流暢度或人耳通過。
+
+關窗實際落在最後PCM yield內，owner fault／close為空、原操作正常返回1043200000，串流SourceStep為1043200000、已提交EndStep1043000000。`Incomplete=true`及`sink_failure`保存最後中止資格，符合009 A3／A7；不把它稱為完整批次、水位或成功錄製。獨立整數ceil得到SourceStep的15,314,241幀及EndStep的15,311,305幀，差2936為已合成但未提交整批的尾塊。事件Received／Applied／Recorded皆39,027，Pending／Rejected／Dropped及停止後未提交皆0，bank1／CSM／Unsupported此次0。沒有新事件逐筆或canonical PCM逐取樣A/B。
+
+| 守恆項目 | 實際核對 |
+|---|---|
+| 合成幀 | 15,305,087來源消費＋9154停止佇列＝15,314,241 |
+| 停止佇列 | 221淡出＋8933捨棄＝9154 |
+| 裝置幀 | 4410預填＋15,305,087來源＋32,893欠載＋221淡出＝15,342,611 |
+| Reader交付 | 15,342,611×4＝61,370,444 bytes；淡出884 bytes，ACK=true、EOF=false |
+
+關窗至收據收尾0.293974秒，包含程序wait、原版SHA回讀與monitor停止，是上界區間，不是單獨程序退出或實體淡出耗時。首檢查器錯要求正常關窗時串流必定完整而exit1；保存首來源與`checker-first-failure.json`，按既有Stop／Accept語意另建v2，沒有改產品或重跑GUI。最終finish命令曾因SHA抄錄少字而寫前拒絕，修正後沿原存活工作完成；映像Entrypoint欄位查詢及文件錨點失敗均未造成寫入或另建工具鏈。
+
+| 本機workplace/r956來源／收據 | SHA-256 |
+|---|---|
+| `gui_audio.py` | `bf56270a57e3647cf0bbe712b0f81ed7bfa67a17a19ac790fd6797ebea3a4e12` |
+| `check_audio_gui_v2.py` | `68b9af24554875ddc894f0abe2e106ee7bbc6e0c89d4631f720eee92c5978543` |
+| `audio-gui-check-v2.json` | `bbe30ccca0f45eeceef7ac5cb367be6265b15d8597bdae342276d684ce3b3d4f` |
+| `normal-audio-unifont-3/captures.json` | `36c18ad91d76721e6650dfd9c9f483d0985a7d713af846c41eedc48793058341` |
+
+重跑先以固定映像、repo唯讀及新且已存在輸出目錄可寫執行`prepare_audio_gui.py`；原版目錄另唯讀掛`/original`，再執行`gui_audio.py`。它依可見畫格要求父代理逐頁核定命令，必須使用當輪ready與PNG的SHA，不盲播舊命令。來源及產物既有則拒寫。最終驗收入口為`prepare_check_v2.py`／`check_audio_gui_v2.py`，需要本輪完整收據及相同R952／R943固定輸入；都在上述Docker執行，不能把缺項或舊輸出當重跑通過。
+
+本輪只補預設速度、這六次正常點擊及軟體音訊收尾。沒有新完整CPU／RAM同狀態A/B、有效流文、存讀檔、實體裝置、人耳或封包驗收；009仍READY、#18仍OPEN。其他待選、十一組與全部交付門檻保持。
+
+R956獨立唯讀窄審阻擋0／應改0／建議0，主代理於FINAL後完整核讀兩報告與SHA，只採認上述限定範圍。`workplace/r956/review-audio.json`／`.md` SHA依序為`6991841c0def4e344e408b6c68a8286ecac9f0840b073b0f3e57324bfd0d634d`／`4da928dd125f813176e828e4179019834f94c6ac8c11962f0f9ac275cabd5ac9`。審查自寫抽核六段各4096幀，合計24,576幀、非零24,573、左右不等0；全28M幀統計另列既有checker範圍，不冒稱審查重算整批。各整數ceil、Reader／事件守恆、原版及角色內容保持皆獨立核過；首點時序、不完整批次與所有未驗界線保持。兩報告1000:1000，自有容器0。
+
 ## 輸入與位址基準
 
 - 本案41e7e9d、dosgolem d16f03a2d8d782024d470606e1f4cb5272b89cd6；Go1.24.13、Python3.11.2。

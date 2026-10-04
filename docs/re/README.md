@@ -1,5 +1,7 @@
 # 研究證據索引
 
+預設速度正常點擊音訊：[R956](020-player-audio.md#r956-預設速度的正常點擊音訊)，[本輪目標](../goal/R956-default-audio-clicks.md)。
+
 新證據：[021 物品頁兩行名稱](021-compound-item-output.md)。
 待補譯文正常路線：[R898 東向受阻與南向續行](019-catalog-migration.md#r898-normal-east-translation)。
 最遠合法路線與取樣時序勘誤：[R900](019-catalog-migration.md#r900-farthest-maze-continuation)。
