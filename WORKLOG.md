@@ -1094,3 +1094,5 @@ R953紀錄`041cde1`已推送；[#22留言5981072672](https://github.com/wicanr2/
 R954最終獨立唯讀審查0／0／0，主代理於FINAL後完整回讀JSON與Markdown及核SHA，採認限定RE與離線原型。報告入口及SHA見研究025；兩相位、最小變更及八圖完整RGB另經獨立重算。審查工具兩次定位／欄位錯誤已修，未重跑產品。甲乙仍待決，不批准正式實作或新READY；工作根衛生異常0，自有容器0。
 
 R954私人77份技術檔一次封存，`closed-inputs.json` SHA為`3526aa6d645ee324fe8254dfc959dd957ddaeb1f8cdf62b6b250f91a51ad5203`，擁有權異常0。原型、原版資料及探針完整輸出不進Git；正式程式與總目標保持。
+
+R954限定證據`5245374`已推送；[#22留言5981590750](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5981590750)與[#28留言5981590151](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5981590151)含末尾LF逐字回讀相同，兩議題OPEN。77封存檔全部保持，擁有權異常0、自有容器0；`github-readback.json` SHA為`a8082c1f57184b112023f68dff7f47b121b217f7ce39003e1723c8d965ef2116`。下一步依使用者新取捨定稿人物整頁契約，再走READY及正式接線，不把離線原型當完整交付。
