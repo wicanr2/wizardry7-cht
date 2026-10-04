@@ -1150,3 +1150,5 @@ R957限定紀錄`c63296a`已推送；[#24留言5982860598](https://github.com/wi
 82對完整原版摘要／PNG同，78命令／67輸入、0新click；兩退出0、Scratch空，末5453.1M，位置面向保持。取訊息502、觀察印字669／控制0，目標與手冊0、詞庫102、三筆舊NoResponse無新增。127來源、SDK1132、原版248與R957289舊產物保持；兩筆forward身分核同，沒有缺PNG，負向守門未量。獨立候選／結果審查0／0／0，主代理於FINAL後完整回讀採認。一次提早回讀報告不存在，等FINAL後同命令成功，不列產品缺陷。
 
 204份私人檔封存，sealed.json SHA `41c1619878215014f02222c9b7058818a5dd175d8fdbd5cecf5aeda5c6ad11ea`。證據及各SHA見[019](docs/re/019-catalog-migration.md#r958-forest-transition-wait)。只限暖原版、NoCursorWait前綴、非GUI；正式程式、catalog、字型與SDK未改。戰鬥按鈕中文重查有新入口，十一組與全部交付門檻仍保持，總目標未完成。
+
+限定證據`bea5a9b`已推送；[#24留言5983158692](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-5983158692)含末尾LF逐字回讀相同，議題保持OPEN。204封存檔保持、擁有權與工作根衛生異常0；回讀收據SHA `daf1b38dd65eb4fe36ec98c0eed9399699cb643fccb0f42bec5078062c5386f3`。所有工具已終止，自有容器0。下一步接新戰鬥入口檢查現行文字與圖片按鈕，保持暖前綴與真正GUI資格的區分。
