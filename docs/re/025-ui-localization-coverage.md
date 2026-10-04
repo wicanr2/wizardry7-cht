@@ -1,7 +1,7 @@
 # 按鈕與訊息的中文覆蓋驗收
 
 狀態：主選單、角色選單、新增角色對話框及3倍人物檢視限定像素驗收通過，R941結果複核通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
-入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[R935](../goal/R935-character-review-audit.md)、[目前狀態](../../CONTEXT.md)。
+入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[R935](../goal/R935-character-review-audit.md)、[R942](../goal/R942-intro-picture-text.md)、[目前狀態](../../CONTEXT.md)。
 
 使用者要求把圖片內的英文按鈕納入完整中文化。本文保存目前正式來源及實際畫面的覆蓋矩陣；譯文存在、原版畫格及舊測試完成數量不直接當作本次介面已驗證。
 
@@ -88,8 +88,9 @@ R935的503個本機產物一次封存，closed-inputs.json SHA `bf8b59aebd98026d
 
 | 畫面／控制 | 來源與辨識 | 中文與操作結果 | 狀態／下一步 |
 |---|---|---|---|
-| 冷啟動2M，廠商標誌 | 正式Draw可見圖像；Shown事件0；實際素材檔與繪製呼叫尚未追到 | 無操作按鈕；品牌字樣仍是原版 | 已量畫面，圖片來源待定位 |
-| 冷啟動60M，廠商標誌及呈獻字樣 | 正式Draw可見英文PRESENTS；Shown事件0；圖像來源為強證據，確切檔案與呼叫未知 | 呈獻字樣尚無中文覆繪；沒有按鈕操作收據 | 圖片文字缺口，不能以catalog查表通過 |
+| 冷啟動2M，廠商標誌 | 舊正式Draw已見圖像；R942正常唯讀路線量到MON60.PIC載入及首張圖片轉送 | 無操作按鈕；品牌字樣仍是原版 | 載入與轉送已定位，codec與品牌分類未驗 |
+| 冷啟動60M，廠商標誌及呈獻字樣 | 舊正式Draw有PRESENTS；R942量到MON60最後圖，MON61已載入但尚未上屏；0..60M一般印字0次 | 呈獻字樣尚無中文覆繪；沒有按鈕操作收據 | 正常來源路線已量；逐圖矩形、背景及覆繪待完成 |
+| 片頭後段翻頁敘述 | R942的MON61索引組與六張完整轉送已量，圖片內另有英文角色扮演敘述 | 敘述尚無中文；作者與品牌另依既有名稱規則核分類 | 僅原版無輸入觀察；不稱正式中文GUI通過 |
 | 主選單六個標籤 | 正常無輸入272M，六個resident文字覆繪事件；不是圖片內固定字樣 | 六標籤完整；「匯入巫術六」五字；雙字型2×／3×的HD及實際Draw都在按鈕內 | 角色選單與新增角色入口／返回通過，其餘入口未量；防禦分支僅單測，見[020](../spec/020-main-menu-labels.md) |
 | 片頭製作名單的未翻譯事件 | 四組中文run.log各80次；75次精確對應15個去低位碼後的正式英文鍵，5次空字串 | 15筆來源的zh與en相同；尚未逐項確認保留內容的分類及實際畫面 | 不當75個新漏譯，也不計全文覆蓋通過 |
 | 新增角色對話框標題及確定／取消 | R921、R925正常GUI及固定步數已量；既有resident文字覆繪 | 雙字型兩倍率字格與筆畫在框內；正常取消返回 | 限定通過，[021](../spec/021-character-dialog-labels.md)仍READY |
@@ -247,3 +248,53 @@ R919最終正式實作及生成來源同步補充計畫審查各0／0／0，主�
 來源查證曾發現gen_trans.py:Z的1007與batches-merged.json的1415仍保留舊值，會在再生成時覆回漏字文案。依020補充READY同步兩值後，抽象語法樹及既有setdefault合併獨立核有效8,825筆zh與正式catalog全部相同，其他8,823筆保持；批次JSON只另補末尾換行。沒有執行會讀messages.json的產生器，也未讀MSG.DBS或新原文。10個既有GUI產物雜湊保持，不重跑未改的正式顯示。workplace/r915/source-sync.json的SHA-256為4eb14d362fe75ba5848ca28066c4fbc7a62fc99e460c655e8bd767b5eb2c1c80。R920只複核此來源同步及回填，已通過並由主代理採認。
 
 R920最終窄複核0／0／0。JSON／Markdown的SHA-256為7488c8163c589b9e37ab5d99bd8721dd1e51e57ed53df7b40e08ecfb85c78504及55bb357e7978451b861e13002ac066d687cf0a58c3d2a96b91a84ae0efddfd05。286個本機驗收產物已一次封存，workplace/r915/sealed.json／verified.json的SHA-256為f8d6da4f5025b1e85dc6a8d3d99bbe7b02015d3dbd73220643ff6a92b87ae3e4及bed3573cab32eed02ddc554e9a5f94c82fed1d4a34f34e9c98911d2ec719b149。SDK1,132、原版248及四份字型輸入保持，產物owner1000:1000；快取未納入封存。
+
+## R942 片頭圖片來源與切換
+
+正常冷啟動無玩家輸入至200M，原版及SDK唯讀。只觀察開檔身分、繪圖數值、記憶體摘要與畫格，不讀訊息或答案正文，不注入state、種子、作弊或原版寫入。這是原版無視窗觀察，正式中文前端保持。
+
+| 關係 | 實際證據與等級 |
+|---|---|
+| 圖片選取 | 0110:2663原始堆疊值為[5B57,60,15]及[5CB6,61,15]，正常DOS開啟MON60.PIC於684960、MON61.PIC於48268719。指令及實跑數值confirmed。 |
+| 覆蓋程式定位 | 依[016的R881](016-party-position.md)，VINIT code載入0110:5055；IDA code-only EA B02／C61對應兩個返回，OVR offset為EA+14。原OVR的14..5655與既有code逐位元同；不是resident的15B57／15CB6。 |
+| 圖片繪製 | VINIT raw9C5／runtime5A1A把索引及座標送resident4018，rawA48／runtime5A9D組合一至三張後送3921全屏轉送。實測參數15一致；尚未解driver內部槽與codec，不給表格格式猜名。 |
+| 完整轉送 | 指定返回5B9B／5AFD且SP為進入SP+2，才保存14張完成圖。37次screen-blit及driver呼叫不能當14張全部轉送。第一組8張、第二組6張；未在返回另存SP，matching資格由探針條件保證。 |
+| 呈獻字樣 | 第一組第3至8張可見；最後圖於48267654完成，60M仍是同indexed圖。MON61載入沒有立即換上屏。第二組第一張於73235759完成，已翻頁且無呈獻字樣。圖像與開檔／服務參數的關聯為強證據，沒有據此宣稱完整PIC解碼。 |
+| 其他圖片文字 | 第二組另見角色扮演敘述。後續MON62／63及TIT1SCRN／TIT2SCRN只有正常檔名與服務數值；沒有讀新PIC正文或把它們列為中文化通過。 |
+
+第一張完整轉送時色盤仍黑，2M才見廠商畫面，不把黑圖當漏譯。0..60M字串／單字入口各0次；至200M已各125／2325次，不把後段也稱為零印字。
+
+觀察開／關100對1MiB記憶體、indexed及palette摘要、Mouse、mode相同，300份a000／pal／png逐位元同；沒有比較完整CPU寄存器。前30點同初輪無觀察基線，前8張完成圖同上一版窄探針。獨立審查另核469筆IDA匯出定位、48筆相對E8與287筆VINIT原bytes；聯絡圖CRC、尺寸及14張來源像素相同。主代理在FINAL後完整回讀兩份報告，阻擋／應改／建議0／0／0，採認限定來源證據。
+
+重跑入口為[intro_picture_probe.go](../../tools/re/intro_picture_probe.go)，在既有離線、非root、有界`wizardry7-go-ebiten:latest`容器內，從本repo模組根編譯：
+
+```text
+go build -p=2 -buildvcs=false -o /out/intro-probe tools/re/intro_picture_probe.go
+/out/intro-probe /original /out/new-on on
+/out/intro-probe /original /out/new-off off
+```
+
+repo、SDK、模組快取與玩家原版目錄唯讀，只有新輸出根可寫；兩個輸出目錄不得已存在。原版PNG、PIC及完整收據留本機。探針只到已量200M標題，事件上限512／10000；遇其他OVR載入停用VINIT特定位址觀察。來源SHA為`144b904d07896aaeef1c4fc63ccf1bbe0e2b3152c6daafac96e767956f241c58`。
+
+工具為Go1.24.13 linux/amd64、IDA Pro9.4，分別沿既有`wizardry7-go-ebiten:latest`與`ida-pro-9.4-idapython:locked-v1`。所有IDA查詢複製新DB，原DB不修改；不採跨段字面callee名稱作語意。地址空間分別是resident IDA EA＝runtime IP+10000h、VINIT IDA EA＝code raw offset、OVR offset＝EA+14、VINIT runtime IP＝EA+5055h。
+
+| 輸入／收據 | SHA-256 |
+|---|---|
+| 原版DS.EXE | `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db` |
+| 原版VINIT.OVR | `c1dfd28e8e616070028ac7bd87b5aea5b85d6b6c80224a8a88bbe1774d415e67` |
+| 原版MON60.PIC | `ad299595ac2bb31318bd00182db920d78e2dad630b973bf9199b55611cfc9e06` |
+| 原版MON61.PIC | `ab6705f244df4ff910192203cebfbcfc53100ea574239c08a02f432566a7bd40` |
+| 原版VGA.DRV | `f064349ce5dc694b26ed58615262d1bad893e59971bf259c0a74bdea9ee27a70` |
+| 原VINIT.code.i64 | `98b9f93fd55219dfbe327ebd676ae0bac595459cdcbc119e30dde070ae71600a` |
+| 原DS.EXE.i64 | `477f73a17b7abcaf3eef70d9baae16c77d9730f3bf7e0b4c0c9c9ed91c612412` |
+| r5實際觀察binary | `5de81cd9ddea440c87c02c1e6f27299d53c40dc5ca7ede91e832c93318c642c2` |
+| probe-validation-r5.json | `cccd96b13c65dce7586fe5760ca335313e0779dc9ff96746517bb1a915eb67d1` |
+| integrity.json | `b11cf095580f9784089d02378e31eddce21668f4583397336b25c0aa16e1e734` |
+| review-source.json | `d10a12b55a24c59f6d7bd30b5381839bf40b86a51cadadff9e125f1340db9412` |
+| review-source.md | `fe16394cb3c6a504ae4c86b90ae2c97b50ec4c3b4554ad5236bfe3eda9e515d7` |
+
+收據根為workplace/r942，程式基線3581335、SDK基線d16f03a2的受控隔離工作樹。原版248檔、SDK1132檔保持；七個scratch目錄無存檔，擁有權及root-owned／誤建md目錄異常0、自有容器0。r4／r5退出0採主代理工具終止回報，observation／validation本身不含退出碼。公開來源與r5逐位元同且可建置；公開路徑重建binary為`f973db7d8c5892b81e959012767f77c9db18473f98dea61ef5f48b0eb640c017`，未重跑本觀察，100／300／14只歸r5實際binary。
+
+本輪1216個技術檔已一次封存，closed-inputs.json SHA為`46f3e663d6707fe7708c6d048bb7224076dff16e3187275d3ac0942823671429`，排除Go建置快取及後續GitHub中繼資料。封存時原版、SDK、公開探針來源與FINAL報告保持，root-owned及自有容器0。
+
+來源路線已可重播，正式覆繪仍未實作。下一閘門是逐張呈獻字樣的精確矩形、可恢復背景、撤除時機與原生中文字格；經DRAFT→獨立READY審查後再接線，驗兩字型／兩倍率的正式GUI與同狀態原版。圖片內的敘述也須補齊，不以catalog通過代替圖片文字驗收。

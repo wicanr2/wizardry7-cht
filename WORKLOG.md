@@ -897,3 +897,15 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 完整性核原版248、SDK1,132、舊464／335／503及初輪1,006產物全部保持，十次退出及持久資料保持、十資源保持、擁有權異常0。integrity SHA `d5885bf87c1a4fb4fe2a17053bcc481eb475ce2e4ab1ebc039c06f8f9e8c22bb`，工作根find異常0。R941結果窄複核0／0／0於FINAL後完整回讀採認，獨立重核112對摘要及indexed／palette、32,444個原筆畫符合After，沒有重跑完整像素oracle；024女性控制舊限制明示為R935歷史。JSON／Markdown SHA `30c83b9caf5e21dadc6e555ce757eae6db8049001d865f374de46c447c905524`／`e9baef2bfd3df353e46df25585b43d05d55cfadcf4e175c898e783538d3f1e6d`。024保持READY，2倍性別、其他分頁、圖片字樣及全部交付門檻保持，推送及議題回讀另補。
 
 R937修正後535個技術產物一次封存，workplace/r937/repair/closed-inputs.json SHA `86b6a6ef0fb95bd175b2af973127b854b2b42d3ef42d9855475f90d1b10e901b`。正式修正`450803c`已推送，#22／#28留言[5976034164](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5976034164)／[5976034765](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5976034765)與本機正文逐字相同、兩議題OPEN。github-readback.json SHA `2983ceec553858a763d1be24dbe968e067cc58390a6e19898ba80c23d5de483e`。原版248、SDK1,132及535／1,006封存收尾再核保持，自有R937／R941容器0。
+
+## R942 片頭圖片文字來源（2026-10-04）
+
+- 沿#22及025，在正常無輸入冷啟動定位呈獻圖片；目標已掛入goal索引。延伸到既有200M標題只為核消失時機，沒有手冊／MSG正文讀取、種子／state注入或原版寫入。正式前端及其字型資源保持。
+- MON60／61在684960／48268719開啟；VINIT實際返回5B57／5CB6。起初以resident地址查不到，回查016/R881的VINIT載入0110:5055，對上IDA raw B02／C61與原OVR code。圖片載入2663、轉送3FF1、繪製4018、全屏3921的原始數值與窄指令已量；不命名未證實driver欄位或解完整codec。
+- r4三十對摘要及九十檔相同；r5一百對摘要、三百a000／pal／png相同，十四張matching-return／SP+2完成圖可重播，前綴保持。37次blit不是14張全部轉送。0..60M一般印字0／0，至200M為125／2325。MON61載入後60M仍是MON60末圖；下一組首圖73235759已無呈獻，另見圖片內角色扮演敘述未譯。主代理實際檢視14張聯絡圖。
+- 私人r5來源逐位元保存為tools/re/intro_picture_probe.go，SHA `144b904d07896aaeef1c4fc63ccf1bbe0e2b3152c6daafac96e767956f241c58`，公開路徑可單獨建置。兩個來源路徑binary不同，100／300／14只歸實跑r5的`5de81cd9ddea440c87c02c1e6f27299d53c40dc5ca7ede91e832c93318c642c2`，不假稱公開binary重跑。r4／r5退出0採主代理終止工具回報；產物本身無退出碼。
+- 工具失敗保留：R915沒有captures.json，改核實際hdat；命令列fstring引號失敗後改檔案式分析；既有image無PIL，改標準函式庫轉PNG；IDA126D7沒有函式boundary，但為已定義code。apply_patch重複目標在寫入前拒絕，改單一操作。另一次130..148圖像區域只量到頁底，沒有採為呈獻矩形；精確文字與背景仍待。這些不列產品缺陷，不調原版狀態迎合檢查器。
+- 獨立唯讀來源審查0／0／0，FINAL後完整回讀兩報告採認。另核469筆定位、48筆E8、287筆VINIT bytes及14張聯絡圖來源像素。JSON／Markdown SHA `d10a12b55a24c59f6d7bd30b5381839bf40b86a51cadadff9e125f1340db9412`／`fe16394cb3c6a504ae4c86b90ae2c97b50ec4c3b4554ad5236bfe3eda9e515d7`。原版248、SDK1132保持，七個scratch空、擁有權異常0、自有容器0；完整入口與SHA見025。
+- goal檔只保存目標，R937既有成果段移除，成果已在025、CONTEXT及本WORKLOG保持。未追蹤R433及其餘來源保持。本輪未實作圖片中文；下一閘門逐張文字矩形、背景、撤除、READY規格及兩字型／兩倍率正式GUI，全部交付門檻保持。推送及議題回讀另補。
+
+R942私人1216個技術檔封存，closed-inputs.json SHA `46f3e663d6707fe7708c6d048bb7224076dff16e3187275d3ac0942823671429`。排除Go快取及後續GitHub中繼資料；原版248、SDK1132再核保持，公開source逐位元同r5，root-owned／誤建md目錄及自有容器0。

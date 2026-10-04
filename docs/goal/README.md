@@ -5,6 +5,7 @@
 角色選單按鈕與圖片控制：[R932](R932-character-menu-audit.md)。
 人物檢視子畫面的中文介面：[R935](R935-character-review-audit.md)。
 人物檢視性別與選人按鈕修正：[R937](R937-character-review-fix.md)。
+片頭圖片文字來源：[R942](R942-intro-picture-text.md)。
 
 近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)；
 開發入口維護：[R816 前端Docker入口](R816-frontend-docker-entry.md)。
