@@ -1,5 +1,7 @@
 # 專案目標
 
+戰鬥控制的現行覆繪檢查：[R959](R959-battle-control-display.md)。
+
 森林遭遇過渡的有界完成：[R958](R958-forest-transition-wait.md)。
 
 森林事件的正常翻頁情境：[R957](R957-forest-event-context.md)。

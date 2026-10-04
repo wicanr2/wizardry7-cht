@@ -513,3 +513,34 @@ R942把73235759判成「無呈獻」過早。主代理重新檢視完整indexed�
 原型獨立窄審0／0／0於FINAL後完整回讀採認，另核48份PNG的雜湊、CRC、尺寸及54條參照，不重跑原型、audit或原版。審查採認上述有限字模前景與區外證據，不採認補底品質、完整作者區域或正式實作。`review-prototype.json`／`.md` SHA為`7c3be89d482f2b7c20b578ef543e670b5ebbb46f2f605df5983c84b41a4f98d6`／`9b4be61bf8d949b91a51d3e28c60db93f987406fe1418fcec35b57b0af2fb866`。
 
 199份私人技術檔一次封存，`closed-inputs.json` SHA為`0897ba8705f3fc995b25aaefbfeb0c8533dc76e0c40ce92ecf239485cfd54bee`，排除封存檔本身與後續GitHub中繼資料。封存時原型、審查輸入及來源保持，擁有權異常0，自有容器收尾另核；圖片與完整收據不進Git。
+
+<a id="r959-battle-control-display"></a>
+
+## R959 現行戰鬥控制的固定上屏驗收
+
+2026-10-05，沿[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)、[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)及[R959契約](../goal/R959-battle-control-display.md)。只用現行cmd/wiz7非test來源副本、R943完整雙字型資源及[R958](019-catalog-migration.md#r958-forest-transition-wait)固定合法暖前綴，不新增玩家輸入。原版DS.EXE為Archives版，69206 bytes，SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。Docker沿wizardry7-go-ebiten映像、Go1.24.13／Python3.11.2，所有原版與SDK輸入唯讀。
+
+| 配置 | 有限結果 |
+|---|---|
+| 英文3倍 | 完整960×600 RGB與原版放大相同，覆繪事件0。 |
+| Unifont3倍 | 戰鬥、格擋、咒語、使用、逃跑、移動、裝備七控制14原生字模相符。全圖重建、區外差異、字格／墨點交疊均0，按鈕邊界通過。 |
+| Unifont2倍 | 七控制14字模及完整640×400 RGB重建相符，區外／交疊0，但各越出原版按鈕下緣2列。合計448字格像素／99墨點，button_bounds_pass=false，未通過。 |
+| 倚天3倍／2倍 | 依2倍越框停止擴測，未執行。 |
+
+三程序各82完整原版摘要、78命令、67既有輸入及三筆歷史NoResponse相同，退出0、Scratch空。初3475M、末5453.1M、六word[0,12,5,3,61,99]／面向1保持；取訊息502、印字669、手冊0、詞庫102、29目標旗標false。純英文comp即原始A000；中文字型兩倍率comp相同，只有HD排版檢查發現2倍缺口。293個Shown事件中只對七控制作原始字型獨立核對，其他286事件只重建reported glyph，不外推其原生字型或完整翻譯驗收。
+
+原版按鈕外框39×9、含1像素邊框，七個原座標半開矩形依序為FIGHT(8,165,47,174)、PARRY(8,175,47,184)、SPELL(50,165,89,174)、USE(50,175,89,184)、RUN(230,165,269,174)、MOVE(230,175,269,184)、EQUIP(230,185,269,194)。七鍵均dy0，現行字格Y為原印字Y乘倍率；2倍字型高16超出外框，3倍高16在框內。獨立審查直接解析固定Unifont17.0.05原始字模及原版indexed畫格，核越框墨點依上述次序為8／19／18／11／21／11／11。這是confirmed顯示缺口，不改原版狀態或點擊判定。
+
+首次清單將MOVE目視誤記HIDE，Unifont3程序exit0但wrapper錯誤報缺項。原錯鍵失敗檔保持，補審後資格訂正另存，不重跑已完成Go程序。來源守門另在候選執行前修正：完全停用動態樹段讀取、三筆NoResponse即時核同才Run；第一次未執行候選及所有訂正保留。正式程式、catalog、字型與SDK均未更動。
+
+| 私人收據 | SHA-256 |
+|---|---|
+| 候選binary | `ecb6a26f45b3c7e945c714a386e64fbb9bccb68714f792e55f5096f9aba35ac7` |
+| verified.json | `e932cf8fcd8ae8667a264871b270bafe2acdb99c0887e25c151c6c8e3a8dc703` |
+| review-result.json | `21dce7684491baa8187101625c5714a8ab04a735a59420c83d713ec52edb85b8` |
+| review-result.md | `6135fdac0cebf8866c6af10c5947f69339192c2c77d389b5de73df674bf9297e` |
+| sealed.json，110份產物 | `9c3ab15cea76251bee5910f6d761a76f2f1d9836c3e2b278e38044350a79a072` |
+
+獨立規格、候選、錯鍵補審、英文／3倍oracle及最終有限結果各0／0／0，主代理於FINAL後完整回讀採認。最終0／0／0只表示證據及缺口報告可採，不表示2倍通過。48選定來源含1份批准goal訂正，47其他來源、SDK1132、原版248、12資源、3原始字型及R958舊204封存保持，擁有權異常0。一次封存110份技術檔，不含gocache或後續GitHub中繼資料。
+
+重跑入口在本機workplace/r959：prepare.py、build.py、run_case.py，使用全新已存在輸出目錄，固定fixed-prefix.json並唯讀掛原版、SDK、模組快取及兩字型。check_display.py獨立核畫格，2倍預期拒絕；check_inputs.py核輸入及原版狀態保持。工具及完整圖片、字模、印字日誌僅留本機。只限暖HD／NoCursorWait，未驗真正GUI、七按鈕操作、背景守門或撤除；001／015保持READY，十一組、TSV、錄放、冷存讀、音訊與正式封包仍須完成。

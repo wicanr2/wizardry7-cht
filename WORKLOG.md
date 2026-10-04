@@ -1152,3 +1152,11 @@ R957限定紀錄`c63296a`已推送；[#24留言5982860598](https://github.com/wi
 204份私人檔封存，sealed.json SHA `41c1619878215014f02222c9b7058818a5dd175d8fdbd5cecf5aeda5c6ad11ea`。證據及各SHA見[019](docs/re/019-catalog-migration.md#r958-forest-transition-wait)。只限暖原版、NoCursorWait前綴、非GUI；正式程式、catalog、字型與SDK未改。戰鬥按鈕中文重查有新入口，十一組與全部交付門檻仍保持，總目標未完成。
 
 限定證據`bea5a9b`已推送；[#24留言5983158692](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-5983158692)含末尾LF逐字回讀相同，議題保持OPEN。204封存檔保持、擁有權與工作根衛生異常0；回讀收據SHA `daf1b38dd65eb4fe36ec98c0eed9399699cb643fccb0f42bec5078062c5386f3`。所有工具已終止，自有容器0。下一步接新戰鬥入口檢查現行文字與圖片按鈕，保持暖前綴與真正GUI資格的區分。
+
+## R959 戰鬥控制的現行覆繪檢查（2026-10-05）
+
+回查規格、畫面對拍與顯示隔離路由，沿#28／#22，以現行正式來源副本及R943資源重播R958既有前綴。先完全停用私人動態樹讀取，並將NoResponse核對前移到Run之前，獨立審查到READY才執行。正式程式、catalog、字型、SDK保持。
+
+三程序各82原版摘要、78命令、67輸入、三筆舊NoResponse全同，退出0、Scratch空。英文3倍全圖相同；Unifont3倍七控制14原生字模、全圖及邊界通過。Unifont2倍字模及全圖重建相同，七控制各超出按鈕下緣2列，合計448字格像素／99墨點，邊界未通過，依契約停止兩個倚天配置。沒有新點擊、GUI、撤除或操作驗收；未升CONFORMED。
+
+初清單把MOVE誤認HIDE，驗收wrapper錯誤報缺項；原版實際已有「移動」。保留原失敗及第一次READY快照，補審錯鍵後另存資格訂正，不重跑已完成Go程序。另保留執行前NoResponse候選及base64檢查器訂正；工具問題不列產品缺陷。最終獨立報告於FINAL後完整回讀核SHA採認，0／0／0只限有限證據與2倍缺口。110份私人檔一次封存，SHA `9c3ab15cea76251bee5910f6d761a76f2f1d9836c3e2b278e38044350a79a072`；全部SHA及入口見[025](docs/re/025-ui-localization-coverage.md#r959-battle-control-display)。下一步沿既定原生字模及按鈕內排版要求修正置中。全部十一組、TSV、待選版面與交付門檻保持，整體目標未完成。

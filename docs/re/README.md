@@ -1,5 +1,7 @@
 # 研究證據索引
 
+戰鬥控制的中文覆繪檢查：[R959目標](../goal/R959-battle-control-display.md)，驗收接入[025](025-ui-localization-coverage.md)。
+
 森林遭遇過渡的原版續驗：[R958證據](019-catalog-migration.md#r958-forest-transition-wait)、[目標](../goal/R958-forest-transition-wait.md)。
 
 森林事件翻頁與十一組情境：[R957證據](019-catalog-migration.md#r957-forest-event-context)、[目標](../goal/R957-forest-event-context.md)。
