@@ -23,6 +23,9 @@ R937動態勘誤：16份男女／兩字型／兩倍率的選人停止點都有�
 
 R941最終結果JSON／Markdown SHA `30c83b9caf5e21dadc6e555ce757eae6db8049001d865f374de46c447c905524`／`e9baef2bfd3df353e46df25585b43d05d55cfadcf4e175c898e783538d3f1e6d`，位於workplace/r937/repair。完整性報告integrity.json SHA `d5885bf87c1a4fb4fe2a17053bcc481eb475ce2e4ab1ebc039c06f8f9e8c22bb`：原版248、SDK1,132、R928／R932／R935舊464／335／503及初輪1,006產物保持，十次退出後持久內容保持、擁有權異常0。工作根find自檢異常0。最終複核獨立重核112對摘要及indexed／palette，另核32,444個原筆畫像素皆符合After；未重跑完整像素oracle。
 
+
+R937修正後535個技術產物一次封存，workplace/r937/repair/closed-inputs.json SHA `86b6a6ef0fb95bd175b2af973127b854b2b42d3ef42d9855475f90d1b10e901b`。正式修正`450803c`已推送，#22／#28留言[5976034164](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5976034164)／[5976034765](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5976034765)與本機正文逐字相同、兩議題OPEN。github-readback.json SHA `2983ceec553858a763d1be24dbe968e067cc58390a6e19898ba80c23d5de483e`。原版248、SDK1,132及535／1,006封存收尾再核保持，自有R937／R941容器0。
+
 ## R935 人物檢視與返回
 
 正式R932 binary SHA `9796d372ce53cef7528f9ad5d3a8fc57206af15cfa411cb37ab3f2499a20ed22`及兩後端各四資源保持。真正GUI冷啟動依次點160,47、85,193、175,152、100,170、314,190、287,193；每次先看當前畫格再輸入。從主選單進角色選單、選THESUS、檢視人物頁、右下藍色箭頭返回角色選單、離開回主選單，正常退出0，關閉耗時0.068531934秒，PCFILE.DBS持久內容保持。箭頭沒有英文文字，只證實314,190能返回；20×16色號外接框混有其他像素，不能當完整命中矩形。
