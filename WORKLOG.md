@@ -1078,3 +1078,5 @@ R952限定驗收紀錄`2538837`已推送；[#22留言5980342222](https://github.
 獨立窄審0／0／0，主代理於FINAL後完整回讀JSON及Markdown採認。補足快取、模組及受控SDK重跑入口，並修正文句將八張RGB核對與只有四張重排圖零交疊分開；四張現行圖保留原缺陷。報告SHA見研究025，只採認本輪限定原型，不批准正式2倍實作。初次代理呼叫因模型容量未開始，同一代理重試完成；審查摘要工具的括號錯誤及輸出截斷以同範圍修正，不影響產品。
 
 94份私人技術檔一次封存，排除Go快取與後續GitHub中繼資料；`workplace/r953/closed-inputs.json` SHA為`4c1f8e3eaa3fb583c2108b565d2228c92ec10b59ca66ea5e700c7620c1c022fe`。文件雜湊是封存當下快照，後續僅追加封存及推送回讀資訊。輸出1000:1000，root-owned／誤建md目錄0；圖片、原版及完整收據不進Git，正式程式保持。
+
+R953紀錄`041cde1`已推送；[#22留言5981072672](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5981072672)及[#28留言5981072479](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5981072479)含末尾LF逐字回讀相同，兩議題保持OPEN。94封存檔SHA保持；`workplace/r953/github-readback.json` SHA為`c45cf3e8049f6f4acfc02c8c25453954ebb8087ba98fdb2fdc78f25e89a1b0df`。本輪輸出衛生異常0，未追蹤R433保持，024候選待使用者採認，總目標未完成。
