@@ -1126,4 +1126,4 @@ R956最終獨立唯讀窄審0／0／0，主代理於FINAL後完整核讀JSON與M
 
 R956本機81份技術檔一次封存，`closed-inputs.json` SHA為`ceb0da0633401931d18c415f85e287bf2ea1f65b1f3940b82374cb98fc5c8bc7`，擁有權異常0。原版、字型、圖像與112,565,488-byte原音monitor只留本機，不進Git或交付包。
 
-R956證據`8748b9e`已推送；[#18留言5982451998](https://github.com/wicanr2/wizardry7-cht/issues/18#issuecomment-5982451998)完成兩字繁體校正後，含末尾LF逐字回讀相同，議題保持OPEN。81份封存檔保持，擁有權及输出衛生異常0；`github-readback.json` SHA為`aa6555c422229125e37a86a036443f9a22a72d2aafc19e5edceab2f389b26721`，所有工具terminal、自有容器0。只有限定音訊玩家路線前進，整體目標與全部交付門檻保持。
+R956證據`8748b9e`已推送；[#18留言5982451998](https://github.com/wicanr2/wizardry7-cht/issues/18#issuecomment-5982451998)完成兩字繁體校正後，含末尾LF逐字回讀相同，議題保持OPEN。81份封存檔保持，擁有權及輸出衛生異常0；`github-readback.json` SHA為`aa6555c422229125e37a86a036443f9a22a72d2aafc19e5edceab2f389b26721`，所有工具terminal、自有容器0。只有限定音訊玩家路線前進，整體目標與全部交付門檻保持。
