@@ -90,3 +90,35 @@ func TestBattleCenteringRejectsOtherScreensAndInvalidGlyphs(t *testing.T) {
 		t.Fatal("nil不得接受")
 	}
 }
+
+func TestBattleVisualCloneKeepsCenteringAndOwnsGlyphs(t *testing.T) {
+	for _, height := range []int{15, 16} {
+		for _, scale := range []int{2, 3} {
+			source := battleLabelFixture(height)
+			visual := cloneVisualEvents(source)
+			for i, e := range visual {
+				if e.fg != source[i].fg || buttonLabelY(e, visual, scale) != buttonLabelY(source[i], source, scale) {
+					t.Fatalf("%s height%d scale%d: GUI副本失去色號或置中", e.s, height, scale)
+				}
+				e.g[0][0] = 2
+				if source[i].g[0][0] != 1 {
+					t.Fatal("GUI副本不得共享來源字模")
+				}
+			}
+		}
+	}
+	for _, fg := range []uint8{0, 2, 255} {
+		source := battleLabelFixture(16)
+		source[6].fg = fg
+		source[6].fgRGB = [3]uint8{12, 34, 56}
+		visual := cloneVisualEvents(source)
+		if visual[6].fg != fg || visual[6].fgRGB != source[6].fgRGB {
+			t.Fatal("GUI副本必須保留來源色號與色值")
+		}
+		for _, e := range visual {
+			if got := buttonLabelY(e, visual, 2); got != e.y0*2 {
+				t.Fatal("異色GUI副本不得繞過完整家族守門")
+			}
+		}
+	}
+}

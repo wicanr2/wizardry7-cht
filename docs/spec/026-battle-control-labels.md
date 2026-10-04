@@ -41,3 +41,31 @@ Docker沿wizardry7-go-ebiten映像及Go1.24.13／Python3.11.2，原版、SDK、�
 R960正式helper與共用接線已完成，cmd/wiz7守門及既有回歸、正式建置通過。雙字型兩倍率四配置的七控制完整原生字格及筆畫越框0、全圖／區外差異與交疊0；各82原版摘要保持。獨立56字模實例及1,664,000個RGB像素核同。Unifont2倍與R959修前1,346像素變更只在七個舊／新字格，metadata及comp保持；Unifont3倍全PNG逐位元保持。倚天3倍缺舊版實跑PNG，只採舊Y與字模獨立重建保持，不升為新舊實跑對拍。
 
 最終獨立結果審查0／0／0，主代理於FINAL後完整核讀採認；結果、SHA及入口見[025 R960](../re/025-ui-localization-coverage.md#r960-battle-control-centering)。真正GUI、按鈕操作與動態撤除未驗，防禦分支僅單測，整份維持READY。
+
+## R961 GUI色號副本補充 READY
+
+2026-10-05獨立唯讀審查0／0／0，主代理於FINAL後完整回讀採認。審查JSON SHA `d59ad36a70ab2fd10025b91827a1e995a8769d3973ca69a56e20565e6cea2339`，Markdown SHA `304ee0e08b068de0a0a7f1ad6e874ea061739776670b4763926e34fb62c427f5`。此補充READY只准修正欄位與回歸，不表示真正GUI驗收。
+
+main.go的snapshot先呼叫cloneVisualEvents，再將副本傳給Draw。R961修正前的clone只保留fgRGB，遺漏fg；026守門讀fg1，因此HD來源事件置中，不表示修正前Draw副本也置中。本補充只修這個現有欄位傳遞，不新增攔截或資料格式。R960固定HD結果保持，正常玩家GUI完成尚未證實。
+
+- 在cloneVisualEvents既有textEv建構中保留來源fg，沿現有s／座標／fgRGB及每個字模深複製。只複製純顯示數值，不傳原版、owner或可變字模slice的參照。其他不供GUI使用的生命週期欄位仍保持現行省略。
+- 原事件、glyph、fgRGB與Draw流程不變，七控制守門和目的Y不改；其他畫面副本也保留其來源fg，不猜色號1或新字色。
+- 新回歸必須經真正的cloneVisualEvents→buttonLabelY鏈，核雙字高、兩倍率的七控制Y與來源一致、fg逐項相同，並改動副本字模證實原字模保持。異色fg仍拒絕七控制置中，不能因補傳而放寬守門。跑cmd/wiz7既有回歸及正式建置。
+- R961私人來源探針只重用R960已核metadata，不執行原版。來源／資料流結果與真正GUI／Draw收據分列；修完後的正常視窗、七按鈕輸入及撤除仍需後續實跑，不因單測升CONFORMED或覆寫R960歷史證據。
+- 先經獨立唯讀審查到補充READY再改正式Go；輸出限workplace/r961、正式修正限上述欄位及必要回歸。不修改SDK、catalog、字型、原版資料或存檔，十一組與交付門檻保持。
+
+## R961 固定畫格的真正Draw驗證 READY
+
+2026-10-05獨立唯讀審查0／0／0，來源oracle與過時文字修正已解除。主代理於FINAL後完整回讀採認；JSON SHA `52890214840f99881fd9eb567f13c04ff4be04a8894ccc81ebb0e42e8c50f8a8`，Markdown SHA `73e295f66093cf33234d175b011c6cc11d313436b23ab1571c6bec72dafd4997`。
+
+本次只消費R960四配置已封存的battle.json／comp／pal，不重新執行原版或重播輸入。私人Go測試由現行正式來源完整副本加一份測試入口組成，不修改正式Draw／Layout／cloneVisualEvents。以既有metadata建來源事件，色值直接取既有8位RGB色盤，經cloneVisualEvents發布至shared，再用真正Ebiten.RunGame視窗呼叫正式game.Draw。私人Update只負責在已完成一張Draw後以ebiten.Termination結束，不呼叫正式Update，不產生玩家輸入或遊戲狀態。
+
+- 雙字型各2／3倍分開四程序，以正式Layout建立640×400／960×600畫布。Draw沿正式drawReq儲存實際目的PNG；私人入口只提供固定shared資料、game.screen及退出條件。F1、地圖、圖片與Flow均關閉，原收據Flow須為空。
+- 每程序核來源事件及全部字模在clone前後保持，副本逐項fg／fgRGB／s／座標與字模相同，Draw後來源仍保持。字模副本的img快取可沿正式Draw建立，不取回或共享owner參照。
+- 以R960獨立PNG解析及原生字型解析方法重建全部RGB。七控制依原生字型與硬編矩形／026公式核對，其餘286事件只核既有字模metadata，不宣稱新的原生完整性。全圖差異、區外差異、七控制越框及交疊均須0；另核Draw與R960固定HD的完整RGB相同，不拿HD當唯一oracle。
+- 原版248檔、SDK1132檔、正式Go、R960封存168產物及原始字型只盲SHA前後核對，不讀MSG.DBS／防拷資料、原版或存檔的新正文，也不載入原版執行器。所有PNG與完整metadata留workplace/r961，source／source-immutability收據不含新原文。
+- 離線既有wizardry7-go-ebiten容器，UID/GID1000:1000、2CPU／2GiB／96pids；每程序逾時30秒，整批有界240秒。Xvfb由Python finally終止並wait；失敗留收據、不重挑畫格。完整正式測試／建置保持；私人入口先經獨立審查READY才執行。
+
+這是固定畫格的實際GUI Draw驗證，包含正式clone及GPU繪製，不包含正常owner、正式Update、滑鼠操作、動態撤除、音訊或冷啟動。026整份仍READY；不以此宣稱正常玩家路徑、全中文化或可交付封包。
+
+R961已量：正式欄位及clone回歸通過，四個固定Draw程序退出0；56原生字模、1,664,000RGB像素獨立核同，七控制越框、交疊及區外差異0。最終獨立審查0／0／0經FINAL完整回讀採認；JSON SHA `1990547b16d121314e737e2013e6f18df5a450817e4db2b49b9b359a4020091c`，Markdown SHA `7cf62f123373d9d7b7bdfabd7362af119753e887d418c53724a64b414cbb029e`。完整入口及封存見[025 R961](../re/025-ui-localization-coverage.md#r961-gui-color-copy)，正常玩家GUI與撤除仍待驗。

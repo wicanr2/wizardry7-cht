@@ -578,3 +578,35 @@ R942把73235759判成「無呈獻」過早。主代理重新檢視完整indexed�
 最終獨立實作／結果審查0／0／0，主代理於FINAL後完整回讀兩報告並核SHA採認。審查不執行候選或既有checker，直接解原始字型與PNG再重建全RGB，並核固定前綴、原版及來源身分。公共矩陣已將戰鬥入口移出「尚未到達」列；R959原始失敗作歷史保持，現行缺口以本輪為準。
 
 重跑入口在本機workplace/r960：prepare.py、build.py、test_build.py、run_case.py及check_display.py；第一個Unifont2倍通過後，另外三配置各用獨立有界容器執行。沿固定映像、原版／SDK／離線模組／字型唯讀，新且已存在的輸出目錄掛/out:rw，先確認來源及擁有權。compare_updated.py只核Unifont2倍舊新聯集，check_inputs.py核原版、來源及Unifont3倍保持；報告與輸出獨占建立。原始資料、字型、圖片及完整收據不進Git。只是暖HD／NoCursorWait，不採真正GUI、按鈕輸入、背景動態撤除或CONFORMED，026保持READY；十一組、TSV、存讀、錄放、音訊、待選版面及正式封包門檻保持。
+
+<a id="r961-gui-color-copy"></a>
+
+## R961 GUI色號傳遞與固定Draw
+
+2026-10-05，入口：[本輪目標](../goal/R961-battle-gui-color.md)、[026兩項補充](../spec/026-battle-control-labels.md#r961-gui色號副本補充-ready)，沿#28／#22。R960只驗固定HD；接續核正式snapshot→cloneVisualEvents→Draw發現副本遺漏fg，七控制的fg1守門因而回退。私人來源探針重用R960七則metadata，確認來源fg1／副本fg0、Unifont2倍目的Y331／351／371回退為334／354／374。沒有原版執行或新的正文讀取。
+
+兩項窄契約各經獨立審查0／0／0、FINAL後完整回讀到READY。正式main只補來源fg，保留fgRGB與字模深複製；新增真正clone→buttonLabelY回歸，雙字高／倍率保持、異色回退及修改副本字模不影響來源。cmd/wiz7完整測試與乾淨Linux建置退出0，40份Go中只有main及回歸兩檔修改，其他38保持。
+
+私人入口將R960四份已驗來源畫格送入現行clone及真正Ebiten.RunGame，直接呼叫未修改的正式Draw／Layout。四程序各Draw一次、退出0，來源純值保持、副本值完整及字模切片獨立，Xvfb終止。獨立來源期望直接序列化原事件，沒有用被測clone建立期望。
+
+| 配置 | 固定Draw畫布 | 七控制原生字模 | 全圖／區外差異、越框及交疊 |
+|---|---|---|---|
+| Unifont2倍 | 640×400 | 14 | 0 |
+| Unifont3倍 | 960×600 | 14 | 0 |
+| 倚天2倍 | 640×400 | 14 | 0 |
+| 倚天3倍 | 960×600 | 14 | 0 |
+
+四圖共56原生字模、1,664,000個RGB像素，原始字型解析與硬編七矩形重建相符。Draw與R960固定HD完整RGB也相同，此比較只為補充oracle。其餘286事件只核已有字模metadata，不當原生完整性或新增翻譯證據。SDK1132、原版248、三個原始字型檔及R960封存168產物盲SHA保持；沒有原版運行，不能以本輪增加原版狀態對拍數。
+
+| 本機workplace/r961收據 | SHA-256 |
+|---|---|
+| 修正前來源探針gui-clone-evidence.json | `66ca370e43322e372ee7bd91525848ddd3bcf89945347bfd5a0198c832878cc6` |
+| 正式Linux binary | `aca28c84c43ddb1b083273dd8ea1033994b8cd5a9a1a31b1eb9444ce78aacda2` |
+| verified.json | `99663f2003cff532b07639dc5162154df42d319dbc53d72ea24a782e9d7def0a` |
+| review-result.json | `1990547b16d121314e737e2013e6f18df5a450817e4db2b49b9b359a4020091c` |
+| review-result.md | `7cf62f123373d9d7b7bdfabd7362af119753e887d418c53724a64b414cbb029e` |
+| sealed.json，185份技術產物 | `870f2a0d010b8890daa486cd9bfa76dd43e44943ae0f0647a8fe929e650477fb` |
+
+最終獨立結果審查0／0／0，主代理於FINAL後完整回讀兩報告及SHA採認。審查另寫PNG／原生字模解析，不執行既有checker。185份技術產物一次封存，不含gocache及後續GitHub收據。
+
+重跑入口在本機workplace/r961：test_build.py、frozen_draw_test.go、run_frozen_draw.py與check_frozen_draw.py。使用已存在且全新輸出目錄，固定R960四配置資料唯讀掛/src，SDK／離線模組／原字型唯讀；每個私人程序30秒、整批240秒。這是固定資料的真正GUI Draw，沒有正常owner、正式Update、玩家輸入、撤除、音訊或冷啟動；026維持READY。下一步是正常暖視窗及按鈕操作，避免重跑已完成固定HD或Draw。十一組、TSV與正式封包門檻保持。

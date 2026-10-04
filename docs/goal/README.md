@@ -1,5 +1,7 @@
 # 專案目標
 
+戰鬥控制GUI色號傳遞：[R961](R961-battle-gui-color.md)。
+
 戰鬥控制中文字置中：[R960](R960-battle-control-centering.md)。
 
 戰鬥控制的現行覆繪檢查：[R959](R959-battle-control-display.md)。

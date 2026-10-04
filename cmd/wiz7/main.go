@@ -1568,7 +1568,7 @@ func main() {
 func cloneVisualEvents(in []*textEv) []*textEv {
 	out := make([]*textEv, 0, len(in))
 	for _, e := range in {
-		v := &textEv{s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fgRGB: e.fgRGB}
+		v := &textEv{s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
 		for _, glyph := range e.g {
 			v.g = append(v.g, append([]uint16(nil), glyph...))
 		}
