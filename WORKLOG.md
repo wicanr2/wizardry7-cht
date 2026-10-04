@@ -1008,3 +1008,5 @@ R947證據`f2ad757`已推送；[#17留言5978270390](https://github.com/wicanr2/
 revision-7一次正常GUI錄製、停止後續玩、三次重播與獨立原API控制共五個程序均退出0。截止279M、2,742事件、1,366發布，35次續玩不改完成檔；三次Step／Ticks及畫面摘要相同，36點完整RAM／暫存器／indexed／palette／A000相同。8M提前正常關窗重播回incomplete／exit2，沒有誤報279M完成。Python另核5,496 PNG SHA／CRC及12份獨立RGBA解碼、配置／六資源／事件與來源，串流Frames4,095,738→4,186,754。完整入口及SHA在研究022；013仍DRAFT，正式程式與全部交付門檻保持，自有執行容器0。
 
 R948最終限定窄審0／0／0，主代理於FINAL後完整回讀JSON與Markdown，不擴為正式READY。六份受審文件原bytes／SHA另保存快照，16份私人成果輸入保持；新增封存與推送註記不改受審前綴。私人16,044份技術檔一次封存，`closed-inputs.json` SHA為`cb249f20337f68438b5de097b869f7faef5a6e27146cfb8f9bd315cb9b55e866`，排除快取及GitHub回讀。報告SHA與入口見研究022，原版、錄放與候選不進Git，輸出UID/GID1000:1000、自有容器0。
+
+R948限定證據`0d32c98`已推送；[#17留言5978981934](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5978981934)含末尾LF逐字回讀相同，議題保持OPEN。16,044封存檔再次核全數保持，受審六文件前綴相同，原版248與工作根衛生再核通過；`github-readback.json` SHA為`26b2315702368783d7539eb10f50aad54e3f9cf12211be54f4efa82f9d435b15`。正式程式、SDK、未追蹤R433保持，自有容器0；下一個錄放閘門仍為正式契約及未量磁碟／來源故障，不把私人成功路線當交付完成。
