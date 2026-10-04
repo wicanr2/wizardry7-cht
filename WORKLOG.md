@@ -963,3 +963,5 @@ R944原型證據及勘誤`a8ab8de`已推送，[#22留言5977592573](https://gith
 R945最終獨立唯讀審查0／0／0，主代理於FINAL後完整核讀JSON與Markdown，採認限定DRAFT證據。晚到成功名稱撤回、GUI及實際故障接線等缺口保持，013不升READY。報告SHA與入口在研究022；工具輸出截斷後另讀完整JSON，沒有重跑產品。自有容器0。
 
 R945私人111份技術檔一次封存，`closed-inputs.json` SHA為`b3b585fe3b7f3f83a3edf1d15f656956c2aef9c7553642045f9b6a4c570b3070`，擁有權異常0。候選與錄放檔不進Git；正式程式及SDK保持，沒有全中文化、可玩或封包完成聲明。
+
+R945限定證據`d34bfb6`已推送；#17正文已改為使用者既有定案，[進度留言5977889175](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5977889175)及正文含末尾LF逐字回讀相同，議題保持OPEN。111封存檔全部保持，擁有權及工作根衛生異常0；`github-readback.json` SHA為`90eb04fc3d256b4e38345929415b247cc071cb11cda1ae4a9938ab2d63e4d2b8`，自有容器0。下一個技術缺口為目前六類資源的完整啟動綁定，不重問已選定的錄放檔形式。
