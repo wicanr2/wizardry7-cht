@@ -1,5 +1,7 @@
 # 專案目標
 
+定版人物欄位正式重排：[R954](R954-profile-reflow.md)。
+
 低倍率人物欄位排版證據：[R953](R953-profile-layout-evidence.md)。
 
 新增角色小按鈕排版：[R925](R925-character-dialog-labels.md)。
