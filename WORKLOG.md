@@ -947,3 +947,5 @@ R943正式修正`884999e`已推送，[#22留言5977264686](https://github.com/wi
 R944原型獨立窄審0／0／0於FINAL後完整回讀採認；另核48PNG雜湊、CRC、尺寸及54條參照，沒有重跑原型、audit或原版。只採認有限前景及區外證據，字模零位元背景、補底品質、完整作者區域及正式GUI皆未採認。兩報告SHA見025；來源保持完整性SHA為`76f9778bbfb3376569fb097fbf39d126163d120d458a54b1216d8026204544fb`，自有容器0。首輪報告輸出截斷改核完整JSON／Markdown，不列產品缺陷。
 
 R944私人199份技術檔一次封存，`closed-inputs.json` SHA為`0897ba8705f3fc995b25aaefbfeb0c8533dc76e0c40ce92ecf239485cfd54bee`；審查輸入保持、擁有權異常0，圖片及原版不進Git。沒有正式MON61覆繪或全中文化／可玩交付完成聲明。
+
+R944原型證據及勘誤`a8ab8de`已推送，[#22留言5977592573](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5977592573)含末尾LF正文逐字相同、議題OPEN；199封存檔全部保持，擁有權異常0。`github-readback.json` SHA為`e57641dcc79953a02009629667cc86aa9e7e4618562290932d52932ea3d3ea25`。自有R944容器0，翻頁呈現選擇及所有交付門檻保持。
