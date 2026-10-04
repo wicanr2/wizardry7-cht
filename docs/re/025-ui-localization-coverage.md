@@ -1,9 +1,51 @@
 # 按鈕與訊息的中文覆蓋驗收
 
 狀態：主選單、角色選單及新增角色對話框限定驗收通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
-入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[目前狀態](../../CONTEXT.md)。
+入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[R935](../goal/R935-character-review-audit.md)、[目前狀態](../../CONTEXT.md)。
 
 使用者要求把圖片內的英文按鈕納入完整中文化。本文保存目前正式來源及實際畫面的覆蓋矩陣；譯文存在、原版畫格及舊測試完成數量不直接當作本次介面已驗證。
+
+## R935 人物檢視與返回
+
+正式R932 binary SHA `9796d372ce53cef7528f9ad5d3a8fc57206af15cfa411cb37ab3f2499a20ed22`及兩後端各四資源保持。真正GUI冷啟動依次點160,47、85,193、175,152、100,170、314,190、287,193；每次先看當前畫格再輸入。從主選單進角色選單、選THESUS、檢視人物頁、右下藍色箭頭返回角色選單、離開回主選單，正常退出0，關閉耗時0.068531934秒，PCFILE.DBS持久內容保持。箭頭沒有英文文字，只證實314,190能返回；20×16色號外接框混有其他像素，不能當完整命中矩形。
+
+首次真正GUI在人物頁看圖超過父代理120秒等待，已保留失敗片段；超時後寫入的返回命令未送進遊戲。主代理承認工具等待錯誤，重查GUI路由後，以相同控制器、截止值及計畫輸入乾淨重跑，不調時基或延長等待。成功收據只採workplace/r935/retry/primary/captures.json，SHA `86b657bdcb38726905ba6eb6d86889265c8e08a7dcb8705f40535891fd3f9c1e`。
+
+其後六組英文／倚天／Unifont、2倍／3倍固定GUI各取272M、400M、528M、656M、784M、912M、1040M七點，全部正常退出0。28對Step、Mem、A000、Pal、Mouse及indexed／palette bytes相同，保存內容保持。3倍人物頁17個標籤為人類、戰士、等級、階級、無、經驗、擊殺、生命、體力及八個屬性；雙字型共59,212項局部HD／Draw像素核對通過。196個原生字模核對通過，3,180個原版after像素與英文indexed相符。一般標籤before來自既有攔截收據，不冒稱另一套原版探針獨立讀得。
+
+選人對話框「檢視誰？」及確定／取消字模正確，但2倍倚天兩按鈕字格各超1列，Unifont各超2列、筆畫分別超17／6像素；3倍全0。人物性別M仍英文，不把17個標籤通過寫成全人物頁完成。其他分頁與人物頁2倍完整排版尚未量。
+
+追加女性正常GUI只將選人點改為175,158，檢視既有TEMPEST；主代理逐次看圖，確認女性蜥蜴人頁仍顯示F、箭頭返回角色選單再離開回主選單。正常退出0、0.071909746秒、持久內容保持。返回命令守衛依本次畫格的LIZARDMAN102,6核對，沒有套用男性HUMAN訊號。收據female-primary/captures.json SHA `c1d4970f43abc211dfa2ac884402d3c267f6ca23d443fec545626f2055aba7a2`。未取得女性英文固定GUI控制，不聲稱女性同狀態或中文性別完成；先前驗證report的female未完成限制對應追加前範圍。
+
+### 單字元性別的窄範圍證據
+
+原版runtime0110:3877的near返回0110:6c42，StackWord(1)為M或F、StackWord(2)為0；入口游標90,6、SP65316，返回SP＋2、游標96,6。一般字串入口0110:3895沒有收到目標M；本證據補充既有013字串管線，不能再把所有玩家文字都等同NUL字串入口。
+
+獨立dosgolem冷啟動、相同正常操作，M選THESUS、F選TEMPEST。只有664M至784M、上述地址／字碼／座標組合被觀察。全64000 bytes離屏差異分類：M有13個、F有11個改動，都在90,6,6,6內、改動後為色號1；改動前含0、14、115–118，底圖有紋理。只清原筆畫並還原精確before，不以純色擦底。這些原始36-byte樣本、原版畫格及完整收據只留本機；未讀訊息檔、鄰文或手冊答案。
+
+M的兩套唯讀探針各七點與英文控制摘要及indexed相同，共14對。F沒有獨立英文GUI控制，不列為正式中文或同狀態GUI完成。私人重跑來源workplace/r935/sex_probe_full.go，SHA `7ec6fa88506bb1011a335cd04e3bf8f24f8b0ca4d05cd66ca6a23ec49e82f10e`；binary SHA `217a153fc302a3314ff0835a6b99ff1b026f37c39c969c30d5646deff4543cae`，入口`sex-probe-full <原版唯讀目錄> <新輸出目錄> male|female`。在既有離線非root image內建置／執行，SDK及原版唯讀，輸出限定workplace/r935新子目錄；不在主機執行。M／F observation.json SHA依序`9491b606f489ca13717fc41a7cac3fe23c339bd39bb8d5a347f7ad5b4bec852e`／`7ec495a48718248598291db66d21b17e7bc7c2c813a39a643c677dd576ede771`。
+
+### 獨立驗證入口
+
+公開[check_character_review.py](../../tools/re/check_character_review.py) SHA `11ba230178b4a0ece4f5eb7b34e281bd73f6e7f577c03df85c98fe519f835227`。工具直接解原字型、原始色號及PNG，不匯入正式renderer。二十個精確標籤只沿正式已知文案核對，沒有讀取MSG.DBS或messages.json。使用既有離線非root Docker，原版及字型唯讀，只有新報告位置可寫：
+
+```text
+python3 tools/re/check_character_review.py workplace/r935 \
+  --unifont-hex workplace/fonts/unifont-17.0.05/unifont_all-17.0.05.hex.gz \
+  --eten-font /eten/stdfont.15 \
+  --eten-symbol-font /eten/ET353S/FILES/SPCFONT.15 \
+  --output /reports/new-character-review.json
+```
+
+倚天全形問號來自SPCFONT.15，12240 bytes、SHA `f32049ba2a7a21db908878a488a2c1d93c389d17398cf46db1390ba89e247605`。STDFONT及Unifont雜湊沿R932，工具內固定核對。首次工具錯把問號從漢字字庫負偏移讀取，核符號字庫契約後修正工具，以同一GUI收據重跑通過，正式字型及文案未改。
+
+私人與公開report bytes相同，SHA `251f530d861fcd9c890612db7347ffe766f71cac68f90a6587a587c6c084641e`；既有輸出拒絕exit2且bytes保持。integrity.json SHA `897234c312c04206708ea4c8d794f1cc8b16391372cce1dc80e85df08dff5793`，核原版248、SDK1132、R928舊464封存、R932舊335封存全部保持，R935擁有權異常0。全工作根find自檢異常0，自有R935容器0；初次Python自檢跟隨既有斷連結而失敗，改用規定find完成，沒有產品重跑。新正式修正見[024](../spec/024-character-review-output.md)，仍DRAFT，不把本次證據計為性別中文或全遊戲完成。
+
+R936初審2阻擋／1應改／0建議，主代理於FINAL後完整回讀兩報告。R935限定證據可採，024資源型別入口及pending仲裁需補明後再審；JSON／Markdown SHA依序`2e3aa2c65bf3bb1ae32395c699582bd98632c49b81286c8b6df54b15c010470b`／`c9dc40d3cd3ac944d3551f470d88f101d7c2cdf665500430604bad077fee5fea`，入口workplace/r935/review-r936.json及.md。新正式工作目標見[R937](../goal/R937-character-review-fix.md)，READY前不實作。
+
+R936窄複審0／0／0，B1／B2及字形／女性現況文字皆解除，主代理於FINAL後完整回讀採認，024轉READY。兩報告SHA見024；只准限定實作，性別中文及按鈕修正尚未正式驗收，完整交付門檻保持。前段DRAFT描述為初審前狀態。
+
+R935的503個本機產物一次封存，closed-inputs.json SHA `bf8b59aebd98026d3d0375c29ffe9674e32f25aa0748f89a021912f1a2bd7908`。完整原始收據只留本機，正式修正另在workplace/r937，不覆寫基準。
 
 ## 驗收欄位
 
@@ -32,6 +74,8 @@
 | 新增角色對話框標題及確定／取消 | R921、R925正常GUI及固定步數已量；既有resident文字覆繪 | 雙字型兩倍率字格與筆畫在框內；正常取消返回 | 限定通過，[021](../spec/021-character-dialog-labels.md)仍READY |
 | 新增角色清單六列 | 完整名字＋性別職業動態文字，返回位置0110:0fcc | 名字依既定規則保留英文；六個性別職業3倍雙字型完整，選取及取消正常 | 六個實例通過；2倍、任意姓名與捲動未完成，見[022](../spec/022-character-roster-text.md) |
 | 角色選單六按鈕 | R932正常GUI及resident0110:5686、六個精確原文／座標 | 創建／檢視／刪除／改名／頭像／離開完整；雙字型兩倍率字格及筆畫在框內，離開返回正常 | 限定通過；五個子畫面未量，見[023](../spec/023-character-menu-labels.md) |
+| 人物檢視頁 | R935正常GUI與固定冷啟動；17個既有文字覆繪 | 3倍雙字型17標籤通過，M／F仍英文；2倍選人確定／取消超框 | [024](../spec/024-character-review-output.md)READY，正式修正待驗 |
+| 人物頁右下箭頭 | 無英文圖示；R935實際點314,190 | 正常返回角色選單；只證實此點，未量完整命中矩形 | 圖示無待譯字樣，不外推其他圖片按鈕 |
 | 清單上下箭頭 | 已見無英文圖示，操作及說明未量 | 尚未完成控制驗收 | 另沿正常GUI核對 |
 | 建立角色、其餘人物／物品／咒語／對話／戰鬥／存讀及圖片按鈕 | 此次重查尚未到達；既有規格與歷史收據須逐項核現行來源 | 未量到，不計本次通過 | 依可見畫面走合法操作 |
 

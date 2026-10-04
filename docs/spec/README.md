@@ -29,3 +29,4 @@
 | [021](021-character-dialog-labels.md) | 新增角色確定與取消按鈕內排版（READY；R925雙字型兩倍率及正常取消驗收通過，防禦分支僅單測） |
 | [022](022-character-roster-text.md) | 新增角色清單性別與職業碼（READY；R928六列3倍雙字型及選取／取消驗收通過，防禦分支僅單測） |
 | [023](023-character-menu-labels.md) | 角色選單六按鈕中文置中（READY；R932雙字型兩倍率及正常離開通過，防禦分支僅單測） |
+| [024](024-character-review-output.md) | 人物檢視性別與選人按鈕（READY；R936窄複審通過，正式修正待驗） |
