@@ -1,5 +1,7 @@
 # 專案目標
 
+森林遭遇過渡的有界完成：[R958](R958-forest-transition-wait.md)。
+
 森林事件的正常翻頁情境：[R957](R957-forest-event-context.md)。
 
 預設速度的正常點擊與音訊：[R956](R956-default-audio-clicks.md)。

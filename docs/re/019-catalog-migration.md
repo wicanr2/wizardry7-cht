@@ -806,3 +806,31 @@ confirmed僅限這條暖非GUI同狀態路線，不是中文覆繪、冷遊玩�
 confirmed只限這條暖原版、NoCursorWait、非GUI的一次正常點擊與同狀態結果。
 正式程式、SDK、catalog及字型未改；008仍DRAFT，十一組、TSV、冷存讀、錄放／音訊與封包門檻保持。
 新畫面尚無可見控制，後續先訂有界完成契約，不盲點人物或重走已完成路線。
+
+<a id="r958-forest-transition-wait"></a>
+
+## R958：森林遭遇過渡的有界完成
+
+2026-10-05，入口[私人工具契約](../goal/R958-forest-transition-wait.md)。回查原版決定性驗證、規格閘門與文件職責路由，獨立規格審查0／0／0後才產生候選。Archives版DS.EXE及合法R733暖初態沿R957；原seed、時鐘、隊伍、原版檔案與記憶體不修改，不匯出新state。
+
+- 完整重播81摘要／PNG、77命令及67點擊。主代理另次工具看本輪末圖後，只送Wait20M一次，末5453.1M、六word`[0,12,5,3,61,99]`與面向1保持。再次完整看圖，新文字及七個戰鬥控制出現即Finish，沒有新點擊或鍵盤輸入。不推定handler、戰鬥結果或控制操作已驗收。
+- 觀察／控制82個完整摘要及82對320×200 PNG逐位元相同，兩退出0、Scratch空；總78命令／67輸入，三筆舊NoResponse保持、新增0。取訊息502次、一般印字觀察669／控制0；29來源、解碼、同指標印字、來源不符、首次ID／Step及上限皆0。手冊0、詞庫102次，64筆數值與捨棄38筆保持；不讀詞庫正文或答案。
+- 127選定來源含52份cmd Go、SDK1132、原版248與R957舊289封存產物保持。兩筆圖像轉送只核身分與次序，主代理另次工具目視才送命令。沒有缺PNG；守門／cap負向分支未量，不把其摘要守門稱逐像素驗收。
+- 獨立候選及結果審查0／0／0，另核PNG CRC／filter／尺寸與來源。主代理於FINAL後完整回讀兩份結果報告並核SHA採認。一次提早回讀時報告尚未寫出，只產生FileNotFoundError；等FINAL後原命令成功，屬工具順序問題。
+
+工具為Go1.24.13／Python3.11.2；映像及runtime段址／Step基準沿R957。
+私人`probe-run` SHA `255f6025d536146901fea51616bdfe0992f553b2ff9224369dd2401df6de62b3`，
+`check.py` SHA `e616808d20130fde6537b717f3393b0cd762515b8ef7cc7bd2e0e4660d95260e`。
+本機重跑入口為`workplace/r958/prepare.py`、`probe/main.go`、`drive.py`、`control.py`、`check.py`；
+沿R957既有映像、唯讀SDK／原版／模組快取及Docker離線非root限制，只開r958輸出可寫。
+互動用Docker `-i`與PTY，每次新Wait前另次完整看圖，最多四次20M且見新文字或控制即停止。
+
+結果JSON／Markdown SHA依序為
+`a1e129226bc7b31d2cd2aeb15c658ae73dc162cd827934acca7cb474590cb252`、
+`cd1e49dbd4d8a10ae07f7aee48d6455347bce70846d18b42b092482cec5ce356`。
+204份私人檔一次封存，`sealed.json`／`verified.json` SHA依序為
+`41c1619878215014f02222c9b7058818a5dd175d8fdbd5cecf5aeda5c6ad11ea`、
+`3ccbaa7b70e9bbfe66542ea175c4bd156db0df9d2f090b8302cfa128d007b57c`；
+`comparison.json` SHA `8af7be57e186b60ab04b8592c61e16a186b236b1921c86bd7705451cb41e469a`。
+
+confirmed只限暖原版／NoCursorWait前綴／非GUI的有界無輸入完成。正式程式、SDK、catalog與字型未改；008仍DRAFT，十一組與交付門檻保持。新的戰鬥入口供後續中文按鈕重查，不稱中文覆蓋或完整可玩完成。原版畫格及完整收據只留本機。
