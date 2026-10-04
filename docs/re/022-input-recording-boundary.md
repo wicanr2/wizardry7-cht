@@ -1163,3 +1163,47 @@ revision-7完整路線五個程序均退出0：一次錄製、三次重播及不
 最終限定結果窄審0／0／0，主代理於FINAL後完整回讀兩報告，只採認上述私人實測。`workplace/r948/review-final.json`與`review-final.md`的SHA-256依序為`0c190ebf9ea9d6bdf681aed29dcec2b3a7f9a67cea7a9a28f494b3fc4e7716c9`、`5dc85c7960fa734c1562aed200509801b81261d96cb8a375175476ea292eb5f5`。六份受審文件另保存同SHA快照，供後續只追加中繼資料回查；16份私人成果輸入再核保持。`independent-gui.json` SHA為`d9e2233acaa24177f7ce400e5dee44464b40ee8d5f698606883aeb616857c29c`，完整路線`revision-7/attempt-1/report.json` SHA為`11316a1d09f0cf8ef74b5cc27c0ef298b76d9c61e29f58bf4ebbead9e82be1ad`。
 
 私人16,044份技術檔一次封存，`workplace/r948/closed-inputs.json` SHA為`cb249f20337f68438b5de097b869f7faef5a6e27146cfb8f9bd315cb9b55e866`。排除快取與後續GitHub回讀，原版、錄放、截圖與候選不進Git。封存包含各修正版、失敗收據及最終報告，不能把16,044檔全部當作通過案例。UID/GID1000:1000、自有容器0，正式程式及SDK保持。
+
+<a id="r949-recording-disk-failure"></a>
+
+## R949：實際磁碟空間耗盡
+
+2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[目標](../goal/R949-recording-disk-failure.md)、[013候選契約](../spec/013-input-recording.md#r949-recording-disk-failure)。沿R948 revision-7私人候選，不改正式程式或SDK。原版248檔及R943 GNU Unifont六資源唯讀。只保存原版盲SHA；新錄放片段只在本機核對，不輸出正文或讀MSG、state、手冊。
+
+recording/record.go在真正w.f.Write返回後新增觀察呼叫，只傳請求長度、實寫長度及錯誤。新增r949_write_receipt.go只保存ENOSPC／other有限代碼，不讀payload、不替換n／e或失敗控制流；生成的來源清單另加此檔。其餘84個舊選定來源保持，不能稱全部86項都未變。R948原86項及舊binary另核保持，013不升READY。
+
+既有映像wizardry7-go-ebiten:latest，ID為`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`；Go1.24.13、Python3.11.2、Linux核心7.0.0-31-generic。87項選定來源與模組清單綁定同一非競態binary；本輪沒有競態版。來源窄審0／0／0於FINAL後完整回讀採認，報告JSON／Markdown SHA依序為`b599e9d5d662dcb09ce17863bf78e97080666220105b8a3001fb05e5c463666b`、`2dacd7a99e9b2df7e4a327dd96895a39df975d619d8c6c86ab76a0b015afaaf2`。預審核對已完成的收據就緒守門，先成功解析錯誤JSON，避免獨占建立後空檔的觀察競態。
+
+先執行健康磁碟控制，再執行256KiB隔離tmpfs故障。兩側均真正冷GUI、正常鍵盤輸入、頁尾停止、後續原API及WM_DELETE_WINDOW關窗；填充器只在8M後已有有效錄製時寫另一檔，不替換Writer。tmpfs每塊4096 bytes、64塊，填充前剩188416 bytes；填充器寫188416 bytes後真的返回ENOSPC，statvfs可用空間0。候選隨後真正Write請求285、實寫27 bytes，返回ENOSPC，留下半截JSON列。
+
+| 案例 | 健康磁碟 | 真實ENOSPC |
+|---|---|---|
+| 停止邊界Step | 8,600,000 | 10,200,000 |
+| 原API後續操作 | 14 | 15 |
+| 保留檔bytes／完整JSON列 | 71,356／93 | 73,728／105，另有半列 |
+| 收尾／正常關窗 | passed／exit0 | recording_ineligible／incomplete／exit2 |
+| 成功末註及正式名 | 均有 | 均無 |
+| 軟體音訊Frames | 126249→158545 | 149737→184969 |
+| 停止前後檔案SHA | 保持 | 保持 |
+
+故障檔保留為retained.jsonl.partial，另存同bytes的renamed-incomplete.jsonl。兩次重播均wire_rejected／exit2；只改副檔名不能補足末註。故障畫面經主代理檢視，頁尾顯示「錄製失敗」；沒有量立即顯示時點。正常控制Footer的原始前綴SHA、事件數、連續序號及最後snapshot由Python獨立核對；故障完整列無end，尾列保持未完成，未重寫或補造。
+
+獨立核對另核起始配置SHA、六資源Loaded及每類讀取一次、LoadWith一次、來源／binary大小及SHA、後續操作及串流Frames、原版248檔前後盲SHA和工作根衛生。成功檔SHA為`290fac4dca9f28ff01a0056b5118bea4c43f991cfddd88752db3a6e2e54e79ce`，故障片段SHA為`4b9ca7b73b08fe516f45b5d9a002ea48ba0c1af98cb0b3f2bf297f60fc0607f4`。截止時recording_stream.Stopped=false；續玩以Frames增加為證，最終WM關窗兩側stream.Stopped=true。故障側最終Incomplete=true／sink_failure，正常側Incomplete=false；不宣稱整段音訊無故障。本輪靜音，不證明裝置或人耳。
+
+| workplace/r949私人輸入／收據 | SHA-256 |
+|---|---|
+| compiled-sources.json | `3fecba2ee2cded59082e91e78a383cdf506bbc31381704b5d711962a6c6422e4` |
+| bind | `ff8239431febefb9bcf10858de8c7d295012fc1d37316398d5df2ec72bba2ae3` |
+| disk_gui.py | `850707865333f46952f8a65b0dfa92c41663eb4162b825807c45d3b053edb234` |
+| verify.py | `b8181e6c04b02f50b62d265e7ef72ad30adfa3902bc955dd95949dc72a06dfce` |
+| attempt-1/report.json | `b3057443285efe6c79b0244cc507595985ba8c22aee4c17e194d4e427f901819` |
+| attempt-1/ENOSPC/filesystem.json | `0bac13f1426fdc28c30b0a760aed598b12d522279b673d75aa9884d7f1660e53` |
+| independent.json | `78b41baf87a7ea61ae3a107d124ca081d5dec09b637fefe8e69d1c48a2872c8a` |
+
+重跑在新的已存在輸出目錄依序執行prepare.py、build.py、disk_gui.py、verify.py。repo掛/src、原版/original、資源/resources唯讀，輸出/out可寫；建置另掛既有gomodcache到/mods唯讀，快取/out/cache。GUI另加`--tmpfs /disk:rw,size=256k,uid=1000,gid=1000,mode=0700`，不掛主機資料到/disk。離線Docker、--rm／init、UID/GID1000:1000、3GiB／2 CPUs／128 PIDs及日誌上限，外層240秒；核對512MiB／1 CPU／32 PIDs、60秒。Xvfb及個案由有界父程序finally回收，容器退出前保存故障片段；不覆寫採認收據。
+
+confirmed只限本次真正ENOSPC及健康控制。沒有量其他IO、立即故障UI、來源／音訊故障、全部退出交錯、發布後撤回、阻塞系統呼叫或斷電耐久。正式getter、CLI／schema、按鈕位置與裝置仍待；013保持DRAFT，十一組、全文、圖片按鈕、冷存讀檔、可玩與封包門檻不縮。
+
+最終限定結果審查0／0／0，音訊時點文句T1已解除；主代理於FINAL後完整回讀兩報告及SHA。`workplace/r949/review-final.json`／`.md` SHA依序為`533f7dea0499d57e205bbb9c9a715569d8968271bb59f3f99bc49d70742bc35f`、`31ab535bad45b586acc45c1b4f4247514dfcf7235f42c9c3d3914cf1c67898a3`。六份受審文件與技術輸入大小／SHA再核相同，另存原bytes快照；本段只追加中繼資料。
+
+私人259份技術檔一次封存，`workplace/r949/closed-inputs.json` SHA為`6ed4e683692f96bb42621881c680148cbd11e0545aa7b1b1804f5d5312921223`，排除快取及後續GitHub回讀。來源、錄放片段、圖像及binary都留本機，不進Git。輸出UID/GID1000:1000，自有容器0；正式程式與SDK保持，013不升READY。
