@@ -31,3 +31,4 @@
 | [023](023-character-menu-labels.md) | 角色選單六按鈕中文置中（READY；R932雙字型兩倍率及正常離開通過，防禦分支僅單測） |
 | [024](024-character-review-output.md) | 人物檢視性別與選人按鈕（READY；3倍性別與兩倍率按鈕限定像素通過，R941結果複核通過；2倍性別未完成） |
 | [025](025-intro-picture-labels.md) | 六張片頭圖片呈獻字樣（READY；周邊紋理補底已接正式前端，雙字型兩倍率及正常GUI限定驗收通過，未知過渡仍待） |
+| [026](026-battle-control-labels.md) | 七個戰鬥控制的中文按鈕內排版（READY；正式接線與雙字型兩倍率固定HD通過，GUI／操作／撤除待驗） |

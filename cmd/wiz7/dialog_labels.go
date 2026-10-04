@@ -13,6 +13,9 @@ var characterDialogLabels = [...]struct {
 
 func buttonLabelY(e *textEv, shown []*textEv, scale int) int {
 	oldY := menuLabelY(e, shown, scale)
+	if y, ok := battleControlLabelY(e, shown, scale); ok {
+		return y
+	}
 	if y, ok := characterMenuLabelY(e, shown, scale); ok {
 		return y
 	}

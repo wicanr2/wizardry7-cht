@@ -1,5 +1,7 @@
 # 專案目標
 
+戰鬥控制中文字置中：[R960](R960-battle-control-centering.md)。
+
 戰鬥控制的現行覆繪檢查：[R959](R959-battle-control-display.md)。
 
 森林遭遇過渡的有界完成：[R958](R958-forest-transition-wait.md)。
