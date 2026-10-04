@@ -909,3 +909,5 @@ R937修正後535個技術產物一次封存，workplace/r937/repair/closed-input
 - goal檔只保存目標，R937既有成果段移除，成果已在025、CONTEXT及本WORKLOG保持。未追蹤R433及其餘來源保持。本輪未實作圖片中文；下一閘門逐張文字矩形、背景、撤除、READY規格及兩字型／兩倍率正式GUI，全部交付門檻保持。推送及議題回讀另補。
 
 R942私人1216個技術檔封存，closed-inputs.json SHA `46f3e663d6707fe7708c6d048bb7224076dff16e3187275d3ac0942823671429`。排除Go快取及後續GitHub中繼資料；原版248、SDK1132再核保持，公開source逐位元同r5，root-owned／誤建md目錄及自有容器0。
+
+R942來源及探針`1ed3d3a`已推送，[#22留言5976577976](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5976577976)與本機正文逐字相同，議題仍OPEN。回讀時1216封存檔全部保持；github-readback.json SHA `b813516e753ee869ec8dd695d69a770772d2540793b47c0bd8c631e09a8d7086`。沒有圖片正式覆繪、全遊戲或封包完成聲明。
