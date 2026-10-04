@@ -1200,3 +1200,5 @@ cmd/wiz7測試及正式Linux建置退出0。四配置雙字型兩倍率各七控
 最後正常Unifont2倍GUI逐圖檢視後兩次X11→正式Update→原owner正常Click：248,189裝備進最後指令、160,179退回上一頁。七控制在子畫面撤除並返回重現；三組F1 paused／resume Step相同、WM_DELETE關窗0，watcher／owner／遊戲／Xvfb終止。六PNG與來源／副本核同，初末28原字模、512,000RGB獨立重建0差異、越框及字格交疊0。50Run、四mouse、兩left共56操作有前後Step，末5475100000；手冊0、Lexicon沿舊102、目標29仍0、pacer fault空及no_pcm模式。
 
 完整來源40Go、候選44、SDK1132、原版248、六資源及R960168／R961185盲SHA保持。最終獨立結果0／0／0、FINAL完整回讀報告／SHA採認；166技術產物一次封存，SHA `12b1677a5abc4ece8f5f4d127d57f76dc5f0f0397f297741ac5f2772978937c1`，詳細入口[025](docs/re/025-ui-localization-coverage.md#r962-normal-battle-gui)。不新增正式測試重跑，私人建置／GUI與獨立檢查退出0。只量裝備與返回路線，其餘控制、字型倍率、新A/B、冷START、音訊／完整通關／封包門檻保持；026仍READY，總目標未完成。未追蹤R433保持，接其餘正常戰鬥操作。
+
+驗收文件`8853698`已推送；[#28留言5985178073](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5985178073)含末尾LF逐字回讀相同，議題保持OPEN。166封存保持、擁有權／工作根異常0、自有容器0；回讀收據SHA `c28ff4a9109cbcb7ec94f30ef4ca7c116daf0d27a7908550daad8ae851ade2fe`。原版衍生圖與完整收據只留本機，下一輪接其餘正常戰鬥控制及合法流程，所有交付門檻保持。
