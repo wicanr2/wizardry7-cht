@@ -1044,3 +1044,40 @@ Go1.24.13、Python3.11.2及既有`wizardry7-go-ebiten:latest`，映像ID為`1d7a
 最終獨立唯讀審查為阻擋0、應改0、建議0。主代理於FINAL後完整核讀兩份報告，只採認私人候選及DRAFT回填，不批准正式錄放或READY。`workplace/r945/review.json`與`review.md`的SHA-256依序為`41121fd73b4585aad299fc59081d279ff65411bd5edf2c2e0d0fb63d26fd1475`及`34ff86dc5c0d8930205a86159380bf64ab536c975c3c123480d7cf1b9b640389`；報告UID/GID為1000:1000，自有容器0。
 
 私人111份技術檔已一次封存，`workplace/r945/closed-inputs.json` SHA-256為`b3b585fe3b7f3f83a3edf1d15f656956c2aef9c7553642045f9b6a4c570b3070`。排除可重建快取與後續遠端同步回讀；來源、修前歷史、三輪收據及審查報告保留，不覆寫。擁有權異常0，私人候選與自製錄放檔不進Git。
+
+<a id="r946-six-resources"></a>
+
+## R946：六類資源的同次讀取候選
+
+2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[目標](../goal/R946-recording-resource-binding.md)、[013候選契約](../spec/013-input-recording.md#r946-six-resources)。沿既有完整設定決定補技術缺口，未改正式程式、SDK、catalog或字型，未執行原版。正式載入位置是main.go的xlate／flow／help、roster.go:112、profile_sex.go:94及intro_picture.go:90；正式來源SHA保存在私人source-inputs.json。
+
+私人prepare.py從目前正式來源逐字取出五個完整loader，只替換函式名稱及讀檔入口，仍用正式decodeRoster／decodeProfileSex／decodeIntroPicture。一般譯文解析另沿main.go的map／digits／ordinals規則，解析錯誤改有限代碼，沒有呼叫正式main或log.Fatal。側車一次Open讀到記憶體，保留同一handle的Stat，解析與SHA共用相同bytes；超過既有1MiB上限拒絕錄放資格。xlate／flow／help沿既有ReadFile方式，本輪不宣稱所有資源讀取都有新容量限制或抵抗同一檔案的並行寫入。
+
+Go1.24.13、Python3.11.2；既有映像`wizardry7-go-ebiten:latest` ID為`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。attempt-1的22個leaf案例通過，失敗0，無DATA RACE；只執行TestR946，其他編譯測試不算執行。confirmed限以下自製候選：
+
+| 案例 | 已驗範圍 |
+|---|---|
+| 六資源成功2例 | 15／16字高自製字模的全部六份資源，各讀一次；五個loader與正式結果DeepEqual，一般譯文map直接沿候選，沒有獨立一般譯文解析oracle。請求、大小與SHA另核符合，非GNU／倚天實際字型驗收。 |
+| 側車缺檔／無效6例 | 三類側車各測缺檔與無效JSON；正式與候選均回退。缺檔空SHA，讀到無效資料仍保留其SHA，不誤報Loaded。 |
+| 停用／空catalog2例 | 三份側車未要求、未讀取；合法空catalog仍標示解析成功。flow／help依其自身路徑載入。 |
+| 換空白3例 | 三類側車各只加JSON空白，解析仍成功，但資源比較拒絕自製後續載入hook，計數0。不是Oracle.LoadWith計數。 |
+| 讀後換檔3例 | 單次讀完即以rename換成無效文件；三類解析仍使用已讀有效bytes，大小與SHA指向該份內容，每份候選讀取一次。沒有同檔並行寫入防護證據。 |
+| 超限3例 | 三份側車各超過1MiB，錄放配置拒絕；不把未完整擷取當成功hash。 |
+| 配置集合3例 | 舊三角色、重複角色及錯序均拒絕。私人候選Build凍結後的資源slice另驗不受呼叫端修改。正式相容策略未定案。 |
+
+獨立Python核19份資源紀錄、兩份完整自製配置：六角色順序、實際或保存的已讀bytes大小／SHA、配置內相同資源紀錄均符合。五個Loaded語意由上述Go正式loader對照證明；一般譯文解析僅沿正式來源規則，未獨立對照，Python沒有重作解析器當新oracle。44份複製來源及94項選定編譯來源保持，私人SDK的選定差異仍只有已證getter`oracle/initial_scalars_candidate.go`；R945封存111檔全部保持。輸出UID/GID1000:1000，工作根root-owned／誤建md目錄與擁有權異常0。
+
+| 私人來源／收據 | SHA-256 |
+|---|---|
+| resources.go | `bd7f291c45400173c3fa37e87eb9fbce7122a88465db1a78b0da6efc1f64689d` |
+| resources_test.go | `10e6eaa72fac9bdcf7fc0f07bdc9148d9bb3f3e8630a6f940e288e14a524943c` |
+| source-inputs.json | `5fd090d84e2aef3b1f97aa5fa8dd7c97908afe096ccaee12618ae8366e78457d` |
+| attempt-1/report.json | `8961de8efbde4a86a6960372247d223111faf47218235ab43a3db69df02f9196` |
+| attempt-1/compiled-sources.json | `07bca9d6fea34613febdeeef3c6f02154809e549bf08fc528691d99cc866cf6d` |
+| attempt-1/independent.json | `3ba100680fe6d41839c7070680534c9c38922c02f3c53d5471093cbeab3444d0` |
+
+重跑先在新的已存在輸出目錄依序執行本機prepare.py、run.py、verify.py，後兩者設定同一R946_ATTEMPT，預設attempt-1，不覆寫舊收據。來源repo掛/src唯讀，輸出掛/out可寫，既有gomodcache掛/mods唯讀；離線非root Docker、init、2GiB／2 CPUs／128 PIDs、日誌上限及外層220秒。Go設定GOPROXY／GOSUMDB為off、GOFLAGS為-mod=readonly、GOCACHE只寫/out/cache。Xvfb由有界Python父程序在finally終止回收。
+
+這些證據補六資源的私人解析與配置集合，不是正式起始owner、實際錄放／GUI／音訊／三重播。私人schema只識別候選，不對玩家定案新格式；全域啟動紀錄需在正式單一擁有者契約中替換，與R875／R945尚未整合，013保持DRAFT。
+
+最終獨立窄審阻擋0、應改0、建議0；主代理於FINAL後完整核讀JSON／Markdown，只採認限定DRAFT證據。報告`workplace/r946/review.json`與`review.md` SHA-256依序為`d53db246476395b8b2259a31e12f9783939826d791cc43827d8d113e065946b0`及`61628843fc2e5cda61f052e980fb6beb930085c30b170b897080aa4320199104`。核審查輸入保持後，私人196份技術檔一次封存；`closed-inputs.json` SHA為`684540c2cdbbad8b2aa1ae815b8f31f05625a80efa864fa053261f523f0ee849`。排除快取與後續GitHub回讀，輸出及報告UID/GID1000:1000、自有容器0。

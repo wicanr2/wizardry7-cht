@@ -476,3 +476,15 @@ R876封存後唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩�
 15個限定leaf案例競爭檢查通過，包含操作中要求停止、續玩不改已完成檔、自製run／click結果保持、六種Draw拒絕、最後snapshot寫入與Finish故障、阻塞Finish後續玩與20次並行重複要求。真實候選Writer留下三份完整自製檔、十二份無末註片段，獨立Python核配置SHA、原始列內容SHA、事件順序及截止Step。正式軟體音訊Frames從2937增至5873，EndStep從200000到400000，Stop／裝置Close未呼叫；此例沒有OPL寫入，不證明連續有聲音樂。
 
 這不是原版Run、實際停止按鈕、真正Draw、聲音裝置、人耳或三次重播驗收。原型沿candidate/3及原本三類資源設定，尚未把目前正式載入的roster、profile-sex、intro-picture三份sidecar納入同次啟動綁定；完整正式schema、CLI、資源載入、GUI停止及退出競態仍須定稿。來源、失敗及獨立審查入口見[研究022](../re/022-input-recording-boundary.md#r945-recording-stop-owner)，不以15案例直接升READY。
+
+<a id="r946-six-resources"></a>
+
+## R946：六類資源的同次讀取候選
+
+2026-10-04；單檔完整起始設定已定案。R945揭露目前正式前端另載入三份側車，舊三類資源候選不能作最新完整設定。本輪私人配置`wiz7-startup-config-resource-candidate/2`補齊xlate、flow、help、roster、profile-sex、intro-picture六個固定角色；這個名稱只識別可丟棄候選，不定案正式格式或相容策略。
+
+資源的Requested記錄實際讀取要求；沒有譯文或合法空catalog時，三份側車依原載入條件跳過，維持未要求。讀不到保留Loaded=false與空SHA；讀到但解析無效則保留原始bytes的大小與SHA，Loaded=false。成功解析才Loaded=true。解析與SHA使用同一份已讀bytes，不重新按路徑取hash；側車在讀取後換檔仍解析已讀內容。側車超過既有1MiB上限或無法完整擷取時拒絕錄放配置，不聲稱取得完整SHA。
+
+私人Build驗證六個固定角色的數量與順序，配置凍結後複製資源slice；重播候選先比對所有資源紀錄，任一差異都拒絕呼叫後續載入hook。此hook是自製計數，沒有接Oracle.LoadWith。候選依序執行，使用私人全域紀錄與測試換檔回呼，尚未整合R875單一owner或R945停止候選。
+
+22個限定案例競爭檢查通過；15／16字高使用自製字模，五個載入結果與正式loader對照相同。一般譯文map直接沿候選，沒有獨立一般譯文解析oracle，不能外推為兩套發行字型驗收。獨立Python核19份資源紀錄與兩份六資源配置的原始bytes／SHA。完整來源、重跑及限制見[研究022](../re/022-input-recording-boundary.md#r946-six-resources)。完整正式schema、CLI、owner綁定、GUI停止、實際故障、退出競態及三次重播仍待，013保持DRAFT。
