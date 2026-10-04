@@ -993,3 +993,18 @@ R947最終獨立唯讀窄審0／0／0，主代理於FINAL後完整核讀兩報�
 R947私人219份技術檔一次封存，`closed-inputs.json` SHA為`ae0aa2079238afcf78ad73ee258a2a2079a865200032ff052ff3ee148d2c0d23`。封存後衛生檢查的stat遇到舊R847故意建立的斷鏈fixture，改用lstat後核全數封存及工作根通過，沒有重寫封存或重跑產品。UID/GID異常0，正式程式、SDK與未追蹤R433保持；候選及資源不進Git。
 
 R947證據`f2ad757`已推送；[#17留言5978270390](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5978270390)含末尾LF正文逐字回讀相同，議題OPEN。219封存檔全部保持，擁有權及工作根衛生異常0，自有容器0；`github-readback.json` SHA為`000e3fed99dc97243858a8de0249f415bea7e007a47553a77980191d634dc612`。下一步將已讀六資源交給GUI，整合停止後續玩候選並驗實際錄製／重播；013及全部交付門檻保持。
+
+## R948 錄製介面與停止後續玩（2026-10-04）
+
+沿#17既有按鈕停止、停止後續玩及故障片段定案，建立並索引本輪目標；命中規格閘門、正常玩家路徑及文件職責路由。私人候選把R947同次解析的六資源交給GUI，包含原先丟棄的數字／序數字模，再接R945單一Writer。停止控制暫置遊戲區外40像素頁尾，保持原320×200輸入座標；正式位置未定案。正式程式、SDK、資源與原版保持，不重問已選分支。
+
+- 首次生成器沿R875舊欄位空白比對而失敗，定位目前正式欄位後修正。首個完整競態版因低於腳本觀察預算的執行速度停止，沒有完成案例或DATA RACE，不列全路線競態通過。改非競態版完整路線，競態版另做短GUI抽樣。
+- 首次來源審查發現最後Draw另起五秒期限、接收後缺期限再核及錯配旗標未使用；revision-2改專用stopDraw與首次要求期限。當次已量停止及續玩，但腳本以XDestroyWindow代替正常關窗，造成BadWindow，屬工具問題；改用既有WM_DELETE_WINDOW輔助程式。
+- revision-3量到正常錄製及一次重播；補審發現AfterOperation在錄製收尾後，音訊故障可能晚到，因此主動停止未完成的餘下測試。revision-4移動單次AfterOperation；再審查發現末點摘要與Final分別讀取GUI要求，revision-5固定一次判斷，並於Boundary前再核資格。superseded完整跑以143終止，未冒充全測通過。
+- revision-4缺Draw案例得到stop_timeout，腳本只接受draw_timeout的斷言過窄；兩者沿同一絕對期限。revision-5修正判準後量到真正關窗仍可能使owner等待不存在的一般Draw，panic publication_timeout，屬候選退出缺口。revision-6增加全局stop取消普通等待，不補snapshot；補審再發現提前關窗重播可報passed，revision-7要求消費全部事件且Step等於Footer.End。revision-6未執行產品案例。
+- revision-5首次建置誤把/out對到父目錄，既有清單的xb守門拒寫；改正掛載後乾淨建置，父目錄選定來源SHA仍全同。歷史核對首次假設三份closed-inputs都有list格式，遇舊dict格式停止；依實際格式核對後通過，產品未重跑。87份複製輸入、先前111／196／219封存及七份選定來源清單保持，工作根衛生異常0。
+- revision-7來源窄審0／0／0，主代理在FINAL後完整回讀JSON與Markdown。此前每輪阻擋照實保留，這次只採認私人DRAFT來源，不當GUI驗收或013 READY。真正GUI故障兩例通過；短競態版實際停止及續玩通過、無DATA RACE，限定8.6M截止，未外推全路線競態。
+
+revision-7一次正常GUI錄製、停止後續玩、三次重播與獨立原API控制共五個程序均退出0。截止279M、2,742事件、1,366發布，35次續玩不改完成檔；三次Step／Ticks及畫面摘要相同，36點完整RAM／暫存器／indexed／palette／A000相同。8M提前正常關窗重播回incomplete／exit2，沒有誤報279M完成。Python另核5,496 PNG SHA／CRC及12份獨立RGBA解碼、配置／六資源／事件與來源，串流Frames4,095,738→4,186,754。完整入口及SHA在研究022；013仍DRAFT，正式程式與全部交付門檻保持，自有執行容器0。
+
+R948最終限定窄審0／0／0，主代理於FINAL後完整回讀JSON與Markdown，不擴為正式READY。六份受審文件原bytes／SHA另保存快照，16份私人成果輸入保持；新增封存與推送註記不改受審前綴。私人16,044份技術檔一次封存，`closed-inputs.json` SHA為`cb249f20337f68438b5de097b869f7faef5a6e27146cfb8f9bd315cb9b55e866`，排除快取及GitHub回讀。報告SHA與入口見研究022，原版、錄放與候選不進Git，輸出UID/GID1000:1000、自有容器0。

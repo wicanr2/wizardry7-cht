@@ -500,3 +500,19 @@ R876封存後唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩�
 17個load-only案例通過：六成功、十一拒絕。目前GNU Unifont及本機倚天六份烘製資源都成功載入與綁定；三側車的換空白、缺檔及無效JSON各在LoadWith前拒絕，超限亦拒絕；初態差異則LoadWith一次後、交出前拒絕。中文、英文、相符expected與內嵌來源清單模式的1MiB RAM／indexed／palette／暫存器初始摘要皆等於原始控制。
 
 這裡只綁定已載入資源的紀錄，bundle尚未交給正式Draw，也未整合R945停止續玩。expected只為可信自製fixture，沒有正式不可信wire decoder；實際SDK仍沿私人getter。沒有Run／輸入計數器，無執行與輸入聲明限於已審的load-only源碼路徑，Step0不能單獨證明它。正式CLI／schema、機器goroutine、GUI／故障／退出競態與三次重播仍待，013保持DRAFT。來源與收據見[研究022](../re/022-input-recording-boundary.md#r947-six-resource-owner)。
+
+<a id="r948-recording-gui-continue"></a>
+
+## R948：停止後續玩的GUI蒐證契約
+
+私人候選沿R947同次六資源解析及起始配置，將Trans、數字／序數字模、Flow、Help、Roster、Sex、Picture直接交給目前正式畫面程式，不再讀資源第二次。R945錄製器持有Writer；正常snapshot與原API事件共用相同序列，GUI停止要求不送進原版。
+
+要求在當前API返回後或迴圈開始的安全邊界承認；同Step發布最後畫面，真正Draw確認後由單一Writer工作程序追加最後snapshot並完成。正常錄製停止不呼叫遊戲或音訊Stop／Close；後續原API與發布照常執行，不再寫錄放檔。關窗另沿正式退出期限收尾音訊。重播到錄製最後snapshot才停止重播，不重播錄製完成後的操作。
+
+私人候選的最後Draw使用獨立通知，整段收尾共用首次要求的絕對期限，不另起等待期限。run／click先完成當次AfterOperation，再檢查收尾資格；進入Boundary前再核音訊、來源及串流故障。一次固定的末點判斷同時決定完整原版摘要與Final標記，晚到要求留待下一安全邊界。
+
+全局關窗後可取消一般畫面等待，不補寫snapshot；最後錄製Draw仍走專用Boundary。重播只有消費全部事件且實際Step等於Footer.End才回報完成，提前關窗保留未完成結果。這些來源修正經獨立補審，動態證據依研究022限定，不由來源審查直接宣稱玩家路線通過。
+
+蒐證副本以遊戲區外40像素頁尾放停止控制，字模取同次Flow；遊戲座標仍為原320×200，頁尾滑鼠不送原版。錄放snapshot只保存遊戲區，頁尾另留GUI圖。此位置為可丟棄操作原型，未定案正式介面；故障與逾時資格沿R945限制，未量到不稱READY。一次非空GUI錄製、停止後續玩、三次重播及無覆繪原API控制列為本輪驗收，不用這些收據代替全遊戲可玩或裝置人耳確認。
+
+revision-7已量到真正按鈕停止、35次續玩、三次完整重播及無覆繪控制：1,366發布的Step／Ticks及畫面相符，36點RAM／暫存器／indexed／palette／A000摘要相同。兩個Draw故障保留片段並續玩，提前關窗重播回未完成，短競態GUI通過；獨立另核配置、六資源、事件與PNG。正式getter／CLI／schema、位置、磁碟及來源故障、完整退出交錯與裝置仍待，013維持DRAFT。完整數字、來源及限制見[研究022](../re/022-input-recording-boundary.md#r948-recording-gui-continue)。

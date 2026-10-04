@@ -1123,3 +1123,43 @@ attempt-1的17個私人案例通過，六成功、十一拒絕，無DATA RACE。
 最終獨立唯讀窄審阻擋0、應改0、建議0；主代理於FINAL後完整核讀JSON與Markdown，採認限定私人DRAFT證據。審查另由ELF64符號及PT_LOAD獨立定位實際binary的兩個Go字串，內嵌來源清單與SHA逐位元符合。`workplace/r947/review.json`與`review.md`的SHA-256依序為`aae3c40c07f38b577b8671e5b74721dae9ec566258d7a0db0644608ebe6e93c4`及`971e5394fc172bfcb66a64037c99732cf60424e2fd2635cd9faaccc6f51fab02`；這是候選ELF位址空間，不是原版位址。兩報告UID/GID1000:1000，自有容器0，013不升READY。
 
 私人219份技術檔一次封存，`workplace/r947/closed-inputs.json` SHA-256為`ae0aa2079238afcf78ad73ee258a2a2079a865200032ff052ff3ee148d2c0d23`。排除Go快取及後續GitHub回讀；二進位、資源與原版摘要均留本機。全數SHA與UID/GID再核相同，工作根衛生異常0；正式程式與SDK保持。
+
+<a id="r948-recording-gui-continue"></a>
+
+## R948：真正介面停止錄製與續玩
+
+2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[目標](../goal/R948-recording-gui-continue.md)、[013候選契約](../spec/013-input-recording.md#r948-recording-gui-continue)。原版仍為248檔唯讀輸入，資源使用R943的GNU Unifont六份烘製資料；只保存原版檔案盲SHA及狀態摘要，不解碼MSG、state或手冊。正式程式、SDK、字型與原版不改，私人getter仍沿R875。
+
+R947同次解析的Trans、數字／序數字模、Flow、Help、Roster、Sex與Picture交給真正GUI，不重新讀取資源。錄製沿R945單一Writer，原API事件與snapshot共用序列。停止按鈕使用Flow字模，置於原遊戲區外40像素；遊戲區仍為960×600，頁尾另留圖，不混入錄放畫面或原版滑鼠座標。這是已測操作原型，正式位置及格式未定案。
+
+最終Draw只走專用stopDraw，沿首次停止要求的絕對期限。run／click先完成一次AfterOperation，再檢查收尾資格；Boundary前另核音訊、來源與串流故障。publish只取一次final，供完整摘要與末點標記共用。全局關窗取消一般Draw等待，不補事件；錄製最終Boundary仍必須確認真正Draw。重播只有消費全部事件且實際Step等於Footer.End才回報完成。來源修正不等於競態分支均有決定性交錯證據。
+
+獨立來源審查在revision-2至7逐步找出與修正共用期限、接收後期限、錯配旗標、AfterOperation順序、末摘要雙讀、正常關窗及提前重播完成資格。舊完整跑因已找到來源缺口主動停止，或因工具觀察期限／XDestroyWindow錯誤失敗，均保留本機，不採認為全測通過。revision-7來源補審0／0／0，主代理在FINAL後完整回讀JSON與Markdown；只有此副本重新進完整路線。完整歷程見WORKLOG的R948段。
+
+Go1.24.13、Python3.11.2；既有映像`wizardry7-go-ebiten:latest` ID為`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`。86項選定Go與模組鎖檔清單嵌入同一binary，stdlib與第三方沿映像／模組及二進位身分鎖定，不逐檔宣稱。一般版及短競態版使用同一選定來源。
+
+| 私人來源／收據 | SHA-256 |
+|---|---|
+| revision-7/compiled-sources.json | `429c9d4cc6d097ed2bac5a6ca567dfc465c61bc5fda3437f94939dbe6d8d2308` |
+| revision-7/bind | `cf7c3a39614ff2b2518d6e482283aab8bde18f46dceab4f6645e1767328971a1` |
+| revision-7/bind-race | `4c4fc5fe4441b2abd8b52217c4867598c6627116e481a0c4bbc09be860e62d55` |
+| review-revision7-source.json | `0c77315e87cdb429c3a83c48f97da588e4f697103df7a25fab4fbf0f0a70922d` |
+| review-revision7-source.md | `4feac5687f08c76a78ff72b8e41832c164613c07e43b0eeba3447fd13dc59779` |
+
+confirmed限下列私人實跑及來源核對。停止後不Close原版或音訊，35次後續原操作不改已完成619,795 bytes的錄放檔；最後錄製snapshot為279,000,000步，2,742事件、1,366發布。當時串流Frames4,095,738，OPL實際寫入7,835、丟棄0、無來源故障，Stopped／Incomplete均false。GUI後續仍經AfterOperation推進軟體音訊；靜音無裝置ACK或人耳證據。正常WM_DELETE_WINDOW關窗退出0，F1暫停／返回、鍵盤及滑鼠真正交付，畫面已見中文主選單、確認、取消及錄製狀態；不外推全遊戲文字覆蓋。
+
+兩個實際GUI故障案例通過：錯配確認回draw_mismatch，缺確認本次回stop_timeout；後者與draw_timeout共用同一首次要求期限，不保證競爭中的哪個有限代碼先到。兩者都無成功檔名、無成功末註，片段在其後15次操作保持；串流Frames分別123,313→155,609與126,249→158,545，重播器拒絕片段，正常關窗退出2。缺確認約5.14秒是這次觀察值，不當實機嚴格五秒保證。未注入實際磁碟、來源故障或全部退出交錯。
+
+短競態版真正GUI在8.6M截止，停止後14次操作、完成檔保持、正常退出0、無DATA RACE。只驗此短路線，未重播或外推全路線競態。另以一般版在8M提前正常關窗重播，回incomplete及退出2，沒有誤報到279M錄製終點；這是已量到的提前退出案例，不外推所有關窗時機。
+
+revision-7完整路線五個程序均退出0：一次錄製、三次重播及不含覆繪／音訊的獨立原API控制。三次重播各1,366發布，全部Step／Ticks與合成像素／PNG摘要相同；36個取樣點另核完整1MiB RAM、暫存器、indexed、palette與A000摘要，獨立控制的全部有限摘要也相同。不是每一發布都擷取完整RAM，不宣稱全機器內部狀態逐步相同。錄製完成後的操作不在三次重播中，PCFILE的自然寫入與遊戲進度冷SAVE／LOAD驗收分開。
+
+獨立Python核2,742事件序列、原始列內容SHA、完整配置SHA與實際六資源bytes、86選定來源及二進位；5,496 PNG逐份核SHA、尺寸與區塊CRC，12份另以獨立PNG過濾器解碼RGBA核像素SHA。來源保持由此核對，不採GUI報告中尚未自行實作的source_unchanged欄位。截止前／後軟體串流Frames為4,095,738→4,186,754，成功檔619,795 bytes、SHA為`594c16cf6bc3dbdccacc2e51aba19f69c6c709564f00331a4d6744f80e73e3f2`。故障兩例、短競態與提前重播關窗另核通過，全部原版前後248檔SHA相同；87複製輸入與先前111／196／219封存保持，工作根衛生異常0。
+
+重跑使用新的已存在輸出目錄；生成及建置對到同一/out，避免父目錄舊清單。repo掛/src、原版/original、資源/resources唯讀，輸出/out可寫，建置另掛鎖定gomodcache到/mods唯讀、快取/cache可寫。離線非root Docker、init、2至3GiB、2 CPUs／128 PIDs與日誌上限；建置240秒、完整GUI外層1,500秒、故障200秒、短競態200秒。run.py正常停止由真正XTest頁尾點擊，預設400M僅防失控守門，不是正常停止入口。Xvfb與子程序由有界父程序在finally回收；觀察期限到期沿同一handle核終止，不另開平行重跑。
+
+目前仍為私人DRAFT。正式getter、CLI／schema、按鈕位置、實際音訊裝置、人耳、磁碟故障、發布後撤回與阻塞系統呼叫限制保持。這條冷啟動到人物選單路線不證明完整遊戲、十一組缺譯、存讀檔冷還原或封包完成；013不升READY。
+
+最終限定結果窄審0／0／0，主代理於FINAL後完整回讀兩報告，只採認上述私人實測。`workplace/r948/review-final.json`與`review-final.md`的SHA-256依序為`0c190ebf9ea9d6bdf681aed29dcec2b3a7f9a67cea7a9a28f494b3fc4e7716c9`、`5dc85c7960fa734c1562aed200509801b81261d96cb8a375175476ea292eb5f5`。六份受審文件另保存同SHA快照，供後續只追加中繼資料回查；16份私人成果輸入再核保持。`independent-gui.json` SHA為`d9e2233acaa24177f7ce400e5dee44464b40ee8d5f698606883aeb616857c29c`，完整路線`revision-7/attempt-1/report.json` SHA為`11316a1d09f0cf8ef74b5cc27c0ef298b76d9c61e29f58bf4ebbead9e82be1ad`。
+
+私人16,044份技術檔一次封存，`workplace/r948/closed-inputs.json` SHA為`cb249f20337f68438b5de097b869f7faef5a6e27146cfb8f9bd315cb9b55e866`。排除快取與後續GitHub回讀，原版、錄放、截圖與候選不進Git。封存包含各修正版、失敗收據及最終報告，不能把16,044檔全部當作通過案例。UID/GID1000:1000、自有容器0，正式程式及SDK保持。
