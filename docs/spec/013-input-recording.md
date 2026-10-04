@@ -2,7 +2,7 @@
 
 狀態DRAFT；2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
 證據[022](../re/022-input-recording-boundary.md)，完成定義[M2](../goal/M2-playable-frontend.md)。
-尚未通過READY閘門，不進正式實作；下面格式仍待技術契約定稿與獨立審查。
+尚未通過READY閘門，不進正式實作。目前待審契約以[R951](#r951-production-contract)為準；較早候選只保存證據來源，不決定正式格式。正式介面位置及契約採認尚未完成。
 
 ## 為什麼要做
 
@@ -16,7 +16,116 @@
 錄製故障保留未完成片段，不寫成功末註，重播器拒絕把它當成功錄製；不採結構完整但失敗的診斷文件分支。
 這些操作與故障保存取捨已定案，技術生命週期及其驗收仍須定稿，不將013直接轉READY或接入正式程式。
 
-## 擬定契約
+<a id="r951-production-contract"></a>
+
+## R951：正式錄放契約草案
+
+本節收斂B1至B4，待使用者採認及獨立審查；新名稱、CLI與接線均為設計草案。事實基礎為R819、R862、R869、R947及R948至R950的限定證據。檔案型別、解析界線、同次六資源與停止續玩為confirmed候選行為；正式程式尚未具備這條路徑，不能稱正式完成或原版完整parity。
+
+### 入口、相容與初始資料
+
+| 項目 | 待審正式契約 |
+|---|---|
+| CLI | 新增`-record <本機檔名>`及`-replay <本機檔名>`，互斥；兩者皆空即走現有普通遊玩。沒有固定Step正常停止入口。 |
+| 起點 | 冷啟動Step0／Ticks0；不接受既存Oracle、Restore或呼叫端的pristine布林聲明。原版SAVE／LOAD仍是原有玩家操作。 |
+| 相容 | 重播要求同一實際binary、SDK／建置來源、GOOS／GOARCH、機器設定、資料及六資源。新正式格式只讀`wiz7-input/1`；拒絕所有prototype／candidate格式，不自動轉換，也不承諾跨版本或跨平台重播。 |
+| 設定 | 仍用既有`-root`、`-exe`、`-save-dir`、`-scale`、`-ips`、`-mute`、`-xlate`、`-flow`、`-help`定位本機輸入。header保存完整有效設定，啟動時逐項比對；不默默覆蓋CLI或用header任意絕對路徑讀檔。 |
+| 存檔 | 正式錄製沿014的Scratch目錄正常運行及寫檔；header只記錄開始時兩層完整清單。重播需玩家保留的相符初始Scratch副本，以`-save-dir`明示獨立位置。自然存檔會改變該副本，不把錄製後的存檔冒充起始資料。 |
+| 錄放位置 | 錄放檔、partial、成功發布及撤回位置全部在Root／Scratch可見目錄之外。建Oracle或Writer前按實際父目錄身份核祖先，不只用路徑字串前綴；拒絕Root／Scratch內、其別名、已存在輸出或與選定EXE／binary／六資源同inode的目標。重播檔也必在兩層之外，避免把錄製新增partial加入DOS可見集合。 |
+| 驗收副本 | 三次重播各用乾淨Root／Scratch，保留DOS中繼資料。前後hash與初始閉集合相符；不修改本機原版或捏造存檔。錄放檔不內嵌原版檔案或存檔bytes。 |
+| 禁止混用 | 錄放模式拒絕`-autoplay`、`-autoplay-stop`、`-clicks-at`、`-help-at`、`-map-at`、`-hdonly`、`-hdshot`、`-hd-at`、`-hd-after-frag`、`-draw-at`及其有效排程。不能偷偷忽略要求；驗收工具只讀既有發布快照。 |
+| 輸入 | 錄製沿現有GUI API次序；重播不接玩家遊戲輸入、前端切換或另一個輸入生產者。正常關窗可取消重播；取消結果明示未完成，不當成功。 |
+| 隱私 | 檔案只寫玩家明示位置，可能含防拷答案。命令payload、Console、逐掃描碼、任意error文字與設定的本機路徑不得進公開log、Git、issue或包。有限碼、事件序號、Step及SHA可作本機診斷。 |
+
+### B1：精確wire契約
+
+UTF-8 JSON逐列，以LF結束：一列header、1..1,000,000列事件、一列end。最後事件必為截止snapshot；end後不允許額外列或bytes。全檔上限64MiB包含所有LF，單列JSON本體上限1MiB；完整config也不得超過1MiB，header整列限制優先。必要欄位不可缺或為null；拒絕未知、重複、大小寫別名、錯型別、非法UTF-8、孤立代理碼、額外JSON值及超過16層巢狀。雜湊為64個小寫hex字元；只容許資源未讀到時的明定空SHA。
+
+| 物件 | 欄位及型別，順序也用於Writer編碼 |
+|---|---|
+| header | `kind="header"` string、`schema="wiz7-input/1"` string、`start_step=0` uint64、`config_sha256` string、`config`物件。 |
+| event | `kind` string、`seq` uint64、`before_step` uint64、`after_step` uint64、`error_class` string、`params`物件。 |
+| end | `kind="end"` string、`event_count` uint64、`end_step` uint64、`content_sha256` string、`accepted=true` bool。任何false或欠末註文件皆不接受成功重播。 |
+| snapshot.panel | `help_open` bool、`help_screen` string、`help_page` int64、`map_open` bool；screen最多64 UTF-8 bytes，不含NUL／CR／LF。 |
+
+命令、引數與Step界線沿R815型別表，以下為明定差異及補全：snapshot的params恰有`publication` uint64、`frontend_sha256` string及上述`panel`物件，其餘七種命令不得帶panel。type的bytes由Writer輸出base64 string，Loader同候選接受uint8陣列；解碼後1..1024 bytes，禁止null及null元素。seq從1連續，before恰等於前筆after；snapshot發布ID從1逐次加一，配置SHA等於header。`none`、`no_response`、`execution`只表達原API結果；non-run／click只允許none，run不允許no_response。任何API錯誤都否定成功末註資格，保留原版後續處置。
+
+| config物件 | 精確欄位與型別 |
+|---|---|
+| 頂層 | 依序`schema="wiz7-startup-config/1"` string、`program`、`sources`、`load_with`、`initial_scalars`、`selected_program`、`storage`、`audio`、`frontend`。 |
+| program | 依序`sha256`、`go_version`、`goos`、`goarch`、`module_version`、`build_settings_sha256`，皆string。實際binary SHA與Go建置資料；GoVersion固定go1.24.13，其餘文字非空。 |
+| sources每項 | `path` string、`size` uint64、`sha256` string；1..4096項，依path排序且唯一。建置端產生專案及SDK選定GoFiles／CgoFiles與模組鎖定檔，經`-X`注入同binary。生成路徑表本身納入來源，不遞迴把生成的完整SHA清單當自身輸入。stdlib／第三方依Go工具鏈與模組鎖定，不宣稱逐檔覆蓋。 |
+| load_with | `adlib` bool、`dgroup` uint32、`mouse_x_scale` uint16、`font_full` string、`font_half` string。取同一次實際Options；沿目前Adlib=true，其餘零值，不猜補更換規則。 |
+| initial_scalars | `schema="wiz7-initial-scalars/1"` string、`step=0` uint64、`ticks=0` uint64、`clock`、`dos`、`platform`物件。 |
+| clock | `cpu_hz` uint64、`cycle_clock` bool、`irq0_base` uint64、`irq0_every` uint64。CPUHz非零、cycle_clock=false、IRQ0兩值165000；從實際Oracle唯讀取得。 |
+| dos | `stored_mouse_x_scale` uint16、`font_full` string、`font_half` string、`font_full_bytes` int64、`font_half_bytes` int64、`drive` uint8、`dir` string、`now`物件。取同一次Oracle.DOSSettings值副本；不讀RAM或推進執行。 |
+| dos.now | `hour`、`minute`、`second`、`hundredth`，皆uint8；保存初始化原值。 |
+| platform | `dos_date`物件、`dos_time_model` string、`bios_rtc_read_time_supported` bool、`bios_rtc_read_date_supported` bool、`bios_bda_ticks_observation` string、`effective_mouse_x_scale_observation` string。沿目前SDK模型，兩RTC為false、兩observation為not_observed。 |
+| platform.dos_date | `year` uint16、`month`／`day`／`weekday` uint8，依序1993／1／1／5；time_model為`now_plus_ticks_5493_div_1000_mod_8640000`。這是SDK模型，不稱原版實機時鐘parity。 |
+| selected_program | `source_role` string及`file`物件。role只能root／external；root時File逐欄等於Root中同項，external只記相對basename及同一實際EXE，不保存任意絕對路徑。 |
+| storage | `resolution="scratch_then_root"` string、`metadata_model="dos_archive_mtime_source_policy"` string、`root`及`scratch` File陣列。Root 1..4096項，Scratch 0..4096項；空slice是`[]`，不可為null；遮蔽前的Root項仍保留。 |
+| File | `path` string、`size` uint64、`sha256` string、`dos_date`／`dos_time` uint16、`attributes` uint8。path、排序及時間欄界線沿R815；目前來源屬性必0x20，不將Unix唯讀mode當DOS屬性。 |
+| audio | 依序`h`、`initial_k` Rational，`explicit_ips` bool、`ips_float64_bits` string、`mute` bool、`device_requested` bool、`sample_rate` uint32、`device_channels` uint8、`sample_bits` uint8、`ring_frames` uint32、`prefill_frames` uint32、`maximum_pcm_chunk_frames` uint32、`fade_frames` uint32、`device_buffer_milliseconds` uint32、`progress_quantum` uint64、`exit_budget_milliseconds` uint32。 |
+| Rational | `numerator`／`denominator` string，正十進位整數、既約分數；H=196875030000/65536，未明示IPS時K=1/1，明示則精確Float64/H。IPS位元為16位小寫hex，須對應有限正float64並與H／K完全相符。 |
+| audio固定值 | 依序44100／2／16／88200／4410／4410／221／50／200000／5000；device_requested=!mute，只記要求，不證明裝置開啟或人耳正常。 |
+| frontend | `scale` int64、`hd_compose_disabled`／`autoplay_disabled`／`test_inputs_disabled` bool、`resources`陣列。scale保存實際flag.Int值，不新加2..6規則；三停用旗標皆true。 |
+| resources每項 | `role` string、`requested` bool、`loaded` bool、`size` uint64、`sha256` string；恰六項，順序xlate／flow／help／roster／profile-sex／intro-picture。loaded必requested且SHA有效；未要求為false／false／0／空SHA，讀不到同為未loaded但requested=true。讀到無效內容仍保留bytes SHA。 |
+
+路徑沿R815的260 UTF-8 bytes界線，禁止C0、反斜線、冒號、絕對與逃逸路徑、symlink及非regular檔。DOS日期／時間沿現有ModTime本地時間政策；錄放不更改時區、SDK日期或原版時間。header只做身份綁定，不是完整CPU／DOS序列化。
+
+`config_sha256`及snapshot的frontend_sha256均為固定Go1.24.13 `SHA256(json.Marshal(Config))`，上表struct欄序、預設HTML跳脫、無縮排、無尾LF。BuildSettingsSHA依Key排序建置`[{"key":string,"value":string}]`，同Marshal公式。ContentSHA則對header及全部event的原始列bytes連同各自LF計算，不含end，不重排來源JSON。原始wire的物件鍵順序可不同；config經完整嚴格解析後按固定struct重算，不以原始header列替代配置SHA。
+
+Loader必須完整解析、驗型別／容量／序列／所有SHA／accepted／最後snapshot後才交出文件；以此文件做靜態配置預核，再LoadWith。解析失敗尚未建Oracle；初態不符只允許關閉未交出的Oracle，任何遊戲API或音訊進度回呼皆未執行。沒有公用測試fixture或合法原版時skip，不製作代用品。
+
+### B2：同次啟動及六資源
+
+1. 依014檢查Root與Scratch分離及可寫性，先核錄放所有讀寫位置在兩層外，再記錄兩層初始封閉集合；既有原版素材唯讀。用父目錄及Root／Scratch的實際檔案身份逐層判斷包含關係，拒絕symlink及現存目標別名，不將檔案新增納入錄放後的原版環境。呼叫者不得並行改起始輸入。這不是抵抗外部並行換檔的承諾。
+2. 建置清單、目前binary、實際EXE、Options、H／K、有效GUI設定與六資源一次讀取綁定。每份資源以同bytes解析及計SHA，再將所得bundle交Draw；不按路徑再讀一次。側車超過既有1MiB或擷取不完整時拒錄放，不造完整SHA。
+3. 單一啟動擁有者建立Oracle，立即SetScratch，在尚未交出指標時擷取DOSSettings、ClockSettings、Step及Ticks，保存初態摘要；禁止擷取前Run、PressKey、Type、MoveMouse及其他輸入。需要在受控SDK補入已受審DOSSettings唯讀getter，更新可重現來源清單，不動主機原始dosgolem或其main。
+4. LoadWith前後、設定封存前再次核Root／Scratch／選定EXE；六資源綁定解析實際buffer。配置與slice凍結為值副本，擷取前後原版RAM／indexed／palette／暫存器摘要同。
+5. Config只回bytes副本；Take只交出一次。交出後不可重新擷取，即使Step仍0亦拒絕。機器goroutine獨占Oracle，GUI只持深拷快照；不宣稱Step0本身證明沒有輸入。
+
+### B3：原API結果與錄製資格
+
+先記before，呼叫原API，再記after及原有限錯誤；保持原回傳與現有控制流。Click錯誤後仍走原snapshot／續行，Run錯誤仍沿原return，不補release、不補Run或重擲。完成AfterOperation後再核playerAudio、OPL來源與Stream故障；原API回nil也不能掩蓋callback_panic／observer_fault／sink_failure。
+
+錄製資格是單向狀態：原API錯誤、來源／音訊故障、Append／容量故障或Draw失敗一旦發生就失效，之後普通遊戲可依009 fallback Pace繼續，但本檔不能寫成功end或成功名稱。資格故障不偽造event.error_class。停止截止後的普通遊戲故障不回溯否定已完成錄製；明示關窗造成的取樣中止沿009 A7，不只憑最終Incomplete就推定錄製截止前已有故障。
+
+### B4：停止、Draw、Writer與退出
+
+| 狀態 | 轉移與所有權 |
+|---|---|
+| 錄製中 | 單一機器owner追加實際API與snapshot。GUI只能提出一次停止要求；重複要求不延長期限。首次要求起算5秒單一絕對期限，要求不送進原版。 |
+| 承認截止 | 當前原API返回且AfterOperation完成後，在安全邊界記Step、命令數、最後發布ID與配置SHA。之後API不再錄製，不把同一已抽出佇列補錄或重排。 |
+| 收尾中 | 最後同Step發布畫面只繪製一次對應快照，等待真正Draw完成通知；ID／Step／配置SHA及完成時間皆須相符。通知保存當次panel，不拿後來面板或PNG檔案存在代替。GUI可顯示收尾狀態。 |
+| Worker | 截止後交給單一Writer worker，追加最後snapshot及FinishAt。它獨占Writer；不與阻塞Append／Sync／Close並行Abort，也不由Draw寫檔。 |
+| 完成 | payload Sync→end→Sync→Close→同檔案系統不覆寫發布，且每一返回點都未逾期、資格保持及最終Draw有效；才承認成功。正常停止不呼叫Oracle／Stream／Reader Stop或裝置Close。完成後繼續普通遊戲及原音訊，後續操作不改錄製檔。 |
+| 失敗 | 保留`.partial`，不新寫成功末註或成功名。若末註已寫但Sync／Close／發布／期限後檢查失敗，限同regular inode嘗試撤回成功名及截去end，保存有限失敗碼。不可清除他人替換檔。 |
+| 逾時 | GUI及owner回失敗狀態並恢復未錄製遊戲。正在阻塞的worker仍獨占Writer，系統呼叫返回後按期限拒絕成功並清理；Go無法保證取消任意磁碟系統呼叫。 |
+| 關窗 | 已完成錄製保持；未完成錄製取消並保留片段，不把關窗當正常停止。退出沿009首次退出要求的單一5秒總期限停止owner／音訊及單次Close；任何既存錄製收尾只可使用更早有效期限，不能重設退出預算。 |
+| 交錯 | 完成、取消及逾時由同一擁有權狀態協調，晚到worker結果不能把已失敗GUI改為成功。關窗或逾時與發布競爭時，worker在每個返回點重新核共同狀態，若已取消則撤回其同inode成功名及end；不假稱檔案系統多步操作為單一原子交易。 |
+
+Writer以0600及O_EXCL建立`<name>.partial`，輸出名及partial都不得已存在，名不得以.partial結束；父目錄必存在、不得有symlink。發布使用不覆寫的同檔案系統link；不支持時回失敗，不退回可覆寫rename。成功後刪partial僅為清理，同inode的完整副本仍不能以.partial名重播。至少事件數1，最後snapshot的Step等於end_step，完成通知必在期限前。
+
+故障清理也可能遭遇第二個IO錯誤：此時回`cleanup_incomplete`，不宣稱已撤回或一定沒有end。任意改名殘留文件、外部換檔、斷電耐久與所有檔案系統不是已證保證；有限實跑已證Draw、ENOSPC、observer及consumer fault的無末註片段被原名及改名重播拒絕。正式驗收須量到撤回成功及清理故障的正確有限結果；不得用這個限制替已知可清理故障偽報成功。
+
+### 中文操作及有限錯誤
+
+控制位置待採認，[頁尾與F1比較](../../tools/recording-control-placement-prototype.html)為位置示意。甲沿R948的遊戲區外40px頁尾，錄製時視窗為320×scale寬、200×scale+40高，左鍵區x=8..159、y=200×scale+4..35；所有頁尾滑鼠皆不送原版。乙放F1面板，沿既有F1暫停／恢復，沒有新增保留鍵或默默改關閉說明語意。任何方案在選定後再補精確佈局與同狀態GUI驗收，不由此草稿直接採用。
+
+正常錄製中顯示「停止錄製」，要求後顯示「錄製收尾中」，成功顯示「錄製完成」，失敗顯示「錄製失敗」。全部用正式字模重建，缺字或控制區放不下必拒絕錄製啟動，不畫不完整中文。重播完成及取消以中文報明；普通遊玩不新增錄製UI。
+
+對外只回有限碼：啟動為`wire_rejected`／`configuration_mismatch`／`initialization_failed`／`recording_output_failed`，執行為`input_step_mismatch`／`api_result_mismatch`／`recording_ineligible`，收尾為`boundary_invalid`／`draw_timeout`／`draw_mismatch`／`writer_append`／`writer_finish`／`stop_timeout`／`cleanup_incomplete`，退出沿009 `owner_timeout`／`close_timeout`。原診斷碼映射到這些有限類別，不呼叫任意Error文字。中文顯示如「錄放檔無效或未完成」、「起始資料或設定不符」、「錄製失敗，已保留未完成片段」；cleanup_incomplete則明示「錄製失敗，檔案收尾未完成」，不能說片段已安全清理。CLI啟動拒絕exit2；已完成後普通退出沿現有exit規則，未完成重播或錄製在退出時為失敗，具體退出碼2。這些名稱是待審正式設計，不改event的三種原API碼。
+
+### READY與實作後驗收分界
+
+本節不以尚未完成實作的動態測試阻止技術契約定稿。READY前須明列全部型別、生命週期、適用證據、已知差異及操作位置，且獨立審查無阻擋並取得尚未定案的產品採認。現在仍DRAFT，沒有正式相容承諾。
+
+實作後以自製fixture驗嚴格wire、完整配置、同次讀取、API錯誤不變、截止、最終Draw、Writer故障／撤回／阻塞、關窗交錯及競爭檢查。再用真GUI錄製非空正常路線、停止續玩且軟體音訊推進、三次乾淨冷重播及無觀察原API控制，核原版RAM／暫存器／indexed／palette／A000、發布Step／Ticks、live畫面與自然可寫檔案。提前關窗必未完成；修改一筆輸入須出現可見差異。裝置與人耳、合法冷LOAD、十一組、全部圖片／按鈕及三平台封包另有門檻，不由錄放局部收據外推。
+
+## 早期契約候選
+
+以下為R951之前的候選摘要及歷史證據，不覆蓋上節的待審正式契約。
 
 - I1：CLI提供明確的錄製／重播入口，兩模式互斥；初版從冷啟動Step0開始，
   使用同一版dosgolem、原版EXE、初始工作副本與機器設定。現有前端沒有Restore入口，

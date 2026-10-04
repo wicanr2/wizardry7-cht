@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-Hant">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'">
+<title>巫術7：錄製控制位置比較</title>
+<style>
+:root{color-scheme:dark;font-family:sans-serif;background:#151a23;color:#e4e8ef}body{max-width:1160px;margin:32px auto;padding:0 24px}h1{font-size:26px}h2{font-size:21px}p{line-height:1.7}.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}article{padding:20px;border:1px solid #526279;border-radius:8px;background:#202835}.game{aspect-ratio:8/5;background:#121820;border:1px solid #61738b;display:grid;place-content:center;position:relative;text-align:center;line-height:1.8}.footer{height:40px;box-sizing:border-box;background:#181c22;display:flex;align-items:center;padding-left:8px}.button{padding:6px 16px;background:#374352;color:#ffe19b;border:1px solid #7185a1;display:inline-block}.help{position:absolute;inset:9% 7%;background:#101823;border:1px solid #7185a1;display:flex;flex-direction:column;justify-content:space-around;padding:16px}.note{color:#bac5d5;font-size:14px}.spacer{height:40px}@media(max-width:760px){.cards{grid-template-columns:1fr}}
+</style>
+<h1>錄製控制位置比較</h1>
+<p>可丟棄的位置示意。背景為自製方框，文字用瀏覽器字型；沒有啟動遊戲、錄製檔或正式字模驗收。</p>
+<p>兩方案都沿已定案行為：按「停止錄製」，等目前操作完成，收尾後繼續遊戲。關閉視窗時未停止的錄製只保留未完成片段。</p>
+<main class="cards">
+<article id="footer">
+<h2>甲：遊戲區外常駐頁尾</h2>
+<div class="game">原版遊戲區<br>畫面比例與滑鼠座標維持原樣</div>
+<div class="footer"><span class="button">停止錄製</span></div>
+<p>控制一直可見，不必打開說明。錄製模式多40像素視窗高度。完成後原位顯示「錄製完成」，故障則顯示「錄製失敗」。</p>
+<p class="note">已有私人真GUI停止及續玩證據。頁尾點擊不送進原版，3倍遊戲區仍為960×600。</p>
+</article>
+<article id="help">
+<h2>乙：F1 說明面板內</h2>
+<div class="game"><div class="help"><span>說明<br>快捷鍵與目前畫面</span><span class="button">停止錄製</span><span class="note">關閉說明後繼續遊戲</span></div></div>
+<div class="spacer"></div>
+<p>視窗高度保持原樣。需先按F1，停止時遊戲暫停；關閉說明後繼續遊戲。錄製狀態需在面板內查看。</p>
+<p class="note">這是位置示意，尚無此入口的真GUI驗收。保留既有F1暫停及恢復語意。</p>
+</article>
+</main>
+<p class="note">此頁只比較控制位置，不定案正式格式、相容策略或完整中文化交付。</p>
+</html>

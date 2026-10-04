@@ -68,6 +68,8 @@ SCENARIO格子記錄與讀取端：[R885](R885-scenario-grid-records.md)。
 
 ## 終點
 
+正式錄放契約收斂：[R951](R951-recording-production-contract.md)。
+
 **一般玩家拿自己的 DOS 版《巫術7》，能從開頭玩到結局，所有遊戲內文字都是繁體中文。**
 同時提供原版沒有的輔助功能（說明、切換語言、即時存檔），並能在 Linux、Windows、macOS 上執行。
 

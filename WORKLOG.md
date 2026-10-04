@@ -1038,3 +1038,15 @@ R949限定證據`a5d277b`已推送；#17正文與[留言5979279342](https://gith
 R950最終限定窄審0／0／0，主代理於FINAL後完整回讀兩報告及SHA。六份受審文件與24技術輸入再核保持，文件原bytes另存快照。私人333份技術檔一次封存，`closed-inputs.json` SHA為`491687a4fee111977adee244cd9c4a7053cb5955b1770dc534abfb6310721d4f`，排除快取及後續GitHub回讀；報告SHA及入口見研究022。UID/GID1000:1000，自有容器0，013及所有交付門檻保持。
 
 R950限定證據`bd28761`已推送；#17正文與[留言5979551923](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5979551923)含末尾LF逐字回讀相同，議題保持OPEN。333封存檔與六份受審文件前綴全數保持，工作根衛生異常0；`workplace/r950/github-readback.json` SHA為`465f173cf39ff49c2b52cfe4e32008d60ab2600306c9ff4d963dae93000c49ee`。首次回讀核對未傳Docker標準輸入，補上`-i`後同命令通過，未重跑產品。正式程式、SDK及未追蹤R433保持，自有容器0；下一步完成013可實作契約，不重複已充分的故障證據。
+
+## R951 正式錄放契約收斂（2026-10-04）
+
+R950回讀紀錄`87af544`已推送，工作樹僅既有未追蹤R433。再次命中規格閘門及文件職責路由，載入grilling共同決策核心；#17保持OPEN，沿既有四項產品定案，不再重做充分的故障及三重播證據。
+
+本輪建並索引目標，核R948 revision-7的精確DTO、嚴格解析、啟動擁有者、Writer及停止流程，將B1至B4寫為013的現行待審契約。新schema／CLI／相容與收尾約束屬待採認設計；未採用的頁尾／F1位置先建立並索引可丟棄原型。原型只用自製方框及瀏覽器字型，沒有原版圖片或正式字模驗收。一次編輯patch重複同檔目標而被原子拒絕，整理成單一更新後成功；沒有產品變更或測試重跑。
+
+正式程式、SDK、原版、舊候選及全部交付門檻保持，013仍DRAFT。獨立審查只核可實作契約與限制，不以尚未實作的動態GUI當技術契約永遠不能定稿的理由。
+
+R951獨立契約審查最初找到錄放目的檔污染Root／Scratch的阻擋，已明列Oracle／Writer前按實際父目錄身份排除兩層及輸入別名；候選未接此新守門，不宣稱已動態通過。最終阻擋0／應改0／建議0，主代理於FINAL後完整回讀兩報告及SHA：JSON為`3d19cb871200f825eaa28d5a32eb9adc61d2c3c1b24e17f6b55a3d0705bd6f5b`、Markdown為`688bc60e3c26331f110ea6f347b2a50df839e3f5d1af120633d8197c6a84f8e1`，入口`workplace/r951/review-contract.{json,md}`。
+
+結構檢查v2通過，SHA為`9ee63fe5ad7ed38efeca9ca41496ae90d0c49ab8b21d3145fcafb6fb572f4618`；只證連結、索引及HTML兩選項，不證瀏覽器渲染。21審查輸入再核相同，六文件原bytes另存快照，私人15檔封存，`closed-inputs.json` SHA為`1755e399be7387de21145f0e41da07dc77c74c1c3b75b7680add759aef8997fa`。已提出具體契約及甲頁尾／乙F1的採認問題，待回覆，未代選或升READY；共同決策來源為grilling「在使用者確認共同理解前，只做不依賴決策的查證與可撤回prototype」，路徑`/home/anr2/.codex/skills/grilling/SKILL.md`。原版及產品未執行，自有容器0、UID/GID1000:1000。
