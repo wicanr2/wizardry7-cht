@@ -69,3 +69,21 @@ main.go的snapshot先呼叫cloneVisualEvents，再將副本傳給Draw。R961修�
 這是固定畫格的實際GUI Draw驗證，包含正式clone及GPU繪製，不包含正常owner、正式Update、滑鼠操作、動態撤除、音訊或冷啟動。026整份仍READY；不以此宣稱正常玩家路徑、全中文化或可交付封包。
 
 R961已量：正式欄位及clone回歸通過，四個固定Draw程序退出0；56原生字模、1,664,000RGB像素獨立核同，七控制越框、交疊及區外差異0。最終獨立審查0／0／0經FINAL完整回讀採認；JSON SHA `1990547b16d121314e737e2013e6f18df5a450817e4db2b49b9b359a4020091c`，Markdown SHA `7cf62f123373d9d7b7bdfabd7362af119753e887d418c53724a64b414cbb029e`。完整入口及封存見[025 R961](../re/025-ui-localization-coverage.md#r961-gui-color-copy)，正常玩家GUI與撤除仍待驗。
+
+## R962 正常暖GUI的私人驗收契約 READY
+
+入口：[R962](../goal/R962-battle-normal-gui.md)。正式來源保持82bbeff，私人副本只接以下前綴、數字守門與唯讀收據。原版／SDK／R960及R961封存結果唯讀。Unifont2倍先做一條正常視窗路線，其他字型／倍率不由本輪外推。
+
+- 起點為R733 two-forward.state，SHA `beecc0c54302d6304628d60f385fb4f3f6748e77c6bc859dfc153f669e337e6c`；現行LoadWith後、SetScratch前載入既有合法checkpoint。checkpoint的DOS還原會重開原絕對handle路徑，原版同目錄同時唯讀掛/original及/w。沿R960 privateBattleAudit及fixed-prefix.json SHA `c6b9c95c7f511d7c985a4e01c6eb7eb3727115b2a10626850457f1862dbf2f37`，82摘要／78命令／67輸入／三筆舊NoResponse與末5453.1M必須相同。只有既有前綴使用NoCursorWait。核同後做正式snapshot，再進入私人靜音節流接線、原owner及Ebiten.RunGame；不早退、不啟用hdonly、autoplay或clicks-at。
+- 已查隔離SDK opl2.NewStream要求InitialStep及ExistingWrites都0，oracle.InstallOPLProgress的WithOPLStream也限冷安裝；第一次暖音訊初始化因此拒絕，沒有進正常GUI。正式newPlayerAudio保持，不改冷安裝守門。私人privateWarmGUIPacer只接受mute、tempo1、Step5453.1M、CycleClock=false及IRQ0Base165000。建立空冷Stream只用PhaseAt公式，不Accept、不施加OPL或產生PCM；依正式audioClock.Pace同一有理相位取整公式，epoch減去起始相位，使暖起點的等待從0開始。用SDK已允許的非串流OPL進度觀察器在200k量子內只呼叫paceAt；AfterOperation、Pause及退出使用原playerAudio方法。原trace保留，觀察器不改CPU／PIT／RAM或投遞輸入。這只驗預設節拍的靜音暖GUI，不驗正式冷音訊初始化、來源串流退場、合成或裝置；診斷數字明列no_pcm，不冒稱音訊成功。
+- 新滑鼠只能xdotool→正式Update→shared→原owner→o.Click，維持正常CursorWait。F1以真正按鍵暫停，等待owner「說明 暫停=true」的Step ACK；恢復時同樣等待false ACK。新的操作故障不重試，不改API或seed找成功結果。
+- 沿R960的數字取訊息掛鉤，29目標／2500–2574任一命中就設停止旗標。既有前綴7000–7197只計數；新的GUI階段遇此範圍也數字停止，以排除正文。私人副本的六個既有OnCall callback先查旗標，包含讀取、字元、圖片、返回與性別掛鉤，正文及樹段讀取前停止；原樹段dump整塊停用。snapshot第一句及Run／Click返回後同樣先停，不發布新畫格。只保存數字ID、計數及有限失敗類別，不觀察目標目的緩衝或答案，不讀MSG.DBS、鄰文或改原版。
+- owner在每次正常原版操作前後記錄Step、種類與有限結果；只允許Run、移動滑鼠及左鍵，本輪不送玩家文字／原版鍵或右鍵。正常Run仍為200k，不由私人收據改長度或時基。這是私人診斷，沒有成功錄製末註，不當013正式錄放。
+- 每次snapshot在owner建立不可變private frame：實際Step、完整RAM的SHA、暫存器SHA、indexed／palette與comp副本、來源事件的座標／fg／字模／before／after及GUI副本純值。Draw在原本同一次shared鎖內取這份frame，PNG與frame綁同一次Draw；不把後來的HD或owner狀態冒充該畫格。來源與副本逐欄核同，字模／before／after都深複製；圖形快取與生命週期欄位不入收據。Flow只記數量，非空時不宣稱完整RGB重建。
+- 唯讀捕捉watcher依序接受0到12各live／paused兩個獨占請求，最多26次，持shared鎖設定既有drawReq；不持有oracle或投遞原版輸入。請求寫完、關閉後以同目錄hard link原子公布，已有檔拒絕覆寫；命令另外以120秒有界完整JSON守門。Stage／Phase錯誤仍拒絕。watcher沿stop.done終止，結束以同一退出期限確認，不能留下程序。
+- Python控制器先取得完整live PNG／frame，再F1暫停。ACK後另取paused底層實際Draw及packet，paused Step必須等於ACK。新privateBaseReq在Draw首次shared鎖內與RGBA／events／privateFrame同取且清空，於原drawFlow後、前端地圖及說明面板前ReadPixels保存PNG；不修改dst或產品繪製順序。主代理只判讀這張真正paused底層PNG，正常live最終Draw另留。ready明列兩份收據SHA、paused Phase及面板前範圍；兩時點Step分列，不稱RAM同狀態。view_image判讀並明示可見座標／目的後，才解除暫停送一次左鍵。最多12次新點擊、13組取樣；可提早正常WM_DELETE退出。每步等候120秒、正常Click ACK45秒、關窗退出10秒；暖前綴900秒、整批外層1800秒，所有等待工具每次不超60秒。Xvfb及遊戲用程序群finally清理，正常退出與強制清理分列。
+- 七控制同時存在的實際Draw，依原始Unifont字模、硬編七矩形及026公式核全字格、筆畫及局部RGB，必須越框／交疊／差異0。其他事件只作metadata及已知位置重建；不猜新增子畫面的排版。每次取樣記錄原版狀態與操作，子畫面撤除先比精確事件家族／字格及實際indexed變更，GUI本身不當新雙側A/B。獨立結果審查後，仍依未量的七控制分支、兩字型兩倍率及A/B缺口維持READY，不升CONFORMED。
+
+暫停底層Draw限定補審0／0／0於FINAL完整回讀後採認READY，報告workplace/r962/review-paused-base.{json,md}，JSON SHA `acdecf3600d4afecda61473cc2b43e2810b923354ddcd22e7e4d688657446b25`；只採契約及來源，未採認新GUI結果。
+
+Docker沿wizardry7-go-ebiten固定映像與既有SDK overlay，離線UID/GID1000:1000、2CPU／2GiB／96pids，輸出只workplace/r962；原始輸入、字型、SDK與舊收據唯讀。正式Go、資源及完整原版檔前後盲SHA核同。完整原文、圖片與收據只留本機。2026-10-05修前審查兩項工具阻擋，修後限定補審0／0／0經FINAL完整回讀採認READY；報告workplace/r962/review-spec-v2.{json,md}，JSON SHA `126b5bef67157ef6410b52eef3e1b8c7df29de5ea1705e46bc52834be06dfa92`。暖音訊契約缺口回DRAFT後，靜音節流限定補審0／0／0重新READY，報告review-warm-pacer.{json,md}，JSON SHA `bd1279f7d73800fe9b4fff97751acfe8dfa84a25cbfdf90b43a5a7845ed41757`。實際GUI的初次live5455.7M及暫停5458.7M來源純值同，但indexed變更5987像素、RGBA不同，身分守門正常停止並關窗exit0，沒有新點擊。改採真正暫停底層Draw，舊收據保留且回DRAFT再補審。正式播放器與冷串流契約保持。

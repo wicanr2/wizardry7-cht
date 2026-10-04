@@ -1,5 +1,7 @@
 # 按鈕與訊息的中文覆蓋驗收
 
+正常暖戰鬥的按鈕操作與撤除：[R962](#r962-normal-battle-gui)。
+
 ## R955 頭像頁文字與完成返回
 
 2026-10-04至10-05，入口：[本輪目標](../goal/R955-character-portrait-ui.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`。38份列出cmd來源保持，不稱新建置或完整編譯閉集合；工具鏈沿固定Docker映像、Go1.24.13／Python3.11.2，原版`DS.EXE` SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。repo、SDK、原版與字型唯讀，只有r955可寫；沒有MSG、防拷、內建autoplay、原版記憶體或角色資料注入。
@@ -219,7 +221,7 @@ R935的503個本機產物一次封存，closed-inputs.json SHA `bf8b59aebd98026d
 | 人物檢視頁 | R935／R937正常GUI、窄印字證據與固定冷啟動 | 3倍雙字型既有標籤及男／女性別通過，選人確定／取消兩倍率在框內，箭頭返回正常 | [024](../spec/024-character-review-output.md)READY；限定結果複核通過，2倍性別與其他分頁未完成 |
 | 人物頁右下箭頭 | 無英文圖示；R935實際點314,190 | 正常返回角色選單；只證實此點，未量完整命中矩形 | 圖示無待譯字樣，不外推其他圖片按鈕 |
 | 清單上下箭頭 | 已見無英文圖示，操作及說明未量 | 尚未完成控制驗收 | 另沿正常GUI核對 |
-| 戰鬥七控制 | R958合法暖入口、R959精確英文／座標及原版39×9外框；既有resident文字事件 | R960正式修2倍越框，七中文控制雙字型兩倍率字格／筆畫在框內，固定82點原版摘要保持 | 僅固定HD，真正GUI、按鈕操作與撤除待驗，見[026](../spec/026-battle-control-labels.md)及[R960](#r960-battle-control-centering) |
+| 戰鬥七控制 | R958合法暖入口、R959精確英文／座標及原版39×9外框；既有resident文字事件 | R960固定HD與R961固定Draw雙字型兩倍率保持；R962真正Unifont2倍GUI完成裝備、最後指令、返回，七控制撤除及重現 | 只量裝備與返回這條路線；其他控制操作、後端／倍率及新GUI A/B仍待，見[026](../spec/026-battle-control-labels.md)及[R962](#r962-normal-battle-gui) |
 | 建立角色、其餘人物／物品／咒語／對話／存讀及其他圖片按鈕 | 此次重查尚未到達；既有規格與歷史收據須逐項核現行來源 | 未量到，不計本次通過 | 依可見畫面走合法操作 |
 
 首輪建置的Go編譯並行數超過容器程序上限；限制GOMAXPROCS=2及-p=2後，同一工具鏈重跑成功。原失敗日誌保留為build.log，成功日誌為build-p2.log。這是工具環境修正，不登錄產品缺陷。
@@ -610,3 +612,37 @@ R942把73235759判成「無呈獻」過早。主代理重新檢視完整indexed�
 最終獨立結果審查0／0／0，主代理於FINAL後完整回讀兩報告及SHA採認。審查另寫PNG／原生字模解析，不執行既有checker。185份技術產物一次封存，不含gocache及後續GitHub收據。
 
 重跑入口在本機workplace/r961：test_build.py、frozen_draw_test.go、run_frozen_draw.py與check_frozen_draw.py。使用已存在且全新輸出目錄，固定R960四配置資料唯讀掛/src，SDK／離線模組／原字型唯讀；每個私人程序30秒、整批240秒。這是固定資料的真正GUI Draw，沒有正常owner、正式Update、玩家輸入、撤除、音訊或冷啟動；026維持READY。下一步是正常暖視窗及按鈕操作，避免重跑已完成固定HD或Draw。十一組、TSV與正式封包門檻保持。
+
+<a id="r962-normal-battle-gui"></a>
+
+## R962 正常暖戰鬥GUI
+
+2026-10-05，入口：[本輪目標](../goal/R962-battle-normal-gui.md)、[026私人驗收契約](../spec/026-battle-control-labels.md)。正式程式保持82bbeff，40份Go與SDK未修改。工具鏈為wizardry7-go-ebiten映像 `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`、Go1.24.13及Python3.11.2。原版DS.EXE SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`；原始資料、SDK、字型及舊收據唯讀，輸出只workplace/r962。
+
+R733合法checkpoint及R960固定前綴核82摘要、78命令、67既有輸入與三筆舊NoResponse相同後，交給真正owner、正式Update與正常CursorWait Click。前綴仍用舊NoCursorWait，不當新正常操作。正式音訊限冷安裝；私人暖GUI只靜音節流，空Stream僅PhaseAt，不Accept或產生PCM，非串流觀察器沿既有trace，CPU／PIT保持。私人binary SHA `accb13bae59395ea3f907fd4de73b384c48a08b97e00c812574bc2dfad639e6b`。
+
+| 取樣 | 正常live Draw Step | 暫停底層Draw Step | 畫面與核對 |
+|---|---:|---:|---|
+| 起始 | 5455300000 | 5458100000 | 七中文控制，14原Unifont字模、256,000RGB、字格交疊與局部差異0 |
+| 裝備後 | 5464500000 | 5465900000 | 最後指令，七控制已撤除；只核畫面及事件，未新增子畫面原字模完整性聲明 |
+| 返回後 | 5472300000 | 5474700000 | 七控制重現，14原Unifont字模、256,000RGB、字格交疊與局部差異0 |
+
+主代理每步view_image真正暫停底層PNG後，送X11左鍵248,189「裝備」，再160,179「退回上一頁」。正常Click分別5458500000→5464500000及5466300000→5472300000，均無錯誤；沒有調API、改seed或重試操作。三組paused Step等於F1 ACK及resume Step。paused PNG從原drawFlow後、map／help前ReadPixels；live保留正常最終Draw，兩時點不稱RAM相同。
+
+六份PNG的CRC、像素、尺寸與SHA核同，來源事件及GUI副本純值相同；起始及返回共28原字模、512,000RGB獨立重建相符。其他事件使用收據字模metadata，不當完整原字模來源證據。50次Run、四次滑鼠移動及兩次正常Click共56操作有前後Step，末5475100000；NumericStop=false、Manual0、Lexicon102、目標29來源0命中、WarmPacerFault空。正常WM_DELETE exit0，owner、watcher、遊戲及Xvfb終止。來源40Go、候選44檔、SDK1132、原版248、六資源與R960168及R961185封存盲SHA保持，輸出擁有權異常0。
+
+| 本機workplace/r962收據 | SHA-256 |
+|---|---|
+| gui-check.json | `0319c88a943255de0879ae5096a07fbadf9523892995ce3fcbe42f6f01f1c061` |
+| invariants.json | `4d60dec2bf31b92b434d59977a8c0b4e2927dd70388d82cad0e0f239edbd394f` |
+| gui/run-result.json | `1ecc5e0b386292140e3edb6328af613dc5263fef98d2607e5f7ffca8a478cf92` |
+| gui/operations.json | `beb0519174a299a37fec6d808980abf52128a4577da3ce448d72fe34bd7b62e0` |
+| review-result.json | `d2b5df9791555f9744ee3dbe6ac55becc7b57cc56c3cf325aaa8c8f0aeae4e9d` |
+| review-result.md | `0b622e385263a26a9e064c457414abf3302b9f1362d2f51c517683f9e6d39842` |
+| sealed.json，166技術產物 | `12b1677a5abc4ece8f5f4d127d57f76dc5f0f0397f297741ac5f2772978937c1` |
+
+獨立結果審查0／0／0於FINAL完整回讀兩報告及SHA後採認；另以獨立PNG及字模解析重建，不執行既有checker。報告「其他五控制」文字已改為「其餘控制」，修前JSON保留；本輪只量七控制中的裝備，退回上一頁屬子畫面。166技術產物一次封存，不含gocache及後續議題收據。捕捉、暖節流與暫停底層契約均經獨立0／0／0、FINAL完整回讀READY才執行，修前／修後報告保留。缺/w掛載、冷音訊拒絕及較早live動畫身分守門的三份停止收據保持；前兩者沒有GUI操作，第三份正常關窗0且0新點擊。不把私人驗證契約修正列為產品缺陷。
+
+重跑入口在本機workplace/r962：prepare.py、build.py、gui.py、check_gui.py及verify_inputs.py。使用全新輸出，固定source／SDK／離線模組唯讀；原版同時唯讀掛/original及/w，UID/GID1000:1000、2CPU／2GiB／96pids、網路none、建置300秒及GUI1800秒外層界限。controller逐張保存ready，主代理判讀paused圖後獨占公布command；最多12新點擊、13組取樣，本次兩次即返回退出。
+
+這是Unifont2倍的一條合法暖GUI操作與生命週期證據。其餘七控制分支、倚天／3倍正常GUI、新雙側A/B、冷START、音訊、完整通關與封包未量，026保持READY。十一組、TSV、錄放、冷存讀及完整交付門檻保持。

@@ -1188,3 +1188,15 @@ cmd/wiz7測試及正式Linux建置退出0。四配置雙字型兩倍率各七控
 封存後衛生工具跟隨既有測試斷鏈而退出1，改用lstat查檔案自身擁有權後，同一映像核工作根異常0、185封存保持。這是檢查工具問題，沒有重跑產品。
 
 正式修正`82bbeff`已推送；[#28留言5984370146](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5984370146)含末尾LF逐字回讀相同，議題保持OPEN。回讀收據SHA `f054096b68198d90ad55fdc2a96388eda28944114e149e7d2ebfd547b7e1a1b5`；185封存保持，自有容器0。未追蹤R433保持，總目標繼續，未宣稱可玩封包完成。
+
+## R962 正常暖戰鬥GUI（2026-10-05）
+
+沿#28／#22核現行來源，載入正常試玩、規格閘門、文件職責及隔離SDK執行契約。本輪正式40Go、SDK及資源保持，私人副本只接合法固定前綴、數字守門與實際GUI收據。修前獨立審查發現判讀圖先於暫停、JSON未完整發布兩個工具阻擋；修成paused packet身分守門及原子公布後，0／0／0於FINAL回讀READY才建置。
+
+第一啟動缺checkpoint保存的/w絕對handle掛載，在前綴前停止，保留gui-startup-failed。同映像／binary／命令補原版同目錄/w唯讀掛載後，82點前綴全核同，但正式音訊拒絕暖初始化；查opl2.NewStream及InstallOPLProgress冷契約，回DRAFT。私人靜音pacer只PhaseAt與正常Pace、非串流observer沿trace、不Accept／PCM／裝置，不改正式播放器或CPU／PIT。限定0／0／0回讀READY後再建置，冷拒絕收據保留gui-cold-audio-rejected。
+
+真正GUI初次live與paused的source／visual同，但原indexed動畫5987像素不同，身分守門正確停止，0新點擊及正常關窗0。保留gui-identity-stopped；改為Draw同shared packet的privateBaseReq，原drawFlow後、map／help前純ReadPixels。新契約再經獨立0／0／0、FINAL完整回讀READY，才建置並執行。審查首次讀取漏-i造成空輸出及報告「其他五控制」的數量用語均已訂正，沒有重跑產品來修文字。
+
+最後正常Unifont2倍GUI逐圖檢視後兩次X11→正式Update→原owner正常Click：248,189裝備進最後指令、160,179退回上一頁。七控制在子畫面撤除並返回重現；三組F1 paused／resume Step相同、WM_DELETE關窗0，watcher／owner／遊戲／Xvfb終止。六PNG與來源／副本核同，初末28原字模、512,000RGB獨立重建0差異、越框及字格交疊0。50Run、四mouse、兩left共56操作有前後Step，末5475100000；手冊0、Lexicon沿舊102、目標29仍0、pacer fault空及no_pcm模式。
+
+完整來源40Go、候選44、SDK1132、原版248、六資源及R960168／R961185盲SHA保持。最終獨立結果0／0／0、FINAL完整回讀報告／SHA採認；166技術產物一次封存，SHA `12b1677a5abc4ece8f5f4d127d57f76dc5f0f0397f297741ac5f2772978937c1`，詳細入口[025](docs/re/025-ui-localization-coverage.md#r962-normal-battle-gui)。不新增正式測試重跑，私人建置／GUI與獨立檢查退出0。只量裝備與返回路線，其餘控制、字型倍率、新A/B、冷START、音訊／完整通關／封包門檻保持；026仍READY，總目標未完成。未追蹤R433保持，接其餘正常戰鬥操作。
