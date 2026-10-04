@@ -184,6 +184,7 @@ type textEv struct {
 	img            *ebiten.Image  // Draw 時 lazily 預渲染的字形條
 	compound       *compoundTrace // spec012：完整兩行物品的原子事件與唯讀診斷
 	roster         *rosterWitness // spec022：碼帶事件的完整列身分
+	sex            bool           // spec024：直接單字元性別事件
 }
 
 // pendingPrint 是已進入、尚未返回的印字（R2.1）。
@@ -223,6 +224,9 @@ type overlay struct {
 	noseg           int
 	roster          map[string]rosterEntry
 	rosterEnabled   bool
+	sexEntries      map[string]rosterEntry
+	sexEnabled      bool
+	sexPending      *pendingProfileSex
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -879,6 +883,8 @@ func main() {
 	ov := &overlay{flow: loadFlow(*flowPath)}
 	ov.roster = loadRoster(*xlatePath, trans)
 	ov.rosterEnabled = len(ov.roster) == 6 && *scale == 3 && hdScale == 3
+	ov.sexEntries = loadProfileSex(*xlatePath, trans)
+	ov.sexEnabled = len(ov.sexEntries) == 2 && *scale == 3 && hdScale == 3
 	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
 		if o.StackWord(0) != flowSites[storySite].reader {
@@ -946,7 +952,34 @@ func main() {
 			}
 		})
 	}
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3877}, func(o *oracle.Oracle) {
+		r := o.Regs()
+		ret := oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}
+		if ret != profileSexReturn {
+			return
+		}
+		x := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295}))
+		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
+		if x != 90 || y != 6 {
+			return
+		}
+		evMu.Lock()
+		defer evMu.Unlock()
+		ov.enterProfileSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
+	})
+	o.OnCall(profileSexReturn, func(o *oracle.Oracle) {
+		evMu.Lock()
+		defer evMu.Unlock()
+		if ov.sexPending != nil {
+			ov.returnProfileSex(o.Regs().SP,
+				int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295})),
+				int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})), offscreen(o), o.Palette())
+		}
+	})
 	o.OnCall(entry, func(o *oracle.Oracle) {
+		evMu.Lock()
+		ov.clearProfileSex("一般字串插入")
+		evMu.Unlock()
 		r0 := o.Regs()
 		ret := oracle.Addr{Seg: r0.CS, Off: o.StackWord(0)} // near call（E2）
 		off := o.StackWord(1)

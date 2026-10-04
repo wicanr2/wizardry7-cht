@@ -16,6 +16,9 @@ func buttonLabelY(e *textEv, shown []*textEv, scale int) int {
 	if y, ok := characterMenuLabelY(e, shown, scale); ok {
 		return y
 	}
+	if y, ok := reviewDialogLabelY(e, shown, scale); ok {
+		return y
+	}
 	if scale != 2 && scale != 3 || len(e.g) == 0 {
 		return oldY
 	}

@@ -1,9 +1,27 @@
 # 按鈕與訊息的中文覆蓋驗收
 
-狀態：主選單、角色選單及新增角色對話框限定驗收通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
+狀態：主選單、角色選單、新增角色對話框及3倍人物檢視限定像素驗收通過，R941結果複核通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
 入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[R935](../goal/R935-character-review-audit.md)、[目前狀態](../../CONTEXT.md)。
 
 使用者要求把圖片內的英文按鈕納入完整中文化。本文保存目前正式來源及實際畫面的覆蓋矩陣；譯文存在、原版畫格及舊測試完成數量不直接當作本次介面已驗證。
+
+## R937 正式修正驗收入口
+
+[check_profile_sex.py](../../tools/re/check_profile_sex.py)核對024限定範圍的正常GUI、原版狀態、兩字型原生性別字模、選人按鈕邊界及修前／修後HD與Draw。入口參數為`<候選工作根> --baseline-root <R935工作根> --control-root <英文控制工作根> --unifont-hex <字型> --eten-font <字型> --eten-symbol-font <符號字型> --output <新報告>`；只在既有離線非root Docker執行，輸入唯讀，只開放新報告可寫。省略control-root時使用候選工作根；指定控制根時分別記錄兩個binary雜湊，不能聲稱英文控制由新binary重跑。既有輸出拒絕。限定像素驗收及R941結果複核已通過，未將024升為CONFORMED。
+
+R937動態勘誤：16份男女／兩字型／兩倍率的選人停止點都有標題、確定及取消，但父角色選單六個標籤皆已移除。2倍Shown為3筆，3倍加六筆角色碼為9筆。原先規格要求的九訊號不能同時成立，正式helper返回舊畫筆；2倍16張修前／修後HD及Draw逐位元相同，置中未生效。私人selector-guard-evidence.json SHA `85e1cde8acd6e655f2b9002b292608c4f94780cde0ae17e2cf91e14aae0f1238`。024選人條件回DRAFT後，R940窄審0／0／0由主代理於FINAL後完整回讀採認，再轉READY。正式helper及測試只核三個精確選人訊號，不改性別、原版輸入或資料。修正後驗收另存workplace/r937/repair，初輪失敗收據保持。
+
+驗收工具先後修正舊／新字格遮罩與逐張預期尺寸。首跑另外把短角色選單路線的80筆缺譯數套到人物檢視路線而拒絕；現行修前／修後2倍各121筆、3倍各109筆，逐項相同，不算新漏譯或完整覆蓋。修正計數後，局部像素在倚天2倍確定按鈕198,334不合，才揭露上述正式辨識缺陷。未產成功validation.json，不把失敗收據採認為完成。
+
+修正後正式binary SHA `28f8ea051f59a8399a049c780d10f3457568201da9da960b6c4986040a300c01`，完整cmd/wiz7測試通過。男女兩次真正GUI各由主代理逐頁看Draw再送六次正常點擊，男／女中文、選人及圖片箭頭返回正常，均退出0。真正GUI不當固定步數原版同狀態；關閉耗時0.067154／0.066959秒，持久角色內容保持。再取雙字型、兩倍率、兩性別八條固定輔助路線，每條七點、均正常退出0。舊英文控制binary為`ecd047c8ca61afc683dc4cc1343738780d21b3c36ad41ca6872266f9a49f7e33`，沒有重跑新binary純英文控制。新中文對舊英文及修前中文共112對Step／Mem／A000／Pal／Mouse相同，indexed及palette bytes全同；男女原版窄探針另28對相同。
+
+獨立原字型核68個字模、275,904個性別與按鈕HD／Draw像素，144個性別原版before／after欄位像素通過。112張修前／修後HD及Draw核46,570,368個批准區外像素，差異0；2倍選人字格與筆畫在按鈕內，3倍選人及其他未批准畫面保持。主代理另目視兩字型兩倍率的四張選人Draw。一般八資源及兩個新增性別資源保持烘製版本。
+
+本輪檢查器曾把未印字的背景也要求等於印字後快照。女性3倍656M的THESUS底列各30像素Before＝After＝195，後續原版選取框已改為1，原筆畫失配0，與R928已量選取底邊一致。只在Before≠After處核After並還原Before，保留當前背景。R941檢查器窄複審0／0／0於FINAL後完整回讀採認；JSON／Markdown SHA `1330092346f9021f22255b5c95edbc044e5be571060b700017520c587e22b63a`／`23b02ca475e8d154959edfec48ccb1aadda3899b003d3f39863a0dc6b79c55ef`。正式Go與binary不改，舊失敗收據保持，沒有放寬差異遮罩。
+
+成功報告workplace/r937/repair/validation.json SHA `99e99a3d9c756c9aaae84fc24a71a8867b0fb97a80dadf76307050afb74ce056`；公開檢查器SHA `ba12f128f3cb010cc19ea765ccd3c2dd8de2fcc6a2d7e13d5ea002ea59061012`。拒絕覆寫exit2且既有bytes保持。R941結果最終複核0／0／0於FINAL後完整回讀採認，不升024為CONFORMED。此路線其他無譯文事件2倍121、3倍109逐項保持；2倍性別與角色碼、其他人物分頁、圖片呈獻字樣及全遊戲完整覆蓋未完成。十一組、TSV遷移、錄放、冷存讀、音訊與封包門檻保持。
+
+R941最終結果JSON／Markdown SHA `30c83b9caf5e21dadc6e555ce757eae6db8049001d865f374de46c447c905524`／`e9baef2bfd3df353e46df25585b43d05d55cfadcf4e175c898e783538d3f1e6d`，位於workplace/r937/repair。完整性報告integrity.json SHA `d5885bf87c1a4fb4fe2a17053bcc481eb475ce2e4ab1ebc039c06f8f9e8c22bb`：原版248、SDK1,132、R928／R932／R935舊464／335／503及初輪1,006產物保持，十次退出後持久內容保持、擁有權異常0。工作根find自檢異常0。最終複核獨立重核112對摘要及indexed／palette，另核32,444個原筆畫像素皆符合After；未重跑完整像素oracle。
 
 ## R935 人物檢視與返回
 
@@ -74,7 +92,7 @@ R935的503個本機產物一次封存，closed-inputs.json SHA `bf8b59aebd98026d
 | 新增角色對話框標題及確定／取消 | R921、R925正常GUI及固定步數已量；既有resident文字覆繪 | 雙字型兩倍率字格與筆畫在框內；正常取消返回 | 限定通過，[021](../spec/021-character-dialog-labels.md)仍READY |
 | 新增角色清單六列 | 完整名字＋性別職業動態文字，返回位置0110:0fcc | 名字依既定規則保留英文；六個性別職業3倍雙字型完整，選取及取消正常 | 六個實例通過；2倍、任意姓名與捲動未完成，見[022](../spec/022-character-roster-text.md) |
 | 角色選單六按鈕 | R932正常GUI及resident0110:5686、六個精確原文／座標 | 創建／檢視／刪除／改名／頭像／離開完整；雙字型兩倍率字格及筆畫在框內，離開返回正常 | 限定通過；五個子畫面未量，見[023](../spec/023-character-menu-labels.md) |
-| 人物檢視頁 | R935正常GUI與固定冷啟動；17個既有文字覆繪 | 3倍雙字型17標籤通過，M／F仍英文；2倍選人確定／取消超框 | [024](../spec/024-character-review-output.md)READY，正式修正待驗 |
+| 人物檢視頁 | R935／R937正常GUI、窄印字證據與固定冷啟動 | 3倍雙字型既有標籤及男／女性別通過，選人確定／取消兩倍率在框內，箭頭返回正常 | [024](../spec/024-character-review-output.md)READY；限定結果複核通過，2倍性別與其他分頁未完成 |
 | 人物頁右下箭頭 | 無英文圖示；R935實際點314,190 | 正常返回角色選單；只證實此點，未量完整命中矩形 | 圖示無待譯字樣，不外推其他圖片按鈕 |
 | 清單上下箭頭 | 已見無英文圖示，操作及說明未量 | 尚未完成控制驗收 | 另沿正常GUI核對 |
 | 建立角色、其餘人物／物品／咒語／對話／戰鬥／存讀及圖片按鈕 | 此次重查尚未到達；既有規格與歷史收據須逐項核現行來源 | 未量到，不計本次通過 | 依可見畫面走合法操作 |

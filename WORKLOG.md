@@ -880,3 +880,18 @@ Markdown SHA為`bffe47137bd9d6f39b9983ce180f90ced81c823cdb69dc9bc41f2adec416b020
 - 全工作根Python自檢遇既有斷符號連結而失敗；改用規定find、不跟隨連結後異常0，自有R935容器0。只修驗證工具，未因此重跑遊戲。
 - R936窄複審0／0／0於FINAL後完整回讀，B1／B2及繁簡字形、女性現況文字全部解除。024轉READY，報告及SHA見024；接續R937正式限定修正，未完成性別中文或全遊戲驗收。
 - R935共503個本機產物一次封存，closed-inputs.json SHA `bf8b59aebd98026d3d0375c29ffe9674e32f25aa0748f89a021912f1a2bd7908`。原始圖、字型與局部像素不提交，公開工具及限定規格可重跑；推送狀態另補。
+- R935證據與024 READY提交`c54bcd9`已推送私有origin/main。#22／#28留言[5975194693](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5975194693)／[5975195228](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5975195228)逐字回讀相同，兩議題仍OPEN。私人github-readback SHA `475a7201b65c0ce3cb5255beb0c8c4a134274efe9ba9c27181570ed2d67d5f22`。
+
+## 2026-10-04：R937，人物性別與選人按鈕正式修正
+
+- 沿024 READY實作獨立性別TSV、typed sidecar、字模烘製與唯讀攔截，沒有使用一般M鍵。選人九訊號完整才調兩個按鈕畫筆，字模不縮小。完整cmd/wiz7測試通過，正式binary SHA `ecd047c8ca61afc683dc4cc1343738780d21b3c36ad41ca6872266f9a49f7e33`。
+- 兩次真正男性GUI因父代理未在120秒內送操作而中止。晚到命令未執行，失敗收據保留，不稱正常退出。重查GUI路由，同控制器、截止值與計畫輸入在retry2乾淨重跑；男女兩條GUI均見中文性別、圖片箭頭返回主選單，正常退出0、持久資料保持。兩字型／兩倍率固定輔助與獨立像素驗收另補，不把此GUI目視當同狀態完成。
+- R938初審2／0／0於FINAL後完整回讀。修正烘製獨占建立順序及splitlines吞禁用控制字元的問題；早檢後競爭建檔拒絕且沒有其他資源寫入，八個控制負案例、LF／CRLF兩種合法行尾及雙字型既有輸出拒絕通過。兩套性別payload與正式binary保持。窄補審0／0／0於FINAL後完整回讀採認，兩報告SHA為`9e6a273c8e5af8e0a401e45343a8d6bf1dab09a136244c86925eb2b1f668f74f`／`9eae8fa6023e5386a57ae9a4b4ef5776b0556dd4ebb24941453afb46e1899da8`。
+- 公開check_profile_sex.py已由025索引，結果與最終複核待補。2倍性別及完整交付門檻保持，024不升CONFORMED。
+- R939第一階段2／0／0於FINAL後完整回讀，報告SHA為`083814e979b53957406d4ec2499b35003bd00f35d3f3b1f3f13a57f5677c442a`／`8eb0381df8c0c727ad965ab06fe197dd70a14ed3c95ab6c0cee3c2157606d27d`。工具補舊／新字格聯集及每點HD／Draw兩側預期尺寸。首跑計數錯沿短選單的80筆；同一檢視路線修前／修後2倍121、3倍109筆逐項相同，修正工具後重跑。
+- 重跑在倚天2倍確定按鈕198,334像素不合。檢查16個停止點證實父角色選單六個事件均已移除，選人三訊號仍在；3倍另有六個角色碼，不將總數9誤當父選單。原九訊號guard因此永遠回舊畫筆，2倍16張修前／修後HD／Draw全同。這是正式置中接線缺陷，綠色單測不能當完成證據。024選人條件回DRAFT窄重審，只改成現行三個精確訊號；性別契約、原版規則、資料與操作保持。沒有validation成功報告或push。
+- R940三訊號契約窄審0／0／0於FINAL後完整回讀兩份報告採認，024再轉READY後才改正式helper及獨立期待值測試。完整cmd/wiz7測試通過，1.095秒；修正binary SHA `28f8ea051f59a8399a049c780d10f3457568201da9da960b6c4986040a300c01`。R941靜態實作與驗收工具窄審0／0／0於FINAL後完整回讀採認，JSON／Markdown SHA為`3e7b5a34bbcc744cde6fa52dfbed96fffcaa44be44168dd5a4d7ae526cf9253d`／`3537480fa8fd9209e25d59e0ac0c1539944e6a024ffb5a4c909b5846a015835b`；尚未採認動態像素結果。
+- 修正後男／女真正GUI各七畫格由主代理逐次檢視再送六個正常點擊，均正常退出0，性別男／女及圖片箭頭返回可見，持久內容保持。兩字型／兩倍率八個固定輔助程序也全部正常退出0。英文控制沿已封存初輪R937收據，分別記錄舊binary與新binary，不聲稱純英文由修正binary重跑。初輪1,006個控制產物封存雜湊`314a340b118bed9689535a70947360c2d9eaa6ef40a0681e3850ade76c68c629`，修正產物只寫workplace/r937/repair；獨立像素結果另補。
+- 修正後像素檢查在女性3倍656M失敗：THESUS碼帶底列各30個背景像素Before＝After＝195，原版後續選取框改為1，真正印字像素失配0。這與R928既有選取底邊證據一致。檢查器只在Before≠After處核原筆畫並還原，不要求未改背景保持；正式Go、binary及收據不改。私人unchanged-source-evidence.json SHA `dd45b3b9e9ba2b01c697b6d189872cba6bec652a35dd95cdb40861b29a171559`；修後檢查器SHA `ba12f128f3cb010cc19ea765ccd3c2dd8de2fcc6a2d7e13d5ea002ea59061012`，窄複核與成功結果另補。
+- R941檢查器窄複核0／0／0於FINAL後完整回讀採認；報告SHA見025。相同收據重跑通過112對原版狀態、28對窄探針、68個原生字模、275,904個局部及46,570,368個批准區外像素，區外差異0。2倍確定／取消字格及筆畫皆在框內，3倍男／女顯示通過。validation SHA `99e99a3d9c756c9aaae84fc24a71a8867b0fb97a80dadf76307050afb74ce056`；既有輸出拒絕exit2且bytes保持。
+- 完整性核原版248、SDK1,132、舊464／335／503及初輪1,006產物全部保持，十次退出及持久資料保持、十資源保持、擁有權異常0。integrity SHA `d5885bf87c1a4fb4fe2a17053bcc481eb475ce2e4ab1ebc039c06f8f9e8c22bb`，工作根find異常0。R941結果窄複核0／0／0於FINAL後完整回讀採認，獨立重核112對摘要及indexed／palette、32,444個原筆畫符合After，沒有重跑完整像素oracle；024女性控制舊限制明示為R935歷史。JSON／Markdown SHA `30c83b9caf5e21dadc6e555ce757eae6db8049001d865f374de46c447c905524`／`e9baef2bfd3df353e46df25585b43d05d55cfadcf4e175c898e783538d3f1e6d`。024保持READY，2倍性別、其他分頁、圖片字樣及全部交付門檻保持，推送及議題回讀另補。

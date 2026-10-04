@@ -91,9 +91,13 @@ def glyph_of(b5: bytes) -> list[int]:
 
 def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     from bake_roster import CATALOG, build, write_payload
+    import bake_profile_sex
     if (outdir / 'roster.json').exists():
         raise FileExistsError(outdir / 'roster.json')
     roster = build(CATALOG, glyph_char, HEIGHT)
+    if (outdir / 'profile-sex.json').exists():
+        raise FileExistsError(outdir / 'profile-sex.json')
+    profile_sex = bake_profile_sex.build(bake_profile_sex.CATALOG, glyph_char, HEIGHT)
     strings = [dst for _, dst, _ in pairs]
     # 收集字元（按出現序）
     chars: list[str] = []
@@ -132,6 +136,7 @@ def bake(pairs: list[tuple[str, str, int]], outdir: Path):
     seg[mask_off:mask_off + len(msk)] = msk
 
     outdir.mkdir(parents=True, exist_ok=True)
+    bake_profile_sex.write_payload(outdir / 'profile-sex.json', profile_sex)
     if BACKEND == "eten":
         (outdir / "fontseg.bin").write_bytes(seg)
 
