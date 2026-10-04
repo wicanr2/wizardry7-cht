@@ -7,6 +7,22 @@
 
 使用者要求把圖片內的英文按鈕納入完整中文化。本文保存目前正式來源及實際畫面的覆蓋矩陣；譯文存在、原版畫格及舊測試完成數量不直接當作本次介面已驗證。
 
+## R952 人物頁圖片操作與2倍行距
+
+入口：[R952](../goal/R952-character-review-pages.md)，2026-10-04。從目前正式來源乾淨重建Linux前端，Go1.24.13 linux/amd64，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`；正式程式與SDK未修改。使用既有六份Unifont資源、3倍畫布、靜音與手動加速，原版唯讀。這不驗預設節拍、裝置音訊或人耳。
+
+真正GUI由主代理逐張看實際Draw後送10次點擊，共11個停止畫格。兩次從主選單／角色選單進THESUS檢視；在已見人物頁點231,143紅色劍形圖示及207,136蠟燭圖示，下一停止畫格都回角色選單，沒有切出功能頁。此結果為confirmed的兩個點擊觀察，不證明所有圖示皆靜態或任何遊戲內分頁完成。最後經中文「離開」返回主選單，正常關窗exit0，耗時0.106417秒。原版248檔盲SHA保持；各畫格擷取後讀到的Scratch內容與原版相同，讀檔時點不冒稱PNG的固定Step。
+
+正常收據為`workplace/r952/normal-unifont-3-attempt3/captures.json`。首輪觀察器誤等成功碼`err=none`，正式前端實際成功碼為空字串；點擊已成功，失敗在觀察確認。第二輪因主代理未在120秒內回覆畫格而超時。兩份失敗收據保留，屬工具／驗證等待問題，不記為產品缺陷；第三輪沿同一binary、容器與120秒截止值乾淨重跑。
+
+另目視R937既有2倍人物Draw，獨立解GNU Unifont原始字模，核八個屬性兩倍率共32字模。STR至KAR的原版y為35、41、47、53、59、65、71、77；字高16，2倍行距12。七對相鄰字格各交疊4列，實際筆畫交集合計58像素。這是confirmed的R937已驗2倍排版缺陷，未冒稱本輪重跑2倍GUI。R952當輪3倍Shown的同八列行距18，字格及筆畫交集皆0。2倍修正需要同時處理文字與數值行的對齊，不能只補性別或縮字。
+
+私人獨立檢查入口為`workplace/r952/check_gui_and_spacing.py`，在既有`wizardry7-go-ebiten:latest`離線非root Docker中執行；儲存庫、原版及字型掛`/src:ro`，僅`workplace/r952`掛`/out:rw`，執行`python3 /out/check_gui_and_spacing.py`，報告以exclusive方式寫`gui-and-spacing-check.json`。它核當輪binary／來源、10份父代理畫格SHA、22份HD／Draw檔案SHA、原版248檔及存檔內容、字型與字格交集；不重跑完整像素oracle或固定輸入A/B。024仍READY，2倍性別與其他排版、遊戲內分頁、十一組、TSV、正式錄放、冷存讀、音訊及封包均未完成。
+
+正常收據、檢查報告及檢查器SHA依次為`fa6bea32eaad3ef9083896defa613b735a674c1cdae382c8300a1a1904810193`、`7ef08992a61362e8bac66cc89b877fd795a712d48d89cf1a6b2e4545ad3cb858`、`4af4748c577b7d106fc498328c315e1502ed19a0a5b3ae700991ca2f67cf1fc4`。本機140份技術檔一次封存，排除Go快取及後續審查／GitHub回讀；`closed-inputs.json` SHA為`bc2c3a186ba4022177f6178d924236a289218464dfa91be1bc4ad7eb52e8935d`。
+
+獨立結果審查阻擋0／應改0／建議0，主代理於FINAL後完整回讀兩報告及SHA採認。`workplace/r952/review-results.json`／`.md` SHA依次為`61f1c439450fd84d114e2bdf68866d7233cab1478d5acedb40cd2d610eb6bd82`／`3e6b74ad507c712626bca2461121f1383be63bb7159ac54f820b102c699ded42`；另獨立核22張PNG的CRC、解壓及尺寸。只核38份列出的cmd來源，不宣稱完整編譯閉集合或SDK1,132檔本輪獨立重核。擁有權1000:1000，自有容器0。
+
 ## R937 正式修正驗收入口
 
 [check_profile_sex.py](../../tools/re/check_profile_sex.py)核對024限定範圍的正常GUI、原版狀態、兩字型原生性別字模、選人按鈕邊界及修前／修後HD與Draw。入口參數為`<候選工作根> --baseline-root <R935工作根> --control-root <英文控制工作根> --unifont-hex <字型> --eten-font <字型> --eten-symbol-font <符號字型> --output <新報告>`；只在既有離線非root Docker執行，輸入唯讀，只開放新報告可寫。省略control-root時使用候選工作根；指定控制根時分別記錄兩個binary雜湊，不能聲稱英文控制由新binary重跑。既有輸出拒絕。限定像素驗收及R941結果複核已通過，未將024升為CONFORMED。
