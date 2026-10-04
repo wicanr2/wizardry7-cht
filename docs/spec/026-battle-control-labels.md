@@ -86,4 +86,15 @@ R961已量：正式欄位及clone回歸通過，四個固定Draw程序退出0；
 
 暫停底層Draw限定補審0／0／0於FINAL完整回讀後採認READY，報告workplace/r962/review-paused-base.{json,md}，JSON SHA `acdecf3600d4afecda61473cc2b43e2810b923354ddcd22e7e4d688657446b25`；只採契約及來源，未採認新GUI結果。
 
+## R963 正常控制與回合續行 READY
+
+入口：[R963](../goal/R963-battle-round-gui.md)。重用R962已驗私人binary SHA `accb13bae59395ea3f907fd4de73b384c48a08b97e00c812574bc2dfad639e6b`，42個候選Go及SDK保持，不重建。其餘R962固定前綴、原版雙唯讀掛載、數字守門、靜音pacer、同packet的paused底層Draw、最多12點擊／13組取樣、原子公布、界限及清理全沿既定契約。正式來源仍82bbeff，現行文件HEAD0c7fbaf。
+
+- 本輪每張實際paused PNG先判讀，再選可見但尚未量的控制；咒語、格擋、戰鬥及開始戰鬥只是尋路目標，沒有預排點擊或保證結果。取消／返回沿當下可見選項。點擊錯誤或數字守門停止即保留收據，不改API／seed、作弊或載入另一狀態補成功。
+- 控制器新增已判讀後正常關窗的私人取樣入口：必須finish=true、reviewed_observation=true、當前paused PNG SHA相同及非空evidence；沿F1同Step恢復與正常WM_DELETE。原finish_after_battle_return分支及七控制驗證保持。新入口寫finish_reviewed_observation，只表示取樣正常收尾，不當回合完成、勝負或通關證據，不改正式GUI或013錄放格式。
+- 逐筆核正常Click的前後Step／有限結果、三類畫格身分、來源與副本深值、live與paused實際Step分列。初始七控制native核對是沿既有基準；新證據以後續實際控制、畫面轉換與文字／撤除缺口為準。原字模、固定七矩形與512,000RGB的既有通過不外推新子畫面；Flow非空／未知重排只記限制。
+- 此次只量Unifont2倍私人靜音暖GUI。原版248、SDK1132、正式40Go、六資源及R962166封存前後盲SHA須同。原版材料及完整收據只留本機。最終獨立結果審查後仍維持026 READY；新雙側A/B、其餘倍率字型、冷START、音訊及完整交付未因本輪自動完成。
+
+限定契約審查0／0／0於FINAL完整回讀兩報告及SHA後採認READY，報告workplace/r963/review-spec.{json,md}，JSON SHA `c7f6bfb65a4b8ceb199e6da092675068ddae1980a83e8b106f25d7a8b63bb9a6`。僅採認來源與工具，未採認新結果。原版CPU／PIT及玩家規則不變。R963輸出只workplace/r963。下段的workplace/r962與報告路徑只記錄R962歷史設定，不適用本輪輸出。
+
 Docker沿wizardry7-go-ebiten固定映像與既有SDK overlay，離線UID/GID1000:1000、2CPU／2GiB／96pids，輸出只workplace/r962；原始輸入、字型、SDK與舊收據唯讀。正式Go、資源及完整原版檔前後盲SHA核同。完整原文、圖片與收據只留本機。2026-10-05修前審查兩項工具阻擋，修後限定補審0／0／0經FINAL完整回讀採認READY；報告workplace/r962/review-spec-v2.{json,md}，JSON SHA `126b5bef67157ef6410b52eef3e1b8c7df29de5ea1705e46bc52834be06dfa92`。暖音訊契約缺口回DRAFT後，靜音節流限定補審0／0／0重新READY，報告review-warm-pacer.{json,md}，JSON SHA `bd1279f7d73800fe9b4fff97751acfe8dfa84a25cbfdf90b43a5a7845ed41757`。實際GUI的初次live5455.7M及暫停5458.7M來源純值同，但indexed變更5987像素、RGBA不同，身分守門正常停止並關窗exit0，沒有新點擊。改採真正暫停底層Draw，舊收據保留且回DRAFT再補審。正式播放器與冷串流契約保持。

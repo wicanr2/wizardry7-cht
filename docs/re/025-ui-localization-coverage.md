@@ -646,3 +646,46 @@ R733合法checkpoint及R960固定前綴核82摘要、78命令、67既有輸入�
 重跑入口在本機workplace/r962：prepare.py、build.py、gui.py、check_gui.py及verify_inputs.py。使用全新輸出，固定source／SDK／離線模組唯讀；原版同時唯讀掛/original及/w，UID/GID1000:1000、2CPU／2GiB／96pids、網路none、建置300秒及GUI1800秒外層界限。controller逐張保存ready，主代理判讀paused圖後獨占公布command；最多12新點擊、13組取樣，本次兩次即返回退出。
 
 這是Unifont2倍的一條合法暖GUI操作與生命週期證據。其餘七控制分支、倚天／3倍正常GUI、新雙側A/B、冷START、音訊、完整通關與封包未量，026保持READY。十一組、TSV、錄放、冷存讀及完整交付門檻保持。
+
+<a id="r963-battle-round-gui"></a>
+
+## R963 戰鬥操作至戰敗返回
+
+2026-10-05，入口：[本輪目標](../goal/R963-battle-round-gui.md)、[026限定契約](../spec/026-battle-control-labels.md)。重用R962私人binary SHA `accb13bae59395ea3f907fd4de73b384c48a08b97e00c812574bc2dfad639e6b`，不重建、不改正式40Go或原版規則。沿R733合法checkpoint及82點前綴，正式Update、owner與正常CursorWait Click；私人暖GUI保持靜音節流及no_pcm。工具映像、版本及原版DS.EXE雜湊與R962相同，原版同時唯讀掛/original與/w。
+
+| 暫停取樣 | Step | 實際畫面 |
+|---|---:|---|
+| 00 | 5458100000 | 七個中文戰鬥控制 |
+| 01 | 5468500000 | 施法面板，施放／取消為中文 |
+| 02 | 5476300000 | 取消施法，七控制重現 |
+| 03 | 5484100000 | 使用道具，使用／取消及長劍為中文，另兩列英文 |
+| 04 | 5494300000 | 取消使用，七控制重現 |
+| 05 | 5503700000 | 最後指令，開始戰鬥／退回上一頁／結束遊戲為中文 |
+| 06 | 5511900000 | 開始戰鬥後，命令按鈕撤除 |
+| 07 | 5520700000 | 敵人攻擊動畫、中文攻擊說明及命中提示 |
+| 08 | 5528500000 | THESUS死亡圖示、生命條清空及中文死亡提示 |
+| 09 | 5537500000 | 隊員及敵人撤除，文字事件為空 |
+| 10 | 5546700000 | 返回主選單，六個選項為中文 |
+
+主代理逐張view_image真正paused底層PNG，再送十次正常左鍵。前六次為咒語55,167、取消239,126、使用61,177、取消98,187、戰鬥13,167及開始戰鬥159,169。後四次均點選場景空白160,145，只記實際輸入，不宣稱該點有跳過或等待完成的功能。單人隊伍沿原版結果死亡並返回主選單，沒有改seed、重試或作弊。最末finish_reviewed_observation只表示本次取樣收尾，不是勝利、通關或正式錄放成功。
+
+十一組paused Step均等於F1 ACK及恢復Step，正常WM_DELETE exit0，owner／watcher／遊戲／Xvfb終止。22份PNG及packet核CRC、尺寸與SHA，Source／Visual純值相同。三張七控制畫格共42原Unifont字模及768,000RGB核對相符，字格交疊、越框及局部差異0；這是既有家族在新流程中的撤除／重現，不增加已完成家族數。其他子畫面只記實際畫面及metadata，未聲稱完整原字模覆蓋。170Run、九mouse及十left共189操作有前後Step，十次Click結果均空錯誤，末5547100000。NumericStop=false、Manual0、Lexicon102、目標29仍0、WarmPacerFault空。
+
+使用面板實際顯示LEATHER CUIRASS及FUR LEGGING兩個英文道具名稱，列為未完成。這張packet只含已生成的覆繪事件，去重後有LONGSWORD、USE、CANCEL及FIGHTER，沒有兩列的覆繪事件。不能據此判定截獲的根因。另窄核既有items-trans.json已含LEATHER/CUIRASS「皮胸甲」與FUR/LEGGING「毛皮護腿」；compound.go的配對條件目前只覆蓋已量角色頁，未由本輪擴大條件。下一輪沿使用面板實際印字位置窄查；不以單測通過掩蓋漏譯。
+
+空文字轉場的Go nil slice序列化為null，原檢查器直接迭代而退出1。修成空清單解析後，同映像、同一批PNG及packet重查退出0，沒有重跑遊戲。修前checker及有限失敗收據保留。本輪正式40Go、候選44檔、SDK1132、原版248、六資源與R962166封存盲SHA相同，擁有權異常0。
+
+| 本機workplace/r963收據 | SHA-256 |
+|---|---|
+| gui-check.json | `10fc68384034dd9a69b872a1ee2b2e957b2af7ffcc20738324d30bb4c0ee1f16` |
+| invariants.json | `3c3bc858ca6727a87d9f3a5145af3d3d63bc9b86cc5c05a56f1c86d172de553f` |
+| gui/run-result.json | `07fa1469a77bfe05c6f84f7d8a939aece174f8a7e537ce70415ffc555bf230e9` |
+| gui/operations.json | `b6237318223834ad2dc28105432a7705db0243147d0f7250183b51cf6600ad27` |
+| check_gui-before-null.py | `d8a3275d4579e2db8d9b215f33cce6e86d5b8127e0a0137f8fbd6ebcec488f65` |
+| check_gui.py | `3d853699f7a0ad4d34a738c2717f3f1647c9a0d3c4b6f353def15259d4dfc62d` |
+| catalog-check.json | `94a35b0fb91f70e012c91cc6b1f315b70246c79fd58075821a083a21af223fc8` |
+| sealed.json，125技術產物 | `b3d9366c309d9412c0d3327d27239cca64d3411c910b53780328d676610a0f88` |
+
+獨立結果審查0／0／0於FINAL完整回讀兩報告及SHA後採認，review-result.json SHA `f682688577a49a8ee17f0e742af43673183bd0bd75ef8904ca2714b442f6ce6d`，Markdown SHA `e6632fa545986d2c49dc8ddea6f5b1ebf20af3eb81c50cb96abf1880d5c0980e`。審查獨立解析PNG與原字模，沒有執行既有checker；子畫面目視引用主代理判讀，獨立圖片轉送截斷未採目視。026保持READY；格擋／逃跑／移動、倚天／3倍正常GUI、新雙側A/B、冷START、音訊、冷存讀、十一組、TSV、正式錄放及封包門檻保持。原版衍生畫面與完整收據只留本機。
+
+125技術產物一次封存，後續GitHub收據不重封。重跑入口在本機workplace/r963的prepare.py、gui.py、check_gui.py及verify_inputs.py，沿026限定契約與全新輸出。prepare只核R962封存並複用binary；GUI仍為離線UID/GID1000:1000、2CPU／2GiB／96pids及1800秒外層界限，原版同掛/original、/w唯讀。沒有新的正式建置或完整測試重跑。

@@ -1,5 +1,7 @@
 # 專案目標
 
+正常戰鬥控制與回合流程：[R963](R963-battle-round-gui.md)。
+
 戰鬥控制的正常暖視窗：[R962](R962-battle-normal-gui.md)。
 
 戰鬥控制GUI色號傳遞：[R961](R961-battle-gui-color.md)。

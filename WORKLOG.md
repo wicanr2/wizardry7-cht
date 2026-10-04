@@ -1202,3 +1202,17 @@ cmd/wiz7測試及正式Linux建置退出0。四配置雙字型兩倍率各七控
 完整來源40Go、候選44、SDK1132、原版248、六資源及R960168／R961185盲SHA保持。最終獨立結果0／0／0、FINAL完整回讀報告／SHA採認；166技術產物一次封存，SHA `12b1677a5abc4ece8f5f4d127d57f76dc5f0f0397f297741ac5f2772978937c1`，詳細入口[025](docs/re/025-ui-localization-coverage.md#r962-normal-battle-gui)。不新增正式測試重跑，私人建置／GUI與獨立檢查退出0。只量裝備與返回路線，其餘控制、字型倍率、新A/B、冷START、音訊／完整通關／封包門檻保持；026仍READY，總目標未完成。未追蹤R433保持，接其餘正常戰鬥操作。
 
 驗收文件`8853698`已推送；[#28留言5985178073](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5985178073)含末尾LF逐字回讀相同，議題保持OPEN。166封存保持、擁有權／工作根異常0、自有容器0；回讀收據SHA `c28ff4a9109cbcb7ec94f30ef4ca7c116daf0d27a7908550daad8ae851ade2fe`。原版衍生圖與完整收據只留本機，下一輪接其餘正常戰鬥控制及合法流程，所有交付門檻保持。
+
+## R963 戰鬥操作至戰敗返回（2026-10-05）
+
+沿#28／#22及正常試玩、規格閘門、文件職責與dosgolem執行契約，重用R962已驗私人binary，不新建置、不改正式40Go、SDK、資源或原版。控制器只新增已判讀當前paused PNG後正常關窗的觀察收尾，仍須相同SHA、F1同Step及非空evidence。獨立規格0／0／0於FINAL完整回讀READY；R962輸出路徑歷史文字已限定，不套到R963。
+
+82點合法前綴全核同後，逐張view_image暫停底層Draw，十次正常Click：咒語／取消、使用／取消、戰鬥／開始戰鬥，及四次場景空白點選。單人THESUS沿原版戰鬥結果死亡，隊員／敵人撤除並返回六中文選項主選單。沒有改seed、重試或作弊，空白點選只記實際輸入，不推定跳過功能。十一組paused／F1 ACK／恢復Step相同，正常WM_DELETE退出0，所有擁有程序及watcher終止。
+
+22PNG與來源／副本純值核同。三張七控制共42原Unifont字模、768,000RGB獨立重建相符，越框／交疊／差異0；只確認既有家族生命週期，不增加已完成家族數。170Run、九mouse、十left共189操作，末5547100000；Manual0、Lexicon102、29來源0命中、NumericStop=false、WarmPacerFault空及no_pcm。其他子畫面不稱完整原字模或新A/B。
+
+使用面板有LEATHER CUIRASS及FUR LEGGING兩列英文，Source／Visual缺該覆繪事件。packet不是全部印字事件，未由缺項判定根因。窄查既有catalog及當次資源，LEATHER/CUIRASS「皮胸甲」與FUR/LEGGING「毛皮護腿」皆在；compound條件限既有角色頁，本輪未擴大。後續沿使用面板實際印字位置補證據。空文字轉場null引起checker TypeError，只有四處or[]解析修正，同一批收據乾淨重查退出0，未重跑遊戲；修前工具及失敗收據保留。行號超出檔案的窄讀取與映像範本空entrypoint查詢屬工具問題，均改用有界讀取及完整JSON，不當產品失敗。
+
+正式40Go、候選44檔、SDK1132、原版248、六資源及R962166封存盲SHA保持，擁有權異常0。獨立結果0／0／0於FINAL完整回讀兩報告及SHA後採認，詳見[025](docs/re/025-ui-localization-coverage.md#r963-battle-round-gui)。審查獨立PNG／字模解析，不執行既有checker；子畫面漏譯目視引用主代理，圖片轉送截斷未採獨立目視。026仍READY，本輪有限任務完成。格擋／逃跑／移動、其他字型倍率、新A/B、冷START、音訊、十一組、TSV、正式錄放、冷存讀及封包仍待完成，總目標繼續。
+
+125技術產物一次封存，SHA `b3d9366c309d9412c0d3327d27239cca64d3411c910b53780328d676610a0f88`，排除後續GitHub收據。公開文件只記有限數字、來源與雜湊，完整原版衍生畫面及收據留本機。未追蹤R433保持。
