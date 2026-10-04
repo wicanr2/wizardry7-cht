@@ -1001,3 +1001,46 @@ Node v22.12.0、Chrome 131.0.6778.204及Puppeteer映像沿R868，映像ID本輪�
 `f131955eff53028ff11036982fdfc8c069b3dfd5855e2e0a0a8cde29b5ad7833`；
 `verified.json`為`b4fff8956f5e079ea09042267a7fb54e6bce2995f4d9cf412a7d19942384721c`。
 停止操作與故障保存仍待使用者定案，不重問既有待答問題或先寫正式分支。013保持DRAFT，#17保持OPEN。
+
+<a id="r945-recording-stop-owner"></a>
+
+## R945：錄製停止與續玩擁有者
+
+2026-10-04，沿[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)、[目標](../goal/R945-recording-stop-owner.md)及[013候選契約](../spec/013-input-recording.md#r945-recording-stop-owner)。使用者已定案玩家按鈕停止、當前操作完成後收尾、停止後續玩、故障保留無成功末註的片段。R893上節的待答敘述保留為當時歷史，現在依此定案推進。
+
+R875的最後Draw→owner完成→音訊Close→Writer.Finish屬整個工作階段退出，不能直接當正常停止錄製。本輪私人`workplace/r945/stop.go`將錄製截止、Writer單一擁有者及遊戲退出分開：自製API先完成並記錄結果，截止後不再收事件；最後發布以ID／Step／配置SHA確認，才追加snapshot及收尾。沒有Oracle、原版Stop或音訊Close入口，原API結果不被錄製錯誤取代。所有自製資料只表明候選邏輯，不是原版語意證據。
+
+### 已驗範圍
+
+Go1.24.13、Python3.11.2及既有`wizardry7-go-ebiten:latest`，映像ID為`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`；來源只讀，UID/GID1000:1000。初輪未執行測試，因正式SDK沒有DOSSettings getter而建置失敗；核R819既有私人getter後，改唯讀沿R875私人SDK，不改正式SDK或產品。attempt-2通過後發現接收worker成功結果時缺期限再核，保存修前來源，補接收時期限守門；同映像、同命令於attempt-3乾淨重跑，15個leaf案例通過、失敗0、沒有DATA RACE。Go的群組pass不另算案例，晚到接收分支未由決定性交錯觸發，不能將此來源修正當新增動態覆蓋。
+
+| 驗證 | 結果及限制 |
+|---|---|
+| 正常收尾與續玩 | 真實候選Writer完成截止200000的run＋snapshot；再呼叫三次自製操作，步數到200300，完成檔bytes保持，未多記事件。 |
+| 操作中要求停止 | 自製run中提出要求，操作仍完整增加17步，文件截止200017；沒有強制中斷API。 |
+| 自製API錯誤 | run與click各保留原error物件及37步部分推進，留下無末註片段；不改既有後續回傳路徑。沒有原版錯誤注入或Oracle.Run。 |
+| 最後畫面拒絕 | 六例：錯ID、錯Step、錯配置、故障狀態、晚到完成與缺確認，均未完成文件。全部通知自製，沒有真正GUI Draw。 |
+| Writer故障 | 最後snapshot Append與Finish兩例自製錯誤回呼，留下片段，成功名稱不存在；未測真磁碟故障或所有清理雙故障。 |
+| 阻塞Finish | 自製回呼阻塞超過40ms測試預算後，擁有者可執行後續未錄製操作；阻塞返回前Abort次數0，返回後真Writer按同期限拒絕、保留無末註片段。沒有在Finish中並行Abort，非正式五秒實機保證。 |
+| 重複要求 | 二十個競爭goroutine只有一個期限，重複要求不重設。 |
+| 軟體音訊 | 停止前後由正式playerAudio接兩筆自製CompletedOPL時間批次，Frames2937→5873、EndStep200000→400000，Stop／裝置Pause／Close皆未呼叫。沒有OPL寫入，不當連續有聲音樂、裝置或人耳驗收。 |
+
+獨立Python直接解析保存的十五份自製文件，確認三份成功、十二份片段：配置JSON SHA、原始列加LF的內容SHA、seq／before／after及截止Step符合；片段無end且無成功名稱。沒有重用Go Loader當獨立期望，不重跑舊wire攻擊表或宣稱完整格式覆蓋。`go list -race -deps -json`核93項選定編譯來源，含cmd所有編譯測試檔，但實際只執行TestR945；stdlib與第三方沿映像及模組鎖定。
+
+| 本機來源／收據 | SHA-256 |
+|---|---|
+| `stop.go` | `b392dd38fb9ae88c625e55c0a172652baefb6c29d5ac39a94cc314f384bc2db6` |
+| `stop_test.go` | `22d8c7d0d4201f4f64afddacc8ee271b38b8d2e7129fb441e6271a6f59349e55` |
+| `attempt-3/report.json` | `e5292563b077f8a2e461752bbaecc3cf5eb2e3e7c0e57d45296f2d1f000ee923` |
+| `independent-3.json` | `efa7971d2e2cac47e2abe0d96f65197fd2f23e934cf598b71712a98d9411be8a` |
+| `compiled-sources-3.json` | `d5d03291b75ca34b736954848a42d1d1f57065f53f7441a54c07eea9a2054e1c` |
+
+重跑先由本機`prepare.py`在新的已存在輸出目錄複製當前cmd、R875格式及初始化候選，沿R875唯讀私人SDK；再跑`run.py`及`verify.py`，兩者須設同一`R945_ATTEMPT`，預設attempt-1。來源repo掛`/src`唯讀、私人輸出掛`/out`可寫、既有gomodcache掛`/mods`唯讀；沿離線Docker、2GiB／2 CPUs／128 PIDs、init與日誌上限，外層220秒。Go設定GOPROXY／GOSUMDB為off、GOFLAGS為-mod=readonly、GOCACHE只寫`/out/cache`。採認收據為attempt-3，獨立報告以`R945_VERIFY_SUFFIX=-3`另存；不覆寫舊編號。Xvfb由Python有界父程序持有，finally停止並回收，沒有持續背景容器。
+
+此候選仍有正式缺口：未移植getter、GUI按鈕與每個原API安全邊界；未接實際音訊／observer故障資格及關窗競態；沒有連續有聲音樂或三次重播。R862完整設定只列xlate／flow／help，現在正式程式另載入roster.json、profile-sex.json及intro-picture.json；錄放啟動必須納入同次載入結果及SHA，不能因三類舊資源核對通過就稱最新前端配置完整。阻塞系統呼叫不可由Go取消，晚到成功名稱或清理失敗的限制仍沿R867；不由這15案例解除完整B3／B4或將013升READY。
+
+44份複製來源及93項選定編譯來源保持；私人SDK與正式SDK的選定編譯差異只有`oracle/initial_scalars_candidate.go`。原版248、正式SDK1132、R943封存964與R944封存199全部SHA保持，production未改，工作根root-owned／誤建md目錄及輸出擁有權異常0。最終`integrity-final.json` SHA為`daa7943d57d6f05e1998156fc0830a1dfa87fb5edd8c6a989152d78269458511`。
+
+最終獨立唯讀審查為阻擋0、應改0、建議0。主代理於FINAL後完整核讀兩份報告，只採認私人候選及DRAFT回填，不批准正式錄放或READY。`workplace/r945/review.json`與`review.md`的SHA-256依序為`41121fd73b4585aad299fc59081d279ff65411bd5edf2c2e0d0fb63d26fd1475`及`34ff86dc5c0d8930205a86159380bf64ab536c975c3c123480d7cf1b9b640389`；報告UID/GID為1000:1000，自有容器0。
+
+私人111份技術檔已一次封存，`workplace/r945/closed-inputs.json` SHA-256為`b3b585fe3b7f3f83a3edf1d15f656956c2aef9c7553642045f9b6a4c570b3070`。排除可重建快取與後續遠端同步回讀；來源、修前歷史、三輪收據及審查報告保留，不覆寫。擁有權異常0，私人候選與自製錄放檔不進Git。

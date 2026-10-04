@@ -1,6 +1,6 @@
 # 013：以原版指令數錄製與重播前端輸入
 
-狀態DRAFT；2026-10-02；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+狀態DRAFT；2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
 證據[022](../re/022-input-recording-boundary.md)，完成定義[M2](../goal/M2-playable-frontend.md)。
 尚未通過READY閘門，不進正式實作；下面格式仍待技術契約定稿與獨立審查。
 
@@ -61,7 +61,8 @@
   不覆寫已有錄製；權限及有界容量、寫入失敗與退出收尾須先由探針量到。
   完整輸入可能含防拷答案，檔案及payload不能進Git、issue或正式交付包；
   公開測試僅可用自製不含原版資料的命令型別fixture。
-- I7：結束點在機器goroutine安全邊界核對結束Step及命令數，再輸出有限hash摘要。
+- I7：錄製結束點在機器goroutine安全邊界核對結束Step及命令數，再輸出有限hash摘要。
+  正常停止錄製與退出遊戲分開；錄製停止不呼叫原版或音訊Stop／Close，完成後繼續普通遊戲。
   每次Run／Click的partial error、終止、容量上限或落盤失敗均留下未完成狀態，
   不把被強制kill且沒有結束紀錄的檔案當可驗收重播。
   錄製觀察不改現有Click的NoResponseError後仍snapshot／續行；記錄錯誤與成功驗收資格分離。
@@ -233,7 +234,7 @@ R819／R820已補齊`initial_scalars_sha256`的固定型別與唯讀來源候選
 | 正式格式及啟動配置 | 2026-10-03已選定單一錄放檔，完整起始設定內嵌header。新schema版本、CLI名稱及精確欄位仍需定稿，不能冒稱prototype/1相容。 |
 | 工作階段故障 | 2026-10-03已選定Abort保留無成功末註的未完成片段，不採結構完整但失敗的診斷檔；原API結果保持，不偽造error。實際故障來源、片段保存與失敗收尾須正式接線驗收。 |
 | 正常錄製結束 | 2026-10-03已選定玩家「停止錄製」GUI要求，等當前操作完成後收尾，完成後繼續遊戲，後續輸入不再錄製。預先指定Step及停止錄製即退出均不作正常入口；錄製收尾與持續音訊須另驗。僅關窗Abort無法滿足正常錄製與三次重播。 |
-| 有界收尾 | 先取得最終同發布Draw確認，再完成owner／音訊Stop及單次Close；資格與剩餘期限有效才Writer.Finish。Sync／Close／發布須納入009同一總5秒監督，不能沿R776先寫成功末註再等Draw。 |
+| 有界收尾 | 正常錄製停止先取得最終同發布Draw確認，再完成Writer，遊戲owner與音訊保持；與整個工作階段退出分開。退出才沿009單一總期限停止owner／音訊及單次Close。錄製收尾的Sync／Close／發布也須使用同一絕對期限，不先寫成功末註再等Draw，不重設已觸發的退出期限。 |
 
 唯一新增自製fixture直接呼叫Abort，證實不改原事件的none、不寫end、不發布正式名稱，
 partial及人工改名的缺末註文件皆拒載；沒有原版、GUI或裝置驗證。
@@ -453,3 +454,25 @@ help_screen最多64 bytes，拒絕NUL／CR／LF；其餘命令不得帶panel，�
 
 R876封存後唯讀審查阻擋0、應改0、建議0；主代理完整核讀兩份報告。
 只採認上述私人候選與限定DRAFT證據，正式停止、故障保存及完整B3／B4閘門保持，013不轉READY。
+
+<a id="r945-recording-stop-owner"></a>
+
+## R945：錄製停止與續玩候選
+
+2026-10-04，沿已定案的玩家按鈕停止、完成當前操作後收尾、停止後續玩及故障保留片段。R875的Stop→owner完成→音訊Close→Writer.Finish只驗整個候選工作階段退出，不能直接接為正常錄製停止。下面是私人技術候選，013保持DRAFT，不宣稱正式CLI／schema已採用。
+
+| 節點 | 候選契約 |
+|---|---|
+| 要求 | GUI可提出一次停止要求，重複要求不延長期限。要求本身不改原版Step、輸入或音訊；機器擁有者在當前API實際返回後才承認。 |
+| 截止 | 先完整記錄當前API的before／after與有限錯誤碼，保持原API回傳；安全邊界鎖定截止Step、命令數及最後發布。之後原路徑照常執行，後續API不再入檔。 |
+| 最終畫面 | 以發布ID、Step及配置SHA核對同次完成的Draw，面板保存為snapshot事件。缺Draw、錯配、故障或晚到確認都不完成Writer。候選使用自製通知，不升為正式GUI證據。 |
+| Writer所有權 | 機器擁有者交出截止資料後，單一worker獨占Append最後snapshot及FinishAt；不與正在Finish的Writer並行Abort。已停止或失敗的錄製器不接受後續事件。 |
+| 續玩與音訊 | 正常停止不調用Oracle、stopRequest、Stream.Stop、Reader.Stop或裝置Close。收尾完成或監督到期後回到未錄製遊戲；音訊仍走原AfterOperation。候選只驗正式軟體音訊，裝置及人耳仍待。 |
+| 失敗資格 | run／click的原API錯誤、錄製寫入故障、Draw拒絕及收尾失敗保留未完成片段，不呼叫成功完成。原API錯誤與錄製錯誤分開，不偽造原操作結果。 |
+| 期限與限制 | 使用首次要求起算的一個絕對期限。到期可恢復未錄製的擁有者路徑，阻塞worker仍獨占Writer，等待系統呼叫返回後按期限拒絕並清理；不宣稱Go可取消磁碟呼叫、嚴格五秒實機保證、斷電耐久或清理雙故障全涵蓋。 |
+
+候選在44份複製輸入及R875私人SDK上建置；正式SDK仍缺已證實的DOSSettings getter，所以未改正式SDK或假稱已移植。93項選定編譯來源含本專案、私人SDK及cmd測試檔；stdlib／第三方沿工具鏈及模組鎖定，不逐檔宣稱。
+
+15個限定leaf案例競爭檢查通過，包含操作中要求停止、續玩不改已完成檔、自製run／click結果保持、六種Draw拒絕、最後snapshot寫入與Finish故障、阻塞Finish後續玩與20次並行重複要求。真實候選Writer留下三份完整自製檔、十二份無末註片段，獨立Python核配置SHA、原始列內容SHA、事件順序及截止Step。正式軟體音訊Frames從2937增至5873，EndStep從200000到400000，Stop／裝置Close未呼叫；此例沒有OPL寫入，不證明連續有聲音樂。
+
+這不是原版Run、實際停止按鈕、真正Draw、聲音裝置、人耳或三次重播驗收。原型沿candidate/3及原本三類資源設定，尚未把目前正式載入的roster、profile-sex、intro-picture三份sidecar納入同次啟動綁定；完整正式schema、CLI、資源載入、GUI停止及退出競態仍須定稿。來源、失敗及獨立審查入口見[研究022](../re/022-input-recording-boundary.md#r945-recording-stop-owner)，不以15案例直接升READY。

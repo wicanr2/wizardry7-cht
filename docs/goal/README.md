@@ -8,6 +8,7 @@
 片頭圖片文字來源：[R942](R942-intro-picture-text.md)。
 片頭呈獻字樣與中文排版：[R943](R943-intro-picture-layout.md)。
 片頭圖片角色扮演敘述：[R944](R944-intro-picture-description.md)。
+錄製停止與續玩擁有者：[R945](R945-recording-stop-owner.md)。
 
 近期跨分期工作：[R701 前端聲音與可玩性](R701-audio-playability.md)；
 開發入口維護：[R816 前端Docker入口](R816-frontend-docker-entry.md)。
