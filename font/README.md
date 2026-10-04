@@ -3,6 +3,7 @@
 本機可選倚天15×15；發行包採 GNU Unifont 17.0.05 原生16×16。
 字元取正式譯文與F1說明，包含[text/roster.zh-TW.tsv](../text/roster.zh-TW.tsv)，不能為缺字改譯或裁掉字形筆畫。
 本目錄只保存碼點清單與重建說明，不提交第三方字型或烘製資料。
+圖片的「呈獻」取自[片頭譯文表](../text/intro-picture.zh-TW.tsv)，規格見[025](../docs/spec/025-intro-picture-labels.md)。
 
 ## 固定來源
 
@@ -38,6 +39,17 @@ python3 tools/re/bake_help.py workplace/bake-unifont/help.json
 ```sh
 python3 tools/re/bake_roster.py /out/roster.json
 ```
+
+`bake_font.py`也產生`intro-picture.json`，主程式依`-xlate`的目錄載入。
+只重建片頭家族可用下列入口；環境變數沿上列設定，輸出須為新檔：
+
+```sh
+python3 tools/re/bake_intro_picture.py /out/intro-picture.json
+```
+
+片頭六張圖片的驗證入口為[check_intro_picture.py](../tools/re/check_intro_picture.py)。
+需要英文及雙字型兩倍率的正常冷啟動收據、已選甲案原型和合法字型；輸出須為新檔。
+參數及驗收範圍見[規格025](../docs/spec/025-intro-picture-labels.md)。
 
 倚天後端可另傳`--eten-font /eten/stdfont.15`指定唯讀原字型。
 六列獨立驗證入口為[check_character_roster.py](../tools/re/check_character_roster.py)，

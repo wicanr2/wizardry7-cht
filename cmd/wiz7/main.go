@@ -227,6 +227,7 @@ type overlay struct {
 	sexEntries      map[string]rosterEntry
 	sexEnabled      bool
 	sexPending      *pendingProfileSex
+	picture         *introPictureState
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -483,6 +484,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 			img.Set(px, py, color.RGBA{c[0], c[1], c[2], 255})
 		}
 	}
+	ov.picture.view(o.Indexed(), pal, o.VideoMode()).paintHD(img, k)
 	for _, e := range shown {
 		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
 		cx := e.x0 * k
@@ -572,28 +574,31 @@ type shared struct {
 	helpOpen   bool      // F1 說明開啟中＝機器暫停、輸入不送原版（spec 003 R2）
 	helpScreen string    // 開啟當下辨識的畫面（R4）
 	helpPage   int
-	mapOpen    bool                 // F2 自動地圖面板（spec 005 R3）
-	mapView    mapView              // 快照節點產生的地圖狀態
-	flow       []flowView           // 有效的流動文字頁（快照節點產生；Draw 消費，spec 006）
+	mapOpen    bool       // F2 自動地圖面板（spec 005 R3）
+	mapView    mapView    // 快照節點產生的地圖狀態
+	flow       []flowView // 有效的流動文字頁（快照節點產生；Draw 消費，spec 006）
+	picture    *introPictureView
 	stdin      []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks     []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
 
 type game struct {
-	flow     *flowData                // flow.json（nil＝流動文字關閉）
-	flowImgs map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
-	help     *helpData                // F1 說明資料（help.json；nil＝缺檔）
-	helpImg  *ebiten.Image            // 目前說明頁的預渲染
-	helpKey  string
-	sh       *shared
-	scale    int
-	screen   *ebiten.Image
-	lastMX   int
-	lastMY   int
-	lbtn     bool
-	rbtn     bool
-	stop     *stopRequest
-	draws    atomic.Uint64
+	pictureGlyph *image.RGBA
+	pictureImage *ebiten.Image
+	flow         *flowData                // flow.json（nil＝流動文字關閉）
+	flowImgs     map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
+	help         *helpData                // F1 說明資料（help.json；nil＝缺檔）
+	helpImg      *ebiten.Image            // 目前說明頁的預渲染
+	helpKey      string
+	sh           *shared
+	scale        int
+	screen       *ebiten.Image
+	lastMX       int
+	lastMY       int
+	lbtn         bool
+	rbtn         bool
+	stop         *stopRequest
+	draws        atomic.Uint64
 }
 
 func (g *game) Update() error {
@@ -693,6 +698,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	rgba := append([]byte(nil), g.sh.rgba...)
 	evs := append([]*textEv(nil), g.sh.evs...)
 	flows := append([]flowView(nil), g.sh.flow...)
+	picture := g.sh.picture
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
@@ -702,6 +708,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	op.GeoM.Scale(float64(g.scale), float64(g.scale))
 	op.Filter = ebiten.FilterNearest
 	dst.DrawImage(g.screen, &op)
+	g.drawIntroPicture(dst, picture)
 
 	// ── 高解析中文合成 ──
 	// 語意（AGENTS.md 高解析中文合成）：原版 320×200 終幀放大後，
@@ -881,6 +888,13 @@ func main() {
 	os.MkdirAll("workplace/bake/trees", 0o755)
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
 	ov := &overlay{flow: loadFlow(*flowPath)}
+	ov.picture = loadIntroPicture(*xlatePath, trans)
+	if *scale != 2 && *scale != 3 {
+		log.Print("片頭圖片缺譯：互動倍率未支援，保留原圖")
+	}
+	if hdScale != 2 && hdScale != 3 {
+		log.Print("片頭圖片缺譯：HD倍率未支援，保留原圖")
+	}
 	ov.roster = loadRoster(*xlatePath, trans)
 	ov.rosterEnabled = len(ov.roster) == 6 && *scale == 3 && hdScale == 3
 	ov.sexEntries = loadProfileSex(*xlatePath, trans)
@@ -936,6 +950,7 @@ func main() {
 		o.OnCall(ret, func(o *oracle.Oracle) {
 			evMu.Lock()
 			defer evMu.Unlock()
+			ov.picture.returned(ret, o.Regs().SP, o.Indexed())
 			ov.returnedStory(ret, o.Regs().SP, o.Steps())
 			if ov.compound != nil && ov.compound.phase != 1 {
 				if ov.returnCompound(ret, o.Regs().SP, o.Steps(), offscreen(o), o.Palette()) {
@@ -952,6 +967,15 @@ func main() {
 			}
 		})
 	}
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3921}, func(o *oracle.Oracle) {
+		evMu.Lock()
+		defer evMu.Unlock()
+		r := o.Regs()
+		ret := oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}
+		if ov.picture.enter(ret, r.SP, [4]uint16{o.StackWord(1), o.StackWord(2), o.StackWord(3), o.StackWord(4)}) {
+			arm(ret)
+		}
+	})
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3877}, func(o *oracle.Oracle) {
 		r := o.Regs()
 		ret := oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}
@@ -1333,6 +1357,7 @@ func main() {
 		mapSnapshot := am.view()
 		evMu.Lock()
 		comp, shown, pages := ov.compose(o)
+		picture := ov.picture.view(o.Indexed(), o.Palette(), o.VideoMode())
 		evMu.Unlock()
 		var views []flowView
 		for _, pg := range pages {
@@ -1345,8 +1370,10 @@ func main() {
 			rgba[i*4], rgba[i*4+1], rgba[i*4+2], rgba[i*4+3] = c[0], c[1], c[2], 255
 		}
 		visual := cloneVisualEvents(shown)
+		picture.patchRGBA(rgba, *scale)
 		sh.mu.Lock()
 		sh.mapView, sh.flow, sh.rgba, sh.evs = mapSnapshot, views, rgba, visual
+		sh.picture = picture
 		sh.mu.Unlock()
 	}
 

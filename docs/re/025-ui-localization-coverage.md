@@ -1,5 +1,7 @@
 # 按鈕與訊息的中文覆蓋驗收
 
+現行R943已完成片頭六張「呈獻」的正式覆繪及限定正常GUI驗收，入口見本檔「R943 正式呈獻覆繪驗收」。其他圖片敘述、按鈕與完整交付仍待。
+
 狀態：主選單、角色選單、新增角色對話框及3倍人物檢視限定像素驗收通過，R941結果複核通過，其餘介面重查中；2026-10-04；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
 入口：[R915](../goal/R915-ui-localization-audit.md)、[R921](../goal/R921-character-dialog-ui.md)、[R928](../goal/R928-character-roster-text.md)、[R932](../goal/R932-character-menu-audit.md)、[R935](../goal/R935-character-review-audit.md)、[R942](../goal/R942-intro-picture-text.md)、[目前狀態](../../CONTEXT.md)。
 
@@ -298,3 +300,62 @@ repo、SDK、模組快取與玩家原版目錄唯讀，只有新輸出根可寫�
 本輪1216個技術檔已一次封存，closed-inputs.json SHA為`46f3e663d6707fe7708c6d048bb7224076dff16e3187275d3ac0942823671429`，排除Go建置快取及後續GitHub中繼資料。封存時原版、SDK、公開探針來源與FINAL報告保持，root-owned及自有容器0。
 
 來源路線已可重播，正式覆繪仍未實作。下一閘門是逐張呈獻字樣的精確矩形、可恢復背景、撤除時機與原生中文字格；經DRAFT→獨立READY審查後再接線，驗兩字型／兩倍率的正式GUI與同狀態原版。圖片內的敘述也須補齊，不以catalog通過代替圖片文字驗收。
+
+## R943 六張呈獻覆繪定版
+
+2026-10-04，使用者選定[甲的周邊紋理補底](../../workplace/r943/intro-picture-comparison-v2.html)，不採平滑色帶。兩種外觀都把「呈獻」畫在原圖片字帶內；底色為新繪近似，不是已證實的原版無字底圖。正式契約為[025圖片字樣規格](../spec/025-intro-picture-labels.md)，初稿DRAFT，未接正式前端。
+
+只處理R942第一組第3至8張完整轉送的六份indexed／palette。逐張核對原版座標格線，修正初稿遺留英文筆畫的左界。已選甲來源為`workplace/r943/prototype_captions_v6.py`；同奇偶周邊樣本按RGB通道擬合色階，加入最近樣本的紋理差，再以原生16×16 Unifont畫「呈獻」。六張、兩倍率共12張候選，各有原版／候選並列。這是離線可丟棄覆繪，不是GUI畫面；沒有新執行原版或注入狀態。
+
+乙使用相同完整字帶及字模，只以擬合色階產生平滑底色。獨立標準函式庫PNG解析、CRC、來源雜湊、射線字帶判定及固定版HEX筆畫核對兩種候選：各12張、4,992,000像素中，批准字帶及字格外變更0；各核對1,920個字模前景像素與來源相同。原版RGB總和≥90且最大最小通道差≤24的中性色像素，兩種候選皆變更0；此數字不等於完整品牌oracle。甲六張3倍並列已由主代理逐張檢視，未見英文殘筆。完整字模、兩字型與GUI仍須正式驗收。
+
+| 本機來源／收據 | SHA-256 |
+|---|---|
+| 已選甲`prototype_captions_v6.py` | `52d4d0229616d6b5b25a0aa070e0ee0df643764d5df749a9a7b02572f22f70af` |
+| 甲十二張圖與補底模型`caption-prototype-v6.json` | `d8f755406e94af215cb510e0db9fc3f15b7e0933f3478bfb46b6eb5916df83a0` |
+| 甲獨立核對`audit-prototype-v6-closed.json` | `7602a4d4d0284aa88d8a365108112a5d20e9ac4c2d265c267e16d8b29fa4f79f` |
+| 乙十二張圖與模型`caption-prototype-v7.json` | `4777cf06119e837911bf5973e3bb3d2779223e1aed36ebcafce97bfd729adbce` |
+| 乙獨立核對`audit-prototype-v7-closed.json` | `2b52815649f21b225a91ad23293e28d33f9953963531ea5ca7621369afcbb037` |
+| 定版比較頁`intro-picture-comparison-v2.html` | `8681d725185a12d56665eb74fe8459f457b7fd1ea227465cbce5654c3e82b91d` |
+| 輸入保持`integrity.json` | `2731b552749390974a2e66e906de16165eba9b66db9517a3b3829f7084ac4cdc` |
+
+可重跑入口為本機`prototype_captions_v6.py`及`audit_prototype_v2.py`。沿既有`wizardry7-go-ebiten:latest`，輸入repo、R942及固定版字型唯讀，`/out`掛新的已存在輸出目錄；非root、離線、有界執行。設定`WIZ7_FONT=unifont`及`WIZ7_UNIFONT_HEX`為既有固定版HEX，候選程式先核字型與六份來源雜湊。逐步準備來源的私人腳本只為保留修改歷程；重跑最終來源即可，不重跑所有失敗草稿。
+
+原版248、SDK1132及R942封存1216全部雜湊保持；原型階段184份私人檔的擁有權皆1000:1000。原型圖、原版、第三方字型及完整收據不進Git。此段記錄定版前置驗證，正式生效結果見下節；圖片內其他敘述與所有交付門檻保持。
+
+## R943 正式呈獻覆繪驗收
+
+2026-10-04。025經獨立規格審查轉READY才實作。正式TSV只含`presents→呈獻`，由`bake_intro_picture.py`產生獨立sidecar；一般烘製入口同步接入，不讀原版MSG。兩套原生字模及11個烘製拒絕案例通過。完成轉送通知共用既有arm，沒有以5AFD當圖片家族，沒有寫原版RAM、indexed、palette或素材。
+
+完整`cmd/wiz7`回歸及合法原圖守門測試通過。最終Go1.24.13 Linux程式SHA為`2755c68b2bd707bd8575ad69e28c8214a7f649e59c33cde4da57c0ef4451f646`，只是中間程式，沒有正式版號或封包。實作獨立審查0／0／0於FINAL後完整回讀採認，兩報告SHA見025規格。初輪GUI保留，修正原因紀錄後以最終程式另建`workplace/r943/final/`乾淨重跑。
+
+正常無輸入冷啟動，沒有注入存檔、direct-entry或作弊，預設虛擬時鐘同步、圖片驗證用靜音。39／41／43／45／47／49M涵蓋六張，60M仍保持MON60末圖，74M為MON61第一張完整圖並撤除中文。英文控制及兩套字型各跑2／3倍，共六個真正GUI程序，均標準關窗退出0；關窗至退出0.0326至0.2035秒，不當音訊裝置保證。主代理實際檢視正式3倍Draw圖片。
+
+32個中英文停止點的原版1MiB記憶體FNV、indexed／palette摘要及滑鼠相同，indexed、palette及comp另比完整bytes，原版圖片indexed與palette另核R942的SHA。這不包含完整CPU暫存器，也不宣稱記憶體逐位元驗證。追加舊正式`450803c`程式的兩倍率控制，16點摘要及上述完整bytes同新英文，英文HD／Draw完整RGB也相同；兩個舊控制正常退出0。
+
+公開[獨立驗收工具](../../tools/re/check_intro_picture.py)直接解析合法原生字型，以封閉射線字帶及定案前模型計算期望，不調用被測Go函式。32點×HD／Draw的26,624,000個RGB像素全部相符；兩字型字格及全部筆畫完整，批准字帶外差異0。十二張Unifont甲案原型與正式完整RGB相同；末圖另核，翻頁後兩路徑完整原圖相同。補底一致只證明選定的新繪近似，沒有升為原版無字底圖證據。
+
+| 最終本機收據 | SHA-256 |
+|---|---|
+| `build-final.json` | `03c75251f05b9c28d70bdd4ee7d9b108fbf4f5d9e8205e57352c9988d3e03169` |
+| `final/validation.json` | `f0407562fe90371c7f17e0574025bbc17f4048fa39dd4423756a2eabb56b852f` |
+| `final/gui-results.json` | `177bb7abaca1cbbfe453d96a1fcc0598a0d074f57cc7e5a200a6bc52fcb13a69` |
+| `old-new-control.json` | `6c22c8d3a4b36d594d25e15c3a418233d952d33c10cab180624cf257b2dff955` |
+| `baker-boundaries.json` | `5c7717cf327ddcb35259a8f1fdf9cbbca9774698441452c0c4b546f486bb014f` |
+
+重跑沿既有離線Docker，原版、SDK、字型及模型唯讀，輸出只掛本輪既存工作目錄；資源與UID/GID照AGENTS。建置以`GOPROXY=off`及既有唯讀模組快取，完整回歸為`go test -p=2 -count=1 ./cmd/wiz7`。合法原圖守門可另設定`WIZ7_INTRO_EVIDENCE`指向R942/on-r5、`WIZ7_INTRO_RESOURCE`指向本輪Unifont sidecar；缺本機輸入時此測試skip，不產生代用品。
+
+本機`workplace/r943/run_gui.py`固定八點及正常關窗，`WIZ7_GUI_OUTPUT`須指向新目錄；`WIZ7_GUI_CONTROLS_ONLY=1`只重跑舊正式英文控制。所有圖片、字型、原版與完整收據留本機。完整像素重跑入口如下，參數改為本輪唯讀輸入及新輸出：
+
+```sh
+python3 tools/re/check_intro_picture.py /out/final \
+  --prototype /out --original /src/workplace/r942/on-r5 \
+  --unifont-hex /font/unifont_all-17.0.05.hex.gz \
+  --eten-font /eten/stdfont.15 --output /out/new-validation.json
+```
+
+`close_checks.py`另核舊新控制、原版248、SDK1132及R942封存1216全部SHA保持，兩字型來源保持，輸出擁有權異常0。025維持READY，未量過渡及其他圖片文字、十一組、錄放、冷存讀、音訊和正式封包仍待；本輪不宣稱全中文化或可玩交付完成。
+
+完整性報告`integrity-final.json` SHA為`e30b7193948bd2c5511d88eacd856e6e740ee3b3c575fdf3ea3b5180649d2452`。結果獨立窄審0／0／0於FINAL後完整回讀採認；另核32點摘要、64張中文及16張英文HD的完整RGB與尺寸，60M保持、74M撤除。結果審查未涵蓋稍後完成的舊正式控制，該16點由主代理另驗，不能併稱審查涵蓋48點。兩報告`review-result.json`／`.md` SHA為`8e6a034c727241286f78000df4bf6eb1d30ebf0299a3ecc78e8a20623a35a055`／`ff739b1621902124cb64d8e3b256f6f85b6cfec23ecf3496f87955f68ccf5c8f`。報告保存前的容器路徑別名錯誤已修正，沒有改產品或重跑成功像素以選結果。
+
+本輪964份私人技術檔一次封存，`closed-inputs.json` SHA `c8e2aa1ad1af7bbfad351a8c779cfa14124520cc29e2d10a6add523881706e60`，排除Go快取及後續GitHub中繼資料。工作根root-owned／誤建md目錄、自有R943容器皆0。封存檔、原型、原圖及字模只留本機，不加入版控。
