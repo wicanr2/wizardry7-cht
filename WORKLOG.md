@@ -931,3 +931,5 @@ R943正式覆繪驗收：
 R943結果窄審0／0／0於FINAL後完整回讀採認，獨立再核32點及64張中文HD／Draw與16張英文HD，沒有採認稍後完成的舊正式控制。JSON／Markdown SHA `8e6a034c727241286f78000df4bf6eb1d30ebf0299a3ecc78e8a20623a35a055`／`ff739b1621902124cb64d8e3b256f6f85b6cfec23ecf3496f87955f68ccf5c8f`；完整性SHA `e30b7193948bd2c5511d88eacd856e6e740ee3b3c575fdf3ea3b5180649d2452`。報告曾因/out與/src別名的相對路徑不同而保存前停止，修保存路徑後完成，未改產品。原版與SDK保持，自有容器及root-owned／誤建md目錄收尾另核。
 
 R943私人964份技術檔一次封存，`closed-inputs.json` SHA `c8e2aa1ad1af7bbfad351a8c779cfa14124520cc29e2d10a6add523881706e60`。排除Go快取及後續GitHub中繼資料，原型、原圖及字模不進Git。工作根root-owned／誤建md目錄與本輪自有容器皆0。
+
+R943正式修正`884999e`已推送，[#22留言5977264686](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5977264686)含末尾LF的正文逐字相同、議題保持OPEN，964封存檔全部保持。`github-readback.json` SHA `24aa2f99ef7ae1b97ce6ca2783dfbbb0e7817bcfc6d2d3b5c72caaa2d27d07ac`。首輪檢查器誤刪本機末尾LF而斷言失敗，改核完整原始正文後通過，沒有修改留言或產品。未追蹤R433保持，其他圖片與全部交付門檻沿CONTEXT繼續。
