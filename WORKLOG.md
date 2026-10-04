@@ -1109,3 +1109,5 @@ R954限定證據`5245374`已推送；[#22留言5981590750](https://github.com/wi
 R955最終獨立唯讀審查0／0／0，主代理於FINAL後完整核讀JSON與Markdown並核SHA，採認限定結果。另獨立抽核兩套原字型、四個字模、六張PNG及2948局部RGB像素；與既有檢查器的19,968／64,480範圍分開。報告SHA與入口見研究025；沒有新READY、SDK完整編譯核對或全中文化聲明。容器接入權限拒絕後，以已授權的離線唯讀容器範圍重新回讀通過，未重跑產品。
 
 R955本機419份技術檔一次封存，`closed-inputs.json` SHA為`6c952317abf4ad16f1f5f31ee07dcc412da7436022b3a519f46f45b72c82b881`，擁有權異常0。原圖、字型及完整原版收據不進Git。
+
+R955證據`7de6746`已推送；[#22留言5982164182](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-5982164182)與[#28留言5982164770](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5982164770)含末尾LF逐字回讀相同，兩議題保持OPEN。419份封存檔保持，擁有權及工作根衛生異常0；`github-readback.json` SHA為`53c07ab0b6c3df83b8dabf6449750f5988a1c2406f78741addf63ba12105cfbb`。回讀容器仍在執行時先看到一個容器，等待原handle正常exit0後再核自有容器0；未重啟或丟棄成功結果。全部交付門檻保持。
