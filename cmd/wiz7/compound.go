@@ -9,7 +9,7 @@ import (
 	"github.com/wicanr2/dosgolem/oracle"
 )
 
-// 位址與三組配對只適用研究021的正常角色頁；契約見READY spec012。
+// 封閉配對只適用研究021已量角色頁與使用面板；契約見READY spec012。
 type compoundSite struct {
 	first, second string
 	y, glyphs     int
@@ -23,6 +23,22 @@ var compoundSites = [...]compoundSite{
 
 var compoundFirstReturn = oracle.Addr{Seg: 0x0110, Off: 0xba40}
 var compoundSecondReturn = oracle.Addr{Seg: 0x0110, Off: 0xba63}
+
+type compoundRoute struct {
+	compoundSite
+	x            int
+	foreground   uint8
+	firstReturn  oracle.Addr
+	secondReturn oracle.Addr
+}
+
+var compoundRoutes = [...]compoundRoute{
+	{compoundSites[0], 18, 105, compoundFirstReturn, compoundSecondReturn},
+	{compoundSites[1], 18, 105, compoundFirstReturn, compoundSecondReturn},
+	{compoundSites[2], 18, 105, compoundFirstReturn, compoundSecondReturn},
+	{compoundSite{"LEATHER", "CUIRASS", 165, 3}, 177, 180, oracle.Far(0x0110, 0x50eb), oracle.Far(0x0110, 0x510e)},
+	{compoundSite{"FUR", "LEGGING", 179, 4}, 177, 180, oracle.Far(0x0110, 0x50eb), oracle.Far(0x0110, 0x510e)},
+}
 
 type compoundInput struct {
 	S                 string
@@ -67,7 +83,7 @@ func (e *textEv) rectMatches(screen []byte, ignore func(int, int) bool) bool {
 }
 
 type compoundPair struct {
-	site    compoundSite
+	site    compoundRoute
 	phase   int // 0第一行未返回；1等待下一入口；2第二行未返回
 	inputs  [2]compoundInput
 	returns [2]uint64
@@ -81,12 +97,16 @@ func compoundDigest(b []byte) compoundHash {
 }
 
 func compoundRect(screen []byte, y int) []byte {
-	if len(screen) != 320*200 || y < 0 || y+11 > 200 {
+	return compoundRectAt(screen, 18, y)
+}
+
+func compoundRectAt(screen []byte, x, y int) []byte {
+	if len(screen) != 320*200 || x < 0 || x+41 > 320 || y < 0 || y+11 > 200 {
 		return nil
 	}
 	b := make([]byte, 41*11)
 	for row := 0; row < 11; row++ {
-		copy(b[row*41:(row+1)*41], screen[(y+row)*320+18:(y+row)*320+59])
+		copy(b[row*41:(row+1)*41], screen[(y+row)*320+x:(y+row)*320+x+41])
 	}
 	return b
 }
@@ -125,8 +145,12 @@ func compoundGlyphs(e entry, count, scale int) ([][]uint16, bool) {
 	return g, true
 }
 
-// 返回差異必須全部落在所屬行、只寫前景105；整域其他背景不得改動。
+// 返回差異必須全部落在所屬行、只寫該路由前景；整域其他背景不得改動。
 func compoundMask(before, after []byte, line int) []byte {
+	return compoundMaskColor(before, after, line, 105)
+}
+
+func compoundMaskColor(before, after []byte, line int, foreground uint8) []byte {
 	if len(before) != 451 || len(after) != 451 || (line != 0 && line != 6) {
 		return nil
 	}
@@ -135,7 +159,7 @@ func compoundMask(before, after []byte, line int) []byte {
 		if v == before[i] {
 			continue
 		}
-		if i/41 < line || i/41 >= line+5 || v != 105 {
+		if i/41 < line || i/41 >= line+5 || v != foreground {
 			return nil
 		}
 		mask[i], count = 1, count+1
@@ -160,13 +184,13 @@ func (ov *overlay) enterCompound(in compoundInput, take func() []byte, trans map
 	if old != nil {
 		ov.compound = nil
 		first := old.inputs[0]
-		if old.phase == 1 && in.Ret == compoundSecondReturn && compoundTextOK(in, old.site.second) &&
+		if old.phase == 1 && in.Ret == old.site.secondReturn && compoundTextOK(in, old.site.second) &&
 			in.DS == first.DS && in.SP == first.SP && in.SP <= 65533 &&
 			int(first.Off)+len(old.site.first)+1 <= 65535 &&
 			int(in.Off) == int(first.Off)+len(old.site.first)+1 &&
-			in.Font == 0 && in.X == 18 && in.Y == old.site.y+6 &&
+			in.Font == 0 && in.X == old.site.x && in.Y == old.site.y+6 &&
 			in.Step >= old.returns[0] && in.Step-old.returns[0] == 36 {
-			before2 := compoundRect(take(), old.site.y)
+			before2 := compoundRectAt(take(), old.site.x, old.site.y)
 			if before2 != nil && bytes.Equal(before2, old.snaps[1]) {
 				old.phase, old.inputs[1], old.snaps[2] = 2, in, before2
 				old.inputs[1].raw = nil
@@ -176,9 +200,9 @@ func (ov *overlay) enterCompound(in compoundInput, take func() []byte, trans map
 		}
 		log.Printf("複合物品 捨棄 %s/%s 原因=下一入口不符", old.site.first, old.site.second)
 	}
-	for _, site := range compoundSites {
-		first := in.Ret == compoundFirstReturn && in.S == site.first
-		second := in.Ret == compoundSecondReturn && in.S == site.second
+	for _, site := range compoundRoutes {
+		first := in.Ret == site.firstReturn && in.S == site.first
+		second := in.Ret == site.secondReturn && in.S == site.second
 		if !first && !second {
 			continue
 		}
@@ -191,7 +215,7 @@ func (ov *overlay) enterCompound(in compoundInput, take func() []byte, trans map
 		}
 		key := site.first + "/" + site.second
 		if !first || !compoundTextOK(in, site.first) || in.SP > 65533 ||
-			in.Font != 0 || in.X != 18 || in.Y != site.y {
+			in.Font != 0 || in.X != site.x || in.Y != site.y {
 			log.Printf("複合物品 回原文 %s 原因=部件入口不符", key)
 			return true
 		}
@@ -201,7 +225,7 @@ func (ov *overlay) enterCompound(in compoundInput, take func() []byte, trans map
 			log.Printf("複合物品 回原文 %s 原因=缺譯文或非法字模", key)
 			return true
 		}
-		before0 := compoundRect(take(), site.y)
+		before0 := compoundRectAt(take(), site.x, site.y)
 		if before0 == nil {
 			log.Printf("複合物品 回原文 %s 原因=無離屏", key)
 			return true
@@ -219,9 +243,9 @@ func (ov *overlay) returnCompound(ret oracle.Addr, sp uint16, step uint64, scree
 	if p == nil || p.phase == 1 {
 		return false
 	}
-	line, index, want := 0, 0, compoundFirstReturn
+	line, index, want := 0, 0, p.site.firstReturn
 	if p.phase == 2 {
-		line, index, want = 6, 1, compoundSecondReturn
+		line, index, want = 6, 1, p.site.secondReturn
 	}
 	if ret != want {
 		return false
@@ -230,8 +254,8 @@ func (ov *overlay) returnCompound(ret oracle.Addr, sp uint16, step uint64, scree
 		ov.rejectCompound("返回SP或Step不符")
 		return true
 	}
-	after := compoundRect(screen, p.site.y)
-	mask := compoundMask(p.snaps[index*2], after, line)
+	after := compoundRectAt(screen, p.site.x, p.site.y)
+	mask := compoundMaskColor(p.snaps[index*2], after, line, p.site.foreground)
 	if mask == nil {
 		ov.rejectCompound("印字差異或前景不符")
 		return true
@@ -248,12 +272,12 @@ func (ov *overlay) returnCompound(ret oracle.Addr, sp uint16, step uint64, scree
 	for i, b := range p.masks {
 		trace.Masks[i] = compoundDigest(b)
 	}
-	e := &textEv{s: p.site.first + "/" + p.site.second, x0: 18, y0: p.site.y,
-		bx: 18, by: p.site.y, bw: 41, bh: 11, before: p.snaps[0], after: after,
-		fg: 105, fgRGB: palette[105], g: p.g, compound: trace}
+	e := &textEv{s: p.site.first + "/" + p.site.second, x0: p.site.x, y0: p.site.y,
+		bx: p.site.x, by: p.site.y, bw: 41, bh: 11, before: p.snaps[0], after: after,
+		fg: p.site.foreground, fgRGB: palette[p.site.foreground], g: p.g, compound: trace}
 	ov.evs = append(ov.evs, e)
 	ov.created++
 	ov.compound = nil
-	log.Printf("複合物品 建立 %s step=%d 域=(18,%d,41,11)", e.s, step, e.y0)
+	log.Printf("複合物品 建立 %s step=%d 域=(%d,%d,41,11)", e.s, step, e.x0, e.y0)
 	return true
 }

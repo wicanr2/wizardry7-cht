@@ -192,3 +192,67 @@ func TestCompoundRejectsInvalidGlyphsAndFirstReturn(t *testing.T) {
 		t.Fatal("錯誤返回SP沒有整件拒絕")
 	}
 }
+
+func TestCompoundUsePanelPairsAndRejectsCrossedProfileRoute(t *testing.T) {
+	for _, fixture := range []compoundSite{{"LEATHER", "CUIRASS", 165, 3}, {"FUR", "LEGGING", 179, 4}} {
+		t.Run(fixture.first, func(t *testing.T) {
+			for _, scenario := range []string{"正常", "角色頁返回混搭", "角色頁前景混搭", "錯橫座標", "間隙已改"} {
+				t.Run(scenario, func(t *testing.T) {
+					in, screen, trans := compoundFixture(fixture)
+					in.X, in.Ret = 177, oracle.Far(0x0110, 0x50eb)
+					ov := &overlay{}
+					if !ov.enterCompound(in, func() []byte { return screen }, trans, 2) || ov.compound == nil {
+						t.Fatal("使用面板第一行未接受")
+					}
+					fg := byte(180)
+					if scenario == "角色頁前景混搭" {
+						fg = 105
+					}
+					screen[fixture.y*320+177] = fg
+					ov.returnCompound(in.Ret, in.SP+2, 200, screen, [256][3]uint8{})
+					two := compoundSecond(in, fixture)
+					two.Ret = oracle.Far(0x0110, 0x510e)
+					switch scenario {
+					case "角色頁返回混搭":
+						two.Ret = compoundSecondReturn
+					case "錯橫座標":
+						two.X = 18
+					case "間隙已改":
+						screen[(fixture.y+5)*320+190] = 42
+					}
+					ov.enterCompound(two, func() []byte { return screen }, trans, 2)
+					screen[(fixture.y+6)*320+179] = 180
+					var palette [256][3]uint8
+					palette[180] = [3]uint8{9, 27, 45}
+					ov.returnCompound(two.Ret, two.SP+2, 300, screen, palette)
+					if scenario != "正常" {
+						if ov.compound != nil || len(ov.evs) != 0 {
+							t.Fatal("錯誤配對未整件回英文")
+						}
+						return
+					}
+					if len(ov.evs) != 1 {
+						t.Fatal("完整名稱未建立")
+					}
+					e := ov.evs[0]
+					if e.x0 != 177 || e.bx != 177 || e.by != fixture.y || e.fg != 180 || e.fgRGB != palette[180] || e.s != fixture.first+"/"+fixture.second {
+						t.Fatal("使用面板域或第二返回色盤不符")
+					}
+					if !e.rectMatches(screen, nil) {
+						t.Fatal("完整域應吻合")
+					}
+					screen[(fixture.y+5)*320+190] = 42
+					if e.rectMatches(screen, nil) {
+						t.Fatal("取消或間隙重寫未失配")
+					}
+				})
+			}
+		})
+	}
+	// 使用面板未量BUCKLER／SHIELD不能因新caller而變成已知部件。
+	ov := &overlay{}
+	in := compoundInput{S: "SHIELD", Ret: oracle.Far(0x0110, 0x510e), X: 177, Y: 185}
+	if ov.enterCompound(in, func() []byte { t.Fatal("未知部件不應讀背景"); return nil }, nil, 2) {
+		t.Fatal("未量使用面板物品被接受")
+	}
+}

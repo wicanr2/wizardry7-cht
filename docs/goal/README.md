@@ -1,5 +1,9 @@
 # 專案目標
 
+使用面板兩個複合名稱正式修補：[R965](R965-battle-use-item-fix.md)。
+
+戰鬥使用面板的複合名稱證據：[R964](R964-battle-use-item-evidence.md)。
+
 正常戰鬥控制與回合流程：[R963](R963-battle-round-gui.md)。
 
 戰鬥控制的正常暖視窗：[R962](R962-battle-normal-gui.md)。
