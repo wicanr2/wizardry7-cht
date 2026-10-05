@@ -1256,3 +1256,15 @@ confirmed限上述兩種真正故障的API／資格及正常控制，不泛稱�
 最終限定審查0／0／0，主代理於FINAL後完整回讀兩報告及SHA；`workplace/r950/review-final.json`／`.md` SHA依序為`e6964950c7d25a47f64658aa17b655bec2a048159fc945e6d87c946b32b03c5e`、`f9f75987bc2e3c4c63b756ffa554f8614de498beac7bfc3011a0f00dd55f2730`。六份受審文件與24份技術輸入大小／SHA再核保持，另存原bytes快照，本段只追加中繼資料。
 
 私人333份技術檔一次封存，`workplace/r950/closed-inputs.json` SHA為`491687a4fee111977adee244cd9c4a7053cb5955b1770dc534abfb6310721d4f`。排除快取及後續GitHub回讀，原版、錄放、圖像與binary不進Git。輸出UID/GID1000:1000，自有容器0；正式程式及SDK保持，013不升READY。
+
+## R967：正式錄放接線與動態驗收
+
+正式 binary（`workplace/r967/build-r3/wiz7`，86 來源 `7e27fa00…`、binary `3544c13c…`，與現行樹逐檔重算一致）及觀察 binary（87 來源 `8f7dfb62…`、binary `f96bdb11…`，差異僅唯讀擷取補丁，0／0／0 採認）。
+
+- scale-3 觀察版：錄製 exit0、3504 事件、end 350200000、`7d8de799…` accepted；三次重播皆 exit0、completion、原檔不變。1751 發布逐項比對：Step／Ticks／RAM／Indexed／Palette／A000／Regs／Source 全同（末發布 RAM `b7e5fe48…`），1751 Draw 畫格及面板全同。
+- scale-2 觀察版選單路線：錄製 exit0、4573 事件（含 click）、end 462800000、`3beeb65b…`；重播 exit0，原版狀態 0 差異；Draw 僅開機 logo 動畫窗 172 發布（195–366）有小範圍移動差，其餘 941 全同，F1 說明頁全同。動畫窗差異為 UI 線擷取相對機器進度的相位漂移（同號發布原版狀態全同、呈獻覆繪一致），靜態畫面不受影響。
+- scale-2 正式版選單路線：錄製 exit0、4589 事件、`b9f5e8c8…`；重播 exit0、completion、原檔不變。
+- 單筆變異（選單按鈕 click y 99→85，同寬＋結尾 SHA 重算）：重播完成，末發布起 173 原版狀態差異（自 pub 2113 連續），Draw 345 差異。左右鍵互換變異完成且全同（標題畫面等價輸入）。標題前盲點曾誤中按鈕間隙，得 `no_response`→`recording_ineligible`、片段保留，符合契約。
+- 拒絕矩陣 17 例全 exit2（`reject-r1/results.jsonl`）：舊原型／未完成片段→`wire_rejected`；缺檔（位置守門先攔）／錯倍率／錯資源／錄放並存／hd-scale 明示不同／十個禁用旗標全掃→`configuration_mismatch`。跨版本（正式 binary 重播觀察檔）exit2。提前關窗取消重播 exit2、無完成冒稱、原檔不變。
+- 單測：`ReplayNext` 游標／Before／Publication／面板四拒絕、`drawAck` 不符／逾時／中斷、`finish` 逾期保片段、`recordingError` 三類、`locations` 缺檔重播拒絕；`recording`／`initconfig`／`cmd/wiz7` 全綠，vet 乾淨。`Operation` 本體需活 Oracle，動態覆蓋（含 no_response 路徑）。
+- 013 已綁定缺檔→`configuration_mismatch`。已知限制：Draw 畫格相等不含開機動畫窗（見上）；`recordingPrivacyLog` 為 allowlist，未命中直接丟棄（panic 直走 stderr）；音訊人耳、冷 LOAD、跨平台封包另有門檻。收據封存 `workplace/r967/FINAL-manifest.json`（28 項）SHA `146754af2e203258fcd9b2b8caa5e71a30c8af981c0598aa38b14a70cdb9f993`。

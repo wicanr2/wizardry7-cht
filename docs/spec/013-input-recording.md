@@ -37,7 +37,7 @@ R951正式契約已通過READY閘門，以下節為準；較早候選只保存�
 | 相容 | 重播要求同一實際binary、SDK／建置來源、GOOS／GOARCH、機器設定、資料及六資源。新正式格式只讀`wiz7-input/1`；拒絕所有prototype／candidate格式，不自動轉換，也不承諾跨版本或跨平台重播。 |
 | 設定 | 仍用既有`-root`、`-exe`、`-save-dir`、`-scale`、`-ips`、`-mute`、`-xlate`、`-flow`、`-help`定位本機輸入。header保存完整有效設定，啟動時逐項比對；不默默覆蓋CLI或用header任意絕對路徑讀檔。 |
 | 存檔 | 正式錄製沿014的Scratch目錄正常運行及寫檔；header只記錄開始時兩層完整清單。重播需玩家保留的相符初始Scratch副本，以`-save-dir`明示獨立位置。自然存檔會改變該副本，不把錄製後的存檔冒充起始資料。 |
-| 錄放位置 | 錄放檔、partial、成功發布及撤回位置全部在Root／Scratch可見目錄之外。建Oracle或Writer前按實際父目錄身份核祖先，不只用路徑字串前綴；拒絕Root／Scratch內、其別名、已存在輸出或與選定EXE／binary／六資源同inode的目標。重播檔也必在兩層之外，避免把錄製新增partial加入DOS可見集合。 |
+| 錄放位置 | 錄放檔、partial、成功發布及撤回位置全部在Root／Scratch可見目錄之外。建Oracle或Writer前按實際父目錄身份核祖先，不只用路徑字串前綴；拒絕Root／Scratch內、其別名、已存在輸出或與選定EXE／binary／六資源同inode的目標。重播檔也必在兩層之外，避免把錄製新增partial加入DOS可見集合。不存在的重播檔在`rc.Load`之前由位置守門以`recording_location`拒絕，對應有限碼`configuration_mismatch`（R967拒絕矩陣missing-file例）。 |
 | 驗收副本 | 三次重播各用乾淨Root／Scratch，保留DOS中繼資料。前後hash與初始閉集合相符；不修改本機原版或捏造存檔。錄放檔不內嵌原版檔案或存檔bytes。 |
 | 禁止混用 | 錄放模式拒絕`-autoplay`、`-autoplay-stop`、`-clicks-at`、`-help-at`、`-map-at`、`-hdonly`、`-hdshot`、`-hd-at`、`-hd-after-frag`、`-draw-at`及其有效排程。不能偷偷忽略要求；驗收工具只讀既有發布快照。 |
 | 輸入 | 錄製沿現有GUI API次序；重播不接玩家遊戲輸入、前端切換或另一個輸入生產者。正常關窗可取消重播；取消結果明示未完成，不當成功。 |
@@ -128,6 +128,16 @@ Writer以0600及O_EXCL建立`<name>.partial`，輸出名及partial都不得已�
 本節不以尚未完成實作的動態測試阻止技術契約定稿。READY前須明列全部型別、生命週期、適用證據、已知差異及操作位置，且獨立審查無阻擋並取得產品採認。產品取捨已於2026-10-05全部定案；最終回填窄審0／0／0採認READY。相容承諾只限上表，未實作前沒有可用正式錄放功能。
 
 實作後以自製fixture驗嚴格wire、完整配置、同次讀取、API錯誤不變、截止、最終Draw、Writer故障／撤回／阻塞、關窗交錯及競爭檢查。再用真GUI錄製非空正常路線、停止續玩且軟體音訊推進、三次乾淨冷重播及無觀察原API控制，核原版RAM／暫存器／indexed／palette／A000、發布Step／Ticks、live畫面與自然可寫檔案。提前關窗必未完成；修改一筆輸入須出現可見差異。裝置與人耳、合法冷LOAD、十一組、全部圖片／按鈕及三平台封包另有門檻，不由錄放局部收據外推。
+
+<a id="r967-interactive-scale"></a>
+
+## R967：互動畫面倍率的有效設定
+
+狀態：READY技術補註，2026-10-05。R951格式、產品相容範圍、操作位置及停止行為保持。獨立審查0阻擋／0應改／1驗收建議；主代理完整回讀workplace/r967/review-scale-spec.{json,md}及SHA後採認。SHA分別為`fc0b9928a967fcd2d47812c10c9cecb4581f96e7ab4f7c73374663768e61c590`／`f4a6a751f6ce542d52b4ffcbbc2afbc998271ad0017a10e19a326d19bcad6920`。這是完整有效設定的技術閉合，不新增產品取捨；動態驗收尚未完成。
+
+接線證據為目前cmd/wiz7/main.go的rosterEnabled、sexEnabled及profileEnabled三個條件：它們同時取互動scale及離線hdScale。即使不產出HD幀，改hdScale仍可能改互動中文畫面。R951的frontend只保存實際scale及hd_compose_disabled=true，不能讓未保存的離線倍率影響重播。
+
+錄放模式的有效hdScale與互動scale一致。沒有明示-hd-scale時，由互動scale推得；明示且不同則以configuration_mismatch拒絕啟動，不默默忽略要求。三項互動守門仍沿既有條件，兩倍人物頁及三倍職業碼／性別顯示照已定規格。普通遊玩與離線HD入口保持原有選項。本補註不增加wire欄位或跨版本相容。驗收矩陣核兩倍／三倍各自的未明示、明示相同、明示不同；不同須在Oracle／Writer之前拒絕，另核普通及離線HD的混合倍率保持。
 
 ## 早期契約候選
 
