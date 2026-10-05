@@ -1242,3 +1242,7 @@ cmd/wiz7測試及正式Linux建置退出0。四配置雙字型兩倍率各七控
 正式40／候選45／SDK1132／原版248／兩字型12資源及R964115封存保持，預期正式變更僅兩Go。獨立結果0／0／0於FINAL完整回讀兩報告及SHA採認，審查自解PNG／原字型／原版背景；審查工具的倚天索引與metadata誤讀已修正，未重跑產品。310技術產物一次封存，SHA `4af40246b5a1ff6b1a319b8db6ff149c1b73cc5e9a2857620e426124741d1bc0`，排除快取及後續GitHub收據。詳細入口[研究021 R965](docs/re/021-compound-item-output.md#r965-battle-use-items)。本輪有限修補完成，012仍READY，十一組、TSV、正式錄放、冷存讀及可玩封包門檻保持。未追蹤R433保持。
 
 正式修補及三項介面定案`1f6cb81`已推送；[#28留言5987922167](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-5987922167)與[#17留言5987922946](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-5987922946)含末尾LF逐字回讀一致。#28／#17／#22仍OPEN；R964115及R965310封存保持，工作根擁有權／誤建目錄異常0、自有容器0。回讀收據SHA `5e1353c9be54fa2f40760e4dde8fccd0b310e95b3ba19fe77689ceb762622a87`。錄放相容範圍已提出單一取捨，頁尾位置不重問；下一輪接已定案人物2倍整頁的技術契約與正式實作，總目標繼續。
+
+## R951最終定案採認READY（2026-10-05）
+
+使用者明選同版本、同平台、從啟動錄製，相符原版／初始存檔、不轉換舊原型；連同已選遊戲區外40px常駐頁尾，所有產品取捨已齊。最終獨立窄審0／0／0，B1至B4、CLI及生命週期與先前已審草稿逐字保持。主代理於FINAL完整回讀原技術與最終窄審四份報告及SHA，將013正式契約採認READY，更新CONTEXT及R951目標。review-adoption JSON SHA `ced3e9dae96d93f3e399c57829592ae886fff758a0841a7c821b917f0dab5d06`、Markdown SHA `003748ff8141df1ecc4babff62b639d23c1db78afead607d33c1dd74ab5518a4`。沒有以實作後測試未完成維持DRAFT，也沒有將充分原型重跑代替契約定稿；正式程式尚未接線，真正GUI／三重播／故障／音訊及封包仍待驗收。自己的審查容器0、輸出1000:1000。

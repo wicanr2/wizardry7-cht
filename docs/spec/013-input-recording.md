@@ -1,8 +1,8 @@
 # 013：以原版指令數錄製與重播前端輸入
 
-狀態DRAFT；2026-10-04；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+狀態READY；2026-10-05；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
 證據[022](../re/022-input-recording-boundary.md)，完成定義[M2](../goal/M2-playable-frontend.md)。
-尚未通過READY閘門，不進正式實作。目前待審契約以[R951](#r951-production-contract)為準；較早候選只保存證據來源，不決定正式格式。正式介面已選遊戲區外頁尾，格式與相容契約採認尚未完成。
+R951正式契約已通過READY閘門，以下節為準；較早候選只保存證據來源，不決定正式格式。使用者已選遊戲區外頁尾及同版本、同平台、從啟動錄製，最終獨立窄審0／0／0於FINAL完整回讀後採認。正式錄放尚待實作與動態驗收，不升CONFORMED。
 
 ## 為什麼要做
 
@@ -18,15 +18,19 @@
 
 2026-10-05使用者選定遊戲區外常駐頁尾，錄製模式增加40px視窗高度，遊戲區與原版滑鼠座標保持。停止錄製後仍在同一視窗繼續遊戲，完成或失敗狀態留在頁尾。
 
+同日使用者定案第一版從啟動開始錄製，限同程式版本、同平台、相符原版資料及初始存檔重播，不轉換舊prototype／candidate檔。跨版本、跨平台及遊玩中途開始錄製另列未支援；下節既有相容契約沿此定案，不再要求使用者選技術欄位名稱。
+
 <a id="r951-production-contract"></a>
 
-## R951：正式錄放契約草案
+## R951：正式錄放契約
 
-本節收斂B1至B4，待使用者採認及獨立審查；新名稱、CLI與接線均為設計草案。事實基礎為R819、R862、R869、R947及R948至R950的限定證據。檔案型別、解析界線、同次六資源與停止續玩為confirmed候選行為；正式程式尚未具備這條路徑，不能稱正式完成或原版完整parity。
+本節收斂B1至B4，產品取捨已全部定案，技術契約及最終位置／相容回填均獨立0／0／0採認READY。CLI及wire欄位沿既有草案，未接線前不稱正式功能。事實基礎為R819、R862、R869、R947及R948至R950的限定證據。檔案型別、解析界線、同次六資源與停止續玩為confirmed候選行為；正式程式尚未具備這條路徑，不能稱正式完成或原版完整parity。
+
+獨立最終窄審報告workplace/r951/review-adoption.{json,md}，SHA `ced3e9dae96d93f3e399c57829592ae886fff758a0841a7c821b917f0dab5d06`／`003748ff8141df1ecc4babff62b639d23c1db78afead607d33c1dd74ab5518a4`。原技術報告review-contract.{json,md}的0／0／0及B1至B4保持；主代理完整回讀四報告與SHA後採認，沒有以原型宣稱正式完成。
 
 ### 入口、相容與初始資料
 
-| 項目 | 待審正式契約 |
+| 項目 | 正式契約 |
 |---|---|
 | CLI | 新增`-record <本機檔名>`及`-replay <本機檔名>`，互斥；兩者皆空即走現有普通遊玩。沒有固定Step正常停止入口。 |
 | 起點 | 冷啟動Step0／Ticks0；不接受既存Oracle、Restore或呼叫端的pristine布林聲明。原版SAVE／LOAD仍是原有玩家操作。 |
@@ -113,15 +117,15 @@ Writer以0600及O_EXCL建立`<name>.partial`，輸出名及partial都不得已�
 
 ### 中文操作及有限錯誤
 
-2026-10-05使用者採用[頁尾與F1比較](../../tools/recording-control-placement-prototype.html)的甲，遊戲區外常駐40px頁尾。錄製模式視窗為320×scale寬、200×scale+40高，停止及完成／失敗後保留高度；左鍵區x=8..159、y=200×scale+4..35，所有頁尾滑鼠皆不送原版。原型SHA `7211d62a1d38013ce39a96eb74d190366845c396d06b0f45c8c618290868e4fe`。原型字型及背景只作位置示意，正式原生字模、精確佈局及同狀態GUI仍須驗收；不由選定位置直接宣稱013 READY。
+2026-10-05使用者採用[頁尾與F1比較](../../tools/recording-control-placement-prototype.html)的甲，遊戲區外常駐40px頁尾。錄製模式視窗為320×scale寬、200×scale+40高，停止及完成／失敗後保留高度；左鍵區x=8..159、y=200×scale+4..35，所有頁尾滑鼠皆不送原版。原型SHA `7211d62a1d38013ce39a96eb74d190366845c396d06b0f45c8c618290868e4fe`。原型字型及背景只作位置示意，正式原生字模、精確佈局及同狀態GUI仍須驗收；位置定案與最終技術窄審共同通過才採認READY，正式GUI仍須另驗。
 
 正常錄製中顯示「停止錄製」，要求後顯示「錄製收尾中」，成功顯示「錄製完成」，失敗顯示「錄製失敗」。全部用正式字模重建，缺字或控制區放不下必拒絕錄製啟動，不畫不完整中文。重播完成及取消以中文報明；普通遊玩不新增錄製UI。
 
-對外只回有限碼：啟動為`wire_rejected`／`configuration_mismatch`／`initialization_failed`／`recording_output_failed`，執行為`input_step_mismatch`／`api_result_mismatch`／`recording_ineligible`，收尾為`boundary_invalid`／`draw_timeout`／`draw_mismatch`／`writer_append`／`writer_finish`／`stop_timeout`／`cleanup_incomplete`，退出沿009 `owner_timeout`／`close_timeout`。原診斷碼映射到這些有限類別，不呼叫任意Error文字。中文顯示如「錄放檔無效或未完成」、「起始資料或設定不符」、「錄製失敗，已保留未完成片段」；cleanup_incomplete則明示「錄製失敗，檔案收尾未完成」，不能說片段已安全清理。CLI啟動拒絕exit2；已完成後普通退出沿現有exit規則，未完成重播或錄製在退出時為失敗，具體退出碼2。這些名稱是待審正式設計，不改event的三種原API碼。
+對外只回有限碼：啟動為`wire_rejected`／`configuration_mismatch`／`initialization_failed`／`recording_output_failed`，執行為`input_step_mismatch`／`api_result_mismatch`／`recording_ineligible`，收尾為`boundary_invalid`／`draw_timeout`／`draw_mismatch`／`writer_append`／`writer_finish`／`stop_timeout`／`cleanup_incomplete`，退出沿009 `owner_timeout`／`close_timeout`。原診斷碼映射到這些有限類別，不呼叫任意Error文字。中文顯示如「錄放檔無效或未完成」、「起始資料或設定不符」、「錄製失敗，已保留未完成片段」；cleanup_incomplete則明示「錄製失敗，檔案收尾未完成」，不能說片段已安全清理。CLI啟動拒絕exit2；已完成後普通退出沿現有exit規則，未完成重播或錄製在退出時為失敗，具體退出碼2。這些名稱是本節正式設計，不改event的三種原API碼。
 
 ### READY與實作後驗收分界
 
-本節不以尚未完成實作的動態測試阻止技術契約定稿。READY前須明列全部型別、生命週期、適用證據、已知差異及操作位置，且獨立審查無阻擋並取得尚未定案的產品採認。現在仍DRAFT，沒有正式相容承諾。
+本節不以尚未完成實作的動態測試阻止技術契約定稿。READY前須明列全部型別、生命週期、適用證據、已知差異及操作位置，且獨立審查無阻擋並取得產品採認。產品取捨已於2026-10-05全部定案；最終回填窄審0／0／0採認READY。相容承諾只限上表，未實作前沒有可用正式錄放功能。
 
 實作後以自製fixture驗嚴格wire、完整配置、同次讀取、API錯誤不變、截止、最終Draw、Writer故障／撤回／阻塞、關窗交錯及競爭檢查。再用真GUI錄製非空正常路線、停止續玩且軟體音訊推進、三次乾淨冷重播及無觀察原API控制，核原版RAM／暫存器／indexed／palette／A000、發布Step／Ticks、live畫面與自然可寫檔案。提前關窗必未完成；修改一筆輸入須出現可見差異。裝置與人耳、合法冷LOAD、十一組、全部圖片／按鈕及三平台封包另有門檻，不由錄放局部收據外推。
 
