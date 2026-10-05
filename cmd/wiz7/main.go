@@ -18,6 +18,7 @@ import (
 	"image/png"
 	"log"
 	"os"
+	"path/filepath"
 	"sort"
 	"strconv"
 	"strings"
@@ -28,6 +29,8 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"github.com/wicanr2/dosgolem/oracle"
+	ic "github.com/wicanr2/wizardry7-cht/initconfig"
+	rc "github.com/wicanr2/wizardry7-cht/recording"
 )
 
 // scanCode 把前端會用到的鍵映射成 Set 1 掃描碼（make code）。
@@ -582,50 +585,66 @@ type entry struct {
 }
 
 type shared struct {
-	mu         sync.Mutex
-	rgba       []byte  // 320×200×4 的畫面快照（Draw 用）
-	keys       []uint8 // 待注入的掃描碼（make＋break 成對排程）
-	mouseX     int
-	mouseY     int
-	rbtn       bool      // 右鍵狀態（左鍵走 clicks，spec 004）
-	evs        []*textEv // shown 事件（快照節點判定，Draw 只消費，R4.3）
-	drawReq    string    // 非空＝下一次 Draw 完成後把視窗畫面存到這個路徑（-draw-at）
-	helpOpen   bool      // F1 說明開啟中＝機器暫停、輸入不送原版（spec 003 R2）
-	helpScreen string    // 開啟當下辨識的畫面（R4）
-	helpPage   int
-	mapOpen    bool       // F2 自動地圖面板（spec 005 R3）
-	mapView    mapView    // 快照節點產生的地圖狀態
-	flow       []flowView // 有效的流動文字頁（快照節點產生；Draw 消費，spec 006）
-	picture    *introPictureView
-	stdin      []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
-	clicks     []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
+	recordingPublication recordingPublication
+	mu                   sync.Mutex
+	rgba                 []byte  // 320×200×4 的畫面快照（Draw 用）
+	keys                 []uint8 // 待注入的掃描碼（make＋break 成對排程）
+	mouseX               int
+	mouseY               int
+	rbtn                 bool      // 右鍵狀態（左鍵走 clicks，spec 004）
+	evs                  []*textEv // shown 事件（快照節點判定，Draw 只消費，R4.3）
+	drawReq              string    // 非空＝下一次 Draw 完成後把視窗畫面存到這個路徑（-draw-at）
+	helpOpen             bool      // F1 說明開啟中＝機器暫停、輸入不送原版（spec 003 R2）
+	helpScreen           string    // 開啟當下辨識的畫面（R4）
+	helpPage             int
+	mapOpen              bool       // F2 自動地圖面板（spec 005 R3）
+	mapView              mapView    // 快照節點產生的地圖狀態
+	flow                 []flowView // 有效的流動文字頁（快照節點產生；Draw 消費，spec 006）
+	picture              *introPictureView
+	stdin                []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
+	clicks               []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
 
 type game struct {
-	pictureGlyph *image.RGBA
-	pictureImage *ebiten.Image
-	flow         *flowData                // flow.json（nil＝流動文字關閉）
-	flowImgs     map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
-	help         *helpData                // F1 說明資料（help.json；nil＝缺檔）
-	helpImg      *ebiten.Image            // 目前說明頁的預渲染
-	helpKey      string
-	sh           *shared
-	scale        int
-	screen       *ebiten.Image
-	lastMX       int
-	lastMY       int
-	lbtn         bool
-	rbtn         bool
-	stop         *stopRequest
-	draws        atomic.Uint64
+	live              *inputRecording
+	seenRecordingDraw uint64
+	pictureGlyph      *image.RGBA
+	pictureImage      *ebiten.Image
+	flow              *flowData                // flow.json（nil＝流動文字關閉）
+	flowImgs          map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
+	help              *helpData                // F1 說明資料（help.json；nil＝缺檔）
+	helpImg           *ebiten.Image            // 目前說明頁的預渲染
+	helpKey           string
+	sh                *shared
+	scale             int
+	screen            *ebiten.Image
+	lastMX            int
+	lastMY            int
+	lbtn              bool
+	rbtn              bool
+	stop              *stopRequest
+	draws             atomic.Uint64
 }
 
 func (g *game) Update() error {
 	if g.stop != nil && ebiten.IsWindowBeingClosed() {
+		if g.live != nil {
+			g.live.Cancel()
+		}
 		g.stop.Request()
 	}
 	if g.stop != nil && g.stop.Requested() {
 		return ebiten.Termination
+	}
+	if g.live != nil {
+		g.live.Poll()
+		if g.live.replay {
+			return nil
+		}
+	}
+	footer := false
+	if g.live != nil {
+		footer = g.live.mouseInFooter(g.scale)
 	}
 	// ── F1 說明（spec 003 R1）：F1 永遠由前端處理；說明開啟時其他輸入一律不送原版 ──
 	if inpututil.IsKeyJustPressed(ebiten.KeyF1) {
@@ -683,6 +702,9 @@ func (g *game) Update() error {
 		g.sh.stdin = append(g.sh.stdin, '\r')
 		g.sh.mu.Unlock()
 	}
+	if footer {
+		return nil
+	}
 	mx, my := ebiten.CursorPosition()
 	sx, sy := mx/g.scale, my/g.scale
 	if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
@@ -718,6 +740,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	evs := append([]*textEv(nil), g.sh.evs...)
 	flows := append([]flowView(nil), g.sh.flow...)
 	picture := g.sh.picture
+	publication := g.sh.recordingPublication
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
@@ -784,11 +807,15 @@ func (g *game) Draw(dst *ebiten.Image) {
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
 	mOpen, mView := g.sh.mapOpen, g.sh.mapView
 	g.sh.mu.Unlock()
+	gameArea := dst
+	if g.live != nil && !g.live.replay {
+		gameArea = dst.SubImage(image.Rect(0, 0, 320*g.scale, 200*g.scale)).(*ebiten.Image)
+	}
 	if mOpen {
-		g.drawMap(dst, mView)
+		g.drawMap(gameArea, mView)
 	}
 	if hOpen {
-		g.drawHelp(dst, hScreen, hPage)
+		g.drawHelp(gameArea, hScreen, hPage)
 	}
 
 	// -draw-at：把互動視窗實際畫面存檔（驗證 Draw 路徑，spec 001 R4.3）
@@ -806,9 +833,22 @@ func (g *game) Draw(dst *ebiten.Image) {
 			log.Printf("drawat 輸出 %s（%dx%d）", req, w, h)
 		}
 	}
+	if g.live != nil {
+		g.live.drawControls(dst, g.scale)
+		if publication.ID != 0 && publication.ID != g.seenRecordingDraw {
+			g.seenRecordingDraw = publication.ID
+			g.live.acknowledge(publication, rc.Panel{HelpOpen: hOpen, HelpScreen: hScreen, HelpPage: int64(hPage), MapOpen: mOpen})
+		}
+	}
 }
 
-func (g *game) Layout(int, int) (int, int) { return 320 * g.scale, 200 * g.scale }
+func (g *game) Layout(int, int) (int, int) {
+	height := 200 * g.scale
+	if g.live != nil && !g.live.replay {
+		height += 40
+	}
+	return 320 * g.scale, height
+}
 
 func main() {
 	root := flag.String("root", "workplace/run", "原版素材目錄（唯讀）")
@@ -834,7 +874,35 @@ func main() {
 	hdAfterFrag := flag.String("hd-after-frag", "", "測試用：流動文字片段序號逗號分隔（1 起）；該片段返回的當下輸出 <hd-dir>/hdfrag-<序號>.*（spec 006 驗收 10）")
 	autoplayStop := flag.Uint64("autoplay-stop", 0, "測試用：autoplay 只執行門檻 ≤ 此步數的動作（0＝全部），之後交給真實輸入")
 	drawAt := flag.String("draw-at", "", "步數逗號分隔：到該步數後把互動視窗畫面存到 <hd-dir>/drawat-<步數>.png")
+	recordPath := flag.String("record", "", "從啟動錄製輸入，按頁尾停止後繼續遊戲")
+	replayPath := flag.String("replay", "", "重播相同版本、平台、資料及初始存檔的完整錄放檔")
 	flag.Parse()
+	recordingMode := *recordPath != "" || *replayPath != ""
+	recordingFatal := func(code string) { log.Print("錄放啟動失敗：" + code); os.Exit(2) }
+	if recordingMode {
+		log.SetFlags(0)
+		log.SetOutput(recordingPrivacyLog{})
+		explicitHDScale := false
+		flag.Visit(func(f *flag.Flag) {
+			if f.Name == "hd-scale" {
+				explicitHDScale = true
+			}
+		})
+		var scaleErr error
+		hdScale, scaleErr = recordingEffectiveHDScale(*scale, hdScale, explicitHDScale, true)
+		if scaleErr != nil {
+			recordingFatal("configuration_mismatch")
+		}
+		if *recordPath != "" && *replayPath != "" {
+			recordingFatal("configuration_mismatch")
+		}
+		forbidden := map[string]bool{"autoplay": true, "autoplay-stop": true, "clicks-at": true, "help-at": true, "map-at": true, "hdonly": true, "hdshot": true, "hd-at": true, "hd-after-frag": true, "draw-at": true}
+		flag.Visit(func(f *flag.Flag) {
+			if forbidden[f.Name] {
+				recordingFatal("configuration_mismatch")
+			}
+		})
+	}
 	explicitIPS := false
 	flag.Visit(func(f *flag.Flag) {
 		if f.Name == "ips" {
@@ -843,6 +911,9 @@ func main() {
 	})
 	tempo, err := audioTempo(*ips, explicitIPS)
 	if err != nil {
+		if recordingMode {
+			recordingFatal("configuration_mismatch")
+		}
 		log.Fatal("-ips 必須是有限正值")
 	}
 
@@ -852,80 +923,179 @@ func main() {
 	}
 	resolvedSaveDir, err := resolveSavePath(*saveDir)
 	if err != nil {
+		if recordingMode {
+			recordingFatal("initialization_failed")
+		}
 		log.Fatal("存檔設定錯誤：default_save_path")
 	}
 	preparedSaveDir, err := prepareSaveStorage(*root, program, resolvedSaveDir, nil)
 	if err != nil {
+		if recordingMode {
+			recordingFatal("initialization_failed")
+		}
 		log.Fatalf("存檔設定錯誤：%s", saveErrorCode(err))
 	}
-	o, err := oracle.LoadWith(program, *root, oracle.Options{Adlib: true})
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	o.SetScratch(preparedSaveDir)
+	var live *inputRecording
+	var bundle recordingBundle
+	var hd *helpData
+	var o *oracle.Oracle
+	if recordingMode {
+		binary, e := os.Executable()
+		if e != nil {
+			recordingFatal("initialization_failed")
+		}
+		protected := []string{program, binary, *xlatePath, *flowPath, *helpPath}
+		if *xlatePath != "" {
+			for _, name := range []string{"roster.json", "profile-sex.json", "intro-picture.json"} {
+				protected = append(protected, filepath.Join(filepath.Dir(*xlatePath), name))
+			}
+		}
+		location := *recordPath
+		if location == "" {
+			location = *replayPath
+		}
+		if ic.CheckLocation(location, *root, preparedSaveDir, protected, *recordPath != "") != nil {
+			recordingFatal("configuration_mismatch")
+		}
+		var document *rc.Document
+		if *replayPath != "" {
+			decoded, e := rc.Load(*replayPath)
+			if e != nil {
+				recordingFatal("wire_rejected")
+			}
+			document = &decoded
+		}
+		bundle, err = loadRecordingBundle(*xlatePath, *flowPath, *helpPath)
+		if err != nil {
+			recordingFatal("configuration_mismatch")
+		}
+		var controlFont *helpData
+		if *recordPath != "" {
+			controlFont, err = recordingControlFont(bundle.flow, *scale)
+			if err != nil {
+				recordingFatal("configuration_mismatch")
+			}
+		}
+		var expected *ic.Config
+		if document != nil {
+			expected = &document.Header.Config
+		}
+		owner, e := newRecordingOwner(recordingStartup{root: *root, program: program, scratch: preparedSaveDir, scale: int64(*scale), ips: *ips, explicitIPS: explicitIPS, mute: *mute, resources: bundle.resources.metadata}, expected)
+		if e != nil {
+			code := "configuration_mismatch"
+			if e.Error() == "initialization_failed" {
+				code = "initialization_failed"
+			}
+			recordingFatal(code)
+		}
+		live, e = newInputRecording(owner, *recordPath, document, controlFont)
+		if e != nil {
+			owner.Close()
+			recordingFatal("recording_output_failed")
+		}
+		o, e = owner.Take()
+		if e != nil {
+			owner.Close()
+			recordingFatal("initialization_failed")
+		}
+		hd = bundle.help
+	} else {
+		o, err = oracle.LoadWith(program, *root, oracle.Options{Adlib: true})
+		if err != nil {
+			log.Fatal(err)
+		}
+		o.SetScratch(preparedSaveDir)
+	}
 	log.Printf("原版存檔目錄：%s", preparedSaveDir)
 
-	ebiten.SetWindowSize(320**scale, 200**scale)
+	windowHeight := 200 * *scale
+	if live != nil && !live.replay {
+		windowHeight += 40
+	}
+	ebiten.SetWindowSize(320**scale, windowHeight)
 	ebiten.SetWindowTitle("巫術7 繁體中文版 — dosgolem")
 	ebiten.SetWindowClosingHandled(true)
 	stop := newStopRequest()
+	if live != nil {
+		live.stop = stop
+	}
 
 	sh := &shared{rgba: make([]byte, 320*200*4)}
 	// ── xlate 翻譯層 ──────────────────────────────────────────────
 	// 譯文表（原文 → 每字 15×15 位圖，tools/re/bake_font.py 烘製）。
-	if *xlatePath == "" {
-		*xlatePath = "/nonexistent.json"
-	}
 	trans := map[string]entry{}
 	digits := map[string][]uint16{}
 	ordinals := map[string][]uint16{}
-	if b, err := os.ReadFile(*xlatePath); err == nil {
-		var raw map[string]json.RawMessage
-		if err := json.Unmarshal(b, &raw); err != nil {
-			log.Fatal("xlate.json：", err)
-		}
-		for k, v := range raw {
-			if k == "__digits__" {
-				if err := json.Unmarshal(v, &digits); err != nil {
-					log.Fatal("xlate.json digits：", err)
-				}
-				continue
-			}
-			if k == "__ordinals__" {
-				if err := json.Unmarshal(v, &ordinals); err != nil {
-					log.Fatal("xlate.json ordinals：", err)
-				}
-				continue
-			}
-			var e entry
-			if err := json.Unmarshal(v, &e); err != nil {
-				log.Fatal("xlate.json entry：", err)
-			}
-			trans[k] = e
-		}
-		log.Printf("xlate：載入 %d 串、數字 %d、序數 %d", len(trans), len(digits), len(ordinals))
+	if recordingMode {
+		trans, digits, ordinals = bundle.trans, bundle.digits, bundle.ordinals
 	} else {
-		log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
+		if *xlatePath == "" {
+			*xlatePath = "/nonexistent.json"
+		}
+		if b, err := os.ReadFile(*xlatePath); err == nil {
+			var raw map[string]json.RawMessage
+			if err := json.Unmarshal(b, &raw); err != nil {
+				log.Fatal("xlate.json：", err)
+			}
+			for k, v := range raw {
+				if k == "__digits__" {
+					if err := json.Unmarshal(v, &digits); err != nil {
+						log.Fatal("xlate.json digits：", err)
+					}
+					continue
+				}
+				if k == "__ordinals__" {
+					if err := json.Unmarshal(v, &ordinals); err != nil {
+						log.Fatal("xlate.json ordinals：", err)
+					}
+					continue
+				}
+				var e entry
+				if err := json.Unmarshal(v, &e); err != nil {
+					log.Fatal("xlate.json entry：", err)
+				}
+				trans[k] = e
+			}
+			log.Printf("xlate：載入 %d 串、數字 %d、序數 %d", len(trans), len(digits), len(ordinals))
+		} else {
+			log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
+		}
+
 	}
 	var evMu sync.Mutex
 	treeSeen := map[uint16]bool{}
 	lastHD := time.Now()
 	hdShot := *hdShotF
 	_ = hdShot
-	os.MkdirAll("workplace/bake/trees", 0o755)
+	if !recordingMode {
+		os.MkdirAll("workplace/bake/trees", 0o755)
+	}
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
-	ov := &overlay{flow: loadFlow(*flowPath)}
-	ov.picture = loadIntroPicture(*xlatePath, trans)
+	ov := &overlay{}
+	if recordingMode {
+		ov.flow, ov.picture = bundle.flow, bundle.picture
+	} else {
+		ov.flow = loadFlow(*flowPath)
+		ov.picture = loadIntroPicture(*xlatePath, trans)
+	}
 	if *scale != 2 && *scale != 3 {
 		log.Print("片頭圖片缺譯：互動倍率未支援，保留原圖")
 	}
 	if hdScale != 2 && hdScale != 3 {
 		log.Print("片頭圖片缺譯：HD倍率未支援，保留原圖")
 	}
-	ov.roster = loadRoster(*xlatePath, trans)
+	if recordingMode {
+		ov.roster = bundle.roster
+	} else {
+		ov.roster = loadRoster(*xlatePath, trans)
+	}
 	ov.rosterEnabled = len(ov.roster) == 6 && *scale == 3 && hdScale == 3
-	ov.sexEntries = loadProfileSex(*xlatePath, trans)
+	if recordingMode {
+		ov.sexEntries = bundle.sex
+	} else {
+		ov.sexEntries = loadProfileSex(*xlatePath, trans)
+	}
 	ov.sexEnabled = len(ov.sexEntries) == 2 && *scale == 3 && hdScale == 3
 	ov.profileEnabled = len(trans) > 0 && *scale == 2 && hdScale == 2
 	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
@@ -1179,7 +1349,7 @@ func main() {
 		arm(p.ret)
 		// 動態樹捕捉：樹段變化時 dump（msgtree 模式）
 		ts := o.Word(oracle.Addr{Seg: 0x0110, Off: 0x2D4E})
-		if ts != 0 {
+		if ts != 0 && !recordingMode {
 			lastTree, have := treeSeen[ts]
 			_ = lastTree
 			if !have {
@@ -1193,7 +1363,10 @@ func main() {
 		}
 		log.Printf("翻譯 %d %q @(%d,%d)", o.Steps(), s, x, y)
 	})
-	g := &game{sh: sh, scale: *scale, help: loadHelp(*helpPath), flow: ov.flow, flowImgs: map[string]*ebiten.Image{}, stop: stop}
+	if !recordingMode {
+		hd = loadHelp(*helpPath)
+	}
+	g := &game{sh: sh, scale: *scale, help: hd, flow: ov.flow, flowImgs: map[string]*ebiten.Image{}, stop: stop, live: live}
 	if !*hdOnly {
 		g.screen = ebiten.NewImage(320, 200)
 	}
@@ -1429,12 +1602,30 @@ func main() {
 		sh.mu.Lock()
 		sh.mapView, sh.flow, sh.rgba, sh.evs = mapSnapshot, views, rgba, visual
 		sh.picture = picture
+		var publication recordingPublication
+		published := false
+		if live != nil {
+			publication, published = live.publish(o.Steps(), sh)
+		}
 		sh.mu.Unlock()
+		if published {
+			live.afterPublish(publication)
+		}
 	}
 
 	audioOut, err := newPlayerAudio(o, tempo, *mute || *hdOnly, stop)
 	if err != nil {
+		if live != nil {
+			live.Cancel()
+			live.abortOwned()
+			o.Close()
+			recordingFatal("initialization_failed")
+		}
 		log.Fatal("音訊串流初始化失敗")
+	}
+	if live != nil {
+		live.snapshot = snapshot
+		live.boundaryEligible = func() bool { return live.qualified(audioOut, o) }
 	}
 	ownerDone := make(chan struct{})
 	var sourceStats oracle.OPLSourceStats
@@ -1446,6 +1637,9 @@ func main() {
 	// 每塊都送會重置故事頁的推進計時（docs/re/009 的教訓）。
 	go func() {
 		defer close(ownerDone)
+		if live != nil {
+			defer live.abortOwned()
+		}
 		defer stop.Request()
 		defer func() { sourceStats = o.OPLSourceStats(); finalStep = o.Steps() }()
 		chunk := uint64(200_000)
@@ -1456,6 +1650,24 @@ func main() {
 			if stop.Requested() {
 				audioOut.stopAtBoundary()
 				return
+			}
+			if live != nil {
+				if live.replay {
+					live.ReplayNext(o, audioOut, snapshot)
+					continue
+				}
+				live.Poll()
+				if live.state.Load() == 3 {
+					live.abortOwned()
+				}
+				if live.Requested() && live.state.Load() == 0 {
+					if !live.qualified(audioOut, o) {
+						live.fail("recording_ineligible")
+						live.abortOwned()
+					} else {
+						snapshot()
+					}
+				}
 			}
 			sh.mu.Lock()
 			// spec 003 R2：說明開啟＝不推進、不投遞任何輸入（含游標位置）
@@ -1494,21 +1706,38 @@ func main() {
 				log.Printf("說明 暫停=false steps=%d", o.Steps())
 			}
 			for _, sc := range keys {
-				o.PressKey(oracle.Key(sc))
+				if live != nil {
+					live.Operation(o, audioOut, "press_key", recordingKey(sc), func() error { o.PressKey(oracle.Key(sc)); return nil })
+				} else {
+					o.PressKey(oracle.Key(sc))
+				}
 				log.Printf("送鍵 %02x steps=%d", sc, o.Steps())
 			}
 			if len(stdin) > 0 {
-				o.Type(string(stdin))
+				if live != nil {
+					live.Operation(o, audioOut, "type", recordingBytes(stdin), func() error { o.Type(string(stdin)); return nil })
+				} else {
+					o.Type(string(stdin))
+				}
 			}
 			// MoveMouse（游標位置）：只送真實變化，不重置原版故事計時。
 			if bx != lastX || by != lastY {
-				o.MoveMouse(bx, by)
+				if live != nil {
+					live.Operation(o, audioOut, "move_mouse", recordingXY(bx, by), func() error { o.MoveMouse(bx, by); return nil })
+				} else {
+					o.MoveMouse(bx, by)
+				}
 				lastX, lastY = bx, by
 			}
 			for _, c := range clicks {
 				// spec 004 R2／R3：與 autoplay 同一 API；錯誤只記 log
-				err := o.Click(c.x, c.y)
-				audioOut.AfterOperation(o)
+				var err error
+				if live != nil {
+					err = live.Operation(o, audioOut, "click", recordingXY(c.x, c.y), func() error { return o.Click(c.x, c.y) })
+				} else {
+					err = o.Click(c.x, c.y)
+					audioOut.AfterOperation(o)
+				}
 				log.Printf("左鍵 (%d,%d) steps=%d err=%s", c.x, c.y, o.Steps(), frontendOperationCode(err))
 				snapshot() // spec 005 R1：每下點擊後快照，避免兩步併成一次
 				if stop.Requested() {
@@ -1518,15 +1747,28 @@ func main() {
 			// 右鍵維持 Press/Release 路徑
 			if r != lastR {
 				if r {
-					o.PressButton(1)
+					if live != nil {
+						live.Operation(o, audioOut, "press_button", recordingButton(), func() error { o.PressButton(1); return nil })
+					} else {
+						o.PressButton(1)
+					}
 				} else {
-					o.ReleaseButton(1)
+					if live != nil {
+						live.Operation(o, audioOut, "release_button", recordingButton(), func() error { o.ReleaseButton(1); return nil })
+					} else {
+						o.ReleaseButton(1)
+					}
 				}
 				lastR = r
 				log.Printf("右鍵 按下=%v steps=%d", r, o.Steps())
 			}
-			runErr := o.Run(chunk)
-			audioOut.AfterOperation(o)
+			var runErr error
+			if live != nil {
+				runErr = live.Operation(o, audioOut, "run", recordingSteps(chunk), func() error { return o.Run(chunk) })
+			} else {
+				runErr = o.Run(chunk)
+				audioOut.AfterOperation(o)
+			}
 			if runErr != nil {
 				log.Printf("機器停止於 steps=%d：%s", o.Steps(), frontendOperationCode(runErr))
 				return
@@ -1583,6 +1825,9 @@ func main() {
 		select {}
 	}
 	gameErr := ebiten.RunGame(g)
+	if live != nil {
+		live.Cancel()
+	}
 	stop.Request()
 	deadline := time.NewTimer(max(time.Until(stop.Deadline()), 0))
 	defer deadline.Stop()
@@ -1590,10 +1835,18 @@ func main() {
 	case <-ownerDone:
 		if !time.Now().Before(stop.Deadline()) {
 			log.Print("退出失敗：owner_timeout")
+			if live != nil {
+				log.Print("錄製失敗，檔案收尾未完成：owner_timeout")
+				os.Exit(2)
+			}
 			os.Exit(1)
 		}
 	case <-deadline.C:
 		log.Print("退出失敗：owner_timeout")
+		if live != nil {
+			log.Print("錄製失敗，檔案收尾未完成：owner_timeout")
+			os.Exit(2)
+		}
 		os.Exit(1)
 	}
 	closed := make(chan string, 1)
@@ -1602,17 +1855,39 @@ func main() {
 	case result := <-closed:
 		if !time.Now().Before(stop.Deadline()) {
 			log.Print("退出失敗：close_timeout")
+			if live != nil {
+				log.Print("錄製失敗，檔案收尾未完成：close_timeout")
+				os.Exit(2)
+			}
 			os.Exit(1)
 		}
 		log.Printf("音訊結束 fault=%s close=%s stream=%+v reader=%+v 畫格率=%.2f", audioOut.fault, result,
 			audioOut.stream.Stats(), audioOut.reader.Stats(), float64(g.draws.Load())/time.Since(runStarted).Seconds())
 		log.Printf("原版完成Step=%d 來源=%+v；Received為合成器合法接受，送入合成器=Received+Rejected；停止後未送入=%d", finalStep, sourceStats, audioOut.stoppedWrites)
 		if result != "" || audioOut.fault != "" {
+			if live != nil {
+				live.exitCode(stop.Deadline())
+				o.Close()
+				if live.state.Load() != 2 {
+					os.Exit(2)
+				}
+			}
 			os.Exit(1)
 		}
 	case <-deadline.C:
 		log.Print("退出失敗：close_timeout")
+		if live != nil {
+			log.Print("錄製失敗，檔案收尾未完成：close_timeout")
+			os.Exit(2)
+		}
 		os.Exit(1)
+	}
+	if live != nil {
+		code := live.exitCode(stop.Deadline())
+		o.Close()
+		if code != 0 {
+			os.Exit(code)
+		}
 	}
 	if gameErr != nil {
 		log.Printf("前端結束：%v", gameErr)

@@ -2,6 +2,8 @@
 
 人物2倍重排正式契約：[R966](R966-profile-reflow-contract.md)。
 
+正式輸入錄放接線：[R967](R967-production-recording.md)。
+
 使用面板兩個複合名稱正式修補：[R965](R965-battle-use-item-fix.md)。
 
 戰鬥使用面板的複合名稱證據：[R964](R964-battle-use-item-evidence.md)。
