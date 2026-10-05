@@ -689,3 +689,35 @@ R733合法checkpoint及R960固定前綴核82摘要、78命令、67既有輸入�
 獨立結果審查0／0／0於FINAL完整回讀兩報告及SHA後採認，review-result.json SHA `f682688577a49a8ee17f0e742af43673183bd0bd75ef8904ca2714b442f6ce6d`，Markdown SHA `e6632fa545986d2c49dc8ddea6f5b1ebf20af3eb81c50cb96abf1880d5c0980e`。審查獨立解析PNG與原字模，沒有執行既有checker；子畫面目視引用主代理判讀，獨立圖片轉送截斷未採目視。026保持READY；格擋／逃跑／移動、倚天／3倍正常GUI、新雙側A/B、冷START、音訊、冷存讀、十一組、TSV、正式錄放及封包門檻保持。原版衍生畫面與完整收據只留本機。
 
 125技術產物一次封存，後續GitHub收據不重封。重跑入口在本機workplace/r963的prepare.py、gui.py、check_gui.py及verify_inputs.py，沿026限定契約與全新輸出。prepare只核R962封存並複用binary；GUI仍為離線UID/GID1000:1000、2CPU／2GiB／96pids及1800秒外層界限，原版同掛/original、/w唯讀。沒有新的正式建置或完整測試重跑。
+
+
+<a id="r966-profile-reflow"></a>
+
+## R966 人物兩倍整頁正式重排（2026-10-05）
+
+入口：[024整頁契約](../spec/024-character-review-output.md#r966-profile-reflow-contract)、[本輪目標](../goal/R966-profile-reflow-contract.md)。使用者已採用R953重排及R954等級文字右移。沿原版30來源、28個去重mask及31格背景證據實作，只改顯示副本；正式辨識不用固定Step、人物名或範例數值。互動與HD倍率皆2時啟用，3倍保持。原字模15／16像素、13數值沿原版墨點及色號，等級文字x204，數值墨點水平位置保持。
+
+原版DS.EXE SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`，runtime resident地址空間0110；工具為Go1.24.13、Python3.11.2及既有wizardry7-go-ebiten映像。SDK基線d16f03a、1132檔，原版248檔及兩字型12資源均保持。正式main.go SHA `7239edea13889db05b5abfbc6cd156959cc51f23a230e5f7f1e23bfcb0e4f4a7`、profile_reflow.go SHA `b5a4d354969c8156dfd5cf3cbe41f4320affa7fc5b0692f5617f2da13827de46`。正式Linux binary SHA `d827e020712a728f454e2833574fb789c86e56572f85ce29ac3e4ef205accb79`；不是發行包。
+
+完整cmd/wiz7測試通過。首次96pids下Go預設平行組譯fork失敗屬環境，加入GOMAXPROCS2及-p2後乾淨重跑。獨立來源審查發現未認領tuple回true而吞一般入口，已改為撤除當代profile後回false；已認領30來源仍回true，避免舊局部覆繪復活。隔離案例、長值撤除、HP／ST合法區間去重、完整背景、游標容忍及GUI深複製均通過。最後測試成功3.302秒；其後只有測試斷言用字及gofmt空白調整，正式production來源保持。
+
+固定輸入輔助共12次正常Click runner、84快照。修後八個中文配置對兩個英文控制56組完整RAM SHA／Regs／Mouse／indexed／palette一致；舊3倍HD28張保持。另從已推送修前53896f283ac86c22f67111afb5823aecf652c5ca乾淨取得40Go，僅加入七點唯讀完整RAM／Regs探針，兩個英文控制對十個修後配置70組完整原版狀態一致。所有runner正常退出0，PCFILE.DBS與原版相同。這些比較是已量停止點，不外推整段每一步或全遊戲。
+
+獨立oracle從倚天／Unifont原字型及R953原版數值mask重建，未匯入production排版或paint helper。四張正式2倍HD共1,024,000像素完全相符，Draw核31字格共120,112局部像素，域外差異0由完整HD確認；31格交疊、筆畫交集及越框皆0。兩個checker錯配為font變數遮蔽及HP／ST role名稱，修正後以同一批輸出通過，未重跑產品。
+
+真正Unifont2倍GUI從正常角色選單連續檢視男女兩頁。主代理逐張查看目前F1暫停底層Draw，才送12次實際X11左鍵；沒有固定點擊排程或原版輸入注入。26張同封包PNG及13組F1暫停／恢復Step一致；男女四幀完整Draw共138個原生字模及1,024,000像素與獨立oracle相符，其他22幀無profile。等級文字避開蠟燭，數值無重疊，返回原子撤除；正常WM_DELETE exit0、game／Xvfb終止，原版及PCFILE保持。首兩次控制器檔名及Serial欄錯配各正常退出，第三次用同一binary乾淨通過；失敗收據留存，不列產品缺陷。
+
+結果獨立審查0／0／0已於FINAL完整回讀兩報告及SHA採認。review-validation.json SHA `42f12884e9119c0222689aabf19caae619f14cd4a7f60991eff8a3cc8c9b87cf`，Markdown SHA `a1597041ca67d0bbd9daa93e6f0efc2c3313f2f37547650ffdece5d4125600d7`。該代理獨立核摘要、SHA、控制流及oracle來源；遵守禁讀raw字型／像素界線，像素結果採主代理獨立工具收據，不冒稱再次重算。修前控制增補另採窄審。
+
+| 本機workplace/r966收據 | SHA-256 |
+|---|---|
+| pixels-check.json | `c0a35e1819b315559a8cd992b88ead56ad7e6786df4e9cf9c8196761d97669f6` |
+| same-state-check.json | `36fad27389062752450db025eb827fab70474c79fddcb978a5443fc033d80a0b` |
+| gui-check.json | `c8cd6aace683d15c357355567ec8438624b00ad36a7167954a8cfa40fa488f81` |
+| invariants.json | `4231f4b1ebe906dc4be3ae0e44b1af394dc820517bba117aa34d3fc1093e43eb` |
+
+重跑入口為本機workplace/r966的prepare_validation.py、build_r4.py、gui_aux_r4.py、prepare_gui.py、gui_r4_attempt3.py、check_pixels.py、check_same_state.py、check_gui.py及check_before.py。必須使用全新輸出，原版／SDK／原字型唯讀；既有離線Docker UID/GID1000:1000、2CPU、1500MiB／2GiB、96pids，有界外層逾時及Xvfb子程序收尾。私人探針只加快照指紋與Draw觀察，正式owner／Update／Click保持。完整畫面、原字型及原版收據只留本機。
+
+限定結果為本機Linux、靜音手動加速、兩位既有正常人物；不聲稱其他職業／種族、長數值實跑、所有背景相位、防禦頁、冷START／存讀、音訊裝置／人耳、十一組、TSV、正式錄放或完整可玩封包已完成。原型與正式不同動畫相位不當同狀態全圖比較。
+
+修前增補窄審0／0／0於FINAL完整回讀採認。review-before JSON SHA `5da5daab8d83950426fa4be32a46475712514e23631fbd46ecb0414256e618b3`、Markdown SHA `c4b3f47032bb3426c8eccc97be0403d70a5baceb6f1ea2f23531a9df89c00a54`；before-after-check.json SHA `f9da288b25a78732f9f4d273ce266d6a88d60c2eaa01fbe21b9bc7cf7d68f084`。CPU只採已輸出的Regs，不外推內部狀態。1,039技術產物一次封存，sealed.json SHA `c837db5f223d351a9028d0ad15da02e6cb4484e59d35c9adea390d87263311e7`，排除快取及後續GitHub收據；擁有權與誤建目錄異常0、自有容器0。024整頁增補僅本輪兩位人物CONFORMED。

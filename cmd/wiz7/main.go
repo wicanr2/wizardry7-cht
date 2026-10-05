@@ -185,6 +185,7 @@ type textEv struct {
 	compound       *compoundTrace // spec012：完整兩行物品的原子事件與唯讀診斷
 	roster         *rosterWitness // spec022：碼帶事件的完整列身分
 	sex            bool           // spec024：直接單字元性別事件
+	profile        *profilePage   // spec024 R966：2倍人物整頁原子事件
 }
 
 // pendingPrint 是已進入、尚未返回的印字（R2.1）。
@@ -227,6 +228,8 @@ type overlay struct {
 	sexEntries      map[string]rosterEntry
 	sexEnabled      bool
 	sexPending      *pendingProfileSex
+	profileEnabled  bool
+	profile         *profileReflowState
 	picture         *introPictureState
 }
 
@@ -323,6 +326,10 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 		return x >= mx && x < mx+cursorBox && y >= my && y < my+cursorBox
 	}
 	restore := func(e *textEv) {
+		if e.profile != nil {
+			e.profile.restore(comp, inCursor)
+			return
+		}
 		for y := 0; y < e.bh; y++ {
 			for x := 0; x < e.bw; x++ {
 				k := y*e.bw + x
@@ -350,6 +357,10 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 			continue
 		}
 		match := e.rectMatches(a, inCursor)
+		if e.profile != nil {
+			match = e.profile.matches(a, inCursor)
+			e.profile.view.pal = o.Palette()
+		}
 		if e.roster != nil {
 			match = e.rosterMatches(a, inCursor)
 		}
@@ -384,6 +395,9 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 		default:
 			// 尚未上屏：離屏框仍是 after 才保留（R3 表第 3、4 列）
 			still := e.rectMatches(off, nil)
+			if e.profile != nil {
+				still = e.profile.matches(off, nil)
+			}
 			if e.roster != nil {
 				still = e.rosterMatches(off, nil)
 			}
@@ -486,6 +500,10 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	}
 	ov.picture.view(o.Indexed(), pal, o.VideoMode()).paintHD(img, k)
 	for _, e := range shown {
+		if e.profile != nil {
+			e.profile.view.paint(img)
+			continue
+		}
 		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
 		cx := e.x0 * k
 		cy := buttonLabelY(e, shown, k)
@@ -528,8 +546,9 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name strin
 		BX, BY, BW, BH int
 		Before, After  []uint8
 		Fg             uint8
-		G              [][]uint16     // 字形（spec 002 R5 的序數檢查用）
-		Compound       *compoundTrace `json:",omitempty"`
+		G              [][]uint16       // 字形（spec 002 R5 的序數檢查用）
+		Compound       *compoundTrace   `json:",omitempty"`
+		Profile        *profileMetadata `json:",omitempty"`
 	}
 	out := struct {
 		Step           uint64
@@ -544,7 +563,7 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name strin
 	out.Map = am.json()
 	out.Flow = flows
 	for _, e := range shown {
-		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g, e.compound})
+		out.Shown = append(out.Shown, evOut{e.s, e.x0, e.y0, e.dy, e.bx, e.by, e.bw, e.bh, e.before, e.after, e.fg, e.g, e.compound, e.profile.metadata()})
 	}
 	_ = os.WriteFile(base+".a000", a, 0o644)
 	_ = os.WriteFile(base+".comp", comp, 0o644)
@@ -719,6 +738,15 @@ func (g *game) Draw(dst *ebiten.Image) {
 		hd = 1
 	}
 	for _, e := range evs {
+		if e.profile != nil {
+			if e.img == nil {
+				img := image.NewRGBA(image.Rect(0, 0, 640, 400))
+				e.profile.view.paint(img)
+				e.img = ebiten.NewImageFromImage(img)
+			}
+			dst.DrawImage(e.img, nil)
+			continue
+		}
 		if len(e.g) == 0 || len(e.g[0]) == 0 {
 			continue // 空字形條（純控制碼/純 ASCII 譯文）跳過
 		}
@@ -899,6 +927,7 @@ func main() {
 	ov.rosterEnabled = len(ov.roster) == 6 && *scale == 3 && hdScale == 3
 	ov.sexEntries = loadProfileSex(*xlatePath, trans)
 	ov.sexEnabled = len(ov.sexEntries) == 2 && *scale == 3 && hdScale == 3
+	ov.profileEnabled = len(trans) > 0 && *scale == 2 && hdScale == 2
 	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
 		if o.StackWord(0) != flowSites[storySite].reader {
@@ -952,6 +981,9 @@ func main() {
 			defer evMu.Unlock()
 			ov.picture.returned(ret, o.Regs().SP, o.Indexed())
 			ov.returnedStory(ret, o.Regs().SP, o.Steps())
+			ov.returnedProfileReflow(ret, o.Regs().SP,
+				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0295})),
+				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0297})), offscreen(o))
 			if ov.compound != nil && ov.compound.phase != 1 {
 				if ov.returnCompound(ret, o.Regs().SP, o.Steps(), offscreen(o), o.Palette()) {
 					return
@@ -989,11 +1021,20 @@ func main() {
 		}
 		evMu.Lock()
 		defer evMu.Unlock()
-		ov.enterProfileSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
+		if ov.profileEnabled {
+			ov.enterProfileReflowSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
+		} else {
+			ov.enterProfileSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
+		}
 	})
 	o.OnCall(profileSexReturn, func(o *oracle.Oracle) {
 		evMu.Lock()
 		defer evMu.Unlock()
+		if ov.profileEnabled {
+			ov.returnedProfileReflow(profileSexReturn, o.Regs().SP,
+				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0295})),
+				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0297})), offscreen(o))
+		}
 		if ov.sexPending != nil {
 			ov.returnProfileSex(o.Regs().SP,
 				int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295})),
@@ -1022,6 +1063,20 @@ func main() {
 		handled := ov.enterCompound(in, func() []byte { return offscreen(o) }, trans, flowK)
 		evMu.Unlock()
 		if handled {
+			arm(ret)
+			return
+		}
+		evMu.Lock()
+		profileHandled := false
+		if ov.profileEnabled && ov.profile != nil {
+			raw := partRaw
+			if ret.Off != 0x032a {
+				raw = o.Bytes(oracle.Addr{Seg: ds, Off: off}, min(64, 65536-int(off)))
+			}
+			profileHandled = ov.enterProfileReflowText(ret, r0.SP, o.StackWord(2), in.X, in.Y, raw, trans, func() []byte { return offscreen(o) })
+		}
+		evMu.Unlock()
+		if profileHandled {
 			arm(ret)
 			return
 		}
@@ -1569,6 +1624,9 @@ func cloneVisualEvents(in []*textEv) []*textEv {
 	out := make([]*textEv, 0, len(in))
 	for _, e := range in {
 		v := &textEv{s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
+		if e.profile != nil {
+			v.profile = e.profile.visualCopy()
+		}
 		for _, glyph := range e.g {
 			v.g = append(v.g, append([]uint16(nil), glyph...))
 		}
