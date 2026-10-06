@@ -1,5 +1,7 @@
 # 專案目標
 
+同文重印保持中文覆繪：[R968](R968-reprint-persistence.md)。
+
 人物2倍重排正式契約：[R966](R966-profile-reflow-contract.md)。
 
 正式輸入錄放接線：[R967](R967-production-recording.md)。
