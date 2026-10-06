@@ -1,7 +1,7 @@
 {
  "schema": "wiz7-trans/1",
  "note": "譯文表（一則一筆）。key＝訊息ID（見 text/messages.json）。en＝原文（含控制碼，與 runtime 明文逐字一致，轉譯層靠它對位，依使用者定案進版控）；zh＝繁體中文譯文。譯名依 docs/names.md（特蘭格、恩帕尼）。",
- "count": 8825,
+ "count": 8903,
  "items": {
   "100": {
    "en": "HUMAN",
@@ -1910,6 +1910,10 @@
   "1645": {
    "en": "Perhaps you'd like to hear some interesting rumors...",
    "zh": "或許你想聽點有趣的傳聞……"
+  },
+  "1690": {
+   "en": "\u0002NO/\u0003YES/\u0003YEA/\u0003YEP/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003是/\u0003好/\u0003嗯/\u0003當然/\u0003確定/"
   },
   "1692": {
    "en": "Will you pay 50 GP?",
@@ -3866,6 +3870,10 @@
   "3515": {
    "en": "HIDES",
    "zh": "躲藏"
+  },
+  "3516": {
+   "en": "__conjured__",
+   "zh": "召喚"
   },
   "3517": {
    "en": "RUNS",
@@ -12395,6 +12403,10 @@
    "en": "Hmm, I don't see enough change in your pocket!",
    "zh": "嗯，我看你口袋裡的零錢可不夠！"
   },
+  "15300": {
+   "en": "\u0002NO/\u0003YE/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003好/\u0003當然/\u0003確定/"
+  },
   "15302": {
    "en": "You want a room for 50 G.P.?",
    "zh": "50 金幣一間房，要嗎？"
@@ -12410,6 +12422,10 @@
   "15315": {
    "en": "Best buy in New City!",
    "zh": "新城最划算！"
+  },
+  "15320": {
+   "en": "\u0005NO/\u0006YE/\u0006SURE/\u0006OK/",
+   "zh": "\u0005否/\u0006好/\u0006當然/\u0006確定/"
   },
   "15322": {
    "en": "A round of ale will cost 30 G.P., ok?",
@@ -12939,6 +12955,10 @@
    "en": "You must swear never to tell it to anyone!",
    "zh": "你們必須發誓絕不告訴任何人！"
   },
+  "15840": {
+   "en": "\u0002NO/\u0003YE/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003好/\u0003當然/\u0003確定/"
+  },
   "15842": {
    "en": "]Will you vow never to reveal what I tell you?",
    "zh": "]你們願發誓絕不透露我說的事嗎？"
@@ -13154,6 +13174,10 @@
   "15952": {
    "en": "Do you seek healing for the body, or guidance for the spirit?",
    "zh": "你尋求的是身體的治癒，還是心靈的指引？"
+  },
+  "15955": {
+   "en": "\u0006YE/\u0006SURE/\u0006OK/",
+   "zh": "\u0006好/\u0006當然/\u0006確定/"
   },
   "15956": {
    "en": "Nothing is gained without sacrifice...",
@@ -14799,6 +14823,10 @@
    "en": "\u0001\u0001BOERIGARD/",
    "zh": "\u0001\u0001BOERIGARD/"
   },
+  "17040": {
+   "en": "\u0003NO/\u0002YE/\u0002SURE/\u0002OK/",
+   "zh": "\u0003否/\u0002好/\u0002當然/\u0002確定/"
+  },
   "17042": {
    "en": "Do you show Lord Galiere the letter from Capt. Boerigard?",
    "zh": "要讓加利爾領主看波利加德船長的信嗎？"
@@ -15907,6 +15935,10 @@
    "en": "bearing four coins floats to the surface, hovering there...",
    "zh": "載著四枚硬幣浮上水面，懸停在那裡……"
   },
+  "17635": {
+   "en": "\u0003NO/\u0004YE/\u0004SURE/\u0004OK/",
+   "zh": "\u0003否/\u0004好/\u0004當然/\u0004確定/"
+  },
   "17637": {
    "en": "Do you take the coins?",
    "zh": "你要拿走硬幣嗎？"
@@ -16559,6 +16591,10 @@
    "en": "a bit stronger than tea, heh heh...",
    "zh": "是比茶烈上一點的東西，嘿嘿……"
   },
+  "17935": {
+   "en": "\u0005NO/\u0006YE/\u0006SURE/\u0006OK/\u0007GRAN MELANGE/",
+   "zh": "\u0005否/\u0006好/\u0006當然/\u0006確定/\u0007格蘭梅蘭/"
+  },
   "17937": {
    "en": "Know ye the place where the dreamers go?",
    "zh": "汝可知作夢者所往何處？"
@@ -16754,6 +16790,10 @@
   "18040": {
    "en": "where there was no one a moment ago...",
    "zh": "佇立在片刻前空無一人之處……"
+  },
+  "18050": {
+   "en": "\u0004NO/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005好/\u0005當然/\u0005確定/"
   },
   "18052": {
    "en": "Our membership fee is 500 pieces of gold, do you wish to join?",
@@ -17415,6 +17455,10 @@
    "en": "How may I help you, good brothers?",
    "zh": "好弟兄們，我能幫上什麼忙？"
   },
+  "18540": {
+   "en": "\u0004NO/\u0005YE/",
+   "zh": "\u0004否/\u0005好/"
+  },
   "18542": {
    "en": "Are you traveling to the Holy City of Munkharama?",
    "zh": "你們是要前往僧侶聖地聖城嗎？"
@@ -17483,6 +17527,10 @@
    "en": "from the blessed path of the true and rightful way...",
    "zh": "偏離了那真正正道的蒙福之路……"
   },
+  "18570": {
+   "en": "\u0006YE/\u0006SURE/\u0006OK",
+   "zh": "\u0006好/\u0006當然/\u0006確定"
+  },
   "18572": {
    "en": "Be you wanting to cross the river?",
    "zh": "你們可是想過河？"
@@ -17494,6 +17542,10 @@
   "18577": {
    "en": "Thy purse is lacking!",
    "zh": "你的荷包不夠啊！"
+  },
+  "18580": {
+   "en": "\u0007NO/\bYE/\bSURE/\bOK",
+   "zh": "\u0007否/\b好/\b當然/\b確定"
   },
   "18582": {
    "en": "Um, that is then, you wish to pay the 150 GP fee, er, donation?",
@@ -17550,6 +17602,10 @@
   "18672": {
    "en": "I was sure of it the moment I saw you!",
    "zh": "我一看見你們就確定了！"
+  },
+  "18675": {
+   "en": "\nNO/\u000bYE/\u000bSURE/\u000bOK",
+   "zh": "\n否/\u000b好/\u000b當然/\u000b確定"
   },
   "18677": {
    "en": "Are you willing to face danger to continue thy holy journey?",
@@ -17791,6 +17847,10 @@
    "en": "I have been expecting you!",
    "zh": "我早就在等你們了！"
   },
+  "18860": {
+   "en": "\u0004NO/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005好/\u0005當然/\u0005確定/"
+  },
   "18862": {
    "en": "Have you obtained the holy work?",
    "zh": "你們拿到聖工了嗎？"
@@ -17802,6 +17862,10 @@
   "18866": {
    "en": "Go now, find the holy work and do not return until thy task is done!",
    "zh": "去吧，去找聖工，任務完成前不要回來！"
+  },
+  "18870": {
+   "en": "\u0006NO/\u0007YE/\u0007SURE/\u0007OK/",
+   "zh": "\u0006否/\u0007好/\u0007當然/\u0007確定/"
   },
   "18872": {
    "en": "Ah, very good then, may I have it?",
@@ -17842,6 +17906,10 @@
   "18887": {
    "en": "to teach you, but you must be prepared to make sacrifice...",
    "zh": "教導你們，但你們必須準備付出犧牲……"
+  },
+  "18895": {
+   "en": "\fNO/\rYE/\rSURE/\rOK/",
+   "zh": "\f否/\r好/\r當然/\r確定/"
   },
   "18897": {
    "en": "Do you wish to learn the ways of the 5 Flowers?",
@@ -18835,9 +18903,17 @@
    "en": "devour your invasion party... &%]",
    "zh": "吞噬你們這群入侵者……&%]"
   },
+  "19430": {
+   "en": "\u0005NO/\u0006YE/",
+   "zh": "\u0005否/\u0006好/"
+  },
   "19432": {
    "en": "HSSST-HAVE-YOU OBTAINED THE-MAP-OF THE-BOAT FROM-THE SIX-SPEARS?",
    "zh": "嘶嘶——你從六矛架那裡拿到船圖了嗎？"
+  },
+  "19435": {
+   "en": "\u0007NO/\bYE/\bSURE/\bOK/",
+   "zh": "\u0007否/\b好/\b當然/\b確定/"
   },
   "19437": {
    "en": "SSSSTT-GOOD! WILL-YOU GIVE-IT TO-ME?",
@@ -19755,6 +19831,10 @@
    "en": "Be quick about you humans, I do not play games...",
    "zh": "你們這些人類，動作快，我不玩遊戲……"
   },
+  "19810": {
+   "en": "\u0002NO/\u0003YE/",
+   "zh": "\u0002否/\u0003好/"
+  },
   "19812": {
    "en": "H'Jenn-Ra has sent you to me?",
    "zh": "是赫詹拉派你們來見我？"
@@ -19858,6 +19938,10 @@
   "19852": {
    "en": "Perhaps H'Jenn-Ra has seen within you a power to assist us...",
    "zh": "或許赫詹拉在你們身上看見了能助我等的力量……"
+  },
+  "19855": {
+   "en": "\u0005NO/\u0006YE/\u0006SURE/\u0006OK/",
+   "zh": "\u0005否/\u0006好/\u0006當然/\u0006確定/"
   },
   "19857": {
    "en": "Would you partake of my vengeance upon the cow-bellied Umpani?",
@@ -20659,6 +20743,10 @@
    "en": "Oh oh oh... &%]",
    "zh": "喔喔喔……&%]"
   },
+  "20260": {
+   "en": "\u0002NO/\u0003YE/",
+   "zh": "\u0002否/\u0003好/"
+  },
   "20262": {
    "en": "Have you nice shiney coins??!",
    "zh": "你有亮晶晶的錢錢嗎？？！"
@@ -20843,6 +20931,10 @@
    "en": "My associates and I have a proposition for you... &%]",
    "zh": "我和我的夥伴們有個提案要給你……&%]"
   },
+  "20395": {
+   "en": "\u0002NO/\u0003YE/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003好/\u0003當然/\u0003確定/"
+  },
   "20397": {
    "en": "Would you like something to drink?",
    "zh": "想來點什麼喝的嗎？"
@@ -20910,6 +21002,10 @@
   "20418": {
    "en": "And in return our organization will assist you... &%]",
    "zh": "作為回報，我們的組織會助你一臂之力……&%]"
+  },
+  "20420": {
+   "en": "\u0004NO/\u0004MAYBE/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0004也許/\u0005好/\u0005當然/\u0005確定/"
   },
   "20422": {
    "en": "Do we have a deal?",
@@ -21023,6 +21119,10 @@
    "en": "You've made a wise decision to work with us...",
    "zh": "與我們合作，是個明智的決定……"
   },
+  "20460": {
+   "en": "\u0006NO/\u0007YES/",
+   "zh": "\u0006否/\u0007是/"
+  },
   "20462": {
    "en": "Have you done the small favor we asked of you?",
    "zh": "我們請你幫的小忙，辦妥了嗎？"
@@ -21110,6 +21210,10 @@
   "20511": {
    "en": "Coins for the blind... &%]",
    "zh": "給盲人的金幣……&%]"
+  },
+  "20515": {
+   "en": "\u0002NO/\u0003YE/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003好/\u0003當然/\u0003確定/"
   },
   "20517": {
    "en": "Kind Sirs, could you spare a few coins for the unfortunate?",
@@ -21391,6 +21495,10 @@
    "en": "Tch! You haven't the jingle!",
    "zh": "切！你身上沒個錢響！"
   },
+  "20640": {
+   "en": "\u0002NO/\u0003YE/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003好/\u0003當然/\u0003確定/"
+  },
   "20642": {
    "en": "]Will you pay 1000 gold pieces for a nose?",
    "zh": "]你願意付 1000 金幣買一個鼻子嗎？"
@@ -21410,6 +21518,10 @@
   "20652": {
    "en": "I have but one, and it comes at a great price... &%]",
    "zh": "我僅有一枚，而且代價高昂……&%]"
+  },
+  "20655": {
+   "en": "\bNO/\tYE/\tSURE/\tOK/",
+   "zh": "\b否/\t好/\t當然/\t確定/"
   },
   "20657": {
    "en": "]Will you pay 12000 gold pieces for it?",
@@ -21754,6 +21866,10 @@
   "20925": {
    "en": "A thick rope hanging from a bar spanning the shaft dangles below...",
    "zh": "一根粗繩從橫越豎井的橫桿上垂掛著……"
+  },
+  "20930": {
+   "en": "\u0007NO/\u0006YE/\u0006SURE/\u0006OK/",
+   "zh": "\u0007否/\u0006好/\u0006當然/\u0006確定/"
   },
   "20932": {
    "en": "Do you climb back up the rope?",
@@ -22109,7 +22225,7 @@
   },
   "21144": {
    "en": "pins them together...",
-   "zh": ""
+   "zh": "將它們釘在一起……"
   },
   "21145": {
    "en": "@Looking a bit closer, it appears to be an elaborate mechanism of",
@@ -23035,6 +23151,10 @@
    "en": "Thou that calls my name, shall know thy bane!",
    "zh": "呼喚我名者，必將知曉自身的剋星！"
   },
+  "21755": {
+   "en": "\u0012NO/\u0013YE/\u0013SURE/\u0013OK",
+   "zh": "\u0012否/\u0013好/\u0013當然/\u0013確定"
+  },
   "21757": {
    "en": "Wilt thou fill my hold, with 1000 coins of gold?",
    "zh": "你願奉上1000枚金幣，裝滿我的手掌嗎？"
@@ -23498,6 +23618,10 @@
   "21976": {
    "en": "of churning waters...",
    "zh": "一座翻騰的水池……"
+  },
+  "21978": {
+   "en": "\u0004NO/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005好/\u0005當然/\u0005確定/"
   },
   "21980": {
    "en": "Do you step onto the arch?",
@@ -24315,6 +24439,10 @@
    "en": "for the Special Tactical Forces...",
    "zh": "特種戰術部隊的斥候……"
   },
+  "22440": {
+   "en": "\u0011NO/\u0012YE/\u0012SURE/\u0012OK/",
+   "zh": "\u0011否/\u0012好/\u0012當然/\u0012確定/"
+  },
   "22442": {
    "en": "Are you here to enlist?",
    "zh": "你們是來應募的嗎？"
@@ -24423,6 +24551,10 @@
    "en": "somebody else in the universe knows how to have a good time...",
    "zh": "懂得怎麼狂歡作樂……"
   },
+  "22500": {
+   "en": "\u000eNO/\u000fYE/\u000fSURE/\u000fOK/",
+   "zh": "\u000e否/\u000f好/\u000f當然/\u000f確定/"
+  },
   "22502": {
    "en": "May I see your orders?",
    "zh": "可以看看你們的命令嗎？"
@@ -24514,6 +24646,10 @@
   "22544": {
    "en": "That is, Special Tactical Forces, scouting operations and the like...",
    "zh": "也就是特種戰術部隊，斥候任務之類的……"
+  },
+  "22550": {
+   "en": "\u0011NO/\u0012YE/\u0012SURE/\u0012OK/",
+   "zh": "\u0011否/\u0012好/\u0012當然/\u0012確定/"
   },
   "22552": {
    "en": "Do you want to enlist as scouts for the Imperial Umpani Federation?",
@@ -24651,6 +24787,10 @@
    "en": "Give me a briefing of your mission...",
    "zh": "向我簡報任務經過……"
   },
+  "22615": {
+   "en": "\rNO/\u000eYE/",
+   "zh": "\r否/\u000e好/"
+  },
   "22617": {
    "en": "Did you find any T'Rang hiding out in the area?",
    "zh": "你們在這區發現藏匿的特蘭格了嗎？"
@@ -24662,6 +24802,10 @@
   "22621": {
    "en": "Completing the scouting mission pays 200 gold pieces...",
    "zh": "完成偵察任務可獲200金幣……"
+  },
+  "22625": {
+   "en": "\u000bNO/\fYE/",
+   "zh": "\u000b否/\f好/"
   },
   "22627": {
    "en": "Did you destroy them?",
@@ -24767,6 +24911,10 @@
    "en": "It's about time you recruits got back!",
    "zh": "你們這些新兵總算回來了！"
   },
+  "22675": {
+   "en": "\bNO/\tYE/",
+   "zh": "\b否/\t好/"
+  },
   "22677": {
    "en": "You delivered the message to Rodan Lewarx?",
    "zh": "你們把訊息送到羅丹·勒瓦克斯手上了？"
@@ -24855,6 +25003,10 @@
    "en": "!DEPOT",
    "zh": "倉庫"
   },
+  "22805": {
+   "en": "\u0005NO/\u0006YE/\u0006SURE/\u0006OK",
+   "zh": "\u0005否/\u0006好/\u0006當然/\u0006確定"
+  },
   "22807": {
    "en": "May I see your orders?",
    "zh": "可以看看你們的命令嗎？"
@@ -24899,6 +25051,10 @@
    "en": "That comes to 9250 gold pieces, for the lot...",
    "zh": "全部總計9250金幣……"
   },
+  "22835": {
+   "en": "\bNO/\tYE/\tSURE/\tOK/",
+   "zh": "\b否/\t好/\t當然/\t確定/"
+  },
   "22837": {
    "en": "Do you have 9250 gold pieces?",
    "zh": "你們有9250金幣嗎？"
@@ -24914,6 +25070,10 @@
   "22842": {
    "en": "8000 gold pieces for everything and I'll throw in a Blade as well...",
    "zh": "全部8000金幣，我再送一把刀劍……"
+  },
+  "22845": {
+   "en": "\nNO/\u000bYE/\u000bSURE/\u000bOK/",
+   "zh": "\n否/\u000b好/\u000b當然/\u000b確定/"
   },
   "22847": {
    "en": "Can you pay the 8000 gold pieces?",
@@ -24983,6 +25143,10 @@
    "en": "That'll cost you 14250 gold pieces...",
    "zh": "要價14250金幣……"
   },
+  "22885": {
+   "en": "\u000eNO/\u000fYES/\u000fSURE/\u000fOK/",
+   "zh": "\u000e否/\u000f是/\u000f當然/\u000f確定/"
+  },
   "22887": {
    "en": "Do you want to pay the 14250 gold pieces?",
    "zh": "要付這14250金幣嗎？"
@@ -25022,6 +25186,10 @@
   "22908": {
    "en": "looking object down in his chair and stands up to face you...",
    "zh": "玩意放進椅子裡，起身面對你們……"
+  },
+  "22915": {
+   "en": "\u0004NO/\u0005YE/\u0006RECRUITS/\u0006VICTORY/",
+   "zh": "\u0004否/\u0005好/\u0006新血/\u0006勝利/"
   },
   "22917": {
    "en": "You got Orders to be here?",
@@ -25127,6 +25295,10 @@
    "en": "You'll get the hang of it with lots of practice...",
    "zh": "多練習幾次你就會上手了……"
   },
+  "22950": {
+   "en": "\nNO/\u000bYE/\u000bSURE/\u000bOK/",
+   "zh": "\n否/\u000b好/\u000b當然/\u000b確定/"
+  },
   "22952": {
    "en": "You want to practice on the range?",
    "zh": "你想上靶場練習嗎？"
@@ -25154,6 +25326,10 @@
   "22966": {
    "en": "Three bull's-eyes wins automatic promotion from the Captain...",
    "zh": "射中三次紅心，上尉就會直接晉升你……"
+  },
+  "22970": {
+   "en": "\nNO/\fYE/\fSURE/\fOK/",
+   "zh": "\n否/\f好/\f當然/\f確定/"
   },
   "22972": {
    "en": "You need a six-pack of targets and ammo for 750 gold pieces?",
@@ -25403,6 +25579,10 @@
    "en": "We will pay a handsome reward for information from you...",
    "zh": "我們會為你提供的情報付出優渥的報酬……"
   },
+  "23520": {
+   "en": "\u0007NO/\bYE/\bSURE/\bOK/",
+   "zh": "\u0007否/\b好/\b當然/\b確定/"
+  },
   "23522": {
    "en": "Are you willing to assist us?",
    "zh": "你願意協助我們嗎？"
@@ -25454,6 +25634,10 @@
   "23550": {
    "en": "Hhhsssstt! We have been awaiting your return...",
    "zh": "嘶嘶嘶！我們一直在等你回來……"
+  },
+  "23555": {
+   "en": "\u0004NO/\u0005YE/",
+   "zh": "\u0004否/\u0005好/"
   },
   "23557": {
    "en": "Have you discovered the coordinates of the Umpani Mother Ship?",
@@ -25623,6 +25807,10 @@
    "en": "speak when suddenly his deep booming voice tramples your own...",
    "zh": "開口，他低沉如雷的嗓音驟然碾過你的聲音……"
   },
+  "23665": {
+   "en": "\u0004NO/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005好/\u0005當然/\u0005確定/"
+  },
   "23667": {
    "en": "Do you hand Rodan Lewarx your orders from Sgt. Balbrak?",
    "zh": "你要把巴布拉克中士的命令交給羅丹·勒瓦克斯嗎？"
@@ -25646,6 +25834,10 @@
   "23677": {
    "en": "LET'S HAVE IT, PUPS!",
    "zh": "拿來，小鬼們！"
+  },
+  "23680": {
+   "en": "\u0006NO/\u0007YE/\u0007SURE/\u0007OK/",
+   "zh": "\u0006否/\u0007好/\u0007當然/\u0007確定/"
   },
   "23682": {
    "en": "Do you give Rodan the document from General Yamo?",
@@ -25919,6 +26111,10 @@
    "en": "Papers please...",
    "zh": "請出示證件……"
   },
+  "23815": {
+   "en": "\rNO/\nYE/\nSURE/\nOK/",
+   "zh": "\r否/\n好/\n當然/\n確定/"
+  },
   "23817": {
    "en": "Do you show the Umpani Guardsman your orders?",
    "zh": "你要向恩帕尼衛兵出示命令嗎？"
@@ -26010,6 +26206,10 @@
   "23861": {
    "en": "Let's see your orders...",
    "zh": "讓我看看你的命令……"
+  },
+  "23865": {
+   "en": "\rNO/\u0007YE/\u0007SURE/\u0007OK/",
+   "zh": "\r否/\u0007好/\u0007當然/\u0007確定/"
   },
   "23867": {
    "en": "Do you show the guard your orders?",
@@ -26190,6 +26390,10 @@
   "23935": {
    "en": "Orders!",
    "zh": "出示命令！"
+  },
+  "23940": {
+   "en": "\tNO/\u0007YE/\u0007SURE/\u0007OK/",
+   "zh": "\t否/\u0007好/\u0007當然/\u0007確定/"
   },
   "23942": {
    "en": "Do you show the soldier your orders?",
@@ -26535,6 +26739,10 @@
    "en": "Present your orders...",
    "zh": "出示命令……"
   },
+  "24065": {
+   "en": "\u0004NO/\u0005YE/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005好/\u0005當然/\u0005確定/"
+  },
   "24067": {
    "en": "Do you give the Armsman your orders?",
    "zh": "要把命令交給士兵嗎？"
@@ -26839,6 +27047,10 @@
    "en": "The Fellowship of Dane welcomes ye, good brothers...",
    "zh": "丹恩團契歡迎爾等，善良的弟兄們……"
   },
+  "24245": {
+   "en": "\u0002NO/\u0003YES/",
+   "zh": "\u0002否/\u0003是/"
+  },
   "24247": {
    "en": "Hast ye heard the word?",
    "zh": "爾等可曾聽聞聖言？"
@@ -26862,6 +27074,10 @@
   "24258": {
    "en": "And thus ye seek the way of the Fellowship...",
    "zh": "因而爾等尋求團契之道……"
+  },
+  "24260": {
+   "en": "\u0004NO/\u0005YES/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005是/\u0005當然/\u0005確定/"
   },
   "24262": {
    "en": "Dost ye wish the help of the Fellowship?",
@@ -26906,6 +27122,10 @@
   "24285": {
    "en": "Truely ye dost already see the light, fine brothers!",
    "zh": "弟兄們，你們確實已見到真光了！"
+  },
+  "24290": {
+   "en": "\bNO/\nYES/\nSURE/\nOK/",
+   "zh": "\b否/\n是/\n當然/\n確定/"
   },
   "24292": {
    "en": "A token shall we say, of 100 gold pieces?",
@@ -27159,6 +27379,10 @@
    "en": "thy rank!",
    "zh": "信物！"
   },
+  "24490": {
+   "en": "\bNO/\tYES/\tSURE/\tOK/",
+   "zh": "\b否/\t是/\t當然/\t確定/"
+  },
   "24492": {
    "en": "Will ye accept thy Fellowship dues?",
    "zh": "你們願意繳交團契會費嗎？"
@@ -27310,6 +27534,10 @@
   "24607": {
    "en": "This is the inner kingdom, the land of peace and true knowledge...",
    "zh": "這是內在的王國，安寧與真知之地……"
+  },
+  "24610": {
+   "en": "\u0002NO/\u0003YES/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003是/\u0003當然/\u0003確定/"
   },
   "24612": {
    "en": "Dost ye wish to learn?",
@@ -29535,6 +29763,10 @@
    "en": "The doorway hatch slides back, opening the entrance to the ship...",
    "zh": "艙門滑開，敞開了這艘船的入口……"
   },
+  "25940": {
+   "en": "\u0004NO/\u0005YES/",
+   "zh": "\u0004否/\u0005是/"
+  },
   "25942": {
    "en": "Do you wish to enter the ship?",
    "zh": "你要進入這艘船嗎？"
@@ -29555,6 +29787,10 @@
    "en": "How to restore life to the slumbering bird, however, is not apparent...",
    "zh": "然而，如何喚醒這隻沉睡之鳥，卻無從得知……"
   },
+  "25950": {
+   "en": "\u0006NO/\u0007YES/",
+   "zh": "\u0006否/\u0007是/"
+  },
   "25952": {
    "en": "Do you wish to search the ship?",
    "zh": "你要搜索這艘船嗎？"
@@ -29571,6 +29807,10 @@
    "en": "Upon the main console of the ship rests a small black box...",
    "zh": "船的主控台上放著一個小黑盒……"
   },
+  "25965": {
+   "en": "\tNO/\nYES/",
+   "zh": "\t否/\n是/"
+  },
   "25967": {
    "en": "Do you want to open the black box?",
    "zh": "你要打開這個黑盒子嗎？"
@@ -29586,6 +29826,10 @@
   "25972": {
    "en": "parchment...",
    "zh": "羊皮紙……"
+  },
+  "25975": {
+   "en": "\fNO/\rYES/",
+   "zh": "\f否/\r是/"
   },
   "25977": {
    "en": "Do you wish to search some more?",
@@ -29758,6 +30002,10 @@
   "26133": {
    "en": "When I ask of you, &'What is the question?'",
    "zh": "當我問你：&『問題是什麼？』"
+  },
+  "26135": {
+   "en": "\u0002MAN/\u0002WOMAN/",
+   "zh": "\u0002男/\u0002女/"
   },
   "26137": {
    "en": "What do you reply?",
@@ -31623,6 +31871,10 @@
    "en": "a shimmering figure begins to materialize...",
    "zh": "一道微光人影開始顯形……"
   },
+  "27695": {
+   "en": "\u0004NO/\u0005YES/",
+   "zh": "\u0004否/\u0005是/"
+  },
   "27697": {
    "en": "Did you find the special keys?",
    "zh": "你找到特殊鑰匙了嗎？"
@@ -31651,6 +31903,10 @@
    "en": "The Dark Savant mentioned something about needing special keys...",
    "zh": "黑暗賢者提過需要特殊鑰匙的事……"
   },
+  "27710": {
+   "en": "\u0004NO/\u0005YES/",
+   "zh": "\u0004否/\u0005是/"
+  },
   "27712": {
    "en": "Do you know what he was talking about?",
    "zh": "你知道他在說什麼嗎？"
@@ -31675,9 +31931,17 @@
    "en": "what you might have missed...",
    "zh": "自己究竟漏掉了什麼……"
   },
+  "27730": {
+   "en": "\u0006NO/\u0007YES/",
+   "zh": "\u0006否/\u0007是/"
+  },
   "27732": {
    "en": "Have you tried using them?",
    "zh": "你試過用它們了嗎？"
+  },
+  "27735": {
+   "en": "\u0004NO/\u0007YES/",
+   "zh": "\u0004否/\u0007是/"
   },
   "27737": {
    "en": "Do you even have them?",
@@ -31686,6 +31950,10 @@
   "27740": {
    "en": "I think there is supposed to be more than one key!",
    "zh": "我記得鑰匙應該不止一把！"
+  },
+  "27745": {
+   "en": "\u0004NO/\bYES/\bOK/\bSURE/",
+   "zh": "\u0004否/\b是/\b確定/\b當然/"
   },
   "27747": {
    "en": "Maybe I should try, what do you say?",
@@ -32158,6 +32426,10 @@
   "27934": {
    "en": "We need a ship!!",
    "zh": "我們需要船！！"
+  },
+  "27955": {
+   "en": "\rNO/\u000eYES/",
+   "zh": "\r否/\u000e是/"
   },
   "27957": {
    "en": "Did you find a spacecraft?",
@@ -33287,6 +33559,10 @@
    "en": "SHRITIS HAS-LITTLE TIME FOR-THE LIKES-OF YOU-HSSSST!",
    "zh": "希里提斯才懶得理你們這種傢伙，嘶！"
   },
+  "29010": {
+   "en": "\u0005NO/\bYES/",
+   "zh": "\u0005否/\b是/"
+  },
   "29012": {
    "en": "HSSST! HAVE-YOU SLAIN-THE FAMED UMPANI-TRACKER, RODAN LEWARX?",
    "zh": "嘶！你們可曾殺了那位有名的恩帕尼追蹤者羅丹·勒瓦克斯？"
@@ -33310,6 +33586,10 @@
   "29021": {
    "en": "THY-VICTORY!",
    "zh": "勝利之證！"
+  },
+  "29025": {
+   "en": "\tNO/\nYES/\nSURE/\nOK/",
+   "zh": "\t否/\n是/\n當然/\n確定/"
   },
   "29027": {
    "en": "HSST! MAY-I SEE-THE MEDALLION?",
@@ -33426,6 +33706,10 @@
   "29125": {
    "en": "The Gorn Army has need of your help...",
    "zh": "高恩大軍需要你們的幫助……"
+  },
+  "29130": {
+   "en": "\u0003NO/\u0004YES/\u0004SURE/\u0004OK/",
+   "zh": "\u0003否/\u0004是/\u0004當然/\u0004確定/"
   },
   "29132": {
    "en": "Will you assist us?",
@@ -33551,6 +33835,10 @@
    "en": "So much for so little, how can you refuse...",
    "zh": "花這麼少得這麼多，怎能拒絕……"
   },
+  "29215": {
+   "en": "\u000fNO/\u0010YES/\u0010SURE/\u0010OK/",
+   "zh": "\u000f否/\u0010是/\u0010當然/\u0010確定/"
+  },
   "29217": {
    "en": "Do we have a deal?",
    "zh": "成交嗎？"
@@ -33639,6 +33927,10 @@
    "en": "the cost of your family obligations...",
    "zh": "家族義務的開銷……"
   },
+  "29260": {
+   "en": "\u0004NO/\u0005YES/\u0005SURE/\u0005OK/",
+   "zh": "\u0004否/\u0005是/\u0005當然/\u0005確定/"
+  },
   "29262": {
    "en": "Will you pay?",
    "zh": "願意付嗎？"
@@ -33683,6 +33975,10 @@
    "en": "Hail, good brothers!",
    "zh": "善良的修士們好！"
   },
+  "29315": {
+   "en": "\u0003NO/\u0004YES/",
+   "zh": "\u0003否/\u0004是/"
+  },
   "29317": {
    "en": "Hast thou heard the word?",
    "zh": "你聽過聖言了嗎？"
@@ -33726,6 +34022,10 @@
   "29338": {
    "en": "evil from thy mind, and the wickedness from thy heart...",
    "zh": "心中的邪念與惡念……"
+  },
+  "29340": {
+   "en": "\u0006NO/\u0007YES/\u0007SURE/\u0007OK/",
+   "zh": "\u0006否/\u0007是/\u0007當然/\u0007確定/"
   },
   "29342": {
    "en": "Will ye make the holy contribution?",
@@ -33823,6 +34123,10 @@
    "en": "I shall rid the world of your unholy pestilence!!!",
    "zh": "我要從世上除掉你這褻瀆的瘟疫！！！"
   },
+  "29435": {
+   "en": "\u0006NO/\u0007YES/",
+   "zh": "\u0006否/\u0007是/"
+  },
   "29437": {
    "en": "Did you receive my letter?",
    "zh": "你收到我的信了嗎？"
@@ -33891,6 +34195,10 @@
    "en": "I'll tear'em to pieces (*hic*), limb from limb!!",
    "zh": "我會把他們撕成碎片（嗝），一肢肢扯斷！！"
   },
+  "29520": {
+   "en": "\u0004NO/\u0005YES/",
+   "zh": "\u0004否/\u0005是/"
+  },
   "29521": {
    "en": "Huh, (*hic*) ?",
    "zh": "咦，（嗝）？"
@@ -33942,6 +34250,10 @@
   "29554": {
    "en": "COME TO ME, MY PETS!!!",
    "zh": "到我這來，寵物們！！！"
+  },
+  "29590": {
+   "en": "\u0002NO/\u0003YES/\u0003SURE/\u0003OK/",
+   "zh": "\u0002否/\u0003是/\u0003當然/\u0003確定/"
   },
   "29592": {
    "en": "Do you wish to join her in battle against the spider-men?",
