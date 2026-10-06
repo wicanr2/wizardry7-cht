@@ -1019,3 +1019,27 @@ overlay 雙 SHA 由 prepare.py 釘選，基底 1132 檔對 sdk-before 逐檔核�
 結論：61,99 事件在控制點擊後進入戰鬥（R957 前進點擊之後第二例，本輪為右轉點擊），
 本輪未找到繞行分支；該點未試操作剩左轉。R969 逐組裁決維持，無缺口解除，
 008 仍 DRAFT。完整收據只留本機（workplace/r970），提交限索引、SHA 與脫敏報告。
+
+<a id="r971-left-turn"></a>
+
+## R971：61,99 左轉分支探測（2026-10-06）
+
+入口[goal](../goal/R971-left-turn-branch.md)。契約首輪 0 阻擋／3 應改／7 建議
+（前綴檔級指名、stop 對照表、點擊預算落點等，皆文字層級，修完直接 READY；
+S3 前綴點擊數按實測訂正為 64＋2 暖機，cap 70）。
+
+執行：81 點前綴（R970 封存前 81，Finish 尾記排除）逐點一致；第 1 新操作左轉
+140,166 後即入戰鬥畫面（敵群＋戰鬥指令列，同格 61,99），用 1／6，依規則停。
+82／82 PNG 對兩側全等，兩側 exit 0；29 目標 0 命中、手冊 0、詞庫 102 沿舊、
+no_responses 3 無新增、scratch 空。Y1 正名驗證：new_commands 1、new_clicks 1、
+new_waits_split 0。stop.json（battle＋label／step＋可見特徵）與末快照一致；
+run-log 覆蓋 prepbuild／drive／control＋check／check2／check3／seal 各階段退出碼。
+期中工具修正兩筆（G1／G2 理據）：check.py run-log 門檻 ≥4→≥2（驗收時點僅 2 筆；
+終版 5 筆高於新舊門檻；下輪 drive 前寫定≥4，時間戳以 run-log 內戳為準），
+sources-before／candidate-sha 同步 check.py 自身 SHA（探針二進位 drive 前已釘選，
+證據不受影響；下輪 drive 前凍結工具 SHA）。結果審查 0 阻擋／0 應改／2 建議。
+封存 205 產物 SHA 30e6727d…。
+
+結論：61,99 三向控制點擊（前進 R957、右轉 R970、左轉本輪）皆入戰鬥，
+該點無繞行分支；往東推進須先過戰鬥（單人隊伍 R963 已證戰死）或另尋他路。
+R969 裁決維持，008 仍 DRAFT。完整收據只留本機（workplace/r971）。
