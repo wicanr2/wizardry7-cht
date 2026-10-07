@@ -1457,3 +1457,8 @@ R974比較來源SHA缺口已補守門，展示無未解除阻擋／應改；正�
 建議只待使用者確認新亮度與毛筆樣張，不重選甲的大小與字重。
 全部22PNG／11,673,386像素核同；原生FreeType C路徑與ctypes輸出完整一致，
 授權原文副本逐bytes同。來源及輸出保持，正式READY與正常GUI仍未放行。
+
+來源`4f47240`已推送private main；[#22進度](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6044031794)
+與[#28進度](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6044032980)含尾LF全文回讀相同，
+兩Issue保持OPEN。亮字與毛筆樣張已送使用者確認具體效果，甲的大小與字重不重問。
+自有容器、工作根root-owned／誤建`.md`目錄0；原型保留待查看，R433保持未追蹤。
