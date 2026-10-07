@@ -1351,3 +1351,8 @@ R971991與含既有補丁的SDK1134；根擁有權及誤建md目錄0。
 重生命令已補GOCACHE／GOPROXY／GOSUMDB。025紙頁增補維持DRAFT。
 採認後刪除R973共1427檔、77,286,736 bytes，刪前正式報告SHA相符，
 刪前後2531份列出輸入全同；R972及R973均不存在。正式探針與獨立檢查工具保留。
+
+驗收及清理提交`1f0ba5b`已推送private main；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6035513502)
+與[#28](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6035516451)進度均含尾LF逐字回讀相同，
+兩Issue保持OPEN。五份本輪／R972的明確tmp中繼檔已刪除，自有容器0。
+工作樹僅留下原有未追蹤R433，未混入提交；本輪完成來源復核及清理，不稱紙頁正式中文完成。
