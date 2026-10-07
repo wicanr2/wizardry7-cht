@@ -127,6 +127,118 @@ python3 /src/tools/re/check_intro_source.py /out/observed /out/control --output 
 包含完整畫格、私人報告、binary與Go快取；刪除前後2531份列出輸入全同。
 R972與R973目錄均不存在。正式探針、獨立檢查器與上述摘要保留，可從自備原版重生來源。
 
+<a id="r974-paper-contract-rebuild"></a>
+## R974 紙頁中文候選重建
+
+2026-10-07，沿[本輪目標](../goal/R974-paper-contract-rebuild.md)，接續R973原版來源復核。
+重啟前已留下六張完整轉送畫格，`source/observation.json` SHA仍為
+`e3bd344632e02703eb2bb83d3a24af2c737525e9009d37f6f1c40bbba7df4522`，
+六張indexed及固定色盤完整SHA與本檔R973表相同。接手後只重建候選，未再次跑原版。
+
+使用既有Docker映像`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`、
+Python3.11.2；repo、原版畫格與兩字型唯讀，只有本輪輸出可寫，UID/GID1000:1000。
+原版版本與DS.EXE SHA沿R973；定位是完整畫格的indexed SHA，步數只作來源出處。
+沒有讀取MSG、手冊、答案或其他原版文字，也沒有原版記憶體寫入。
+
+重建入口：[prototype_intro_paper.py](../../tools/re/prototype_intro_paper.py)、
+[文字與座標候選](../../tools/re/intro_paper_candidate.json)，
+獨立檢查入口：[check_intro_paper_candidate.py](../../tools/re/check_intro_paper_candidate.py)。
+這些來源進版控，原圖、原字型、候選PNG與詳細收據只留本機。
+文案是「呈獻」「奇幻／角色扮演／遊戲」「作者」，作者姓名保留英文。
+字帶、可見紙面、字格中心與作者保護區均是新候選，不當原版幾何已證實。
+
+候選背景限制在字帶與可見紙面的交集。同一紙面排除所有候選字帶及作者保護區後，
+只取R>G>B、5G≥3R及G−B≥16的紙色，按x／y奇偶分四組，各至少八點。
+每個目標點取同組最近八點，權重為`1 / ((sx-x)^2 + (sy-y)^2 + 1)`，
+各RGB通道加權平均後採四捨六入五成雙。距離相同時按y／x排序。
+這是周邊紙紋近似，未解原版無字底圖；補底仍有明顯接縫。
+部分遮蔽頁三行移到可見紙面，不縮字、不旋轉、不裁字。
+
+最終候選為`workplace/r974/candidate-v4-unifont/`與`candidate-v4-eten/`，
+每套六張、兩倍率，共24張。原生Unifont16及倚天15字模保持，字距2像素。
+第六張沒有中文或補底，完整原圖保持。主代理逐張檢視五張有字Unifont3倍候選，
+外觀仍待使用者確認；[本機對照入口](../../workplace/r974/compare.html)保留待查看。
+
+獨立工具直接解析固定HEX及倚天Big5字模，不匯入候選的印字、補底或多邊形函式。
+24張共9,984,000像素，12個原生字元、11,458個前景點相符，
+字格出候選紙面、字格重疊、候選作者保護區變更、批准補底及字模筆畫外差異皆0。
+48張原版／候選PNG核CRC、尺寸及完整原版色盤展開。
+不把候選座標本身當獨立原版oracle；補底區內字模零位元的背景、英文殘筆與補底品質沒有獨立期望。
+沒有正式GUI、新舊原版同狀態中文覆繪或全遊戲完成聲明。
+
+`source-before.json`列出的1543份既有輸入與兩套固定字型保持。
+本機Unifont原路徑已不存在，本輪沿現存相同SHA來源，
+`/home/anr2/cht/golden_box/拯救地球/workplace/unifont-src/unifont_all-17.0.05.hex.gz`唯讀掛載；
+倚天沿`/home/anr2/cht/etan_font/stdfont.15`。工具依固定SHA拒絕其他版本。
+Unifont SHA為`7b182454966046d35482469b979edce7d262fab5c53c2180e9b1fbb5d0b5e574`；
+倚天SHA為`39ba9c8519d75fe11d5988a8a27e6daa5794ad2ea215108390b0d7e9e53ff701`。
+輸出擁有權及誤建`.md`目錄異常0；自有容器清理與獨立審查另補。
+審查指出先前把本輪根目錄掛到`/out`，讓同目錄`source/`產生可寫別名。
+工具未寫該來源，六張indexed／palette與觀察JSON保持既有SHA；仍屬隔離配置缺口。
+以下重跑命令改成獨立輸出子目錄，repo及原版畫格只由`/src:ro`讀取。
+修正後已在獨立`rebuild-output`掛載乾淨重建雙字型24張；52份PNG／收據／HTML
+與已審v4逐位元相同，輸出1000:1000。原版來源僅從repo唯讀掛載讀取，沒有可寫來源別名。
+
+| 來源／本機收據 | SHA-256 |
+|---|---|
+| `prototype_intro_paper.py` | `216c0d4a497593382abdda32cd6d9831ee4e2d55f7a37d3e0c0ddd3b7c822660` |
+| `intro_paper_candidate.json` | `1a9632b661b106367adffc2a8336808fe38202e60080620e897072e2fdcf5a22` |
+| `check_intro_paper_candidate.py` | `fbb98f530606d540f5da13642461909411e4a0a8f9f00934411106386a91f9e3` |
+| `candidate-check-v4.json` | `501c10dc6c35395d4df6eb3fa898d5ad375909972612376b0f21efc3d3dd01ab` |
+| `integrity-v4.json` | `161900242f90c24e7e656f194b9646d48370b8882607e791e65e415ef8acca53` |
+| Unifont `receipt.json` | `e93d35efc9a3e4e3c3fd000d91090ea3b0697d6087c5ba9e803cbbeabda22ea9` |
+| 倚天 `receipt.json` | `aab6a4ed8f008c57a6f40951fa4c96b21df11ce36fd77cb8b91e598871a1e37b` |
+| `rebuild-output/rebuild-check.json` | `a752aaf4043d294f42e7754a6395304c372cbbc17e505c087c1d402aebebec95` |
+| `review-prototype.json` | `56448a977e0214949a51cd8182a98acba630da593b92660590e0a124f8ba30e8` |
+| `review-prototype.md` | `ad1b86c5c554ec61daae0f999fd32a4a77a291847f8892ab8cd4180b3b6b9a36` |
+
+重跑命令只在非root、離線、有界Docker內執行。`/src`為repo唯讀、`/font`及`/eten`為固定原字型唯讀，
+`/out`為已存在的新輸出目錄；各候選目錄或報告已存在時拒絕覆寫。
+
+```text
+PYTHONDONTWRITEBYTECODE=1 WIZ7_FONT=unifont WIZ7_UNIFONT_HEX=/font/unifont_all-17.0.05.hex.gz python3 /src/tools/re/prototype_intro_paper.py /src/workplace/r974/source /out/candidate-unifont --eten-font /eten/stdfont.15
+PYTHONDONTWRITEBYTECODE=1 WIZ7_FONT=eten python3 /src/tools/re/prototype_intro_paper.py /src/workplace/r974/source /out/candidate-eten --eten-font /eten/stdfont.15
+python3 /src/tools/re/check_intro_paper_candidate.py /src/workplace/r974/source /out/candidate-unifont /out/candidate-eten --unifont-hex /font/unifont_all-17.0.05.hex.gz --eten-font /eten/stdfont.15 --output /out/candidate-check.json
+```
+
+本機有界容器命令如下。先在非root容器內建立獨立`rebuild-output`並核UID/GID；
+輸出目錄不存在時，下面的`test -d`會停止，不讓dockerd代建。所有掛載來源均先驗型態。
+以全新候選目錄代替既有`candidate-new-unifont`，不覆寫先前結果。
+
+```sh
+set -eu
+test -d /home/anr2/cht/wizardry7
+test -d /home/anr2/cht/wizardry7/workplace/r974/rebuild-output
+test -d /home/anr2/cht/etan_font
+test -d '/home/anr2/cht/golden_box/拯救地球/workplace/unifont-src'
+timeout --kill-after=5s 120s docker run --rm --name wiz7-r974-rebuild-unifont \
+  --network none --memory 1g --cpus 2 --pids-limit 64 \
+  --log-opt max-size=10m --log-opt max-file=3 --user "$(id -u):$(id -g)" \
+  -e PYTHONDONTWRITEBYTECODE=1 -e WIZ7_FONT=unifont \
+  -e WIZ7_UNIFONT_HEX=/font/unifont_all-17.0.05.hex.gz \
+  -v /home/anr2/cht/wizardry7:/src:ro \
+  -v /home/anr2/cht/wizardry7/workplace/r974/rebuild-output:/out \
+  -v /home/anr2/cht/etan_font:/eten:ro \
+  -v '/home/anr2/cht/golden_box/拯救地球/workplace/unifont-src:/font:ro' \
+  -w /src --entrypoint python3 wizardry7-go-ebiten:latest \
+  tools/re/prototype_intro_paper.py /src/workplace/r974/source \
+  /out/candidate-new-unifont --eten-font /eten/stdfont.15
+```
+
+025紙頁增補仍DRAFT，正式程式與R943六張呈獻保持。
+外觀確認、共同HD／Draw、完整來源見證、背景回退及撤除契約、獨立READY審查與正式驗收仍待。
+十一組、TSV、錄放、冷存讀、音訊及封包門檻保持。待查看候選不提前刪除。
+
+唯讀子代理最終報告[JSON](../../workplace/r974/review-prototype.json)與
+[Markdown](../../workplace/r974/review-prototype.md)已完整回讀、核SHA並採認。
+候選展示未解除阻擋／應改／建議為0／0／1；建議後續新候選把工具與字型識別內嵌receipt，
+本輪外部研究及報告已固定，不重寫已生成候選。隔離配置應改已修正並由主代理乾淨重建核同。
+審查自寫PNG、整數面積幾何及兩字型讀法，獨立重算48PNG／24候選／9,984,000像素／11,458前景點相符，
+75份列出審查輸入前後SHA保持；沒跑主檢查器、重建工具或原版。
+正式READY仍有外觀確認、完整技術契約及可獨立驗收顯示契約三項閘門；
+正常GUI及同狀態中文覆繪須於正式實作後完成，不以候選通過跳關。
+本輪容器及擁有權異常0，未追蹤R433保持；候選及來源保留待查看。
+
 ## R955 頭像頁文字與完成返回
 
 2026-10-04至10-05，入口：[本輪目標](../goal/R955-character-portrait-ui.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`。38份列出cmd來源保持，不稱新建置或完整編譯閉集合；工具鏈沿固定Docker映像、Go1.24.13／Python3.11.2，原版`DS.EXE` SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。repo、SDK、原版與字型唯讀，只有r955可寫；沒有MSG、防拷、內建autoplay、原版記憶體或角色資料注入。

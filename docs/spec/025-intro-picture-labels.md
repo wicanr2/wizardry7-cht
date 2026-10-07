@@ -93,3 +93,20 @@
 原型含本機原版美術，未進Git或發行包。當時比較頁SHA `2945817e1ac3141ac8f3f4b4d7cf0e8179bf4cb69eb1d94035b3831d5f0ac48d`；24張甲圖依檔名排序形成path／sha256清單，以sort_keys、緊湊JSON、UTF-8及無尾LF編碼，集合SHA `c531b1112d6f6a963bc2c35cf631f2eafac15c810f8b33ab1fc0e93d90856d9c`。2026-10-07核對時本機原型與模型已不存在，這些SHA僅保留歷史定位，不能據此還原或核准新模型；正常原版來源復核見[研究025的R973](../re/025-ui-localization-coverage.md#r973-paper-source-recovery)。
 
 本節只記錄已定案外觀，正式技術增補仍DRAFT。須沿已量完整轉送及整幀／色盤見證，補六種構圖的字帶、文案／原生字模、部分遮蔽、共同HD／Draw、背景回退及撤除；規格獨立審查READY後才實作。原型本身不替代正常GUI、新舊原版同狀態及實際覆繪驗收，也不放行未量圖片或把步數當執行期條件。
+
+### R974 重建候選入口
+
+2026-10-07重建的新候選見[本機對照頁](../../workplace/r974/compare.html)，
+來源是[prototype_intro_paper.py](../../tools/re/prototype_intro_paper.py)與
+[intro_paper_candidate.json](../../tools/re/intro_paper_candidate.json)。
+文案、來源SHA、紙面、補底字帶、原生字格中心及作者保護區均可重跑。
+只作DRAFT研究預覽，正式前端不載入這份候選資料。
+
+候選採同奇偶紙色的八近鄰距離加權補底，取樣與補底均限制在同一可見紙面。
+這是新的紋理近似；補底接縫仍明顯，沒有原版無字底圖期望。
+部分遮蔽頁將「奇幻／角色扮演／遊戲」移到可見紙面，保持完整原生字格。
+此版的外觀、補底及重排尚未確認，不能沿R944的舊圖集合SHA直接升級READY。
+
+獨立檢查入口是[check_intro_paper_candidate.py](../../tools/re/check_intro_paper_candidate.py)，
+界線與結果見[研究025的R974](../re/025-ui-localization-coverage.md#r974-paper-contract-rebuild)。
+正式技術增補仍須補共同HD／Draw、來源見證、回退與撤除契約，經外觀確認及獨立READY審查後才實作。
