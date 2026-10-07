@@ -1319,3 +1319,7 @@ R969收尾（同日）：exact-key獨立驗證0錯誤（8569列round-trip、33�
 `e2353da3df1bc41db02c0ce40bb7763e7a4000afebd300af7cd7e20d83d630ea`。
 提交範圍限goal、研究入口、025、CONTEXT與本歷程；圖及完整收據留本機。
 #22保持OPEN，十一組、TSV、其他字型倍率、GUI、存讀、音訊及封包門檻保持。
+
+驗收文件`0ffd20b`已推送；[#22留言6034729523](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6034729523)
+含末尾LF逐字回讀相同，文案SHA `1516f87ead9680921f51a8234b66677ada30d23f39dc4377f85cad31526ddc49`。
+封存25個項目重核保持，回讀收據1000:1000，工作根擁有權及目錄異常0，自有容器0。
