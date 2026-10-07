@@ -6,8 +6,9 @@
 ## R972 譯文上屏抽樣接手複核
 
 2026-10-07，沿[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)及[R972](../goal/R972-sampling.md)，只分析既有收據，不重跑原版。正式程式、譯文、字型保持。
-輸入是`workplace/r972/ab/`的中英文PNG、JSON、A000及色盤，catalog只作正式文字對照；
-完整原版衍生資料、匿名材料及讀值留本機。工具為既有`wizardry7-go-ebiten:latest`，
+當時輸入是R972本機中英文PNG、JSON、A000及色盤，catalog只作正式文字對照。
+完整原版衍生資料、匿名材料、讀值及暫存工具已於驗收後依使用者要求刪除；
+以下數字與雜湊保留，不能直接重跑已清理的收據。工具為既有`wizardry7-go-ebiten:latest`，
 image ID `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`，Go1.24.13、Python3.11.2。
 本輪不新增原執行器binary或EXE來源閉集合驗證。
 證據等級為confirmed，限保存收據的摘要、像素與可見字形核對；遮字仍為未知。
@@ -35,17 +36,96 @@ image ID `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`，Go
 | localization-check.json | `00a203f2e33acd268bf846c7ce93c4d9a6e8cfa178834363b4dedfc38674dc39` |
 | source-sha256.json | `1cf6b50c2e3281bf8b6f1a2a60b1b403149a0d9270d86d7e5e8880602ce7376a` |
 
-重算入口是本機`workplace/r972/takeover-check.py`，只讀舊收據、獨占建立新目錄。
-在既有離線非root容器內先建置`workplace/r972/locheck/main.go`到`/tmp/r972-locheck`，再執行Python入口；
-repo唯讀、只有新收據工作區可寫，不能覆寫舊輸出。204份來源SHA已由唯讀審查全核同，
+當時以離線非root容器內的暫存工具只讀舊收據，獨占建立新輸出。
+repo唯讀、只有新收據工作區可寫，舊輸出未覆寫。204份來源SHA由唯讀審查全核同，
 四檔catalog與記錄基準相符，xlate凍結SHA `08c1692e28b926dd754ca5f4df32ae3a114626dfdcbc944610edccc3c9fb28f4`保持。
-新輸出為`workplace/r972/takeover-20261007/`，人工一致性見`visual-consistency.json`，額外匿名讀值見`visual-review.md`。
+當時輸出為`takeover-20261007/`，人工一致性與額外匿名讀值分別存`visual-consistency.json`及`visual-review.md`。
 `FINAL-manifest.json` SHA `e2353da3df1bc41db02c0ce40bb7763e7a4000afebd300af7cd7e20d83d630ea`，
 封存時再核204份來源及新輸出1000:1000，舊輸出未覆寫。
 
 結論限既有路線、Unifont3倍及12筆抽樣的可見文字；未抽中、倚天、2倍、正式GUI、完整RAM、
 十一組、TSV、存讀檔、音訊及封包均不外推。最終唯讀審查阻擋0、應改0，主代理於FINAL回讀後
 採認12筆中文定位與可見字形覆核完成，審查記錄為新目錄的`review-final.md`。不以此段升級spec狀態。
+
+2026-10-07，R973依使用者指示精確刪除已驗完的`workplace/r972/`，共379檔、26,773,719 bytes。
+刪除前25個FINAL項目及204份來源SHA再次全同；刪除後目錄不存在。
+正式摘要保留，詳細收據已移除，清理及接續入口見[本輪目標](../goal/R973-workspace-cleanup-paper-evidence.md)。
+
+<a id="r973-paper-source-recovery"></a>
+## R973 紙頁來源復核與工作區清理
+
+2026-10-07，沿[R973](../goal/R973-workspace-cleanup-paper-evidence.md)，接續R944已定案紙頁內中文方案。
+本機R944原型、比較頁與排版模型已不存在；先沿已提交
+[片頭唯讀探針](../../tools/re/intro_picture_probe.go)重生正常無輸入原版來源。
+來源檢查入口為[check_intro_source.py](../../tools/re/check_intro_source.py)，不呼叫前端或烘製器，
+只核有／無觀察的原版摘要、完整indexed／色盤及獨立PNG解幀。正式025增補保持DRAFT。
+
+工具為固定`wizardry7-go-ebiten:latest`映像ID
+`1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`，Go1.24.13、Python3.11.2。
+原版`DS.EXE`為Archives版，SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。
+dosgolem本機基線`d16f03a2d8d782024d470606e1f4cb5272b89cd6`含既有未提交補丁，
+本輪未改SDK；前後完整列出1134份非`.git`檔保持，不把HEAD當乾淨來源。
+原版、repo及SDK唯讀，只有本輪輸出可寫，兩程序退出0，無玩家輸入、state或記憶體注入。
+
+confirmed：兩趟各100個固定2M至200M停止點的`Step`、1MiB RAM FNV32與SHA-256摘要、
+indexed／色盤FNV32與SHA-256、滑鼠及模式全同。indexed與色盤另逐bytes核同，
+214張PNG獨立解析CRC、尺寸及按原色盤解幀相符。沒有保存RAM bytes或Regs，不稱完整CPU／RAM逐位元。
+有觀察趟取得14張完整轉送畫格，14個3921入口的原始矩形0／0／319／199與
+5B9B／5AFD返回後取幀順序另核同；SP＋2是原探針擷取條件，未新增返回暫存器收據。
+既有六張呈獻及第一張紙頁的7個已記錄構圖SHA相同。
+六張紙頁來源與當前色盤核對如下，步數只是收據定位，不作runtime畫字條件。
+
+| 完整轉送步數 | indexed SHA-256 |
+|---|---|
+| 73235759 | `0f098eb7bf96d22777424ac0f8bc263534be1441ecc631413d61a2323714411a` |
+| 75322912 | `304fef948a4eacdaab7cf0ba85e3a4e54e5f37d14fddc857e4f2a570b30a9c11` |
+| 77352859 | `accbd133c3c5fd194d02ebc9b273dbde7688b7e5a3049df40e5ca66b2cf90ca1` |
+| 100999086 | `5c53a427a0eaeea9026a2b6e2846380fe433c344e5b7b8ee4fb907145747e9d0` |
+| 103102872 | `56bd0693ef1e4039426474aab61006046150e319201645385179da58f84606ee` |
+| 105202085 | `f63f95bd99e5b95da6e732de86ec8a1317fca6c319a2e1f1ad7b2e5e1f5f2d07` |
+
+六張palette SHA皆為`d689ae136905afa64a9329ddd123426f7e0f3cde6108c034e0249dbab0a9727c`。
+無觀察控制沒有事件資料，觀察趟只計印字入口次數，不讀字串正文或手冊。
+檢查器初稿把固定色盤誤套到最初廠商標誌；實際971527畫格色盤不同。
+依025只限制已量構圖的契約修正核對範圍，以相同原收據乾淨重跑，沒有調原版參數。
+
+新檢查器的7個拒絕案例通過：缺RAM摘要欄、全小寫欄名、截短SHA、改動indexed一個byte、
+截短色盤、PNG CRC錯與既有輸出拒絕且bytes保持。前後2531份列出輸入全同，
+含原版248、R971991、SDK1134、cmd63、既有tools80、text13與font2；新檢查工具另列來源。
+root-owned與誤建`.md`目錄0。規格讀取曾誤寫001檔名，原版執行前已補讀實際scope契約。
+
+| 本輪來源／當時報告 | SHA-256 |
+|---|---|
+| `intro_picture_probe.go` | `144b904d07896aaeef1c4fc63ccf1bbe0e2b3152c6daafac96e767956f241c58` |
+| 原版探針binary | `8809954a18e9ab5cfaaa449a1cb1ef1c3d6ef530916ab9eb68dfd86efa8fa01b` |
+| `check_intro_source.py` | `62d193d14cf3d0e21ea7aba3b22cb7552650dde4eb4a2b61abf169de933f75a3` |
+| source-check-final.json | `7738dd22d5b415310be40dae68b983fedfedf248409a92f896474df8225f6a74` |
+| observed/observation.json | `e3bd344632e02703eb2bb83d3a24af2c737525e9009d37f6f1c40bbba7df4522` |
+| control/observation.json | `78c47e57639ff67ffa1bf2ed7f36dd490624e48228b103e71e117c832b0ead5c` |
+| negative-check-final.json | `6f72f208c8ba884f7b2cf2e99c17a2ad76c228399b98dcb7b13c584ee854e26c` |
+| integrity.json | `5d84942eacd1a16dd51470c7608f6364a22217cd8ee1d8ba0108bc52e789c7fa` |
+| cleanup-r972.json | `a8c6af69c58f3568a2049d0f428b711da36fdec61cfc1b20ba5bb86f83950648` |
+
+可重生來源的命令如下，只在上述離線非root有界容器內執行；`/src`為repo唯讀、
+`/original`為自備`wizar7/`唯讀、`/out`為已存在且UID/GID正確的全新本輪輸出。
+Go快取只寫`/out/gocache`，GOPROXY及GOSUMDB關閉，不借用主機runtime。
+
+```text
+GOCACHE=/out/gocache GOPROXY=off GOSUMDB=off GOFLAGS=-mod=readonly go build -o /out/intro-source-probe ./tools/re/intro_picture_probe.go
+/out/intro-source-probe /original /out/observed on
+/out/intro-source-probe /original /out/control off
+python3 /src/tools/re/check_intro_source.py /out/observed /out/control --output /out/source-check.json
+```
+
+重生只恢復原版六種構圖，無法從舊集合SHA推回中文位置、補底模型或24張選定原型。
+025紙頁增補仍DRAFT，須把可審查的字帶、原生字模位置、部分遮蔽及背景／撤除契約寫齊，
+經獨立READY審查才接正式程式。本輪沒有新中文上屏、GUI、字型、TSV或全遊戲完成聲明。
+獨立唯讀審查阻擋0、應改0、建議1，主代理完整回讀採認原版來源恢復及清理證據。
+審查者獨立重算正式結果及7個拒絕案例相符，另驗`Mem=null`拒絕；
+建議的建置環境變數已直接補入命令。025紙頁增補保持DRAFT。
+依使用者驗收後清理要求，審查採認後已刪除`workplace/r973/`共1427檔、77,286,736 bytes，
+包含完整畫格、私人報告、binary與Go快取；刪除前後2531份列出輸入全同。
+R972與R973目錄均不存在。正式探針、獨立檢查器與上述摘要保留，可從自備原版重生來源。
 
 ## R955 頭像頁文字與完成返回
 
@@ -541,7 +621,7 @@ R942把73235759判成「無呈獻」過早。主代理重新檢視完整indexed�
 | 103102872 | 紙頁遮住部分角色扮演介紹 |
 | 105202085 | 介紹及作者文字消失 |
 
-[比較頁](../../workplace/r944/compare.html)包含兩種私人原型，各六張、兩倍率、兩字型。甲替換紙頁英文，原生15／16字模維持水平並隨紙頁重排；補底按三條完整英文詞帶分別擬合周邊紙紋，是新繪近似，仍有接縫。乙保持原版圖片，書下加「呈獻」「奇幻角色扮演遊戲」「作者」字幕；圖片英文仍在。文字全消失的第六張兩案皆完整保持原圖。紙頁角點及攤平模型為假說，不能當原版幾何或無字底圖oracle；兩案尚未定版，尚未接正式前端。
+當時私人比較頁包含兩種原型，各六張、兩倍率、兩字型。甲替換紙頁英文，原生15／16字模維持水平並隨紙頁重排；補底按三條完整英文詞帶分別擬合周邊紙紋，是新繪近似，仍有接縫。乙保持原版圖片，書下加「呈獻」「奇幻角色扮演遊戲」「作者」字幕；圖片英文仍在。文字全消失的第六張兩案皆完整保持原圖。紙頁角點及攤平模型為假說，不能當原版幾何或無字底圖oracle。使用者2026-10-05已採用甲，正式技術契約仍DRAFT；2026-10-07核對時比較頁及模型已不存在，恢復界線見[R973](#r973-paper-source-recovery)。
 
 獨立`audit.py`使用PNG CRC／RGB解析、射線閉合字帶及直接解析固定版Unifont HEX／倚天Big5字模，不呼叫候選的補底或印字函式。48張共19,968,000像素，22,916個原生前景像素全符合，批准補底區域及字模筆畫外變更0；54個圖片參照皆存在。字帶與字格位置仍取候選metadata，只核前景筆畫及字格邊界，補底區內的字模零位元背景沒有獨立期望。此檢查不裁決補底品質、英文殘筆、瀏覽器操作或正式GUI，也不是同狀態中文驗收。主代理逐張檢視甲五張有字3倍圖及倚天翻頁2倍，補底接縫如實保留。
 
