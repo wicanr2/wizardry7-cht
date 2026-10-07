@@ -1395,3 +1395,8 @@ R971991與含既有補丁的SDK1134；根擁有權及誤建md目錄0。
 原版來源觀察及六張indexed／色盤再次核SHA保持，所有輸出1000:1000、自有容器0、
 工作根root-owned／誤建`.md`目錄0。報告與乾淨重建SHA收錄研究025。
 正式READY三項閘門保持，候選展示通過不放行正式接線。推送與Issue回讀另補。
+
+來源提交`64c41c8`已推送private main；[#22進度](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6036413888)
+與[#28進度](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6036415430)全文含尾LF回讀相同，
+兩Issue保持OPEN。候選對照頁已送使用者確認文字位置；補底尚未定版，025保持DRAFT。
+其他交付門檻、原版及R433保持；容器0，候選保留待查看。
