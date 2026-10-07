@@ -11,6 +11,8 @@
 - 完整規格獨立審查0／0／0採認後接線；暫名新027與既有027重印規格碰撞，已改為028並修所有正式入口。歷史審查報告沿原SHA，沒有改數值契約。原R943對照HTML已不存在，撤去失效連結並保留歷史路徑，不重開已驗舊功能。
 - 正式兩後端、主選單2／3倍與紙頁3倍正常GUI通過：35個原版完整狀態、31,360,000 HD／Draw像素；字樣與R976定版相同。首次headless控制與GUI的Mouse不同，改用同GUI控制重跑，沒有修改產品配合錯誤條件。錄放非法family訊息加固定缺譯token，沿既有privacy泛化，不印payload。
 - 實作／烘製／已量收據獨立審查0／0／0已完整回讀採認，獨立抽16對圖共15,872,000像素、兩後端39,962個alpha及24原glyph通過。完整前端含真實captured守門1.546s通過；最終89來源身份重建，另抽Unifont3倍7點8,064,000像素通過。Source／binary／報告SHA及範圍見[R977](docs/goal/R977-approved-ui-wiring.md)與[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍、音訊與整體交付門檻保持。
+- 正式接線已提交並push af09fe6，遠端仍private。結果留言已完整回讀：[#22](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6046250221)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6046295214)，兩議題目前OPEN。#28首次自動審批逾時未執行，依返回規則重試一次成功；沒有以此判產品或動作不安全。
+- 最後401個本機連結無失效、89份編譯來源與binary SHA相符，輸出擁有權與md目錄異常0，自有R977容器0。未追蹤R433保持，原版、字型、畫面及資料包未提交；本輪没有建立公開交付包。
 
 ## 2026-09-30：R669，文件職責遷移（#27）
 
