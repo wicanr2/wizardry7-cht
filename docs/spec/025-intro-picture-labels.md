@@ -110,3 +110,17 @@
 獨立檢查入口是[check_intro_paper_candidate.py](../../tools/re/check_intro_paper_candidate.py)，
 界線與結果見[研究025的R974](../re/025-ui-localization-coverage.md#r974-paper-contract-rebuild)。
 正式技術增補仍須補共同HD／Draw、來源見證、回退與撤除契約，經外觀確認及獨立READY審查後才實作。
+
+### R975 字樣大小與厚度續調
+
+使用者於2026-10-07指出R974字偏小，要求像原版一樣厚實，亮度可稍亮。
+最新要求優先，R974位置與1:1顯示尺寸暫不定版。
+[R975](../goal/R975-paper-letter-weight.md)以兩套既有原字模作2倍整數放大，
+在3倍畫布畫30／32像素字樣，比較水平加粗1像素與不額外加粗。
+兩案均提亮。傾斜頁「角色扮演」分為兩行，呈獻與翻起頁作者字格微移以容納完整筆畫。
+
+原型入口：[prototype_intro_paper_weight.py](../../tools/re/prototype_intro_paper_weight.py)、
+[本機對照頁](../../workplace/r975/compare.html)、[研究025的R975](../re/025-ui-localization-coverage.md#r975-paper-letter-weight)。
+這是紙頁外觀候選，尚未確認，不修改007的一般字型、正式字型資料或前端。
+整數放大與加粗屬新的顯示效果，不能套用R944「原生1:1」定案當已核准。
+025紙頁增補維持DRAFT；2倍畫布與正式背景、來源見證、HD／Draw、回退及撤除仍待。

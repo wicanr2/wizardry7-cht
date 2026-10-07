@@ -239,6 +239,81 @@ timeout --kill-after=5s 120s docker run --rm --name wiz7-r974-rebuild-unifont \
 正常GUI及同狀態中文覆繪須於正式實作後完成，不以候選通過跳關。
 本輪容器及擁有權異常0，未追蹤R433保持；候選及來源保留待查看。
 
+<a id="r975-paper-letter-weight"></a>
+## R975 紙頁字樣放大、加粗與提亮
+
+2026-10-07，沿[本輪目標](../goal/R975-paper-letter-weight.md)，處理使用者指出R974字偏小、
+要求原版般厚實及稍亮的字樣。R974的15／16像素字形在960×600畫布仍為1:1，
+原版圖片文字則隨畫布放大，是相對大小不同的直接原因。
+本輪不改正式字型或前端；新紙頁效果由[可重跑工具](../../tools/re/prototype_intro_paper_weight.py)產生。
+
+原版來源沿R973／R974六張紙頁完整SHA，實際只用前五張有字畫格。
+原版DS.EXE版本與SHA沿本檔R973；未再次執行原版，不讀MSG、手冊或答案。
+背景固定R974的`1a9632b6…`模型與`216c0d4a…`工具，完整SHA由工具守門。
+原版畫格、原字模及R974比較來源只讀。背景仍有條紋，此輪不改它，供字樣並列比較。
+
+兩套原字模均完整整數放大2倍為倚天30及Unifont32像素。
+甲將放大後筆畫向右增1像素，乙不額外加粗；字距4，中文字保持水平。
+紅字由R974的156／20／12改為196／36／20，深色字由原版palette[0]改為40／28／16。
+亮度相對R974提高，並不宣稱已量原版所有圖片字樣的同一亮度。
+五張構圖、雙字型、兩厚度共20候選，另10原版及10R974對照，均為960×600。
+傾斜頁將「角色扮演」分兩行；呈獻及翻起頁作者中心微移，完整字格避免出紙面與作者區。
+這是新候選幾何，沒有原版排版精確聲明。
+
+本機入口：[字樣對照](../../workplace/r975/compare.html)，最終輸出在
+`workplace/r975/final-output/unifont/`與`eten/`。
+完整收據保存字模、工具SHA、Python版本、固定R974比較收據SHA及逐張PNG SHA。
+原圖、字型與候選PNG只留本機，譯文與正常遊戲資料保持。
+
+原型先由既有wizardry7-go-ebiten映像`1d7a342d…`與Python3.11.2產生。
+其後Docker回報原名稱及完整ID均不存在，原因未知，沒有自行刪除或另建映像。
+本輪標準函式庫工具改沿現存`python:3.13-bookworm`，實測Python3.13.15，固定完整ID
+`933b46a028fd786c9c3d426ebabc237e29a15912231ea8de576e95f0e4f41a4c`。
+同來源乾淨重建44份檔案與舊版逐位元相同；補來源守門與metadata後，再核40PNG完全相同，
+收據變動只及工具SHA、Python版本及R974比較來源SHA。
+這個映像只支援本輪Python原型／檢查，沒有Go／GUI工具鏈恢復或前端驗收聲明。
+正式工具建置來源仍為[go-ebiten.Dockerfile](../../tools/docker/go-ebiten.Dockerfile)。
+
+生成及重建均為離線、UID/GID1000:1000、1GiB／2CPU／64pids、有界一次性容器。
+repo、來源及字型唯讀，僅獨立輸出子目錄可寫，不產生來源可寫別名。
+本輪所有輸出擁有權及誤建`.md`目錄異常0。
+候選尚未定版，025仍DRAFT，沒有正式GUI、原版中英文同狀態或2倍畫布驗收。
+
+獨立唯讀審查[JSON](../../workplace/r975/review-weight.json)與
+[Markdown](../../workplace/r975/review-weight.md)已完整回讀、核SHA並採認。
+展示無未解除阻擋／應改；原先R974比較來源缺固定SHA已補工具及收據守門。
+建議由使用者看甲乙後選字重，沒有替使用者決定新外觀或放行正式READY。
+
+審查自寫PNG、Big5／HEX、整數winding幾何及固定背景公式，不匯入被測工具。
+40PNG共23,040,000像素，20候選11,520,000像素逐點相符。
+12字×2來源共24原字模、168次出現、11,458個來源筆畫點完整放大，前景共51,674點。
+72字條完整，字格越界／交疊、候選作者保護區及宣告範圍外差異0；
+76份列出審查輸入的SHA及UID/GID前後保持。兩字重與R974的固定背景一致。
+這些結果只證明新字樣符合候選契約，不裁決補底品質、完整作者幾何或正式玩家顯示路徑。
+
+| 來源／本機收據 | SHA-256 |
+|---|---|
+| `prototype_intro_paper_weight.py` | `01206ea5ed2e99d570fca5f42fd59a33b5e969ae944a1a9856c2911627825f44` |
+| 最終Unifont `receipt.json` | `e9beb480bc01eb6a18962451e597d74373590161e0b1808f17baa5d8d78b43a9` |
+| 最終倚天 `receipt.json` | `1981685b5f95aea56819f6bb8fbd345ee848717d667601e5eb1bdc235da5aece` |
+| `rebuild-313/cross-runtime.json` | `4754859755bc461215e50cf06d1811866cfa68daab5daec2dbc6185bda8d2513` |
+| `final-output/final-equality.json` | `78ae62c21260c93485ac3f6379824e592dee66b9c10ac351ebe360b63aff4453` |
+| `review-weight.json` | `a99c9dc8281e2f7159a97ba477ef1e866b26fb0e1d2b34935de27fc1b06e6f5f` |
+| `review-weight.md` | `5b0cc8e821092d4dbe57ffa55736bb22f3fd33ce11e6dd0ded9497e0a0eff39e` |
+
+重跑沿上述固定Python映像。repo與來源唯讀掛`/src`，兩字型唯讀掛`/eten`及`/font`；
+已存在且UID/GID正確的全新輸出子目錄掛`/out`，不能掛含R974來源的父目錄作可寫輸出。
+沿本輪1GiB／2CPU／64pids、離線、非root、log上限及150秒外層逾時；掛載來源先核型態。
+
+```text
+PYTHONDONTWRITEBYTECODE=1 WIZ7_FONT=unifont WIZ7_UNIFONT_HEX=/font/unifont_all-17.0.05.hex.gz python3 /src/tools/re/prototype_intro_paper_weight.py /src/workplace/r974/source /src/workplace/r974/candidate-v4-unifont /out/unifont --eten-font /eten/stdfont.15
+PYTHONDONTWRITEBYTECODE=1 WIZ7_FONT=eten python3 /src/tools/re/prototype_intro_paper_weight.py /src/workplace/r974/source /src/workplace/r974/candidate-v4-eten /out/eten --eten-font /eten/stdfont.15
+```
+
+唯一獨立核對程式保存在審查JSON的`verification_program`，只在同固定Python容器執行，
+repo及兩原字型只讀；實際掛載與本輪範圍見審查Markdown，不作主機執行入口。
+字樣選擇、補底改善及正式025契約仍待；候選保留供使用者查看，自有容器清理與推送另補。
+
 ## R955 頭像頁文字與完成返回
 
 2026-10-04至10-05，入口：[本輪目標](../goal/R955-character-portrait-ui.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`。38份列出cmd來源保持，不稱新建置或完整編譯閉集合；工具鏈沿固定Docker映像、Go1.24.13／Python3.11.2，原版`DS.EXE` SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。repo、SDK、原版與字型唯讀，只有r955可寫；沒有MSG、防拷、內建autoplay、原版記憶體或角色資料注入。
