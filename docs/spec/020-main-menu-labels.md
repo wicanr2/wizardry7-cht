@@ -50,3 +50,14 @@
 - 正式GUI所測catalog與Go不變，字型及binary的輸入不變；核原10個產物雜湊即可，不重跑已通過的GUI。同步的兩筆有效生成來源及補充規格須另經唯讀複核。
 
 兩個有效來源已同步；AST及setdefault核8,825筆zh皆與正式catalog相同，其餘8,823筆保持。批次JSON除指定值外只補末尾換行，欄位不變；沒有執行產生器或讀原始訊息。10個GUI所測產物雜湊保持，收據及補審依[025](../re/025-ui-localization-coverage.md)回查。
+
+## R976 主選單毛筆字樣增補
+
+狀態：DRAFT。2026-10-08使用者要求選單文字採毛筆體，確認範圍為主選單六個按鈕。
+先以[AR PL UKai TW字面](../../font/brush-menu-source.md)做[兩倍率字樣樣張](../../workplace/r976/menu/compare.html)，
+文案仍取正式catalog六個英文鍵，沿上表109×9按鈕尺寸。
+來源、FreeType版本及完整字模驗證見[研究025的R976](../re/025-ui-localization-coverage.md#r976-bright-paper-brush-menu)。
+
+樣張字模直接以16／24像素渲染，置於自製按鈕尺寸板內，未改原版按鈕、操作、譯文或一般訊息字型。
+此版具體字樣與位置尚待外觀確認；正式來源辨識、資料格式、HD／Draw、回退及撤除契約另補READY審查。
+本節不放行正式接線，不把字樣樣張當原版或GUI收據；前述既有點陣標籤驗收範圍保持。

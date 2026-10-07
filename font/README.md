@@ -73,3 +73,6 @@ python3 tools/re/probe_font.py /font/unifont_all-17.0.05.hex.gz \
 
 獨立位圖驗證入口為[check_native_font.py](../tools/re/check_native_font.py)；
 `--baked-only`只驗烘製資料，完整同狀態模式還需要研究018所列原版收據。
+
+主選單六按鈕的毛筆楷體候選另見[字型來源](brush-menu-source.md)。
+R976只作字樣原型，正式接線未完成，不修改上述一般字型入口。

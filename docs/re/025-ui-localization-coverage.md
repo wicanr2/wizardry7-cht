@@ -314,6 +314,88 @@ PYTHONDONTWRITEBYTECODE=1 WIZ7_FONT=eten python3 /src/tools/re/prototype_intro_p
 repo及兩原字型只讀；實際掛載與本輪範圍見審查Markdown，不作主機執行入口。
 字樣選擇、補底改善及正式025契約仍待；候選保留供使用者查看，自有容器清理與推送另補。
 
+<a id="r976-bright-paper-brush-menu"></a>
+## R976 紙頁亮字與六按鈕毛筆字樣
+
+2026-10-08，沿[本輪目標](../goal/R976-bright-paper-brush-menu.md)。使用者採R975甲的大小、加粗及排版，
+指出文字太暗，要求更亮；毛筆體範圍另確認為主選單六個按鈕。
+紙頁只改已採甲的前景RGB；主選單先做符合020按鈕尺寸的字樣樣張，未改正式前端。
+本機入口為[亮字與毛筆對照](../../workplace/r976/compare.html)。
+
+### 紙頁亮字
+
+[亮度工具](../../tools/re/prototype_intro_paper_brightness.py)只讀固定R975兩套最終收據及五張甲圖。
+Unifont收據SHA `e9beb480bc01eb6a18962451e597d74373590161e0b1808f17baa5d8d78b43a9`，
+倚天收據SHA `1981685b5f95aea56819f6bb8fbd345ee848717d667601e5eb1bdc235da5aece`。
+深色字40／28／16改為米金248／232／160，紅字196／36／20改為236／72／40。
+只在原甲字模前景換色，30／32字高、向右增1像素、字距、位置與背景全部保持。
+
+兩套各五張新圖與五張before-copy，共20PNG。獨立審查逐點核新圖5,760,000像素，
+只有28,758個前景點換色；新舊形狀、位置、背景與R975候選作者區差異0。
+原甲圖及收據完整SHA保持，不從使用者附圖的plain檔名推翻明示採甲的指示。
+不稱原版CPU、記憶體或正式GUI的同狀態新驗收，R974補底條紋仍在。
+
+### 六按鈕毛筆字樣
+
+[毛筆預覽](../../tools/re/preview_menu_brush.py)只取正式catalog的六個英文鍵，
+文案為「角色選單」「新增角色」「載入存檔」「系統設定」「匯入巫術六」「結束遊戲」。
+來源ID只作出處；既有catalog沒有修改。六鍵與按鈕尺寸來源為[020](../spec/020-main-menu-labels.md)。
+
+使用本機既有AR PL UKai TW／Book字面，ukai.ttc索引2，
+字型SHA `cfc758e69386a21bade8cb3b373fda20d7f2fac6e8904ced2ded98588b63e274`。
+原授權SHA `1f11c4a22865e1289f4694dad56b3561790a4b7341a511ddcd0edddcc3b95a46`；
+原版套件檔0:0只讀，不修其擁有權，輸出與授權原文副本為1000:1000。
+字型／衍生字模依ARPHIC PUBLIC LICENSE，與程式RRSAL分開；來源及條款見
+[字型來源](../../font/brush-menu-source.md)與[Debian保存的原授權](https://sources.debian.org/src/fonts-arphic-ukai/0.2.20080216.2-5/debian/copyright/)。
+
+[FreeType工具](../../tools/re/font_preview_freetype.py)使用容器內原生庫及標頭，
+Linux64 ABI已與原生C API交叉核對；不掛主機runtime或library。
+字模以FreeType2.12.1直接渲染16／24像素，8位alpha、每字advance加1像素，
+字色248／232／160；按020的109×9按鈕尺寸排2倍與3倍，字模沒有縮放或裁切。
+按鈕及背景為自製字樣板，未使用遊戲截圖，不當正常GUI或原版收據。
+
+獨立C API讀取glyph index後render，交叉核44個字模的完整alpha與metrics一致，
+12字條缺字及越界0；兩樣張153,386個合成像素逐點差異0。
+此結果證明字樣工具與字型來源一致，未放行正式字型接線、原版輸出辨識、按鈕操作或存讀檔。
+
+### 環境與結果採認
+
+沿固定Python3.13.15映像
+`933b46a028fd786c9c3d426ebabc237e29a15912231ea8de576e95f0e4f41a4c`，
+FreeType2.12.1；生成為512MiB／1CPU／64pids，離線、UID/GID1000:1000，有界一次性容器與log上限。
+repo、R975來源、字型與授權唯讀，僅R976獨立輸出可寫；重啟前只寫工具，恢復後確認容器0才開始產圖。
+GitHub開工留言已查到[R976入口](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6043201880)，沒有重複發送。
+
+獨立唯讀報告[JSON](../../workplace/r976/review.json)及[Markdown](../../workplace/r976/review.md)已完整回讀、核SHA並採認。
+審查逐點核22成果PNG共11,673,386像素，49份讀入來源SHA及UID/GID保持。
+展示阻擋／應改／建議為0／0／1，建議看過原尺寸字樣後確認；正式020／025增補仍DRAFT。
+沒有原版執行、messages.json／MSG.DBS、手冊或答案讀取，原版與正常遊戲語意路徑保持。
+
+| 工具／本機收據 | SHA-256 |
+|---|---|
+| 紙頁亮度工具 | `7ae7f84d37c1dfb78a353c3a4579874aebd771c4307346fc06d3a81e043ccfe8` |
+| 毛筆樣張工具 | `89e3969b33f42c7eeb4fb8d91ca49ef69929669d93d5721424d217f36a17732c` |
+| FreeType工具 | `36c6887c8b538defb457015de4917fa770ce8c35c3203b51b9372ec3cdc811ee` |
+| 紙頁Unifont收據 | `afb796b46964f907e68c3a40eeb8af79d93264d3bc1426d140863ff12010cd49` |
+| 紙頁倚天收據 | `ea19ec75516531815b6f7a654b755e3f8ae22abef4e96c0bf4c44581487e82b9` |
+| 毛筆選單收據 | `5d94afe72850c66b4b2526bba048b147988ccbd7a454b68fad92cf9420afd623` |
+| 獨立審查JSON | `8e7387cb3dd192eb67aa9e0ffbc446b1f9b4f4a857b55bb492d2161ac844f0ec` |
+| 獨立審查Markdown | `71c558edcfe52c8d607c8a60743eaba8c620debafa964890d863a2c56d86a90f` |
+
+重跑在上述固定容器執行。repo唯讀掛`/src`、AR PL字型目錄唯讀掛`/brush-fonts`、
+原套件授權目錄唯讀掛`/font-license`；僅全新輸出目錄可寫掛`/out`，掛載前核存在、形態及UID/GID。
+輸出已存在時拒絕覆寫，原型只留本機。
+
+```text
+PYTHONDONTWRITEBYTECODE=1 python3 /src/tools/re/prototype_intro_paper_brightness.py /src/workplace/r975/final-output/unifont /out/paper-unifont
+PYTHONDONTWRITEBYTECODE=1 python3 /src/tools/re/prototype_intro_paper_brightness.py /src/workplace/r975/final-output/eten /out/paper-eten
+PYTHONDONTWRITEBYTECODE=1 python3 /src/tools/re/preview_menu_brush.py /brush-fonts/ukai.ttc /font-license/copyright /out/menu
+```
+
+唯一獨立重跑程式保存在審查JSON，需同映像內原生C編譯器／FreeType標頭，所有來源唯讀。
+紙頁新亮度及六按鈕具體字樣待確認；源字型與原版美術不入Git，候選保留待查看。
+紙頁補底、正式背景／辨識／HD／Draw／回退／撤除及正常GUI／同狀態收據仍待，Go／GUI工具鏈未恢復。
+
 ## R955 頭像頁文字與完成返回
 
 2026-10-04至10-05，入口：[本輪目標](../goal/R955-character-portrait-ui.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`。38份列出cmd來源保持，不稱新建置或完整編譯閉集合；工具鏈沿固定Docker映像、Go1.24.13／Python3.11.2，原版`DS.EXE` SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。repo、SDK、原版與字型唯讀，只有r955可寫；沒有MSG、防拷、內建autoplay、原版記憶體或角色資料注入。
