@@ -661,3 +661,13 @@ revision-7已量到真正按鈕停止、35次續玩、三次完整重播及無�
 只保存有限故障、Step及來源摘要；新片段只在本機核對。真正音訊故障的續玩不要求繼續音訊，仍依009以同一時間軸fallback Pace。關窗造成的中止取樣與關窗前故障分開，以截止時原版OPL觀察碼、playerAudio.fault及Stream摘要判定。本輪不是裝置故障、原版全狀態parity、完整退出交錯或正式格式驗收，013維持DRAFT。
 
 三個真正GUI案例及獨立核對通過。正常控制9.8M停止、15次續玩及關窗exit0；兩種故障9M觸發，故障後各三筆none／完整200k Run。9.6M按鈕停止均回recording_ineligible，72,895 bytes片段無成功末註或正式名，各15次續玩不改檔，原檔與改名副本都拒播，關窗exit2。觀察panic沿Oracle故障碼callback_panic及前端observer_fault，消費錯誤沿Stream／前端sink_failure；故障側沒有繼續合成資格。本輪只解除這兩種已量到的B3路徑，其他故障及正式契約仍待，完整證據見[研究022](../re/022-input-recording-boundary.md#r950-recording-audio-fault)。
+
+## R977 xlate內的兩個顯示家族增補
+
+狀態：READY，隨[028](028-approved-ui-fonts.md)完成獨立READY審查。
+毛筆主選單及紙頁字模作xlate字形包的兩個具名元資料鍵，維持六role、原順序與wiz7-input/1欄位。
+正常模式與錄放只解析同次xlate bytes，不另開兩個未記錄sidecar；
+SHA及size捕整份原bytes，Loaded表示主字形包解碼，不表示每個可選家族已上屏。
+舊字形包無兩鍵時沿原顯示；新家族invalid在兩模式得到同樣nil／回退結果。
+不改B1單檔起設、B3／B4停止、故障或後續續玩的定案，也不把frontend config SHA當畫面驗收。
+Draw應先取原遊戲區，避免200×scale＋40頁尾整窗導致紙頁字樣被錯誤尺寸守門略過。

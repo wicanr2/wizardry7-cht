@@ -18,7 +18,8 @@
 
 ## 重建入口
 
-所有命令須在既有`wizardry7-go-ebiten:latest` Docker容器內、專案根目錄執行。
+字模重建在固定Python3.13.15映像`sha256:933b46a028fd786c9c3d426ebabc237e29a15912231ea8de576e95f0e4f41a4c`內、專案根目錄執行。
+Go建置及靜音GUI沿[R977工具鏈入口](../docs/goal/R977-approved-ui-wiring.md)，不使用已不存在的舊latest映像。
 容器資源、UID/GID、唯讀輸入與清理依[AGENTS.md第10節](../AGENTS.md)；
 將上列本機來源目錄唯讀掛到`/font`，僅輸出目錄可寫。
 以下輸出目錄須為本輪新目錄，不覆寫已驗收的收據：
@@ -76,3 +77,13 @@ python3 tools/re/probe_font.py /font/unifont_all-17.0.05.hex.gz \
 
 主選單六按鈕的毛筆楷體候選另見[字型來源](brush-menu-source.md)。
 R976只作字樣原型，正式接線未完成，不修改上述一般字型入口。
+已定版兩族的正式文案為[主選單TSV](../text/main-menu.zh-TW.tsv)與[紙頁TSV](../text/intro-paper.zh-TW.tsv)，
+完整接線契約見[028](../docs/spec/028-approved-ui-fonts.md)，已READY，驗收範圍沿本輪收據。
+
+一般字型完成烘製後，以[bake_approved_ui.py](../tools/re/bake_approved_ui.py)追加兩族字模。
+容器內指定`--font /brush/ukai.ttc --license /license/copyright --eten-font /eten/stdfont.15`，
+字型及授權目錄唯讀掛載；發行後端沿上面的WIZ7_FONT及WIZ7_UNIFONT_HEX。
+工具驗固定SHA及兩份TSV，缺字或文案不符中止；僅新的xlate輸出可寫。
+原一般字模保持，xlate-legacy.json保存比較輸入，brush-font-copyright.txt另存原授權全文。
+`--go-model`只供從受版控固定模型重生intro_paper_model.go，不含原版畫格。
+R977恢復的Go及靜音GUI映像、原字型所在位置與限額見[R977](../docs/goal/R977-approved-ui-wiring.md)。

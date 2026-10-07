@@ -1,5 +1,7 @@
 # 專案目標
 
+定版紙頁亮字與六按鈕毛筆接線：[R977](R977-approved-ui-wiring.md)，規格[028](../spec/028-approved-ui-fonts.md)。
+
 同文重印保持中文覆繪：[R968](R968-reprint-persistence.md)。
 
 人物2倍重排正式契約：[R966](R966-profile-reflow-contract.md)。

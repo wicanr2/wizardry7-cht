@@ -10,6 +10,7 @@
 package main
 
 import (
+	"crypto/sha256"
 	"encoding/json"
 	"flag"
 	"fmt"
@@ -234,6 +235,7 @@ type overlay struct {
 	profileEnabled  bool
 	profile         *profileReflowState
 	picture         *introPictureState
+	brush           *brushMenuData
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -502,7 +504,12 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 		}
 	}
 	ov.picture.view(o.Indexed(), pal, o.VideoMode()).paintHD(img, k)
+	ov.picture.paperView(o.Indexed(), pal, o.VideoMode(), k).paintHD(img, k)
+	brush := ov.brush.view(shown, comp, pal)
 	for _, e := range shown {
+		if brush.suppress(e, k) {
+			continue
+		}
 		if e.profile != nil {
 			e.profile.view.paint(img)
 			continue
@@ -524,6 +531,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	if ov.flow != nil {
 		flows = ov.flow.flowHD(img, pages, k)
 	}
+	brush.paintHD(img, k)
 	if f, err := os.Create(path); err == nil {
 		png.Encode(f, img)
 		f.Close()
@@ -556,12 +564,16 @@ func hdAtDump(o *oracle.Oracle, ov *overlay, am *automap, dir string, name strin
 	out := struct {
 		Step           uint64
 		Mem, A000, Pal uint32
+		MemorySHA256   string
+		Regs           any
 		Stats          string
 		Mouse          [2]int
 		Shown          []evOut
 		Map            mapJSON
 		Flow           []flowJSON
 	}{Step: o.Steps(), Mem: mem, A000: fnv(a), Pal: fnv(palB), Stats: ov.stats()}
+	out.MemorySHA256 = fmt.Sprintf("%x", sha256.Sum256(o.Bytes(oracle.Addr{Seg: 0, Off: 0}, 0x100000)))
+	out.Regs = o.Regs()
 	out.Mouse[0], out.Mouse[1] = o.Mouse()
 	out.Map = am.json()
 	out.Flow = flows
@@ -601,6 +613,8 @@ type shared struct {
 	mapView              mapView    // 快照節點產生的地圖狀態
 	flow                 []flowView // 有效的流動文字頁（快照節點產生；Draw 消費，spec 006）
 	picture              *introPictureView
+	paper                *introPaperView
+	brush                *brushMenuView
 	stdin                []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks               []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
@@ -610,6 +624,10 @@ type game struct {
 	seenRecordingDraw uint64
 	pictureGlyph      *image.RGBA
 	pictureImage      *ebiten.Image
+	paperView         *introPaperView
+	paperImages       []*ebiten.Image
+	brushView         *brushMenuView
+	brushImages       [2][]*ebiten.Image
 	flow              *flowData                // flow.json（nil＝流動文字關閉）
 	flowImgs          map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
 	help              *helpData                // F1 說明資料（help.json；nil＝缺檔）
@@ -740,17 +758,27 @@ func (g *game) Draw(dst *ebiten.Image) {
 	evs := append([]*textEv(nil), g.sh.evs...)
 	flows := append([]flowView(nil), g.sh.flow...)
 	picture := g.sh.picture
+	paper, brush := g.sh.paper, g.sh.brush
 	publication := g.sh.recordingPublication
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
 		return
+	}
+	gameArea := dst
+	if g.live != nil && !g.live.replay {
+		area := image.Rect(0, 0, 320*g.scale, 200*g.scale)
+		if !area.In(dst.Bounds()) {
+			return
+		}
+		gameArea = dst.SubImage(area).(*ebiten.Image)
 	}
 	g.screen.WritePixels(rgba)
 	var op ebiten.DrawImageOptions
 	op.GeoM.Scale(float64(g.scale), float64(g.scale))
 	op.Filter = ebiten.FilterNearest
 	dst.DrawImage(g.screen, &op)
-	g.drawIntroPicture(dst, picture)
+	g.drawIntroPicture(gameArea, picture)
+	g.drawIntroPaper(gameArea, paper)
 
 	// ── 高解析中文合成 ──
 	// 語意（AGENTS.md 高解析中文合成）：原版 320×200 終幀放大後，
@@ -761,6 +789,9 @@ func (g *game) Draw(dst *ebiten.Image) {
 		hd = 1
 	}
 	for _, e := range evs {
+		if brush.suppress(e, g.scale) {
+			continue
+		}
 		if e.profile != nil {
 			if e.img == nil {
 				img := image.NewRGBA(image.Rect(0, 0, 640, 400))
@@ -802,15 +833,12 @@ func (g *game) Draw(dst *ebiten.Image) {
 		dst.DrawImage(e.img, &op2)
 	}
 	g.drawFlow(dst, flows)
+	g.drawBrushMenu(gameArea, brush)
 
 	g.sh.mu.Lock()
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
 	mOpen, mView := g.sh.mapOpen, g.sh.mapView
 	g.sh.mu.Unlock()
-	gameArea := dst
-	if g.live != nil && !g.live.replay {
-		gameArea = dst.SubImage(image.Rect(0, 0, 320*g.scale, 200*g.scale)).(*ebiten.Image)
-	}
 	if mOpen {
 		g.drawMap(gameArea, mView)
 	}
@@ -1027,36 +1055,22 @@ func main() {
 	trans := map[string]entry{}
 	digits := map[string][]uint16{}
 	ordinals := map[string][]uint16{}
+	var brushData *brushMenuData
+	var paperData *introPaperData
 	if recordingMode {
 		trans, digits, ordinals = bundle.trans, bundle.digits, bundle.ordinals
+		brushData, paperData = bundle.brush, bundle.paper
 	} else {
 		if *xlatePath == "" {
 			*xlatePath = "/nonexistent.json"
 		}
 		if b, err := os.ReadFile(*xlatePath); err == nil {
-			var raw map[string]json.RawMessage
-			if err := json.Unmarshal(b, &raw); err != nil {
+			decoded, err := decodeXlate(b)
+			if err != nil {
 				log.Fatal("xlate.json：", err)
 			}
-			for k, v := range raw {
-				if k == "__digits__" {
-					if err := json.Unmarshal(v, &digits); err != nil {
-						log.Fatal("xlate.json digits：", err)
-					}
-					continue
-				}
-				if k == "__ordinals__" {
-					if err := json.Unmarshal(v, &ordinals); err != nil {
-						log.Fatal("xlate.json ordinals：", err)
-					}
-					continue
-				}
-				var e entry
-				if err := json.Unmarshal(v, &e); err != nil {
-					log.Fatal("xlate.json entry：", err)
-				}
-				trans[k] = e
-			}
+			trans, digits, ordinals = decoded.trans, decoded.digits, decoded.ordinals
+			brushData, paperData = decoded.brush, decoded.paper
 			log.Printf("xlate：載入 %d 串、數字 %d、序數 %d", len(trans), len(digits), len(ordinals))
 		} else {
 			log.Printf("xlate：無譯文表（%v）——純英文模式", xlatePath)
@@ -1073,12 +1087,14 @@ func main() {
 	}
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
 	ov := &overlay{}
+	ov.brush = brushData
 	if recordingMode {
 		ov.flow, ov.picture = bundle.flow, bundle.picture
 	} else {
 		ov.flow = loadFlow(*flowPath)
 		ov.picture = loadIntroPicture(*xlatePath, trans)
 	}
+	ov.picture.paper = paperData
 	if *scale != 2 && *scale != 3 {
 		log.Print("片頭圖片缺譯：互動倍率未支援，保留原圖")
 	}
@@ -1586,6 +1602,8 @@ func main() {
 		evMu.Lock()
 		comp, shown, pages := ov.compose(o)
 		picture := ov.picture.view(o.Indexed(), o.Palette(), o.VideoMode())
+		paper := ov.picture.paperView(o.Indexed(), o.Palette(), o.VideoMode(), *scale)
+		brush := ov.brush.view(shown, comp, o.Palette())
 		evMu.Unlock()
 		var views []flowView
 		for _, pg := range pages {
@@ -1599,9 +1617,11 @@ func main() {
 		}
 		visual := cloneVisualEvents(shown)
 		picture.patchRGBA(rgba, *scale)
+		paper.patchRGBA(rgba, *scale)
 		sh.mu.Lock()
 		sh.mapView, sh.flow, sh.rgba, sh.evs = mapSnapshot, views, rgba, visual
 		sh.picture = picture
+		sh.paper, sh.brush = paper, brush
 		var publication recordingPublication
 		published := false
 		if live != nil {

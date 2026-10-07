@@ -1115,3 +1115,35 @@ R733合法checkpoint及R960固定前綴核82摘要、78命令、67既有輸入�
 限定結果為本機Linux、靜音手動加速、兩位既有正常人物；不聲稱其他職業／種族、長數值實跑、所有背景相位、防禦頁、冷START／存讀、音訊裝置／人耳、十一組、TSV、正式錄放或完整可玩封包已完成。原型與正式不同動畫相位不當同狀態全圖比較。
 
 修前增補窄審0／0／0於FINAL完整回讀採認。review-before JSON SHA `5da5daab8d83950426fa4be32a46475712514e23631fbd46ecb0414256e618b3`、Markdown SHA `c4b3f47032bb3426c8eccc97be0403d70a5baceb6f1ea2f23531a9df89c00a54`；before-after-check.json SHA `f9da288b25a78732f9f4d273ce266d6a88d60c2eaa01fbe21b9bc7cf7d68f084`。CPU只採已輸出的Regs，不外推內部狀態。1,039技術產物一次封存，sealed.json SHA `c837db5f223d351a9028d0ad15da02e6cb4484e59d35c9adea390d87263311e7`，排除快取及後續GitHub收據；擁有權與誤建目錄異常0、自有容器0。024整頁增補僅本輪兩位人物CONFORMED。
+
+## R977-approved-ui
+
+2026-10-08使用者確認R976亮度及主選單六按鈕毛筆字樣。[R977](../goal/R977-approved-ui-wiring.md)依[028](../spec/028-approved-ui-fonts.md) READY接線。主選單AR PL UKai TW字面2，2倍16／3倍24像素；紙頁3倍採甲的30／32字高、水平加粗1及米金／紅字。兩後端正式一般字模保持，只追加兩個xlate元資料家族；錄放保持原六roles及同次bytes。
+
+復原工具為Go1.24.13／Debian12的離線GUI映像，來源image ID及重建入口見R977。Python3.13.15／FreeType2.12.1沿R976固定映像及來源。DS.EXE Archives版SHA14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db；原版輸入唯讀，未使用autoplay、防拷輸入、存檔或原版state注入。
+
+| 驗收 | 已量結果 |
+|---|---|
+| 正常無輸入冷啟動，新舊同GUI條件 | 英文3倍、倚天／Unifont各2／3倍，共35停止點完整RAM SHA／Regs／Step／Mouse／indexed／palette及comp相同 |
+| 紙頁3倍五構圖，完整無字翻頁撤除；主選單兩倍率 | HD及Draw全圖31,360,000像素符合已確認字樣；選單按鈕外差異0 |
+| 真實F1／WM_DELETE | 兩後端各2／3倍F1返回畫面一致，五個新GUI程序及五個控制程序正常退出0 |
+| 獨立字模／資源審查 | 兩後端各8,439份legacy資料保持，24紙頁原glyph與R975相同，24毛筆字條共39,962個alpha樣本與R976原glyph／metrics獨立重建一致 |
+| 回退及資料邊界 | 舊xlate、非法新家族、JSON／尺寸／空字模、不同訊號、發布後源資料變更、同次讀後換檔及六roleLoaded；40px錄製頁尾g.Draw守門抽測通過 |
+
+主代理獨立核PNG CRC／解碼、原版摘要及完整像素，未匯入被測烘製或Go繪製函式。紙頁期望取固定R976全圖；毛筆期望由R976原glyph及metrics另算，C FreeType交叉證據沿R976。完整cmd/wiz7回歸通過；另以真實冷啟動畫格核紙頁完整來源、部分重寫、色盤／mode／尺寸、SP、倍率、缺資源及無字頁守門。這些負向案例屬內部單測，不冒稱正常GUI皆已觸發。
+
+首次使用無頭控制組時，Mouse為0／0，GUI為160／109或160／131，驗收條件不等價。舊收據保持，改用同樣GUI控制組後重跑通過。此失敗為驗收腳本條件錯配，沒有修改原版或產品來遷就比較。
+
+| 本機workplace/r977收據 | SHA-256 |
+|---|---|
+| pixel-check.json | 72a71d09eeefefad5bc4426189a3a78c1ec413fbc5430640baedcfdd915d1348 |
+| gui/run-receipt.json | 654e856a7eb5f504b7b2b36d6b6cfa970e8ad191ac5d6a93a0ec4b0c742fbf4e |
+| before-gui/run-receipt.json | e114b7182334dc1db0a6eb0cf67bfe4a63748fd50ef2beee1a9a558572cfcaa9 |
+
+重跑用[bake_approved_ui.py](../../tools/re/bake_approved_ui.py)、[run_approved_ui.py](../../tools/re/run_approved_ui.py)、[check_approved_ui.py](../../tools/re/check_approved_ui.py)。新輸出、固定來源、原版／字型唯讀、UID/GID1000:1000、離線2CPU／2GiB／256pids、有界逾時、Xvfb trap及容器清理。全圖、字模及原版收據只留本機。
+
+本輪只驗已確認字樣的本機Linux正常無輸入路線，靜音手動加速。紙頁2倍保持原圖並記限定缺譯；紙紋補底仍為已採近似。音訊工具的Pulse ALSA plugin未恢復，不聲稱音訊／人耳、正式完整錄放、其他選單或完整交付完成。
+
+最終實作／字模／已量收據審查0／0／0已完整回讀採認。workplace/r977/review-implementation.json SHAe8666813d3a899e843f5116e982540ca432ad3464bb67da880a17c31599af5cc，Markdown SHAc3bc7967a8a48a4b72080ecf3d25a73ab4e5b6d8fec808629a08f8cac96a73e6。審查者直接獨立核35狀態及16對圖15,872,000像素；全量70圖的31,360,000像素由主代理工具驗收，審查者核讀法及摘要。
+
+初輪GUI後只修規格編號／註解、兩條非法family log及負向測試，正常繪製演算法保持。最終89來源重建Source SHA40416d488a4105145d8fbed8b18463984187be512a8cb56528690d6a6cb33ba1，workplace/r977/wiz7-final Binary SHA9898b24eb157f44a42a351c63f818acd9976c6673fc7734b3c524d3ece03c030；完整回歸1.546s通過。此binary另跑Unifont3倍正常GUI7點、14圖8,064,000像素全同、F1返回及正常關窗，pixel-final.json SHA30cd33c3353dfdaa4675d7ad1acd90b6d0a476ca74a681fc176771865c0a7432。028僅此已量正常路線CONFORMED，未量GUI分支維持READY。

@@ -124,6 +124,8 @@ type introPending struct {
 type introPictureState struct {
 	english     bool
 	data        *introPictureData
+	paper       *introPaperData
+	paperCached *introPaperView
 	pending     *introPending
 	complete    [32]byte
 	hasComplete bool
@@ -196,6 +198,9 @@ func (s *introPictureState) view(indexed []byte, pal [256][3]uint8, mode uint8) 
 		}
 	}
 	if f == nil {
+		if isPaperFrame(h) {
+			return nil
+		}
 		s.report("非已量字樣畫格")
 		return nil
 	}

@@ -1,0 +1,7 @@
+en	zh	context	dy	source
+CHARACTER MENU	角色選單	main.menu.brush	0	runtime:0110:3895
+ADD CHARACTER	新增角色	main.menu.brush	0	runtime:0110:3895
+LOAD SAVEGAME	載入存檔	main.menu.brush	0	runtime:0110:3895
+CONFIGURATION	系統設定	main.menu.brush	0	runtime:0110:3895
+IMPORT (BANE)	匯入巫術六	main.menu.brush	0	runtime:0110:3895
+QUIT GAME	結束遊戲	main.menu.brush	0	runtime:0110:3895

@@ -3,6 +3,15 @@
 目前真相見 [CONTEXT.md](CONTEXT.md)，工作狀態見 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues)。
 本檔從文件遷移起追加記錄；先前逐輪記錄仍保留在 [goal 文件](docs/goal/README.md) 與 [研究索引](docs/re/README.md)，不回填未核實的歷史。
 
+## 2026-10-08：R977開工，定版字樣接線
+
+- 使用者確認R976紙頁新亮度與主選單六按鈕毛筆字樣，沿#22／#28建立[R977](docs/goal/R977-approved-ui-wiring.md)。新家族資料及來源寫入[028](docs/spec/028-approved-ui-fonts.md)，開工時DRAFT，正式接線待完整獨立審查。
+- 資源邊界預審確認xlate保留字可沿同次bytes與原六role接線，普通與錄放需共用解碼及回退；錄製頁尾先切出遊戲區。snapshot配置SHA不能代替像素收據。報告入口及SHA已掛028。
+- 原Go1.24.13工具映像已不存在，沿原Dockerfile新增離線recovered-gui target，複用現有Debian12 GUI依賴及xauth，乾淨替換成固定Go1.24.13；建置及完整cmd/wiz7基線測試通過。新映像僅驗證建置、回歸與靜音GUI，Pulse ALSA plugin未恢復，不稱音訊工具鏈或人耳驗收完成。
+- 完整規格獨立審查0／0／0採認後接線；暫名新027與既有027重印規格碰撞，已改為028並修所有正式入口。歷史審查報告沿原SHA，沒有改數值契約。原R943對照HTML已不存在，撤去失效連結並保留歷史路徑，不重開已驗舊功能。
+- 正式兩後端、主選單2／3倍與紙頁3倍正常GUI通過：35個原版完整狀態、31,360,000 HD／Draw像素；字樣與R976定版相同。首次headless控制與GUI的Mouse不同，改用同GUI控制重跑，沒有修改產品配合錯誤條件。錄放非法family訊息加固定缺譯token，沿既有privacy泛化，不印payload。
+- 實作／烘製／已量收據獨立審查0／0／0已完整回讀採認，獨立抽16對圖共15,872,000像素、兩後端39,962個alpha及24原glyph通過。完整前端含真實captured守門1.546s通過；最終89來源身份重建，另抽Unifont3倍7點8,064,000像素通過。Source／binary／報告SHA及範圍見[R977](docs/goal/R977-approved-ui-wiring.md)與[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍、音訊與整體交付門檻保持。
+
 ## 2026-09-30：R669，文件職責遷移（#27）
 
 - 核對程式基線 `a63e4f8`、本機回歸 `workplace/r670/check.txt`、六份 spec 與遠端 Issue 狀態。

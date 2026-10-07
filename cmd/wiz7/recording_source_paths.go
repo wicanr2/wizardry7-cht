@@ -2,6 +2,7 @@ package main
 
 // 自動由 tools/re/build_recording.py 依實際選定來源重建；此表納入雜湊。
 var recordingSourcePaths = []string{
+	"cmd/wiz7/approved_ui.go",
 	"cmd/wiz7/audio_player.go",
 	"cmd/wiz7/audio_reader.go",
 	"cmd/wiz7/automap.go",
@@ -12,6 +13,8 @@ var recordingSourcePaths = []string{
 	"cmd/wiz7/flow.go",
 	"cmd/wiz7/help.go",
 	"cmd/wiz7/input_recording.go",
+	"cmd/wiz7/intro_paper.go",
+	"cmd/wiz7/intro_paper_model.go",
 	"cmd/wiz7/intro_picture.go",
 	"cmd/wiz7/main.go",
 	"cmd/wiz7/menu_labels.go",

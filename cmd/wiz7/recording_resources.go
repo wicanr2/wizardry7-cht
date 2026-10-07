@@ -34,6 +34,8 @@ type recordingBundle struct {
 	help             *helpData
 	roster, sex      map[string]rosterEntry
 	picture          *introPictureState
+	brush            *brushMenuData
+	paper            *introPaperData
 }
 
 func (r *recordingResources) index(role string) int {
@@ -95,25 +97,12 @@ func loadRecordingBundle(xlate, flow, help string) (recordingBundle, error) {
 	b := recordingBundle{resources: r, trans: map[string]entry{}, digits: map[string][]uint16{}, ordinals: map[string][]uint16{}}
 	raw, e := r.read("xlate", xlate)
 	if e == nil {
-		var records map[string]json.RawMessage
-		if json.Unmarshal(raw, &records) != nil {
+		decoded, err := decodeXlate(raw)
+		if err != nil {
 			return b, errors.New("resource_parse")
 		}
-		for k, v := range records {
-			switch k {
-			case "__digits__":
-				e = json.Unmarshal(v, &b.digits)
-			case "__ordinals__":
-				e = json.Unmarshal(v, &b.ordinals)
-			default:
-				var item entry
-				e = json.Unmarshal(v, &item)
-				b.trans[k] = item
-			}
-			if e != nil {
-				return b, errors.New("resource_parse")
-			}
-		}
+		b.trans, b.digits, b.ordinals = decoded.trans, decoded.digits, decoded.ordinals
+		b.brush, b.paper = decoded.brush, decoded.paper
 		r.loaded("xlate")
 	}
 	b.flow = r.loadFlow(flow)
@@ -125,6 +114,7 @@ func loadRecordingBundle(xlate, flow, help string) (recordingBundle, error) {
 		r.loaded("help")
 	}
 	b.picture = r.loadIntroPicture(xlate, b.trans)
+	b.picture.paper = b.paper
 	if b.picture.data != nil {
 		r.loaded("intro-picture")
 	}
