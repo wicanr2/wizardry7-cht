@@ -1,5 +1,7 @@
 # 研究證據索引
 
+譯文上屏抽樣的接手複核：[R972目標](../goal/R972-sampling.md)，[025收據與限制](025-ui-localization-coverage.md#r972-sampling-takeover)。
+
 戰鬥控制的中文覆繪檢查：[R959目標](../goal/R959-battle-control-display.md)，驗收接入[025](025-ui-localization-coverage.md)。
 
 森林遭遇過渡的原版續驗：[R958證據](019-catalog-migration.md#r958-forest-transition-wait)、[目標](../goal/R958-forest-transition-wait.md)。

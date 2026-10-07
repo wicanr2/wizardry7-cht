@@ -2,6 +2,51 @@
 
 正常暖戰鬥的按鈕操作與撤除：[R962](#r962-normal-battle-gui)。
 
+<a id="r972-sampling-takeover"></a>
+## R972 譯文上屏抽樣接手複核
+
+2026-10-07，沿[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)及[R972](../goal/R972-sampling.md)，只分析既有收據，不重跑原版。正式程式、譯文、字型保持。
+輸入是`workplace/r972/ab/`的中英文PNG、JSON、A000及色盤，catalog只作正式文字對照；
+完整原版衍生資料、匿名材料及讀值留本機。工具為既有`wizardry7-go-ebiten:latest`，
+image ID `1d7a342db379675408a489bbca3313a5219f7ac506ae7587f876027d80454ce7`，Go1.24.13、Python3.11.2。
+本輪不新增原執行器binary或EXE來源閉集合驗證。
+證據等級為confirmed，限保存收據的摘要、像素與可見字形核對；遮字仍為未知。
+
+原`run_pass2.py`使用小寫欄名及`.get()`，使缺欄變成`None == None`；新複核必須取得大寫欄名，
+缺欄立即報錯。舊`settle`使用截短雜湊，這次另逐位元比對完整資料。16對原抽樣及12對等待／診斷取幀，
+共28對`Step`、1MiB RAM的FNV32摘要、完整A000與色盤相同。這不等於完整RAM逐位元或新GUI驗證。
+要求步數與實際`Step`逐筆同列，檔名不當精確印字停止點。
+
+母體74次翻譯事件、25相異鍵，缺鍵及碰撞排除皆0。獨立重解析seed9720417的16鍵、首次步數及座標與原名單相符。
+正取idx3的影片字幕在一次`+5M`仍不可見，依已審方法4用第一筆備用idx12遞補；不採`+8M`診斷當驗收。
+五筆原零差異的包絡落在文字之外，重新目視定位後才重算，未由差分自動產生包絡。
+12個鍵對應9張不同PNG，局部差異比率17.85%至28.82%，皆大於原門檻5%，
+日誌點200px鄰域皆相交，交集寬高已保存。
+
+主代理逐筆重讀後，另外將12張PNG去模式、步數及目標標籤，以固定seed打亂，交第二位唯讀子代理轉錄。
+一筆字幕初讀前段未知，原PNG的最近鄰4倍裁片獨立讀出「技術程式設計」後解除。
+12筆可見中文字與正式譯文一致；一筆題目有游標遮住一字，匿名讀者的未知保留，不宣稱該字已完整獨立辨讀。
+已知目標的包絡修正不稱重新盲測，機器差異不替字形未知補成功。
+
+| 新收據 | SHA-256 |
+|---|---|
+| takeover-check.py | `e285ec4d62f6caea16bd8850cfe4b6a4b26fb43c5feed64e57b705e7e83b14eb` |
+| state-check.json | `3f42c36c7d6f661ad99d8dc9aeef43c90ce95cd00139bc2a088afc9c914f3a8b` |
+| localization-check.json | `00a203f2e33acd268bf846c7ce93c4d9a6e8cfa178834363b4dedfc38674dc39` |
+| source-sha256.json | `1cf6b50c2e3281bf8b6f1a2a60b1b403149a0d9270d86d7e5e8880602ce7376a` |
+
+重算入口是本機`workplace/r972/takeover-check.py`，只讀舊收據、獨占建立新目錄。
+在既有離線非root容器內先建置`workplace/r972/locheck/main.go`到`/tmp/r972-locheck`，再執行Python入口；
+repo唯讀、只有新收據工作區可寫，不能覆寫舊輸出。204份來源SHA已由唯讀審查全核同，
+四檔catalog與記錄基準相符，xlate凍結SHA `08c1692e28b926dd754ca5f4df32ae3a114626dfdcbc944610edccc3c9fb28f4`保持。
+新輸出為`workplace/r972/takeover-20261007/`，人工一致性見`visual-consistency.json`，額外匿名讀值見`visual-review.md`。
+`FINAL-manifest.json` SHA `e2353da3df1bc41db02c0ce40bb7763e7a4000afebd300af7cd7e20d83d630ea`，
+封存時再核204份來源及新輸出1000:1000，舊輸出未覆寫。
+
+結論限既有路線、Unifont3倍及12筆抽樣的可見文字；未抽中、倚天、2倍、正式GUI、完整RAM、
+十一組、TSV、存讀檔、音訊及封包均不外推。最終唯讀審查阻擋0、應改0，主代理於FINAL回讀後
+採認12筆中文定位與可見字形覆核完成，審查記錄為新目錄的`review-final.md`。不以此段升級spec狀態。
+
 ## R955 頭像頁文字與完成返回
 
 2026-10-04至10-05，入口：[本輪目標](../goal/R955-character-portrait-ui.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`。38份列出cmd來源保持，不稱新建置或完整編譯閉集合；工具鏈沿固定Docker映像、Go1.24.13／Python3.11.2，原版`DS.EXE` SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。repo、SDK、原版與字型唯讀，只有r955可寫；沒有MSG、防拷、內建autoplay、原版記憶體或角色資料注入。
