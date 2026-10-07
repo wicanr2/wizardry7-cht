@@ -1428,3 +1428,8 @@ R971991與含既有補丁的SDK1134；根擁有權及誤建md目錄0。
 前景51,674點、72字條完整，字格越界／交疊、候選作者區及範圍外差異0。
 76份審查輸入SHA及UID/GID保持，兩種字重與R974背景相同。
 R974比較來源SHA缺口已補守門，展示無未解除阻擋／應改；正式READY未放行，字重由使用者選。
+
+來源`3a68d07`已推送private main；[#22進度](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6037062903)
+與[#28進度](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6037065485)含尾LF全文回讀一致，
+兩Issue保持OPEN。甲乙對照已送使用者確認大小、厚度與亮度，背景改善及正式驗收保持待辦。
+自有容器、工作根root-owned／誤建`.md`目錄0；候選與來源保留待查看，R433未混入提交。
