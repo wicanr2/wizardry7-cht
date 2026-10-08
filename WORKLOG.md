@@ -1702,3 +1702,10 @@ Markdown `4982117d1d553adb15a30690fcbc3f2a4fabbe8b34655a6294791fd4b8a70764`。
 89個正常GUI完整pair已獨立核，6個退出pair無殘字、9個重入pair男字位置正確。
 自有容器、root-owned及誤建.md目錄0，來源／輸出抽查UID/GID1000:1000；
 以既有R985／032作正對照，新goal、033／034與025證據入口均可定位，R433保持未追蹤。
+
+R986正式來源commit `57c78bfd7db80354b3ba19319573091e0f20b418`已push private main。
+[#22結果6068442446](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6068442446)與
+[#28結果6068443553](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6068443553)
+各504字／7個LF全文與原稿相同；開工6064641350的293字／5個LF亦完整相同。
+兩Issue保持OPEN，安全收據留`workplace/r986/result-comment-receipts.json`及`start-comment-receipt.json`。
+本輪自有容器及擁有權異常0，R433保持未追蹤；整體目標維持完成巫術7中文化，尚未達成。
