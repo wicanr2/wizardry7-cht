@@ -1398,3 +1398,33 @@ Markdown `4982117d1d553adb15a30690fcbc3f2a4fabbe8b34655a6294791fd4b8a70764`。
 89個正常GUI完整pair已獨立核，6個退出pair無殘字、9個重入pair男字位置正確。
 自有容器、root-owned及誤建.md目錄0，來源／輸出抽查UID/GID1000:1000；
 以既有R985／032作正對照，新goal、033／034與025證據入口均可定位，R433保持未追蹤。
+
+## R987 WHO游標來源與原生字樣（2026-10-09）
+
+<a id="r987-who-call-witness"></a>
+
+入口[R987](../goal/R987-who-call-witness.md)、[033](../spec/033-world-identity-labels.md)。
+已得實際740c:1568／0166返回；1568清理於1575 retn，不採40b0 far框假說。
+IDA9.4的192-byte返回code SHA-256為8692955a85d421ed8dfbafcad0f6bfe61ede16a1c3d320133e430af6986ada7c。
+raw snippet EA與runtime段位址分開；1575以後線性解碼只作候選，不當完整函式語意。
+
+WHO整圖24×20、字母墨點5行、文字末區6行。當刻來源84d3:0002，欄位及來源SHA見033。
+45個色22墨點可去為本字帶底色0；透明255保留補底前原RGB，11點與全0背景buffer不同已明記。
+新字模可占用文字域的原透明位置；不能把11點最終全不變當oracle。
+行12非透明手尾及黑輪廓7點全部保護，行13空文字背景0／255不等於indexed全0。
+完整15／16字模以一像素字墨間隔利用標點留白，四派生HD手尾及圖外變化0，無背景擴張。
+native-compare.html與native-who-sample-result.json留本機，未接正式UI，不稱正常GUI。
+
+原版DS及正常輸入SHA沿034／R986。已完成的1614 trace逐bytes等控制84388，保存bytes／mode／mtime保持。
+首輪hdonly私有API缺Draw確認，已從main的select及afterPublish等待定位；保留一發布r1後同來源改Xvfb正常Draw。
+第五探針1614發布及重播完成存在，但180秒收尾相遇，程序退出未採認，不列產品缺陷或正常GUI成功。
+IDA locked映像仍查無，沿既有py312／UID1000已驗9.4組合；新code匯出schema及輸入SHA相符。
+完整原版、圖、code、堆疊、答案及輸入只留ignored workplace/r987，不提交原圖或字模二進位。
+033仍DRAFT；獨立原型審查、正式契約／接線及正常WHO移動／取消仍待。
+
+R987最終獨立來源／原型審查於FINAL後完整回讀採認0／0／0，32份已讀來源SHA保持。
+四派生HD共1,664,000像素與獨立期望相符，手尾7非FF及文字域外變化0。
+補底階段保留13透明點原RGB；新字覆蓋原非零透明點倚天2／3為3／1、Unifont2／3為2／1，不作全不變宣稱。
+JSON SHA-256 d97f39354668e8c7ffa58e1d79ceff4711e00e5574004316b35e5cf22f5c9634；
+Markdown 17d977356abab9792ba68712b0f2e3ad08a2539948c8801fdb8a3c7e0c198e0d。
+仍僅DRAFT派生原型，正式來源、資源、正常GUI及CONFORMED未放行；WHO字型／畫布沿既定15／16、2／3倍。
