@@ -1736,3 +1736,11 @@ R987最終獨立來源／原型審查於FINAL後完整回讀採認0／0／0，32
 JSON SHA-256 d97f39354668e8c7ffa58e1d79ceff4711e00e5574004316b35e5cf22f5c9634；
 Markdown 17d977356abab9792ba68712b0f2e3ad08a2539948c8801fdb8a3c7e0c198e0d。
 仍僅DRAFT派生原型，正式來源、資源、正常GUI及CONFORMED未放行；WHO字型／畫布沿既定15／16、2／3倍。
+
+來源與證據commit 47aa473已push private main。
+[#22結果6070536246](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6070536246)及
+[#28結果6070537009](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6070537009)
+各648字／9個LF全文與原稿相同，兩Issue保持OPEN；開工6068536201的314字／5個LF亦相同。
+回讀收據留workplace/r987/result-comment-receipts.json與start-comment-receipt.json。
+本輪自有容器及擁有權異常0，來源／報告UID/GID1000:1000，R433保持未追蹤。
+WHO下一步為正式顯示契約審READY、接線及正常移動／取消；整體目標未完成，不縮為本輪原型。
