@@ -1639,3 +1639,28 @@ R983索引項作正對照，R984 goal及032均掛入口；自有容器、root-ow
 713字／9個LF、[#22缺口6061209765](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6061209765)
 442字／5個LF及開工6059604178的277字／5個LF，三則完整正文與原稿全同。兩Issue保持OPEN。
 遠端收據workplace/r984/github-comment-receipts.json，R433未追蹤檔保持原樣；目標仍未完成。
+
+## 2026-10-09 R985正式遮擋驗收
+
+沿#22／#28及032 DRAFT，窄量已取得入口的caller／font／fg與實際視窗邊界。
+獨立來源及契約審查通過READY後，正式補origin傳遞、五名稱／24點雙控制守門、每compose重算、clone與HD／Draw裁切。
+不新增原版記憶體寫入。四組正常GUI冷LOAD、人物頁、法術開／取消／再開與保存保持完成。
+四組私人固定輸入各1614原版trace全同；256active僅批准像素、376inactive派生HD全同。
+六個正式TestPopup及20組真正Draw邊界逐像素驗收通過；詳[025](docs/re/025-ui-localization-coverage.md#r985-popup-occlusion)。
+
+驗證器修正：Docker -w在prepare前建立一個空root-owned目錄，保留為formal-probe-empty-r1，
+只修復該單一目錄1000:1000，改有存在父目錄內啟動後準備。一次掛載別名relative_to錯誤亦修正，未改產品。
+倚天3第一次正常GUI遇到自然戰鬥，ACK不能證明人物頁，已完整保留battle-r1且未作通過證據；
+同合法初始保存降低驗證推進速度至6M，正常重跑人物頁完成。不改seed、原版判定或存檔，不靠重擲挑結果。
+GUI第一次全畫面假同狀態斷言遇前人物頁F1，範圍改依實際人物頁；Unifont2另有3176原版護盾動畫差異，
+真正Draw非同步取樣如實記錄。固定API收據不改wire檔頭、不稱正式相容重播，派生HD不稱GUI。
+
+WHO／M與其他名稱、十一組情境／31異譯、平台／封包等交付門檻仍待。
+完整原版、字型、答案與輸入只留ignored workplace/r985，R433保持未追蹤。
+最終獨立實作審查、commit／push、議題結果與清理狀態於收尾追加。
+
+最終獨立實作審查0／0／0於FINAL完整回讀採認，032五名稱正常路線標限定CONFORMED。
+JSON SHA-256 `f81ae5c42ba0812cb7eaa10cb946b251a3b162b5e6a987a549795445e3c545d0`，
+Markdown `f1e3bd9f121de7d0f4438267751d70935a8a9221f3a6aae0f8965509632fe093`。
+新增最後未遮邊框拒絕後，全cmd乾淨重測1.494秒通過；重新建置與正常GUI倚天3測過的8cec二進位全bytes同。
+來源與驗收輸出UID/GID1000:1000，自有容器、root-owned及誤建.md目錄0；新goal／spec以R984正對照核有入口。

@@ -1,5 +1,7 @@
 # 專案目標
 
+法術視窗遮擋守門與裝備中文修補：[R985](R985-profile-popup-guard.md)。
+
 正常載入後的人物頁情境觀察：[R984](R984-normal-profile-context.md)。
 
 剩餘碰撞的正常情境與譯名取捨：[R983](R983-collision-context-probe.md)。

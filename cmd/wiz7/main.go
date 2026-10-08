@@ -174,6 +174,9 @@ func offscreen(o *oracle.Oracle) []uint8 {
 
 // textEv 是一則有譯文的印字事件（R2.4）。
 type textEv struct {
+	originRet      oracle.Addr
+	originFont     uint16
+	popupClip      image.Rectangle
 	s              string
 	x0, y0, dy     int
 	bx, by, bw, bh int     // 英文筆畫框（原版座標）
@@ -279,7 +282,7 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 		return
 	}
 	w, h := x1-x0+1, y1-y0+1
-	e := &textEv{s: p.s, x0: p.x0, y0: p.y0, dy: p.dy, bx: x0, by: y0, bw: w, bh: h, g: p.g, page: p.page}
+	e := &textEv{originRet: p.ret, originFont: p.font, s: p.s, x0: p.x0, y0: p.y0, dy: p.dy, bx: x0, by: y0, bw: w, bh: h, g: p.g, page: p.page}
 	e.before = make([]uint8, w*h)
 	e.after = make([]uint8, w*h)
 	var cnt [256]int
@@ -331,6 +334,7 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 	inCursor := func(x, y int) bool {
 		return x >= mx && x < mx+cursorBox && y >= my && y < my+cursorBox
 	}
+	popupActive := profilePopupActive(ov.evs, a, inCursor)
 	restore := func(e *textEv) {
 		if e.profile != nil {
 			e.profile.restore(comp, inCursor)
@@ -340,6 +344,9 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 			for x := 0; x < e.bw; x++ {
 				k := y*e.bw + x
 				i := (e.by+y)*320 + e.bx + x
+				if e.popupContains(e.bx+x, e.by+y) {
+					continue
+				}
 				if e.before[k] == e.after[k] {
 					continue
 				}
@@ -362,7 +369,11 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 			ov.dropped++
 			continue
 		}
-		match := e.rectMatches(a, inCursor)
+		e.popupClip = image.Rectangle{}
+		if popupActive && profilePopupEquipment(e) {
+			e.popupClip = profilePopupRect
+		}
+		match := e.rectMatches(a, func(x, y int) bool { return inCursor(x, y) || e.popupContains(x, y) })
 		if e.profile != nil {
 			match = e.profile.matches(a, inCursor)
 			e.profile.view.pal = o.Palette()
@@ -522,7 +533,9 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 			for row, w := range glyph {
 				for bit := 0; bit < len(glyph); bit++ {
 					if (w>>(len(glyph)-1-bit))&1 != 0 {
-						img.Set(cx+bit, cy+row, fr)
+						if !e.popupContainsHD(cx+bit, cy+row, k) {
+							img.Set(cx+bit, cy+row, fr)
+						}
 					}
 				}
 			}
@@ -836,7 +849,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 		// 平移在縮放之後，單位是視窗像素：原版座標 × 倍率
 		op2.GeoM.Translate(float64(e.x0*g.scale), float64(buttonLabelY(e, evs, g.scale)))
 		op2.Filter = ebiten.FilterNearest
-		dst.DrawImage(e.img, &op2)
+		e.drawPopupClipped(dst, e.img, &op2, g.scale)
 	}
 	g.drawFlow(dst, flows)
 	g.drawBrushMenu(gameArea, brush)
@@ -1358,8 +1371,9 @@ func main() {
 		y := int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297}))
 		p := &pendingPrint{
 			s: s, x0: x, y0: y, dy: ent.Dy, g: ent.G,
-			sp:  r0.SP,
-			ret: ret,
+			sp:   r0.SP,
+			ret:  ret,
+			font: in.Font,
 		}
 		if b := offscreen(o); b != nil {
 			p.before = append([]byte(nil), b...)
@@ -1934,7 +1948,7 @@ func main() {
 func cloneVisualEvents(in []*textEv) []*textEv {
 	out := make([]*textEv, 0, len(in))
 	for _, e := range in {
-		v := &textEv{s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
+		v := &textEv{popupClip: e.popupClip, s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
 		if e.profile != nil {
 			v.profile = e.profile.visualCopy()
 		}

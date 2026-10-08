@@ -1299,3 +1299,51 @@ overlay結果獨立0／0／0完整FINAL回讀採認，JSON SHA-256為
 `c636d80ad562f487b89016801f86d882073750479af5b7f3a0f087e250ea0053`，
 Markdown為`012c06e5b9e93042c137f5d967cd53d27bd41512a3a5fc19bed04942db1e60d3`。
 第二次含每名兩個實例，共10列但只有五種名稱，兩次CAST／CANCEL實際中文字保持。
+
+<a id="r985-popup-occlusion"></a>
+## R985正式遮擋驗收
+
+2026-10-08定位與READY審查，2026-10-09完成正式修補及限定驗收；入口[032](../spec/032-profile-popup-occlusion.md)、[R985](../goal/R985-profile-popup-guard.md)。
+本輪以R984的正常人物頁收據繼續，修補範圍只有五個已證裝備名稱。
+
+輸入仍是Archives版DS.EXE，SHA-256 `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`。
+Go1.24.13與既有GUI映像、Python3.13.15；字型／亮度沿R977，help沿R979、flow沿R983。
+新增定位全為runtime返回位址：一般裝備第一行0110:ba40、複合第二行0110:ba63、CAST／CANCEL為0110:0ea2。
+原版font均0，裝備fg105、控制fg85。定位取原已取得的入口片段與完整事件，沒有新增原版字串或答案表讀取。
+兩倍率此世界人物頁皆用一般／012事件，未進024整頁重排。以上confirmed僅於這條正常路線。
+
+032先完成來源與契約獨立審查，READY後才修改正式main與popup_occlusion.go。
+原版視窗x49..270／y114..197，24個indexed邊框點、最低19個未遮守門點，CAST／CANCEL雙控制另核caller／font／fg／座標／原框。
+只接受五個已驗一般／複合名稱與完整原文字框，還原英文筆畫與中文繪製都避開視窗；每次compose清除舊遮擋。
+可見區改寫、錯語意、錯字模、錯控制或背景仍依原規則撤除。未改原版記憶體、索引幀、色盤、語意或保存。
+
+固定輸入為R984原檔，SHA-256 `d7204e01e17698e0a03a764e4521f7c391b03c2e2fe326683c690edcb723e453`。
+這是私人API診斷，沒有改wire檔頭，沒有宣稱新binary相容重播。
+四組雙字型兩倍率各1614發布，RAM／Regs／Step／Ticks／indexed／palette trace全bytes等於raw；
+trace SHA-256 `84388c8f8cf1461fc7d6e5bde6fd2d05597ba02855c3ce505ac76ea107c404ae`。
+從舊版原事件的before／after筆畫與原生字模建立獨立批准mask；256張開窗派生HD僅變五名稱區，視窗差異0。
+倚天2／3倍每張差2388／4659像素；Unifont為2390／4735像素。
+376張未開／取消派生HD全bytes同，四組原版幀／色盤及保存bytes／mode／mtime同。
+派生HD是已發布資料的診斷圖，不當真正GUI或原版同狀態Draw。
+結果`workplace/r985/formal-pixel-result.json`，SHA-256 `774d81ed2f9adf7314e18b10d88009a135d22204c511cf47922c0793d98be1e2`。
+
+四組正式正常GUI由同一合法保存冷LOAD，再正常頭像人物頁、開法術／取消／再開，皆正常關窗0。
+46組人物頁HD／Draw抽樣的名稱區相同；其中22組法術開窗全畫面相同。
+Unifont2的345M未開窗取樣另有3176個右下原版護盾動畫差異；-draw-at為非同步要求，不能只憑同檔名宣稱同發布。
+前人物頁F1面板不在本契約比較範圍。四組保存size／SHA／mode／mtime及UID1000:1000保持。
+GUI結果`workplace/r985/gui-pixel-result.json`，SHA-256 `6b4b8ee4eb8f1d4168a7b55ceafc17c3ad29df1469cf2e18f91450e5708a000c`。
+三組測binary `eb2eda6721e259f9fc0833039d766ecbffec446538404547a9f0b4a97d0f8909`；
+倚天3最後測 `8cec6479c2d1a527b4efac131ecf262dc088d74ff56abd3fb4e50a301ca11fd2`。
+兩者只有註解、匯入順序及新增測試的來源差異，正式main與render守門語意保持；完整身份在本機final-identities.json。
+
+正式TestPopup六項通過，含原版fixture的雙倍率／15、16字模及壞框、錯語意、特殊事件、複合caller／font／座標／原文負測，
+clone獨立所有權，以及真正RunGame的20組逐像素Draw：正常、40px頁尾、非零subimage、錯寬及錯高。
+Draw只畫批准左側，視窗、頁尾及不合畫布全保持。原版fixture不提交，缺本機fixture就skip；通用clone／Draw照常測。
+每次compose的開／關與撤除另由158發布固定路線觀察核，未量其他人物切換或裝備組合。
+WHO／M、其餘名稱、十一組情境及31異譯仍待，不把本修補當整體中文化完成。
+
+最終獨立實作審查0／0／0於FINAL完整回讀採認，032五名稱正常路線標限定CONFORMED。
+JSON SHA-256 `f81ae5c42ba0812cb7eaa10cb946b251a3b162b5e6a987a549795445e3c545d0`，
+Markdown `f1e3bd9f121de7d0f4438267751d70935a8a9221f3a6aae0f8965509632fe093`。
+新增最後未遮邊框拒絕後，全cmd乾淨重測1.494秒通過；重新建置與正常GUI倚天3測過的8cec二進位全bytes同。
+來源與驗收輸出UID/GID1000:1000，自有容器、root-owned及誤建.md目錄0；新goal／spec以R984正對照核有入口。
