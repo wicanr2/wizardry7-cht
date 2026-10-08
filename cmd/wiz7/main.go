@@ -527,8 +527,9 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 			continue
 		}
 		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
-		cx := e.x0 * k
-		cy := buttonLabelY(e, shown, k)
+		shift := worldSexShift(e, k)
+		cx := e.x0*k - shift
+		cy := buttonLabelY(e, shown, k) - shift
 		for _, glyph := range e.g {
 			for row, w := range glyph {
 				for bit := 0; bit < len(glyph); bit++ {
@@ -847,7 +848,8 @@ func (g *game) Draw(dst *ebiten.Image) {
 		op2 := ebiten.DrawImageOptions{}
 		op2.GeoM.Scale(float64(hd), float64(hd))
 		// 平移在縮放之後，單位是視窗像素：原版座標 × 倍率
-		op2.GeoM.Translate(float64(e.x0*g.scale), float64(buttonLabelY(e, evs, g.scale)))
+		shift := worldSexShift(e, g.scale)
+		op2.GeoM.Translate(float64(e.x0*g.scale-shift), float64(buttonLabelY(e, evs, g.scale)-shift))
 		op2.Filter = ebiten.FilterNearest
 		e.drawPopupClipped(dst, e.img, &op2, g.scale)
 	}
@@ -1223,6 +1225,23 @@ func main() {
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3877}, func(o *oracle.Oracle) {
 		r := o.Regs()
 		ret := oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}
+		if ret == worldSexReturn {
+			if r.SP > 65530 {
+				evMu.Lock()
+				ov.clearWorldSex()
+				evMu.Unlock()
+				log.Print("世界性別缺譯：stack span越界")
+				return
+			}
+			x, y := int(o.Word(oracle.Far(0x740c, 0x0295))), int(o.Word(oracle.Far(0x740c, 0x0297)))
+			if x != 90 || y != 6 {
+				return
+			}
+			evMu.Lock()
+			defer evMu.Unlock()
+			ov.enterProfileSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
+			return
+		}
 		if ret != profileSexReturn {
 			return
 		}
@@ -1239,6 +1258,13 @@ func main() {
 			ov.enterProfileSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
 		}
 	})
+	o.OnCall(worldSexReturn, func(o *oracle.Oracle) {
+		evMu.Lock()
+		defer evMu.Unlock()
+		if ov.sexPending != nil && ov.sexPending.ret == worldSexReturn {
+			ov.returnProfileSex(o.Regs().SP, int(o.Word(oracle.Far(0x740c, 0x0295))), int(o.Word(oracle.Far(0x740c, 0x0297))), offscreen(o), o.Palette())
+		}
+	})
 	o.OnCall(profileSexReturn, func(o *oracle.Oracle) {
 		evMu.Lock()
 		defer evMu.Unlock()
@@ -1247,7 +1273,7 @@ func main() {
 				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0295})),
 				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0297})), offscreen(o))
 		}
-		if ov.sexPending != nil {
+		if ov.sexPending != nil && ov.sexPending.ret == profileSexReturn {
 			ov.returnProfileSex(o.Regs().SP,
 				int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0295})),
 				int(o.Word(oracle.Addr{Seg: 0x740C, Off: 0x0297})), offscreen(o), o.Palette())
@@ -1948,7 +1974,7 @@ func main() {
 func cloneVisualEvents(in []*textEv) []*textEv {
 	out := make([]*textEv, 0, len(in))
 	for _, e := range in {
-		v := &textEv{popupClip: e.popupClip, s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
+		v := &textEv{originRet: e.originRet, sex: e.sex, popupClip: e.popupClip, s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
 		if e.profile != nil {
 			v.profile = e.profile.visualCopy()
 		}

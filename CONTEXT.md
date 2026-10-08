@@ -12,18 +12,18 @@
 | 原版存讀檔 | R979正常保存／冷LOAD已量；R982新正常SAVE、正式同binary重播、私有前端與無覆繪原API控制四組存檔全同，7,687發布原版狀態差異0；新SAVE冷LOAD回區域11的56／92，再正常前進至56／91 | Linux已量玩家鏈完成；原生平台與實際封包仍待，014 READY、#42 OPEN |
 | TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；R983依使用者定案統一BASELARD＝巴塞拉短劍，原樣英文鍵異譯32→31。雙後端正式重建與已審候選一致，四一般資源保持 | 剩11組訊息與20組跨家族；3816及R981新增133則上屏未量，#24／#22 |
 | 怪物原文抽取 | R983獨立核250筆／1000個16-byte固定格，PS／ON／LANCER／GUARDIAN是NUL後殘片；固定格原型及異譯拒絕檢查通過 | 031 DRAFT，23個譯名衝突待決；正式怪物工具與catalog未改，四組仍算正式未解 |
-| 正常人物頁與法術視窗 | R985正式修補五個已證裝備名稱的遮擋撤除；兩字型兩倍率正常開／取消／再開完成。四組固定輸入各1614發布原版狀態同，256開窗像素只變名稱區、376未開／取消畫面全同，保存層保持 | 032五名稱限定CONFORMED，最終獨立0／0／0採認；其他裝備未量，WHO／M仍英文，29來源仍0命中 |
+| 正常人物頁與法術視窗 | R985正式修補五個已證裝備名稱的遮擋撤除；兩字型兩倍率正常開／取消／再開完成。四組固定輸入各1614發布原版狀態同，256開窗像素只變名稱區、376未開／取消畫面全同，保存層保持；032五名稱限定CONFORMED。R986已審034 READY後接入世界人物頁6159性別，雙字型兩倍率正常M、31組HD／Draw、58組退出／重入及16派生HD通過，原版／保存保持 | 034已量M正常路線限定CONFORMED，最終獨立0／0／0採認；F正常未量，WHO上層來源待補，29來源仍0命中 |
 | 輸入錄放 | R967正式接線與限定GUI／重播／故障驗收完成，013正式契約READY | 新玩家路線及未量條件；#17／#28 |
 | 音訊 | 009正式接線與限定Linux軟體驗收完成 | 正常玩家路線、人耳及平台驗收；#18 |
 | 其他正式功能與交付 | #35／#36／#28尚未收尾，三平台可玩封包未完成 | 依各Issue與READY規格完成正常玩家路線及封包驗收 |
 | adapter與版控答案表 | #29位置待定；#26依使用者維持擱置 | 新提示不讀整表、不提交答案，不擴張兩項決策 |
 
 R981來源d5463da已推送；其獨立實作審查0／0／0、#22／#24進度完整LF回讀通過，兩Issue保持OPEN。
-本輪不改Go；R979最終Linux執行檔為
-`workplace/r979/wiz7-final-r2`，90份來源SHA5d6d47f75087fb4d68078a5c5eb8db7f2861f43eea09255e16b2e17161f5a3d8，
-執行檔SHAff4d9b4668784d63c06be7849a4b7f84976125b045c0d268bb2ba2ea5e244171，Go1.24.13。
-最新全`cmd/wiz7`含正式錄放資源／Draw回歸2.421秒通過；四組前輪6,656,000像素與末binary追加2,304,000像素通過。
-兩階段分列，不冒稱四組都由末binary重跑。新合法保存層在
+目前已驗Linux執行檔為`workplace/r986/wiz7-world-sex-final`，Go1.24.13，
+SHA-256 `57f5e3d2328098969c5e64526ec3aff53fb5defea535fd835e2867bf4e379076`。
+最新正式`cmd/wiz7`測試2.359秒通過；R986正常M GUI與原版固定輸入診斷的來源身份分界
+見[研究025](docs/re/025-ui-localization-coverage.md#r986-world-identity-labels)，不外推全部玩家路線。
+早期合法保存層在
 `workplace/r979/gui-unifont-3-normal-save-probe/save`，正常保存／冷LOAD已量上述欄位。
 不是原版warm state，也不注入記憶體。後續從原版正常LOAD接續；完整存檔與輸入只留本機。
 新的正常錄放及保存層在`workplace/r982/normal-save.wiz7-input`與`record-gui/save`，
@@ -35,10 +35,10 @@ SAVEGAME.DBS為11,404 bytes，與正式重播及兩個API控制全bytes同。
 [研究025](docs/re/025-ui-localization-coverage.md#r979-clearance-answer-hint)。
 Docker沿`wizardry7-go-ebiten:go1.24.13-20261008-gui-r1`；字模沿固定來源重建，原版與字型唯讀。
 Xvfb握手停滯已分類為驗收環境，改明確有界擁有程序後重跑。收尾須核自有容器與UID/GID。
-本輪自有容器0；r979、cmd/wiz7與docs的root-owned／誤建.md目錄0。R433保持未追蹤。
+本輪自有容器0；r986、cmd/wiz7與docs的root-owned／誤建.md目錄0。R433保持未追蹤。
 
 目前流文產物為`workplace/r983/final/unifont/flow.json`及`final/eten/flow.json`，
-與R979 binary、R977一般xlate及R979 help合用。生成器現在先略過75則防拷正文，再解碼JSON；
+與R986 binary、R977一般xlate及R979 help合用。生成器現在先略過75則防拷正文，再解碼JSON；
 schema、原文鍵及Go來源保持。030只補原生斜線，先以舊正式文案核133個新增可用msgs，再單獨統一17385。
 一般四資源與統一前全bytes同，正式字元清單2,921項、缺字0；新增斜線與029既定Q，不刪碼點。
 R981的9個正常故事畫格1,174,824像素及7個實際旁白畫格568,008像素與獨立原字型期望一致。
@@ -56,10 +56,10 @@ R984已從同一合法新保存經正常LOAD進人物頁與法術視窗，不注
 正常3257事件／1614發布、末Step380800000的錄製與三控制鏈完成；原版六類狀態與保存層保持。
 十一組仍未量到，31組異譯維持。新可見覆蓋缺口及撤除原因見[025](docs/re/025-ui-localization-coverage.md#r984-normal-profile-context)，
 [032](docs/spec/032-profile-popup-occlusion.md)已於R985審READY後正式接線，五名稱雙字型兩倍率修補驗收完成。
-最新證據見[025](docs/re/025-ui-localization-coverage.md#r985-popup-occlusion)；其餘名稱、WHO／M與整體交付仍待。
+最新證據見[025](docs/re/025-ui-localization-coverage.md#r985-popup-occlusion)；其餘名稱與WHO仍待；世界人物頁M由R986接線，F及整體交付仍待。
 R985正式來源fb240bc已推送private main，最終獨立0／0／0完整採認；#22／#28結果留言與開工留言LF全文回讀一致。
 R984證據e092014已push，控制及撤除結果各0／0／0完整FINAL採認；#24／#22與開工三留言LF全文回讀一致。
-自有容器及擁有權異常0，正式程式／SDK／譯文／資源保持；WHO／M與其他交付門檻仍待。
+R985自有容器及擁有權異常0，SDK／譯文／資源保持；R986接續世界人物頁性別，WHO與其他交付門檻仍待。
 
 2026-10-08使用者確認R976亮字及主選單六按鈕毛筆字樣定版。[R977](docs/goal/R977-approved-ui-wiring.md)已依[028](docs/spec/028-approved-ui-fonts.md) READY接線並完成限定驗收：主選單2／3倍、紙頁3倍的倚天及Unifont正常GUI已量到。35個同GUI停止點的原版完整RAM SHA／Regs／Mouse／indexed／palette及comp保持，31,360,000 HD／Draw像素符合定版，F1返回及正常關窗通過。獨立實作審查0／0／0已採認；最終89份來源身份重建及Unifont3倍7點、8,064,000像素抽測通過。入口見[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍保持原圖，整體交付門檻不變。
 

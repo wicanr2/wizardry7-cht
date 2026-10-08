@@ -1671,3 +1671,34 @@ Markdown `f1e3bd9f121de7d0f4438267751d70935a8a9221f3a6aae0f8965509632fe093`。
 全文522字／7個LF，皆與送出原稿相同；開工6061314508全文248字／5個LF亦相同。
 兩議題維持OPEN，安全收據留workplace/r985/result-comment-receipts.json及start-comment-receipt.json。
 所有本輪容器已清理，R433保持未追蹤；整體中文化目標仍未完成。
+
+## 2026-10-09 R986 世界人物頁性別
+
+沿#22／#28開工與唯一現況表，載入規格閘門、文件職責、逆向證據及既有IDA工具鏈入口。
+三個唯讀窄探針找到6159性別caller及WHO透明位圖writer，每趟1614原版trace全同。
+M字框及背景守門已證，F共用資料流為靜態證據；WHO上層來源未證。
+034獨立契約FINAL 0／0／0完整採認READY後才正式接線，原版與SDK、譯文、wire保持。
+
+正式全cmd與七個world負測2.359秒通過；四組正常冷LOAD及法術開／取消／再開共31個完整HD／Draw pair，
+另正常Exit回迷宮撤除及人物頁重入58pair通過。四組固定原API診斷各1614原版發布全同，
+16張派生HD共6,656,000像素等於獨立舊幀／原墨點／原字模期望，域外0。
+全部保存bytes／mode／mtime保持；派生圖不作GUI，私有原API不改wire或宣稱正式相容重播。
+具體來源、雜湊與入口見[025](docs/re/025-ui-localization-coverage.md#r986-world-identity-labels)、[034](docs/spec/034-world-profile-sex.md)。
+
+驗證器修正：倚天3倍關窗前最後355M只有HD，未配對Draw明記且不列分母。
+頭像點擊及Escape未退出，操作ACK不當完成；按原版手冊盔甲右側Exit正常返回已量到。
+一次全域suffix替換連帶改標籤，已修為限定替換並保留舊嘗試；不列產品故障。
+IDA原始片段先未建立指令的導出保留為舊輪次，修create_insn後同映像窄重解；
+runtime段位址、raw snippet EA與oracle線性位址分開。沒有為文字功能深入無關driver。
+
+F正常上屏、WHO、十一組情境與31異譯、23怪物名、平台／封包及整體中文化仍待。
+完整原版、字型、答案、code與輸入只留ignored workplace/r986；R433未追蹤檔保持。
+最終獨立採認、commit／push、Issue回讀及自有容器清理於收尾追加。
+
+R986最終獨立實作審查於FINAL後完整回讀採認0／0／0，已量M正常路線限定CONFORMED，F保持READY／未量。
+JSON SHA-256 `4b73e468805d2e4c6e7e99b136660f71bcded169e6ae26f40e75a56f68e11dd7`；
+Markdown `4982117d1d553adb15a30690fcbc3f2a4fabbe8b34655a6294791fd4b8a70764`。
+六份正式來源／TSV／binary與審查SHA一致；034其後只補實際驗收與採認狀態，不改契約。
+89個正常GUI完整pair已獨立核，6個退出pair無殘字、9個重入pair男字位置正確。
+自有容器、root-owned及誤建.md目錄0，來源／輸出抽查UID/GID1000:1000；
+以既有R985／032作正對照，新goal、033／034與025證據入口均可定位，R433保持未追蹤。

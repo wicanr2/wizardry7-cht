@@ -122,7 +122,12 @@ func (ov *overlay) clearProfileSex(reason string) {
 }
 
 func (ov *overlay) enterProfileSex(ret oracle.Addr, sp, font, code uint16, x, y int, before []byte) {
-	if ret != profileSexReturn || x != 90 || y != 6 {
+	if (ret != profileSexReturn && ret != worldSexReturn) || x != 90 || y != 6 {
+		return
+	}
+	if ret == worldSexReturn && (sp > 65530 || (flowK != 2 && flowK != 3) || !worldSexResourcesValid(ov.sexEntries)) {
+		ov.clearWorldSex()
+		log.Print("世界性別缺譯：stack、倍率或資源不符")
 		return
 	}
 	for _, e := range ov.evs {
@@ -134,9 +139,13 @@ func (ov *overlay) enterProfileSex(ret oracle.Addr, sp, font, code uint16, x, y 
 		ov.clearProfileSex("巢狀印字")
 		return
 	}
-	if !ov.sexEnabled || font != 0 || code != 'M' && code != 'F' ||
+	if (!ov.sexEnabled && !(ret == worldSexReturn && (flowK == 2 || flowK == 3))) || font != 0 || code != 'M' && code != 'F' ||
 		ov.pend != nil || ov.compound != nil || len(before) != 64000 {
 		log.Print("性別缺譯：倍率、資源、印字訊號或離屏不符")
+		return
+	}
+	if ret == worldSexReturn && !worldSexBackgroundMatches(before) {
+		log.Print("世界性別缺譯：背景不符")
 		return
 	}
 	s := string(rune(code))
@@ -155,7 +164,7 @@ func (ov *overlay) returnProfileSex(sp uint16, x, y int, after []byte, pal [256]
 	if p == nil {
 		return
 	}
-	if p.ret != profileSexReturn || sp != p.sp+2 || x != 96 || y != 6 ||
+	if (p.ret != profileSexReturn && p.ret != worldSexReturn) || sp != p.sp+2 || x != 96 || y != 6 ||
 		len(p.before) != 64000 || len(after) != 64000 {
 		log.Print("性別缺譯：返回或離屏不符")
 		return
@@ -176,12 +185,16 @@ func (ov *overlay) returnProfileSex(sp uint16, x, y int, after []byte, pal [256]
 		log.Print("性別缺譯：無印字差異")
 		return
 	}
-	e := &textEv{s: p.s, x0: p.x, y0: p.y, bx: p.x, by: p.y, bw: 6, bh: 6,
+	bx, by, bw, bh := p.x, p.y, 6, 6
+	if p.ret == worldSexReturn {
+		bx, by, bw, bh = 88, 4, 8, 8
+	}
+	e := &textEv{originRet: p.ret, s: p.s, x0: p.x, y0: p.y, bx: bx, by: by, bw: bw, bh: bh,
 		fg: 1, fgRGB: pal[1], g: p.g, sex: true}
-	for y := p.y; y < p.y+6; y++ {
-		start := y*320 + p.x
-		e.before = append(e.before, p.before[start:start+6]...)
-		e.after = append(e.after, after[start:start+6]...)
+	for y := by; y < by+bh; y++ {
+		start := y*320 + bx
+		e.before = append(e.before, p.before[start:start+bw]...)
+		e.after = append(e.after, after[start:start+bw]...)
 	}
 	ov.evs = append(ov.evs, e)
 	ov.created++

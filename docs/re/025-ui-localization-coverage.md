@@ -1347,3 +1347,54 @@ JSON SHA-256 `f81ae5c42ba0812cb7eaa10cb946b251a3b162b5e6a987a549795445e3c545d0`�
 Markdown `f1e3bd9f121de7d0f4438267751d70935a8a9221f3a6aae0f8965509632fe093`。
 新增最後未遮邊框拒絕後，全cmd乾淨重測1.494秒通過；重新建置與正常GUI倚天3測過的8cec二進位全bytes同。
 來源與驗收輸出UID/GID1000:1000，自有容器、root-owned及誤建.md目錄0；新goal／spec以R984正對照核有入口。
+
+## R986 世界人物頁性別與選人提示（2026-10-09）
+
+<a id="r986-world-identity-labels"></a>
+
+入口[R986](../goal/R986-world-identity-labels.md)、[033](../spec/033-world-identity-labels.md)、[034](../spec/034-world-profile-sex.md)。
+沿R984合法正常3257事件／1614發布收據，三個獨立審查過的唯讀探針各全trace等於原版控制，
+RAM／Regs／Step／Ticks／indexed／palette均保持。原版DS.EXE與正常輸入SHA由034收錄，不修改原版或wire。
+
+性別confirmed於runtime0110:3877、返回0110:6159，font0、x90／y6、M字碼77。
+返回只改原6×6格13個色號1墨點。0110:60c9起320-byte正常執行code在IDA9.4窄解碼，
+保留原operand [bx+5e2ch]，讀值加140、取140／141原訊息首字碼，再由0110:6156呼叫3877。
+F與M共享資料流已證，但正常F上屏未量。完整8×8背景守門及原生字格邊界見034。
+
+WHO?在正常選取時有45個色號22像素，取消後消失。窄捕捉到runtime740c:20fe的
+mov es:[di],al透明位圖寫入，寬24／高5；這是寫入端，不足以識別上層來源。
+WHO code256 bytes SHA-256 580cab56d91d80d609ceeb521e4ecd42d01f0378f8c154013b46fe47bf5bd64b；
+M code320 bytes SHA-256 3d8b652dbbcbd17d553a84878a132e1a14a44f6cf0eeff4ec30dc2c7b1148259。
+IDA raw snippet EA與runtime段位址分開記；線性oracle At544958不混作IDA EA。
+033保持DRAFT，不由位圖writer直接實作覆繪，不深入與目前文字無關的驅動程式。
+
+034契約獨立FINAL 0／0／0完整回讀採認READY後正式接線；來源與READY審查SHA見034。
+正式全cmd與七個world負測2.359秒通過，binary SHA-256
+57f5e3d2328098969c5e64526ec3aff53fb5defea535fd835e2867bf4e379076。
+兩字型兩倍率正常冷LOAD、人物頁、法術開／取消／再開完成。
+31組完整HD／Draw在性別批准域逐RGB等於獨立原字模期望，五裝備名稱保持；四保存層bytes／mode／mtime相同。
+倚天3倍355M只有HD、未及發布Draw即正常關窗，單獨記為未配對，不列核對分母或產品故障。
+
+正式來源只加三個私人只讀診斷hook，四組各1614發布trace全bytes等於raw。
+16個派生HD共6,656,000像素，以舊R985幀、13原墨點及外部原字模獨立重建，逐像素全同，批准域外0。
+每張變更像素倚天2倍76／3倍105、Unifont2倍76／3倍123；保存bytes／mode／mtime保持。
+固定收據不改wire、不稱正式相容重播；派生HD不稱正常GUI，正常畫面另驗。
+安全摘要SHA-256：formal-pixel-result.json為3078a2116ec5ada8ed356184750d157aad64b28619bc110f165b822f7a1eaa27；
+formal-gui-result.json為21c3b39a030e37954b44b7c170983556334417096df0d941c3bf0f98be030a98。
+完整原版、字型、code、答案及輸入只留ignored workplace/r986。
+
+另兩字型兩倍率正常Exit返回迷宮／人物頁重入共58組完整HD／Draw pair，
+退出批准域等於原indexed放大無殘字，重入原生男位置相符；四保存層保持，關窗0。
+formal-exit-result.json SHA-256 6152aa0d764d06bbf6df35b54168f71aa50ddfc673124712de89427ff2c3e8b7。
+[原版手冊](https://www.mocagh.org/sir-tech/wiz7-manual.pdf)第24／25頁說明盔甲右側Exit；正常點315／92已量回迷宮。
+頭像點擊及Escape只有操作收據、畫面未退出，未列成功；驗證器一度全域替換suffix連帶變更標籤，
+已限縮只改suffix並保留原嘗試，不混作產品故障。
+最終實作採認及提交在收尾追加；WHO、F與整體交付仍待。
+
+R986最終獨立實作審查於FINAL後完整回讀採認0／0／0，已量M正常路線限定CONFORMED，F保持READY／未量。
+JSON SHA-256 `4b73e468805d2e4c6e7e99b136660f71bcded169e6ae26f40e75a56f68e11dd7`；
+Markdown `4982117d1d553adb15a30690fcbc3f2a4fabbe8b34655a6294791fd4b8a70764`。
+六份正式來源／TSV／binary與審查SHA一致；034其後只補實際驗收與採認狀態，不改契約。
+89個正常GUI完整pair已獨立核，6個退出pair無殘字、9個重入pair男字位置正確。
+自有容器、root-owned及誤建.md目錄0，來源／輸出抽查UID/GID1000:1000；
+以既有R985／032作正對照，新goal、033／034與025證據入口均可定位，R433保持未追蹤。
