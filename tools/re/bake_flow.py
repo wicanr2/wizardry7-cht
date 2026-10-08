@@ -8,21 +8,23 @@
 #   被排除 含 & % ] ^ $ # ! " 任一字元、含數字、含行首以外的 `@`、訊息 id 2500–2574；被排除的行截斷段落
 #   段落   連續訊息 id（相鄰以原始 id 計）的行；剝控制碼後行首是 `@` 的行開新段落；
 #          零字詞行維持相鄰但不加字詞、不記 end；沒有任何字詞的段落丟棄
-#   譯文   story-trans 同 id 的 zh，先剝 <0x20；非空且每字 Big5 雙位元組、取得到字形才可用
+#   譯文   story-trans 同 id 的 zh，先剝 <0x20；非空且每字 Big5 雙位元組或030的斜線、取得到字形才可用
 #   字形   bake_font.glyph_char（原生15／16位元靠右，與 xlate.json 同一來源）
 # --drop <id>：移除含該 id 的整個段落（驗收 9 的負向測試檔）。
 import json
 import re
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from bake_font import glyph_char  # noqa: E402
-from font_source import BACKEND, SIZE, unifont  # noqa: E402
+from font_source import BACKEND, SIZE, unicode_glyph, unifont  # noqa: E402
 from message_catalog import load_player_catalog  # noqa: E402
 
 MSG = Path("text/messages.json")
 TRANS = Path("text/story-trans.json")
+ASC15 = Path.home() / "cht/etan_font/ascfont.15"
 BAD = set('&%]^$#!"')
 PROT = range(2500, 2575)  # 手冊防拷關鍵字表：一律排除，不寫進任何輸出
 
@@ -50,13 +52,34 @@ def parse_line(en: str):
     return s, lead
 
 
+@lru_cache(maxsize=1)
+def slash_glyph() -> tuple[int, ...]:
+    """030：原生8px斜線置中；來源錯誤必須中止整個建置。"""
+    if BACKEND == "unifont":
+        width, rows = unicode_glyph("/")
+        if width != 8:
+            raise ValueError("Unifont斜線必須為8×16")
+    else:
+        raw = ASC15.read_bytes()
+        if len(raw) != 256 * 15:
+            raise ValueError("倚天ASCII字型必須為256格8×15")
+        rows = raw[ord("/") * 15:(ord("/") + 1) * 15]
+    if len(rows) != SIZE or any(not 0 <= row < 256 for row in rows) or not any(rows):
+        raise ValueError("斜線字模高度、位元或筆畫不符")
+    return tuple(row << 4 for row in rows)
+
+
 def usable_zh(zh: str, glyphs: dict) -> str:
-    """剝低位碼後非空、每字 Big5 雙位元組且有字形才可用；整則通過才更新 glyphs。"""
+    """Big5雙位元組或030的斜線；整則通過才更新glyphs。"""
     zh = strip_ctl(zh)
     if not zh:
         return ""
     got = {}
     for ch in zh:
+        if ch == "/":
+            if ch not in glyphs and ch not in got:
+                got[ch] = list(slash_glyph())
+            continue
         try:
             b5 = ch.encode("big5")
         except UnicodeEncodeError:
@@ -77,6 +100,7 @@ def usable_zh(zh: str, glyphs: dict) -> str:
 def build(drop=None):
     if BACKEND == "unifont":
         unifont()  # 不讓錯誤來源被可用譯文檢查誤吞成空白
+    slash_glyph()  # 030：在讀catalog與任何輸出前驗來源，不轉成空譯文
     records = sorted(load_player_catalog(MSG)["records"], key=lambda r: r["id"])
     trans = json.loads(TRANS.read_text())["items"]
     raw_paras = []

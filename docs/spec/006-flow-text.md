@@ -33,6 +33,10 @@ issue：#39、#40（關聯 #22、#24）
 
 ### R1 資料：`workplace/bake/flow.json`
 
+2026-10-08增補：[030斜線字模](030-flow-slash-glyph.md) READY只允許半形`/`作逐字Big5條件的例外。
+它沿既有size15／16方形字格，不改本規格的英文鍵、段落順序、分頁、runtime或文字帶。
+其他ASCII仍拒絕，原生slash來源不合格須中止建置；新增可用譯文未量上屏時保持READY。
+
 由 `tools/re/bake_flow.py` 從 `text/messages.json` 與 `text/story-trans.json` 產生（與 `xlate.json` 同樣是重建產物，不進版控）。
 
 2026-10-08安全讀取維護：`tools/re/message_catalog.py`在JSON文字解碼前略去2500–2574正文，

@@ -2,9 +2,14 @@
 # gen_trans.py — 從 id→zh 映射產生 text/story-trans.json
 # en 欄位直接取自 text/messages.json（＝runtime 明文，含控制碼），
 # 保證前端查表逐字一致；不一致就報錯。
-import json, sys, sys
+import json
+import sys
+from pathlib import Path
 
-MSG = json.load(open('text/messages.json'))['records']
+sys.path.insert(0, str(Path(__file__).resolve().parent / 're'))
+from message_catalog import load_player_catalog
+
+MSG = load_player_catalog(Path('text/messages.json'))['records']
 byid = {m['id']: m for m in MSG}
 
 # id → zh（一則一筆；控制碼留在 en，zh 只譯可見文字、行尾控制碼原樣保留）
@@ -1071,7 +1076,7 @@ Z = {
  17380: '誰說未讀的書頁不是被刻意藏起的！&%]',
  17381: '我看命運女神們詭計多端……&%]',
  17382: '也許還來得及看穿她們的把戲……',
- 17385: '\x04不／\x05好／\x05當然／\x05可以／',
+ 17385: '\x04否/\x05好/\x05當然/\x05確定/',
  17387: '那麼你說，你們願意加入嗎？',
  17390: '那就聽清楚，快！&%]',
  17391: '我手上有神聖羊皮紙的一部分……&%]',

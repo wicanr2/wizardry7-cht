@@ -1043,3 +1043,21 @@ sources-before／candidate-sha 同步 check.py 自身 SHA（探針二進位 driv
 結論：61,99 三向控制點擊（前進 R957、右轉 R970、左轉本輪）皆入戰鬥，
 該點無繞行分支；往東推進須先過戰鬥（單人隊伍 R963 已證戰死）或另尋他路。
 R969 裁決維持，008 仍 DRAFT。完整收據只留本機（workplace/r971）。
+
+## R981-no-response-unification
+
+2026-10-08。[goal](../goal/R981-no-response-unification.md)，沿[#24](https://github.com/wicanr2/wizardry7-cht/issues/24)。
+只處理已審的完整英文六列同義組，出處17385／18050／18860／21978／23665／24065。
+NO依既有否定回應「否」、OK依翻譯指令「確定」，YE／SURE保留「好／當然」，不用多數或批次日期選詞。
+011增補獨立0／1／0的唯一N5守門已修；030另審READY及限定驗收後才同步17385與有效Z。
+
+confirmed於正式來源：六列en、控制碼、順序、dy與其他資料保持，只有17385.zh變為已審候選。
+安全產生器先略過防拷正文，重生8903列與正式表全bytes相同，SHA49dee3cdae5497f5ad6654f5cd511a1c87d70f008ec7f5ee58f65e66a565674d。
+雙後端xlate／roster／profile-sex／intro-picture四資源保持；相對030修補後flow只改17385的z／zh，
+移除flow已無使用的全形斜線。舊bake索引2867→2866及倚天fontseg不是正式前端輸入。
+F1仍使用全形斜線，因此正式字元清單保留；只增半形斜線與029既定Q，2919→2921、缺字0。
+
+三份正式catalog獨立重算原樣英文鍵碰撞33→32，解除僅此組；其餘11組訊息及21組跨家族保持。
+純字串NO五列本來已一致，不列作新增解除。舊R969的33組為歷史，008仍DRAFT。
+本組與新增133則正常上屏未量，只有靜態／限定正常回歸；不據一般字典相同外推所有畫面。
+字模與GUI範圍見[017 R981](017-flow-text-evidence.md#r981-flow-slash)，完整候選及控制碼／字元收據只留workplace/r981。

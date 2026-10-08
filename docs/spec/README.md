@@ -35,3 +35,4 @@
 | [027](027-reprint-persistence.md) | 同文重印的覆繪持續性，狀態依正文與R968收據 |
 | [028](028-approved-ui-fonts.md) | 定版紙頁亮字及主選單毛筆，兩後端限定正常路線CONFORMED |
 | [029](029-clearance-answer-hint.md) | 目前防拷題目後附英文答案（限定CONFORMED；兩後端兩倍率正常GUI與同狀態通過，其餘題目及防禦GUI未量） |
+| [030](030-flow-slash-glyph.md) | 流文半形斜線字模（DRAFT；保持原文、schema與排版，新增可用集合待獨立核） |

@@ -28,7 +28,9 @@ for line in gzip.decompress(raw).decode("ascii").splitlines():
     glyphs[ch] = bits
 
 chars = set()
-ascii_help = set("0123456789")
+# 030的flow斜線及029既定提示字形；不取得任何防拷答案正文。
+ascii_help = set("0123456789/ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+chars.update("答案：")
 for name in ("story-trans.json", "items-trans.json", "monsters-trans.json"):
     for key, value in json.loads(Path("text", name).read_text())["items"].items():
         if name == "story-trans.json" and 2500 <= int(key) <= 2574:

@@ -32,6 +32,9 @@ python3 tools/re/bake_flow.py workplace/bake-unifont/flow.json
 python3 tools/re/bake_help.py workplace/bake-unifont/help.json
 ```
 
+流文字模的半形斜線沿[030](../docs/spec/030-flow-slash-glyph.md)，保留完整原生8像素筆畫並置中於既有字格。
+倚天後端另需自備字型目錄內的`ascfont.15`，共3,840 bytes；缺檔或壞字模會中止flow建置。
+
 主程式以`-xlate`、`-flow`、`-help`指定這三份JSON；字型選項只影響烘製與顯示。
 `bake_font.py`同時從職業碼TSV產生`roster.json`，主程式依`-xlate`的目錄載入它。
 六個已量角色列的中文目前限互動與HD皆3倍，規格見[022](../docs/spec/022-character-roster-text.md)。
@@ -75,10 +78,9 @@ python3 tools/re/probe_font.py /font/unifont_all-17.0.05.hex.gz \
 獨立位圖驗證入口為[check_native_font.py](../tools/re/check_native_font.py)；
 `--baked-only`只驗烘製資料，完整同狀態模式還需要研究018所列原版收據。
 
-主選單六按鈕的毛筆楷體候選另見[字型來源](brush-menu-source.md)。
-R976只作字樣原型，正式接線未完成，不修改上述一般字型入口。
+主選單六按鈕的毛筆楷體來源另見[字型來源](brush-menu-source.md)，限定接線與GUI驗收已完成。
 已定版兩族的正式文案為[主選單TSV](../text/main-menu.zh-TW.tsv)與[紙頁TSV](../text/intro-paper.zh-TW.tsv)，
-完整接線契約見[028](../docs/spec/028-approved-ui-fonts.md)，已READY，驗收範圍沿本輪收據。
+完整接線契約及已量範圍見[028](../docs/spec/028-approved-ui-fonts.md)，不擴及一般訊息。
 
 一般字型完成烘製後，以[bake_approved_ui.py](../tools/re/bake_approved_ui.py)追加兩族字模。
 容器內指定`--font /brush/ukai.ttc --license /license/copyright --eten-font /eten/stdfont.15`，

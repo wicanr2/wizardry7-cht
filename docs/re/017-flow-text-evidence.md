@@ -167,3 +167,33 @@ gui-flow-check.json SHA5b467b49f6e350a3faf5da0bc06e595fad8e5f52ade2a2899588ccf3c
 資源在workplace/r980/final/{unifont,eten}/flow.json；完整原版收據只留本機。
 新正常路線未做完整同狀態A/B，不新增parity或006全CONFORMED聲明。
 33組碰撞、保存控制組及其餘完整交付門檻保持。
+
+## R981-flow-slash
+
+2026-10-08。規格[030](../spec/030-flow-slash-glyph.md) READY，沿[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)。
+confirmed於建置：006的逐字Big5雙byte條件會把含半形斜線的整則譯文清空。
+只放行U+002F；其他ASCII、英文鍵、控制碼處理、段落／訊息結構、Go runtime及文字帶保持。
+
+輸入text/messages.json SHA3f328080ee794160f6382f7da7fd69de6ab499e1b9e87831b268623ef204ffc5；
+統一前story-trans SHAa0964b26832576f5b7b4e68e73154078dfe6def9ecedf53ebf26811211227059，
+統一後SHA49dee3cdae5497f5ad6654f5cd511a1c87d70f008ec7f5ee58f65e66a565674d。
+Python3.13.15；GUI沿Go1.24.13的R979最終binary。字模定位為Unicode U+002F與倚天ASCII第47格，
+固定Unifont／ascfont SHA及原生字格契約見030。原版DS及既有CS:IP定位沿006／R980，不作新RE推論。
+
+先以舊正式文案單獨修字模。兩套同133個新可用msgs／132行，舊可用值、全部舊字模及
+原w／words／t／id／end保持；只新增`/`與「囚」。兩新碼點共962像素直接按原字型位元核同。
+slash-only產物與已審原型全bytes同。之後17385文案另依011核，不混入此133-only差異。
+最終兩套仍2906段落／6307索引行，可用行5058、完整段落2292，msgs8779／可用7331；字形2761。
+Unifont final SHA f78d223c09a633e5a2db4beb8a0ed19fd7391fa6f9fa7d7a92e1c43ad8b288fe；
+倚天 final SHA 0d4cc9695f39616bad80b949721d5cec651eee192dcb9126ad655a759d855108。
+
+8項合成邊界測試與4項安全讀取回歸通過，包含其他ASCII拒絕、壞字模致命失敗、建置前驗來源與整則更新原子性。
+正常冷啟動兩套均以原版正常驗證進故事。9個穩定故事畫格1,174,824個HD／Draw文字帶像素
+符合正式譯文、原始字型及獨立排版。第一次六張標為maze的圖實際太早，不作旁白成功證據；
+以實際flow site0110:bcfc等待，hdat-1550000000.json確證進入旁白後才正常點擊六次。
+另7個旁白畫格568,008像素獨立核同，正常關窗0。這是驗收器等待條件修正，不改產品守門。
+
+本機入口workplace/r981的build_flow.py、play_maze_gated.py、check_gated_maze.py，
+以及gui-flow-check.json、gui-maze-gated-check.json；完整原版、字型與輸入收據不提交。
+GUI使用slash-only階段；17385未在此路線觸發，最終資料對其餘已量行及字模全同，未另重跑整段GUI。
+沒有新同狀態A/B或人耳驗收。新增133則與17385正常上屏未量，030及011增補保持READY。

@@ -10,7 +10,7 @@
 | 紙頁亮字、主選單六毛筆按鈕 | R977限定正常GUI與兩後端驗收完成，028承接定版 | 未量分支保持READY，不重新選外觀 |
 | 防拷答案提示 | 來源72581ac已推送，#45已CLOSED；029限定正常路線已驗，兩後端兩倍率GUI、正常輸入／撤除、原版同狀態與獨立實作複審通過 | 其餘74題正常上屏未量，防禦分支只有測試 |
 | 原版存讀檔 | 正常冷啟動保存11,404 bytes；兩次冷LOAD還原隊員及區域11的56／92，正常滑鼠前進到56／91，再冷LOAD回56／92；保存檔保持 | 目前冷保存的同狀態無覆繪控制組仍待；014 READY、#42 OPEN |
-| TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；33組碰撞待解。R980兩後端flow已恢復，3倍正常中文故事及倚天六頁旁白通過 | R978逐組出處及正常遊玩情境；#24／#22 |
+| TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；R981解除六列同義組後剩32組。兩後端flow可用msgs由7198增至7331，舊可用值保持，17385另依011統一 | 剩11組訊息與21組跨家族；新增133則及本組上屏未量，#24／#22 |
 | 輸入錄放 | R967正式接線與限定GUI／重播／故障驗收完成，013正式契約READY | 新玩家路線及未量條件；#17／#28 |
 | 音訊 | 009正式接線與限定Linux軟體驗收完成 | 正常玩家路線、人耳及平台驗收；#18 |
 | 其他正式功能與交付 | #35／#36／#28尚未收尾，三平台可玩封包未完成 | 依各Issue與READY規格完成正常玩家路線及封包驗收 |
@@ -29,12 +29,14 @@ Docker沿`wizardry7-go-ebiten:go1.24.13-20261008-gui-r1`；字模沿固定來源
 Xvfb握手停滯已分類為驗收環境，改明確有界擁有程序後重跑。收尾須核自有容器與UID/GID。
 本輪自有容器0；r979、cmd/wiz7與docs的root-owned／誤建.md目錄0。R433保持未追蹤。
 
-R980流文產物為`workplace/r980/final/unifont/flow.json`及`final/eten/flow.json`，
+目前流文產物為`workplace/r981/final/unifont/flow.json`及`final/eten/flow.json`，
 與R979 binary、R977一般xlate及R979 help合用。生成器現在先略過75則防拷正文，再解碼JSON；
-R1有效資料及schema保持，安全讀取審查0／0／0。兩套各2,760字形、完整來源及1,327,560原字型像素核同。
-正常GUI10個穩定畫格的1,255,968文字帶像素相符；沒有新全程同狀態A/B，不外推parity。
-入口[R980](docs/goal/R980-flow-resource-recovery.md)、[研究017](docs/re/017-flow-text-evidence.md#r980-flow-resource-recovery)。
-新增NO碰撞實際是六個含控制碼的四選項列，純字串NO的五列已相同；後續核17385與另五出處及有效產生來源。
+schema、原文鍵及Go來源保持。030只補原生斜線，先以舊正式文案核133個新增可用msgs，再單獨統一17385。
+一般四資源與統一前全bytes同，正式字元清單2,921項、缺字0；新增斜線與029既定Q，不刪碼點。
+本輪9個正常故事畫格的1,174,824像素及7個實際旁白畫格的568,008像素與獨立原字型期望一致。
+沒有新同狀態A/B，新增133則及本組正常上屏未量，030與011增補保持READY。
+入口[R981](docs/goal/R981-no-response-unification.md)、[研究017](docs/re/017-flow-text-evidence.md#r981-flow-slash)、
+[研究019](docs/re/019-catalog-migration.md#r981-no-response-unification)。
 
 2026-10-08使用者確認R976亮字及主選單六按鈕毛筆字樣定版。[R977](docs/goal/R977-approved-ui-wiring.md)已依[028](docs/spec/028-approved-ui-fonts.md) READY接線並完成限定驗收：主選單2／3倍、紙頁3倍的倚天及Unifont正常GUI已量到。35個同GUI停止點的原版完整RAM SHA／Regs／Mouse／indexed／palette及comp保持，31,360,000 HD／Draw像素符合定版，F1返回及正常關窗通過。獨立實作審查0／0／0已採認；最終89份來源身份重建及Unifont3倍7點、8,064,000像素抽測通過。入口見[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍保持原圖，整體交付門檻不變。
 
