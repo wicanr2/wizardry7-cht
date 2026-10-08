@@ -19,6 +19,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from bake_font import glyph_char  # noqa: E402
 from font_source import BACKEND, SIZE, unifont  # noqa: E402
+from message_catalog import load_player_catalog  # noqa: E402
 
 MSG = Path("text/messages.json")
 TRANS = Path("text/story-trans.json")
@@ -76,7 +77,7 @@ def usable_zh(zh: str, glyphs: dict) -> str:
 def build(drop=None):
     if BACKEND == "unifont":
         unifont()  # 不讓錯誤來源被可用譯文檢查誤吞成空白
-    records = sorted(json.loads(MSG.read_text())["records"], key=lambda r: r["id"])
+    records = sorted(load_player_catalog(MSG)["records"], key=lambda r: r["id"])
     trans = json.loads(TRANS.read_text())["items"]
     raw_paras = []
     cur, prev = None, None

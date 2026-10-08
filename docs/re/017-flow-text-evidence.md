@@ -124,3 +124,46 @@ S＋1M背景差異1,329個；S＋6M／8M差異均為0，兩倍率的完整故事
 勘誤：spec006驗收19曾要求故事全程帶不符為0，與F23所示1M／3M並非全頁穩定相衝突。
 F26將唯一帶不符定位為前頁筆畫淡出，故改為6M／8M穩定樣本全部有效；其他暫態須查明且拒畫，不以放寬閘門消除log。
 此修訂經唯讀獨立審查：無阻擋，三項文字應改已修正；R5不變，未量防禦分支仍維持READY。
+
+## R980-flow-resource-recovery
+
+2026-10-08，[goal](../goal/R980-flow-resource-recovery.md)、[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)。
+重啟後flow資源缺失，R979明示停用而保留英文；本輪恢復已READY的006／007產物。
+Go前端、原版及SDK未改，仍用R979末90來源binary、Archives唯讀素材。
+
+來源text/messages.json SHA3f328080ee794160f6382f7da7fd69de6ab499e1b9e87831b268623ef204ffc5，
+story-trans.json SHAa0964b26832576f5b7b4e68e73154078dfe6def9ecedf53ebf26811211227059。
+Python固定933b46…、Go1.24.13既有GUI映像；字型為固定Unifont17.0.05及本機倚天原檔。
+位址空間沿runtime CS:IP、A000及palette；本輪不開新RE。
+
+安全讀取器先核根層已證欄位與唯一records、固定id／blk／off／en形狀，
+只將2500–2574的en字串token置空，再作JSON文字解碼。75則正文未解碼，
+其餘bytes與數值metadata保持；ID仍按R1被排除，因此有效資料、相鄰及輸出schema不變。
+4個合成測試及獨立6個錯來源／形狀案例通過，錯例在json.loads前拒絕；
+獨立metadata空白fixture證明只替en。來源審查0／0／0已完整回讀採認。
+JSON SHA373b6cf441db1e353109f861922d6c2bcd66d745adce339137ce82a75cdac395，
+Markdown SHA4d673526af84086f722025b0172c3d459e3bd03bb6f9227f35976f2d7409f734，均在workplace/r980。
+
+兩後端各2,906段落、6,307索引行、4,926可用行、2,171完整可譯段落、
+8,779訊息、7,198可譯訊息及2,760字形。數字反映目前正式譯文，
+與較早4923／2168投影分列；沒有修改譯文使數字通過。
+全部段落、訊息、字元集合及1,327,560原字型像素由獨立規則與原始字型核同。
+末讀取器乾淨重建兩套flow，與已量GUI產物逐bytes相同。
+
+| final後端 | flow.json SHA-256 |
+|---|---|
+| Unifont | c14e647fae2d3679e39a87608192127e3b030de91ac297b8aa689c39f12bedae |
+| 倚天 | 73d6456a1d4156ce348ae2d2aa9601c980bd3d6648dd3a3f2448971ac3869315 |
+
+正常冷啟動、建隊、前端按鍵通過本題後，兩後端3倍故事恢復中文；
+Unifont擷取12張、倚天16張正常故事畫面，倚天六頁迷宮旁白正常點擊換頁及全部撤除。
+10個固定穩定畫格的1,255,968個HD／Draw文字帶像素，逐點符合正式譯文、
+原始字型及獨立排版；只量此文字帶，不外推全圖或全部31頁逐像素。
+轉場的帶不符沿F26／R5拒畫，沒有放寬守門或把暫態英文當資源漏譯。
+兩個正式GUI正常關窗exit0，原版音訊串流丟棄0；靜音及明示24M ips，不當人耳驗收。
+
+resource-check.json SHAce403370978449d449478c218730010af1e119e6d0345ff53b6c20a06b416d34，
+gui-flow-check.json SHA5b467b49f6e350a3faf5da0bc06e595fad8e5f52ade2a2899588ccf3cdd0670e。
+資源在workplace/r980/final/{unifont,eten}/flow.json；完整原版收據只留本機。
+新正常路線未做完整同狀態A/B，不新增parity或006全CONFORMED聲明。
+33組碰撞、保存控制組及其餘完整交付門檻保持。

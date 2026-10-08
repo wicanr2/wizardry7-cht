@@ -35,6 +35,11 @@ issue：#39、#40（關聯 #22、#24）
 
 由 `tools/re/bake_flow.py` 從 `text/messages.json` 與 `text/story-trans.json` 產生（與 `xlate.json` 同樣是重建產物，不進版控）。
 
+2026-10-08安全讀取維護：`tools/re/message_catalog.py`在JSON文字解碼前略去2500–2574正文，
+保留id／blk／off及空en。其餘JSON bytes保持；來源形狀不符明確失敗，不回退解碼整表。
+下列規則本來就排除這些ID，因此段落、訊息、譯文及輸出schema保持。
+工作與驗收入口[R980](../goal/R980-flow-resource-recovery.md)。
+
 - **剝控制碼**：直接刪除 `<0x20` 的字元，不補空白。R2 的片段字串用同一個函式。
 - **行**：剝控制碼後，去掉行首一個 `@`。下列行「被排除」，且截斷所在的段落：含 `& % ] ^ $ # ! "` 任一字元、
   含數字、含（行首之外的）`@`。訊息 id 2500–2574 一律被排除。
@@ -44,7 +49,7 @@ issue：#39、#40（關聯 #22、#24）
 - 每個段落記字詞序列（各行以單一空白相連後依空白切開）與每個有字詞的行的 `end`（該行最後一個字詞的位置＋1）。
 - **每行譯文 `zh`**：取 `story-trans.json` 同 id 的譯文，顯示副本先剝 `<0x20`、不補空白；非空、且每個字都能編成 Big5 雙位元組字、且能取得字形，才可用；
   否則 `zh` 為空（該行不可翻譯）。
-  正式來源仍保留控制碼；修正範圍與靜態驗收依[016](016-catalog-control-preservation.md)、[017](017-dynamic-subject-source.md)及[019](019-cross-row-source.md)。現行已驗基線投影的預期段落／行／可用行／全譯段落為`2906／6307／4923／2168`，沒有重跑原始全量flow；新增可用值尚未量正常上屏，歷史收據數字保持。
+  正式來源仍保留控制碼；修正範圍與靜態驗收依[016](016-catalog-control-preservation.md)、[017](017-dynamic-subject-source.md)及[019](019-cross-row-source.md)。較早基線投影為`2906／6307／4923／2168`。2026-10-08 R980以目前正式來源完整重建兩後端，為`2906／6307／4926／2171`，來源與全量獨立字模驗算見[研究017](../re/017-flow-text-evidence.md#r980-flow-resource-recovery)。本輪正常GUI只量已列路線，不外推新增可用行全部上屏；歷史數字保持。
 - **字形表**：每個用到的字一份 15 列位圖，取自 `bake_font.glyph_scaled`（15 位元、靠右；與 `xlate.json` 同一函式），
   取字形失敗（`glyph_of` 拋 `ValueError`）視為 `zh` 空。不依賴 `xlate.json`，避免同鍵不同譯文互蓋（#24 盤點）。
 - **訊息表 `msgs`**（R3b 用）：`messages.json` 每一則（id 2500–2574 一律不收），en 剝控制碼、去掉行首一個 `@` 或 `#`、

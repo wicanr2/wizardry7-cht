@@ -1,5 +1,7 @@
 # 專案目標
 
+流文字模恢復與正常中文畫面：[R980](R980-flow-resource-recovery.md)。
+
 防拷題目附答案與正常遊玩起點：[R979](R979-clearance-answer-hint.md)。
 
 譯文碰撞收斂與整體完成門檻：[R978](R978-catalog-collision-closure.md)。
