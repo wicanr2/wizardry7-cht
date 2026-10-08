@@ -38,5 +38,5 @@
 | [030](030-flow-slash-glyph.md) | 流文半形斜線字模（DRAFT；保持原文、schema與排版，新增可用集合待獨立核） |
 | [031](031-monster-name-slots.md) | 怪物名字四個16-byte固定格與異譯拒絕守門（DRAFT；23個譯名衝突待定） |
 | [032](032-profile-popup-occlusion.md) | 人物法術視窗保留未遮住的裝備中文（限定CONFORMED；五名稱雙字型兩倍率正常路線及原版／像素／Draw已驗，其他裝備／人物切換未量） |
-| [033](033-world-identity-labels.md) | 世界人物頁性別與選人提示（DRAFT；性別由034承接，R987已得WHO游標來源與原生字樣，正式契約及正常GUI待） |
+| [033](033-world-identity-labels.md) | 世界人物頁性別與選人提示（R988已量WHO正常選人、移動、取消與再入限定CONFORMED；其他分支仍READY，性別由034承接） |
 | [034](034-world-profile-sex.md) | 世界人物頁性別覆繪（M正常路線限定CONFORMED；雙字型兩倍率人物頁、法術視窗、退出／重入及原版／存檔已驗，F正常路線仍READY／未量） |

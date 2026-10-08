@@ -1,6 +1,6 @@
 # 033：世界人物頁性別與選人提示
 
-狀態DRAFT；2026-10-09；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
+狀態READY；R988已量WHO正常路線限定CONFORMED，未量分支仍READY；正式契約條1至15；2026-10-09；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
 入口[R986](../goal/R986-world-identity-labels.md)，既有畫面證據[025](../re/025-ui-localization-coverage.md#r984-normal-profile-context)。
 
 ## 為什麼要做
@@ -36,7 +36,7 @@ runtime位址沿Archives版，DS.EXE SHA-256 `14a94f85cb4ef4df08566ed165dddc88c3
 5. 字格與左右上下文字安全區須用兩後端真字模核；不縮字或遮到種族、職業、其他隊員及數值。
 6. 同狀態兩倍率、雙字型正常選人／取消／人物頁、HD與Draw、存檔保持及錯守門負測後才驗收。
 
-性別由034獨立放行。WHO?已定位游標來源圖，維持DRAFT至正式契約審查，不擴查無關驅動程式。
+性別由034獨立放行。WHO?已定位游標來源圖，R988正式契約已採READY，正常GUI仍待，不擴查無關驅動程式。
 
 ## R987 WHO游標圖與字格證據
 
@@ -63,3 +63,81 @@ R987最終獨立來源／原型審查於FINAL後完整回讀採認0／0／0，32
 JSON SHA-256 d97f39354668e8c7ffa58e1d79ceff4711e00e5574004316b35e5cf22f5c9634；
 Markdown 17d977356abab9792ba68712b0f2e3ad08a2539948c8801fdb8a3c7e0c198e0d。
 仍僅DRAFT派生原型，正式來源、資源、正常GUI及CONFORMED未放行；WHO字型／畫布沿既定15／16、2／3倍。
+
+## R988 正式WHO顯示契約（READY）
+
+<a id="r988-who-cursor-contract"></a>
+
+本節只放行已證WHO圖形；性別沿034。原生字型及2／3倍畫布沿既定設定，不新增字型、黑底、控件或輸入功能。
+原版DS SHA沿本規格；合法R984輸入SHA為d7204e01e17698e0a03a764e4521f7c391b03c2e2fe326683c690edcb723e453，
+控制1614發布trace SHA為84388c8f8cf1461fc7d6e5bde6fd2d05597ba02855c3ce505ac76ea107c404ae。
+WHO來源tail及prefix SHA沿R987段；Go1.24.13。完整圖、code、字模及輸入只留本機。
+
+### 辨識與生命週期
+
+1. 快照owner唯讀原版，不新增OnCall替換或Stub。只在mode13h及完整64000-byte indexed讀WHO狀態。
+2. runtime740c欄位1e5c／1e5e須24／20、1e60／1e62須10／10；15be／15c0須24／20。
+   15ac／15ae按有號16-bit解本圖左上角，須x≥0、y≥0、x+24≤320、y+20≤200。
+3. 1e64／1e66為當刻來源offset／segment。讀前核offset+480≤65536及實體來源終點≤A0000，
+   不讀VGA或跨段。只讀offset+336的144-byte tail及offset+288的48-byte prefix。
+   兩SHA必須同R987已證WHO；不只按尺寸、顏色或通用driver caller放行。
+4. 原版字母位置為圖下14至19行；tail所有非透明0／22像素須與indexed相符，255只作透明、不要求背景等0。
+   不完整、未繪完、隱藏、來源不符、越界或部分裁切時不建立view，保持原圖。
+5. 每次compose重新取得不可變view，不持久保留老坐標／字樣；原版取消／移動後由新快照撤除或重建。
+   Who view與source資料不得寫回原版、離屏、A000或存檔。
+
+### 譯文與資源
+
+6. 英文key WHO?、中文誰？由text/cursor-who.zh-TW.tsv唯一供應，context為cursor.party.member.selection、dy0。
+   生成工具由正式flow內相同後端的兩個原生glyph增補既有xlate字典WHO?項；
+   不改schema、CLI、其他鍵或六資源身份綁定方式。字元已在正式字庫，不另提交字型二進位。
+   ordinary及recording沿同次已捕xlate bytes解析WHO，不能另外重開檔案；原始資源SHA仍依六資源既有綁定。
+   WHO?只供游標資源，取出後從一般NUL查表移除；不得因此放行未批准的一般WHO?印字事件。
+   WHO entry族內不合格只保原圖，根JSON解析錯仍沿既有resource_parse，不改原錯誤契約。
+7. WHO entry須dy0、無數值槽、恰兩個同高15或16非空方字模，所有row位元在該字高內。
+   缺失或不合格保原WHO並記缺譯；空xlate的明示英文模式保持原圖。
+
+### 布局與像素
+
+8. 完整native glyph不縮、不裁。令H為字高、A＝第一字最大墨列+2−第二字最小墨列；
+   A須正且兩字實際墨區至少隔1像素。字條全字格寬A+H，WHO2／3倍內須容納。
+9. 相對游標，字條y＝14×k−max(H−6×k,0)。候選x從0至24×k−(A+H)，
+   優先最接近中心，距離相同取較小x；字條全字格須在原24×20放大矩形內。
+   y落第12行的新增墨點只能用prefix第一行的透明255；手尾7個非透明點連黑輪廓都不覆。
+   prefix第二行已證只有0／255，屬文字空背景，不推定背後RGB全0。
+10. 去墨只在comp副本把原45個tail色22位置改為本WHO字帶底色0；
+    tail既有0及透明255位置不整片改底，新字可在文字域占用原透明點。
+    不讀／泛化整片背景buffer為0，不擴黑底。新字前景用同快照palette[22]。
+11. HD與Draw共用布局、完整字模及RGBA；Draw在一般中文之後、F1／地圖之前畫WHO。
+    依各通道實際k=2／3在owner構造view，GUI-scale與hd-scale可不同，不能用另一通道倍率代替。
+    compose保持原WHO字樣；只有該通道有合法view才在自己的comp副本去45墨／畫字。
+    該通道view nil、錯倍率或尺寸不符時完全保原WHO；不先擦共用comp再讓拒畫通道失字。
+    字條RGBA為advance+H乘H、Alpha只在原生glyph墨點為255，其餘透明0，色取同快照palette22。
+    WHO只畫完整gameArea Bounds內；40px錄製頁尾及圖外像素保持。GUI只讀快照的不可變view，
+    原生glyph及source陣列皆自有副本，取消後不畫舊view；GPU快取有界且不能代替當刻view資格。
+    群字元檢查或布局無安全位置時保持原圖並記缺譯。
+
+### 驗收與停止線
+
+12. source辨識負測涵蓋mode、尺寸、hotspot、坐標、span、SHA、非透明像素及未繪完；
+    資源負測涵蓋dy、槽位、字數、高度、位元界、空字及布局碰撞。檢原buffer不被修改。
+13. 兩字型兩倍率正常冷LOAD、姓名選人、WHO顯示、正常移動、同成員取消及再入；
+    真HD／Draw與獨立原glyph期望核原圖矩形、手尾、控件外及非WHO畫面。
+14. 固定原API同輸入比較RAM／Regs／Step／Ticks／indexed／palette及保存bytes／mode／mtime；
+    不改wire檔頭、不稱正式相容重播，派生HD不代正常GUI。僅已量WHO路線才CONFORMED。
+15. 部分裁切、來源／資源錯誤分支未正常量到時保持READY與英文fallback，不為這個輸出深入mouse driver或硬體時序。
+    不改WHO選人、姓名原文、NPC輸入關鍵字、原版資料或判定。
+
+R988正式契約獨立FINAL 0／0／0已完整回讀採認READY，T1／T2文字補足均解除。
+JSON SHA-256 1597f4d04422bf39bb642ab0cd7d4311e909b2ac4636704dcb97c4a962d91cb0；Markdown 9503d02e16b2e46db6fab88b6764a3f41ea730b7e8071219c792ab2eb68a32f2。
+只放行此契約實作，未稱CONFORMED；R987派生字樣不代正常GUI。
+
+### R988正式驗收採認
+
+最終獨立實作及像素複審於FINAL後完整回讀採認0／0／0，22份審查輸入SHA相同。
+兩字型兩倍率正常選人、移動、取消及再入限定CONFORMED；部分裁切與其他未量分支保持READY。
+28正常操作、34正常WHO文字域／手尾HD與Draw、四組1614原版發布及保存全同，
+32派生完整圖13,312,000像素與獨立期望相符。派生HD不代正常GUI或正式相容重播。
+JSON SHA-256 369c275a6bbda48ebaf0c5d857b27f43d5fe79e3bbdd206080e922a473f2506f；Markdown 41b69a5c38dcb7a1715199165890670300278f01914942de78009664b3663242。
+結果與來源身份見[025](../re/025-ui-localization-coverage.md#r988-who-cursor-wiring)。
+本次只追加實際驗收與採認狀態，不改READY契約或未量停止線。

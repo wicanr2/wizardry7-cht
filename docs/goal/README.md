@@ -3,6 +3,7 @@
 法術視窗遮擋守門與裝備中文修補：[R985](R985-profile-popup-guard.md)。
 世界人物頁性別與選人提示：[R986](R986-world-identity-labels.md)。
 WHO選人提示呼叫見證：[R987](R987-who-call-witness.md)。
+WHO游標正式接線：[R988](R988-who-cursor-wiring.md)。
 
 正常載入後的人物頁情境觀察：[R984](R984-normal-profile-context.md)。
 

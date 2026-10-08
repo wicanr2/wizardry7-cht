@@ -21,6 +21,7 @@
 事件返回畫面及正常路線：[R912](019-catalog-migration.md#r912-event-return-route)。
 正式中文介面的文字與圖片按鈕覆蓋重查：[025](025-ui-localization-coverage.md)。
 世界人物頁性別與選人提示：[R986](025-ui-localization-coverage.md#r986-world-identity-labels)，[034性別契約](../spec/034-world-profile-sex.md)。
+選人WHO游標的正式中文與正常移動／取消：[R988](025-ui-localization-coverage.md#r988-who-cursor-wiring)，[033契約](../spec/033-world-identity-labels.md#r988-who-cursor-contract)。
 頭像頁兩則文字與保持原頭像返回：[R955](025-ui-localization-coverage.md#r955-頭像頁文字與完成返回)。
 低倍率人物數值與原生字型排版原型：[R953](025-ui-localization-coverage.md#r953-兩倍人物欄位原型)。
 定版後的動態背景守門與等級欄修正：[R954](025-ui-localization-coverage.md#r954-動態背景與等級欄修正)。

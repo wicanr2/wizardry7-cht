@@ -89,3 +89,19 @@ python3 tools/re/probe_font.py /font/unifont_all-17.0.05.hex.gz \
 原一般字模保持，xlate-legacy.json保存比較輸入，brush-font-copyright.txt另存原授權全文。
 `--go-model`只供從受版控固定模型重生intro_paper_model.go，不含原版畫格。
 R977恢復的Go及靜音GUI映像、原字型所在位置與限額見[R977](../docs/goal/R977-approved-ui-wiring.md)。
+
+選人游標的「誰？」取自[WHO譯文表](../text/cursor-who.zh-TW.tsv)，
+來源辨識及布局依[033](../docs/spec/033-world-identity-labels.md#r988-who-cursor-contract)。
+兩字已在正式flow字庫。一般字模及已定版兩族完成後，用
+[bake_cursor_who.py](../tools/re/bake_cursor_who.py)增加專用WHO?鍵；原有鍵保持，
+此鍵只供游標，不加入一般印字比對。沿上列固定Python容器，輸入目錄唯讀、輸出目錄可寫：
+
+```sh
+python3 tools/re/bake_cursor_who.py --xlate /input/xlate.json \
+  --flow /input/flow.json --catalog text/cursor-who.zh-TW.tsv \
+  --out /out/xlate.json
+```
+
+輸出不能覆寫輸入。主程式的`-xlate`改指向此輸出；同目錄的`roster.json`、
+`profile-sex.json`、`intro-picture.json`沿同後端既有產物，`-flow`與`-help`保持。
+缺少或不合格WHO字模時，游標保留英文並記錄缺譯；完整字模及原版收據只留本機。

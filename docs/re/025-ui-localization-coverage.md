@@ -1428,3 +1428,44 @@ R987最終獨立來源／原型審查於FINAL後完整回讀採認0／0／0，32
 JSON SHA-256 d97f39354668e8c7ffa58e1d79ceff4711e00e5574004316b35e5cf22f5c9634；
 Markdown 17d977356abab9792ba68712b0f2e3ad08a2539948c8801fdb8a3c7e0c198e0d。
 仍僅DRAFT派生原型，正式來源、資源、正常GUI及CONFORMED未放行；WHO字型／畫布沿既定15／16、2／3倍。
+
+## R988 WHO游標正式中文（2026-10-09）
+
+<a id="r988-who-cursor-wiring"></a>
+
+入口[R988](../goal/R988-who-cursor-wiring.md)、[033正式契約](../spec/033-world-identity-labels.md#r988-who-cursor-contract)、
+[WHO譯文表](../../text/cursor-who.zh-TW.tsv)、[字模生成入口](../../font/README.md)。
+獨立契約FINAL完整回讀採認READY後接線；只唯讀辨識R987已證24×20原版游標，
+來源tail／prefix SHA及runtime740c欄位沿033。完整字模保留15／16像素，在2／3倍原圖內排「誰？」。
+WHO?資源從同次xlate解析後移出一般NUL字典，保持原版字串及原API、六資源schema與身份綁定。
+
+| 驗收 | 實際結果 | 限制 |
+|---|---|---|
+| 正式cmd回歸 | 10.711秒通過；來源、位址界限、字模、通道倍率及真Draw拒畫／40px頁尾保持 | 私有原版fixture缺少時skip；防禦分支未稱正常量到 |
+| 正常GUI | 雙字型兩倍率，28個正常LOAD後選人、移動、取消及再入操作，四趟正常關窗0 | 3倍第一次1CPU在主選單截圖等待逾時，改2CPU同工具鏈乾淨重跑通過 |
+| 正常HD／Draw | 倚天2／3倍6／10組、Unifont2／3倍7／11組，共34組文字域及手尾逐RGB等獨立期望 | 原圖下8行；上方透明背景有既有職業覆繪，不稱完整正常畫格同狀態 |
+| 固定原API | 四組各1614發布，RAM／Regs／Step／Ticks／indexed／palette trace全bytes等原版控制 | 私人診斷不改wire，不稱正式相容重播；只加三個唯讀hook |
+| 派生HD | 32完整圖共13,312,000像素等R986基準加獨立原墨點及原字模期望 | 不代正常GUI；WHO有效8圖，非WHO24圖保持 |
+| 保存層 | 四GUI及四API保存bytes／mode／mtime相同 | 沿合法R982保存，不注入記憶體或修改原版資料 |
+| 資源 | 兩後端8441→8442鍵，只增WHO?；所有舊entry及三同目錄家族全同 | 字模及完整資源只留本機，正式文案由TSV供應 |
+
+去墨只改45原色22點，透明及既有黑點不整片塗底；手尾7非透明點與原24×20圖外保持。
+八個有效派生HD的變更像素，倚天2／3倍每圖226／411，Unifont2／3倍237／410；
+全部落在批准文字域x30..54、y65..73，非WHO六個發布逐完整圖保持。
+GUI快照保原WHO；只有實際Draw畫布及倍率合格才改本次RGBA副本，拒畫仍顯示原圖。
+HD另用自己倍率及comp副本，原生字條GPU快取有界，取消後不沿用舊view。
+
+正式binary為workplace/r988/wiz7-who-final，Go1.24.13，SHA-256
+`6fb3bb7f408ec216c3a572d9f8f6f85aef3170b8d72fec82e763068c86868a29`。
+原版DS、R984合法輸入及raw控制trace SHA沿033；原版、SDK、字型及輸入唯讀，未改答案或驗證。
+安全摘要SHA-256：API `1b99f4e710d5fa7fe771a60aa8739e615c260d1bd00f444b82adc2209880e73a`；
+正常GUI `c4aa228a4a97951462fdecf4d6bff29c9d1dc199c670cb176f9e896937b85413`；
+資源 `ae624e50afdc895e71256e0b276925d7a48ad1b9c6cbc02f71cdc8564dea61ae`。
+完整原版、位圖、字模、答案及輸入只留ignored workplace/r988，最終獨立採認另追加。
+部分裁切、其他人物／流程及資源故障正常路線未量，保持READY與原圖fallback。
+
+R988最終獨立實作及像素複審於FINAL後完整回讀採認0／0／0，22份審查輸入SHA相同。
+JSON SHA-256 `369c275a6bbda48ebaf0c5d857b27f43d5fe79e3bbdd206080e922a473f2506f`；Markdown `41b69a5c38dcb7a1715199165890670300278f01914942de78009664b3663242`。
+033已量WHO正常選人、移動、取消與再入限定CONFORMED；未量分支仍READY。
+源碼及binary保持；033其後只追加驗收與採認狀態，不改契約。
+自有容器、root-owned與誤建.md目錄0，來源及輸出UID/GID1000:1000，R433未追蹤保持。

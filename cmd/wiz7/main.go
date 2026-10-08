@@ -212,6 +212,7 @@ type pendingPrint struct {
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
 type overlay struct {
+	whoEntry        entry
 	reads           []flowRead
 	storyReturn     *storyReturn
 	storyLastReturn uint64
@@ -508,6 +509,8 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	comp, shown, pages := ov.compose(o)
 	pal := o.Palette()
 	k := hdScale
+	who := whoCursorFromSource(o, ov.whoEntry, k, o.Indexed())
+	who.restore(comp)
 	img := image.NewRGBA(image.Rect(0, 0, 320*k, 200*k))
 	for py := 0; py < 200*k; py++ {
 		for px := 0; px < 320*k; px++ {
@@ -548,6 +551,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	}
 	brush.paintHD(img, k)
 	ov.clearance.view(shown, k).paint(img)
+	who.paint(img, k)
 	if f, err := os.Create(path); err == nil {
 		png.Encode(f, img)
 		f.Close()
@@ -613,6 +617,7 @@ type entry struct {
 }
 
 type shared struct {
+	who                  *whoCursorView
 	recordingPublication recordingPublication
 	mu                   sync.Mutex
 	rgba                 []byte  // 320×200×4 的畫面快照（Draw 用）
@@ -637,6 +642,8 @@ type shared struct {
 }
 
 type game struct {
+	whoImage          *ebiten.Image
+	whoImageKey       string
 	live              *inputRecording
 	seenRecordingDraw uint64
 	pictureGlyph      *image.RGBA
@@ -779,6 +786,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	picture := g.sh.picture
 	paper, brush := g.sh.paper, g.sh.brush
 	clearance := g.sh.clearance
+	who := g.sh.who
 	publication := g.sh.recordingPublication
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
@@ -791,6 +799,9 @@ func (g *game) Draw(dst *ebiten.Image) {
 			return
 		}
 		gameArea = dst.SubImage(area).(*ebiten.Image)
+	}
+	if who.canDraw(gameArea.Bounds(), g.scale) {
+		who.patchRGBA(rgba)
 	}
 	g.screen.WritePixels(rgba)
 	var op ebiten.DrawImageOptions
@@ -856,6 +867,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	g.drawFlow(dst, flows)
 	g.drawBrushMenu(gameArea, brush)
 	g.drawClearanceHint(gameArea, clearance)
+	g.drawWhoCursor(gameArea, who)
 
 	g.sh.mu.Lock()
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
@@ -1109,6 +1121,7 @@ func main() {
 	}
 	// 印字串入口（0110:3895）：只讀，不寫原版（spec 001 R1、R2）。
 	ov := &overlay{}
+	ov.whoEntry = takeWhoCursorEntry(trans)
 	ov.brush = brushData
 	if recordingMode {
 		ov.flow, ov.picture = bundle.flow, bundle.picture
@@ -1659,6 +1672,7 @@ func main() {
 		paper := ov.picture.paperView(o.Indexed(), o.Palette(), o.VideoMode(), *scale)
 		brush := ov.brush.view(shown, comp, o.Palette())
 		clearance := ov.clearance.view(shown, *scale)
+		who := whoCursorFromSource(o, ov.whoEntry, *scale, o.Indexed())
 		evMu.Unlock()
 		var views []flowView
 		for _, pg := range pages {
@@ -1678,6 +1692,7 @@ func main() {
 		sh.picture = picture
 		sh.paper, sh.brush = paper, brush
 		sh.clearance = clearance
+		sh.who = who
 		var publication recordingPublication
 		published := false
 		if live != nil {
