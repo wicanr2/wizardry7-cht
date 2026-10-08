@@ -1567,3 +1567,9 @@ gen_trans改已審安全loader，8903列全bytes等於正式表；其他來源�
 私人重播實例補Draw ack通道，未執行錯初始化；首次LOAD等外部命令逾時，改有界自動擁有程序乾淨重跑。
 不改正式前端、SDK、wire、原版或保存語意。完整錄放／答案／原版／字型／生成工具產物只留本機。
 Linux保存鏈已補齊；平台／封包、音訊及32組譯文情境仍待，整體目標保持。
+
+證據commit fecc50593eed7483cf3360091addf648c33f4a9d已push private main。
+[#42結果留言6058104521](https://github.com/wicanr2/wizardry7-cht/issues/42#issuecomment-6058104521)
+完整704字LF與原稿相同；更新後正文完整728字LF亦相同，Issue OPEN。
+正文移除已解除的冷LOAD／禁止代理正常作答歷史限制，保留原生平台與實際封包門檻。
+本輪自有容器、root-owned及誤建.md目錄均0，R982以R981正對照核已掛goal索引；R433保持未追蹤。
