@@ -56,6 +56,8 @@ R984已從同一合法新保存經正常LOAD進人物頁與法術視窗，不注
 正常3257事件／1614發布、末Step380800000的錄製與三控制鏈完成；原版六類狀態與保存層保持。
 十一組仍未量到，31組異譯維持。新可見覆蓋缺口及撤除原因見[025](docs/re/025-ui-localization-coverage.md#r984-normal-profile-context)，
 [032](docs/spec/032-profile-popup-occlusion.md)維持DRAFT。下一步優先補法術視窗窄守門，修可見名稱回英文問題。
+R984證據e092014已push，控制及撤除結果各0／0／0完整FINAL採認；#24／#22與開工三留言LF全文回讀一致。
+自有容器及擁有權異常0，正式程式／SDK／譯文／資源保持；WHO／M與其他交付門檻仍待。
 
 2026-10-08使用者確認R976亮字及主選單六按鈕毛筆字樣定版。[R977](docs/goal/R977-approved-ui-wiring.md)已依[028](docs/spec/028-approved-ui-fonts.md) READY接線並完成限定驗收：主選單2／3倍、紙頁3倍的倚天及Unifont正常GUI已量到。35個同GUI停止點的原版完整RAM SHA／Regs／Mouse／indexed／palette及comp保持，31,360,000 HD／Draw像素符合定版，F1返回及正常關窗通過。獨立實作審查0／0／0已採認；最終89份來源身份重建及Unifont3倍7點、8,064,000像素抽測通過。入口見[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍保持原圖，整體交付門檻不變。
 

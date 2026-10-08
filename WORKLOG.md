@@ -1633,3 +1633,9 @@ R983以R981索引項作正對照，新goal及031均有入口。收尾自有容�
 Markdown為`012c06e5b9e93042c137f5d967cd53d27bd41512a3a5fc19bed04942db1e60d3`。
 第二次每名兩實例而五唯一名稱，不重複算十種缺譯；CAST／CANCEL中文字保持。
 R983索引項作正對照，R984 goal及032均掛入口；自有容器、root-owned與誤建.md目錄0，輸出UID/GID1000:1000。
+
+證據commit e092014已push private main。
+[#24結果6061209817](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-6061209817)
+713字／9個LF、[#22缺口6061209765](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6061209765)
+442字／5個LF及開工6059604178的277字／5個LF，三則完整正文與原稿全同。兩Issue保持OPEN。
+遠端收據workplace/r984/github-comment-receipts.json，R433未追蹤檔保持原樣；目標仍未完成。
