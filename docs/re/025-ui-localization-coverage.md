@@ -1147,3 +1147,53 @@ R733合法checkpoint及R960固定前綴核82摘要、78命令、67既有輸入�
 最終實作／字模／已量收據審查0／0／0已完整回讀採認。workplace/r977/review-implementation.json SHAe8666813d3a899e843f5116e982540ca432ad3464bb67da880a17c31599af5cc，Markdown SHAc3bc7967a8a48a4b72080ecf3d25a73ab4e5b6d8fec808629a08f8cac96a73e6。審查者直接獨立核35狀態及16對圖15,872,000像素；全量70圖的31,360,000像素由主代理工具驗收，審查者核讀法及摘要。
 
 初輪GUI後只修規格編號／註解、兩條非法family log及負向測試，正常繪製演算法保持。最終89來源重建Source SHA40416d488a4105145d8fbed8b18463984187be512a8cb56528690d6a6cb33ba1，workplace/r977/wiz7-final Binary SHA9898b24eb157f44a42a351c63f818acd9976c6673fc7734b3c524d3ece03c030；完整回歸1.546s通過。此binary另跑Unifont3倍正常GUI7點、14圖8,064,000像素全同、F1返回及正常關窗，pixel-final.json SHA30cd33c3353dfdaa4675d7ad1acd90b6d0a476ca74a681fc176771865c0a7432。028僅此已量正常路線CONFORMED，未量GUI分支維持READY。
+
+## R979-clearance-answer-hint
+
+2026-10-08；[#45](https://github.com/wicanr2/wizardry7-cht/issues/45)、
+[goal](../goal/R979-clearance-answer-hint.md)、[029](../spec/029-clearance-answer-hint.md)。
+使用者明示答案接在問題後面，並要求代理從冷啟動正常遊玩。
+這項定案取代先前答案讀取／顯示及代理作答限制，原版驗證仍保留。
+答案、完整輸入與畫面收據只留本機；不讀整表或對話詞庫，不新增可散布答案資料。
+
+原版Archives DS.EXE SHA14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db。
+定位均為dosgolem runtime resident CS:IP，非IDA線性位址。
+confirmed於本次冷題目：0110:0582的白名單取得，與0110:0659同次完成相隔1916步；
+SS／DS、SP−0112h、BP=入口SP−2及兩引數核同。只讀已選定記錄最多64 bytes，
+驗NUL、四個索引與大寫ASCII正文後獨立複製，不晚讀已被覆寫的堆疊緩衝。
+四個顯示家族的座標及數值與前四byte全相符才發布提示；原版核驗由正常前端字元輸入接受。
+這個題目的語意confirmed，其餘74題正常上屏及核驗未量。
+
+提示以原生15／16中文字與8px英文字，共用同一已捕help資源、2px字距，
+接在中文末行後8px。原色號／palette核到安全帶[70,170,263,178)，輸入白框由y183開始。
+兩後端help各補Q一字，14說明頁及原426字形逐項保持；沒有烘製任何答案字串。
+HD及Draw取相同owner快照的不可變RGBA字條，錄製40px頁尾先切遊戲區。
+
+四組正常冷GUI、相同固定步數及五次正常Click輸入：
+RAM SHA／Regs／Step／Mouse／indexed／palette／低解析comp與持久資料全同；
+6,656,000個HD／Draw像素由固定Unifont HEX與原倚天字型獨立逐點計算。
+Unifont各新增243個白色筆畫，倚天各285；提示範圍外差異0。
+兩後端兩倍率的正常GUI另以真正前端按鍵通過原版驗證、F1辨識general及提示撤除，
+全部正常關窗exit0。靜音、明示24M ips，不外推音訊、人耳或預設速度路線。
+
+末輪只補讀堆疊前的entry SP守門，不改排版／字模。
+最終90來源SHA5d6d47f75087fb4d68078a5c5eb8db7f2861f43eea09255e16b2e17161f5a3d8，
+workplace/r979/wiz7-final-r2 SHAff4d9b4668784d63c06be7849a4b7f84976125b045c0d268bb2ba2ea5e244171。
+全cmd/wiz7含正式兩後端六roles捕獲及真正Draw頁尾測試2.421秒通過。
+此末binary另量Unifont3倍同題A/B、2,304,000 HD／Draw像素全同，只有243個批准提示墨點；
+正常前端輸入通過、撤除與關窗exit0，原版完整狀態保持。
+四組前輪證據與末binary抽驗分列，不冒稱四組都由末binary產生。
+
+本機證據入口workplace/r979/frame-pair、gui-*-final、gui-unifont-3-*-final-r2，
+hint-pixel-check-final.json及hint-pixel-check-final-r2.json。
+Python固定933b46…、Go1.24.13既有GUI映像，原版及字型唯讀，
+user1000:1000、network none、CPU／記憶體／pids及外層逾時，Xvfb由明確擁有程序與trap清理。
+初次Xvfb握手及續玩控制器等待過短皆為驗收環境問題，正常遊戲未改；修正後乾淨重跑。
+014正常保存／冷LOAD及008情境驗收繼續，不把此題通過當全遊戲完成。
+
+最終獨立實作審查0／0／0已完整採認：JSON SHAf9947c8366719d517a7b255782ad6ffe80b04456546c4a967ebb308a438b563e，
+Markdown SHAddc606d0ba80f3e7419237bb30d5ec8e85953afc68a6edcfe042cfd25cf487ba。
+九份程式／API來源保持；審查固定READY契約，後續文件只追加驗收與狀態。
+正式摘要hint-pixel-check-final.json SHAe2578496e7f8ba500d77690c6b5f4cd9caad91448fd9719485ca8c9f801d1206，
+末版摘要hint-pixel-check-final-r2.json SHAeca3d5a1c603c75f97c827ad9340ea89056d98f5eeafbea0e43c48c245dc71a8。
+029只此已量題目及正常路線CONFORMED；原版存讀與全部中文化保持未完成。

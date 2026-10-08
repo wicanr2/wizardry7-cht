@@ -1,5 +1,9 @@
 # 專案目標
 
+防拷題目附答案與正常遊玩起點：[R979](R979-clearance-answer-hint.md)。
+
+譯文碰撞收斂與整體完成門檻：[R978](R978-catalog-collision-closure.md)。
+
 定版紙頁亮字與六按鈕毛筆接線：[R977](R977-approved-ui-wiring.md)，規格[028](../spec/028-approved-ui-fonts.md)。
 
 同文重印保持中文覆繪：[R968](R968-reprint-persistence.md)。

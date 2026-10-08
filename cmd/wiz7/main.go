@@ -236,6 +236,7 @@ type overlay struct {
 	profile         *profileReflowState
 	picture         *introPictureState
 	brush           *brushMenuData
+	clearance       *clearanceHint
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -532,6 +533,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 		flows = ov.flow.flowHD(img, pages, k)
 	}
 	brush.paintHD(img, k)
+	ov.clearance.view(shown, k).paint(img)
 	if f, err := os.Create(path); err == nil {
 		png.Encode(f, img)
 		f.Close()
@@ -615,6 +617,7 @@ type shared struct {
 	picture              *introPictureView
 	paper                *introPaperView
 	brush                *brushMenuView
+	clearance            *clearanceHintView
 	stdin                []byte               // 待注入的 Stdin 字元（AH=3Fh 路徑）
 	clicks               []struct{ x, y int } // 待執行的整包點擊（Click 路徑）
 }
@@ -628,6 +631,8 @@ type game struct {
 	paperImages       []*ebiten.Image
 	brushView         *brushMenuView
 	brushImages       [2][]*ebiten.Image
+	clearanceView     *clearanceHintView
+	clearanceImage    *ebiten.Image
 	flow              *flowData                // flow.json（nil＝流動文字關閉）
 	flowImgs          map[string]*ebiten.Image // 中文列字條快取（key＝列文字＋顏色）
 	help              *helpData                // F1 說明資料（help.json；nil＝缺檔）
@@ -759,6 +764,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	flows := append([]flowView(nil), g.sh.flow...)
 	picture := g.sh.picture
 	paper, brush := g.sh.paper, g.sh.brush
+	clearance := g.sh.clearance
 	publication := g.sh.recordingPublication
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
@@ -834,6 +840,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	}
 	g.drawFlow(dst, flows)
 	g.drawBrushMenu(gameArea, brush)
+	g.drawClearanceHint(gameArea, clearance)
 
 	g.sh.mu.Lock()
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
@@ -1116,17 +1123,23 @@ func main() {
 	ov.profileEnabled = len(trans) > 0 && *scale == 2 && hdScale == 2
 	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
+		evMu.Lock()
+		defer evMu.Unlock()
+		ov.clearance.begin(o)
 		if o.StackWord(0) != flowSites[storySite].reader {
 			return
 		}
-		evMu.Lock()
-		defer evMu.Unlock()
 		r := flowRead{o.Steps(), int(o.StackWord(1))}
 		ov.reads = append(ov.reads, r)
 		if len(ov.reads) > 32 {
 			ov.reads = ov.reads[len(ov.reads)-32:]
 		}
 		log.Printf("流文 取 %d id=%d", r.Step, r.ID)
+	})
+	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0659}, func(o *oracle.Oracle) {
+		evMu.Lock()
+		defer evMu.Unlock()
+		ov.clearance.finish(o)
 	})
 	fragDump := map[int]bool{}
 	for _, f := range strings.Split(*hdAfterFrag, ",") {
@@ -1382,6 +1395,7 @@ func main() {
 	if !recordingMode {
 		hd = loadHelp(*helpPath)
 	}
+	ov.clearance = newClearanceHint(trans, hd)
 	g := &game{sh: sh, scale: *scale, help: hd, flow: ov.flow, flowImgs: map[string]*ebiten.Image{}, stop: stop, live: live}
 	if !*hdOnly {
 		g.screen = ebiten.NewImage(320, 200)
@@ -1604,6 +1618,7 @@ func main() {
 		picture := ov.picture.view(o.Indexed(), o.Palette(), o.VideoMode())
 		paper := ov.picture.paperView(o.Indexed(), o.Palette(), o.VideoMode(), *scale)
 		brush := ov.brush.view(shown, comp, o.Palette())
+		clearance := ov.clearance.view(shown, *scale)
 		evMu.Unlock()
 		var views []flowView
 		for _, pg := range pages {
@@ -1622,6 +1637,7 @@ func main() {
 		sh.mapView, sh.flow, sh.rgba, sh.evs = mapSnapshot, views, rgba, visual
 		sh.picture = picture
 		sh.paper, sh.brush = paper, brush
+		sh.clearance = clearance
 		var publication recordingPublication
 		published := false
 		if live != nil {

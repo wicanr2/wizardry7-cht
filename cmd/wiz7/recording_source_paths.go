@@ -8,6 +8,7 @@ var recordingSourcePaths = []string{
 	"cmd/wiz7/automap.go",
 	"cmd/wiz7/battle_labels.go",
 	"cmd/wiz7/character_menu_labels.go",
+	"cmd/wiz7/clearance_hint.go",
 	"cmd/wiz7/compound.go",
 	"cmd/wiz7/dialog_labels.go",
 	"cmd/wiz7/flow.go",

@@ -59,7 +59,9 @@ def main():
 
     asc = ASC15.read_bytes() if BACKEND == "eten" else None
     glyphs, missing = {}, []
-    for ch in sorted({c for _, zh, _ in rows for c in zh}):
+    # spec029：提示只取目前原版記錄；資源只補通用字元，不烘製答案。
+    chars = {c for _, zh, _ in rows for c in zh} | set("答案：ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    for ch in sorted(chars):
         if BACKEND == "unifont":
             try:
                 width, bitmap = unicode_glyph(ch)

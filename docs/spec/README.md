@@ -32,3 +32,6 @@
 | [024](024-character-review-output.md) | 人物檢視性別與選人按鈕（READY；3倍性別與兩倍率按鈕限定像素通過，R941結果複核通過；2倍性別未完成） |
 | [025](025-intro-picture-labels.md) | 六張片頭圖片呈獻字樣（READY；周邊紋理補底已接正式前端，雙字型兩倍率及正常GUI限定驗收通過，未知過渡仍待） |
 | [026](026-battle-control-labels.md) | 七個戰鬥控制的中文按鈕內排版（READY；正式接線與雙字型兩倍率固定HD通過，GUI／操作／撤除待驗） |
+| [027](027-reprint-persistence.md) | 同文重印的覆繪持續性，狀態依正文與R968收據 |
+| [028](028-approved-ui-fonts.md) | 定版紙頁亮字及主選單毛筆，兩後端限定正常路線CONFORMED |
+| [029](029-clearance-answer-hint.md) | 目前防拷題目後附英文答案（限定CONFORMED；兩後端兩倍率正常GUI與同狀態通過，其餘題目及防禦GUI未量） |
