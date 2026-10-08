@@ -1664,3 +1664,10 @@ JSON SHA-256 `f81ae5c42ba0812cb7eaa10cb946b251a3b162b5e6a987a549795445e3c545d0`�
 Markdown `f1e3bd9f121de7d0f4438267751d70935a8a9221f3a6aae0f8965509632fe093`。
 新增最後未遮邊框拒絕後，全cmd乾淨重測1.494秒通過；重新建置與正常GUI倚天3測過的8cec二進位全bytes同。
 來源與驗收輸出UID/GID1000:1000，自有容器、root-owned及誤建.md目錄0；新goal／spec以R984正對照核有入口。
+
+正式來源commit `fb240bc6b33ef1462c0fc1822d13964dad36e6ae`已推送private main。
+[#22結果6064553104](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6064553104)
+全文660字／9個LF、[#28結果6064553448](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6064553448)
+全文522字／7個LF，皆與送出原稿相同；開工6061314508全文248字／5個LF亦相同。
+兩議題維持OPEN，安全收據留workplace/r985/result-comment-receipts.json及start-comment-receipt.json。
+所有本輪容器已清理，R433保持未追蹤；整體中文化目標仍未完成。

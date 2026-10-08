@@ -57,6 +57,7 @@ R984已從同一合法新保存經正常LOAD進人物頁與法術視窗，不注
 十一組仍未量到，31組異譯維持。新可見覆蓋缺口及撤除原因見[025](docs/re/025-ui-localization-coverage.md#r984-normal-profile-context)，
 [032](docs/spec/032-profile-popup-occlusion.md)已於R985審READY後正式接線，五名稱雙字型兩倍率修補驗收完成。
 最新證據見[025](docs/re/025-ui-localization-coverage.md#r985-popup-occlusion)；其餘名稱、WHO／M與整體交付仍待。
+R985正式來源fb240bc已推送private main，最終獨立0／0／0完整採認；#22／#28結果留言與開工留言LF全文回讀一致。
 R984證據e092014已push，控制及撤除結果各0／0／0完整FINAL採認；#24／#22與開工三留言LF全文回讀一致。
 自有容器及擁有權異常0，正式程式／SDK／譯文／資源保持；WHO／M與其他交付門檻仍待。
 
