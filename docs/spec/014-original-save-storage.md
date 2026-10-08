@@ -2,6 +2,8 @@
 
 狀態READY；2026-10-03；[#42](https://github.com/wicanr2/wizardry7-cht/issues/42)，錄放整合另見[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
 工作入口[R859](../goal/R859-original-save-wiring.md)，現況[CONTEXT](../../CONTEXT.md)。
+2026-10-08補[R979正常冷保存與LOAD](../re/025-ui-localization-coverage.md#r979-normal-save-load)：
+正常原版保存11,404 bytes，兩次冷LOAD及隊員／位置已量；新冷保存同狀態無覆繪控制組仍待，014維持READY。
 R860技術阻擋0，唯一歷史狀態文字應改已修正；依AGENTS第3節轉READY，准許正式接線。
 
 ## 玩家問題與已查證事實

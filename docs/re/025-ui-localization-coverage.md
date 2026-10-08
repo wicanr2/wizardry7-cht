@@ -1197,3 +1197,34 @@ Markdown SHAddc606d0ba80f3e7419237bb30d5ec8e85953afc68a6edcfe042cfd25cf487ba。
 正式摘要hint-pixel-check-final.json SHAe2578496e7f8ba500d77690c6b5f4cd9caad91448fd9719485ca8c9f801d1206，
 末版摘要hint-pixel-check-final-r2.json SHAeca3d5a1c603c75f97c827ad9340ea89056d98f5eeafbea0e43c48c245dc71a8。
 029只此已量題目及正常路線CONFORMED；原版存讀與全部中文化保持未完成。
+
+## R979-normal-save-load
+
+2026-10-08，沿同一末binary、Archives素材唯讀、Unifont3倍、靜音及明示24M ips。
+從冷啟動正常選人、建隊、本題核驗、31頁原版故事及六頁迷宮開場到可操作遊戲。
+重啟後flow資源未恢復，本輪明示停用流文；旁白保留英文，不當中文覆蓋完成。
+
+正常DISK 212／166、SAVE & RESUME 160／73、SAVE 100／170，
+SAVEGAME.DBS落盤11,404 bytes；PCFILE.DBS 9,368 bytes，皆1000:1000。
+保存層workplace/r979/gui-unifont-3-normal-save-probe/save，只留本機。
+此為合法原版保存，不是warm state、改檔或注入進度。
+
+| 正常路線 | 已確認位置觀察 |
+|---|---|
+| 原版保存 | Area11、X56、Y92、Face3 |
+| 首次冷LOAD、本題核驗及原版選檔確認 | 同上；畫面還原THESUS及戰士 |
+| 畫面前進箭頭160／166 | Area11、X56、Y91、Face3 |
+| 關窗、以移動後保存層相同bytes第二次冷LOAD | 回Area11、X56、Y92、Face3；隊員畫面相同 |
+
+位置沿已確認的唯讀Map欄位及正常GUI觀察，不解析SAVE格式。
+三個保存層的SAVEGAME全bytes相同，SHA cf9e462a3f8067162e3ff75dbdbb2ae10f571e98b55d3f1cf68f1af581e8e901。
+沒有重新保存移動後位置；關窗不自動保存。鍵盤Up雖已送入，移動未證實，只有滑鼠箭頭列入位置證據。
+本機總結normal-save-load.json SHA b1cd1da6e8b80e0fc561c3c54c33a1bc7ff047ee6f75355be3347cc1336b7300，
+完整畫面、原版檔及輸入收據不提交。原版root唯讀掛載；未聲稱新完整248檔雜湊控制組已跑。
+
+冷LOAD先防拷、後選檔。首次控制器把核驗後的檔案對話框預期成general，
+F1實際mainmenu，屬腳本條件錯配；回讀畫面後修順序並乾淨重跑。
+兩次成功冷LOAD、真正正常輸入與關窗exit0；首次新遊戲保存的外層逾時碰到收尾，
+原版前端已normal-close0，保存已落盤，不當產品退出故障。
+本輪只完成此正常保存／冷LOAD與已列欄位。新冷保存無覆繪同狀態控制組仍待，014 READY、#42 OPEN。
+自有容器0，研究／程式／docs工作根的root-owned及誤建.md目錄0，其他交付門檻保持。
