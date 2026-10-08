@@ -61,3 +61,9 @@ Markdown SHA507f6c8463430e19b4ac0896559aa7754e3a6397289dc4ec05a1b23edd30639c。
 邊界測試在[test_flow_slash.py](../../tools/re/test_flow_slash.py)，以Docker內
 `python -m unittest discover -s tools/re -p 'test_*.py'`執行。
 正式舊譯文兩套乾淨重建與已審原型逐bytes相同；8項新邊界測試及4項安全讀取回歸通過。
+
+最終實作獨立審查0／0／0已完整回讀採認。
+JSON SHA1756f741ad786a267419d2b75a9ba93ea70137622b1515d507e23521c6dd1c05，
+Markdown SHA8bed37911f2f14db32108acf2fe8c03b24906b4a0d2069334b35cdea7c6c2b44，入口workplace/r981/review-implementation。
+正常故事／旁白抽樣見[研究017](../re/017-flow-text-evidence.md#r981-flow-slash)；
+新增133則上屏仍未量，維持READY，不因既有畫格通過標全部CONFORMED。

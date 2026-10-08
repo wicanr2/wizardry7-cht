@@ -1546,3 +1546,10 @@ gen_trans改已審安全loader，8903列全bytes等於正式表；其他來源�
 這些是環境／驗收器問題，不作產品缺陷或放寬畫面守門。原版、Go、SDK、存檔／錄放與音訊契約未改。
 原樣鍵碰撞33→32，新增133與本組上屏仍未量，030／011增補READY、008 DRAFT與完整交付保持。
 輸出／source擁有權與自有容器於收尾核對；R433保持未追蹤，生成資源與完整原版／輸入只留本機。
+
+最終獨立實作審查0／0／0完整回讀採認，兩報告SHA見030，13份審查來源保持。
+來源commit d5463dac0b4bd084688e4c7bb5b6466c820575ff已push private main。
+[#24留言6056087702](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-6056087702)與
+[#22留言6056089447](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6056089447)
+完整683字LF內容皆與送出原稿相同，兩Issue維持OPEN。
+本輪root-owned、誤建.md目錄及自有執行中／已停止容器均0；新goal／spec以既有入口正對照核已索引。
