@@ -37,3 +37,4 @@
 | [029](029-clearance-answer-hint.md) | 目前防拷題目後附英文答案（限定CONFORMED；兩後端兩倍率正常GUI與同狀態通過，其餘題目及防禦GUI未量） |
 | [030](030-flow-slash-glyph.md) | 流文半形斜線字模（DRAFT；保持原文、schema與排版，新增可用集合待獨立核） |
 | [031](031-monster-name-slots.md) | 怪物名字四個16-byte固定格與異譯拒絕守門（DRAFT；23個譯名衝突待定） |
+| [032](032-profile-popup-occlusion.md) | 人物法術視窗保留未遮住的裝備中文（DRAFT；撤除原因已量，caller／font／色號及兩倍率守門待補） |

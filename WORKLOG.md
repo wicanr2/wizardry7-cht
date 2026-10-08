@@ -1605,3 +1605,31 @@ R983以R981索引項作正對照，新goal及031均有入口。收尾自有容�
 [#24結果留言6059515556](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-6059515556)
 完整700字／9個LF與原稿相同；開工留言6058505317完整252字／5個LF亦相同，Issue仍OPEN。
 留言核對收據留workplace/r983/github-comment-receipts.json，其他名字與全部交付門檻保持。
+
+## 2026-10-08 R984：正常人物頁錄製與法術視窗撤除原因
+
+沿#24登記及新goal索引，從R982合法新保存冷LOAD。正式ff4 binary與既定字型／亮度保持，
+正常姓名選人／選回同隊員、頭像人物頁、法術開窗／取消、停止錄製續玩及關窗0。
+8份操作ACK不代替畫面語意：profile-return實際再次開法術視窗，背包點擊未開新頁，未回迷宮。
+
+正常wiz7-input/1有3257事件／1614發布，末Step380800000、原版Ticks74993，接受末註完成。
+正式同binary重播、私人API及無覆繪原API皆完成；全部發布的RAM／Regs／indexed／palette SHA與Step／Ticks相同。
+四保存層與初始兩檔size／SHA／mode／mtime都保持。29目標入口／解碼／印字0／0／0，十一組與31異譯仍待。
+控制結果獨立0／0／0完整FINAL採認，數字與SHA入口[019](docs/re/019-catalog-migration.md#r984-normal-profile-context)。
+
+真正畫面另見WHO選人、人物M前綴與法術視窗左側裝備英文。額外唯讀事件診斷只讀既有事件及indexed，
+158筆觀察核兩次開窗都在x≥49覆蓋原文字框，五個原已Shown的事件因完整矩形不符撤除，下一發布全不在集合；
+取消後中文重現。額外診斷全1614原版trace也全bytes同。來源0／0／0採認後才執行，正式runtime未改。
+新032 DRAFT已掛spec索引，仍缺caller／font／fg色號及兩倍率守門，不提前套未知遮擋。
+
+首輪題目截圖比對失敗因游標，448差異全部在300..329／510..533。保留r1與未完成partial，移開游標後乾淨r2通過。
+報告器最初把before_step寫成before，依recording/record.go及實際非文字事件修正，同命令重跑通過；均不是產品故障。
+探針兩個讀前stack span與非法SP清pending、overlay indexed長度守門均依審查修正後重新建置，舊binary未執行。
+子代理初版wire解析命令被自動核准拒絕，未執行；改為限定header／end／snapshot／click，其餘1633行不解析payload後完成。
+獨立審查未讀原版或MSG答案表，所有完整輸入、原版畫面、字型及本機工具產物只留workplace/r984。
+
+撤除結果獨立0／0／0完整FINAL回讀採認，JSON SHA-256為
+`c636d80ad562f487b89016801f86d882073750479af5b7f3a0f087e250ea0053`，
+Markdown為`012c06e5b9e93042c137f5d967cd53d27bd41512a3a5fc19bed04942db1e60d3`。
+第二次每名兩實例而五唯一名稱，不重複算十種缺譯；CAST／CANCEL中文字保持。
+R983索引項作正對照，R984 goal及032均掛入口；自有容器、root-owned與誤建.md目錄0，輸出UID/GID1000:1000。

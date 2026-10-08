@@ -1263,3 +1263,39 @@ Markdown SHAbfd77ba188cf3038462b44b65d4acac0b6556d76d7c06a9e7acfc7df1feb2ffd。
 本機save-control-result.json、cold-load-result.json及root-integrity.json保存數字；
 record_save_gui.py、raw_control.go、prepare_adapter_probe.py及load_move_auto.py為本輪重跑入口。
 正式程式／SDK／wire不改；Linux保存鏈限定門檻已補齊，014的原生平台、封包與完整音訊仍READY，#42保持OPEN。
+
+## R984-normal-profile-context
+
+2026-10-08，[goal](../goal/R984-normal-profile-context.md)、[032 DRAFT](../spec/032-profile-popup-occlusion.md)。
+本輪不改正式程式，使用R979最終ff4 binary、R977倚天一般字型／定版兩族、R979 help及R983 flow。
+從R982合法保存正常冷LOAD到人物頁；10次原API Click、8份GUI操作ACK與正常錄製停止續玩／關窗0。
+八份ACK的名字不是畫面語意證據；最後profile-return是第二次法術視窗，未回迷宮。
+正式同binary重播、私人API及無覆繪控制，3257事件／1614發布的原版六類狀態全同，
+四保存層與初始層全同，完整數字及獨立FINAL結果見[019](019-catalog-migration.md#r984-normal-profile-context)。
+
+confirmed於正常可見畫面：點姓名出現WHO?選人提示；頭像進人物頁，M前綴仍英文。
+法術視窗開啟時，左側LONGSWORD、LEATHER/CUIRASS、FUR/LEGGING、SANDALS、BUCKLER/SHIELD
+回到原版英文；取消後中文重現，再開法術視窗又回英文。未施法，未改隊員或物品，背景書本圖示點擊沒有新頁。
+WHO與M的真正輸出路徑未量，不據NUL日誌沒有WHO就判為圖片。
+
+唯讀事件診斷從點頭像前邊界320400000開始，取compose前既有事件及indexed，無新字串／原版記憶體讀取。
+158筆觀察中，發布1494／Step339400000及1586／375200000兩次開窗，
+五種名稱已有Shown=true、Dead=false，但完整矩形比對為false，次一發布五種名稱都已不在事件集合。
+不符點範圍均為x49–70、各名稱原y範圍；CAST／CANCEL當刻匹配。
+source的compose在已Shown而不匹配時撤除事件，與正常GUI可見英文一起證實本路線撤除原因。
+這是限定路線confirmed，不能把一般rectEq代替特殊profile／roster／page守門。
+額外診斷的全部1614發布原版trace也與raw全bytes同，SHA為84388c8f8cf1461fc7d6e5bde6fd2d05597ba02855c3ce505ac76ea107c404ae。
+
+未知：caller／font／fg色號、完整視窗遮擋守門及2倍整頁重排互動；未作正式修補或上屏擴張聲明。
+032先要求補這些窄證據，維持DRAFT，不依字面CAST／CANCEL或單一座標猜production。
+工具Go1.24.13、Python3.13.15／GUI映像Python3.11.2，runtime位址沿0110:0582／0659／3895，
+本輪僅新增相對快照發布定位，沒有新的IDA或檔案偏移語意。
+字型與正式90來源固定，所有原版及完整輸入／圖片／字模只留本機。
+
+兩份診斷來源獨立0／0／0於FINAL採認：29來源探針JSON SHA-256為
+`68a89557747ac57f6058201f96967284467cd53d09b51a6507bc0eb3a38966f2`，
+overlay來源JSON為`2c08fc670d7136b32c5ebb25a5185fc592a4aa0e89d0ffc6708f64e3aac8c594`。
+overlay結果獨立0／0／0完整FINAL回讀採認，JSON SHA-256為
+`c636d80ad562f487b89016801f86d882073750479af5b7f3a0f087e250ea0053`，
+Markdown為`012c06e5b9e93042c137f5d967cd53d27bd41512a3a5fc19bed04942db1e60d3`。
+第二次含每名兩個實例，共10列但只有五種名稱，兩次CAST／CANCEL實際中文字保持。

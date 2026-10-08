@@ -12,6 +12,7 @@
 | 原版存讀檔 | R979正常保存／冷LOAD已量；R982新正常SAVE、正式同binary重播、私有前端與無覆繪原API控制四組存檔全同，7,687發布原版狀態差異0；新SAVE冷LOAD回區域11的56／92，再正常前進至56／91 | Linux已量玩家鏈完成；原生平台與實際封包仍待，014 READY、#42 OPEN |
 | TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；R983依使用者定案統一BASELARD＝巴塞拉短劍，原樣英文鍵異譯32→31。雙後端正式重建與已審候選一致，四一般資源保持 | 剩11組訊息與20組跨家族；3816及R981新增133則上屏未量，#24／#22 |
 | 怪物原文抽取 | R983獨立核250筆／1000個16-byte固定格，PS／ON／LANCER／GUARDIAN是NUL後殘片；固定格原型及異譯拒絕檢查通過 | 031 DRAFT，23個譯名衝突待決；正式怪物工具與catalog未改，四組仍算正式未解 |
+| 正常人物頁與法術視窗 | R984正常冷LOAD、人物頁、開窗／取消及成功錄製已量；正式重播、私人API／無覆繪控制1614發布原版狀態差異0，保存層全同；29來源0命中 | WHO／M仍英文；法術視窗遮到原文字框導致五個裝備覆繪撤除，032 DRAFT待caller／font／色號及兩倍率守門 |
 | 輸入錄放 | R967正式接線與限定GUI／重播／故障驗收完成，013正式契約READY | 新玩家路線及未量條件；#17／#28 |
 | 音訊 | 009正式接線與限定Linux軟體驗收完成 | 正常玩家路線、人耳及平台驗收；#18 |
 | 其他正式功能與交付 | #35／#36／#28尚未收尾，三平台可玩封包未完成 | 依各Issue與READY規格完成正常玩家路線及封包驗收 |
@@ -51,6 +52,10 @@ R983入口[R983](docs/goal/R983-collision-context-probe.md)、[011增補](docs/s
 [怪物欄位勘誤](docs/re/013-print-pipeline.md#r983-monster-name-slot-correction)。CLAYMORE名稱取捨仍待使用者回覆。
 R983正式譯文與證據來源cc252ab已push，獨立實作審查0／0／0的FINAL完整採認；
 #24結果留言700字及開工留言252字的完整LF原稿回讀一致，議題保持OPEN。
+R984已從同一合法新保存經正常LOAD進人物頁與法術視窗，不注入state或角色，不啟用作弊。
+正常3257事件／1614發布、末Step380800000的錄製與三控制鏈完成；原版六類狀態與保存層保持。
+十一組仍未量到，31組異譯維持。新可見覆蓋缺口及撤除原因見[025](docs/re/025-ui-localization-coverage.md#r984-normal-profile-context)，
+[032](docs/spec/032-profile-popup-occlusion.md)維持DRAFT。下一步優先補法術視窗窄守門，修可見名稱回英文問題。
 
 2026-10-08使用者確認R976亮字及主選單六按鈕毛筆字樣定版。[R977](docs/goal/R977-approved-ui-wiring.md)已依[028](docs/spec/028-approved-ui-fonts.md) READY接線並完成限定驗收：主選單2／3倍、紙頁3倍的倚天及Unifont正常GUI已量到。35個同GUI停止點的原版完整RAM SHA／Regs／Mouse／indexed／palette及comp保持，31,360,000 HD／Draw像素符合定版，F1返回及正常關窗通過。獨立實作審查0／0／0已採認；最終89份來源身份重建及Unifont3倍7點、8,064,000像素抽測通過。入口見[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍保持原圖，整體交付門檻不變。
 

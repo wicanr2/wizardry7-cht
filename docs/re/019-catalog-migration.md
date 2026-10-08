@@ -1080,3 +1080,25 @@ F1仍使用全形斜線，因此正式字元清單保留；只增半形斜線與
 正式怪物catalog尚未重生，四組仍算目前31組之內，不能提前減掉。
 新固定格原型保留23鍵譯名來源並拒異譯，契約031維持DRAFT。
 CLAYMORE名稱另待使用者取捨，不因本名字定案代選其他名字。
+
+## R984-normal-profile-context
+
+2026-10-08，[goal](../goal/R984-normal-profile-context.md)。從R982合法新保存正常冷LOAD，
+正式ff4 binary完成姓名選人／選回同隊員、頭像人物頁、法術開窗／取消、停止錄製續玩及關窗0。
+最後「profile-return」標籤實際再次開法術視窗，未回迷宮；背包點擊未開新頁，不藉標籤宣稱成功。
+
+正常錄製wiz7-input/1為3257事件、1614發布、末Step380800000，SHA-256為
+`d7204e01e17698e0a03a764e4521f7c391b03c2e2fe326683c690edcb723e453`。
+正式同binary重播、私人API副本及無覆繪原API控制均完成；全部1614發布的Step／Ticks、
+1MiB RAM／Regs／indexed／palette SHA相同，trace SHA-256為
+`84388c8f8cf1461fc7d6e5bde6fd2d05597ba02855c3ce505ac76ea107c404ae`。
+四保存層與合法初始層的兩檔size／SHA／mode／mtime均同，未修改保存格式或內容。
+
+既授權29來源入口／解碼／3895印字均0，目標事件檔實際為空，只有此路線未量到。
+171組、十一組及31個原樣英文鍵異譯狀態保持，008仍DRAFT；不以0命中宣稱遊戲未使用。
+新UI缺口與撤除診斷沿[025](025-ui-localization-coverage.md#r984-normal-profile-context)，
+未改正式runtime／SDK／譯文或資源，完整錄放與原版畫面只留workplace/r984。
+
+獨立控制結果0／0／0於FINAL完整回讀採認。JSON SHA-256為
+`5f6b8f6d83b40200fa3ce108aac5acc347097a719dfac7b6130d73c2c8e3c0dc`，
+Markdown為`3aab3a918548bbade7780f343046a9b07a87ff2890f82d8b2e23f01dbc3d795b`。
