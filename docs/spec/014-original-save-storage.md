@@ -2,8 +2,9 @@
 
 狀態READY；2026-10-03；[#42](https://github.com/wicanr2/wizardry7-cht/issues/42)，錄放整合另見[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
 工作入口[R859](../goal/R859-original-save-wiring.md)，現況[CONTEXT](../../CONTEXT.md)。
-2026-10-08補[R979正常冷保存與LOAD](../re/025-ui-localization-coverage.md#r979-normal-save-load)：
-正常原版保存11,404 bytes，兩次冷LOAD及隊員／位置已量；新冷保存同狀態無覆繪控制組仍待，014維持READY。
+2026-10-08補[R979正常冷保存與LOAD](../re/025-ui-localization-coverage.md#r979-normal-save-load)及
+[R982保存控制](../re/025-ui-localization-coverage.md#r982-normal-save-control)：正常保存、冷LOAD／移動及
+新保存四組bytes、7,687發布的原版狀態控制已量。Linux限定玩家鏈完成；原生平台與封包仍待，014維持READY。
 R860技術阻擋0，唯一歷史狀態文字應改已修正；依AGENTS第3節轉READY，准許正式接線。
 
 ## 玩家問題與已查證事實
@@ -208,7 +209,7 @@ typed input為Root、實際選定EXE、已解析存檔路徑；成功output為�
 | 守門 | 沿R847二十項Linux自製測試，含Root／EXE祖先、符號連結、硬連結、非一般項目、只能寫不能讀、建立／探針失敗；增加清理失敗獨立故障注入。Wine原有十六項通過、四負案例未量界線保持。 |
 | 正式接線 | 正式前端建置及既有競爭回歸；唯讀248素材，冷啟動到主選單，獨立核對SetScratch設定在Step0及第一個Run／input前；兩停止點RAM、indexed、palette、CPU及PNG與相同來源對照相同。 |
 | 原版保存 | 不啟用作弊，中文模式沿合法正常原版SAVE選單，取得非空原版檔與實際DOS寫入；與同起點英文模式比較存檔bytes及原版狀態、素材逐檔不變。暖checkpoint僅作保存支路驗證，不能當冷完整可玩。 |
-| 原版冷載入 | 正常移動後關窗，以同一存檔目錄冷啟動LOAD，實際還原隊員及位置；防拷只用已存在且條件匹配的合法收據。沒有匹配收據就停止，不推導或代答，#42保持OPEN。 |
+| 原版冷載入 | 正常移動後關窗，以同一存檔目錄冷啟動LOAD，實際還原隊員及位置；防拷沿2026-10-08定案，只核目前題目／答案並正常輸入。原版驗證保持，#42其餘未量項仍OPEN。 |
 | 封包 | 實際解包、唯讀素材、自訂及預設目錄備份位置、各平台可啟動性另驗；交叉編譯或Linux GUI不當原生Windows／macOS或封包通過。 |
 
 程式路徑、原版選單、自然DOS寫檔、Scratch持久層及重新啟動讀取形成同一垂直鏈。

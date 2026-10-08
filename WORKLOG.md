@@ -1553,3 +1553,17 @@ gen_trans改已審安全loader，8903列全bytes等於正式表；其他來源�
 [#22留言6056089447](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6056089447)
 完整683字LF內容皆與送出原稿相同，兩Issue維持OPEN。
 本輪root-owned、誤建.md目錄及自有執行中／已停止容器均0；新goal／spec以既有入口正對照核已索引。
+
+## 2026-10-08 R982 正常保存控制組
+
+上一輪屬進展：R981字模與文案已提交推送。本輪核遠端#42／#24及唯一現況，選014 READY的保存控制門檻。
+正式正常冷GUI錄製SAVE，15,400事件、7,687發布；正式同binary重播及兩個API控制完成，
+四組自然保存全bytes同，7687發布RAM／Regs／indexed／palette／Step／Ticks差異0。
+同一新保存正常冷LOAD回區域11的56／92，再正常前進56／91、存檔保持及關窗0。
+原版248檔與錄製前綁定清單逐檔大小／SHA相同；來源及結果獨立審查完整採認，細節見
+[研究025](docs/re/025-ui-localization-coverage.md#r982-normal-save-control)。
+
+驗收器修正：舊參考圖路徑缺失，改用R981已驗圖；清單sdk/映射至固定worktree，先核完整90來源再複製；
+私人重播實例補Draw ack通道，未執行錯初始化；首次LOAD等外部命令逾時，改有界自動擁有程序乾淨重跑。
+不改正式前端、SDK、wire、原版或保存語意。完整錄放／答案／原版／字型／生成工具產物只留本機。
+Linux保存鏈已補齊；平台／封包、音訊及32組譯文情境仍待，整體目標保持。

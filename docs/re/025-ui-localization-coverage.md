@@ -1228,3 +1228,38 @@ F1實際mainmenu，屬腳本條件錯配；回讀畫面後修順序並乾淨重�
 原版前端已normal-close0，保存已落盤，不當產品退出故障。
 本輪只完成此正常保存／冷LOAD與已列欄位。新冷保存無覆繪同狀態控制組仍待，014 READY、#42 OPEN。
 自有容器0，研究／程式／docs工作根的root-owned及誤建.md目錄0，其他交付門檻保持。
+
+## R982-normal-save-control
+
+2026-10-08，沿[goal](../goal/R982-normal-save-control.md)、014／013 READY及#42。
+confirmed限Linux正常路線：從唯讀Archives原版及空Scratch冷啟動，正常建隊、核目前題目畫面後
+輸入原版接受的答案、31頁故事自然推進、六頁旁白、原版DISK／SAVE & RESUME／SAVE。
+正式頁尾停止錄製後繼續遊戲並正常關窗0，沒有作弊、state或位置注入。
+
+正式R979最終binary SHA ff4d9b4668784d63c06be7849a4b7f84976125b045c0d268bb2ba2ea5e244171，
+Go1.24.13、90份綁定來源全核同。原版DS SHA沿029；所有248個Root檔案末大小／SHA與錄製前完整清單相同。
+倚天3倍沿R977一般資源、R979 help及R981 final flow；正常錄製使用13正式wiz7-input/1，
+15,400事件、7,687發布、終Step1,618,600,000，來源及完整輸入只留workplace/r982。
+
+正式同binary／同六資源／空Scratch重播完成exit0。另用相同SDK及原API命令作無覆繪控制，
+並於私人前端副本重用正式派送及Draw，額外只讀原版雜湊；副本只有main兩插入及一個觀察helper，
+全部起始純量／Storage及Before／After／原API錯誤類別核同，原wire不改。
+私人API控制不宣稱正式binary相容重播，正式重播與私人控制證據分列。
+
+兩個API控制各7,687發布，ID連續；完整RAM SHA、暫存器、indexed、palette、Step與Ticks逐欄差異0，
+終Step1,618,600,000／Ticks234,939，private adapter完成且exit0，真正Draw確認沿原方法。
+GUI錄製、正式重播、private adapter及raw四組保存全bytes同：PCFILE.DBS 9,368 bytes，
+SAVEGAME.DBS 11,404 bytes，後者SHA3d855227d5d02844b504da26ba01875ea14251a3fa5dbeb481c48d0d807aa0b7。
+
+此新保存再由正式GUI冷LOAD，原版驗證及選檔正常完成；350M／400M為區域11、56／92、面向3，
+正常滑鼠前進後450M為56／91，保存bytes保持、正常關窗0。不解析或修改SAVE格式。
+第一個LOAD控制器等待外部命令逾時，已分類為驗收器問題，改有界擁有程序自動送已驗命令，
+同一映像、同一binary及相同起始保存乾淨重跑；不當產品故障。
+
+來源審查0／0／2，結果獨立審查0／0／0完整回讀採認。
+來源JSON SHA3045bd38702992ba0fef0226e3a53919bd30728b299f708550f08f13a5619ce3；
+結果JSON SHAdff94e0ae6ac3c1ef5539c16edf36227371551e32b128f6adfe450314c57f2c8，
+Markdown SHAbfd77ba188cf3038462b44b65d4acac0b6556d76d7c06a9e7acfc7df1feb2ffd。
+本機save-control-result.json、cold-load-result.json及root-integrity.json保存數字；
+record_save_gui.py、raw_control.go、prepare_adapter_probe.py及load_move_auto.py為本輪重跑入口。
+正式程式／SDK／wire不改；Linux保存鏈限定門檻已補齊，014的原生平台、封包與完整音訊仍READY，#42保持OPEN。

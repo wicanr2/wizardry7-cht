@@ -1,5 +1,7 @@
 # 專案目標
 
+正常保存的無覆繪控制組：[R982](R982-normal-save-control.md)。
+
 六列NO回應詞同義統一：[R981](R981-no-response-unification.md)。
 
 流文字模恢復與正常中文畫面：[R980](R980-flow-resource-recovery.md)。

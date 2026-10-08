@@ -2,7 +2,8 @@
 
 狀態READY；2026-10-05；[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
 證據[022](../re/022-input-recording-boundary.md)，完成定義[M2](../goal/M2-playable-frontend.md)。
-R951正式契約已通過READY閘門，以下節為準；較早候選只保存證據來源，不決定正式格式。使用者已選遊戲區外頁尾及同版本、同平台、從啟動錄製，最終獨立窄審0／0／0於FINAL完整回讀後採認。正式錄放尚待實作與動態驗收，不升CONFORMED。
+R951正式契約已通過READY閘門，以下節為準；較早候選只保存證據來源，不決定正式格式。使用者已選遊戲區外頁尾及同版本、同平台、從啟動錄製，最終獨立窄審0／0／0於FINAL完整回讀後採認。
+R967已完成正式接線與限定驗收；[R982](../re/025-ui-localization-coverage.md#r982-normal-save-control)另補正常SAVE錄製、停止續玩及同binary完整重播。未量條件保持READY，不外推全玩家鏈或全CONFORMED。
 
 ## 為什麼要做
 

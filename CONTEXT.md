@@ -9,7 +9,7 @@
 |---|---|---|
 | 紙頁亮字、主選單六毛筆按鈕 | R977限定正常GUI與兩後端驗收完成，028承接定版 | 未量分支保持READY，不重新選外觀 |
 | 防拷答案提示 | 來源72581ac已推送，#45已CLOSED；029限定正常路線已驗，兩後端兩倍率GUI、正常輸入／撤除、原版同狀態與獨立實作複審通過 | 其餘74題正常上屏未量，防禦分支只有測試 |
-| 原版存讀檔 | 正常冷啟動保存11,404 bytes；兩次冷LOAD還原隊員及區域11的56／92，正常滑鼠前進到56／91，再冷LOAD回56／92；保存檔保持 | 目前冷保存的同狀態無覆繪控制組仍待；014 READY、#42 OPEN |
+| 原版存讀檔 | R979正常保存／冷LOAD已量；R982新正常SAVE、正式同binary重播、私有前端與無覆繪原API控制四組存檔全同，7,687發布原版狀態差異0；新SAVE冷LOAD回區域11的56／92，再正常前進至56／91 | Linux已量玩家鏈完成；原生平台與實際封包仍待，014 READY、#42 OPEN |
 | TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；R981解除六列同義組後剩32組。兩後端flow可用msgs由7198增至7331，舊可用值保持，17385另依011統一 | 剩11組訊息與21組跨家族；新增133則及本組上屏未量，#24／#22 |
 | 輸入錄放 | R967正式接線與限定GUI／重播／故障驗收完成，013正式契約READY | 新玩家路線及未量條件；#17／#28 |
 | 音訊 | 009正式接線與限定Linux軟體驗收完成 | 正常玩家路線、人耳及平台驗收；#18 |
@@ -24,6 +24,11 @@
 兩階段分列，不冒稱四組都由末binary重跑。新合法保存層在
 `workplace/r979/gui-unifont-3-normal-save-probe/save`，正常保存／冷LOAD已量上述欄位。
 不是原版warm state，也不注入記憶體。後續從原版正常LOAD接續；完整存檔與輸入只留本機。
+新的正常錄放及保存層在`workplace/r982/normal-save.wiz7-input`與`record-gui/save`，
+SAVEGAME.DBS為11,404 bytes，與正式重播及兩個API控制全bytes同。
+新冷LOAD／正常前進在`gui-eten-3-load-new-save-r2`，位置56／92→56／91、保存bytes保持、關窗0。
+來源與審查界線見[R982](docs/goal/R982-normal-save-control.md)、
+[研究025](docs/re/025-ui-localization-coverage.md#r982-normal-save-control)。
 工作入口[R979](docs/goal/R979-clearance-answer-hint.md)、[029](docs/spec/029-clearance-answer-hint.md)、
 [研究025](docs/re/025-ui-localization-coverage.md#r979-clearance-answer-hint)。
 Docker沿`wizardry7-go-ebiten:go1.24.13-20261008-gui-r1`；字模沿固定來源重建，原版與字型唯讀。
