@@ -49,6 +49,8 @@ R981新增133則及其同義組正常上屏仍未量，030與該011增補保持R
 [研究019](docs/re/019-catalog-migration.md#r981-no-response-unification)。
 R983入口[R983](docs/goal/R983-collision-context-probe.md)、[011增補](docs/spec/011-message-wording-unification.md#r983-baselard-unification)、
 [怪物欄位勘誤](docs/re/013-print-pipeline.md#r983-monster-name-slot-correction)。CLAYMORE名稱取捨仍待使用者回覆。
+R983正式譯文與證據來源cc252ab已push，獨立實作審查0／0／0的FINAL完整採認；
+#24結果留言700字及開工留言252字的完整LF原稿回讀一致，議題保持OPEN。
 
 2026-10-08使用者確認R976亮字及主選單六按鈕毛筆字樣定版。[R977](docs/goal/R977-approved-ui-wiring.md)已依[028](docs/spec/028-approved-ui-fonts.md) READY接線並完成限定驗收：主選單2／3倍、紙頁3倍的倚天及Unifont正常GUI已量到。35個同GUI停止點的原版完整RAM SHA／Regs／Mouse／indexed／palette及comp保持，31,360,000 HD／Draw像素符合定版，F1返回及正常關窗通過。獨立實作審查0／0／0已採認；最終89份來源身份重建及Unifont3倍7點、8,064,000像素抽測通過。入口見[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍保持原圖，整體交付門檻不變。
 

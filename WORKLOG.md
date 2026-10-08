@@ -1600,3 +1600,8 @@ Markdown為`7bca16dfec73c95df390e411c917633b4c61312751cc35d015ac73d029ff5ab0`。
 
 R983以R981索引項作正對照，新goal及031均有入口。收尾自有容器、root-owned與誤建.md目錄均0，
 抽查來源及輸出UID/GID1000:1000；R433保持未追蹤。驗證後依逐檔提交與private push流程保存。
+
+來源與證據commit cc252aba9b158674da180115b443cc0c05f9eb63已推送private main。
+[#24結果留言6059515556](https://github.com/wicanr2/wizardry7-cht/issues/24#issuecomment-6059515556)
+完整700字／9個LF與原稿相同；開工留言6058505317完整252字／5個LF亦相同，Issue仍OPEN。
+留言核對收據留workplace/r983/github-comment-receipts.json，其他名字與全部交付門檻保持。
