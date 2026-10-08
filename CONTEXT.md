@@ -10,13 +10,14 @@
 | 紙頁亮字、主選單六毛筆按鈕 | R977限定正常GUI與兩後端驗收完成，028承接定版 | 未量分支保持READY，不重新選外觀 |
 | 防拷答案提示 | 來源72581ac已推送，#45已CLOSED；029限定正常路線已驗，兩後端兩倍率GUI、正常輸入／撤除、原版同狀態與獨立實作複審通過 | 其餘74題正常上屏未量，防禦分支只有測試 |
 | 原版存讀檔 | R979正常保存／冷LOAD已量；R982新正常SAVE、正式同binary重播、私有前端與無覆繪原API控制四組存檔全同，7,687發布原版狀態差異0；新SAVE冷LOAD回區域11的56／92，再正常前進至56／91 | Linux已量玩家鏈完成；原生平台與實際封包仍待，014 READY、#42 OPEN |
-| TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；R981解除六列同義組後剩32組。兩後端flow可用msgs由7198增至7331，舊可用值保持，17385另依011統一 | 剩11組訊息與21組跨家族；新增133則及本組上屏未量，#24／#22 |
+| TSV與中文覆蓋 | 三正式catalog靜態譯文已齊，008仍DRAFT；R983依使用者定案統一BASELARD＝巴塞拉短劍，原樣英文鍵異譯32→31。雙後端正式重建與已審候選一致，四一般資源保持 | 剩11組訊息與20組跨家族；3816及R981新增133則上屏未量，#24／#22 |
+| 怪物原文抽取 | R983獨立核250筆／1000個16-byte固定格，PS／ON／LANCER／GUARDIAN是NUL後殘片；固定格原型及異譯拒絕檢查通過 | 031 DRAFT，23個譯名衝突待決；正式怪物工具與catalog未改，四組仍算正式未解 |
 | 輸入錄放 | R967正式接線與限定GUI／重播／故障驗收完成，013正式契約READY | 新玩家路線及未量條件；#17／#28 |
 | 音訊 | 009正式接線與限定Linux軟體驗收完成 | 正常玩家路線、人耳及平台驗收；#18 |
 | 其他正式功能與交付 | #35／#36／#28尚未收尾，三平台可玩封包未完成 | 依各Issue與READY規格完成正常玩家路線及封包驗收 |
 | adapter與版控答案表 | #29位置待定；#26依使用者維持擱置 | 新提示不讀整表、不提交答案，不擴張兩項決策 |
 
-目前來源d5463da已推送；R981獨立實作審查0／0／0、#22／#24進度完整LF回讀通過，兩Issue保持OPEN。
+R981來源d5463da已推送；其獨立實作審查0／0／0、#22／#24進度完整LF回讀通過，兩Issue保持OPEN。
 本輪不改Go；R979最終Linux執行檔為
 `workplace/r979/wiz7-final-r2`，90份來源SHA5d6d47f75087fb4d68078a5c5eb8db7f2861f43eea09255e16b2e17161f5a3d8，
 執行檔SHAff4d9b4668784d63c06be7849a4b7f84976125b045c0d268bb2ba2ea5e244171，Go1.24.13。
@@ -35,14 +36,19 @@ Docker沿`wizardry7-go-ebiten:go1.24.13-20261008-gui-r1`；字模沿固定來源
 Xvfb握手停滯已分類為驗收環境，改明確有界擁有程序後重跑。收尾須核自有容器與UID/GID。
 本輪自有容器0；r979、cmd/wiz7與docs的root-owned／誤建.md目錄0。R433保持未追蹤。
 
-目前流文產物為`workplace/r981/final/unifont/flow.json`及`final/eten/flow.json`，
+目前流文產物為`workplace/r983/final/unifont/flow.json`及`final/eten/flow.json`，
 與R979 binary、R977一般xlate及R979 help合用。生成器現在先略過75則防拷正文，再解碼JSON；
 schema、原文鍵及Go來源保持。030只補原生斜線，先以舊正式文案核133個新增可用msgs，再單獨統一17385。
 一般四資源與統一前全bytes同，正式字元清單2,921項、缺字0；新增斜線與029既定Q，不刪碼點。
-本輪9個正常故事畫格的1,174,824像素及7個實際旁白畫格的568,008像素與獨立原字型期望一致。
-沒有新同狀態A/B，新增133則及本組正常上屏未量，030與011增補保持READY。
+R981的9個正常故事畫格1,174,824像素及7個實際旁白畫格568,008像素與獨立原字型期望一致。
+R983沒有新同狀態A/B；新流文只改3816的譯文及對應段落行，其他值、字模與統計保持。
+五字原生字條為倚天85／Unifont90px，最小文字帶靜態容納；3816正常觸發未量，011增補仍READY。
+正式story表安全重生全bytes同，SHA為d3e753ee17b13adc670b02ec51979fa9f71e3d9665fc945d254c0c62c2c48224。
+R981新增133則及其同義組正常上屏仍未量，030與該011增補保持READY。
 入口[R981](docs/goal/R981-no-response-unification.md)、[研究017](docs/re/017-flow-text-evidence.md#r981-flow-slash)、
 [研究019](docs/re/019-catalog-migration.md#r981-no-response-unification)。
+R983入口[R983](docs/goal/R983-collision-context-probe.md)、[011增補](docs/spec/011-message-wording-unification.md#r983-baselard-unification)、
+[怪物欄位勘誤](docs/re/013-print-pipeline.md#r983-monster-name-slot-correction)。CLAYMORE名稱取捨仍待使用者回覆。
 
 2026-10-08使用者確認R976亮字及主選單六按鈕毛筆字樣定版。[R977](docs/goal/R977-approved-ui-wiring.md)已依[028](docs/spec/028-approved-ui-fonts.md) READY接線並完成限定驗收：主選單2／3倍、紙頁3倍的倚天及Unifont正常GUI已量到。35個同GUI停止點的原版完整RAM SHA／Regs／Mouse／indexed／palette及comp保持，31,360,000 HD／Draw像素符合定版，F1返回及正常關窗通過。獨立實作審查0／0／0已採認；最終89份來源身份重建及Unifont3倍7點、8,064,000像素抽測通過。入口見[研究025](docs/re/025-ui-localization-coverage.md#r977-approved-ui)。紙頁2倍保持原圖，整體交付門檻不變。
 
@@ -142,7 +148,8 @@ R898補驗[R896前綴的東向與南向](docs/re/019-catalog-migration.md#r898-n
 
 以 [AGENTS.md](AGENTS.md) 第 13 節為完整決定來源：放大畫布、不縮中文字；預設 3×；TSV 英文鍵；字型雙軌；防拷維持原版驗證；F1 說明、自動／全圖兩種地圖與作弊範圍。
 防拷關鍵字資料移出版控的 [#26](https://github.com/wicanr2/wizardry7-cht/issues/26) 依 2026-09-29 指示擱置，不能自行處理。
-對話關鍵字與防拷答案仍以英文輸入；不得推導、輸出或提交防拷答案。
+對話關鍵字與防拷答案仍以英文輸入。依2026-10-08定案，可窄讀目前防拷題目／對應答案，
+在題目後顯示並正常輸入，仍由原版驗證；答案與完整收據不提交或公開，不讀整表。
 儲存庫保持 private，原版與不可散布字型不進公開交付。
 2026-10-01使用者選擇先逐組統一同原文不同譯文，再遷移TSV；不採保留最後寫入文案的方案。
 2026-10-01使用者進一步定案：剩餘八組異義情境與三組短句全部補齊後才交付，

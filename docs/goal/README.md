@@ -1,5 +1,7 @@
 # 專案目標
 
+剩餘碰撞的正常情境與譯名取捨：[R983](R983-collision-context-probe.md)。
+
 正常保存的無覆繪控制組：[R982](R982-normal-save-control.md)。
 
 六列NO回應詞同義統一：[R981](R981-no-response-unification.md)。

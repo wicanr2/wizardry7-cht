@@ -20,6 +20,7 @@
 | M-PSI / F-PSI | 心靈術士 | Psionic（待確認） |
 | M-NIN / F-NIN | 忍者 | Ninja（待確認） |
 | M-BAR / F-BAR | 吟遊詩人 | Bard（待確認） |
+| BASELARD | 巴塞拉短劍 | 使用者2026-10-08定案；[011增補](spec/011-message-wording-unification.md#r983-baselard-unification) |
 | THESUS | THESUS | 預設角色名保留 |
 | TEMPEST | TEMPEST | 預設角色名保留 |
 | LYSAND | LYSAND | 預設角色名保留 |
@@ -47,10 +48,14 @@
 
 ## 怪物譯名批次（2026-09-27，SCENARIO.DBS 怪物資料庫，全標 DRAFT）
 
-- **來源**：SCENARIO.DBS offset 225272 起、232 bytes／隻 × 250 隻、名字欄 +72
-  ＝[真名單數][真名複數][別名單數][別名複數]（別名＝低鑑定度顯示名）。
+- **來源**：SCENARIO.DBS offset 225272 起、232 bytes／隻 × 250 隻；
+  名字在+72／88／104／120，各16 bytes，取格內第一個NUL前字串。
+  固定欄位形狀已由[013 R983勘誤](re/013-print-pipeline.md#r983-monster-name-slot-correction)確認。
+  舊表以真名單數／複數、別名單數／複數稱呼四欄，但本輪未驗runtime鑑定選擇語意。
   工具 `tools/gen_monsters.py` → `text/monsters.json`（原文）＋
-  `text/monsters-trans.json`（461 筆譯文）→ bake 併入 xlate.json。
+  `text/monsters-trans.json`（目前461筆舊譯文）→ bake 併入 xlate.json。
+  舊抽取器誤收NUL後殘字，修補契約及23鍵譯名守門沿[031 DRAFT](spec/031-monster-name-slots.md)；
+  正式重生尚未完成，不能把461筆當作正確原始名字集合。
 - **種族系譯名**：PHOOT 噗特系／MOTH 蛾系／WEEVIL 象鼻蟲系／ROOK 鴉系／
   CREEPING CRUD 爬行污穢系／THRAXE 巨蟲系／GIANT 巨人系／NYMPH 寧芙系／
   DRAGON 龍系（綠龍/黑龍/翡翠龍）／GOLEM 巨人像

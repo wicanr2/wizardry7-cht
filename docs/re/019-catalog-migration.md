@@ -1061,3 +1061,22 @@ F1仍使用全形斜線，因此正式字元清單保留；只增半形斜線與
 純字串NO五列本來已一致，不列作新增解除。舊R969的33組為歷史，008仍DRAFT。
 本組與新增133則正常上屏未量，只有靜態／限定正常回歸；不據一般字典相同外推所有畫面。
 字模與GUI範圍見[017 R981](017-flow-text-evidence.md#r981-flow-slash)，完整候選及控制碼／字元收據只留workplace/r981。
+
+## R983-baselard-unification
+
+2026-10-08，使用者選BASELARD＝巴塞拉短劍；[011增補](../spec/011-message-wording-unification.md#r983-baselard-unification)
+獨立規格審查0／0／0採認READY後，才同步3816.zh與有效Z來源。
+英文、其餘8902列、順序與schema保持，物品表原已使用定案名字。
+安全產生器完整重生與正式表全bytes同，SHA-256為
+`d3e753ee17b13adc670b02ec51979fa9f71e3d9665fc945d254c0c62c2c48224`。
+
+兩後端正式四一般資源與修前、候選全bytes同；flow只變msgs3816.z及paras115的3816行zh。
+字模與六項統計保持，候選及正式flow全bytes同。獨立原字型解析核五字，
+倚天／Unifont字格83／88px，加末尾透明2px為85／90px，靜態容納最小文字帶；
+字元清單2921項不變。三正式catalog原樣英文鍵異譯32→31，唯一解除BASELARD。
+3816正常觸發未量，沒有新GUI或原版A/B，本組保持READY。
+
+另已解四個怪物假異義來源，見[013勘誤](013-print-pipeline.md#r983-monster-name-slot-correction)；
+正式怪物catalog尚未重生，四組仍算目前31組之內，不能提前減掉。
+新固定格原型保留23鍵譯名來源並拒異譯，契約031維持DRAFT。
+CLAYMORE名稱另待使用者取捨，不因本名字定案代選其他名字。

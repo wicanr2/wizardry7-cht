@@ -807,3 +807,26 @@ HP/XP 未定位——下輪打一場用 runtime 對照。
 原始SHA、工具映像、獨立217位置byte核對及停止線見
 [研究014](014-overlay-evidence.md#r837-subject-boundary)。本輪未執行遊戲、未讀MSG／手冊／RAM。
 這是定位訂正，不能證明十來源的實際名字字串、玩家畫面或新原版A/B。
+
+## R983-monster-name-slot-correction
+
+2026-10-08；[goal](../goal/R983-collision-context-probe.md)、[031 DRAFT](../spec/031-monster-name-slots.md)。
+勘誤追記三十四的名字抽取：四欄不應從NUL後跳過零讀下一串。
+NUL後含舊殘字，舊算法將PS、ON、LANCER、GUARDIAN誤收為名字，形成四組假異義。
+
+confirmed於固定輸入欄位形狀：SCENARIO.DBS的檔案偏移225272起、232 stride、250筆，
+每筆+72／88／104／120為四個16-byte格。只取格內第一個NUL前的可列印ASCII。
+1000格全符合，231格在NUL後有殘留；固定切片與獨立原型全同。
+93筆陣列變動、名字唯一鍵461→398，新增12／移除75；四殘片鍵均不在正確前綴。
+單複數、真名／別名及鑑定選擇的runtime語意不因欄位形狀提升。
+
+輸入檔SHA-256為`b2cb0722122724d35d379bb10250d0eec51238d9b147c36be12177ef3d2462f6`；
+獨立核只讀250×64 bytes，其串接SHA-256為
+`e72a5fe5a19020f9f3443adb20a55b9c95559108d699d337adf288837d7a0ef9`。
+工具Python3.13.15，固定映像sha256:933b46a028fd786c9c3d426ebabc237e29a15912231ea8de576e95f0e4f41a4c；
+位址基準均為檔案偏移，沒有新增IDA或runtime定位。
+獨立審查JSON的SHA-256為`11def64380a4da5659c57f3048beade0d3792ed02649b5613295ce417021986b`，
+Markdown為`8bf4e9b11ab1fcbbb89e13fa821d8bc34c560919cbcde798671c45bcc5e0d14d`。
+
+原文固定格契約的證據已足夠；重新產生譯文字典仍有23個英文鍵異譯，不能採後列覆寫。
+本輪先保存DRAFT契約及拒絕守門，未改正式怪物catalog，不稱四組正式碰撞已解除。
