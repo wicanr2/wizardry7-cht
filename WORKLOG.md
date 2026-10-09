@@ -1892,3 +1892,11 @@ FINAL 0／0／0完整回讀採認、八來源與168資料指紋相同；派生HD
 全HD／Draw31,680,000像素同圖，ROI3,207,600像素獨立原字模差異0。暫核41分母已勘誤。
 GUI與固定控制FINAL均0／0／0完整回讀採認，七GUI來源及有效oracle／wireSHA相同，固定八來源及168資料指紋同。
 022增已量四配對限定CONFORMED，未知姓名／其他位置及2倍中文仍待。完整數字及SHA見025。
+
+正式來源4ca3fa69eafac91fb5a0c4fe7ef473bca9104f52已推送private main。
+[#22結果6074417174](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6074417174)及
+[#28結果6074417823](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6074417823)
+各1,072字／13個LF全文與原稿相同，兩Issue保持OPEN，安全回讀收據在workplace/r991/result-comment-receipts.json。
+開工6073454791的272字／5個LF亦完整回讀相同。新goal、022增補、013錄放及025證據均有現行入口。
+本輪自有容器、root-owned及誤建.md目錄0；UID/GID1000:1000，R433未追蹤保持。
+原版、字型、完整輸入、存檔與畫面只留本機；整體中文化仍未完成，不縮為本輪四配對。

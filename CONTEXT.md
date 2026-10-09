@@ -19,6 +19,15 @@
 | 其他正式功能與交付 | #35／#36／#28尚未收尾，三平台可玩封包未完成 | 依各Issue與READY規格完成正常玩家路線及封包驗收 |
 | adapter與版控答案表 | #29位置待定；#26依使用者維持擱置 | 新提示不讀整表、不提交答案，不擴張兩項決策 |
 
+R991正式修補`4ca3fa69eafac91fb5a0c4fe7ef473bca9104f52`已推送private main。
+四移位配對在兩字型3倍正常GUI完成55唯一HD／Draw配對，ROI3,207,600像素差異0；4F1、5重複不列分母。
+八趟固定原API／20圖範圍及獨立四圖原字模抽樣已採認，2倍基準保持；022已量四配對限定CONFORMED。
+新55aa正式record 3,110事件／1,549發布與同binary完整重播完成0，保存保持。
+#22結果6074417174與#28結果6074417823各1,072字／13個LF全文回讀相同，兩Issue保持OPEN。
+自有容器及r991／cmd/wiz7／docs擁有權異常0，R433未追蹤保持；下一步按其他未驗範圍接續。
+入口[R991](docs/goal/R991-relocated-roster.md)、[022](docs/spec/022-character-roster-text.md#r991-加入角色後移位列增補)、
+[025](docs/re/025-ui-localization-coverage.md#r991-relocated-roster)。
+
 R990女性正常玩家鏈已量：正常加入TEMPEST、新遊戲、SAVE及新程序冷LOAD，兩份錄製各一趟同binary正式重播完成0。
 原版六類同狀態聲明限冷LOAD的1,415發布，不外推新遊戲整段；正常SAVE重寫mtime依壁鐘更新。
 女性保存層在`workplace/r990/r3/record-gui/save`；SAVEGAME.DBS SHA-256
