@@ -30,6 +30,11 @@
 R2 owner／HD、R3快照四行修補及新Uni2真GUI分列，未稱舊兩3倍GUI等於全部R3來源；完整限制見[R995](docs/goal/R995-full-party-ui.md)、[036](docs/spec/036-party-class-short.md#r995-限定驗收)。
 自有容器與擁有權異常0，R433保持未追蹤；全案、其他正常條件及正式交付仍未完成。
 
+R995來源`25326dd69b69e094a6e9d85ecb1b7634e95b61a9`已推送private main。
+#22結果6082330359、#28結果6082337425各631字元／9個LF，#17進度6082342595為385字元／5個LF，全文回讀與原稿相同。
+三Issue保持OPEN，安全收據在`workplace/r995/result-comment-receipts.json`；本提交無Actions執行，未冒稱CI通過。
+接續剩餘譯文、未量玩家路線與完整交付，不重開本輪已驗字型、側欄或逗號姓名。
+
 R994來源`13d2903f10dc28f4076cc42ca52f1a8b83100430`已推送private main。
 #22結果6078578180與#28結果6078578632各896字／11個LF，#17進度6078579225為386字／7個LF，全文回讀與原稿相同。
 三Issue保持OPEN；安全收據在`workplace/r994/result-comment-receipts.json`。當時的主選單與側欄待辦已由R995承接，不重開已驗名單。
