@@ -12,6 +12,7 @@ WHO游標正式接線：[R988](R988-who-cursor-wiring.md)。
 通用姓名的性別與職業：[R994](R994-generic-roster.md)。
 滿隊主選單與側欄職業中文：[R995](R995-full-party-ui.md)。
 剩餘譯名與兩倍顯示缺口：[R996](R996-remaining-text-ui-gates.md)。
+正式錄放完成稽核：[R997](R997-recording-completion-audit.md)。
 
 正常載入後的人物頁情境觀察：[R984](R984-normal-profile-context.md)。
 

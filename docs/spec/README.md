@@ -18,8 +18,8 @@
 | [010](010-item-name-corrections.md) | 物品名稱錯配校正（READY；名稱與回歸通過，校正鍵上屏未量） |
 | [011](011-message-wording-unification.md) | 同義訊息文案統一（限定CONFORMED；實跑10筆，其他僅靜態驗證） |
 | [012](012-compound-item-output.md) | 三組複合物品名稱（正常路線通過；整份READY） |
-| [013](013-input-recording.md) | 前端輸入錄製／重播（DRAFT） |
-| [014](014-original-save-storage.md) | 原版存檔持久可寫層（READY；精確路徑已定稿，正常存讀及冷載入還原待驗） |
+| [013](013-input-recording.md) | 前端輸入錄製／重播（READY；正式接線與R997故障GUI已量，現行三次正式重播完成。唯一剩項為可核的三次實際畫面hash，原R967收據缺失，#17保持OPEN） |
+| [014](014-original-save-storage.md) | 原版存檔持久可寫層（READY；R979／R982正常SAVE、冷LOAD與原版控制已量，Linux玩家鏈完成；原生平台與封包仍待） |
 | [015](015-generic-slot-expansion.md) | 一般查表與填槽缺字回退（READY；R822獨立審查通過） |
 | [016](016-catalog-control-preservation.md) | 控制碼保留與流文可用性（READY；R830獨立審查通過，正常上屏待驗） |
 | [017](017-dynamic-subject-source.md) | 動態主體來源與兩處文意（READY；R832審查通過，主體顯示仍缺） |
@@ -35,7 +35,7 @@
 | [027](027-reprint-persistence.md) | 同文重印的覆繪持續性，狀態依正文與R968收據 |
 | [028](028-approved-ui-fonts.md) | 定版紙頁亮字及主選單毛筆；R995三種布局3倍正常路線限定CONFORMED，兩字型兩倍率固定畫面已驗，其他分支仍READY |
 | [029](029-clearance-answer-hint.md) | 目前防拷題目後附英文答案（限定CONFORMED；兩後端兩倍率正常GUI與同狀態通過，其餘題目及防禦GUI未量） |
-| [030](030-flow-slash-glyph.md) | 流文半形斜線字模（DRAFT；保持原文、schema與排版，新增可用集合待獨立核） |
+| [030](030-flow-slash-glyph.md) | 流文半形斜線字模（READY；R981雙後端正式重建與獨立審查已驗，新增133則只證靜態可用，正常上屏未量） |
 | [031](031-monster-name-slots.md) | 怪物名字四個16-byte固定格與異譯拒絕守門（DRAFT；23個譯名衝突待定） |
 | [032](032-profile-popup-occlusion.md) | 人物法術視窗保留未遮住的裝備中文（限定CONFORMED；五名稱雙字型兩倍率正常路線及原版／像素／Draw已驗，其他裝備／人物切換未量） |
 | [033](033-world-identity-labels.md) | 世界人物頁性別與選人提示（R988已量WHO正常選人、移動、取消與再入限定CONFORMED；其他分支仍READY，性別由034承接） |

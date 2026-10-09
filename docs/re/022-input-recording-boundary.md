@@ -1302,3 +1302,47 @@ R989最終獨立來源及有限結果複核於FINAL後完整回讀採認0／0／
 JSON SHA-256 `b8850c145c3c7bcf1642704b7d57e7c7fc9180e5aa8867549f8912c3fdae33ec`；
 Markdown `b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba`。
 013已量倚天3倍新正常路線限定CONFORMED，其他未量條件保持READY；整體中文化仍未完成。
+
+## R997：正式錄放完成稽核與磁碟故障
+
+<a id="r997-recording-completion"></a>
+
+入口[R997](../goal/R997-recording-completion-audit.md)、[013正式契約](../spec/013-input-recording.md#r951-production-contract)、[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+現行698e43c程式、95實源及5d6正式binary保持，本輪沒有修改Go、schema、字型或原版資料。
+R951已READY、R967已接線，較早CONTEXT／規格索引／Issue正文的DRAFT或未接線狀態不適用；歷史收據仍保留。
+
+### 同程式三次重播
+
+R996正常Uni2六人錄製3691事件／1837快照／末454.4M，wire SHA-256
+`915f923cdccd200de693067c3aede9c23cabcd72718a490da0a781bcd0951d3e`。
+先前一次正式重播加本輪兩次，共三次同5d6正式重播完成0；新兩次用時184.667／186.699秒，初始保存各由唯讀來源copy2獨立複製。
+binary、wire及保存size／SHA／mode／mtime全保持。原檔沒有改頭、轉換或重新編排。
+這些只證同binary重播與保存；snapshot.frontend_sha256是配置SHA，不能當畫面hash。
+畫面一致性沿R967三次1751 Draw／state收據，R989正式三重播及原API控制、R996已審原版／像素回歸各自分列，不稱本輪新兩次逐幀像素另驗。
+
+### 正式寫入故障與續玩
+
+既有Go映像、UID1000、離線及有界容器，正式程式不注入故障旗標或改Write。原版與起始保存唯讀，錄放檔在獨立2MiB tmpfs。
+健康控制停止後顯示「錄製完成」，F1開關及正常Return後遊戲區改變37496像素，完成檔保持，正常關窗0／0.110秒。
+故障控制先正常錄製，再由獨立填充檔耗盡tmpfs，填充實際返回errno28且f_bavail=0。等待原錄製要求新頁後，正式頁尾顯示「錄製失敗」，退出有限碼writer_append。
+未直接觀察程式個別Write的errno，不稱已有該系統呼叫收據。
+
+故障後F1開關與正常Return仍可操作，遊戲區同樣改變37496像素。77824B片段SHA保持，沒有成功名或end；關窗exit2／0.117秒。
+片段原名與改名副本均由同一正式程式以wire_rejected拒絕，exit2；兩份SHA-256
+`4b0b0bf199021241af878aff6439fc9ce51b3791556fca5628ed543313e342cf`相同，保存完整metadata保持。
+兩個原生中文頁尾各1664像素按正式Flow字模與契約座標獨立比對相同；遊戲區變化只證故障後可繼續操作，不作原版同狀態oracle。
+
+首趟耗盡新頁空間後立即停止，尾頁仍有已配置容量而正常完成。這是驗收順序問題，原結果留full/，未當產品缺陷。
+首次F1前後0.8秒的遊戲區相同，不能單由說明可開關宣稱續玩；最終healthy-2／full-3補正常Return及5秒畫面推進後才採認。
+完整輸入、圖片、片段、保存及安全結果只留workplace/r997。
+
+### 獨立稽核結論
+
+2026-10-10，FINAL阻擋1／應改0／建議0已完整回讀，9個報告／結果身份採認。
+獨立另核最終兩case遊戲區各37496像素變動、頁尾目視、健康end1／故障end0、片段及保存SHA／精確mtime；原生頁尾3328像素oracle及退出耗時沿主代理結果，未冒稱全部另量。
+JSON／Markdown SHA-256 `6072fcb6060c9a58b40b1a3135c0b619d05bc0082e446d7afbc064c99c5bc1c2`／
+`703f7c81bebb10c1877588a91fa56053b0f62027461ad4b98433b049096052e1`。
+
+唯一阻擋是#17三次實際畫面hash的可核原收據。獨立搜尋及主代理存在性重核均確認workplace/r967與FINAL-manifest不在，歷史1751 Draw敘述不能當現存畫面證據。
+最新三次正式重播及配置SHA不替代像素；#17保持OPEN，下一輪只新建三次真正Draw／遊戲區RGB收據，綁定publication、Step、panel及實際binary身份。
+現行正式故障鏈與Writer fixture已充分，不重跑故障矩陣、不撤銷013 READY。人耳、其他平台與全中文覆蓋仍各自分列，整體Goal未完成。

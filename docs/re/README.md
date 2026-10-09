@@ -1,5 +1,7 @@
 # 研究證據索引
 
+正式錄放完成稽核與磁碟故障：[R997](../goal/R997-recording-completion-audit.md)、[022證據](022-input-recording-boundary.md#r997-recording-completion)。
+
 既有職業兩倍後寫行保護：[R996](../goal/R996-remaining-text-ui-gates.md)、[025證據](025-ui-localization-coverage.md#r996-career-late-line)。
 
 譯文上屏抽樣的接手複核：[R972目標](../goal/R972-sampling.md)，[025結果與清理限制](025-ui-localization-coverage.md#r972-sampling-takeover)。
