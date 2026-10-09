@@ -36,5 +36,8 @@ R2 owner／HD、R3快照四行修補及新Uni2真GUI分列，未稱舊兩3倍GUI
 R996來源7158f14已推送private main，#22／#28／#17結果全文回讀與原稿相同且均OPEN；安全收據見workplace/r996/result-comment-receipts.json。
 本輪限定職業欄修補已完成，接續其餘中文覆蓋及正式交付；BASELARD已定巴塞拉短劍，不重新提問。
 
+R997來源f9f3d31已推送private main，#17正文與#17／#28結果全文回讀相同，兩Issue保持OPEN；收據見workplace/r997/result-issue-receipts.json。
+下一個實作前驗收入口是game.Draw完成遊戲區與面板、原Draw通知前的只讀RGB收據；須新正常錄製及同觀測binary三次重播，不改既有wire或把配置SHA當畫面SHA。
+
 穩定操作與Docker入口見[README](README.md)，字型重建見[font/README](font/README.md)。
 歷史過程與已推翻結論只依[WORKLOG](WORKLOG.md)及[研究索引](docs/re/README.md)回查；本檔只保留目前真相，不以歷史候選重新開工。

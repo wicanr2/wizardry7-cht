@@ -2179,3 +2179,9 @@ snapshot.frontend_sha256實為配置SHA，最新三次重播不當三次畫面ha
 最後獨立稽核FINAL 1／0／0完整回讀，九報告／結果身份核同後採認；唯一阻擋是三次實際畫面hash現存收據缺失，#17不關閉。
 獨立另核正常Return後兩case各37496像素變動、目視頁尾、健康end1／故障end0與保存／片段身份，未把主代理原生頁尾oracle及退出時序冒稱另量。
 報告JSON6072fcb6…、MD703f7c81…留workplace/r997，完整SHA見研究022。當前Go、原版、字型、schema及既存完整輸入都保持。
+
+R997來源f9f3d316ce67409d8a2c7f9da5168b28538239ec已推送private main，遠端SHA相同。
+#17正文修正為現行READY／已接線及唯一畫面收據缺口，1145字元／22個LF全文回讀與原稿相同。
+#17結果6084663202、#28結果6084665458各576字元／7個LF，全文相同，兩Issue保持OPEN；安全收據在workplace/r997/result-issue-receipts.json。
+批次自有容器、root-owned及誤建.md目錄0，R433保持未追蹤；原版、字模、完整輸入、片段、圖片與保存沒有提交。
+下一輪只於game.Draw既有發布完成通知前觀察遊戲區RGB，綁同份publication／Step／panel與實際binary，重新正常錄製及三次重播；觀測副本身份分列，不改舊wire或繞過配置核對。
