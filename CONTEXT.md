@@ -32,6 +32,9 @@
 R2 owner／HD、R3快照四行修補及新Uni2真GUI分列，未稱舊兩3倍GUI等於全部R3來源；完整限制見[R995](docs/goal/R995-full-party-ui.md)、[036](docs/spec/036-party-class-short.md#r995-限定驗收)。
 自有容器與擁有權異常0，R433保持未追蹤；全案、其他正常條件及正式交付仍未完成。
 
+R996來源7158f14已推送private main，#22／#28／#17結果全文回讀與原稿相同且均OPEN；安全收據見workplace/r996/result-comment-receipts.json。
+本輪限定職業欄修補已完成，接續其餘中文覆蓋及正式交付；BASELARD已定巴塞拉短劍，不重新提問。
+
 R995來源`25326dd69b69e094a6e9d85ecb1b7634e95b61a9`已推送private main。
 #22結果6082330359、#28結果6082337425各631字元／9個LF，#17進度6082342595為385字元／5個LF，全文回讀與原稿相同。
 三Issue保持OPEN，安全收據在`workplace/r995/result-comment-receipts.json`；本提交無Actions執行，未冒稱CI通過。

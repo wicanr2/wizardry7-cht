@@ -2149,3 +2149,9 @@ R995已存固定Uni2滿隊HD窄核出8點晚寫行被蓋：FIGHTER2、THIEF2、P
 95實源、四trace、3806配對及保存exact奈秒字串核同，正式新錄製與同binary重播另列。
 036本次已量六欄Unifont2正常路線限定CONFORMED；其他slot／名字／caller／配置／平台仍READY，整體Goal未完成。
 開工留言6083262317全文回讀272字元／5個LF與原稿相同；原版、字模、wire、完整圖片與保存只留本機。
+
+R996來源7158f14dd8eaa722daa2923d98673887eec17a54已推送private main，遠端SHA回讀相同。
+#22結果6084070692及#28結果6084072911各600字元／9個LF，#17進度6084075633為442字元／5個LF，三則全文與原稿相同。
+三Issue皆OPEN；安全回讀收據在workplace/r996/result-comment-receipts.json。
+自有容器、root-owned與誤建.md目錄均0，R433未追蹤保持；沒有原版素材、字模、wire、圖片或保存進提交。
+接續剩餘譯文、未量正常路線與交付門檻，整體Goal保持進行中。
