@@ -13,9 +13,9 @@ ROOT = Path(__file__).resolve().parents[2]
 FONT_SHA = 'cfc758e69386a21bade8cb3b373fda20d7f2fac6e8904ced2ded98588b63e274'
 LICENSE_SHA = '1f11c4a22865e1289f4694dad56b3561790a4b7341a511ddcd0edddcc3b95a46'
 MODEL_SHA = '1a9632b661b106367adffc2a8336808fe38202e60080620e897072e2fdcf5a22'
-MENU = [('CHARACTER MENU','角色選單'),('ADD CHARACTER','新增角色'),
-        ('LOAD SAVEGAME','載入存檔'),('CONFIGURATION','系統設定'),
-        ('IMPORT (BANE)','匯入巫術六'),('QUIT GAME','結束遊戲')]
+MENU = ['CHARACTER MENU', 'ADD CHARACTER', 'LOAD SAVEGAME', 'CONFIGURATION',
+        'IMPORT (BANE)', 'QUIT GAME', 'REVIEW MEMBER', 'DISMISS MEMBER', 'START NEW GAME']
+MENU_TEXT_SHA = '41bf22dbc73ed15182e9be42dd3ab2c5d140b56d02bc7423f7981a0ea223ef16'
 PAPER = [('presents','呈獻'),('fantasy','奇幻'),('role-playing','角色扮演'),
          ('simulation','遊戲'),('by','作者')]
 
@@ -34,7 +34,8 @@ def catalog(name, context, expected, source):
         assert ctx == context and dy == '0' and src == source
         assert en and zh and all(ord(c)>=32 for c in en+zh)
         result.append((en,zh))
-    assert result == expected and len(set(en for en,_ in result)) == len(result)
+    assert ([en for en,_ in result] == expected if isinstance(expected[0], str) else result == expected)
+    assert len(set(en for en,_ in result)) == len(result)
     return result,sha(raw)
 
 
@@ -42,6 +43,8 @@ def build_menu(font_path, license_path):
     assert sha(font_path.read_bytes()) == FONT_SHA
     assert sha(license_path.read_bytes()) == LICENSE_SHA
     labels,source_sha = catalog('main-menu.zh-TW.tsv','main.menu.brush',MENU,'runtime:0110:3895')
+    canonical = b''.join(en.encode('utf-8')+b'\0'+zh.encode('utf-8')+b'\0' for en,zh in labels)
+    assert sha(canonical) == MENU_TEXT_SHA, '主選單文案不符定版內容指紋'
     font = Font(font_path,2)
     assert font.family == 'AR PL UKai TW' and font.version == '2.12.1'
     entries = []
@@ -135,7 +138,7 @@ def main():
         assert args.go_model.parent.is_dir() and args.go_model.parent.stat().st_uid == os.getuid()
         code = '// 由 tools/re/bake_approved_ui.py 固定模型重建；不含原版像素。\npackage main\n\nconst introPaperModelJSON = '+json.dumps(model.decode(),ensure_ascii=False)+'\n'
         args.go_model.write_text(code)
-    print('六按鈕×兩倍率、紙頁五鍵已烘製；一般字形保持，授權另存。')
+    print('九文案×兩倍率、紙頁五鍵已烘製；一般字形保持，授權另存。')
 
 
 if __name__ == '__main__':

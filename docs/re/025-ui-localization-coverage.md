@@ -1827,3 +1827,80 @@ GUI FINAL兩報告及8身份完整採認；80實圖指紋`b88588097a4455080dde00
 最終動態獨立FINAL 0／0／0完整採認，25來源／結果／報告及640畫格檔fingerprint核同；身份見022末節。
 只標First0、兩owner、count6..1、六碼及新姓名的雙字型3倍限定CONFORMED。其他22碼、First非0、OEM／空白正常未量；
 2倍仍非中文，派生HD不稱live Draw，全案及滿隊選單／ALCHEMI兩個後續缺口仍待。
+
+## R995 主選單組合與職業側欄（2026-10-09）
+
+<a id="r995-full-party-ui"></a>
+
+入口[R995](../goal/R995-full-party-ui.md)、[028草案](../spec/028-approved-ui-fonts.md#r995-主選單組合增補草案)。
+正常加入ROWTEST後取消ADD，實見七鍵；重開ADD正常加入剩五人後變六鍵，PENTAS側欄實見ALCHEMI。
+三新選單文案由正式1002／1003／1004承接，第四鍵為開除成員；玩家先前訊息誤讀刪除，已依實圖更正。
+新正常錄製3301事件／1642快照，末415.4M，wire SHA-256
+`d5a1e71661f7461814e795e40a43be17440b4d4ae71de8fcfe6555fe3caa5d13`，同6f31正式binary重播完成0。
+GUI及正式重播保存bytes／SHA／mode／mtime保持，正常Stop後續玩／關窗0；玩家FINAL完整回讀及10身份核同。
+
+原始普通日誌已量full6英文／座標，但caller／font與原indexed矩形仍待probe；七鍵截圖的邊框只作畫面幾何。
+純事實盤點FINAL完整採認14身份，確認parser／view／Y配置都固定初始六鍵，UKai固定來源及FreeType2.12.1可重現。
+九鍵字樣私人原型沿既定字型／字號與原文案，18字條完整，舊六entries／alpha bytes全同，10身份完整採認；仍DRAFT。
+正式Go／TSV／字樣工具尚未修改，原版與字型皆唯讀，原始輸入、畫格及字模只留本機。
+
+唯讀probe r3 source FINAL 0／0／0及13身份採認後才執行：重用原generic raw64、只看前32，九選單鍵及15職業候選鍵閉集合，
+側欄只在ret1c71、x9／261與y56／101／146六個既存錨點取樣；原版不寫、無新增CPU推進。
+runner固定r3路徑與binary SHA，最初路徑仍指舊候選的阻擋已於執行前修正，沒有跑錯binary。
+raw及probe兩趟原API控制完成0，1642發布的585726-byte trace完全相同，SHA-256
+`8c514a505d02e077a7f5d8e9a101e0dea0342de651a7fecccef4818540f5c707`，保存全metadata保持。
+原版27個print返回包含19個普通主選單、2個按下ADD與6個側欄職業；三布局按鈕均109×9，見probe-analysis-r2。
+028主選單增補獨立READY 0／0／0，72證據指紋`92272dba87aabb253a15b07ab5caf1cf7a6903eafb626a8207892be1abcc84cd`。
+正式三布局、6／9資源與字條按英文鍵接線已完成，cmd回歸4.025秒通過，initconfig／recording沿快取通過；動態驗收待。
+
+正常姓名下伸筆畫路線FINAL完整回讀：逐鍵小寫含兩逗號由原版轉大寫、正常確認改名及ADD後取消回七鍵選單。
+未選取新姓名列英文F-ALC、選取列中文及側欄ALCHEMI皆保留實圖，不把上屏英文當字型缺字。
+3703事件／1825快照／末428.8M，wire SHA-256 `d47ff238a67c099480ddf572fc12f18b3edd6c08794f7b4e55162cc1469b015b`。
+正常Stop後續玩／關窗0，同6f31正式重播完成0；原起始保存唯讀保持，scratch PCFILE由原版正常改名，兩次最終bytes／SHA／mode相同。
+SAVEGAME bytes／SHA／mode／mtime保持；scratch不作交付存檔。報告JSON／Markdown
+`ca109b44ead7d2cb62318473d98b1435fe6d75bf4edc3472fe1b685ab7fc1a03`／`5f82f00d12ba4c1f4f18756ccbb90e77893410adba39d42df1eeab8ea50378ea`。
+程式核對rosterMatches普通列底行未先比原版after，逗號墨點遭背景守門拒絕；022增補維持DRAFT，待原版差分與READY。
+
+022底行增補獨立READY及正式source均0／0／0；唯一文字應改修正後採READY，cmd回歸10.662秒通過，動態驗收待。
+R4 source獨立FINAL完整回讀採認12身份後才執行。raw／probe各1825發布全trace同，SHA-256
+`f561d094b4c53a9f366fe4a6eafd0407f7f956aee87b9fae3872cc2aadafa026`；正常改名保存bytes／SHA／mode相同，自然mtime分列。
+姓名ret1c21、x9／y50、font0，原返回X51／y50／SP＋2；76點差分都在42×6內，底行兩點column13／31與推導遮罩精確相同。
+執行中字型7B0E:0000共1040B SHA與VBFONT0原檔相同。036側欄短碼及姓名保護仍DRAFT，待獨立READY，尚未接正式ALCHEMI。
+
+此證據勘誤013「資源格式v2」的ID0強推論：560B及48字形×6B不適用目前VBFONT0。
+原VBFONT0為16B header＋128×2B映射＋128×6B字模＝1040B，實際runtime全段SHA已核同。
+560B是VBFONT1大小，不從相同副檔名推字型幾何；舊歷史與原定位保留，本段作追加勘誤。
+
+主選單正式source及動態獨立FINAL均0／0／0採認；四組6568發布配對、16派生HD6656000RGB像素及正常雙後端3倍GUI完成。
+獨立另重建兩完整圖832000像素相同，其他圖只核身份；私人controls保留R994 roster，416f另含底行修補，不稱全部94來源同bytes。
+正常GUI四條新wire及同416f正式重播0，主選單三布局、ADD保持及逗號名單未選／選取／取消已量。
+主選單GUI跨後端256041、ADD前後336204、原姓名12960像素相符，各自分母不合併作原版A/B。
+兩GUI報告JSON／Markdown `81cecac759afa31e0058e3819f06760898c01f23a7fde412da964a3faab6a072`／
+`41574a56b244a9e4869ae280e973d1c5f8d7648a264105e534a4ddba38db07b3`，26身份採認。
+
+036 READY後正式source加入ALCHEMI唯一TSV及專用家族。source獨立審查攔到控制碼近形能由一般normalizeKey取得短碼；
+修為載入後抽至partyEntry並刪除一般trans鍵，合法caller才可使用，新增近形負測通過。301b僅建置、未執行原版。
+修後source FINAL 0／0／0及9身份採認；party-reserved-tests cmd1.501秒，兩包快取通過，原font成功遮罩實際PASS。
+兩正式字型只新增ALCHEMI，四字g精確等既有ALCHEMIST，其他xlate值及三個附屬家族保持。
+
+R2原API八趟0：Name新四配置各1825發布、Name舊兩3倍各1825、滿隊新兩代表配置各1642，原版全trace各等相同輸入的無覆繪控制。
+兩3倍Name新舊全圖16份共9216000RGB像素由原font0碼帶、原版class before／after及既定CJK字模獨立重建相符。
+四Name配置及兩滿隊配置十個字段ROI共21840RGB像素相符；兩3倍實際GUI另核九原行ROI共6804像素，相同。
+三條R2正常GUI及同879d正式重播完成0，起點／正常／重播保存metadata保持；R2 Uni2目視尚非像素通過，勘誤如下。
+
+真正Uni2 GUI的獨立九行ROI核到404像素／1212色通道不符，HD已正確位移，GUI未移。原因confirmed為cloneVisualEvents漏party標記。
+R3只新增四行partyClassWitness值拷貝，內嵌42B姓名身份獨立保存；新單測驗副本不alias、Uni2＋2／−1及3倍0位移。
+獨立最小source FINAL 0／0／0及4身份採認，cmd2.284秒／其他兩包快取通過。原R2 Uni2結果保留為歷史，未當像素成功。
+現行R3 binary `b4a5c621935f228e26682e6833ccecf2c70691f658928ce296f8b0a47afb9277`、16028104B，95實源
+`255c3125170f4956ca76c5195f4d8ba41a46dc439bc77ad4551203cd0d9848ac`。
+
+新R3 Uni2正常錄製2844事件／1419快照／末307M，wire SHA-256
+`9ccb694495407398e134988e46a16a2c0e549557ea1dd664539f210844e2f53c`；正常Stop／續玩／關窗0，同b4a5正式重播0，保存metadata保持。
+新實際GUI與兩既有3倍GUI九原行ROI共8316RGB像素皆符合原版indexed／palette／印字前後及既定原生四字期望，包含原姓名末行與y＋7後寫行。
+R3另補現行source的Name Uni2私人原API完成0，1825發布全trace等f561d094…，48個畫格檔含8張HD逐bytes同R2；保存bytes／SHA／mode保持。
+GUI與私人原API、R2 owner／HD與R3純前端差異分列，不稱全95來源等於R2，不以HD取代真GUI。
+最後獨立動態FINAL 0／0／0完整採認，31來源／結果身份及八個精確mtime值相符；報告時間欄以十進位字串保存，修正JS Number取整，原測試與binary未改。
+JSON／Markdown SHA-256 `bb57a03d906b7eb5259e86c28c34ba24a684dc0a7f6f344208f791da94468a9b`／
+`cd438e46112285b9a965c6ed9b8486e38e32f78789b48e125dd7f938fed94c2f`。
+028三布局3倍正常、022本次逗號姓名3倍正常、036已量左上／右下ALCHEMI路線限定CONFORMED；其餘未知維持READY。
+原始wire、畫格、原字型及保存皆只留本機；全案、其他名字／slot／caller、2倍名單及跨平台交付仍未完成。

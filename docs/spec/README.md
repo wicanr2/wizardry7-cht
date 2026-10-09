@@ -27,13 +27,13 @@
 | [019](019-cross-row-source.md) | 兩列敘述與終止碼來源對齊（READY；R836原型審查通過，正常上屏待驗） |
 | [020](020-main-menu-labels.md) | 主選單標籤漏字與按鈕內排版（READY；六標籤雙字型兩倍率、R919實作及R920來源同步複核通過，防禦分支僅單測） |
 | [021](021-character-dialog-labels.md) | 新增角色確定與取消按鈕內排版（READY；R925雙字型兩倍率及正常取消驗收通過，防禦分支僅單測） |
-| [022](022-character-roster-text.md) | 新增角色清單性別與職業碼（R928初始六列已驗；R991四個移位配對3倍雙字型正常選取／取消限定CONFORMED；其他位置、姓名及2倍仍待） |
+| [022](022-character-roster-text.md) | 名單性別職業碼（R994兩owner、First0、count6..1及新姓名3倍雙字型限定CONFORMED；R995逗號姓名底行限定CONFORMED，其他未量及2倍仍待） |
 | [023](023-character-menu-labels.md) | 角色選單六按鈕中文置中（READY；R932雙字型兩倍率及正常離開通過，防禦分支僅單測） |
 | [024](024-character-review-output.md) | 人物檢視性別與選人按鈕（READY；3倍性別與兩倍率按鈕限定像素通過，R941結果複核通過；2倍性別未完成） |
 | [025](025-intro-picture-labels.md) | 六張片頭圖片呈獻字樣（READY；周邊紋理補底已接正式前端，雙字型兩倍率及正常GUI限定驗收通過，未知過渡仍待） |
 | [026](026-battle-control-labels.md) | 七個戰鬥控制的中文按鈕內排版（READY；正式接線與雙字型兩倍率固定HD通過，GUI／操作／撤除待驗） |
 | [027](027-reprint-persistence.md) | 同文重印的覆繪持續性，狀態依正文與R968收據 |
-| [028](028-approved-ui-fonts.md) | 定版紙頁亮字及主選單毛筆，兩後端限定正常路線CONFORMED |
+| [028](028-approved-ui-fonts.md) | 定版紙頁亮字及主選單毛筆；R995三種布局3倍正常路線限定CONFORMED，兩字型兩倍率固定畫面已驗，其他分支仍READY |
 | [029](029-clearance-answer-hint.md) | 目前防拷題目後附英文答案（限定CONFORMED；兩後端兩倍率正常GUI與同狀態通過，其餘題目及防禦GUI未量） |
 | [030](030-flow-slash-glyph.md) | 流文半形斜線字模（DRAFT；保持原文、schema與排版，新增可用集合待獨立核） |
 | [031](031-monster-name-slots.md) | 怪物名字四個16-byte固定格與異譯拒絕守門（DRAFT；23個譯名衝突待定） |
@@ -41,3 +41,4 @@
 | [033](033-world-identity-labels.md) | 世界人物頁性別與選人提示（R988已量WHO正常選人、移動、取消與再入限定CONFORMED；其他分支仍READY，性別由034承接） |
 | [034](034-world-profile-sex.md) | 世界人物頁性別覆繪（M及TEMPEST女性正常路線限定CONFORMED；雙字型兩倍率人物頁、法術視窗、退出／重入及原版／保存已驗，其他路線仍READY） |
 | [035](035-backspace-input.md) | 姓名退格字元（Linux3倍兩字型已量路線限定CONFORMED；正常刪字／空欄／F1、錄放及原版控制已驗，其他畫面／平台未量） |
+| [036](036-party-class-short.md) | 側欄ALCHEMI及原姓名保護（已量左上／右下路線限定CONFORMED；R3補GUI副本、Uni2真畫素與原版保持已驗，其他分支READY） |

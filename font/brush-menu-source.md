@@ -1,7 +1,8 @@
 # 主選單毛筆字樣來源
 
-目前是[R976](../docs/goal/R976-bright-paper-brush-menu.md)的外觀候選，只限主選單六個按鈕。
-一般訊息仍沿既有點陣字型。正式字型接線、020增補與玩家路徑尚未完成。
+外觀已由使用者確認，[028](../docs/spec/028-approved-ui-fonts.md)承接正式來源與接線。
+初始六鍵、中途七鍵與滿隊六鍵共用九文案；兩後端兩倍率固定畫面與已量Linux3倍正常路線已驗。
+一般訊息仍沿既有點陣字型，字型用途仍限主選單。
 
 | 項目 | 固定來源 |
 |---|---|
@@ -16,7 +17,7 @@
 原作者為文鼎科技，CJKUnifonts版本由Arne Goetje修改。
 原授權允許複製、改作及散布，保留授權全文及修改聲明；公開散布衍生字模時須依原條款提供改作。
 來源為[Debian套件保存的原授權](https://sources.debian.org/src/fonts-arphic-ukai/0.2.20080216.2-5/debian/copyright/)。
-本輪只作本機原型，沒有發布字型或衍生資源。
+字型與衍生字模只留本機或依原授權處理，不加入Git。
 
 [預覽工具](../tools/re/preview_menu_brush.py)只讀正式catalog六則英文鍵及現存字型，
 輸出文字、source IDs、字型／授權SHA、原alpha字模與2倍／3倍的字格收據。

@@ -134,3 +134,71 @@ R977正常無輸入冷啟動：兩後端紙頁3倍五構圖及無字撤除、主
 報告入口workplace/r977/review-implementation.json及.md：JSON SHAe8666813d3a899e843f5116e982540ca432ad3464bb67da880a17c31599af5cc，
 Markdown SHAc3bc7967a8a48a4b72080ecf3d25a73ab4e5b6d8fec808629a08f8cac96a73e6。
 研究、源身份、限定範圍及重跑入口見[025的R977](../re/025-ui-localization-coverage.md#r977-approved-ui)。
+
+## R995 主選單組合增補草案
+
+狀態：已量三種布局的Linux3倍正常路線限定CONFORMED；其餘分支READY。入口[R995](../goal/R995-full-party-ui.md)。使用者已定主選單毛筆字型、字號與顏色，
+本增補補足正常組隊後的主選單，不改外觀、文字或原版操作。
+修前普通Y配置與毛筆view只認初始六鍵；現行接線依下表辨識三種完整布局。
+正常倚天3倍已實見一人隊伍七鍵及滿隊六鍵，新3301事件錄製同6f31正式binary重播0。
+私人probe與raw原API的1642發布全trace相同，SHA-256 `8c514a505d02e077a7f5d8e9a101e0dea0342de651a7fecccef4818540f5c707`；保存metadata保持。
+19個正常選單字串皆font0、返回0110:539b，SP＋2，墨點只為本行192→1；兩個ADD按下重印為0110:51be、192→26。
+三個完整indexed畫格各6／7／6鍵，所有完整按鈕實測109×9，左界105、上界為文字y−2。
+四角81／182／198不在普通邊框三色內，內側乾淨橫列與左內欄交叉推出完整外框；不能把107px內部誤當全按鈕。
+
+| 英文鍵／文字x | 初始六鍵y | 未滿隊七鍵y | 滿隊六鍵y |
+|---|---:|---:|---:|
+| CHARACTER MENU／118 | 45 | 45 | 45 |
+| ADD CHARACTER／121 | 58 | 58 | 無 |
+| LOAD SAVEGAME／121 | 71 | 無 | 無 |
+| CONFIGURATION／121 | 84 | 110 | 97 |
+| IMPORT (BANE)／121 | 97 | 無 | 無 |
+| QUIT GAME／133 | 110 | 123 | 110 |
+| REVIEW MEMBER／121 | 無 | 71 | 58 |
+| DISMISS MEMBER／118 | 無 | 84 | 71 |
+| START NEW GAME／118 | 無 | 97 | 84 |
+
+正式契約：
+
+1. 保留初始六鍵，另加入REVIEW MEMBER／DISMISS MEMBER／START NEW GAME三個已存在英文鍵。
+   文案沿正式story 1002／1003／1004的檢視成員／開除成員／開始新遊戲，新增至main-menu TSV，原六列bytes保持。
+2. schema1、context、字型／授權SHA、16／24px、advance+1、RGB、alpha混合及109×9按鈕契約保持。
+   decoder只收完整舊六項或完整九項閉集合，九項以前六項原序、三新項附後；任何缺漏／重複／未知鍵拒絕整族。
+3. 精確文案校驗改用內容指紋，避免正式Go另複製中文。按entries順序串接UTF8(en)、NUL、UTF8(zh)、NUL，再取SHA-256。
+   六項為`3222ad1d17dd7be443b827989f5fb9a80b7d2cd4b385898bc22930bce8589273`；
+   九項為`41bf22dbc73ed15182e9be42dd3ab2c5d140b56d02bc7423f7981a0ea223ef16`。
+   此指紋承接原固定en／zh校驗，SourceSHA仍依原規則記TSV raw bytes，內容指紋不受TSV換行格式影響。
+   生成入口為tools/re/bake_approved_ui.py的正式TSV讀取及內容指紋計算；文案變動須同步既定文案契約及此指紋。
+4. 來源只收上表三個完整已量主選單組合，不猜其他party count或位置。
+   主選單初始六鍵的既有常量保留給其他UI helper，另設精確布局表；活動布局唯一且全部shown／match／非dead、dy0才成立。
+   多組同時成立、缺鍵、錯位或來源失效時發布nil，不拿key聯集當完整畫面。
+5. view按活動布局的英文鍵找字條，不按九資源索引套原六個座標。只抑制該活動布局的一般畫筆，中心依各原版按鈕矩形。
+   舊六資源仍可畫初始六鍵；其他布局缺所需字條就完整回一般字樣。普通Y配置也依精確活動布局及原生15／16字型計算，不縮字。
+6. 保留同次xlate解碼及錄放六roles；正式只替換主選單metadata，紙頁metadata與其餘普通資料須逐值保持。
+   資源原型九鍵×兩倍率已量；新增三字條2倍64×16／62×16／82×16，3倍94×23／91×23／120×23，皆在原守門內。
+   舊六entries及alpha bytes全同，但此原型不代表正式UI或原版行為已驗。
+7. 上列字串／caller／font、indexed邊界及原版同狀態已取得，獨立證據與契約審查已放行READY。
+   實作後三組布局、兩後端兩倍率、錯資源／部分布局／撤除及原六樣式保持各作最小充分驗收，已量範圍見下節。
+
+側欄ALCHEMI由[036](036-party-class-short.md)承接；不以本節猜截短規則或新增全域前綴翻譯。
+
+獨立主選單READY審查0／0／0完整採認，24來源／結果／報告及72見證指紋核同。
+JSON／Markdown SHA-256 `e970b401db576817687dd0e40e5f6a3b41b2175e0c28f8d22e1f40fca205ca6b`／
+`ebeb81f8b293f4f92f8706af30bd75e516f12a508413756da5150e84b66bf93f`；
+見證fingerprint `92272dba87aabb253a15b07ab5caf1cf7a6903eafb626a8207892be1abcc84cd`。
+新24px檢視成員2162個alpha bytes已由原字型獨立C API核同；此閘門只放行主選單實作，未標CONFORMED。
+
+### R995 限定驗收
+
+四組兩字型／倍率old-new共八趟原API完成0，6568對原版發布全同控制，保存metadata保持。
+16派生HD共6656000RGB像素相符；獨立另重建Uni2中途及倚天3滿隊兩幅完整圖832000像素，批准域外差異0。
+2倍舊普通字形的180個越框墨點納入批准的原文字域還原，不以擴大差分遮罩忽略差異。
+私人controls保留R994 roster，正式416f另含022底行修補，不稱兩者全部94來源一致。
+
+兩後端3倍新正常GUI皆經初始六鍵、一人隊伍七鍵與滿隊六鍵、ADD開啟及撤除，正常Stop後續玩／關窗0，同416f新錄製正式重播0。
+實際GUI跨後端三對256041像素、ADD前後336204像素相符；不把跨後端一致當原版A/B。
+動態獨立FINAL 0／0／0完整採認，15身份核同，JSON／Markdown
+`cf5dcbde7621be6e5286c074df257dbf0c9f7f4bdf58978f7ca43771b983a763`／
+`5a1ead1d904dabb67004e9318f416c05e47d47f496748bff631a254138065cab`。
+正常GUI FINAL及26身份另採認，限制見[025](../re/025-ui-localization-coverage.md#r995-full-party-ui)。
+只標上述三種布局的3倍正常路線限定CONFORMED；新2倍完整流程、錯資源／歧義布局等GUI防禦分支未量，仍READY。

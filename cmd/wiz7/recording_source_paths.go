@@ -19,6 +19,7 @@ var recordingSourcePaths = []string{
 	"cmd/wiz7/intro_picture.go",
 	"cmd/wiz7/main.go",
 	"cmd/wiz7/menu_labels.go",
+	"cmd/wiz7/party_class.go",
 	"cmd/wiz7/popup_occlusion.go",
 	"cmd/wiz7/profile_reflow.go",
 	"cmd/wiz7/profile_sex.go",

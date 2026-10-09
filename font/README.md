@@ -79,7 +79,7 @@ python3 tools/re/probe_font.py /font/unifont_all-17.0.05.hex.gz \
 獨立位圖驗證入口為[check_native_font.py](../tools/re/check_native_font.py)；
 `--baked-only`只驗烘製資料，完整同狀態模式還需要研究018所列原版收據。
 
-主選單六按鈕的毛筆楷體來源另見[字型來源](brush-menu-source.md)，限定接線與GUI驗收已完成。
+主選單按鈕的毛筆楷體來源另見[字型來源](brush-menu-source.md)，九個文案供初始六鍵、中途七鍵與滿隊六鍵布局使用。
 已定版兩族的正式文案為[主選單TSV](../text/main-menu.zh-TW.tsv)與[紙頁TSV](../text/intro-paper.zh-TW.tsv)，
 完整接線契約及已量範圍見[028](../docs/spec/028-approved-ui-fonts.md)，不擴及一般訊息。
 
@@ -106,3 +106,13 @@ python3 tools/re/bake_cursor_who.py --xlate /input/xlate.json \
 輸出不能覆寫輸入。主程式的`-xlate`改指向此輸出；同目錄的`roster.json`、
 `profile-sex.json`、`intro-picture.json`沿同後端既有產物，`-flow`與`-help`保持。
 缺少或不合格WHO字模時，游標保留英文並記錄缺譯；完整字模及原版收據只留本機。
+
+側欄短碼另取[職業短碼TSV](../text/party-class.zh-TW.tsv)，來源與姓名保護見[036](../docs/spec/036-party-class-short.md)。
+四字沿既有職業原生字模。上述家族完成後，以固定Python容器追加單一專路資源：
+
+```sh
+python3 tools/re/bake_party_class.py /input/xlate.json /out/xlate.json
+```
+
+輸出須為新檔，同目錄三份附屬家族沿既有相同後端；倚天可傳`--eten-font /eten/stdfont.15`。
+資源只供已量側欄來源，主程式載入後將該鍵移出一般查表；其他xlate值、flow與help保持。

@@ -18,8 +18,9 @@ import (
 func syntheticApproved(t *testing.T) (brushMenuData, introPaperData, map[string]any) {
 	t.Helper()
 	b := brushMenuData{Schema: 1, Context: "main.menu.brush", FontSHA256: brushFontSHA, LicenseSHA256: brushLicenseSHA, SourceSHA256: strings.Repeat("0", 64)}
+	texts := []string{"角色選單", "新增角色", "載入存檔", "系統設定", "匯入巫術六", "結束遊戲"}
 	for i, label := range mainMenuLabels {
-		e := brushEntry{En: label.s, Zh: approvedMenuText[i]}
+		e := brushEntry{En: label.s, Zh: texts[i]}
 		for _, scale := range []int{2, 3} {
 			e.Stripes = append(e.Stripes, brushStripe{scale, 2, 2, []byte{0, 128, 255, 1}})
 		}
@@ -68,6 +69,83 @@ func TestApprovedXlateFamilies(t *testing.T) {
 	}
 	if _, err := decodeXlate([]byte(`{"synthetic":[]}`)); err == nil {
 		t.Fatal("普通字模錯誤未保持失敗")
+	}
+}
+
+func syntheticFullBrush(t *testing.T) brushMenuData {
+	t.Helper()
+	b, _, _ := syntheticApproved(t)
+	for i, key := range []string{"REVIEW MEMBER", "DISMISS MEMBER", "START NEW GAME"} {
+		e := brushEntry{En: key, Zh: []string{"檢視成員", "開除成員", "開始新遊戲"}[i]}
+		for _, scale := range []int{2, 3} {
+			// 各鍵不同寬度，可驗證依英文鍵取字條，沒有沿資源索引套座標。
+			w := i + 3
+			a := make([]byte, w*2)
+			a[0] = 255
+			e.Stripes = append(e.Stripes, brushStripe{scale, w, 2, a})
+		}
+		b.Entries = append(b.Entries, e)
+	}
+	return b
+}
+
+func TestFullBrushResourceAndTextIdentity(t *testing.T) {
+	b := syntheticFullBrush(t)
+	raw, _ := json.Marshal(b)
+	if _, err := decodeBrush(raw); err != nil {
+		t.Fatal(err)
+	}
+	for _, mutate := range []func(*brushMenuData){
+		func(v *brushMenuData) { v.Entries = v.Entries[:8] },
+		func(v *brushMenuData) { v.Entries[6].Zh = "檢視角色" },
+		func(v *brushMenuData) { v.Entries[6].En = v.Entries[7].En },
+		func(v *brushMenuData) { v.Entries[6], v.Entries[7] = v.Entries[7], v.Entries[6] },
+		func(v *brushMenuData) { v.Entries[8].Stripes[0].H = 17 },
+	} {
+		var invalid brushMenuData
+		json.Unmarshal(raw, &invalid)
+		mutate(&invalid)
+		v, _ := json.Marshal(invalid)
+		if _, err := decodeBrush(v); err == nil {
+			t.Fatal("invalid nine-entry resource accepted")
+		}
+	}
+}
+
+func TestBrushUsesActiveLayoutKeysAndLegacyFallback(t *testing.T) {
+	full := syntheticFullBrush(t)
+	legacy, _, _ := syntheticApproved(t)
+	for n, events := range measuredMenuFixtures(16) {
+		v := full.view(events, make([]byte, 64000), [256][3]uint8{})
+		if v == nil || len(v.labels) != len(events) {
+			t.Fatalf("layout %d has no brush view", n)
+		}
+		for si, scale := range []int{2, 3} {
+			if len(v.patches[si]) != len(events) {
+				t.Fatal("wrong patch count")
+			}
+			for i, e := range events {
+				var stripe brushStripe
+				for _, resource := range full.Entries {
+					if resource.En == e.s {
+						stripe = resource.Stripes[si]
+					}
+				}
+				p := v.patches[si][i]
+				want := image.Pt(105*scale+(109*scale-stripe.W)/2, (e.y0-2)*scale+(9*scale-stripe.H)/2)
+				if p.at != want || p.img.Bounds().Dx() != stripe.W || !v.suppress(e, scale) {
+					t.Fatalf("layout %d wrong key/position %s", n, e.s)
+				}
+			}
+		}
+		other := *events[0]
+		other.y0++
+		if v.suppress(&other, 3) {
+			t.Fatal("suppressed another context")
+		}
+		if got := legacy.view(events, make([]byte, 64000), [256][3]uint8{}); (got != nil) != (n == 0) {
+			t.Fatal("legacy resource fallback changed")
+		}
 	}
 }
 func TestApprovedParserGuards(t *testing.T) {

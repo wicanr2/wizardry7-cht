@@ -3,6 +3,7 @@ package main
 // 028：可選字形家族只從同次xlate bytes派生，不進普通英文鍵查表。
 import (
 	"bytes"
+	"crypto/sha256"
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
@@ -19,7 +20,14 @@ const brushFontSHA = "cfc758e69386a21bade8cb3b373fda20d7f2fac6e8904ced2ded98588b
 const brushLicenseSHA = "1f11c4a22865e1289f4694dad56b3561790a4b7341a511ddcd0edddcc3b95a46"
 const paperModelSHA = "1a9632b661b106367adffc2a8336808fe38202e60080620e897072e2fdcf5a22"
 
-var approvedMenuText = [...]string{"角色選單", "新增角色", "載入存檔", "系統設定", "匯入巫術六", "結束遊戲"}
+// 文案只在text/main-menu.zh-TW.tsv；028 R995依en/NUL/zh/NUL內容指紋核定版。
+const brushLegacyTextSHA = "3222ad1d17dd7be443b827989f5fb9a80b7d2cd4b385898bc22930bce8589273"
+const brushFullTextSHA = "41bf22dbc73ed15182e9be42dd3ab2c5d140b56d02bc7423f7981a0ea223ef16"
+
+var brushMenuKeys = [...]string{
+	"CHARACTER MENU", "ADD CHARACTER", "LOAD SAVEGAME", "CONFIGURATION", "IMPORT (BANE)", "QUIT GAME",
+	"REVIEW MEMBER", "DISMISS MEMBER", "START NEW GAME",
+}
 var approvedPaperText = [...]struct{ en, zh string }{
 	{"presents", "呈獻"}, {"fantasy", "奇幻"}, {"role-playing", "角色扮演"}, {"simulation", "遊戲"}, {"by", "作者"},
 }
@@ -82,13 +90,18 @@ func decodeBrush(raw []byte) (*brushMenuData, error) {
 	if err := approvedJSON(raw, &d); err != nil {
 		return nil, err
 	}
-	if d.Schema != 1 || d.Context != "main.menu.brush" || d.FontSHA256 != brushFontSHA || d.LicenseSHA256 != brushLicenseSHA || !approvedSHA(d.SourceSHA256) || len(d.Entries) != 6 {
+	if d.Schema != 1 || d.Context != "main.menu.brush" || d.FontSHA256 != brushFontSHA || d.LicenseSHA256 != brushLicenseSHA || !approvedSHA(d.SourceSHA256) || (len(d.Entries) != 6 && len(d.Entries) != 9) {
 		return nil, fmt.Errorf("毛筆字樣標頭不符")
 	}
+	textHash := sha256.New()
 	for i, e := range d.Entries {
-		if e.En != mainMenuLabels[i].s || e.Zh != approvedMenuText[i] || len(e.Stripes) != 2 {
+		if e.En != brushMenuKeys[i] || len(e.Stripes) != 2 {
 			return nil, fmt.Errorf("毛筆字樣鍵不符")
 		}
+		textHash.Write([]byte(e.En))
+		textHash.Write([]byte{0})
+		textHash.Write([]byte(e.Zh))
+		textHash.Write([]byte{0})
 		for j, s := range e.Stripes {
 			if s.Scale != j+2 || s.W <= 0 || s.H <= 0 || s.W > 109*s.Scale-4 || s.H > 9*s.Scale-2 || len(s.A) != s.W*s.H {
 				return nil, fmt.Errorf("毛筆字條尺寸不符")
@@ -101,6 +114,13 @@ func decodeBrush(raw []byte) (*brushMenuData, error) {
 				return nil, fmt.Errorf("毛筆字條空白")
 			}
 		}
+	}
+	want := brushLegacyTextSHA
+	if len(d.Entries) == 9 {
+		want = brushFullTextSHA
+	}
+	if hex.EncodeToString(textHash.Sum(nil)) != want {
+		return nil, fmt.Errorf("毛筆字樣文案指紋不符")
 	}
 	return &d, nil
 }
@@ -195,16 +215,25 @@ type approvedPatch struct {
 	at  image.Point
 	img *image.RGBA
 }
-type brushMenuView struct{ patches [2][]approvedPatch }
+type brushMenuView struct {
+	patches [2][]approvedPatch
+	labels  []menuLabel
+}
 
 func (d *brushMenuData) view(shown []*textEv, comp []byte, pal [256][3]uint8) *brushMenuView {
 	if d == nil || len(comp) != 64000 {
 		return nil
 	}
-	for _, label := range mainMenuLabels {
+	layout := activeMainMenuLayout(shown)
+	if layout == nil {
+		return nil
+	}
+	selected := make([]brushEntry, 0, len(layout))
+	for _, label := range layout {
 		found := false
-		for _, e := range shown {
-			if !e.dead && e.shown && e.match && mainMenuLabelMatch(e, label.s, label.x, label.y) {
+		for _, e := range d.Entries {
+			if e.En == label.s {
+				selected = append(selected, e)
 				found = true
 				break
 			}
@@ -213,10 +242,10 @@ func (d *brushMenuData) view(shown []*textEv, comp []byte, pal [256][3]uint8) *b
 			return nil
 		}
 	}
-	v := &brushMenuView{}
-	for i, e := range d.Entries {
+	v := &brushMenuView{labels: append([]menuLabel(nil), layout...)}
+	for i, e := range selected {
 		for _, s := range e.Stripes {
-			at := image.Pt(105*s.Scale+(109*s.Scale-s.W)/2, (mainMenuLabels[i].y-2)*s.Scale+(9*s.Scale-s.H)/2)
+			at := image.Pt(105*s.Scale+(109*s.Scale-s.W)/2, (layout[i].y-2)*s.Scale+(9*s.Scale-s.H)/2)
 			img := image.NewRGBA(image.Rect(0, 0, s.W, s.H))
 			for y := 0; y < s.H; y++ {
 				for x := 0; x < s.W; x++ {
@@ -240,7 +269,7 @@ func (v *brushMenuView) suppress(e *textEv, scale int) bool {
 	if v == nil || scale != 2 && scale != 3 {
 		return false
 	}
-	for _, l := range mainMenuLabels {
+	for _, l := range v.labels {
 		if mainMenuLabelMatch(e, l.s, l.x, l.y) {
 			return true
 		}

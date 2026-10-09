@@ -85,6 +85,57 @@ func TestRosterBlackSelectedInkAndUnknownEntryRetirement(t *testing.T) {
 	}
 }
 
+func TestRosterNameDescendersUseWholeBottomRowIdentity(t *testing.T) {
+	for _, selected := range []bool{false, true} {
+		bg, fg, selection := byte(195), byte(180), 65535
+		if selected {
+			bg, fg, selection = 1, 0, 0
+		}
+		before := bytes.Repeat([]byte{bg}, 64000)
+		after := append([]byte(nil), before...)
+		// 原版comma末列bit64是字格column1，兩個逗號落姓名column13／31。
+		after[155*320+163], after[155*320+181] = fg, fg
+		after[150*320+210] = fg
+		ov := &overlay{rosterEnabled: true, roster: rosterFixtureResources(6)}
+		rosterFixtureEnter(ov, rosterFixture(rosterOwnerAdd, 0, 6, 0, selection), []byte("AB,CD,E   F-ALC\x00"), before)
+		e := finishRoster(ov.pend, after, [256][3]uint8{})
+		if e == nil || !e.rosterMatches(after, nil) {
+			t.Fatal("original name descenders rejected")
+		}
+		for _, column := range []int{13, 20, 31} {
+			changed := append([]byte(nil), after...)
+			at := 155*320 + 150 + column
+			changed[at] ^= 1
+			if e.rosterMatches(changed, nil) {
+				t.Fatal("changed bottom-row name ink accepted")
+			}
+			if !e.rosterMatches(changed, func(x, y int) bool { return x == 150+column && y == 155 }) {
+				t.Fatal("cursor ignore changed")
+			}
+		}
+		partial := append([]byte(nil), after...)
+		partial[155*320+163] = bg
+		if e.rosterMatches(partial, nil) {
+			t.Fatal("partial descender deletion accepted")
+		}
+		for _, color := range []byte{195, 1} {
+			solid := append([]byte(nil), after...)
+			for x := 150; x < 240; x++ {
+				solid[155*320+x] = color
+			}
+			if e.rosterMatches(solid, nil) == selected {
+				t.Fatal("ordinary/selected solid-border contract changed")
+			}
+			if !selected {
+				solid[155*320+200] = 196 - color
+				if e.rosterMatches(solid, nil) {
+					t.Fatal("mixed background border accepted")
+				}
+			}
+		}
+	}
+}
+
 func TestRosterPayloadRejectsPartialWrongFontAndTrailingData(t *testing.T) {
 	for _, count := range []int{6, 28} {
 		g := make([]uint16, 16)

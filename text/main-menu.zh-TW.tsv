@@ -5,3 +5,6 @@ LOAD SAVEGAME	載入存檔	main.menu.brush	0	runtime:0110:3895
 CONFIGURATION	系統設定	main.menu.brush	0	runtime:0110:3895
 IMPORT (BANE)	匯入巫術六	main.menu.brush	0	runtime:0110:3895
 QUIT GAME	結束遊戲	main.menu.brush	0	runtime:0110:3895
+REVIEW MEMBER	檢視成員	main.menu.brush	0	runtime:0110:3895
+DISMISS MEMBER	開除成員	main.menu.brush	0	runtime:0110:3895
+START NEW GAME	開始新遊戲	main.menu.brush	0	runtime:0110:3895

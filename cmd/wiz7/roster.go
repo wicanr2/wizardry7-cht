@@ -273,20 +273,24 @@ func (e *textEv) rosterMatches(screen []byte, ignore func(int, int) bool) bool {
 	for j := 0; j < 6; j++ {
 		padding := e.roster.normal && j == 5
 		paddingColor := byte(255)
+		exact, solidPadding := true, true
 		for i := 0; i < 90; i++ {
 			x, y := 150+i, e.y0+j
 			if ignore != nil && ignore(x, y) {
 				continue
 			}
 			a := screen[y*320+x]
+			exact = exact && a == e.roster.after[j*90+i]
 			if padding {
 				if a != 195 && a != 1 || paddingColor != 255 && a != paddingColor {
-					return false
+					solidPadding = false
 				}
 				paddingColor = a
-			} else if a != e.roster.after[j*90+i] {
-				return false
 			}
+		}
+		// 022 R995：姓名下伸點屬於同次原版after；只有整行失配才沿舊單色底邊例外。
+		if !exact && !(padding && solidPadding) {
+			return false
 		}
 	}
 	return true

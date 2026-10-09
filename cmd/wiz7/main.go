@@ -184,15 +184,16 @@ type textEv struct {
 	fg             uint8   // 筆畫色號（差異像素眾數）
 	fgRGB          [3]uint8
 	g              [][]uint16
-	shown          bool           // 曾與 A000 相符（決定被刪除或等待，與頁有沒有譯文無關）
-	match          bool           // 本次 compose 是否與 A000 相符（頁裁決用）
-	dead           bool           // 已被刪除
-	page           *flowPage      // 流動文字的還原事件所屬頁（spec 006）；nil＝一般事件
-	img            *ebiten.Image  // Draw 時 lazily 預渲染的字形條
-	compound       *compoundTrace // spec012：完整兩行物品的原子事件與唯讀診斷
-	roster         *rosterWitness // spec022：碼帶事件的完整列身分
-	sex            bool           // spec024：直接單字元性別事件
-	profile        *profilePage   // spec024 R966：2倍人物整頁原子事件
+	shown          bool               // 曾與 A000 相符（決定被刪除或等待，與頁有沒有譯文無關）
+	match          bool               // 本次 compose 是否與 A000 相符（頁裁決用）
+	dead           bool               // 已被刪除
+	page           *flowPage          // 流動文字的還原事件所屬頁（spec 006）；nil＝一般事件
+	img            *ebiten.Image      // Draw 時 lazily 預渲染的字形條
+	compound       *compoundTrace     // spec012：完整兩行物品的原子事件與唯讀診斷
+	roster         *rosterWitness     // spec022：碼帶事件的完整列身分
+	sex            bool               // spec024：直接單字元性別事件
+	profile        *profilePage       // spec024 R966：2倍人物整頁原子事件
+	party          *partyClassWitness // spec036：側欄短碼及原姓名末行身份
 }
 
 // pendingPrint 是已進入、尚未返回的印字（R2.1）。
@@ -208,39 +209,46 @@ type pendingPrint struct {
 	font   uint16
 	seq    int // 流動文字片段序號
 	roster *rosterRow
+	party  *pendingPartyClass
 }
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
 type overlay struct {
-	whoEntry        entry
-	reads           []flowRead
-	storyReturn     *storyReturn
-	storyLastReturn uint64
-	storyUnknown    bool
-	pend            *pendingPrint
-	compound        *compoundPair                   // spec012：至多一件待配對物品
-	flow            *flowData                       // flow.json（nil＝流動文字關閉）
-	page            *flowPage                       // 目前的頁（流動文字呼叫點）
-	pages           []*flowPage                     // 尚未被丟棄的頁
-	fragSeq         int                             // 流動文字片段的序號（1 起，與 log「流文 片段」同序）
-	onFrag          func(o *oracle.Oracle, seq int) // 測試用：片段返回後的回呼（-hd-after-frag）
-	evs             []*textEv
-	created         int
-	shown           int
-	dropped         int
-	empty           int
-	nested          int
-	noseg           int
-	roster          map[string]rosterEntry
-	rosterEnabled   bool
-	sexEntries      map[string]rosterEntry
-	sexEnabled      bool
-	sexPending      *pendingProfileSex
-	profileEnabled  bool
-	profile         *profileReflowState
-	picture         *introPictureState
-	brush           *brushMenuData
-	clearance       *clearanceHint
+	whoEntry          entry
+	reads             []flowRead
+	storyReturn       *storyReturn
+	storyLastReturn   uint64
+	storyUnknown      bool
+	pend              *pendingPrint
+	compound          *compoundPair                   // spec012：至多一件待配對物品
+	flow              *flowData                       // flow.json（nil＝流動文字關閉）
+	page              *flowPage                       // 目前的頁（流動文字呼叫點）
+	pages             []*flowPage                     // 尚未被丟棄的頁
+	fragSeq           int                             // 流動文字片段的序號（1 起，與 log「流文 片段」同序）
+	onFrag            func(o *oracle.Oracle, seq int) // 測試用：片段返回後的回呼（-hd-after-frag）
+	evs               []*textEv
+	created           int
+	shown             int
+	dropped           int
+	empty             int
+	nested            int
+	noseg             int
+	roster            map[string]rosterEntry
+	rosterEnabled     bool
+	sexEntries        map[string]rosterEntry
+	sexEnabled        bool
+	sexPending        *pendingProfileSex
+	profileEnabled    bool
+	profile           *profileReflowState
+	picture           *introPictureState
+	brush             *brushMenuData
+	clearance         *clearanceHint
+	partyEnabled      bool
+	partyScale        int
+	partySize         int
+	partyEntry        entry
+	partyNames        [6]partyNameState
+	partyPendingNames [6]*pendingPartyName
 }
 
 // cursorBox 是 A000 上游標可能佔的框（E8 量到 10×10，未量形狀先放寬到 16×16）。
@@ -257,6 +265,15 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 			ov.created++
 		} else {
 			log.Printf("職業碼缺譯：印字差異不符 y=%d", p.y0)
+		}
+		return
+	}
+	if p.party != nil {
+		if e := finishPartyClass(p, after, o.Palette(), o.Steps()); e != nil {
+			ov.evs = append(ov.evs, e)
+			ov.created++
+		} else {
+			log.Printf("側欄職業缺譯：印字差異不符 y=%d", p.y0)
 		}
 		return
 	}
@@ -382,6 +399,9 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 		if e.roster != nil {
 			match = e.rosterMatches(a, inCursor)
 		}
+		if e.party != nil {
+			match = match && e.partyNameMatches(a, inCursor)
+		}
 		if e.page != nil {
 			match = e.pageMatch(a, inCursor)
 		}
@@ -418,6 +438,9 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 			}
 			if e.roster != nil {
 				still = e.rosterMatches(off, nil)
+			}
+			if e.party != nil {
+				still = still && e.partyNameMatches(off, nil)
 			}
 			if still {
 				kept = append(kept, e)
@@ -531,8 +554,9 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 		}
 		fr := color.RGBA{e.fgRGB[0], e.fgRGB[1], e.fgRGB[2], 255}
 		shift := worldSexShift(e, k)
-		cx := e.x0*k - shift
-		cy := buttonLabelY(e, shown, k) - shift
+		dx, dy := partyClassShift(e, k)
+		cx := e.x0*k - shift + dx
+		cy := buttonLabelY(e, shown, k) - shift + dy
 		for _, glyph := range e.g {
 			for row, w := range glyph {
 				for bit := 0; bit < len(glyph); bit++ {
@@ -865,7 +889,8 @@ func (g *game) Draw(dst *ebiten.Image) {
 		op2.GeoM.Scale(float64(hd), float64(hd))
 		// 平移在縮放之後，單位是視窗像素：原版座標 × 倍率
 		shift := worldSexShift(e, g.scale)
-		op2.GeoM.Translate(float64(e.x0*g.scale-shift), float64(buttonLabelY(e, evs, g.scale)-shift))
+		dx, dy := partyClassShift(e, g.scale)
+		op2.GeoM.Translate(float64(e.x0*g.scale-shift+dx), float64(buttonLabelY(e, evs, g.scale)-shift+dy))
 		op2.Filter = ebiten.FilterNearest
 		e.drawPopupClipped(dst, e.img, &op2, g.scale)
 	}
@@ -1128,6 +1153,9 @@ func main() {
 	ov := &overlay{}
 	ov.whoEntry = takeWhoCursorEntry(trans)
 	ov.brush = brushData
+	ov.partyEnabled, ov.partySize = partyClassConfig(trans, *scale, hdScale)
+	ov.partyScale = *scale
+	ov.partyEntry = takePartyClassEntry(trans)
 	if recordingMode {
 		ov.flow, ov.picture = bundle.flow, bundle.picture
 	} else {
@@ -1213,6 +1241,7 @@ func main() {
 			defer evMu.Unlock()
 			ov.picture.returned(ret, o.Regs().SP, o.Indexed())
 			ov.returnedStory(ret, o.Regs().SP, o.Steps())
+			ov.returnPartyNames(ret, o.Regs().SP, o.Steps())
 			ov.returnedProfileReflow(ret, o.Regs().SP,
 				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0295})),
 				int(o.Word(oracle.Addr{Seg: 0x740c, Off: 0x0297})), offscreen(o))
@@ -1401,11 +1430,35 @@ func main() {
 			}
 		}
 		raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64) // 一般路由
+		evMu.Lock()
+		partyName := ov.enterPartyName(ret, r0.SP, in.Font, off, in.X, in.Y, raw, o.Steps(), o.Bytes)
+		evMu.Unlock()
+		if partyName {
+			arm(ret)
+			return
+		}
 		s := string(raw)
 		for i := 0; i < len(s); i++ {
 			if s[i] == 0 {
 				s = s[:i]
 				break
+			}
+		}
+		if s == "ALCHEMI" {
+			evMu.Lock()
+			var before []byte
+			if ov.partyEnabled && ret == oracle.Far(0x0110, 0x1c71) && in.Font == 0 && r0.SP <= 65530 && off <= 65504 &&
+				(in.X == 9 || in.X == 261) && (in.Y == 56 || in.Y == 101 || in.Y == 146) {
+				before = offscreen(o)
+			}
+			handled := ov.enterPartyClass(ret, r0.SP, in.Font, off, in.X, in.Y, raw, o.Steps(), before, ov.partyEntry)
+			pending := ov.pend != nil && ov.pend.party != nil
+			evMu.Unlock()
+			if handled {
+				if pending {
+					arm(ret)
+				}
+				return
 			}
 		}
 		// 查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
@@ -2020,6 +2073,10 @@ func cloneVisualEvents(in []*textEv) []*textEv {
 		v := &textEv{originRet: e.originRet, sex: e.sex, popupClip: e.popupClip, s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
 		if e.profile != nil {
 			v.profile = e.profile.visualCopy()
+		}
+		if e.party != nil {
+			party := *e.party
+			v.party = &party
 		}
 		for _, glyph := range e.g {
 			v.g = append(v.g, append([]uint16(nil), glyph...))
