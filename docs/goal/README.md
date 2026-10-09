@@ -1,5 +1,7 @@
 # 專案目標
 
+手持長劍／皮胸甲中文與正常移動放回限定驗收：[R1000](R1000-held-item-source.md)。
+
 法術視窗遮擋守門與裝備中文修補：[R985](R985-profile-popup-guard.md)。
 世界人物頁性別與選人提示：[R986](R986-world-identity-labels.md)。
 WHO選人提示呼叫見證：[R987](R987-who-call-witness.md)。

@@ -106,6 +106,59 @@ root-owned與誤建`.md`目錄均0；原版與研究快照只留本機。
 
 最後獨立結果複核0／0／0，1,514發布、兩件差分及全部114墨點平移核同，完整讀回兩報告後採認。JSON SHA-256 `51d643cdbef85c94e34d10425544ee4bd14d71d8f2f3a5b9f43667d1b69371ea`；只採當次觀察與原版保持，不放行來源語意或正式中文修補。
 
+## R1000：選取名稱是自訂游標圖片
+
+2026-10-10；入口[R1000](../goal/R1000-held-item-source.md)。工具IDA Pro9.4／Python3.12，既有image `ida-pro-9.4-idapython:py312-v1`，ID `4ac62de83339c215bab10e455cee3a22d9c6efed9fd0d8ed0f068327b83a06ab`。新最小探針確認139函式與DS.EXE固定雜湊；所有查詢用一次性副本，原庫及原版唯讀。
+
+MZ EA140a7的wrapper bytes與R999實跑相同；EA15b60／15c90／15cb6為零。依[R881載入基準](016-party-position.md#r881-map-loader-route)，13份OVR的code目的偏移皆5055h；兩個已量call位置唯VPCVW.OVR命中。VPCVW.OVR SHA-256 `8dc7006599844bfd33ae60e11b59f7cedf47d649d84669fdf2546ed15779224d`，其14-byte檔頭後38966-byte code SHA-256 `f8e2ed6c99860106a09e5ac48e6f1c3dbb964066a9c1ba949971872e0563425e`，與R992既存code逐bytes同。NUL入口3895仍是resident；兩caller位於同CS的overlay載入區。
+
+本節OVR定位同列區分runtime候選IP、raw code offset及檔案offset。只有已量wrapper對應為confirmed；VPCVW完整runtime對應待短code簽章確認，維持強推論。IDA原有導航名稱與部分operand文字沿用，不用它們代替raw bytes或直接計算的16-bit near target。
+
+| runtime候選IP | raw code offset | OVR檔案offset | 原始bytes與資料流 |
+|---|---|---|---|
+| 5b7d | 0b28 | 0b36 | `e8 27 e5`呼叫40a7；offset、segment、兩個尺寸word均0，之後清0ch stack |
+| 5c18 | 0bc3 | 0bd1 | `e8 54 dd`呼叫396f；參數為來源矩形兩角，右／下各加75／12，回傳DX:AX保存在[bp-10h]／[bp-12h] |
+| 5c24至5c38 | 0bcf至0be3 | 0bdd至0bf1 | `b8 dc 03`後push988；目的[0e20]:[0e1e]、來源DX:([bp-12h]+12)，`e8 d8 a3`呼叫0013 |
+| 5cb6 | 0c61 | 0c6f | `e8 ee e3`呼叫40a7；六word為pointer、76、13及兩個位置，之後清0ch stack |
+
+0013轉呼叫resident4317。原始`8b 4e 0c`、`c4 7e 08`、`c5 76 04`分別取長度、目的ES:DI、來源DS:SI，後續按word及尾byte複製；988非零分支的複製方向為confirmed靜態控制流。396f是driver wrapper，來源矩形及12-byte頭與實際像素內容仍須runtime核對，沒有只憑988＝76×13稱背景已解。
+
+VGA.DRV固定雜湊沿本篇。raw offset0063的`e8 63 13 cb`對應runtime0163→14c9；20fe是後面的內部寫入點。14c9在driver CS下把入參pointer存1e64／1e66，尺寸存1e5c／1e5e；限制width小於81、面積小於1025。零pointer會還原預設尺寸；位置經INT33服務4／3，再呼叫1f1a。這是設定自訂滑鼠游標的confirmed靜態路徑，當前pointer仍待實測。
+
+1f1a先把新背景從A000複製至CS:[15b6]，處理前後游標重疊、以255為圖片透明色，再交換兩個背景buffer並發布當前欄位。當前欄位為15ac／15ae的位置、15b4的背景offset、15b8／15ba的裁切寬高；1ed3是繪製中旗標。已找到靜態來源與生命週期欄位，尚未取得當前背景oracle。私人P1至P6契約已獨立0／0／0採READY，取樣後才決定正式覆繪接線。
+
+安全證據索引為本機`workplace/r1000/ida-existing.json`、`overlay-callers.json`、`overlay-input.json`、`ida-overlay.json`、`ida-source-capture.json`、`ida-resident.json`、`ida-memory-copy.json`、`ida-driver-entry.json`及`ida-cursor-background.json`。caller獨立0／0／0已採認，copy與driver補證另列，不外推該審查範圍。沒有修改正式Go或宣稱長劍中文修補完成。
+
+### R1000 動態來源與正式契約
+
+本節接續上面的靜態階段。R2私人取樣核當前背景為driver CS內的near offset15b4；29組固定位置988像素共28652點，以背景加圖片非255像素重建真正Indexed，差異0。正常新movement wire再量右下裁切及移動：控制／觀察各1651發布，完整六欄摘要逐列相同，兩保存metadata保持。124組ROI共101656像素重建差異0，含長劍100組77944點及皮胸甲24組23712點。長劍位置為0,110、100,145、200,100及300,198；最後一處裁切為20×2。長劍重設request及complete均量到。
+
+皮胸甲與長劍使用相同圖片pointer，私人弱註冊誤沿普通長劍NUL5。這24組只證背景重建，不能證名稱。長劍圖片SHA-256 `98e96e235de0701c61b2629c6a78bc6ba1f49fced39efad81e094d8ca498e863`；皮胸甲為`5922e142ae731e2e041ea1f0aa16cb869e345bd60b00f954f413b4479ffa532c`。全60×5名稱帶核定：長劍第一帶114個105墨點，第二帶空；皮胸甲兩帶分別89／85個105墨點，沒有圖示色混入。普通NUL5的before含265個非255舊像素，正式來源必須拒絕。
+
+396f抓圖入口0153的`e8 24 07 cb`轉087a，來源為driver CS:01e5指向的離屏。先寫六word共12-byte頭，再從y×320+x逐列複製inclusive寬高，回DX:AX；VPCVW後續複製pointer+12的988bytes。本機`ida-capture-handler.json`保留bytes及位址，正式037以當次完整源圖相等驗證，不靠墨點shape辨識。
+
+獨立背景結果`movement-background-review.json` SHA-256 `1557b4884684433f1bfe338310d3501ea5bda02bad0acf14aca18fc6c5b1baad`採認上述限定數字；新wire正常Stop、續玩及關窗0。正式[037](../spec/037-held-item-cursor.md)第二輪0／0／0採READY，補齊來源至capture／definition、整圖相等及同位址換圖反例。正式R2來源審查JSON `formal-source-review-r2.json` SHA-256 `f2ca9fcabbd55430de7f0cc27e7ddeafaa07884f9fa732d081e8e2226878b8d9`通過；兩字型兩倍率實際畫面及正常GUI仍在驗收。
+
+### R1000 單行來源缺口
+
+正式R2實跑未通過：Unifont2／3倍各1651原版發布及兩保存metadata保持，12圖原圖9960點、RGB64740點及Draw／HD全圖差異0。但長劍四位置均無名稱來源、持續英文；皮胸甲來源與原生205墨點通過，放回後兩reset均清label／view。獨立`formal-pixel-unifont-r2.json` SHA-256 `8e3461617726cb4cbe72daba71d31e667a2bca89bbc62e38fc9909013f9ab57e`列12阻擋，不把英文當短暫過渡。正式新GUI重現相同行為，成功Stop及正常關窗只證收尾完成，不解除文字失敗。
+
+窄靜態補證：VPCVW.code raw69e8的`e8 55 7e`正常返回後，經69eb的`83 c4 04`、y+6及第二pointer計算，無分支到6a0b的`e8 32 7e`再次印字。沿既存5055h載入基準，兩call為0110:ba3d／ba60，返回ba40／ba63。第二pointer在raw6a02為`8b 46 fe 8d 4e d7 03 c1 50`，即[bp-2]+lea[bp-29h]。工具為人工16-bit解碼與GNU objdump2.40交叉核對，bytes／位址及輸入雜湊見`single-line-static-review.json`。已證原始code內必經第二NUL，尚未由此片段證實其字串為空；新私人內部觀察只記既有讀取結果，不增加Bytes或讀DB。
+
+私人內部觀察後續confirmed：同movement wire首次長劍scratch入口Step305629523、返回305633164，保留完整LONGSWORD及矩形(2,113,76,13)。305633200同CS0110、DS／SS1106、SPfe66，讀取器首byte為NUL；位於既有ba63路由，距第一返回恰36步。此空字串被當非法而清掉第一候選，305633680的capture沒有來源。1651原版摘要與原控制trace逐列相同，保存metadata保持。證據入口`single-empty-evidence.json`索引原state檔與SHA；未量第二pointer值或返回全域像素，不從此摘要冒稱。正式037增補要求第二空部件同原配對守門、精確返回及完整988像素保持後才保留第一部件，來源仍須經capture與整圖比對。
+
+### R1000 正式限定驗收
+
+E1至E4增補及R3來源分別獨立0／0／0後，正式單行與雙行來源鏈已實跑。正式96來源SHA `7a38f5709789f8df8647beb1ff26626c0dae23f67ad3fe1a729e0f4a9bb3e230`，binary SHA `c7da1a38a0a690de1529d0ebadf13c3378e1b51bf3063a522a707962c88fe224`；接入正式四檔後完整cmd/wiz7測試2.630秒通過，乾淨建置與已驗R3逐位元相同。
+
+首次四組23／24圖通過；倚天2倍首圖Draw／HD失配，私人擷取工具存在畫面與請求分兩鎖讀取的競爭窗口。修正僅限私人工具、獨立審查通過後，四組R3b全24圖及8677項通過，沒有排除首幀。原圖19920像素、RGB129480像素及Draw／HD全圖差異0，原字模直接從固定倚天／Unifont獨立解析。每組1651原版六欄摘要同關閉覆繪控制，共6604比較；兩保存metadata保持。兩件來源proof、長劍四位置及右下裁切、皮胸甲兩位置及兩次reset皆通過，沒有英文暫態。私人98來源SHA `d02a96c4fd390ec2b00125e13a032bdf306287d4deaad266dd6478bac62c4703`、binary SHA `28b3db43316bd2834c9d7574219245b2c086a3994e2a318e4878a6a707629d7b`；保存工具重建逐位元相同。
+
+真正Unifont3倍冷LOAD後正常選取／移動／放回兩件皆中文；手持長劍移過第三列再移開，8892個RGBA像素差異0，覆蓋時差370點。新正式錄製3408事件／1686發布／末377.8M正常Stop、續玩及關窗0；同96來源binary嚴格重播0，保存保持。此保留比較不另證第三列原字模正確性。
+
+最終獨立像素JSON `formal-pixel-r3b.json` SHA `39dd1fd414550512ffa5ea6ce350657c8392c5c3771e83daa3489474e28f1a33`，GUI保留JSON SHA `d25937489fef96c7a7d9e8b387d0d5d60ea5d911a1b8f618ced6d69834309ac6`。入口為037、R1000 goal及其中保存工具；原版圖片、字型、存檔與完整wire只留workplace。僅本次長劍／皮胸甲路線限定CONFORMED，其他物品／slot／caller／平台及防禦分支未外推。
+
+最後獨立0／0／0完整採認，`final-review.json` SHA `7bac991457d7997dcdc60e2bc54d6eca3d4e205a691aa731e0bdc8a32ccf95b4`。獨立核24對實際Draw／HD共9984000像素、19920原圖點及259份本機manifest全相符；正式四檔、正式重建及私人保存工具重建皆逐位元等於已審版本。未重新讀外部原字型，原生中文ROI沿獨立字型比對器及其固定收據採認，不外推審查範圍。
+
 ## R730：三組複合名稱的獨立正常驗收
 
 封存`workplace/r730/report-final.json` SHA-256

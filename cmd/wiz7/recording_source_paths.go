@@ -12,6 +12,7 @@ var recordingSourcePaths = []string{
 	"cmd/wiz7/compound.go",
 	"cmd/wiz7/dialog_labels.go",
 	"cmd/wiz7/flow.go",
+	"cmd/wiz7/held_item_cursor.go",
 	"cmd/wiz7/help.go",
 	"cmd/wiz7/input_recording.go",
 	"cmd/wiz7/intro_paper.go",

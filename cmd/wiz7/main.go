@@ -214,6 +214,8 @@ type pendingPrint struct {
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
 type overlay struct {
+	held              *heldItemCursor
+	heldView          *heldCursorView
 	whoEntry          entry
 	reads             []flowRead
 	storyReturn       *storyReturn
@@ -345,11 +347,17 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 // 因此計數與 log 都用頁旗標，不靠呼叫次數。
 func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 	a := o.Indexed()
+	heldView, heldUncertain := ov.held.view(o, a)
+	ov.heldView = heldView
+	a = heldView.base(a)
 	comp := append([]uint8(nil), a...)
 	off := offscreen(o)
 	mx, my := o.Mouse()
 	step := o.Steps()
 	inCursor := func(x, y int) bool {
+		if heldView != nil {
+			return false
+		}
 		return x >= mx && x < mx+cursorBox && y >= my && y < my+cursorBox
 	}
 	popupActive := profilePopupActive(ov.evs, a, inCursor)
@@ -385,6 +393,11 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 	for _, e := range ov.evs {
 		if e.dead {
 			ov.dropped++
+			continue
+		}
+		if heldIntersects(e, heldUncertain) && heldEventStill(e, off) {
+			e.match = false
+			kept = append(kept, e)
 			continue
 		}
 		e.popupClip = image.Rectangle{}
@@ -576,6 +589,7 @@ func hdFrame(o *oracle.Oracle, ov *overlay, path string) (comp []uint8, shown []
 	brush.paintHD(img, k)
 	ov.clearance.view(shown, k).paint(img)
 	who.paint(img, k)
+	ov.heldView.paint(img, k)
 	if f, err := os.Create(path); err == nil {
 		png.Encode(f, img)
 		f.Close()
@@ -641,6 +655,7 @@ type entry struct {
 }
 
 type shared struct {
+	held                 *heldCursorView
 	who                  *whoCursorView
 	recordingPublication recordingPublication
 	mu                   sync.Mutex
@@ -666,6 +681,8 @@ type shared struct {
 }
 
 type game struct {
+	heldImage         *ebiten.Image
+	heldImageKey      string
 	whoImage          *ebiten.Image
 	whoImageKey       string
 	live              *inputRecording
@@ -816,6 +833,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	paper, brush := g.sh.paper, g.sh.brush
 	clearance := g.sh.clearance
 	who := g.sh.who
+	held := g.sh.held
 	publication := g.sh.recordingPublication
 	g.sh.mu.Unlock()
 	if len(rgba) == 0 {
@@ -828,6 +846,9 @@ func (g *game) Draw(dst *ebiten.Image) {
 			return
 		}
 		gameArea = dst.SubImage(area).(*ebiten.Image)
+	}
+	if held != nil && gameArea.Bounds() != image.Rect(0, 0, 320*g.scale, 200*g.scale) {
+		return
 	}
 	if who.canDraw(gameArea.Bounds(), g.scale) {
 		who.patchRGBA(rgba)
@@ -898,6 +919,7 @@ func (g *game) Draw(dst *ebiten.Image) {
 	g.drawBrushMenu(gameArea, brush)
 	g.drawClearanceHint(gameArea, clearance)
 	g.drawWhoCursor(gameArea, who)
+	g.drawHeldCursor(gameArea, held)
 
 	g.sh.mu.Lock()
 	hOpen, hScreen, hPage := g.sh.helpOpen, g.sh.helpScreen, g.sh.helpPage
@@ -1182,6 +1204,8 @@ func main() {
 	}
 	ov.sexEnabled = len(ov.sexEntries) == 2 && *scale == 3 && hdScale == 3
 	ov.profileEnabled = len(trans) > 0 && *scale == 2 && hdScale == 2
+	ov.held = &heldItemCursor{catalog: trans}
+	ov.held.install(o, &evMu)
 	// 故事讀取端只讀記錄：id 限定來源情境，仍須比對英文（spec 006 R2/R3b）。
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x0582}, func(o *oracle.Oracle) {
 		evMu.Lock()
@@ -1754,6 +1778,7 @@ func main() {
 		mapSnapshot := am.view()
 		evMu.Lock()
 		comp, shown, pages := ov.compose(o)
+		held := ov.heldView
 		picture := ov.picture.view(o.Indexed(), o.Palette(), o.VideoMode())
 		paper := ov.picture.paperView(o.Indexed(), o.Palette(), o.VideoMode(), *scale)
 		brush := ov.brush.view(shown, comp, o.Palette())
@@ -1779,6 +1804,7 @@ func main() {
 		sh.paper, sh.brush = paper, brush
 		sh.clearance = clearance
 		sh.who = who
+		sh.held = held
 		var publication recordingPublication
 		published := false
 		if live != nil {

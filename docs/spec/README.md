@@ -42,3 +42,4 @@
 | [034](034-world-profile-sex.md) | 世界人物頁性別覆繪（M及TEMPEST女性正常路線限定CONFORMED；雙字型兩倍率人物頁、法術視窗、退出／重入及原版／保存已驗，其他路線仍READY） |
 | [035](035-backspace-input.md) | 姓名退格字元（Linux3倍兩字型已量路線限定CONFORMED；正常刪字／空欄／F1、錄放及原版控制已驗，其他畫面／平台未量） |
 | [036](036-party-class-short.md) | 側欄職業與原姓名保護（R995已量ALCHEMI及R996已量六欄Uni2正常路線限定CONFORMED；四鍵幾何、原版保持與真GUI像素獨立複核通過，其他分支READY） |
+| [037](037-held-item-cursor.md) | 物品游標名稱及原背景合成（本次長劍／皮胸甲限定CONFORMED；雙字型雙倍率、正常GUI、既有覆繪保留及新同版錄放通過，其他路線READY） |
