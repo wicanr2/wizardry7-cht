@@ -1346,3 +1346,47 @@ JSON／Markdown SHA-256 `6072fcb6060c9a58b40b1a3135c0b619d05bc0082e446d7afbc064c
 唯一阻擋是#17三次實際畫面hash的可核原收據。獨立搜尋及主代理存在性重核均確認workplace/r967與FINAL-manifest不在，歷史1751 Draw敘述不能當現存畫面證據。
 最新三次正式重播及配置SHA不替代像素；#17保持OPEN，下一輪只新建三次真正Draw／遊戲區RGB收據，綁定publication、Step、panel及實際binary身份。
 現行正式故障鏈與Writer fixture已充分，不重跑故障矩陣、不撤銷013 READY。人耳、其他平台與全中文覆蓋仍各自分列，整體Goal未完成。
+
+## R998：實際Draw三重播收據重建
+
+<a id="r998-recording-pixel-receipts"></a>
+
+入口[R998](../goal/R998-recording-pixel-receipts.md)、[013正式契約](../spec/013-input-recording.md#r951-production-contract)、[#17](https://github.com/wicanr2/wizardry7-cht/issues/17)。
+原版及初始保存唯讀，正式5d6與SDK保持；私人來源只在既有Draw通知前取同次遊戲區RGBA，原owner在發布點取既有recordingOriginalHash。
+每publication保存Draw／state JSONL及完整PNG；PNG由同一ReadPixels buffer編碼，不再compose、推進或另讀畫面。頁尾依013既定契約不在原遊戲區內。
+
+### R3來源與保留的失敗
+
+來源獨立FINAL 0／0／0、10身份採認；96實源與實際binary獨立重算相同。
+R3 binary SHA-256 `96000ef61a050f11821ebc22baf06e870594536c5c3b2498cfdac82bbbd7cdf4`，16056872B；來源
+`14114644662d3a3e0c9d659d88c0c0ee2a7c349f0344aad566e63cc62def433f`。
+新正常2915事件／1449發布／376.8M及同觀測binary三次正式重播均0，保存metadata保持。wire SHA-256
+`45a3389dea0a88d41338451aa2a2fd7a75c9b7767371827674d4f9b8078d6021`。
+完整5796 PNG／1483776000像素以Pillow9.4.0逐圖解碼，全部PNG重算RGBA SHA與觀測列相同；三次畫面比較0差，原版RAM／Regs／indexed／palette／Step／Ticks全同。
+
+嚴格比較仍失敗：正常state的panel在pub1253／1276／1382／1446早於實際Draw。正常publisher見false／舊screen，F1於GUI Update改成true，Draw及wire採真正已畫的panel；三重播依wire先套panel，故state列不同。
+正式main.go:721／723的GUI賦值及Draw前重新讀panel證實取樣時刻原因。全部其他欄位與像素相同，不能把此私人工具錯誤寫成原版狀態缺陷。
+pixel-comparison.json保留all_match=false，R3 source／binary／完整輸入／所有圖片不改；沒有刪欄位、裁動畫或把失敗轉成功。
+
+### R4原摘要與實際面板綁定
+
+R4只在新source-r4改helper：owner將同ID／Step／config的原版摘要值存單一mutex pending，GUI在原Draw通知前以當次實際panel提交state列；GUI不讀Oracle。
+缺pending、覆蓋或ID／Step／config錯配皆有限INVALID，完整Write／Sync成功才清pending。main兩hook、原版摘要函式、全部RGBA／PNG與原核對器d99cb3ea…435c保持。
+獨立來源FINAL 0／0／0、8身份及96實檔核同；作者14身份採認。R4 binary SHA-256
+`4a69ccf3aa61dd5511984892904f5b6155e6e75fb4703c796f283ebd5690c221`，16062088B；來源
+`000716834693daa0a42b0af830ac9ccdcd781c65d9a2be965a39dda4c54c8313`。
+來源報告JSON／Markdown SHA-256 `5d32b43889860272e3b585d352147c15d288eaac6641d954e3b0810110981804`／
+`cd1c43c43100dc91a01379fa54d7714c8aa5a4ed2aae6708e4b709f89708495f`。
+
+保存的[產生器](../../tools/re/prepare_recording_pixel_observer.py)及[綁定修補](../../tools/re/update_recording_pixel_observer_panel.py)從乾淨輸出重建相同R4來源收據與binary全bytes一致；[核對器](../../tools/re/check_recording_pixel_receipts.py)仍按全部欄位及全PNG嚴格比較。
+新正常3019事件／1501發布／387.2M已完成0，保存保持，1501組Draw／state面板與身份綁定0差。
+新wire SHA-256 `9e2df454a64917566a405a60a1d12299e6bd586ef46c3cb12071194ffa0226d8`，670228B。
+新正常與同R4三次正式重播均完成0，四個乾淨保存層bytes／SHA／mode／精確mtime保持，原始輸入、binary及資源保持；執行報告12身份採認。
+原核對器逐圖解碼全部6004 PNG／1537024000 RGBA像素，逐發布比對4503對：三次像素、原版六類摘要、panel、ID／Step／config／binary全0差。
+每趟1501組Draw／state／PNG、全部publication與動畫保留，沒有INVALID、漏列或漏圖。R3失敗all_match=false與R4全欄位all_match=true分別保存，不改期待範圍。
+最後獨立動態FINAL 0／0／0完整回讀，26報告／結果身份及6004 PNG byte manifest核同後採認。
+獨立逐欄核全部4503發布配對，另以Pillow抽每趟首／中／末共12圖3072000像素，全部RGBA SHA相符；其他5992圖只另核byte manifest及原核對器全量結果，不冒稱全部另解碼。
+JSON／Markdown SHA-256 `87530f6266fcbba2926433a3c78c642b310d4ce386875ef839c00d26ca046d1f`／
+`bdde44540a8bcf5a60309d11a92b2ad285797c435cac0bcf7e4b9f976d4d6dc8`。
+#17原始一次正常試玩／三次實際畫面hash相同要求已補足，可關閉；013已量Linux Unifont2路線限定CONFORMED，未量契約仍READY。
+不把觀測binary說成正式5d6相容重播，不外推平台、人耳或完整中文化；正式Go及原版資料不改。

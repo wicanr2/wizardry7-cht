@@ -2185,3 +2185,31 @@ R997來源f9f3d316ce67409d8a2c7f9da5168b28538239ec已推送private main，遠端
 #17結果6084663202、#28結果6084665458各576字元／7個LF，全文相同，兩Issue保持OPEN；安全收據在workplace/r997/result-issue-receipts.json。
 批次自有容器、root-owned及誤建.md目錄0，R433保持未追蹤；原版、字模、完整輸入、片段、圖片與保存沒有提交。
 下一輪只於game.Draw既有發布完成通知前觀察遊戲區RGB，綁同份publication／Step／panel與實際binary，重新正常錄製及三次重播；觀測副本身份分列，不改舊wire或繞過配置核對。
+
+## 2026-10-10 R998 三次重播實際畫面收據
+
+R997已推送，前輪屬實際進展。沿#17唯一畫面收據缺口開新goal並索引；不重做正式故障矩陣。
+本輪只在私人複製來源對既有Draw作只讀觀測，先獨立審查，再新正常錄製與同觀測binary三次重播；正式Go／SDK、schema及既存wire不改。
+
+R3純建置96實源，來源14114644…433f、binary96000ef6…cdf4／16056872B；來源獨立FINAL 0／0／0、10身份採認，作者報告14身份核同。
+原invalid經privacy log被丟棄，實跑前改為固定stderr有限碼；同一ReadPixels buffer另存全publication PNG，源碼與builder身份獨立核同。
+正常六人新錄製2915事件／1449發布／末376.8M，Draw／state／PNG全1449、0 INVALID，Stop續玩及關窗0、保存metadata保持；同新wire三次重播接續。
+將已審prepare.py及獨立Pillow核對器逐bytes保存至tools/re並由本輪goal索引；實際PNG原始產物仍只留本機。
+
+保存工具於乾淨rebuild-check輸出重建，96來源收據及binary全bytes相同96000ef6…cdf4，沒有新原版執行。
+R3四趟均0；全部5796 PNG／1483776000像素獨立解碼，三次每1449發布的全部畫面0差，原版RAM／Regs／indexed／palette／Step／Ticks全同。
+嚴格核對整體失敗：正常state面板四筆pub1253／1276／1382／1446取樣早於實際F1 Draw，publisher的false／舊screen與Draw／wire的true不同。三replay全部相同；pixel-comparison.json保留all_match=false，不當全通過。
+這是私人觀測器的面板綁定時刻錯誤。另建source-r4／build-r4與player-r4，原R3來源、完整wire及所有畫格保持；owner只捕捉原版摘要，Draw前依同pub的實際panel提交純量/hash。核對器不刪欄位、不裁動畫，修後重新正常錄製及三次重播。
+
+R4作者14身份與獨立FINAL 0／0／0的8身份採認；僅helper相對R3改動，主程式兩hook、原版摘要／RGBA／PNG及核對欄位保持。
+R4 binary4a69ccf3…c221／16062088B、96來源00071683…8313。保存兩段來源產生器，乾淨rebuild-check-r4的來源收據及binary與R4全bytes相同。
+F1取樣真因由正式main.go:721／723的GUI更新賦值與原Draw前讀panel證實；state只保留owner原摘要pending，再由Draw配對實際panel，沒有GUI讀Oracle或新原版操作。
+R4新正常錄製已啟，R3原完整失敗資料保持，嚴格比對器仍為d99cb3ea…435c，不改比較範圍。
+
+R4新正常3019事件／1501發布／387.2M及三次同觀測binary正式重播全部0，保存、binary與新wire保持；執行報告12身份與精確mtime核同。
+全部6004 PNG獨立Pillow解碼，1537024000像素符合觀測RGBA SHA；4503對發布的三次畫面、原版六類摘要、panel與全部身份字段0差，嚴格pixel-comparison-r4.json為all_match=true。
+R3失敗及R4通過分列保留，未改核對器、裁掉動畫或修舊wire。最後獨立動態抽核待採認，#17仍OPEN。
+
+最後獨立動態FINAL 0／0／0全文回讀，26來源／結果身份及6004 PNG byte manifest核同後採認。
+獨立全核4503發布配對，另解12 PNG共3072000像素；其他5992圖不冒稱另解碼，主代理全量6004圖結果分列。
+013已量Linux正常路線限定CONFORMED；#17的一次正常試玩＋三次實際畫面相同完成要求已補足，push後關閉。整體中文化、其餘譯文與平台交付仍未完成。

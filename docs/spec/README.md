@@ -18,7 +18,7 @@
 | [010](010-item-name-corrections.md) | 物品名稱錯配校正（READY；名稱與回歸通過，校正鍵上屏未量） |
 | [011](011-message-wording-unification.md) | 同義訊息文案統一（限定CONFORMED；實跑10筆，其他僅靜態驗證） |
 | [012](012-compound-item-output.md) | 三組複合物品名稱（正常路線通過；整份READY） |
-| [013](013-input-recording.md) | 前端輸入錄製／重播（READY；正式接線與R997故障GUI已量，現行三次正式重播完成。唯一剩項為可核的三次實際畫面hash，原R967收據缺失，#17保持OPEN） |
+| [013](013-input-recording.md) | 前端輸入錄製／重播（M2要求已驗收；R998已量Linux正常路線限定CONFORMED，三次實際Draw／原版摘要全同，R997故障續玩已量；其他已定分支READY） |
 | [014](014-original-save-storage.md) | 原版存檔持久可寫層（READY；R979／R982正常SAVE、冷LOAD與原版控制已量，Linux玩家鏈完成；原生平台與封包仍待） |
 | [015](015-generic-slot-expansion.md) | 一般查表與填槽缺字回退（READY；R822獨立審查通過） |
 | [016](016-catalog-control-preservation.md) | 控制碼保留與流文可用性（READY；R830獨立審查通過，正常上屏待驗） |
