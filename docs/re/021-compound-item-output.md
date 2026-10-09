@@ -102,7 +102,7 @@ root-owned與誤建`.md`目錄均0；原版與研究快照只留本機。
 
 獨立像素程式在第一件after找到NUL2的全部114個墨點平移至(16,111)，其中96點在當次改變、18點之前已同色；第二件before找到NUL3的114點平移至(43,117)，全部在當次改變，after沒有相同完整字形。初次分析要求每個墨點都必須改值，導致漏掉同色點；已改為比較實際色號，再另計changed，未改原版或觀察收據。這是資料對齊證據，不以形狀搜尋掛正式中文。
 
-當次before／after已取得，但第一件before含既有英文與游標，不能直接當整行清底。bitmap來源關係、參數與完整游標生命週期仍未證實，正式還原及中文路由維持阻擋；沒有用舊segment／座標猜補。安全結果為`service-api-comparison-r2.json`及`service-data-inspection.json`，完整ROI只留本機。
+當次before／after已取得，但第一件before含既有英文與游標，不能直接當整行清底。bitmap來源關係、參數與完整游標生命週期仍未證實，正式還原及中文路由維持阻擋；沒有用舊segment／座標猜補。安全結果為`item-service-r2-comparison.json`及`service-data-inspection.json`，完整ROI只留本機。
 
 最後獨立結果複核0／0／0，1,514發布、兩件差分及全部114墨點平移核同，完整讀回兩報告後採認。JSON SHA-256 `51d643cdbef85c94e34d10425544ee4bd14d71d8f2f3a5b9f43667d1b69371ea`；只採當次觀察與原版保持，不放行來源語意或正式中文修補。
 
