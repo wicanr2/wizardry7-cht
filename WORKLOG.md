@@ -1805,3 +1805,9 @@ README的資產邊界只聲明可散布發行包，避免把#26已明示擱置�
 JSON b8850c145c3c7bcf1642704b7d57e7c7fc9180e5aa8867549f8912c3fdae33ec，
 Markdown b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba。
 013只追加已量路線及採認狀態，原契約與其他未量停止線保持；README入口產物與正常已驗binary全bytes同。
+
+來源d7fb4f582a8220f19327f0e082f89ca50baa457c已推送private main。
+[#17結果6071660991](https://github.com/wicanr2/wizardry7-cht/issues/17#issuecomment-6071660991)及
+[#28結果6071661847](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6071661847)
+各855字／8個LF全文與原稿相同，兩Issue保持OPEN；安全回讀收據在workplace/r989/result-comment-receipts.json。
+新目標、013增補及022證據已有入口，自有容器及擁有權異常0，R433未追蹤保持；完整目標未縮小。

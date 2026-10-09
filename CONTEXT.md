@@ -231,4 +231,7 @@ R989來源表由現有正式建置器重建，新增popup_occlusion.go、who_cur
 同版三次正式重播完成，私人有／無覆繪原API的1784發布逐bytes同，原版及保存保持。
 README Docker入口已實際建出與上述binary、來源收據全bytes同的版本；普通go build仍依013拒錄放。
 最終獨立FINAL 0／0／0完整回讀採認，13份審查來源SHA相同；女性正常路線、其他後端／倍率新錄製及整體交付保持未完成。
-推送與議題回讀另記；完整目標保持完成巫術7中文化。
+R989來源d7fb4f582a8220f19327f0e082f89ca50baa457c已推送private main。
+#17結果6071660991、#28結果6071661847各855字／8個LF全文與原稿相同，兩Issue保持OPEN。
+安全回讀收據在workplace/r989/result-comment-receipts.json。自有容器、root-owned及誤建.md目錄0，R433未追蹤保持。
+完整目標保持完成巫術7中文化，女性及其餘未量玩家路線與交付門檻接續處理。
