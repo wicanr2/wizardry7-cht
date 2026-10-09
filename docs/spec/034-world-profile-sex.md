@@ -1,6 +1,6 @@
 # 034：世界人物頁性別覆繪
 
-狀態READY，兩字型兩倍率已量M正常路線限定CONFORMED；2026-10-09；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
+狀態READY，兩字型兩倍率已量M及TEMPEST女性正常路線限定CONFORMED；2026-10-09；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。
 入口[R986](../goal/R986-world-identity-labels.md)、[033](033-world-identity-labels.md)；WHO輸出另循033，不由本規格放行。
 
 ## 目的與來源
@@ -22,7 +22,7 @@ code來源為該正常執行當刻0110:60c9起320 bytes，SHA-256
 原operand保留`[bx+5e2ch]`；讀取值加140後由0110:0582取字串，取目的緩衝首byte，
 於0110:6156的near call送0110:3877，返回6159。140／141原文為MALE／FEMALE，首字碼M／F共享此輸出位置。
 此code的圖塊資料庫以raw snippet EA記錄，與runtime段位址分開；不把舊DS.EXE靜態資料段當載入overlay code。
-F的共同資料流為靜態證據；F正常上屏仍未量，不稱F正常路線CONFORMED。
+F的共同資料流為既有靜態證據；正常F印字及GUI已由下列R990實際收據補量，不外推其他女性人物路線。
 
 ## 覆繪契約
 
@@ -88,3 +88,26 @@ JSON SHA-256 `4b73e468805d2e4c6e7e99b136660f71bcded169e6ae26f40e75a56f68e11dd7`�
 Markdown `4982117d1d553adb15a30690fcbc3f2a4fabbe8b34655a6294791fd4b8a70764`。
 正式四Go來源、性別TSV及binary與審查記錄SHA保持；規格審查後只補實際驗收與採認狀態，契約不變。
 獨立核89組正常GUI pair，其中6個明確退出pair無殘字、9個重入pair原生男位置正確。
+
+## R990 女性正常路線驗收
+
+沿原READY契約及未變的R989正式binary，正常加入既有TEMPEST、新遊戲、SAVE後，以新程序正常冷LOAD接續。
+私人唯讀探針量到F字碼70、font0、runtime0110:3877→0110:6159、入口90／6，返回96／6、SP65312。
+before／after只變11個色1點，均在原6×6格；八背景點符合本契約。
+兩側1,415發布的RAM／Regs／Step／Ticks／indexed／palette摘要逐筆相同，完整trace bytes相同，保存層保持。
+新遊戲／SAVE及冷LOAD兩段各一趟同binary正式重播正常0；此正式重播與私人原API控制分列，沒有改wire。
+
+倚天／Unifont各2及3倍的正常冷GUI，均完成女性人物頁、法術開／取消／再開／再取消、EXIT迷宮及重入。
+70個完整HD／Draw配對，58,880性別域像素逐RGB等獨立原生女字及本輪F背景期望，差異0。
+其中女字域51,072、退出還原7,808；四保存層bytes／mode／mtime保持，正常關窗0。
+六張F1 Draw不列遊戲配對；Unifont2倍410M只有HD、無Draw，另列未配對。
+窄F與正常GUI兩份獨立FINAL均0／0／0，主代理完整回讀採認；只增已量TEMPEST女性路線限定CONFORMED。
+2倍世界人物頁一般屬性標籤行距不足仍待，不稱全頁排版、其他人物或全遊戲完成。
+
+窄F審查JSON／Markdown SHA-256：
+`a951588730069e5af937ce5459aaec836bd0afe93e9c86c37f6a87a97a800168`／
+`615b8e3f0cd577340e867821d32bd28c5eb55628cc9c02e3d2e171ea0bcb422a`。
+GUI審查JSON／Markdown：
+`026be067bc3c6c707bee4e2d7a4873589cd023152f85466c7e3af0fd18efb601`／
+`55b1fbec3c96a820317ea2fb185ea6d6a99eade4d98a3f6904e663d5f246104c`。
+原版、來源、工具、正常保存及完整限界見[R990證據](../re/025-ui-localization-coverage.md#r990-normal-female-profile)。

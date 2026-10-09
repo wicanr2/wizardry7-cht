@@ -1811,3 +1811,34 @@ Markdown b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba。
 [#28結果6071661847](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6071661847)
 各855字／8個LF全文與原稿相同，兩Issue保持OPEN；安全回讀收據在workplace/r989/result-comment-receipts.json。
 新目標、013增補及022證據已有入口，自有容器及擁有權異常0，R433未追蹤保持；完整目標未縮小。
+
+## 2026-10-09 R990 女性人物頁正常玩家路線
+
+沿#22／#28、R990目標與034 READY，載入規格驗收及文件職責路由。
+使用R989正式錄放binary，正常選取既有TEMPEST、加入隊伍、完成原版驗證、影片及六頁旁白後正常SAVE。
+SAVEGAME.DBS新SHA為0d1083aeb4cb352cfa7d284b93af97d3f674a53e4a6fed6affbd0a5eacf7b84c，
+PCFILE.DBS保持；新程序正常LOAD回女性隊伍，人物頁女字、EXIT及重入已實圖確認。
+兩段正常錄製均按頁尾停止、續玩及關窗0，不修改角色、state、原版規則或輸入檔頭。
+完整錄放、原版、字型、題目與答案只留ignored workplace/r990。
+
+第一趟控制器F1狀態失配及誤猜X11視窗ID，未完成SAVE；保留片段與失敗收據。
+第二趟啟動等待期限到時尚未到主選單，不當產品失敗或成功驗收。
+第三趟依實際畫面確認，保存及冷LOAD完成。第三趟外層逾時124與前端正常收尾0分開記錄。
+窄F探針首版雖正常完成且1415原版發布全同raw，但引數code／font順序傳反，沒有F收據。
+獨立審查先前漏核引數語意，已追加勘誤；只修私人探針呼叫，正式來源保持。
+雙字型雙倍率正常GUI、修正後F收據、正式保存鏈重播及最終採認於收尾追加。
+
+修正後F探針正常0，實際6159返回只改11點，全部在原6×6格且為色1，八背景點符合034。
+1,415發布的原版六類trace全同無覆繪控制，保存層保持；獨立窄證據複審另記。
+冷LOAD與完整新遊戲／SAVE兩份正式同binary重播均完成0。正常SAVE的新檔bytes及mode相同，
+實際重寫mtime由壁鐘更新，不當固定oracle；未寫入的PCFILE及冷LOADmtime保持。
+完整新遊戲未另跑逐發布無覆繪控制，原版同狀態聲明只限冷LOAD，不以正式重播代替。
+
+四組女性正常冷GUI完整完成，外部原生女字與本輪F背景獨立驗算70組HD／Draw、58,880像素差異0。
+六張F1 Draw及一張無Draw另列，不算遊戲配對；四GUI保存bytes／mode／mtime保持、正常關窗0。
+窄F與GUI兩份獨立FINAL完整回讀均0／0／0，來源及結果SHA已核，034增已量TEMPEST女性路線限定CONFORMED。
+詳細結果與採認雜湊見[025](docs/re/025-ui-localization-coverage.md#r990-normal-female-profile)，正式93實源及binary保持。
+主代理另見2倍世界人物頁一般屬性行距不足；正常加入女性後的五列名單有四個英文碼。
+022只審過初始六列，後續先窄量移位列及READY增補，不放寬名字或猜補座標。
+本輪自有容器0，r990／cmd/wiz7／docs的root-owned及誤建.md目錄0，UID/GID1000:1000。
+來源提交、push與Issue完整LF回讀於後段追加，R433保持未追蹤。

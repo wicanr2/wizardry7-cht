@@ -683,3 +683,13 @@ Draw應先取原遊戲區，避免200×scale＋40頁尾整窗導致紙頁字樣�
 JSON SHA-256 `b8850c145c3c7bcf1642704b7d57e7c7fc9180e5aa8867549f8912c3fdae33ec`；
 Markdown `b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba`。
 正式建置、來源身份及完整有限證據見[022](../re/022-input-recording-boundary.md#r989-recording-source-refresh)。
+
+## R990 女性正常保存及冷LOAD錄放驗收
+
+沿同一R989正式binary及93份未變來源，倚天3倍正常加入TEMPEST、新遊戲、SAVE及新程序冷LOAD各錄製一段。
+兩段均按頁尾停止後續玩、正常關窗0；各一趟同binary正式重播完成0，沒有修改檔頭或輸入。
+新遊戲段16,222事件、末Step1,741,000,000；冷LOAD段2,856事件、1,415發布、末Step312,000,000。
+SAVE重播兩檔bytes／mode相同，實際重寫mtime依壁鐘更新；冷LOAD兩檔bytes／mode／mtime保持。
+冷LOAD另由私人原API與無覆繪控制逐發布核六類摘要相同；私人控制不是正式binary相容重播。
+驗收只增上述已量女性玩家鏈，其他後端／倍率新錄製、故障、平台與未量條件維持READY。
+來源、正常玩家獨立驗收及同狀態界線見[R990證據](../re/025-ui-localization-coverage.md#r990-normal-female-profile)。

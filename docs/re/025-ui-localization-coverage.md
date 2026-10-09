@@ -1469,3 +1469,76 @@ JSON SHA-256 `369c275a6bbda48ebaf0c5d857b27f43d5fe79e3bbdd206080e922a473f2506f`�
 033已量WHO正常選人、移動、取消與再入限定CONFORMED；未量分支仍READY。
 源碼及binary保持；033其後只追加驗收與採認狀態，不改契約。
 自有容器、root-owned與誤建.md目錄0，來源及輸出UID/GID1000:1000，R433未追蹤保持。
+
+## R990 女性人物頁正常玩家路線（2026-10-09）
+
+<a id="r990-normal-female-profile"></a>
+
+入口[R990](../goal/R990-normal-female-profile.md)、[034](../spec/034-world-profile-sex.md)。
+沿R989正式binary正常選取既有TEMPEST並加入隊伍，完成原版驗證、影片、六頁迷宮旁白及SAVE。
+新程序正常LOAD恢復女性隊伍，實際人物頁顯示女、蜥蜴人、戰士及等級1；EXIT與重入均有正常實圖。
+沒有修改state、人物記錄、原版規則、驗證判定或錄放檔頭。
+原版Archives DS.EXE、Go1.24.13及執行環境沿034／R989；正式binary SHA-256
+`a9f8db0348f572861664736d330ba0aa3f5b5fb5eb92a73374d14fa8edb540e1`。
+
+新SAVEGAME.DBS為11,404 bytes，SHA-256
+`0d1083aeb4cb352cfa7d284b93af97d3f674a53e4a6fed6affbd0a5eacf7b84c`；
+PCFILE.DBS為9,368 bytes，保持`24d94441e5b32e7abbcbffa9dad972b41544da6a7bb06096b967281f639d9c1b`。
+正常保存錄製16,222事件、末Step1,741,000,000；冷LOAD錄製2,856事件、1,415發布、末Step312,000,000。
+兩份均按遊戲區外頁尾停止後續玩、正常關窗0；完整輸入及答案只留本機，不提交。
+女性保存層在`workplace/r990/r3/record-gui/save`，兩份正式輸入在`r3/normal-female.wiz7-input`
+及`r3/coldload/normal-female.wiz7-input`。起始保存只以正常遊玩取得，不是注入的暖state。
+
+冷LOAD正式同binary重播完成0；另外私人原API覆繪端與無覆繪控制均正常0，
+1,415發布的RAM／Regs／Step／Ticks／indexed／palette trace全bytes相同，SHA-256
+`17217541aa29d50a7288fbf8d66904dec808df09f7d1c6b464e9f9e7f9a9eae9`。
+四個冷端保存層的八檔對新女性保存全bytes／mode／mtime一致。
+私人原API不修改wire，不稱正式binary相容重播；原版同狀態證據與正式錄放分列。
+安全摘要`workplace/r990/cold-control-safe.json`。
+
+獨立玩家驗收FINAL完整回讀0／0／0，範圍限正常保存、冷LOAD、人物頁EXIT及重入。
+JSON SHA-256 `60d712176456fc4b8df2a2502a0240976e5ceb56cfcfc644d02cc9acb280c1e1`；
+Markdown `26a9fb253a051ccfd609a0be80559a83913efca0b3d3dbc90e6a4f5c5441eb25`。
+此玩家報告只採認正常保存鏈；原生字模、F原版返回及新遊戲完整重播依下列獨立收據，不由玩家報告單獨放行。
+
+窄F探針首版把code／font引數傳反，因守門拒收沒有三個F檔。獨立審查已追加勘誤，舊輸出保留。
+只修私人main一行，正式來源保持；修正後FINAL完整採認0／0／0、七來源SHA一致才重跑。
+本輪正常冷LOAD實際confirmed於runtime0110:3877→0110:6159，F字碼70、font0、入口90／6，
+返回Step279,430,711、SP65312、96／6。完整離屏只變11點，全部在原6×6格並改為色1。
+八背景點符合034，修正後1,415發布六類trace仍逐bytes等同無覆繪控制，保存bytes／mode／mtime保持。
+before SHA-256 `241521b652af84ebc1341ae156e345d1db39d009e3a2479dcb1826cd61730a18`；
+after `18e80a9ac76ec33352dd5f4b1d53b5c747910077fb7eb3c4993de16d645143a5`。
+原版code與141訊息來源沿034既有資料流證據，不再讀鄰文或手冊答案表；本輪只增實際F印字見證。
+安全結果`workplace/r990/f-witness-safe.json`；私人探針binary SHA-256
+`0fb0348341aab68411f2143f40589f06dde845f5457643eec223d2dcad8f2565`，不是正式可相容重播binary。
+
+完整新遊戲／SAVE收據由同正式binary重播至Step1,741,000,000，完成0；
+兩保存檔bytes及mode等新女性進度。SAVEGAME.DBS實際重寫的mtime不同於首趟壁鐘時間，
+不把正常寫檔mtime當固定oracle；PCFILE.DBS及冷LOAD流程的bytes／mode／mtime保持。
+安全摘要`workplace/r990/formal-save-replay-safe.json`。本輪沒有新遊戲整段逐發布無覆繪控制，
+原版六類同狀態聲明只限上述冷LOAD的1,415發布，不外推整段SAVE重播。
+
+正常加入TEMPEST後的五列候選名單仍有M-THI、M-PRI、M-MAG及F-ALC英文碼。
+靜態confirmed：`rosterRows`把完整原文與初始y綁定，022只批准六個初始位置。
+加入後列上移是實圖強證據，新的NUL引數與完整印字差異尚未補量；不直接放寬姓名或座標守門。
+安全記錄`workplace/r990/roster-gap.json`。後續須窄量移位列、022增補READY及正常名單驗收。
+
+F原版窄收據獨立FINAL完整回讀0／0／0，七來源SHA保持；審查另寫計算，未執行被核驗的摘要產生器。
+JSON SHA-256 `a951588730069e5af937ce5459aaec836bd0afe93e9c86c37f6a87a97a800168`；
+Markdown `615b8e3f0cd577340e867821d32bd28c5eb55628cc9c02e3d2e171ea0bcb422a`。
+採認限F原版差異、八背景點及冷LOAD六類摘要／保存保持；正常GUI像素及全F路線不由此報告放行。
+
+主代理另目視倚天2倍女性人物頁與Unifont3倍重入實圖。
+2倍世界人物頁的一般屬性標籤仍有行距不足，與本輪性別8×8批准域分開記錄；
+不由女字正確外推整頁排版已完成。022名單與世界人物頁其餘欄位仍須各自完成覆蓋及排版驗收。
+
+四組正常冷GUI完成兩字型兩倍率女性人物頁、法術開／取消／再開／再取消、EXIT迷宮與重入，正常關窗0。
+70個有效HD／Draw配對共58,880像素差異0，原生女字域51,072及退出原indexed還原7,808。
+期望獨立解析外部stdfont.15的女字30 bytes及Unifont U+5973的原生16列；
+本輪F-before／after各只取批准8×8背景64點，先核當刻原indexed等F-after，再計HD／Draw期望。
+倚天2／3倍16／17組，Unifont2／3倍18／19組；六張F1 Draw及一張無Draw不列配對。
+四GUI保存bytes／mode／mtime保持。最終結果SHA-256
+`5ae1a75a9068ecdec12a95669a041e27f206641a586817aaea89b3aea5efbf42`。
+獨立GUI FINAL完整回讀0／0／0：JSON `026be067bc3c6c707bee4e2d7a4873589cd023152f85466c7e3af0fd18efb601`；
+Markdown `55b1fbec3c96a820317ea2fb185ea6d6a99eade4d98a3f6904e663d5f246104c`。
+結合上述F窄收據，只增034已量TEMPEST女性路線限定CONFORMED，其他人物、全頁排版及全遊戲不外推。
