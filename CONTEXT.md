@@ -27,6 +27,10 @@
 R994的正常GUI、同版正式重播與私人原API分列，完整限制見[R994](docs/goal/R994-generic-roster.md)及[022](docs/spec/022-character-roster-text.md#r994-正式限定驗收)。
 自有容器與擁有權異常0，R433保持未追蹤；全案、其他正常條件及正式交付仍未完成。
 
+R994來源`13d2903f10dc28f4076cc42ca52f1a8b83100430`已推送private main。
+#22結果6078578180與#28結果6078578632各896字／11個LF，#17進度6078579225為386字／7個LF，全文回讀與原稿相同。
+三Issue保持OPEN；安全收據在`workplace/r994/result-comment-receipts.json`。後續先修滿隊主選單UKai及側欄ALCHEMI，不重開已驗名單。
+
 R993正式修補`1416f57b09d9009af2ad1ab124c18deafcee219b`已推送private main；其退格基準binary在`workplace/r993/wiz7-backspace-final`，SHA為D6。
 #46已CLOSED，結果6076276992與#28結果6076279246各830字／11個LF；#17進度6076281055為379字／5個LF，三則全文回讀相同。
 #17／#28保持OPEN，repo仍private；安全收據在`workplace/r993/result-comment-receipts.json`。
