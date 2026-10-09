@@ -1620,3 +1620,89 @@ resident入口0110:3895、返回0110:0fcc、font0、x150→240及y保持，SP639
 `820b2ed71778f8375733f8496128878d4ad05ea95f12c3c1b8e58591ce42f2d3`保持，重播保存bytes／mode／mtime保持。
 source／固定控制／正常GUI獨立結果採認後，022只增四已量移位配對限定CONFORMED。
 任意姓名、其他位置／職業、2倍中文及整體交付仍待；沒有原版、字型或輸入檔頭修改。
+
+## R992 名單格式的結構來源（2026-10-09）
+
+<a id="r992-roster-format-source"></a>
+
+入口[R992](../goal/R992-roster-format-source.md)、[022](../spec/022-character-roster-text.md)。R991已量四配對保持，不按未知位置繼續追加特例。
+舊`workplace/ida/DS.EXE.i64`已缺失，從同SHA原版EXE重建一次性DB。既有py312-v1 image沿用，UID1000／IDA9.4最小JSON、輸入SHA及139函式核對通過。
+原版DS.EXE SHA-256仍為`14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`；資料庫及code只在ignored工作區。
+
+resident IDA MZ EA `[10F38,10FDE)`保留原名`sub_10F38`及operand。near call EA10FC9 bytes e8c928到13895，返回10FCC，
+與既有runtime0110:0fcc印字錨點吻合。輸出近指標低16位是`0E38h+14h*([bp+0Ch]+[bp-2])`；
+傳座標兩word是`[bp+4]+2`、`[bp+6]+6*[bp-2]+1`。分支選取對應1／0、一般195／180的解讀沿既有正常印字證據。
+20-byte步距是顯示文字slot，不能稱PCFILE人物record。resident獨立分級證據FINAL 0／0／0完整回讀、五來源SHA相同。
+JSON／Markdown SHA-256：`bfa84b535aea21f2b0675f1e9e545c88fa108834cbd6ef4e531e8e1c817ec87c`／
+`8cdf6dcc9a0b4abed8323d0eda3da415196fcbff74592645072d8a1bedbe0583`。
+
+VBASE原OVR SHA-256 `7919a6eddd0f7b65905ad4ab3a301604cccb8bf0f213ebebc190d5d1227104d6`，code段SHA
+`f2af41d5bd0e394f7fab514a4ace8bd0ba8de718efcca5e544879a781fe68e87`。以下數值為raw code offset，原檔offset另加14。
+raw5F1A有直接call入口錨點；24394起的連續寫端將來源字串搬到每20-byte slot，補空白到10格，
+接著在+10寫參數140系列訊息首byte、+11寫2Dh、+12..14寫120系列訊息前三byte、+15寫NUL。
+copy／length callee已另窄量resident143AB／14AD7，MSG getter0582沿034已證契約；不讀MSG或PCFILE內容。
+VBASE raw查詢首版未建立指令項即print_operand，operand無效，保留原輸出；修正先建指令項後另存r2，不當產品或原版缺陷。
+填列分級獨立FINAL 0／0／0完整採認，三匯出SHA相同；JSON／Markdown
+`92f78b0c3f8ffca623e192da616bfdb863f1e1fea1b31715609ec494310236c0`／
+`eb05cf481a1205d8198c315d80d89374457c6a28e77c4fafc49e5b5f5aea5800`。
+
+新runtime探針先獨立審查、完整FINAL採認後執行，只在既有六個完整列入口重用16-byte字串，
+新增每事件最多30 bytes數值frame、一次166＋325 bytes code簽章，cap64；沒有原版、離屏、A000、規則或輸入注入寫入。
+42份正常名單frame均符合指標及座標算式，width15、count5／6、First0，DS／SS為1106h；
+來源offset是0E38h+20*(First+Index)，祖先返回B092連到raw603D的建構端。
+resident code166 bytes及VBASE建構端325 bytes逐byte等靜態輸入，實證此路線的raw→runtime加值5055h。
+兩code SHA-256：`34ad5b07cf59b4c779d5ba8e980b33978281040d590e9a7aedaf262cbe127e3f`／
+`12eb7a9cf85d8423d5c7a021af2df23e04dd97cae3d4b4386dd02ccaeb2a511d`。
+1,546發布原版六類摘要及完整trace同R991無覆繪控制b63495，保存bytes／mode／mtime保持。
+安全摘要`workplace/r992/structure-runtime-safe.json`。這些只證明正常顯示列生成與來源身份，任意姓名及其他職業仍須正常路線與022增補閘門。
+
+runtime獨立FINAL 0／0／0已完整回讀採認，七來源及42份frame指紋核對相同。
+JSON／Markdown SHA-256：`986eaacbe33ad5d9a0fb2f962a54d95da009fbb89917d42de87a75fd473e9b14`／
+`c923be6b808286ea58dd1981fce558344f0f42d0331df8eb67a94a35f32f7deb`。
+42份frame的合併指紋為`2d27a2134c1f1e7cf7b2b8f868896a93afd3079489a2b81d2af529d4026836f8`。
+祖先第二層的ReturnIP B092h是回到建構端；建構端frame為其SavedBP所指第三層BP64808，不能把第二層BP64084當作建構端。
+022新增數值守門DRAFT；尚未放行production、READY或任意姓名CONFORMED。
+
+另從既有`text/messages.json`只解碼120..133的英文職業，遇134即停止，讀取檔案前綴1,980 bytes。
+14個前三字母碼為FIG／MAG／PRI／THI／RAN／ALC／BAR／PSI／VAL／BIS／LOR／SAM／MON／NIN，全部唯一。
+此為既存抽取文本的窄讀，不新增原版MSG.DBS內容觀察；來源及計數在`workplace/r992/class-code-sources.json`。
+中文沿`docs/names.md`既有職業表，正式roster仍只有原六碼，沒有把未驗職業或性別資格推成遊戲規則。
+
+### 正常新姓名與來源分流
+
+正式55aa binary、倚天3倍、R982起始copy2，正常以改名將THESUS追加R為THESUSR。
+Return結束編輯後按原版確定，人物名牌及重新開ADD的第一列均顯示新姓名，白底選取及取消也已量到。
+沒有創角、重擲、刪角、新遊戲、防拷、戰鬥或SAVE；原資料唯讀，改名由原版自然寫入scratch。
+正常錄製3,397事件／1,689快照，末Step395,800,000，頁尾Stop、續玩及關窗0，無partial。
+新wire SHA-256：`6d4bed0a2382e2b3259029750deb7dec81ba5030edee5001eb29583a359072bd`。
+正常玩家FINAL完整回讀採認，五來源SHA核同；JSON／Markdown為
+`5587014e97dece9edd9a2a193686855c0f8b70032f423e85ac0bdd07352c5c53`／
+`9dd06dd4d8fee9c177af66dc1a87931c0b443a9bb7557ec0c22f498ced849cef`。
+
+首輪未確認改名及未正常停止的partial保留；控制器300秒逾時後關窗的故障分類見WORKLOG。
+退格只送IRQ1掃描碼、未送姓名AH07的DOS字元通道，已另登記[#46](https://github.com/wicanr2/wizardry7-cht/issues/46)，尚未修改正式前端。
+025原42frame與022數值DRAFT的獨立複核已採認；祖先第一層的16／26份分流及已修正阻擋見WORKLOG。
+該DRAFT複核JSON／Markdown為`9da3032f41a402ff39eb578e3307602ad23839a0301e6486cc47ba68316249a6`／
+`ddcf8d7ac70dc469c186643400cd8de6a07f8e1841030a245765d34eb3abdf12`，不是READY放行。
+
+新wire共捕捉24份frame：12份改名選人，祖先5C2A／BA64／BE6C及61D9／BA64／BE6C各6份；
+12份ADD，祖先5775／B092／B0CB及5D24／B092／B0CB各6份。
+只有ADD第一列兩次分類為未知姓名，y150／Index0，一般SelectedFFFFh及選取Selected0各一次；數值公式均保持。
+首個probe在改名選人先取到AF6F code，SHA為`32d7f3d24617df671f43648e69bb06b30fc9058f29bece4b78d3d697a7672d73`，不等ADD已證簽章。
+保留此觀察，不把它改成ADD期望；另經獨立source FINAL採認的私人probe限定新姓名及ADD祖先成立後首取原491 bytes。
+補證兩code逐bytes等原resident166及VBASE325，SHA仍為上列34ad5b／12eb7a，沒有擴大ADD身份集合。
+
+主驗的新probe／無覆繪原API之1,689發布六類摘要及完整602,552-byte trace全同，SHA-256
+`dbe4fe3cceab3cbd270d0cfc8ac64771cb3fbab158b244bde30eb33977860589`。
+同55aa正式重播完成0。正常錄製、raw、新probe及正式重播的四份PCFILE bytes／mode相同，
+SHA-256 `b3c137ae1ea74986fcd012ade6df797b156533215a06729219b76d89a4e936a9`；mtime隨各趟正常改名重寫，不要求相等。
+四份SAVEGAME bytes／mode／mtime保持R982起始。全部保存只SHA／stat，不解人物DB、不撤銷合法新名。
+安全結果在`workplace/r992/name-add-control-safe.json`。
+新姓名目前仍顯示原碼M-FIG；這是辨識限制的正常測例，不能稱新姓名已中文化或022通用路徑CONFORMED。
+
+動態獨立FINAL 0／0／0已完整回讀採認，29項來源／結果／保存身份核對相同。
+新舊24份數值收據逐bytes相同，指紋為`35e429b7bbb728f58a04103bd00b63a961b42624dc0f5b6d3e0a4fd8c2905bd6`。
+獨立另從原resident匯出及VBASE.code的24346起精確325-byte切片核code，沒有使用被測checker結果當期望。
+JSON／Markdown SHA-256：`07272b1b8d6d0505e64ed6e30529c27d351e6c831006982d88cd6a04fab3cccd`／
+`65de50022464ef217d8e5dd239d25688ece151e3ce5d5ee5824f40553a87ab74`。
+本輪結束RE，不追改名建構端、人物DB或共用runtime；022保持DRAFT，下一個實作為已定位的退格輸入缺口。

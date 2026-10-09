@@ -1900,3 +1900,51 @@ GUI與固定控制FINAL均0／0／0完整回讀採認，七GUI來源及有效ora
 開工6073454791的272字／5個LF亦完整回讀相同。新goal、022增補、013錄放及025證據均有現行入口。
 本輪自有容器、root-owned及誤建.md目錄0；UID/GID1000:1000，R433未追蹤保持。
 原版、字型、完整輸入、存檔與畫面只留本機；整體中文化仍未完成，不縮為本輪四配對。
+
+## 2026-10-09 R992 名單格式的結構來源
+
+沿#22／#28開工，R991已量四配對保持。載入規格先行、中文顯示隔離、IDA9.4及文件職責路由。
+舊resident DB已缺，從相同原版EXE唯讀輸入重建私人DB；沿既有py312-v1 image，不另建工具鏈。
+resident與VBASE窄證據、frame探針source及runtime結果的獨立FINAL均完整回讀採認，詳見025。
+42份frame符合20-byte顯示slot來源、座標及有界數值；兩段runtime code逐byte等原始輸入。
+1,546發布原版六類摘要及trace同既有無覆繪控制，保存保持；不把顯示slot稱人物record。
+022追加DRAFT與確切數值／code界限，正式來源及SDK保持，未放行READY或任意姓名CONFORMED。
+
+正常改名首輪進原版角色頁及改名框，退格無效，文字只追加首字R。未確認改名，兩scratch保存檔保持。
+控制器等下一命令300秒逾時後關窗；未正常Stop的Cancel依程式產生recording_ineligible及partial。
+此收尾結果屬控制器期限與故障保留契約，不當作錄製資格產品故障，原片段及畫面保持。
+前端只送退格掃描碼，姓名AH07走DOS字元佇列；兩路徑的程式與既有證據吻合，實際退格漏接另登記#46。
+議題全文609字／16個LF完整回讀相同，安全收據在workplace/r992/backspace-issue-receipt.json。
+正常新姓名改採原版追加單R，另存乾淨r2；不修改輸入收據、存檔或原版判定。
+未知M-FIG姓名的私人補證探針先獨立審查FINAL 0／0／0，五來源與兩報告SHA全同後採認及建置。
+新probe重用原16-byte列，不新輸出姓名；每事件30-byte數值及首個491-byte code上限保持。
+本輪收尾、正常新姓名結果與推送於後段追加；完整原版、code、字模、輸入與畫面只留ignored workplace/r992。
+
+獨立草案審查發現主代理把單份frame的第一祖先5775h外推到全部42份，會拒絕已量選取重畫。
+原42份實際有5775h／B092h／B0CBh共16份、5D24h／B092h／B0CBh共26份。
+022已訂正為兩tuple閉集合，仍DRAFT；保留原runtime證據，沒有重跑或改寫既有收據。
+私人探針只記祖先、沒有硬核5775h，故不用修改或重新建置；正式程式未受此草案錯誤影響。
+
+正常新姓名wire包含改名選人及ADD兩個共用印字畫面。首個新probe取得24frame，其中前12份來自改名選人，
+祖先5C2A／BA64／BE6C及61D9／BA64／BE6C；後12份才是既有ADD兩tuple，新姓名一般／選取各命中一次。
+第一個code擷取發生在改名選人，resident簽章保持，但AF6F的325 bytes為32d7f3d2…，並非ADD已證VBASE簽章。
+首驗證器把全部frame當ADD而拒絕，屬驗證範圍錯誤；保留原probe／輸出／腳本，不調預期hash或擴ADD允許集合。
+依GUI來源路由改作獨立ADD限定probe，只在新姓名及已證ADD祖先成立後首抓原491 bytes，再沿未改wire重跑。
+無覆繪原API及同55aa正式重播已完成0；後續只重跑觀察時機已改的probe，不重跑已通過兩條原版路線。
+022仍DRAFT，另明記現行改名選人的六鍵中文不得因新來源守門回退；正式替換前須保留或另補契約。
+
+正常玩家FINAL已完整回讀採認，五個source／binary／wire與原partial SHA相同，八checkpoint留本機。
+正式55aa錄製3,397事件／1,689快照／末395.8M，原頁尾Stop後續玩、正常關窗0；同binary重播完成0。
+正常改名THESUSR及ADD一般／選取／取消已量，原碼M-FIG仍英文，未稱通用名單中文化。
+ADD限定probe源碼FINAL 0／0／0、七來源SHA採認後，僅重跑該probe，正常raw與formal通過結果沿用。
+最終24frame分為12改名選人、12ADD；新名兩個ADD正分支的Index0／y150及SelectedFFFF／0符合，兩code仍34ad5b／12eb7a。
+新probe與raw的1,689發布六類摘要與602,552-byte trace全同，SHA dbe4fe3cceab3cbd270d0cfc8ac64771cb3fbab158b244bde30eb33977860589。
+正常、raw、新probe及formal四份PCFILE bytes／mode同b3c137ae…，合法mtime各趟重寫；四SAVEGAME bytes／mode／mtime保持。
+正式cmd及SDK未改，沿R991既有測試基準；本輪必要驗證為窄source審查、正常新名、完整原版控制及同binary重播。
+動態獨立FINAL、Git／Issue及最終清理於收尾追加。全部來源與安全數量見025，完整輸入／code／保存與圖像只留本機。
+
+動態獨立FINAL完整回讀0／0／0，11來源、24frame指紋及結果／四保存層共29項身份核同後採認。
+獨立直接從原resident匯出及VBASE精確seek325取code，兩段相符，沒有把主驗結果當oracle。
+詳細報告及SHA見025收尾；本輪RE停止，022保持DRAFT，新姓名英文碼尚待正式實作。
+文件連結與入口通過；自有容器0，r992／docs／cmd/wiz7的root-owned及誤建.md目錄0，UID/GID1000:1000。
+R433未追蹤保持，正式程式與SDK未改。下一實作為#46退格輸入漏接，其他中文化及交付門檻照目前狀態表接續。

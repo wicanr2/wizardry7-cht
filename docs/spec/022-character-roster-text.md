@@ -129,3 +129,46 @@ cmd2.816秒、initconfig0.024秒、recording1.213秒通過；source獨立FINAL 0
 固定驗收JSON／Markdown：`c1967578d202836601664ed6ce4f1477b12909b8153a9fd0ce06986a7b7c1c31`／
 `7e15233c4b63deb86eebed56306dd2ebe6c8c540d30fb7207e48e0b94daeadf7`。
 完整數量、GUI暫核分母勘誤、source及保存來源見[025](../re/025-ui-localization-coverage.md#r991-relocated-roster)。
+
+## R992 結構辨識增補草案
+
+狀態DRAFT，未放行正式修改。入口[R992](../goal/R992-roster-format-source.md)。
+目的為移除目前六個預設姓名及十組位置配對對顯示的限制；原版姓名、性別／職業值、輸入與保存仍保持。
+正常顯示列的生成端與runtime身份證據見[025](../re/025-ui-localization-coverage.md#r992-roster-format-source)。
+20-byte為顯示slot，不當作人物record，不新增PCFILE或MSG內容讀取。
+
+擬定契約：
+
+1. 只在已驗resident NUL入口／返回、font0及3倍配置接入。字串仍讀最多16 bytes，off／SP界限沿R991。
+2. 從已證list frame數值確認來源slot、列索引、座標、width15及有界count；核生成端祖先返回及已驗code簽章，不由姓名文字推定畫面身份。
+3. 對當次16-byte顯示列取末五byte作性別／職業英文鍵，完整匹配正式roster TSV資源；前十byte姓名及padding只留原版墨點，不譯、不參與職業鍵查找。
+4. 以當次實際y及姓名十格範圍建立只屬於本次的metadata，保留完整列540-byte身份及只還原碼帶180-byte；不更動原版或共享原表。
+5. 原版全離屏差異仍只許本列姓名區與碼帶，單一195→180或1→0、姓名與碼均非空；錯來源／界限／資源先撤除舊事件再保留原文並記錄。
+6. 先用正常自訂姓名、不同組隊位置及既有六姓名路線驗來源及像素。未量任意count／scroll、其他職業碼及2倍排版各自保留閘門，不從四個已量移位樣本外推。
+7. 姓名讀取上限、生成端身份的確切frame／code界限、完整職業碼資源及正常新姓名證據齊全後才審READY；目前只保留草案，R991正式路徑保持。
+
+### R992 數值身份與讀取界限
+
+以下為DRAFT的具體守門，尚未READY。既有3倍、0110:0fcc、font0、x150、六個y及16-byte來源守門先行。
+只讀SS:BP-2及BP+0..14的九word，BP須在2..65520；讀祖先時每個parent須嚴格大於前一BP且不大於65532，最多三層。
+新增數值讀取上限30 bytes。不得從無界stack掃描尋找返回位址。
+
+- 當前DS＝SS＝1106h；原SP≤65530，BP＝SP＋14以整數比較，不能以uint16加法繞回。
+- 九word依序為Index、SavedBP、ReturnIP、Xbase、Ybase、Width、Count、First、Selected。
+  ReturnIP＝101Bh、Width＝15、Count限5或6、First＝0、Index＜Count；Selected限FFFFh或小於Count。
+- source offset須等0E38h＋20×Index；x＝Xbase＋2＝150，y＝Ybase＋6×Index＋1，並符合現有六個y。
+- 三層祖先返回只接受兩組已量tuple：5775h／B092h／B0CBh，或5D24h／B092h／B0CBh。
+  42份中第一組16份、第二組26份；後者涵蓋選取重畫，不得只固定第一組而拒絕已量路線。
+  B092h是返回建構端的指令，建構端frame為第二祖先的SavedBP所指第三祖先，不能混稱第二祖先。
+- 當次核CS0110的`[0F38,0FDE)`166 bytes及`[AF6F,B0B4)`325 bytes。SHA-256須分別為
+  `34ad5b07cf59b4c779d5ba8e980b33978281040d590e9a7aedaf262cbe127e3f`及
+  `12eb7a9cf85d8423d5c7a021af2df23e04dd97cae3d4b4386dd02ccaeb2a511d`。
+  code只作身份驗證，不輸出或修改；不把一次通過快取到其他overlay載入。
+
+以上值只涵蓋已量的Archives版本名單。Count其他值、First非0、其他段或祖先一律保留原文並撤除該列舊中文，
+不把尚未量的捲動或清空名單改成猜測。現有六碼資源與新職業碼資源分開驗收，補齊資源後才另放行新碼。
+
+正常改名路線另量到共用resident印字的選人名單，祖先為5C2Ah／BA64h／BE6Ch或61D9h／BA64h／BE6Ch。
+它不符合上列ADD來源，不能只因ret／x／y／完整字串相同就稱同一建構端。
+現行六鍵會在此畫面顯示中文；替換正式辨識前須保留這項既有顯示，或先補其獨立契約與驗收，不能使已中文的六鍵退回英文。
+本輪不把兩個新tuple加進ADD守門，不以改名時AF6F區的簽章代替ADD建構端簽章。
