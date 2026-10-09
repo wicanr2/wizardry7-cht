@@ -14,6 +14,7 @@ WHO游標正式接線：[R988](R988-who-cursor-wiring.md)。
 剩餘譯名與兩倍顯示缺口：[R996](R996-remaining-text-ui-gates.md)。
 正式錄放完成稽核：[R997](R997-recording-completion-audit.md)。
 三次重播的實際畫面收據：[R998](R998-recording-pixel-receipts.md)。
+正常世界遊玩與未量文字：[R999](R999-normal-world-text.md)。
 
 正常載入後的人物頁情境觀察：[R984](R984-normal-profile-context.md)。
 
