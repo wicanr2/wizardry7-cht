@@ -2,6 +2,39 @@
 
 日期2026-10-01；[#18](https://github.com/wicanr2/wizardry7-cht/issues/18)；[R701](../goal/R701-audio-playability.md)。
 
+## R1001 預設速度有聲冷LOAD與世界操作
+
+2026-10-10，入口：[本輪目標與保存工具](../goal/R1001-normal-audio-world.md)、[009 READY](../spec/009-player-audio.md)。正式96來源c7da執行檔SHA-256 `c7da1a38a0a690de1529d0ebadf13c3378e1b51bf3063a522a707962c88fe224`，沿R1000固定編譯來源；本輪未改正式Go／SDK／譯文或重建程式。Archives DS.EXE基線沿本篇，不外推其他版本。
+
+現存`eob-audio-capture:20261009-r3`，image ID `d831720f8dfa388af8ad175fa8adeae8f2814dd4637be1e3db6a43274b26f36c`；PulseAudio16.1／Python3.11.2，4CPU／2GiB／160pids、網路none、UID1000、--rm及log限制。原版與initial保存唯讀，僅本輪輸出可寫。Pulse只用容器Unix socket與44100Hz null-sink monitor；20ms人工零音在監聽前預啟動，不計原版音訊。
+
+正常前端無mute／ips覆寫、私人hook或state注入。第一趟由合法R990保存冷LOAD，依目前題後提示正常作答；世界右轉、前進、磁片選單SAVE、再右轉後關窗。第二趟從該新SAVE重新啟動正常LOAD、續行及關窗。各9／4個正常操作收集區間皆非靜音；F1暫停／恢復共10／5對，Step完全相同。擷取段按收集塊位移分界，含裝置緩衝，不稱精確原操作聲音邊界。
+
+| 本機收據 | 首趟正常SAVE | 新SAVE冷LOAD |
+|---|---:|---:|
+| 原版最後Step | 367200000 | 307000000 |
+| 音訊EndStep／SourceStep | 367200000 | 306800000 |
+| 獨立ceil canonical／tempo幀 | 5390519 | 4503843 |
+| Received／Applied／Recorded | 96443 | 50343 |
+| 容量Dropped／Rejected／Pending | 0 | 0 |
+| Reader SourceFrames | 5309640 | 4376925 |
+| Reader Underflow／Overflow | 0／12092 | 0／48509 |
+| StopQueued／Fade／Discard | 68787／221／68566 | 78409／221／78188 |
+| DeviceFrames／DeliveredBytes | 5314271／21257084 | 4381556／17526224 |
+| FadeDeliveredBytes／ACK／EOF | 884／true／true | 884／true／true |
+| raw monitor幀／非零幀 | 19160008／5175426 | 9933566／4212968 |
+| raw RMS／peak | 764.216901／7988 | 1047.753286／7988 |
+| 左右差異幀 | 0 | 0 |
+| 關窗要求至程序退出 | 65.776026ms | 164.686784ms |
+
+每趟分別核`ceil(T×44100×65536/196875030000)`、`SourceFrames+Overflow+StopQueued=Frames`及`4410+SourceFrames+Underflow+Fade=DeviceFrames`；byte與事件守恆全成立。兩趟fault空、Stopped真、Incomplete假，Bank1／CSM／Unsupported本路線0。第二趟原版在停止後多推進一個200k安全邊界，未把307M當已合成水位。raw含F1期間靜音，不能直接等同Reader交付量；第二趟程序退出後monitor另收882幀靜音，完整保留。Overflow及依定案快速退出捨尾照實列出，不調參歸零或稱全部聲音無斷流。
+
+原版正常新SAVEGAME.DBS為11404 bytes，SHA `b0f2eff7b7817ccc90b37bfd32d93b23088305fdd8aa8da4821a517685d660ca`；PCFILE.DBS保持既有24d94441…c1b。初始R990兩保存保持，新SAVE在第二趟冷LOAD後bytes／mode／mtime全同。保存與冷LOAD世界viewport為(216,99)-(744,435)，177408個RGBA像素差0；保存後未存轉向反對照差162504，保存及冷LOAD全PNG SHA亦同。只證正常保存恢復，不稱新RAM同狀態A/B或解讀存檔schema。
+
+獨立工具直接統計全部raw、重算ceil／守恆、15對F1與視窗PNG，164項0失敗；結果`workplace/r1001/audio-check-final-v2.json` SHA `4b266c34ecf4c452e444d8a9806f2df4f14d4f3bbcd62bfcbb7debc8e53ed790`，Markdown SHA `2577f705ba1291703e7feab3823deea2aa90eb2c74c5856fa9d3a9dfb9e201bd`。首版PASS只訂正可選viewport限制文字，全部runs／viewport及成功條件相同，未重跑原版。核對器不驗啟動命令與binary，這兩項沿主代理凍結來源、啟動plan及來源預審；預審JSON SHA `1ad9f26672d9e4b29409a40793727641174f04f3380bf2fb08b308dfbf2ebb52`。
+
+15秒本機試聽片段由首趟monitor的5至20秒原樣轉WAV，44100Hz／16-bit雙聲道、661500幀、非零1293894個sample；僅供使用者本機確認。人耳回覆仍待，軟體非靜音不當實體喇叭、人耳或原生平台完成。其他退出／加速排程及封包未外推；009仍READY、#18 OPEN。完整聲音、手冊輸入、存檔與圖像均不提交或公開。
+
 ## R956 預設速度的正常點擊音訊
 
 2026-10-05，入口：[本輪目標](../goal/R956-default-audio-clicks.md)。沿R952已建正式Linux前端，binary SHA `7363fc5be7c48d10eb272d5bd5900045996bb490b0cb08fd19bb1a93e9d948b0`；38份列出cmd來源及R943六份Unifont資源保持。沒有新建置、正式程式或SDK修改，不稱完整編譯閉集合。原版DS.EXE SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`，248檔盲SHA保持；擷取後七份Scratch與退出後角色檔9368 bytes保持。

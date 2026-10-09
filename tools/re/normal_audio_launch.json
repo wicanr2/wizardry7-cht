@@ -1,0 +1,22 @@
+{
+  "container_name": "wiz7-r1001-normal",
+  "image": "eob-audio-capture:20261009-r3",
+  "image_id": "sha256:d831720f8dfa388af8ad175fa8adeae8f2814dd4637be1e3db6a43274b26f36c",
+  "network": "none",
+  "user": "1000:1000",
+  "memory": "2g",
+  "cpus": 4,
+  "pids_limit": 160,
+  "env": {"GOMAXPROCS": "4"},
+  "log_options": ["max-size=10m", "max-file=3"],
+  "mounts": [
+    {"source": "/home/anr2/cht/wizardry7", "target": "/src", "mode": "ro"},
+    {"source": "/home/anr2/cht/wizardry7/workplace/r1001", "target": "/out", "mode": "rw"},
+    {"source": "/home/anr2/cht/wizardry7/workplace/original/wizar7", "target": "/original", "mode": "ro"},
+    {"source": "/home/anr2/cht/wizardry7/workplace/r990/r3/record-gui/save", "target": "/initial", "mode": "ro"}
+  ],
+  "auto_remove": true,
+  "command": ["timeout", "-k", "20s", "910s", "sh", "/out/run_audio_gui.sh"],
+  "normal_controller_deadline_seconds": 840,
+  "raw_file_ulimit_512byte_blocks": 524288
+}

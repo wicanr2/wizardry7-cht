@@ -2273,3 +2273,15 @@ R3b私人擷取修正獨立0／0／0後，四組24圖／8677項全部通過，�
 最終獨立複核0／0／0完整讀回採認，JSON SHA `7bac991457d7997dcdc60e2bc54d6eca3d4e205a691aa731e0bdc8a32ccf95b4`、Markdown SHA `a427fb2974a3f0160f5bc50a602eb0d278f85a53cfe2455d2b1048457ee29e3a`。另獨立核48 PNG／24對9984000像素與19920原圖點全0差、259份本機manifest SHA全合，正式四檔及兩建置binary逐位元同已審版本。自有容器已清空，root-owned及誤建.md目錄0，R433保持未追蹤。只採兩物品已量slot／位置，不宣稱全案完成。
 
 來源65044e1已推送private main。#22留言6089987641、#28留言6089988719各618字元／9個LF，全文讀回與原稿完全相同；安全收據`workplace/r1000/result-comment-receipts.json`。遠端核#22／#28 OPEN、#17 CLOSED，原版素材及完整輸入未提交。整體Goal保持進行中，下一輪回其餘中文覆蓋與交付。
+
+## 2026-10-10 R1001 預設速度的有聲冷LOAD與世界操作
+
+前輪c42bb28已推送，手持兩物品限定驗收屬進展。本輪重讀路由，命中完整收尾流程及平台規格優先，載入正常試玩與文件職責入口。遠端未結Issue仍含#18正常玩家音訊缺口，R956六次角色選單Click不重做。舊eob音訊r2 image及r956工作區目前不存在；查到現存eob-audio-capture:20261009-r3，ID d831720f…b26f36c，PulseAudio16.1／Python3.11.2，沿用不重建。Entrypoint缺欄位的template查詢失敗改以index取值，屬工具查詢，未啟動遊戲或另建image。
+
+R1001目標已建立並索引，#18起始留言6090058246。正常controller、Pulse／Xvfb／monitor包裝及外層launch-plan獨立預審0／0／0完整採認，JSON SHA `1ad9f26672d9e4b29409a40793727641174f04f3380bf2fb08b308dfbf2ebb52`。依plan啟動現行正式c7da，無mute／ips覆寫、私人hook或state注入。原版及合法R990初始保存唯讀，scratch與原音只留本輪工作區。4CPU／2GiB／160pids、網路none、UID1000、910秒加20秒硬截止；平台20ms零音在monitor前預啟動，不當原版音訊證據。正常標題及非零軟體輸出已見，冷LOAD與世界操作仍在本次存活程序進行中，未宣稱新音訊鏈完成。
+
+兩趟同正式c7da正常有聲完成0。首趟冷LOAD、右轉／前進、原版SAVE及保存後轉向；已見世界磁片選單沒有LOAD，第二趟重開正常LOAD新SAVE並續行，不新增原版入口。新SAVE b0f2eff7…60ca只由原版寫本輪scratch，初始R990兩檔保持；冷LOAD後新兩檔bytes／mode／mtime全同。保存／冷LOAD世界viewport177408點0差、未存右轉反對照162504差，兩張完整PNG SHA亦同；不稱新RAM同狀態A/B或解析保存schema。
+
+獨立兩趟164項通過。canonical5390519／4503843由獨立整數ceil核得，96443／50343來源事件全收到施加、容量Dropped0；Reader幀／byte守恆、15對F1同Step及兩次WM關窗0成立。關窗要求至退出65.776026／164.686784毫秒為本次觀察區間，不外推所有排程。全部raw非零5175426／4212968幀、左右差0、peak7988；9／4操作收集段皆非靜音。Overflow12092／48509、停止捨尾68566／78188保留，不調參歸零或稱流暢度／人耳。第二趟CPU最後307M比音訊306.8M多200k停止邊界，monitor尾段另留882靜音幀，不冒已合成或Reader交付。
+
+原PASS的唯一文字誤稱可選viewport未驗，已訂正並沿相同收據另跑v2；全部runs／viewport與成功條件完全相同，沒有新原版運行。最終JSON SHA `4b266c34ecf4c452e444d8a9806f2df4f14d4f3bbcd62bfcbb7debc8e53ed790`、Markdown SHA `2577f705ba1291703e7feab3823deea2aa90eb2c74c5856fa9d3a9dfb9e201bd`完整採認。保存正常GUI工具、有界啟動plan與獨立核對器，掛本輪goal；正式Go／SDK／譯文未改。15秒本機試聽WAV已驗格式、時長及非靜音，使用者人耳問題pending；009仍READY、#18 OPEN，全案未完成。

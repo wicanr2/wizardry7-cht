@@ -15,7 +15,7 @@
 
 森林事件翻頁與十一組情境：[R957證據](019-catalog-migration.md#r957-forest-event-context)、[目標](../goal/R957-forest-event-context.md)。
 
-預設速度正常點擊音訊：[R956](020-player-audio.md#r956-預設速度的正常點擊音訊)，[本輪目標](../goal/R956-default-audio-clicks.md)。
+預設速度有聲冷LOAD、世界操作及正常存讀檔：[R1001](020-player-audio.md#r1001-預設速度有聲冷load與世界操作)，[本輪目標](../goal/R1001-normal-audio-world.md)。較早角色選單點擊音訊：[R956](020-player-audio.md#r956-預設速度的正常點擊音訊)。
 
 新證據：[021 物品頁兩行名稱](021-compound-item-output.md)。
 待補譯文正常路線：[R898 東向受阻與南向續行](019-catalog-migration.md#r898-normal-east-translation)。
