@@ -1842,3 +1842,11 @@ PCFILE.DBS保持；新程序正常LOAD回女性隊伍，人物頁女字、EXIT�
 022只審過初始六列，後續先窄量移位列及READY增補，不放寬名字或猜補座標。
 本輪自有容器0，r990／cmd/wiz7／docs的root-owned及誤建.md目錄0，UID/GID1000:1000。
 來源提交、push與Issue完整LF回讀於後段追加，R433保持未追蹤。
+
+驗收文件6675114cc0ec54ee0f5fefa2efc704af94abebab已推送private main。
+[#22結果6073406369](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6073406369)及
+[#28結果6073407171](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6073407171)
+各805字／11個LF全文與原稿相同，兩Issue保持OPEN；安全回讀收據在workplace/r990/result-comment-receipts.json。
+GUI九份來源／字模／結果SHA全同，最終採認收據在female-gui-adoption.json；F窄收據七來源SHA採認另列。
+本輪正式程式及SDK未改，既有測試基準沿R989；新正常玩家、兩段正式重播、F原版控制及四GUI為本輪必要驗收。
+新goal、034增補與025證據均有既有索引入口，個別原圖、完整輸入與字模只留本機。整體目標仍未完成。
