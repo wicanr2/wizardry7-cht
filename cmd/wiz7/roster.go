@@ -1,6 +1,6 @@
 package main
 
-// 022：封閉的六個原版實例。姓名及遊戲狀態只讀，還原只限職業碼。
+// 022：六個完整來源及已量位置。姓名及遊戲狀態只讀，還原只限職業碼。
 import (
 	"encoding/hex"
 	"encoding/json"
@@ -144,18 +144,37 @@ func rosterKnownY(y int) bool {
 	return false
 }
 
+// 022 R991：只增四個已量移位，回傳副本以保持原表不變。
+func rosterRowAt(source string, y int) *rosterRow {
+	for _, row := range rosterRows {
+		if row.source != source {
+			continue
+		}
+		allowed := row.y == y
+		switch row.code {
+		case "M-THI":
+			allowed = allowed || y == 156
+		case "M-PRI":
+			allowed = allowed || y == 162
+		case "M-MAG":
+			allowed = allowed || y == 168
+		case "F-ALC":
+			allowed = allowed || y == 174
+		}
+		if !allowed {
+			return nil
+		}
+		row.y = y
+		return &row
+	}
+	return nil
+}
+
 func (ov *overlay) enterRoster(ret oracle.Addr, sp, font, off uint16, x, y int, raw []byte, before []byte) bool {
 	if !ov.rosterEnabled || ret != (oracle.Addr{Seg: 0x0110, Off: 0x0fcc}) {
 		return false
 	}
-	var row *rosterRow
-	for i := range rosterRows {
-		if rosterRows[i].y == y {
-			row = &rosterRows[i]
-			break
-		}
-	}
-	if row == nil {
+	if !rosterKnownY(y) {
 		return false
 	}
 	for _, e := range ov.evs {
@@ -170,9 +189,14 @@ func (ov *overlay) enterRoster(ret oracle.Addr, sp, font, off uint16, x, y int, 
 		}
 		ov.pend = nil
 	}
-	if font != 0 || x != 150 || int(off)+16 > 65536 || len(raw) != 16 ||
-		raw[15] != 0 || string(raw[:15]) != row.source || len(before) != 64000 {
+	if sp > 65530 || font != 0 || x != 150 || int(off)+16 > 65536 || len(raw) != 16 ||
+		raw[15] != 0 || len(before) != 64000 {
 		log.Printf("職業碼缺譯：訊號或完整列不符 y=%d", y)
+		return true
+	}
+	row := rosterRowAt(string(raw[:15]), y)
+	if row == nil {
+		log.Printf("職業碼缺譯：完整列或位置不符 y=%d", y)
 		return true
 	}
 	e, ok := ov.roster[row.code]

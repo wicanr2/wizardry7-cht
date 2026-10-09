@@ -88,3 +88,70 @@ func TestRosterPayloadRejectsPartialWrongFontAndTrailingData(t *testing.T) {
 		t.Fatal("nonblank native bottom row accepted")
 	}
 }
+
+func TestRelocatedRosterRetainsOriginalRowsAndRestoresOnlyCode(t *testing.T) {
+	initial := append([]rosterRow(nil), rosterRows...)
+	cases := []struct {
+		source, code string
+		y            int
+	}{
+		{"LYSAND    M-THI", "M-THI", 156},
+		{"NOBAL     M-PRI", "M-PRI", 162},
+		{"TREON     M-MAG", "M-MAG", 168},
+		{"PENTAS    F-ALC", "F-ALC", 174},
+	}
+	for _, tc := range cases {
+		for _, pair := range [][2]byte{{195, 180}, {1, 0}} {
+			before := bytes.Repeat([]byte{pair[0]}, 64000)
+			ov := &overlay{rosterEnabled: true, roster: map[string]rosterEntry{tc.code: {En: tc.code}}}
+			if !ov.enterRoster(oracle.Far(0x0110, 0x0fcc), 8, 0, 0, 150, tc.y, append([]byte(tc.source), 0), before) || ov.pend == nil {
+				t.Fatalf("relocated source missing: %s/%d", tc.code, tc.y)
+			}
+			after := append([]byte(nil), before...)
+			after[tc.y*320+151], after[tc.y*320+212] = pair[1], pair[1]
+			e := finishRoster(ov.pend, after, [256][3]uint8{})
+			if e == nil || e.by != tc.y || e.bx != 210 || e.bw != 30 || e.bh != 6 || !e.rosterMatches(after, nil) {
+				t.Fatal("relocated event geometry/identity rejected")
+			}
+			if len(e.before) != 180 || len(e.roster.after) != 540 {
+				t.Fatal("name included in restoration or row identity missing")
+			}
+			after[tc.y*320+151] = pair[0]
+			if e.rosterMatches(after, nil) {
+				t.Fatal("changed relocated name retained stale code")
+			}
+		}
+	}
+	for i, row := range rosterRows {
+		if row != initial[i] {
+			t.Fatal("relocation changed the original mapping table")
+		}
+		if got := rosterRowAt(row.source, row.y); got == nil || *got != row {
+			t.Fatal("original mapping changed")
+		}
+	}
+}
+
+func TestRelocatedRosterRejectsUnmeasuredMappingAndRetiresOldEntry(t *testing.T) {
+	before := bytes.Repeat([]byte{195}, 64000)
+	for _, tc := range []struct {
+		source string
+		y      int
+		sp     uint16
+	}{
+		{"LYSAND    M-THI", 150, 8},
+		{"PENTAS    F-ALC", 156, 8},
+		{"TEMPEST   F-FIG", 162, 8},
+		{"UNKNOWN   M-THI", 156, 8},
+		{"LYSAND    M-THI", 156, 65531},
+	} {
+		old := &textEv{y0: tc.y, roster: &rosterWitness{}}
+		ov := &overlay{rosterEnabled: true, evs: []*textEv{old}, pend: &pendingPrint{}}
+		if !ov.enterRoster(oracle.Far(0x0110, 0x0fcc), tc.sp, 0, 0, 150, tc.y, append([]byte(tc.source), 0), before) {
+			t.Fatal("known row rejection was not handled")
+		}
+		if !old.dead || ov.pend != nil || ov.nested != 1 {
+			t.Fatal("rejected source retained stale entry/pending")
+		}
+	}
+}

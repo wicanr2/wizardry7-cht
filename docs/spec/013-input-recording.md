@@ -693,3 +693,13 @@ SAVE重播兩檔bytes／mode相同，實際重寫mtime依壁鐘更新；冷LOAD�
 冷LOAD另由私人原API與無覆繪控制逐發布核六類摘要相同；私人控制不是正式binary相容重播。
 驗收只增上述已量女性玩家鏈，其他後端／倍率新錄製、故障、平台與未量條件維持READY。
 來源、正常玩家獨立驗收及同狀態界線見[R990證據](../re/025-ui-localization-coverage.md#r990-normal-female-profile)。
+
+## R991 移位名單修補後的新正式錄放
+
+沿93實源正式建置，binary SHA-256 `55aa21626a977d750249af677ad8a3257ee6f709167c69dbd83c42541479c73d`。
+倚天3倍正常加入TEMPEST、四移位列各選取及取消、重開名單後取消回主選單，共10次正常click。
+新正式錄製3,110事件／1,549發布、末Step367,800,000，按頁尾停止後續玩、正常關窗0。
+同一binary正式-replay一趟完整完成0，wire保持，乾淨保存層bytes／mode／mtime等R982起始。
+不帶HD／Draw診斷旗標，不進新遊戲、防拷或SAVE；新來源不重播修改身份的舊檔。
+私人原API的1,546發布及GUI像素另列，不由錄放身份代原版oracle。其他後端／倍率新錄製及未量條件仍READY。
+入口[R991](../goal/R991-relocated-roster.md)、[025證據](../re/025-ui-localization-coverage.md#r991-relocated-roster)。

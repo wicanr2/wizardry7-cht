@@ -1365,7 +1365,13 @@ func main() {
 		if ov.rosterEnabled && ret == (oracle.Addr{Seg: 0x0110, Off: 0x0fcc}) && rosterKnownY(in.Y) {
 			raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, min(16, 65536-int(off)))
 			evMu.Lock()
-			handled := ov.enterRoster(ret, r0.SP, o.StackWord(2), off, in.X, in.Y, raw, offscreen(o))
+			var handled bool
+			if r0.SP > 65530 {
+				// 先撤除本列舊事件；不讀越界的新增字型引數。
+				handled = ov.enterRoster(ret, r0.SP, 0, off, in.X, in.Y, raw, nil)
+			} else {
+				handled = ov.enterRoster(ret, r0.SP, o.StackWord(2), off, in.X, in.Y, raw, offscreen(o))
+			}
 			evMu.Unlock()
 			if handled {
 				arm(ret)

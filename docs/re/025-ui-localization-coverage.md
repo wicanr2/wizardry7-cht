@@ -1542,3 +1542,81 @@ Markdown `615b8e3f0cd577340e867821d32bd28c5eb55628cc9c02e3d2e171ea0bcb422a`。
 獨立GUI FINAL完整回讀0／0／0：JSON `026be067bc3c6c707bee4e2d7a4873589cd023152f85466c7e3af0fd18efb601`；
 Markdown `55b1fbec3c96a820317ea2fb185ea6d6a99eade4d98a3f6904e663d5f246104c`。
 結合上述F窄收據，只增034已量TEMPEST女性路線限定CONFORMED，其他人物、全頁排版及全遊戲不外推。
+
+## R991 加入角色後的移位名單（2026-10-09）
+
+<a id="r991-relocated-roster"></a>
+
+入口[R991](../goal/R991-relocated-roster.md)、[022 DRAFT增補](../spec/022-character-roster-text.md#r991-加入角色後移位列增補)。
+R990正常加入TEMPEST實圖的五列名單，四個既有碼退回英文；`rosterRows`完整鍵與初始y綁定是已證實的實作限制。
+沿未改R990正常新遊戲收據，窄探針只重用既有16-byte來源，六完整字串、六y、font0及x150硬守門。
+十來源獨立FINAL 0／0／0完整回讀後執行，原版及正式來源未改。
+審查JSON SHA-256 `ac6b92e2b6a5dbfdb9fddc1129160e7ac6fd85eb240db9af83002c08c1a7fc1d`；
+Markdown `03f929f24609b236b8f59b86a014af74a4283de791e00370fde7c9b39566840c`。
+
+已取得17返回，四移位列confirmed：LYSAND y162→156、NOBAL168→162、TREON174→168、PENTAS180→174。
+resident入口0110:3895、返回0110:0fcc、font0、x150→240及y保持，SP63968→63970。
+完整64,000-byte前／後差異只在已知姓名格及原碼帶，姓名差異70／64／63／76，碼差異49／53／59／50。
+四列全部195→180、域外0；選取1→0另由正常新錄製補量，不由未選取證據猜補。
+欄位及完整字串仍沿022原六來源，不解碼PCFILE或推論任意姓名record格式。
+原版DS SHA沿034，Go1.24.13，private probe SHA-256
+`a2c36fdfeecc65c205a0ad67de49b6bc961cf6422c763a510801f065c2cb5127`。
+完整before／after及收據在workplace/r991/private-front，安全計算入口`inspect_roster_witness.py`。
+目前022增補DRAFT，不以此稱正式修補或CONFORMED；原版整段控制及正常選取續驗。
+
+未選取及全新遊戲控制獨立FINAL完整回讀採認0／0／0，五來源及53輸入SHA相同。
+8,096發布的原版六類摘要逐筆相同，trace SHA-256
+`fc6a8b0bf5fa9c56f000cc9135b491369c530c4fd11010a360772c87dc4aec2f`；四保存檔bytes／mode等R990正常新進度，SAVEGAME重寫mtime另記。
+獨立報告JSON／Markdown：`492531e1cde96686806e6ebf61b979e92626e7038703fc6a51ee517212368221`／
+`41ec0fdf200dc7f0f419f7ee56c7c5000adc63ebf67fa3da591b93c5b74651bc`。
+
+未修前新正常GUI只加入TEMPEST，四移位列各選一次，再取消、重開確認白底撤除及取消回主選單。
+10個正常click，3,104事件／1,546發布、末Step367.2M；按頁尾停止後續玩及關窗0，沒有進新遊戲或防拷。
+新收據SHA-256 `6be4b82d291750f8a93bdeb2c6dd898353c3cbd259523b55e31e9e584d535dcd`。
+正常玩家獨立FINAL JSON／Markdown：`da8ce3c452ba3126be924ba2faeb51bac3f714662710a1b2543a346be80e5c79`／
+`1f1debe1ee7e61a6bb74e5a204073b301c3c2748b3b403e9c0945d39d1b625c2`，全文及四來源身份核對相同。
+
+同一探針沿新正常收據取得42次返回，四移位選取ID19／25／31／37皆1→0，姓名／碼差異同上表、域外0。
+原版兩側1,546發布逐筆摘要及完整trace bytes相同，SHA-256
+`b63495ee7c41845a4c02de1c043ee70dcfff620486be7d82ddb71169c68a90ab`，三保存層bytes／mode／mtime同R982起始。
+獨立選取及契約FINAL各0／0／0完整回讀，九來源與126證據檔fingerprint相同後022增補採認READY，參見022審查SHA。
+
+正式只改四個完整來源與位置配對，metadata以副本帶實際y，保留原六表、姓名範圍、finish及底邊契約。
+已知y的錯來源／SP拒絕仍先撤除舊事件；讀前SP守門不多讀原版資料。
+全cmd2.816秒、initconfig0.024秒、recording1.213秒通過；正式93實源建置binary SHA-256
+`55aa21626a977d750249af677ad8a3257ee6f709167c69dbd83c42541479c73d`。
+獨立source FINAL 0／0／0完整採認、八來源SHA保持；JSON／Markdown
+`4ad8754e02abe1a0247200c080ad545ca2692046f517f60586ac29cb791d067b`／
+`fc00ddee3e082ff5a25e45460e875aa08ea4e6595a132dde4b10e2d20035db07`。
+正常兩字型GUI、雙倍率原樣基準與限定像素驗收在本輪收尾另記，不由source審查宣告完成。
+
+修前／修後兩字型兩倍率各一趟私人原API控制完成0，每趟1,546發布全trace等原版控制b63495。
+每組五個相同發布點的原indexed及palette全bytes相同。20對完整派生HD共8,320,000像素，
+以修前圖、原英碼墨點及外部原生字模獨立建立期望，修後逐RGB相符、四碼帶外差異0。
+2倍兩組十張完整圖保持；3倍每個有效名單樣本改動倚天2,149／Unifont2,179像素，取消樣本全圖保持。
+八保存層bytes／mode／mtime等R982起始。安全結果在`workplace/r991/fixed-pixel-result.json`。
+私人派生HD不代正常GUI、不稱正式相容重播；固定source相對正式main只有既有三個唯讀hook，原roster全bytes相同。
+
+固定驗收最終獨立FINAL完整回讀0／0／0，八來源及168資料指紋相同。
+其20對完整old／new範圍核對另證姓名區x150..210、y150..186與取消發布1465全部RGB保持。
+獨立代理直接讀原字型，另以Pillow建立四張完整原字模期望，2,304,000像素全同；
+這四圖抽樣與主代理20圖期望、20圖差異範圍分列，不擴充獨立抽樣分母。
+報告JSON／Markdown SHA-256：`c1967578d202836601664ed6ce4f1477b12909b8153a9fd0ce06986a7b7c1c31`／
+`7e15233c4b63deb86eebed56306dd2ebe6c8c540d30fb7207e48e0b94daeadf7`。
+
+兩字型3倍正式正常GUI各10次click完成加入TEMPEST、四移位白底選取、取消、重開五列及關窗0。
+最終有效oracle是`formal-gui/normal-gui-oracle.json`，SHA-256
+`67096c35145a2ac355dcbf60647ef6048c2df60b28e0d77e0c7da6b761ccd70d`。
+64個HD收據按請求標號配對，依實際Step／indexed／palette／Mouse去重後55唯一pair，倚天28／Unifont27。
+4張實際F1排除，5重複不重算，HD-only0；完整HD／Draw31,680,000像素相同。
+獨立原字模及42原字段核ROI3,207,600像素差異0，其中碼帶703,080、姓名與碼帶外2,504,520。
+六保存檔bytes／mode／mtime同R982起始。錯分母暫核`normal-gui-oracle-r2.json`保留，不作最終結果。
+獨立GUI FINAL完整回讀0／0／0、七來源及有效oracle／新wireSHA相同；JSON／Markdown
+`a4c6781b72c6712e4759751046b60568a7afc912b3ee18d1291e05603ce9570f`／
+`2c437120b6f076dde58a6d023fbed1e481f0a0cf5a960b69f7d7fa6af59e1e21`。
+
+新正式55aa binary正常record相同10操作，3,110事件／1,549發布、末367.8M，頁尾停止後續玩、關窗0。
+同binary正式-replay一趟完成0，原wire SHA-256
+`820b2ed71778f8375733f8496128878d4ad05ea95f12c3c1b8e58591ce42f2d3`保持，重播保存bytes／mode／mtime保持。
+source／固定控制／正常GUI獨立結果採認後，022只增四已量移位配對限定CONFORMED。
+任意姓名、其他位置／職業、2倍中文及整體交付仍待；沒有原版、字型或輸入檔頭修改。
