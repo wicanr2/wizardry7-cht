@@ -20,6 +20,12 @@
 | 其他正式功能與交付 | #35／#36／#28尚未收尾，三平台可玩封包未完成 | 依各Issue與READY規格完成正常玩家路線及封包驗收 |
 | adapter與版控答案表 | #29位置待定；#26依使用者維持擱置 | 新提示不讀整表、不提交答案，不擴張兩項決策 |
 
+R992證據文件`534c8078ed44737bff16276bfb246285bc795585`已推送private main。
+新姓名的正常錄製、原版控制及同版重播通過，獨立FINAL已採認，入口[R992](docs/goal/R992-roster-format-source.md)與[025](docs/re/025-ui-localization-coverage.md#r992-roster-format-source)。
+#22結果6075134396與#28結果6075135237各746字／11個LF全文回讀相同，兩Issue保持OPEN，repo仍private。
+自有容器及r992／docs／cmd/wiz7擁有權異常0，R433未追蹤保持；先接#46退格輸入修補，022通用辨識仍DRAFT。
+整體目標維持完成巫術7中文化，其他未驗與交付門檻接續處理。
+
 R991正式修補`4ca3fa69eafac91fb5a0c4fe7ef473bca9104f52`已推送private main。
 四移位配對在兩字型3倍正常GUI完成55唯一HD／Draw配對，ROI3,207,600像素差異0；4F1、5重複不列分母。
 八趟固定原API／20圖範圍及獨立四圖原字模抽樣已採認，2倍基準保持；022已量四配對限定CONFORMED。

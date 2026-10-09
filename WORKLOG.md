@@ -1948,3 +1948,11 @@ ADD限定probe源碼FINAL 0／0／0、七來源SHA採認後，僅重跑該probe�
 詳細報告及SHA見025收尾；本輪RE停止，022保持DRAFT，新姓名英文碼尚待正式實作。
 文件連結與入口通過；自有容器0，r992／docs／cmd/wiz7的root-owned及誤建.md目錄0，UID/GID1000:1000。
 R433未追蹤保持，正式程式與SDK未改。下一實作為#46退格輸入漏接，其他中文化及交付門檻照目前狀態表接續。
+
+證據文件534c8078ed44737bff16276bfb246285bc795585已推送private main。
+[#22結果6075134396](https://github.com/wicanr2/wizardry7-cht/issues/22#issuecomment-6075134396)及
+[#28結果6075135237](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6075135237)
+各746字／11個LF全文及SHA與原稿相同，兩Issue保持OPEN，repo仍private。
+安全回讀收據在workplace/r992/result-comment-receipts.json；#46新議題全文回讀另有獨立收據。
+本輪goal及研究入口已索引，git diff檢查通過，未收原版、字型、code或完整輸入。
+整體中文化尚未完成，目標保持active，不縮為本輪來源補證；後續先完成#46與名單正式顯示閘門。
