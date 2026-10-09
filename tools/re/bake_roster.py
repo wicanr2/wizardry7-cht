@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""022：六個已量職業碼的獨立TSV家族，不讀原版訊息。"""
+"""022：十四職業與兩性別的獨立TSV家族，不讀原版訊息。"""
 import argparse
 import hashlib
 import json
 import unicodedata
 from pathlib import Path
 
-KEYS = {'M-FIG', 'F-FIG', 'M-THI', 'M-PRI', 'M-MAG', 'F-ALC'}
+KEYS = {'F-ALC', 'F-BAR', 'F-BIS', 'F-FIG', 'F-LOR', 'F-MAG', 'F-MON', 'F-NIN', 'F-PRI', 'F-PSI', 'F-RAN', 'F-SAM', 'F-THI', 'F-VAL', 'M-ALC', 'M-BAR', 'M-BIS', 'M-FIG', 'M-LOR', 'M-MAG', 'M-MON', 'M-NIN', 'M-PRI', 'M-PSI', 'M-RAN', 'M-SAM', 'M-THI', 'M-VAL'}
 CONTEXT = 'character.add.roster'
 SOURCE = 'runtime:0110:0fcc'
 CATALOG = Path(__file__).resolve().parents[2] / 'text/roster.zh-TW.tsv'
@@ -40,7 +40,7 @@ def build(catalog, glyph_char, size):
         entries.append(dict(en=en, zh=zh, dy=0, g=glyphs))
         seen.add(en)
     if seen != KEYS:
-        raise ValueError('職業碼TSV須有完整六鍵')
+        raise ValueError('職業碼TSV須有完整28鍵')
     return dict(schema=1, size=size, context=CONTEXT, source=SOURCE,
                 source_sha256=hashlib.sha256(raw).hexdigest(), entries=entries)
 
@@ -65,7 +65,7 @@ def main():
         bake_font.SPC15 = args.eten_symbol_font
     payload = build(args.catalog, bake_font.glyph_char, bake_font.HEIGHT)
     write_payload(args.output, payload)
-    print(f'職業碼：六鍵，字高{payload["size"]}，缺字0')
+    print(f'職業碼：28鍵，字高{payload["size"]}，缺字0')
 
 
 if __name__ == '__main__':

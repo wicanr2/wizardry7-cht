@@ -28,6 +28,7 @@ var recordingSourcePaths = []string{
 	"cmd/wiz7/recording_startup.go",
 	"cmd/wiz7/review_labels.go",
 	"cmd/wiz7/roster.go",
+	"cmd/wiz7/roster_context.go",
 	"cmd/wiz7/save_metadata_unix.go",
 	"cmd/wiz7/save_paths.go",
 	"cmd/wiz7/save_paths_linux.go",

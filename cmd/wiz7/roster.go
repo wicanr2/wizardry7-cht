@@ -1,6 +1,6 @@
 package main
 
-// 022：六個完整來源及已量位置。姓名及遊戲狀態只讀，還原只限職業碼。
+// R994 disposable prototype: bounded context identifies the row, never its name.
 import (
 	"encoding/hex"
 	"encoding/json"
@@ -16,17 +16,44 @@ import (
 )
 
 type rosterRow struct {
-	source, code string
-	y, nameLen   int
+	code                string
+	y, nameLen, slot    int
+	blankName, selected bool
+	scope               rosterScope
 }
 
-var rosterRows = []rosterRow{
-	{"THESUS    M-FIG", "M-FIG", 150, 6},
-	{"TEMPEST   F-FIG", "F-FIG", 156, 7},
-	{"LYSAND    M-THI", "M-THI", 162, 6},
-	{"NOBAL     M-PRI", "M-PRI", 168, 5},
-	{"TREON     M-MAG", "M-MAG", 174, 5},
-	{"PENTAS    F-ALC", "F-ALC", 180, 6},
+var rosterLegacyCodes = []string{"M-FIG", "F-FIG", "M-THI", "M-PRI", "M-MAG", "F-ALC"}
+var rosterProfessionCodes = []string{"FIG", "MAG", "PRI", "THI", "RAN", "ALC", "BAR", "PSI", "VAL", "BIS", "LOR", "SAM", "MON", "NIN"}
+
+func rosterAllowedCodes(count int) map[string]bool {
+	allowed := map[string]bool{}
+	switch count {
+	case 6:
+		for _, code := range rosterLegacyCodes {
+			allowed[code] = true
+		}
+	case 28:
+		for _, profession := range rosterProfessionCodes {
+			allowed["M-"+profession] = true
+			allowed["F-"+profession] = true
+		}
+	default:
+		return nil
+	}
+	return allowed
+}
+
+func rosterResourcesValid(entries map[string]rosterEntry) bool {
+	allowed := rosterAllowedCodes(len(entries))
+	if allowed == nil {
+		return false
+	}
+	for key, e := range entries {
+		if !allowed[key] || e.En != key {
+			return false
+		}
+	}
+	return true
 }
 
 type rosterEntry struct {
@@ -59,13 +86,10 @@ func decodeRoster(r io.Reader, size int) (map[string]rosterEntry, error) {
 	hash, err := hex.DecodeString(data.SourceSHA256)
 	if data.Schema != 1 || (size != 15 && size != 16) || data.Size != size ||
 		data.Context != "character.add.roster" || data.Source != "runtime:0110:0fcc" ||
-		err != nil || len(hash) != 32 || len(data.Entries) != 6 {
+		err != nil || len(hash) != 32 || rosterAllowedCodes(len(data.Entries)) == nil {
 		return nil, fmt.Errorf("職業碼資源標頭不合格")
 	}
-	allowed := map[string]bool{}
-	for _, row := range rosterRows {
-		allowed[row.code] = true
-	}
+	allowed := rosterAllowedCodes(len(data.Entries))
 	entries := map[string]rosterEntry{}
 	for _, e := range data.Entries {
 		count := utf8.RuneCountInString(e.Zh)
@@ -122,7 +146,7 @@ func loadRoster(xlate string, trans map[string]entry) map[string]rosterEntry {
 		var entries map[string]rosterEntry
 		entries, err = decodeRoster(f, size)
 		if err == nil {
-			log.Print("職業碼：載入六鍵")
+			log.Printf("職業碼：載入%d鍵", len(entries))
 			return entries
 		}
 	}
@@ -133,50 +157,15 @@ func loadRoster(xlate string, trans map[string]entry) map[string]rosterEntry {
 type rosterWitness struct {
 	after  []byte
 	normal bool
+	scope  rosterScope
+	slot   int
 }
 
 func rosterKnownY(y int) bool {
-	for _, row := range rosterRows {
-		if row.y == y {
-			return true
-		}
-	}
-	return false
+	return y >= 150 && y <= 180 && (y-150)%6 == 0
 }
 
-// 022 R991：只增四個已量移位，回傳副本以保持原表不變。
-func rosterRowAt(source string, y int) *rosterRow {
-	for _, row := range rosterRows {
-		if row.source != source {
-			continue
-		}
-		allowed := row.y == y
-		switch row.code {
-		case "M-THI":
-			allowed = allowed || y == 156
-		case "M-PRI":
-			allowed = allowed || y == 162
-		case "M-MAG":
-			allowed = allowed || y == 168
-		case "F-ALC":
-			allowed = allowed || y == 174
-		}
-		if !allowed {
-			return nil
-		}
-		row.y = y
-		return &row
-	}
-	return nil
-}
-
-func (ov *overlay) enterRoster(ret oracle.Addr, sp, font, off uint16, x, y int, raw []byte, before []byte) bool {
-	if !ov.rosterEnabled || ret != (oracle.Addr{Seg: 0x0110, Off: 0x0fcc}) {
-		return false
-	}
-	if !rosterKnownY(y) {
-		return false
-	}
+func (ov *overlay) retireRosterAt(y int) {
 	for _, e := range ov.evs {
 		if e.roster != nil && e.y0 == y {
 			e.dead = true
@@ -189,22 +178,47 @@ func (ov *overlay) enterRoster(ret oracle.Addr, sp, font, off uint16, x, y int, 
 		}
 		ov.pend = nil
 	}
-	if sp > 65530 || font != 0 || x != 150 || int(off)+16 > 65536 || len(raw) != 16 ||
-		raw[15] != 0 || len(before) != 64000 {
-		log.Printf("職業碼缺譯：訊號或完整列不符 y=%d", y)
+}
+
+func (ov *overlay) applyRosterScope(c rosterContext) {
+	for _, e := range ov.evs {
+		if e.roster != nil && (e.roster.scope != c.scope || e.roster.slot < c.scope.first || e.roster.slot >= c.scope.first+c.scope.count) {
+			e.dead = true
+		}
+	}
+}
+
+func (ov *overlay) enterRoster(ret oracle.Addr, sp, font, off uint16, x, y int, evidence *rosterContextEvidence, raw []byte, before []byte) bool {
+	if !ov.rosterEnabled || ret != oracle.Far(0x0110, 0x0fcc) {
+		return false
+	}
+	ov.retireRosterAt(y)
+	c, err := validateRosterContext(evidence, off, font, x, y)
+	if sp > 65530 || err != nil || evidence.registers.SP != sp {
+		log.Printf("職業碼缺譯：數值或來源身份不符 y=%d", y)
 		return true
 	}
-	row := rosterRowAt(string(raw[:15]), y)
-	if row == nil {
-		log.Printf("職業碼缺譯：完整列或位置不符 y=%d", y)
+	ov.applyRosterScope(c)
+	if int(off)+16 > 65536 || len(raw) != 16 || raw[15] != 0 || len(before) != 64000 {
+		log.Printf("職業碼缺譯：完整列或離屏不符 y=%d", y)
 		return true
 	}
-	e, ok := ov.roster[row.code]
-	if !ok {
+	blank := true
+	for _, b := range raw[:10] {
+		if b < 32 {
+			log.Printf("職業碼缺譯：名字控制字元 y=%d", y)
+			return true
+		}
+		blank = blank && b == ' '
+	}
+	code := string(raw[10:15])
+	e, ok := ov.roster[code]
+	if !rosterResourcesValid(ov.roster) || !ok {
 		log.Printf("職業碼缺譯：資源不符 y=%d", y)
 		return true
 	}
-	ov.pend = &pendingPrint{s: row.source, x0: 210, y0: y, sp: sp, ret: ret,
+	row := &rosterRow{code: code, y: y, nameLen: 10, slot: c.slot, blankName: blank, selected: c.selected, scope: c.scope}
+	ov.pend = &pendingPrint{s: code, x0: 210, y0: y, sp: sp, ret: ret,
 		font: font, before: append([]byte(nil), before...), g: e.G, roster: row}
 	return true
 }
@@ -237,11 +251,12 @@ func finishRoster(p *pendingPrint, after []byte, pal [256][3]uint8) *textEv {
 			return nil
 		}
 	}
-	if nameChanges == 0 || codeChanges == 0 {
+	if (!row.blankName && nameChanges == 0) || codeChanges == 0 || !havePair ||
+		(row.selected && (bg != 1 || fg != 0)) || (!row.selected && (bg != 195 || fg != 180)) {
 		return nil
 	}
 	e := &textEv{s: p.s, x0: 210, y0: row.y, bx: 210, by: row.y, bw: 30, bh: 6,
-		g: p.g, fg: fg, fgRGB: pal[fg], roster: &rosterWitness{normal: bg == 195}}
+		g: p.g, fg: fg, fgRGB: pal[fg], roster: &rosterWitness{normal: bg == 195, scope: row.scope, slot: row.slot}}
 	for j := 0; j < 6; j++ {
 		start := (row.y + j) * 320
 		e.before = append(e.before, p.before[start+210:start+240]...)

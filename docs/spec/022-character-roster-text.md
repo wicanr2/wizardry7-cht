@@ -1,6 +1,9 @@
-# 022 新增角色清單的性別與職業碼
+# 022 角色清單的性別與職業碼
 
-狀態：READY，R991已量四個移位配對限定CONFORMED；2026-10-09；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。R930原契約及R991增補均經獨立複審採認；未知分支、任意姓名及2倍中文未放行完成。
+狀態：已量路線限定CONFORMED，其餘READY；2026-10-09；[#22](https://github.com/wicanr2/wizardry7-cht/issues/22)、[#28](https://github.com/wicanr2/wizardry7-cht/issues/28)。R994通用辨識與28碼資源已接線，兩來源First0、六碼及新姓名的雙字型3倍路線已驗；2倍中文未放行完成。
+
+目前的來源辨識及資源集合以[R994正式契約](#r994-正式契約)為準，承接ADD與角色選人兩來源。
+下列原六名契約及R991保留其證據與已量範圍；R992的待議結構設計由R994取代。
 
 ## 目的與證據
 
@@ -172,3 +175,67 @@ cmd2.816秒、initconfig0.024秒、recording1.213秒通過；source獨立FINAL 0
 它不符合上列ADD來源，不能只因ret／x／y／完整字串相同就稱同一建構端。
 現行六鍵會在此畫面顯示中文；替換正式辨識前須保留這項既有顯示，或先補其獨立契約與驗收，不能使已中文的六鍵退回英文。
 本輪不把兩個新tuple加進ADD守門，不以改名時AF6F區的簽章代替ADD建構端簽章。
+
+## R994 通用顯示列增補草案
+
+狀態：已量First0路線限定CONFORMED，其他分支READY，入口[R994](../goal/R994-generic-roster.md)。兩個已量來源共同使用結構辨識，
+保留各自的祖先與code身份，名字不再當翻譯鍵或畫面識別。正式source已依本節接線，限定驗收見末節。
+
+- ADD沿R992兩tuple及VBASE簽章；角色選人沿5C2A／BA64／BE6C、61D9／BA64／BE6C。
+  改名時AF6F的325 bytes已與VPCMK.code raw5F1A精確相同，hash32d7f3d2…是角色選人身份，不當ADD簽章。
+- 共享resident166 bytes及frame18＋ancestor12 bytes的界限保持，兩來源分別核code，不跨overlay快取。
+  新count1..6正常證據已量；最後一人加入後的實際邊界為列表撤除／滿隊選單，沒有空名單印字。
+  First非0沿下段已證指標公式，不猜其他來源；正常捲動未量，仍另列驗收。
+- 顯示slot為16 bytes含末NUL，前十byte為原版名字／padding，後五byte為完整性別職業英文鍵。
+  名字保持原墨點及十格保護，不參與翻譯；正式十四職業／兩性別資源完整重建後才放行新碼。
+- 原版全圖差異與單一色對、完整540-byte身份及180-byte碼帶還原沿既有契約。
+  不合格來源先撤除該列舊中文，不能因名字或位置改變而留舊碼；名字為空白的邊界另明定，不從六名長度猜值。
+- 兩來源、六到一人、正常新名及資源範圍證據齊全後獨立審READY，再寫正式實作。
+  字型／原座標及3倍比例保持，2倍仍由獨立排版契約處理。
+
+### R994 正式契約
+
+以下契約已經獨立審查READY。正常66個返回已量：ADD count6..1共42個，既存改名／ADD路線24個。
+全部返回SP＋2、X240及原y，64K差異只在本列名字十格與碼五格，名字／碼皆非空，只有195→180或1→0單一色對。
+
+1. 入口ret／font／x／六y／SP與raw16界限沿R991；prefix十byte只拒絕<20h，視為原版不透明字元，不解UTF-8、不當翻譯鍵。
+   byte15必為NUL，suffix五byte完整匹配性別／職業碼。名字metadata一律保護十格，不用已知姓名長度。
+2. BP／SS／DS及30-byte數值界限沿R992。Width15、Count1..6、Index<Count；slot＝First＋Index以int計算，
+   E38h＋20×slot須≤65520且等原參數off，x＝Xbase＋2＝150、y＝Ybase＋6×Index＋1且為六y。
+   First及Selected的靜態語意沿resident原指令：來源用First＋Index，選取以其與Selected相等判定。
+   不能假定Selected一定在本視窗，也不猜全名單上限；只拒絕指標運算wrap。First非0正常路線尚未量，不標CONFORMED。
+3. 三ancestor僅接兩個owner各兩tuple，分別核resident166及arena325。ADD用VBASE12eb，角色選人用VPCMK32d，
+   每次重核，不快取通過狀態到其他overlay；其餘owner保留英文並記錄。
+4. suffix可用28碼完整資源，schema1形狀／context／source保持；decoder也保留既有完整六碼資源相容，其他缺漏集合拒絕。
+   28碼沿既有十四職業譯名；F-VAL「女武神」、M-VAL「男性女武神」保留原職業名及原M/F資訊，不代替原版判斷性別資格。
+5. 原full64K差異、180-byte還原、540-byte身份及底邊例外保持。只允許名十格與碼帶、單一批准色對；碼差異必非空。
+   名字非全空白時名字差異仍須非空；全空白prefix的零名字墨點只作防禦邊界單測，不宣稱正常角色已量。
+   來源非法先清該y舊事件與pending；有效owner／First／Count／基座改變時撤除不屬新視窗的舊事件，避免移位留舊碼。
+6. 正常新姓名、兩owner、count6..1／滿隊撤除、兩色對及舊六碼相容必驗。資源雙後端缺字0，最長83／88px≤90，
+   28個所需字元都已在正式碼點清單；全局字元清單無新增。實作不得動原版、輸入、規則或保存。
+
+獨立READY審查0阻擋／0應改／0建議，完整FINAL及兩報告已讀取；17份來源、兩報告及198份證據指紋均核同。
+JSON／Markdown SHA-256為`4f5da4017dd68de440cfa16ff081a4f74111b4f446e243cece90bf698a3377e5`／
+`4aa0e1736b9ef04d8534b7e00d8e9fa48de97952c349ca99f4e8870639d1e6f2`；
+198檔fingerprint為`3febed4ab060dabf54dd773b6363cd178bdcee3842e13263bae39b95cb826d84`。
+兩原字型的男／女／鍊字模獨立抽查一致，既有六碼及碼點覆蓋通過。
+此為實作前的READY閘門；後續限定動態驗收如下。First非0及全空白名字仍依上列限制。
+
+### R994 正式限定驗收
+
+正式94份來源及binary與已審原型全bytes相同，SHA與正常來源見[025](../re/025-ui-localization-coverage.md#r994-generic-roster)。
+兩字型3倍正常SELECT未選／白底／取消及ADD count6..1／滿隊撤除通過；各18次正常click，沒有進改名輸入。
+兩新完整wire為3,248／3,196事件、1,614／1,588快照，末427.2M／422M；同6f31正式binary重播均完成0。
+正常Stop後續玩及關窗0，四GUI／正式重播的保存bytes、SHA、mode及mtime均保持。
+
+六組私人原API old/new共12趟完成0，12,200對原版發布全trace與基準相同；所有樣本indexed／palette相同。
+80張派生HD共37,760,000 RGBpx符合獨立原字型期望，姓名與碼帶外保持；其中2倍26圖6,656,000px保持old。
+14張實際GUI選取碼帶22,680px相符；獨立代理另以Pillow解兩原字型抽兩張F-ALC，共3,240px相同，不重算分母。
+派生HD不當live Draw，同版正式重播與私人原API控制分列，不宣稱舊binary相容。
+
+動態獨立FINAL 0／0／0完整採認，25來源／結果／報告及640畫格檔指紋均核同。
+JSON／Markdown SHA-256為`db0fcb5beda2ea2d8542742c17c1749f3f3725e8555d6e5096b025ef293b1b1c`／
+`3a556d0d400f8d5b1699f406dbbdfe6be9c650ea4a89392d18f4c27f4962bfa6`；
+frame fingerprint為`4a4dc0ec6fff71ae56694af37bdd9e724fb748b20bbb7bd879fc032f6ac16f98`。
+僅First0、兩owner、ADD count6..1及已量六碼／新姓名的雙字型3倍標限定CONFORMED。
+First非0、其他22碼及OEM／空白名字正常未量；2倍只維持原圖，中文排版仍待，不外推全遊戲完成。

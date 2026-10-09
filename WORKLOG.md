@@ -2011,3 +2011,54 @@ repo仍private，安全回讀收據在workplace/r993/result-comment-receipts.jso
 本輪自有容器0，r993／docs／cmd/wiz7 root-owned及誤建.md目錄0，UID/GID1000:1000；新goal、035及研究均有索引。
 Source及binary仍D6／93來源，沒有SDK、原版、譯文或font變更。R433保持未追蹤，全部本機輸入及保存未加入Git。
 整體目標繼續完成巫術7中文化，下一步通用名單及未完交付；不以本缺陷結案宣稱全案完成。
+
+## 2026-10-09 R994 通用名單
+
+上一輪R993正式修補、獨立結果、push與#46結案完成，屬實際進展。沿#22／#28及規格先行路由接通用名單。
+開工留言6076748123全文358字／7個LF與原稿相同；goal及022新DRAFT已索引，正式main保持R993。
+角色選人32d7 code僅seek325比對，已精確定位VPCMK raw5F1A，停止其餘RE。
+正常加入六人取得剩6至1各未選／選取12圖及滿隊列表撤除；此時ADD消失，原位置成檢視，沒有誤按或假造空名單。
+完整3,455事件／1,720快照／末419.4M，正常Stop續玩close0，保存全部metadata保持。
+玩家FINAL已完整採認，19身份核同；原版、既存保存及wire均唯讀，沒有直接改遊戲狀態。
+
+新兩來源／count1..6 probe先獨立source FINAL採認9身份才跑，code每次重核，不跨overlay快取。
+66返回全域外0／批准單色對，SP＋2／x240／原y符合；剩餘人數及改名兩段全trace同原API，同D6新收據重播0。
+完整數值與來源SHA見025 R994，所有raw code／before／after／圖片只留本機。
+私人28碼資源原生15／16皆缺字0、寬度83／88，六碼原glyph保持，所需字元早在正式清單。
+字元清單首檢查誤把U+hex作正文，另存r2修正為碼點解析，初版保留，不列產品缺字。
+滿隊實圖新見主選單普通小字及ALCHEMI側欄，已定位正常輸出，另列後續，不提前改已定範圍。
+022待審契約改用已證First＋Index公式及原址wrap防護，不猜名單總上限，正常捲動仍未量。
+私人通用prototype由子代理準備中，未READY不搬production；動態證據／資源及契約獨立審查另記。
+
+獨立契約FINAL 0／0／0完整採認，17來源、兩報告及198證據指紋核同，022 R994改READY。
+兩後端男／女／鍊原字模抽查相符；First非0正常未量，沒有升為CONFORMED。
+UI缺口留言6077357043全文283字／6個LF回讀相同，安全收據只留本機。
+
+READY後接入正式28碼TSV與baker，兩後端從正式來源乾淨重建roster，與已審原型全bytes相同。
+同目錄xlate／profile-sex／intro-picture沿R988全bytes保持，flow沿R983、help沿R979；正式Go尚未替換。
+正式資源身份見workplace/r994/formal-resource-identity.json，輸出擁有權1000:1000。
+
+私人原型由子代理完成主體，主代理接手五類舊測試的結構fixture與新增邊界測試，cmd3.185秒、initconfig0.029秒、recording1.175秒通過。
+第一次Xvfb wrapper以直接exec得到126，屬0644腳本的呼叫問題；改以sh同wrapper乾淨重跑通過，沒有產品缺陷。
+source獨立FINAL 0／0／0完整採認，12來源及兩報告、原型binary共15身份核同後搬六Go檔。
+正式build 94實源、sourceSHA a6297a068f54caf0888716c64ce81c1ba041cb3ed1aa1cc003ba7fbd2596ea4d，
+binary SHA 6f31cc079d38cad192157bd0ddc1146792f8fe4574369eb302e7f1a32f32899f、15,989,192 bytes；與已審原型收據及binary全bytes相同。
+私人原API old/new控制只加原三唯讀掛勾及16個既存publication擷取，差異已核，不能當正式binary相容重播。
+正式正常GUI雙字型與原API A/B現在進行中，完成前不標CONFORMED或push。
+
+改名控制首次掛載使用交接中省略record-gui的路徑，被Docker --mount拒絕，未建立空目錄、未啟動原版。
+核對後改用workplace/r992/normal-name/r2/record-gui/save，身份與既有probe初始保存相符後重跑；這是驗收路徑問題。
+
+remaining雙字型old/new四趟完成0，兩組各1,720原版發布全trace同3869627b…，保存metadata保持。
+rename四趟在500秒實際執行預算到期，分別只達1,673至1,824發布，末357.8M至388M，目標為2,190發布／490.2M。
+確認仍持續推進後重查試玩路由，分類為單CPU驗收預算不足，未採認部分結果；完整輸出保留在workplace/r994/ab-timeout。
+四容器均自行清理；嘗試停止時已查無容器，沒有刪除其他工作。只把私人runner預算改900秒，遊戲時鐘、輸入、binary及CPU配置保持，乾淨重跑。
+
+重跑後12趟A/B全部完成0；六組12,200發布配對全trace同基準，80派生HD37,760,000px與原字型相符。
+核對器首趟以名字匹配被VGA游標10／33／2點誤拒，改以完整英文碼辨識，最後全圖比較仍護姓名；production未改。
+完整default六組通過，3倍診斷4組另存，不以部分矩陣冒成功。2倍26圖只證保持原圖，不是中文化。
+正常GUI雙字型SELECT／ADD count6..1與滿隊撤除，兩新wire3,248／3,196事件同正式6f31重播皆完成0；四保存層metadata保持。
+玩家FINAL完整採認8身份，80實圖指紋固定；14實際GUI選取碼帶22,680px相符，代理另以原字模抽兩圖3,240px。
+最終獨立FINAL 0／0／0完整讀取，25身份及640畫格檔指紋全同，022已量First0／兩owner／六碼新姓名雙字型3倍限定CONFORMED。
+原始wire、字模、程式及圖片只留本機；自有容器、root-owned及誤建.md目錄均0，R433維持未追蹤。
+接續#22的滿隊主選單毛筆字與ALCHEMI側欄、其餘中文化及交付門檻；沒有完成整體Goal或關閉#22／#28。

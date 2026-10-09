@@ -1146,7 +1146,7 @@ func main() {
 	} else {
 		ov.roster = loadRoster(*xlatePath, trans)
 	}
-	ov.rosterEnabled = len(ov.roster) == 6 && *scale == 3 && hdScale == 3
+	ov.rosterEnabled = rosterResourcesValid(ov.roster) && *scale == 3 && hdScale == 3
 	if recordingMode {
 		ov.sexEntries = bundle.sex
 	} else {
@@ -1302,6 +1302,13 @@ func main() {
 		ov.clearProfileSex("一般字串插入")
 		evMu.Unlock()
 		r0 := o.Regs()
+		if r0.SP > 65530 {
+			evMu.Lock()
+			ov.retireRosterAt(int(o.Word(oracle.Far(0x740c, 0x0297))))
+			evMu.Unlock()
+			log.Print("職業碼缺譯：入口stack span")
+			return
+		}
 		ret := oracle.Addr{Seg: r0.CS, Off: o.StackWord(0)} // near call（E2）
 		off := o.StackWord(1)
 		ds := r0.DS
@@ -1367,19 +1374,29 @@ func main() {
 			}
 			return
 		}
-		if ov.rosterEnabled && ret == (oracle.Addr{Seg: 0x0110, Off: 0x0fcc}) && rosterKnownY(in.Y) {
-			raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, min(16, 65536-int(off)))
+		if ov.rosterEnabled && ret == oracle.Far(0x0110, 0x0fcc) {
 			evMu.Lock()
-			var handled bool
-			if r0.SP > 65530 {
-				// 先撤除本列舊事件；不讀越界的新增字型引數。
-				handled = ov.enterRoster(ret, r0.SP, 0, off, in.X, in.Y, raw, nil)
-			} else {
-				handled = ov.enterRoster(ret, r0.SP, o.StackWord(2), off, in.X, in.Y, raw, offscreen(o))
+			ov.retireRosterAt(in.Y)
+			evMu.Unlock()
+			var evidence *rosterContextEvidence
+			var raw, before []byte
+			regs := rosterRegisters{r0.CS, r0.DS, r0.SS, r0.SP, r0.BP}
+			if in.Font == 0 && in.X == 150 && rosterKnownY(in.Y) && off <= 65520 && rosterFrameBounds(regs) {
+				raw = o.Bytes(oracle.Far(ds, off), 16)
+				evidence, _ = readRosterInvocationContext(regs, ret, off, in.Font, in.X, in.Y, raw, o.Bytes)
 			}
+			if evidence != nil {
+				if _, err := validateRosterContext(evidence, off, in.Font, in.X, in.Y); err == nil {
+					before = offscreen(o)
+				}
+			}
+			evMu.Lock()
+			handled := ov.enterRoster(ret, r0.SP, in.Font, off, in.X, in.Y, evidence, raw, before)
 			evMu.Unlock()
 			if handled {
-				arm(ret)
+				if ov.pend != nil {
+					arm(ret)
+				}
 				return
 			}
 		}

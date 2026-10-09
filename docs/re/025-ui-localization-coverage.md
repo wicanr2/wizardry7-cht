@@ -1761,3 +1761,69 @@ Unifont各原API有／無覆繪1,574發布及561,382-byte trace全同，SHA-256
 JSON／Markdown SHA及未量限制見035；36影格合併指紋
 `c2353c70fd19033282d930c1fc0ae78b239dcbbef2d59f0d3d3641d2711229ce`。
 新姓名職業碼仍英文，022通用辨識及其他中文化／平台交付保持未完成；本修補未修改SDK、譯文或字型。
+
+## R994 通用名單證據（2026-10-09）
+
+<a id="r994-generic-roster"></a>
+
+入口[R994](../goal/R994-generic-roster.md)、[022 READY](../spec/022-character-roster-text.md#r994-通用顯示列增補草案)。
+正式D6正常依序加入ROWTEST、TEMPEST、LYSAND、NOBAL、TREON、PENTAS，剩6至1各未選／白底共12張實圖。
+最後一人加入後列表撤除、六人隊伍可見，原版移除ADD並切換滿隊主選單；沒有空列表印字或empty提示，不假造0-row路線。
+新正常錄製3,455事件／1,720快照，末419.4M、760,850 bytes，Stop後續玩及關窗0。
+wire SHA-256 `36ca61b9033942269bf10365b0ca6f559db3eb093c1396a2952b5973b82a6fe5`。
+正常玩家FINAL完整回讀採認，六來源／報告及13實圖共19項核同；JSON／Markdown
+`9bca86547171217b3d74166662926fbb305bb9f929e6bf20506abd62a970d117`／
+`b9eb314016c9284ca43f3f49b830f53b039f9f8f489d6f77dc210fa6f7897108`。
+
+R992改名時arena325 bytes窄比對已精確等VPCMK.code raw`[5F1A,605F)`。
+VPCMK.OVR SHA-256 `dd1bcb9a54943163237ff48644c021ea202c36c15858fd7fd71520a5f871d28b`；
+code SHA-256 `f48ba588d545f0bc71bdc07715b4b3552456fe85287228a8d36a243894992b12`。
+此為來源身份，不把改名32d7簽章換成ADD的12eb，也不重開人物record格式或其餘函式研究。
+
+新私人probe source獨立FINAL 0／0／0完整採認，七source與兩報告共9項核同後執行。
+每事件重用raw16，frame最多30B、code491B逐次核兩來源簽章，before／after各64K及原返回XY4B，cap64與SP＋2／1M步限制保持。
+66個返回為ADD count6..1各12／10／8／6／4／2，共42；另既存改名／ADD路線24，兩owner各12。
+全66個返回X240／原y／SP＋2，完整64K差異都只有名字十格及碼五格；名字／碼非空、域外0，單一195→180或1→0。
+安全細表在`workplace/r994/row-delta-safe.json`，這是原版有界格式證據，尚未放行正式通用覆繪。
+
+剩餘人數路線probe／raw全部1,720發布與613,650-byte trace相同，SHA-256
+`3869627b5653393296bf58e1bce04dd9a32e17c81971f89bbc606300d8e6919b`；同D6正式重播0，四保存層全部metadata保持。
+改名probe的2,190發布全trace同R993原API，SHA仍df22e708…；保存由原版正常改名，未撤銷或改輸入。
+安全結果`trace-preservation-safe.json`，動態獨立採認與READY契約另記。
+
+私人資源原型依既存120..133十四職業補M/F共28碼，既有六碼的en／zh／dy／glyph全部相同。
+兩字型缺字0，原生15／16，最長83／88px≤90；28個所需漢字都在正式U+碼點清單，沒有新增全局字元。
+初版檢查器把U+hex清單當正文，誤報28字缺；保留初版，依正式格式另存`resource-prototype-safe-r2.json`，缺0。
+原型TSV SHA-256 `4229a1e2cdfbb230e0442a639826c69c7bce9bfcbaf48d7c54a0a58cbc431099`，尚未搬進正式來源。
+
+滿隊實圖另見兩項後續覆蓋缺口：主選單已有中文但回退普通小字；PENTAS側欄仍英文ALCHEMI。
+正常raw已量ALCHEMI於step407118987、x261／y146、ret0110:1c71；滿隊START NEW GAME於ret0110:539b。
+後續按原定主選單UKai與職業譯名處理，不因這兩項擴張本輪原版資料讀取；完整畫面與log只留本機。
+
+獨立證據／資源／契約審查0／0／0已完整採認，17來源、兩報告與198證據指紋均相同。
+022 R994已READY；原生男／女／鍊字模兩後端獨立抽查相符，First非0只放行已證公式的有界實作，正常未量。
+報告身份與限制見022；原型source及正式動態驗收另記。本輪UI缺口留言6077357043全文283字／6個LF已回讀相同。
+
+通用Go source獨立FINAL 0／0／0完整採認，12來源、兩報告及原型binary共15身份核同後正式接線。
+回歸cmd／initconfig／recording分別3.185／0.029／1.175秒通過。正式與已審原型94份實源收據及binary全bytes同，
+source SHA-256 `a6297a068f54caf0888716c64ce81c1ba041cb3ed1aa1cc003ba7fbd2596ea4d`；
+binary `6f31cc079d38cad192157bd0ddc1146792f8fe4574369eb302e7f1a32f32899f`、15,989,192 bytes。
+來源審查JSON／Markdown SHA為`33f0eef23565a665a5c6873946940d4c3308c2b921c28302b14777ca91646e90`／
+`fba3e01f35677e0b39d404d4e09fc1f5400f24a42a7bb171023d04274ede213a`。
+
+正式兩字型3倍正常GUI皆已完成SELECT六列／ROWTEST選取／取消、ADD count6..1及滿隊列表撤除，
+正常頁尾Stop、續玩與關窗0。兩原字型另獨立重建SELECT及ADD白底碼帶，每後端7張，共14實圖、22,680 RGBpx差異0。
+此為實際GUI的選取碼帶抽樣，不當作全圖HD／Draw同狀態；姓名保持另由正常視讀及原API完整像素檢查承接。
+新完整wire為倚天3,248事件／1,614快照／末427.2M，Unifont3,196／1,588／422M；同6f31正式binary重播皆完成0。
+兩GUI及兩正式重播保存bytes／SHA／mode／mtime保持，正常continued圖才確認錄製完成；早一張倚天圖仍在收尾，不單獨當成功。
+GUI FINAL兩報告及8身份完整採認；80實圖指紋`b88588097a4455080dde00b91198461cacc7e31340fd0f79406536dc1101aaf9`。
+
+六組私人原API old/new共12趟全0，12,200發布配對全trace同基準；remaining各1,720同3869627b…，rename各2,190同df22e708…。
+所有抽樣indexed／palette同，remaining保存全metadata保持，rename原版正常寫入的最終bytes／mode相同，自然mtime另列。
+80派生HD共37,760,000 RGBpx符合外部原字型期望；3倍54圖31,104,000px，2倍26圖6,656,000px保持old。
+原核對器把游標覆在名字的10／33／2點當身分不符；改以完整英文碼墨點辨識，最後完整RGB比較仍護姓名及碼帶外。
+完整六組default矩陣通過，3倍診斷結果不取代它；兩次修正皆為驗收工具，不改production或binary。
+
+最終動態獨立FINAL 0／0／0完整採認，25來源／結果／報告及640畫格檔fingerprint核同；身份見022末節。
+只標First0、兩owner、count6..1、六碼及新姓名的雙字型3倍限定CONFORMED。其他22碼、First非0、OEM／空白正常未量；
+2倍仍非中文，派生HD不稱live Draw，全案及滿隊選單／ALCHEMI兩個後續缺口仍待。

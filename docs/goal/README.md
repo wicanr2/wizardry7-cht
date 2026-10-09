@@ -9,6 +9,7 @@ WHO游標正式接線：[R988](R988-who-cursor-wiring.md)。
 加入角色後移位名單的中文覆蓋：[R991](R991-relocated-roster.md)。
 名單格式與通用辨識的結構來源：[R992](R992-roster-format-source.md)。
 姓名輸入的退格鍵：[R993](R993-backspace-stdin.md)。
+通用姓名的性別與職業：[R994](R994-generic-roster.md)。
 
 正常載入後的人物頁情境觀察：[R984](R984-normal-profile-context.md)。
 

@@ -25,6 +25,7 @@
 加入角色後移位名單的原版證據及中文覆蓋：[R991](025-ui-localization-coverage.md#r991-relocated-roster)，[022增補](../spec/022-character-roster-text.md#r991-加入角色後移位列增補)。
 名單格式與生成端結構來源：[R992](025-ui-localization-coverage.md#r992-roster-format-source)，[目標](../goal/R992-roster-format-source.md)。
 姓名退格輸入：[R993](025-ui-localization-coverage.md#r993-backspace-input)，[規格035](../spec/035-backspace-input.md)。
+通用名單與剩餘人數：[R994](025-ui-localization-coverage.md#r994-generic-roster)，[目標](../goal/R994-generic-roster.md)。
 選人WHO游標的正式中文與正常移動／取消：[R988](025-ui-localization-coverage.md#r988-who-cursor-wiring)，[033契約](../spec/033-world-identity-labels.md#r988-who-cursor-contract)。
 頭像頁兩則文字與保持原頭像返回：[R955](025-ui-localization-coverage.md#r955-頭像頁文字與完成返回)。
 低倍率人物數值與原生字型排版原型：[R953](025-ui-localization-coverage.md#r953-兩倍人物欄位原型)。

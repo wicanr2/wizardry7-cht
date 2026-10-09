@@ -37,7 +37,8 @@ python3 tools/re/bake_help.py workplace/bake-unifont/help.json
 
 主程式以`-xlate`、`-flow`、`-help`指定這三份JSON；字型選項只影響烘製與顯示。
 `bake_font.py`同時從職業碼TSV產生`roster.json`，主程式依`-xlate`的目錄載入它。
-六個已量角色列的中文目前限互動與HD皆3倍，規格見[022](../docs/spec/022-character-roster-text.md)。
+資源包含十四職業與兩性別共28碼，中文目前限互動與HD皆3倍，規格見[022](../docs/spec/022-character-roster-text.md)。
+通用姓名的已量雙字型3倍路線由R994限定驗收；其他碼及捲動正常未量，完整限制見022。
 只重建此家族可用下列入口，不需原版訊息表；環境變數沿上列設定，輸出必須是新檔：
 
 ```sh
