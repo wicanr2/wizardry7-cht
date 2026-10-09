@@ -4,6 +4,7 @@
 世界人物頁性別與選人提示：[R986](R986-world-identity-labels.md)。
 WHO選人提示呼叫見證：[R987](R987-who-call-witness.md)。
 WHO游標正式接線：[R988](R988-who-cursor-wiring.md)。
+新覆繪來源的正式錄放建置：[R989](R989-recording-source-refresh.md)。
 
 正常載入後的人物頁情境觀察：[R984](R984-normal-profile-context.md)。
 

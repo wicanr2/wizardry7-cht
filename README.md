@@ -4,7 +4,7 @@
 原版 `DS.EXE` 在 [dosgolem](https://github.com/wicanr2/dosgolem) 上執行，轉譯層辨識玩家可見輸出，
 在放大後的畫布覆繪中文。目的是讓不諳英文的玩家也能理解迷宮、對話與角色資訊。
 
-玩家須自備合法的原版遊戲。儲存庫與可散布發行包不提供原版程式、資料、美術、音樂、手冊或防拷答案。
+玩家須自備合法的原版遊戲。可散布發行包不提供原版程式、資料、美術、音樂、手冊或防拷答案。
 
 ## 遊戲與中文化方式
 
@@ -30,7 +30,7 @@ F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
 片頭六張圖片的「呈獻」已支援兩套字型與2／3倍正常顯示，見[圖片覆繪規格](docs/spec/025-intro-picture-labels.md)。
 圖片文字以周邊紋理近似補底，其他圖片文字及按鈕仍在驗收；新增家族須依[字型說明](font/README.md)重建資源。
 尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移及三平台發行包。
-原版存檔已接入獨立持久可寫層，正常保存與重新啟動載入仍在驗收，見[存檔規格](docs/spec/014-original-save-storage.md)。
+原版存檔已接入獨立持久可寫層，Linux正常保存與重新啟動載入已驗，原生平台及封包仍待，見[存檔規格](docs/spec/014-original-save-storage.md)。
 開場故事與迷宮旁白使用訊息譯文表並依原版分頁覆繪；資料表中有譯文不代表所有玩家畫面都已中文化。
 完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
 
@@ -72,6 +72,24 @@ tools/fe.sh xvfb 'go test ./cmd/wiz7'
 烘製支援本機倚天與固定版GNU Unifont，來源、授權、字元清單與重建入口見[字型說明](font/README.md)。
 倚天 `stdfont.15` 與符號字型僅供本機；正式封包採Unifont並保留OFL與著作權。
 這些開發工具不構成已驗收的跨平台安裝流程。
+
+### 輸入錄製與重播
+
+可錄放版本由[build_recording.py](tools/re/build_recording.py)建置，將當次實際選定來源綁入程式。
+普通`go build`缺少這份身份時可遊玩，但會拒絕錄放。沿上述Docker入口，先建立新的輸出目錄：
+
+```bash
+WIZ7_FE_IMAGE=wizardry7-go-ebiten:go1.24.13-20261008-gui-r1 \
+  tools/fe.sh xvfb 'mkdir workplace/recording-build'
+WIZ7_FE_IMAGE=wizardry7-go-ebiten:go1.24.13-20261008-gui-r1 \
+  tools/fe.sh xvfb 'python3 tools/re/build_recording.py --output /src/workplace/recording-build/wiz7 --receipt-dir /src/workplace/recording-build'
+```
+
+以產出的程式加`-record <檔名>`開始錄製，按遊戲區外的「停止錄製」按鈕收尾，之後仍可續玩。
+重播改用`-replay <檔名>`；兩者互斥。錄放檔須放在原版素材與存檔目錄之外，可能含玩家輸入及防拷答案，只留本機。
+重播需要同一程式、平台、資源及相符的起始存檔副本；錄製前先備份存檔目錄，三次重播各用乾淨副本。
+新版本不承諾重播舊版收據。正式格式、限制及已量路線見[013](docs/spec/013-input-recording.md#r951-production-contract)、
+[錄放證據](docs/re/022-input-recording-boundary.md)。
 
 ### 原版存檔位置
 

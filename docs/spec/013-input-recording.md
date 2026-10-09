@@ -672,3 +672,14 @@ SHA及size捕整份原bytes，Loaded表示主字形包解碼，不表示每個�
 舊字形包無兩鍵時沿原顯示；新家族invalid在兩模式得到同樣nil／回退結果。
 不改B1單檔起設、B3／B4停止、故障或後續續玩的定案，也不把frontend config SHA當畫面驗收。
 Draw應先取原遊戲區，避免200×scale＋40頁尾整窗導致紙頁字樣被錯誤尺寸守門略過。
+
+## R989 既有正式錄放契約驗收增補
+
+2026-10-09，既有CLI、schema、六資源及B1至B4契約保持，實際go list生成的來源表納入三個新覆繪檔，共93來源。
+倚天3倍正常LOAD後WHO／人物頁／法術開關／退出再入，頁尾停止後續玩與三次同binary正式重播限定CONFORMED。
+新正常3598事件／1784發布，末Step426400000；兩私人原API控制的原版六類狀態及12保存檔全同。
+私人控制不稱正式重播，wire metadata不當原版oracle；女性、其他新倍率／後端及未量條件保持READY。
+最終獨立0／0／0於FINAL後完整回讀採認，13份來源SHA保持。
+JSON SHA-256 `b8850c145c3c7bcf1642704b7d57e7c7fc9180e5aa8867549f8912c3fdae33ec`；
+Markdown `b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba`。
+正式建置、來源身份及完整有限證據見[022](../re/022-input-recording-boundary.md#r989-recording-source-refresh)。

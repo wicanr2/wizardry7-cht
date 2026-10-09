@@ -1268,3 +1268,37 @@ confirmed限上述兩種真正故障的API／資格及正常控制，不泛稱�
 - 拒絕矩陣 17 例全 exit2（`reject-r1/results.jsonl`）：舊原型／未完成片段→`wire_rejected`；缺檔（位置守門先攔）／錯倍率／錯資源／錄放並存／hd-scale 明示不同／十個禁用旗標全掃→`configuration_mismatch`。跨版本（正式 binary 重播觀察檔）exit2。提前關窗取消重播 exit2、無完成冒稱、原檔不變。
 - 單測：`ReplayNext` 游標／Before／Publication／面板四拒絕、`drawAck` 不符／逾時／中斷、`finish` 逾期保片段、`recordingError` 三類、`locations` 缺檔重播拒絕；`recording`／`initconfig`／`cmd/wiz7` 全綠，vet 乾淨。`Operation` 本體需活 Oracle，動態覆蓋（含 no_response 路徑）。
 - 013 已綁定缺檔→`configuration_mismatch`。已知限制：Draw 畫格相等不含開機動畫窗（見上）；`recordingPrivacyLog` 為 allowlist，未命中直接丟棄（panic 直走 stderr）；音訊人耳、冷 LOAD、跨平台封包另有門檻。收據封存 `workplace/r967/FINAL-manifest.json`（28 項）SHA `146754af2e203258fcd9b2b8caa5e71a30c8af981c0598aa38b14a70cdb9f993`。
+
+## R989：新覆繪來源的正式錄放建置（2026-10-09）
+
+<a id="r989-recording-source-refresh"></a>
+
+入口[R989](../goal/R989-recording-source-refresh.md)、[013正式契約](../spec/013-input-recording.md#r951-production-contract)、
+[建置器](../../tools/re/build_recording.py)、[README錄放入口](../../README.md#輸入錄製與重播)。
+最近普通建置沒有注入錄放身份，原生成表也未含三個新來源；普通版可遊玩但依013拒錄放。
+沿既有READY建置器實際go list重建表，新增popup_occlusion.go、who_cursor.go及world_sex.go，未改API、schema或規則。
+
+| 範圍 | 實際證據 | 限制 |
+|---|---|---|
+| 正式建置 | Go1.24.13、Linux amd64，93實檔逐size／SHA吻合；表排序、唯一及閉集合獨立核 | 明定兩module GoFiles／CgoFiles及鎖定檔；不宣稱stdlib及第三方逐檔來源 |
+| 正常錄製 | 倚天3倍，正常LOAD、WHO選人／移動／取消、人物頁、法術開／關／再開、退出／再入共10操作 | 本輪女性及其他倍率／後端新錄製未量，沿既有驗收範圍 |
+| 停止／續玩 | 正常頁尾按鈕停止，成功單檔3598事件／1784發布，末Step426400000；後續滑鼠與續玩保持已完成檔bytes，關窗0 | 沒有固定Step停止入口；完整答案及輸入只留本機 |
+| 正式重播 | 同一binary三次`-replay`，各乾淨初始保存層，全部重播完成exit0、wire不變 | 正式同版重播與私人診斷分列；wire metadata不作原版oracle |
+| 原版控制 | 有覆繪私人前端與無覆繪Oracle同原API，1784發布RAM／Regs／Step／Ticks／indexed／palette trace全bytes同 | 私人前端僅既有三個唯讀hook；不稱正式相容重播或完整GUI像素對拍 |
+| 保存 | 正常、三正式重播及兩私人控制共12檔，對R982初始層bytes／mode／mtime相同 | 合法正常存檔，不注入或改寫角色／state／wire |
+| 回歸及入口 | cmd/wiz7 9.120秒、initconfig 0.024秒、recording 0.811秒通過；README Docker兩命令建出同binary及同來源收據 | 不外推平台或完整中文化交付 |
+
+正式binary為workplace/r989/wiz7-recording，15,967,576 bytes，SHA-256
+`a9f8db0348f572861664736d330ba0aa3f5b5fb5eb92a73374d14fa8edb540e1`。
+來源canonical JSON SHA-256 `6c2628d314d4a471c56be93893c803e9b5c05b89ec90e2c50215ecb7a973ed4e`；
+新wire SHA-256 `d62e330ebaf70645a09028c73425130f6bdfac7c8e708e702e6d1420521411c3`，不提交完整收據。
+原版trace SHA-256 `1748fb4b823190c720123d1a8ea04ce8028497b8b3d8f8dade9176bda73282c8`，
+末Ticks91998。原版DS基線沿034，R982初始保存及原版目錄唯讀。
+安全結果SHA：正式重播`6018b844c6b47848800e0c391bb023d937ab7df7373a0262c187c20924fec468`；
+原版控制`5ec3702952a64dc9c3943b83ecb24f07268735047278609e85ba10ee10dfdecc`。
+完整原版、字模、答案、圖片及輸入留ignored workplace/r989；最終採認另追加。
+
+R989最終獨立來源及有限結果複核於FINAL後完整回讀採認0／0／0，13份審查輸入SHA相同。
+JSON SHA-256 `b8850c145c3c7bcf1642704b7d57e7c7fc9180e5aa8867549f8912c3fdae33ec`；
+Markdown `b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba`。
+013已量倚天3倍新正常路線限定CONFORMED，其他未量條件保持READY；整體中文化仍未完成。

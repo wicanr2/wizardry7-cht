@@ -1778,3 +1778,30 @@ R988來源90c8660c8bd1dc672395e6522597e4b9a5f59e36已推送private main。
 [#28結果6071318338](https://github.com/wicanr2/wizardry7-cht/issues/28#issuecomment-6071318338)
 各698字／8個LF全文與原稿相同，兩Issue保持OPEN；安全回讀收據在workplace/r988/result-comment-receipts.json。
 整體中文化尚未完成，後續依目前狀態表及遠端Issue接續，不重開已量WHO路線。
+
+## 2026-10-09 R989 新覆繪來源的正式錄放建置
+
+上一輪R988有實際來源、正常GUI、原版控制、push與Issue回讀進展，不重開已量WHO路線。
+載入規格閘門、文件職責及README現況路由，核遠端Issue唯一工作清單；沿#17／#28及R989目標。
+資源同bytes身份及原字模驗收邊界未見所懷疑的重複缺口。實際缺口是普通建置沒有錄放身份，
+既有生成表未含popup_occlusion.go、who_cursor.go及world_sex.go；沿013 READY與現有建置器go list重建，未改API或schema。
+新正式binary a9f8db0348f572861664736d330ba0aa3f5b5fb5eb92a73374d14fa8edb540e1，93實源逐size／SHA重核同。
+
+倚天3倍正常LOAD後10個WHO／人物頁／法術開關／退出再入操作，按頁尾停止後續玩、關窗0。
+新單檔3598事件／1784發布，末Step426400000；原SHA／末註驗同，完整答案及輸入只留本機。
+同binary三次正式-replay各乾淨保存層，全部完成exit0、wire保持。
+兩個私人原API控制正常完成0，1784發布原版六類狀態逐bytes全同，12保存檔對R982同bytes／mode／mtime。
+原版、SDK、字型及既有收據唯讀，沒有state／角色／wire修改。新正常女性路線仍未量。
+cmd/wiz7 9.120秒、initconfig 0.024秒、recording 0.811秒通過。
+
+README新增穩定Docker錄放建置／使用入口，兩命令實跑建出同binary及來源收據；不放逐輪日期／commit。
+Linux存讀檔摘要對齊已驗正常路線，原生平台／封包仍待。
+README的資產邊界只聲明可散布發行包，避免把#26已明示擱置的私有repo答案表稱為不存在；#26內容與決策保持。
+結果及身份分界見[022](docs/re/022-input-recording-boundary.md#r989-recording-source-refresh)。
+開工#17留言6071367560的312字／5個LF全文與原稿同，安全收據在workplace/r989/start-comment-receipt.json。
+最終獨立採認、push、Issue結果回讀及容器清理另追加；整體目標仍是完成巫術7中文化。
+
+最終獨立FINAL 0／0／0完整回讀採認，13份來源SHA相同。
+JSON b8850c145c3c7bcf1642704b7d57e7c7fc9180e5aa8867549f8912c3fdae33ec，
+Markdown b310cfe9d8c985492f1f690572a1c0857073032219856345345d7d72b78f65ba。
+013只追加已量路線及採認狀態，原契約與其他未量停止線保持；README入口產物與正常已驗binary全bytes同。
