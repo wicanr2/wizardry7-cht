@@ -2285,3 +2285,5 @@ R1001目標已建立並索引，#18起始留言6090058246。正常controller、P
 獨立兩趟164項通過。canonical5390519／4503843由獨立整數ceil核得，96443／50343來源事件全收到施加、容量Dropped0；Reader幀／byte守恆、15對F1同Step及兩次WM關窗0成立。關窗要求至退出65.776026／164.686784毫秒為本次觀察區間，不外推所有排程。全部raw非零5175426／4212968幀、左右差0、peak7988；9／4操作收集段皆非靜音。Overflow12092／48509、停止捨尾68566／78188保留，不調參歸零或稱流暢度／人耳。第二趟CPU最後307M比音訊306.8M多200k停止邊界，monitor尾段另留882靜音幀，不冒已合成或Reader交付。
 
 原PASS的唯一文字誤稱可選viewport未驗，已訂正並沿相同收據另跑v2；全部runs／viewport與成功條件完全相同，沒有新原版運行。最終JSON SHA `4b266c34ecf4c452e444d8a9806f2df4f14d4f3bbcd62bfcbb7debc8e53ed790`、Markdown SHA `2577f705ba1291703e7feab3823deea2aa90eb2c74c5856fa9d3a9dfb9e201bd`完整採認。保存正常GUI工具、有界啟動plan與獨立核對器，掛本輪goal；正式Go／SDK／譯文未改。15秒本機試聽WAV已驗格式、時長及非靜音，使用者人耳問題pending；009仍READY、#18 OPEN，全案未完成。
+
+來源6814fff已推送private main。#18正文1120字元／15個LF及留言6090477741的445字元／5個LF均全文回讀完全相同，Issue維持OPEN；安全收據`workplace/r1001/github-readback.json`。追加R1001結果前的009 READY原文由65044e1精確取回並核同驗收SHA，保留`spec009-input.txt`及`contract-input.json`，不把追加文件造成的雜湊變動當產品漂移。兩趟遊戲／Pulse／Xvfb／monitor及核對容器皆terminal並清理，root-owned與誤建.md目錄0，R433未追蹤保持。下一步依剩餘玩家分支及文字覆蓋前進，不重做本輪已完成軟體存讀檔鏈。

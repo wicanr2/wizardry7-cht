@@ -39,3 +39,5 @@ python3 /src/tools/re/check_normal_audio.py --first /src/workplace/r1001 --secon
 新SAVE為原版正常寫入，初始保存保持，冷LOAD後bytes／mode／mtime保持；保存與恢復的世界viewport177408像素差0，未存轉向反對照162504差。沒有新RAM同狀態A/B、手動加速或全退出排程聲明。15秒本機試聽片段已交使用者，人耳回覆仍待；009及#18維持READY／OPEN，原生平台及其他交付條件不外推。
 
 最終獨立JSON `workplace/r1001/audio-check-final-v2.json` SHA-256 `4b266c34ecf4c452e444d8a9806f2df4f14d4f3bbcd62bfcbb7debc8e53ed790`。首版PASS只訂正可選viewport的限制文字，驗收條件及全部runs／viewport結果保持；沒有重跑原版。正式Go／SDK／譯文未改，完整聲音、輸入與保存只留本機。
+
+精確READY輸入保存在本機`workplace/r1001/spec009-input.txt`，來源為`65044e1:docs/spec/009-player-audio.md`，SHA及用途由同目錄`contract-input.json`索引。重現原契約來源時用該快照，現行009另追加本輪結果；不以兩份文件雜湊不同宣稱程式漂移。
