@@ -2287,3 +2287,17 @@ R1001目標已建立並索引，#18起始留言6090058246。正常controller、P
 原PASS的唯一文字誤稱可選viewport未驗，已訂正並沿相同收據另跑v2；全部runs／viewport與成功條件完全相同，沒有新原版運行。最終JSON SHA `4b266c34ecf4c452e444d8a9806f2df4f14d4f3bbcd62bfcbb7debc8e53ed790`、Markdown SHA `2577f705ba1291703e7feab3823deea2aa90eb2c74c5856fa9d3a9dfb9e201bd`完整採認。保存正常GUI工具、有界啟動plan與獨立核對器，掛本輪goal；正式Go／SDK／譯文未改。15秒本機試聽WAV已驗格式、時長及非靜音，使用者人耳問題pending；009仍READY、#18 OPEN，全案未完成。
 
 來源6814fff已推送private main。#18正文1120字元／15個LF及留言6090477741的445字元／5個LF均全文回讀完全相同，Issue維持OPEN；安全收據`workplace/r1001/github-readback.json`。追加R1001結果前的009 READY原文由65044e1精確取回並核同驗收SHA，保留`spec009-input.txt`及`contract-input.json`，不把追加文件造成的雜湊變動當產品漂移。兩趟遊戲／Pulse／Xvfb／monitor及核對容器皆terminal並清理，root-owned與誤建.md目錄0，R433未追蹤保持。下一步依剩餘玩家分支及文字覆蓋前進，不重做本輪已完成軟體存讀檔鏈。
+
+## 2026-10-10 R1002 現行異譯與創角性別來源
+
+從f3e3863接續#24／#22，載入中文化顯示與語意隔離入口，建立並索引本輪goal，#24起始留言6090587151。現行三譯文表重算31組原樣英文鍵異譯，為11訊息內及20跨家族；三來源SHA保持R983基準。008過時32組摘要已訂正，未解除新衝突。BASELARD使用者再次確認巴塞拉短劍，兩正式表及譯名表已一致，沿R983結果不重做。BLACK BIRD兩鍵名稱問題另待答，既有待答名稱不代選。
+
+現行c7da正常創角只產生一次8點獎勵，可用職業沒有心靈術士，選法師、分配剩餘點數及查看武器／學術頁。判讀時間超過錄製器閒置上限，helper先正常Stop、續玩及關窗0，預定取消未完成；沒有補寫成功取消或重啟來覆蓋。完整wire e5137dd4…8732為3606事件／1786發布／末438.4M，兩保存bytes／mode／mtime保持。早期性別M而接受頭像後男的差異是新可見缺口，另作窄來源觀察，不從圖推定caller或MSG ID。
+
+舊R984觀察器缺物理界線、精確CS:IP及讀取前白名單守門，不能原樣重跑。新P1至P5契約限定既有29出處×64byte及332.8M至417.8M性別字元窗口，獨立0／0／0完整採認READY才建立私人98來源。純建置binary22c6b9b9…ca61、16170344bytes；根代理另核96正式／SDK輸入保持。runner的INVALID文字原與觀察器不同，執行前已改為實際R1002_CONTEXT_INVALID_。來源獨立複核及on／off對照尚待，未跑私人原版、未改正式Go／SDK或譯文。
+
+來源複核0／0／0完整採認後，兩組指定22c6同完整wire退出0。全部1786發布六欄及完整trace bytes全同，SHA bc95b65d…c1af，兩保存metadata保持；29 reader／decoded／print皆0，不解除十一組或再跑同wire追命中。字元兩對返回9595及既有6c42，皆M、font0、同SS／SP+2、90,6至96,6、同driver／buffer，各13色1點且6×6域外0。新9595只證本正常M印字來源，未讀程式／8×8背景／F，不註冊正式路由。checker獨立靜態意見已補固定binary／wire、入口返回配對、收尾pending及局部bbox核對，正式結果PASS。
+
+四已審研究工具逐bytes保存並掛goal入口；從保存constructor及觀察器純重建98來源SHA232ad6ee…80ea與binary22c6逐位元同，沒有新增原版執行。完整wire、保存、字模及窄像素只留本機。動態獨立驗收及最後推送另記，正式Go／SDK／譯文保持。
+
+最終動態獨立110項0失敗完整讀回採認，JSON SHA `96ea1e9ebb8e6ba79a663e08c38e2478ac800b428f70f94fc4c61b539d39016b`、Markdown SHA `7211eb9e6f8bb8d549e554eaad5bfd9e86e9ce92514f0ea1743f0d6ca78e92d5`。除R1正常來源診斷外，P6另擬9595的128bytes程式及8×8背景補證DRAFT待審，尚未實作／執行。載入IDA9.4官方工具入口後，優先locked-v1 image查無；現存本專案已用py312-v1 image為4ac62de8…a06ab，待同UID最小輸出探針，不因缺優先tag重建映像或退回host。

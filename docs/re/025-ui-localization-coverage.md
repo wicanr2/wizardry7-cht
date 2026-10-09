@@ -1937,3 +1937,20 @@ MAGE已量底部位置沒有晚寫缺陷，這次驗其正常字形位置，不�
 `f40071af75b727e1bc0f891900312f77ca07ef1eebaa540042788af57c70f221`／
 `8ae288d31a58ec532e624cca4b7b928fe282b996bc86e72c0d20ae788ac76d32`。
 036本次已量六欄Unifont2正常路線限定CONFORMED；其他slot、姓名、caller、配置、NoDiff／重印及平台仍READY。
+
+## R1002-creation-sex-source
+
+2026-10-10，入口[R1002](../goal/R1002-names-profile-context.md)。正式c7da正常創角的早期性別欄顯示M，接受頭像後顯示男。完整3606事件／1786發布輸入只留本機；初始保存沿合法R990副本，不改原版資料或重擲。
+
+私人觀察器P1至P5契約與來源分別獨立0／0／0採認才執行。原版Archives DS.EXE SHA `14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db`，工具Go1.24.13，98來源SHA `232ad6eed1ff5a50b060d50b9743ae1bcb2af34c6f136d03ab5006775f3780ea`，binary SHA `22c6b9b93e87164886c6df1de16b1d26c502655165bc2da08bf3f5794c85ca61`。以下位址皆dosgolem runtime CS:IP，不是IDA線性位址或檔案偏移。
+
+| 已量入口 | 返回 | 步數 | 原版差分 |
+|---|---|---|---|
+| 0110:3877，M、font0、90,6、SS1106:SP64622 | 0110:9595，SP64624、96,6 | 334908491→334908883 | 13點，bbox90,6至95,11，全部變為色1，原6×6域外0 |
+| 同入口／字碼／font／座標，SP64660 | 0110:6c42，SP64662、96,6 | 402932251→402932643 | 同13點與bbox，全部色1，域外0 |
+
+兩對driver段740Ch、離屏段6289h在入口返回保持；只輸出6×6 before／after及全64000像素差分統計，沒有匯出完整離屏或RAM。窄事件SHA `3b581526a3f67a5359f101fbf595d5eed453ae79f47ef23e895128fdf0b2def6`；8個dynamic hook上限實用2個、16次樣本上限實用2對、256事件上限實際6行含setup及summary，收尾無pending或INVALID。
+
+開／關同一私人binary、完整輸入與起點均退出0，1786發布原版Step／Ticks／RAM／Regs／indexed／palette及完整trace bytes全同，SHA `bc95b65d4f308b136f4236993ee97db7f57ebb25d43df622d0697a2a421fc1af`；保存size／SHA／mode／mtime保持。9595為本正常M路線的新印字來源，等級confirmed；尚未讀此caller程式、8×8背景或實測同caller的F，不能據此放行新正式路由。既有024／034、一般訊息與性別資源保持。動態獨立複核另記。
+
+最終動態獨立110項0失敗完整讀回採認，JSON SHA `96ea1e9ebb8e6ba79a663e08c38e2478ac800b428f70f94fc4c61b539d39016b`、Markdown SHA `7211eb9e6f8bb8d549e554eaad5bfd9e86e9ce92514f0ea1743f0d6ca78e92d5`。獨立核兩側實際保存、兩個M入口返回／36byte窄差分、六事件及四工具逐bytes身份；全frame域外數依已審probe統計，沒有由6×6輸出重建域外。兩次純建置manifest／binary全同；新9595來源用途限制保持。

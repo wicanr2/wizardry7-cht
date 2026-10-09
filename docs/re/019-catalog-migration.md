@@ -1102,3 +1102,13 @@ CLAYMORE名稱另待使用者取捨，不因本名字定案代選其他名字。
 獨立控制結果0／0／0於FINAL完整回讀採認。JSON SHA-256為
 `5f6b8f6d83b40200fa3ce108aac5acc347097a719dfac7b6130d73c2c8e3c0dc`，
 Markdown為`3aab3a918548bbade7780f343046a9b07a87ff2890f82d8b2e23f01dbc3d795b`。
+
+## R1002 現行來源與角色頁路線
+
+2026-10-10，入口[R1002](../goal/R1002-names-profile-context.md)。現行三正式來源重新核原樣英文鍵，排除保護及輸入詞庫來源後為8903訊息、461舊怪物鍵、416物品鍵；異譯31組＝11訊息內＋20跨家族。story SHA `d3e753ee17b13adc670b02ec51979fa9f71e3d9665fc945d254c0c62c2c48224`、monster SHA `3f0816be28fcd1c90e1e2248fe48c54289142fda541ee99ebb8923089d9a8323`、item SHA `0574da2b0599717744568448399bf66fe35e242cef18803e964b8275a062b916`。只訂正008的過時32組摘要，不解除任何新衝突。031固定格原型23鍵異譯仍待裁決，BLACK BIRD兩鍵已展示，未改正式來源。
+
+正式c7da正常創角到可用職業／技能頁，僅一次8點獎勵，不重擲；這次可用職業無心靈術士，選法師後查看武器／學術頁。早期性別M及頭像後男的可見差異另作來源缺口，不從中文畫面推定ID。錄製器閒置收尾，完整wire e5137dd4…8732、3606事件／1786發布／末438.4M，成功end、續玩及關窗0，保存metadata保持；預定取消沒有完成，不稱取消玩家鏈通過。
+
+既有0582→0659→3895原址／配對與舊helper缺項已窄核，本機`observer-contract-facts.json` SHA `c75123dd6885ea6832a73c11647ff92167f55259365a677582c949ef967add10`。新P1至P5私人契約獨立0／0／0採READY，仍限定29×64及已知角色性別字元窗口；來源複核與同狀態觀察尚待，未改正式Go／SDK、未擴讀MSG／鄰文或改008／031的DRAFT。
+
+來源複核0／0／0後，指定22c6私人binary的on／off同完整wire兩組退出0，1786對六類原版摘要及完整trace SHA `bc95b65d4f308b136f4236993ee97db7f57ebb25d43df622d0697a2a421fc1af`相同，兩保存metadata保持。29出處的reader／decoded／print皆0，十一組未解除，不重新跑同輸入尋求命中。新創角M來源另記[研究025](025-ui-localization-coverage.md#r1002-creation-sex-source)，不混入訊息ID結論。

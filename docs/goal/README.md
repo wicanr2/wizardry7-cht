@@ -1,5 +1,7 @@
 # 專案目標
 
+怪物名字與角色頁情境：[R1002](R1002-names-profile-context.md)。
+
 有聲冷LOAD及世界正常操作：[R1001](R1001-normal-audio-world.md)。
 
 手持長劍／皮胸甲中文與正常移動放回限定驗收：[R1000](R1000-held-item-source.md)。
