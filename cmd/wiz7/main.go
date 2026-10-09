@@ -1444,14 +1444,22 @@ func main() {
 				break
 			}
 		}
-		if s == "ALCHEMI" {
+		// 查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
+		// 剝 <0x20 控制碼、連續數字/序數詞 FIRST..TENTH → '$'（token 另存）。
+		key, nums := normalizeKey(s)
+		if partyClassShouldRoute(ret, s, key, ov.partyEnabled) {
 			evMu.Lock()
 			var before []byte
-			if ov.partyEnabled && ret == oracle.Far(0x0110, 0x1c71) && in.Font == 0 && r0.SP <= 65530 && off <= 65504 &&
+			rawKey, exactRaw := partyClassRawKey(raw)
+			if exactRaw && rawKey == s && ov.partyEnabled && ret == oracle.Far(0x0110, 0x1c71) && in.Font == 0 && r0.SP <= 65530 && off <= 65504 &&
 				(in.X == 9 || in.X == 261) && (in.Y == 56 || in.Y == 101 || in.Y == 146) {
 				before = offscreen(o)
 			}
-			handled := ov.enterPartyClass(ret, r0.SP, in.Font, off, in.X, in.Y, raw, o.Steps(), before, ov.partyEntry)
+			partyEntry := ov.partyEntry
+			if s != partyClassKey {
+				partyEntry = trans[s]
+			}
+			handled := ov.enterPartyClass(ret, r0.SP, in.Font, off, in.X, in.Y, raw, o.Steps(), before, partyEntry)
 			pending := ov.pend != nil && ov.pend.party != nil
 			evMu.Unlock()
 			if handled {
@@ -1461,9 +1469,6 @@ func main() {
 				return
 			}
 		}
-		// 查表 key 正規化（與 bake_font.py 的 normalize 同一套）：
-		// 剝 <0x20 控制碼、連續數字/序數詞 FIRST..TENTH → '$'（token 另存）。
-		key, nums := normalizeKey(s)
 		ent, ok := trans[key]
 		if !ok {
 			// ^＝隊員名 pattern（2040/2061/5010/1541 等）：runtime 開頭是

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"os"
 	"path/filepath"
 	"testing"
@@ -85,7 +86,7 @@ func TestPartyClassResourceCannotUseGenericNormalizedLookup(t *testing.T) {
 }
 
 func TestPartyVisualSnapshotPreservesIndependentShiftMetadata(t *testing.T) {
-	e := &textEv{x0: 9, y0: 56, g: partyTestEntry(16).G, party: &partyClassWitness{slot: 0, size: 16}}
+	e := &textEv{s: partyClassKey, x0: 9, y0: 56, g: partyTestEntry(16).G, party: &partyClassWitness{slot: 0, size: 16}}
 	e.party.nameRow[13] = 1
 	visual := cloneVisualEvents([]*textEv{e})[0]
 	dx, dy := partyClassShift(visual, 2)
@@ -305,6 +306,7 @@ func TestPartyClassFinishDeltaIdentityAndShift(t *testing.T) {
 	if !e.partyNameMatches(after, nil) {
 		t.Fatal("name row identity rejected")
 	}
+	validAfter := append([]byte(nil), after...)
 	after[55*320+9] = 8
 	if e.partyNameMatches(after, nil) || !e.partyNameMatches(after, func(x, y int) bool { return x == 9 && y == 55 }) {
 		t.Fatal("cursor-only identity exception incorrect")
@@ -317,7 +319,7 @@ func TestPartyClassFinishDeltaIdentityAndShift(t *testing.T) {
 			t.Fatal("outside/domain/foreground delta accepted")
 		}
 	}
-	if finishPartyClass(pending, pending.before, palette, 20) != nil || finishPartyClass(pending, after, palette, 9) != nil || finishPartyClass(pending, after, palette, 1000011) != nil {
+	if finishPartyClass(pending, pending.before, palette, 20) != nil || finishPartyClass(pending, validAfter, palette, 9) != nil || finishPartyClass(pending, validAfter, palette, 1000011) != nil {
 		t.Fatal("empty/timed return accepted")
 	}
 	if dx, dy := partyClassShift(e, 2); dx != 0 || dy != 0 {
@@ -332,5 +334,214 @@ func TestPartyClassFinishDeltaIdentityAndShift(t *testing.T) {
 	}
 	if dx, dy := partyClassShift(&textEv{}, 2); dx != 0 || dy != 0 {
 		t.Fatal("ordinary event shifted")
+	}
+}
+
+func TestPartyMeasuredRawKeysAndRoutePriority(t *testing.T) {
+	keys := []string{"ALCHEMI", "FIGHTER", "THIEF", "PRIEST", "MAGE"}
+	other := oracle.Far(0x0110, 0x1234)
+	for _, key := range keys {
+		if !partyClassMeasuredKey(key) {
+			t.Fatal("measured key missing")
+		}
+		if got, ok := partyClassRawKey(partyTestRaw(key)); !ok || got != key {
+			t.Fatal("exact NUL raw rejected")
+		}
+		if _, ok := partyClassRawKey(partyTestRaw(key)[:31]); ok {
+			t.Fatal("short raw accepted")
+		}
+		for _, enabled := range []bool{false, true} {
+			if got := partyClassShouldRoute(partyClassReturn, key, key, enabled); got != (enabled || key == partyClassKey) {
+				t.Fatal("legacy exact fallback changed")
+			}
+			if got := partyClassShouldRoute(other, key, key, enabled); got != (key == partyClassKey) {
+				t.Fatal("other caller routing changed")
+			}
+			for _, near := range []string{"\x01" + key, "\t" + key, "\n" + key} {
+				normalized, _ := normalizeKey(near)
+				if normalized != key || !partyClassShouldRoute(partyClassReturn, near, normalized, enabled) {
+					t.Fatal("near bypasses route when disabled")
+				}
+				if partyClassShouldRoute(other, near, normalized, enabled) {
+					t.Fatal("other caller near-match behavior changed")
+				}
+				if _, ok := partyClassRawKey(partyTestRaw(near)); ok {
+					t.Fatal("near accepted as exact raw")
+				}
+				ov := partyTestOverlay(15, 3)
+				ov.partyEnabled = enabled
+				old := &textEv{party: &partyClassWitness{slot: 0}}
+				ov.evs = []*textEv{old}
+				if !ov.enterPartyClass(partyClassReturn, 100, 0, 200, 9, 56, partyTestRaw(near), 10, nil, entry{}) || !old.dead || ov.pend != nil {
+					t.Fatal("near did not retire/fail closed")
+				}
+			}
+		}
+	}
+	for _, unknown := range []string{"RANGER", "ALCHEMIST", "FIGHTERX", "fighter", ""} {
+		if partyClassMeasuredKey(unknown) || partyClassShouldRoute(partyClassReturn, unknown, unknown, true) {
+			t.Fatal("unmeasured key routed")
+		}
+		if _, ok := partyClassRawKey(partyTestRaw(unknown)); ok {
+			t.Fatal("unknown raw accepted")
+		}
+	}
+	b := make([]byte, 32)
+	for i := range b {
+		b[i] = 'A'
+	}
+	if _, ok := partyClassRawKey(b); ok {
+		t.Fatal("missing NUL accepted")
+	}
+}
+
+func TestPartyFourGlobalKeysAndGlyphCountsRemainIndependent(t *testing.T) {
+	for _, size := range []int{15, 16} {
+		trans := map[string]entry{partyClassKey: partyTestEntry(size)}
+		for _, key := range []string{"FIGHTER", "THIEF", "PRIEST", "MAGE"} {
+			ent := partyTestEntry(size)
+			ent.G = ent.G[:2]
+			trans[key] = ent
+			if !partyClassEntryValidForKey(key, ent, size) || partyClassEntryValidForKey(key, partyTestEntry(size), size) || partyClassEntryValidForKey(partyClassKey, ent, size) {
+				t.Fatal("g2/g4 closure changed")
+			}
+			for _, mutate := range []func(*entry){func(e *entry) { e.Dy = 1 }, func(e *entry) { e.D = []int{0} }, func(e *entry) { e.G[0] = make([]uint16, size) }} {
+				bad := partyTestEntry(size)
+				bad.G = bad.G[:2]
+				mutate(&bad)
+				if partyClassEntryValidForKey(key, bad, size) {
+					t.Fatal("invalid g2 resource accepted")
+				}
+			}
+		}
+		takePartyClassEntry(trans)
+		if len(trans) != 4 {
+			t.Fatal("global measured keys removed")
+		}
+		for key, ent := range trans {
+			if !partyClassEntryValidForKey(key, ent, size) || partyClassShouldRoute(partyClassReturn, key, key, false) {
+				t.Fatal("legacy exact cannot reach normal lookup")
+			}
+			ov := partyTestOverlay(size, 3)
+			ov.partyEnabled = false
+			if ov.enterPartyClass(partyClassReturn, 100, 0, 200, 9, 56, partyTestRaw(key), 10, nil, ent) {
+				t.Fatal("disabled exact should retain generic path")
+			}
+		}
+	}
+}
+
+func TestPartyFourKeyDeltaAndSharedShift(t *testing.T) {
+	for _, key := range []string{"FIGHTER", "THIEF", "PRIEST", "MAGE"} {
+		for _, size := range []int{15, 16} {
+			ent := partyTestEntry(size)
+			ent.G = ent.G[:2]
+			ov := partyTestOverlay(size, 3)
+			before := make([]byte, 64000)
+			before[55*320+10] = 7
+			if !ov.enterPartyClass(partyClassReturn, 100, 0, 200, 9, 56, partyTestRaw(key), 10, before, ent) || ov.pend == nil || ov.pend.s != key {
+				t.Fatal("new exact key did not create dedicated pending")
+			}
+			after := append([]byte(nil), before...)
+			after[56*320+9] = 132
+			after[60*320+50] = 132
+			e := finishPartyClass(ov.pend, after, [256][3]uint8{}, 20)
+			if e == nil || e.s != key || !e.partyNameMatches(after, nil) {
+				t.Fatal("key-specific return witness failed")
+			}
+			wantDX, wantDY := 0, 0
+			if size == 16 {
+				wantDX, wantDY = 2, -1
+				if key == "FIGHTER" {
+					wantDX = 5
+				}
+			}
+			if dx, dy := partyClassShift(e, 2); dx != wantDX || dy != wantDY {
+				t.Fatal("key-specific Uni2 shift wrong")
+			}
+			if dx, dy := partyClassShift(e, 3); dx != 0 || dy != 0 {
+				t.Fatal("3x changed")
+			}
+			if dx, dy := partyClassShift(&textEv{s: key}, 2); dx != 0 || dy != 0 {
+				t.Fatal("ordinary other-caller event shifted")
+			}
+			bad := append([]byte(nil), after...)
+			bad[61*320+9] = 132
+			if finishPartyClass(ov.pend, bad, [256][3]uint8{}, 20) != nil {
+				t.Fatal("g2 delta escaped 42x5")
+			}
+			bad = append([]byte(nil), after...)
+			bad[56*320+9] = 131
+			if finishPartyClass(ov.pend, bad, [256][3]uint8{}, 20) != nil {
+				t.Fatal("g2 return guessed foreground")
+			}
+		}
+	}
+	e := &textEv{s: "FIGHTER", g: partyTestEntry(16).G[:2], party: &partyClassWitness{slot: 0, size: 16}}
+	visual := cloneVisualEvents([]*textEv{e})[0]
+	e.s = "THIEF"
+	if dx, dy := partyClassShift(visual, 2); dx != 5 || dy != -1 || visual.party == e.party {
+		t.Fatal("GUI clone lost FIGHTER key/marker identity")
+	}
+}
+
+func TestPartyMeasuredNativeGlyphMaskProjection(t *testing.T) {
+	path := os.Getenv("WIZ7_TEST_PARTY_XLATE")
+	if path == "" {
+		t.Skip("explicit approved native xlate path not supplied")
+	}
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var trans map[string]entry
+	var values map[string]json.RawMessage
+	if err := json.Unmarshal(raw, &values); err != nil {
+		t.Fatal(err)
+	}
+	trans = map[string]entry{}
+	for _, key := range []string{"ALCHEMI", "FIGHTER", "THIEF", "PRIEST", "MAGE"} {
+		var ent entry
+		if err := json.Unmarshal(values[key], &ent); err != nil {
+			t.Fatal(err)
+		}
+		trans[key] = ent
+	}
+	topCols := map[string][]int{"ALCHEMI": {4, 11, 26, 40, 44, 62}, "FIGHTER": {11, 13, 26}, "THIEF": {3, 9, 29, 31}, "PRIEST": {4, 9, 21}, "MAGE": {2, 10, 21}}
+	for key, ent := range trans {
+		if !partyClassEntryValidForKey(key, ent, 16) {
+			t.Fatal("approved source not native g2/g4")
+		}
+		actual := []int{}
+		for index, glyph := range ent.G {
+			for col := 0; col < 16; col++ {
+				if glyph[0]&(1<<uint(15-col)) != 0 {
+					actual = append(actual, index*18+col)
+				}
+			}
+		}
+		if len(actual) != len(topCols[key]) {
+			t.Fatal("native top row changed")
+		}
+		for i, col := range actual {
+			if col != topCols[key][i] {
+				t.Fatal("native top row identity changed")
+			}
+		}
+		name := partyNameState{valid: true}
+		for i := 1; i < 42; i += 6 {
+			name.mask[i] = true
+		} // confirmed comma/semicolon final column1.
+		if !partyClassInkFitsForKey(key, ent, 16, 2, name) {
+			t.Fatal("fixed native glyph hits comma/semicolon")
+		}
+		dx, _ := partyClassOffset(key, 16, 2)
+		name.mask[(actual[0]+dx)/2] = true
+		if partyClassInkFitsForKey(key, ent, 16, 2, name) {
+			t.Fatal("actual native top-row collision accepted")
+		}
+		if !partyClassInkFitsForKey(key, ent, 16, 3, partyNameState{}) {
+			t.Fatal("3x unnecessarily requires Name mask")
+		}
 	}
 }

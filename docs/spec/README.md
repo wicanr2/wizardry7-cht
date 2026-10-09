@@ -41,4 +41,4 @@
 | [033](033-world-identity-labels.md) | 世界人物頁性別與選人提示（R988已量WHO正常選人、移動、取消與再入限定CONFORMED；其他分支仍READY，性別由034承接） |
 | [034](034-world-profile-sex.md) | 世界人物頁性別覆繪（M及TEMPEST女性正常路線限定CONFORMED；雙字型兩倍率人物頁、法術視窗、退出／重入及原版／保存已驗，其他路線仍READY） |
 | [035](035-backspace-input.md) | 姓名退格字元（Linux3倍兩字型已量路線限定CONFORMED；正常刪字／空欄／F1、錄放及原版控制已驗，其他畫面／平台未量） |
-| [036](036-party-class-short.md) | 側欄ALCHEMI及原姓名保護（已量左上／右下路線限定CONFORMED；R3補GUI副本、Uni2真畫素與原版保持已驗，其他分支READY） |
+| [036](036-party-class-short.md) | 側欄職業與原姓名保護（R995已量ALCHEMI及R996已量六欄Uni2正常路線限定CONFORMED；四鍵幾何、原版保持與真GUI像素獨立複核通過，其他分支READY） |

@@ -1,10 +1,10 @@
 # 036：側欄職業短碼
 
-狀態：已量左上及右下ALCHEMI路線限定CONFORMED；其餘分支READY。入口[R995](../goal/R995-full-party-ui.md)、[025](../re/025-ui-localization-coverage.md#r995-full-party-ui)。
+狀態：R995已量左上及右下ALCHEMI路線、R996已量六欄Unifont2正常路線限定CONFORMED；其餘分支READY。入口[R995](../goal/R995-full-party-ui.md)、[R996](../goal/R996-remaining-text-ui-gates.md)、[025](../re/025-ui-localization-coverage.md#r996-career-late-line)。
 
 使用者要求完整中文介面；ALCHEMI沿既定職業譯名「鍊金術士」，維持原生15／16像素，不擴大一般訊息或改原版資料。
 文案唯一來源為text/party-class.zh-TW.tsv，英文鍵ALCHEMI、context party.class.short、dy0、source runtime:0110:1c71。
-本規格只增此短碼；其他既有職業全名的普通覆繪保持。
+R995只增此短碼；R996另將四個已量職業全名接入相同幾何保護。其他呼叫端的普通覆繪保持。
 
 ## 原版與字形證據
 
@@ -63,3 +63,46 @@ JSON／Markdown SHA-256 `bb57a03d906b7eb5259e86c28c34ba24a684dc0a7f6f344208f791d
 `cd438e46112285b9a965c6ed9b8486e38e32f78789b48e125dd7f938fed94c2f`。
 只標已量左上逗號姓名及右下PENTAS的ALCHEMI路線限定CONFORMED；GUI3沿R2、Uni2採R3，來源界線見[025](../re/025-ui-localization-coverage.md#r995-full-party-ui)。
 其他slot、OEM／長名字、錯資源等正常GUI與其他caller未量，仍READY，不稱全95來源或全遊戲parity。
+
+## R996 既有職業的兩倍後寫行保護
+
+狀態：本次已量六欄Unifont2正常路線限定CONFORMED；其他分支READY。入口[R996](../goal/R996-remaining-text-ui-gates.md)。不改譯名、字形、色彩或原版資料。
+正常b4a5／Unifont2倍滿隊真GUI已證8個原版後寫像素遭覆蓋：FIGHTER左上2點、THIEF左中2點、PRIEST右中4點。
+位置及原RGB／現GUI RGB在workplace/r996/gui-late-pixel-evidence.json；相同輸入的原indexed／palette來自R995原API。
+MAGE原生字形同樣有第14墨列，但其已量底部位置沒有晚寫差異；不宣稱其他位置已重現。
+
+顯示契約：
+
+1. 只新增已量FIGHTER／THIEF／PRIEST／MAGE四個exact英文鍵，caller1c71、font0、六個職業錨點及SP／offset／返回1M步界限沿本規格。
+2. 四鍵復用當次普通trans原生g，不另存譯文或重新烘製；它們在其他caller仍沿一般查表。ALCHEMI繼續用已隔離partyEntry。
+   現行party配置不可用時，四個既有鍵保留舊普通路徑，不因可選短碼資源失效退回英文。
+3. 在class caller，正規化能到這五個鍵但raw不是exact NUL時，保留英文、撤除舊同slot事件；此拒絕優先於配置不可用時的四exact鍵回退，不得由一般查表繞過新專路。
+   其他原文／caller不新增專路，維持既有行為，不猜未量職業截短字。
+4. 四鍵資源須為兩個一致15／16列非空glyph、dy0及無數字槽；ALCHEMI仍為四字。完整64K印字差異仍只許42×5及後色132、至少一點。
+5. 原生字形不縮。Uni2的FIGHTER採物理位移＋5／−1，其他四鍵含ALCHEMI採＋2／−1；倚天與3倍位移0。
+   固定字模頂列獨立核算：FIGHTER原HD列11／13／26，＋5後投影不碰任何逗號／分號的原字格column1；其他四鍵＋2同樣安全。
+   仍須依本次Name真實末列遮罩逐墨點驗碰撞，不以全大寫姓名假定安全。字寬及y＋7前界沿本規格。
+6. Name返回才提交遮罩、42B身份、同slot撤除及GUI獨立副本保持；HD與Draw共用依party標記及原英文鍵選位移的函式。
+7. 不更動xlate schema、六個錄放roles、一般career字模、其他caller、ALCHEMI既有字條或原版存檔。
+
+READY前只作可丟棄樣張及來源審查。正式驗收需新正常Uni2六人路線、8個晚寫像素恢復、Name墨點保持、同狀態批准域外0；3倍／倚天原位置保持。
+
+獨立READY FINAL 0／0／0完整採認，13來源身份核同，18份原版見證指紋
+`e20c4f30096d0c42634a6433a1424c77dd5401ebec5daad4440376111c7de44b`。
+兩報告SHA-256 `f9e6c7df6a8caf1980bf6ee833b461e4a709a92c11664a581a724c88659c03dc`／
+`35a1e673bfa17a84bfa748aaaa56b2c8093133be0023bad2c561c012795ea2b5`。
+以上為四鍵幾何修補的實作前READY閘門，限定正式驗收如下。
+
+### R996 限定驗收
+
+source獨立FINAL 0／0／0完整採認，三包回歸通過，cmd2.072秒；實際原版字型與Unifont字模正向測試PASS。
+正式95實源逐項核同，binary SHA-256 `5d6fe6f396fc714bf54e59aefa3c8b81dcdcd2021627b8931ba121d38e6df013`，資源沿R995。
+兩配置私人old／new四趟0、3806對原版發布全同，indexed／palette及保存metadata保持。
+30完整派生HD共12480000 RGB像素符合原版印字差分及既定字模期望，批准域外0；倚天3全圖保持。
+新正常Uni2六人GUI錄製3691事件／1837快照／454.4M，同正式binary重播0，正常Stop續玩及關窗0，保存metadata保持。
+真GUI六字段九原行共9072 RGB像素相符，8個被蓋晚寫像素全恢復原RGB；原姓名末行與ALCHEMI既有路線保持。
+
+最後獨立動態FINAL 0／0／0完整採認，29來源／結果身份核同。獨立重建一張Uni2完整HD256000像素及六GUI字段9072像素全同；其他29張HD只另核實際RGB身份，不稱全部獨立重建。
+JSON／Markdown SHA-256 `f40071af75b727e1bc0f891900312f77ca07ef1eebaa540042788af57c70f221`／
+`8ae288d31a58ec532e624cca4b7b928fe282b996bc86e72c0d20ae788ac76d32`。
+限定本次六欄正常Uni2路線CONFORMED；其他slot、姓名、caller、錯資源、NoDiff／重印與平台仍READY。MAGE只驗已量底部正常位置，不稱其他位置已重現缺陷。

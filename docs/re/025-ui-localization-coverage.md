@@ -1904,3 +1904,36 @@ JSON／Markdown SHA-256 `bb57a03d906b7eb5259e86c28c34ba24a684dc0a7f6f344208f791d
 `cd438e46112285b9a965c6ed9b8486e38e32f78789b48e125dd7f938fed94c2f`。
 028三布局3倍正常、022本次逗號姓名3倍正常、036已量左上／右下ALCHEMI路線限定CONFORMED；其餘未知維持READY。
 原始wire、畫格、原字型及保存皆只留本機；全案、其他名字／slot／caller、2倍名單及跨平台交付仍未完成。
+
+## R996 既有職業兩倍後寫行
+
+<a id="r996-career-late-line"></a>
+
+入口[R996](../goal/R996-remaining-text-ui-gates.md)、[036增補](../spec/036-party-class-short.md#r996-既有職業的兩倍後寫行保護)。
+固定原API畫格412.4M查到FIGHTER左上、THIEF左中及PRIEST右中原y＋7的後寫像素，Unifont2倍普通CJK第14墨列覆8個HD點。
+新b4a5正常Gui六人路線已視讀，原始滿隊PNG的8點精確為前景132的RGB85／186／255，與原版晚寫RGB不同，缺陷confirmed。
+這是R995未擴張的一般職業路徑，ALCHEMI既有專路仍0覆；不重開其限定驗收。
+兩字原生字模頂列獨立計算，FIGHTER須避Name字格column1，最小通用逗號安全x位移為5；其餘已量字詞及ALCHEMI可用2。
+實圖及數值留workplace/r996。036增補獨立READY 0／0／0、13來源身份及18份原版印字見證核同後，才接正式四鍵修補。
+
+正式路徑沿exact鍵、caller1c71、font0、六錨點、返回SP／步數與完整64K差分守門；四鍵復用既有普通字模，ALCHEMI沿專用家族。
+Uni2的FIGHTER物理位移＋5／−1，其他四鍵＋2／−1；原生字形、色彩、倚天及3倍位置保持。
+source獨立FINAL 0／0／0、八身份完整採認；三包回歸通過，cmd2.072秒，原版字型與正式Unifont正向案例實際PASS。
+
+正式binary為workplace/r996/wiz7-formal，16033936B，SHA-256
+`5d6fe6f396fc714bf54e59aefa3c8b81dcdcd2021627b8931ba121d38e6df013`。
+95實源SHA-256 `1bfd7c1b70801ffad1520aad5e51992a8346da6f55dd4b13c1ef341815057fe7`，當前來源逐項核同。
+資源沿R995，flow沿R983、help沿R979，沒有重烘或改schema／錄放roles。
+
+私人原API old／new的Unifont2及倚天3共四趟完成0，3806對發布原版trace逐bytes相同，indexed／palette及保存metadata保持。
+30張完整派生HD共12480000 RGB像素符合獨立原版印字差分與既定字模期望，批准域外差異0；倚天3全圖與舊版相同。
+這是私人原API同狀態控制，不作正式binary相容重播聲明。
+
+修後新正常Unifont2六人GUI，15次正常點擊，3691事件／1837快照／末454.4M；正常Stop續玩及關窗0，同5d6正式重播0，保存metadata保持。
+真正GUI六字段的九原行ROI共9072 RGB像素符合原版indexed／palette／印字差分及原生字模期望，包含姓名末行與後寫行；原被蓋8點逐點恢復原RGB。
+MAGE已量底部位置沒有晚寫缺陷，這次驗其正常字形位置，不外推其他slot。
+最後獨立動態FINAL 0／0／0完整採認，29來源／結果身份核同；另重建Uni2完整圖256000像素、六GUI字段9072像素及8點原RGB全同。
+其他29HD只另核實際RGB身份，不冒稱全部獨立重建。JSON／Markdown SHA-256
+`f40071af75b727e1bc0f891900312f77ca07ef1eebaa540042788af57c70f221`／
+`8ae288d31a58ec532e624cca4b7b928fe282b996bc86e72c0d20ae788ac76d32`。
+036本次已量六欄Unifont2正常路線限定CONFORMED；其他slot、姓名、caller、配置、NoDiff／重印及平台仍READY。

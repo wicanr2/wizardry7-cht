@@ -55,7 +55,15 @@ func partySlot(x, y int, name bool) int {
 }
 
 func partyClassEntryValid(ent entry, size int) bool {
-	if (size != 15 && size != 16) || ent.Dy != 0 || len(ent.D) != 0 || len(ent.G) != 4 {
+	return partyClassEntryValidForKey(partyClassKey, ent, size)
+}
+
+func partyClassEntryValidForKey(key string, ent entry, size int) bool {
+	count := 2
+	if key == partyClassKey {
+		count = 4
+	}
+	if !partyClassMeasuredKey(key) || (size != 15 && size != 16) || ent.Dy != 0 || len(ent.D) != 0 || len(ent.G) != count {
 		return false
 	}
 	for _, glyph := range ent.G {
@@ -229,28 +237,67 @@ func (ov *overlay) returnPartyNames(ret oracle.Addr, sp uint16, step uint64) {
 	}
 }
 
-func partyClassRaw(raw []byte) bool {
+// 036 R996：只擴四個已有文案的geometry，其他caller保持一般路徑。
+func partyClassMeasuredKey(key string) bool {
+	switch key {
+	case partyClassKey, "FIGHTER", "THIEF", "PRIEST", "MAGE":
+		return true
+	}
+	return false
+}
+
+func partyClassRawKey(raw []byte) (string, bool) {
 	if len(raw) < 32 {
-		return false
+		return "", false
 	}
-	for i := range partyClassKey {
-		if raw[i] != partyClassKey[i] {
-			return false
-		}
+	n := 0
+	for n < 32 && raw[n] != 0 {
+		n++
 	}
-	return raw[len(partyClassKey)] == 0
+	if n == 0 || n == 32 {
+		return "", false
+	}
+	key := string(raw[:n])
+	if !partyClassMeasuredKey(key) {
+		return "", false
+	}
+	return key, true
+}
+
+// near拒絕先於legacy fallback，ALCHEMI始終隔離於一般trans之外。
+func partyClassShouldRoute(ret oracle.Addr, s, key string, enabled bool) bool {
+	if s == partyClassKey {
+		return true
+	}
+	return ret == partyClassReturn && partyClassMeasuredKey(key) && (enabled || s != key)
+}
+
+func partyClassRaw(raw []byte) bool {
+	key, exact := partyClassRawKey(raw)
+	return exact && key == partyClassKey
+}
+
+func partyClassOffset(key string, size, k int) (dx, dy int) {
+	if size != 16 || k != 2 || !partyClassMeasuredKey(key) {
+		return 0, 0
+	}
+	if key == "FIGHTER" {
+		return 5, -1
+	}
+	return 2, -1
 }
 
 func partyClassInkFits(ent entry, size, scale int, name partyNameState) bool {
-	if !partyClassEntryValid(ent, size) || (scale != 2 && scale != 3) {
+	return partyClassInkFitsForKey(partyClassKey, ent, size, scale, name)
+}
+
+func partyClassInkFitsForKey(key string, ent entry, size, scale int, name partyNameState) bool {
+	if !partyClassEntryValidForKey(key, ent, size) || (scale != 2 && scale != 3) {
 		return false
 	}
-	dx, dy := 0, 0
-	if size == 16 && scale == 2 {
-		dx, dy = 2, -1
-		if !name.valid {
-			return false
-		}
+	dx, dy := partyClassOffset(key, size, scale)
+	if dy < 0 && !name.valid {
+		return false
 	}
 	for index, glyph := range ent.G {
 		for row, bits := range glyph {
@@ -272,14 +319,18 @@ func partyClassInkFits(ent entry, size, scale int, name partyNameState) bool {
 }
 
 func (ov *overlay) enterPartyClass(ret oracle.Addr, sp, font, off uint16, x, y int, raw []byte, step uint64, before []byte, ent entry) bool {
-	exact := partyClassRaw(raw)
+	key, exact := partyClassRawKey(raw)
 	if !exact && ret != partyClassReturn {
+		return false
+	}
+	// 四既有鍵在其他caller不走專路，缺ALCHEMI配置也仍用原普通路徑。
+	if exact && key != partyClassKey && (ret != partyClassReturn || !ov.partyEnabled) {
 		return false
 	}
 	slot := partySlot(x, y, false)
 	ov.retirePartyClass(slot)
 	if !exact || ret != partyClassReturn || slot < 0 || font != 0 || sp > 65530 || off > 65504 || !ov.partyEnabled || len(before) != 64000 ||
-		!partyClassInkFits(ent, ov.partySize, ov.partyScale, func() partyNameState {
+		!partyClassInkFitsForKey(key, ent, ov.partySize, ov.partyScale, func() partyNameState {
 			if slot >= 0 {
 				return ov.partyNames[slot]
 			}
@@ -303,15 +354,15 @@ func (ov *overlay) enterPartyClass(ret oracle.Addr, sp, font, off uint16, x, y i
 	for i, glyph := range ent.G {
 		glyphs[i] = append([]uint16(nil), glyph...)
 	}
-	ov.pend = &pendingPrint{s: partyClassKey, x0: x, y0: y, sp: sp, ret: ret, font: font, g: glyphs,
+	ov.pend = &pendingPrint{s: key, x0: x, y0: y, sp: sp, ret: ret, font: font, g: glyphs,
 		before: append([]byte(nil), before...), party: state}
 	return true
 }
 
 func finishPartyClass(p *pendingPrint, after []byte, pal [256][3]uint8, step uint64) *textEv {
-	if p == nil || p.party == nil || p.ret != partyClassReturn || p.font != 0 || p.sp > 65530 || p.s != partyClassKey ||
+	if p == nil || p.party == nil || p.ret != partyClassReturn || p.font != 0 || p.sp > 65530 || !partyClassMeasuredKey(p.s) ||
 		partySlot(p.x0, p.y0, false) != p.party.slot || p.party.slot < 0 || step < p.party.entrySteps || step-p.party.entrySteps > partyReturnLimit ||
-		len(p.before) != 64000 || len(after) != 64000 || !partyClassEntryValid(entry{Dy: p.dy, G: p.g}, p.party.size) {
+		len(p.before) != 64000 || len(after) != 64000 || !partyClassEntryValidForKey(p.s, entry{Dy: p.dy, G: p.g}, p.party.size) {
 		return nil
 	}
 	x0, y0, x1, y1 := 320, 200, -1, -1
@@ -374,8 +425,8 @@ func (e *textEv) partyNameMatches(screen []byte, ignore func(int, int) bool) boo
 }
 
 func partyClassShift(e *textEv, k int) (dx, dy int) {
-	if e != nil && e.party != nil && e.party.size == 16 && k == 2 {
-		return 2, -1
+	if e == nil || e.party == nil {
+		return 0, 0
 	}
-	return 0, 0
+	return partyClassOffset(e.s, e.party.size, k)
 }

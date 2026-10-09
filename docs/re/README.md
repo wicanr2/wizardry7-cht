@@ -1,5 +1,7 @@
 # 研究證據索引
 
+既有職業兩倍後寫行保護：[R996](../goal/R996-remaining-text-ui-gates.md)、[025證據](025-ui-localization-coverage.md#r996-career-late-line)。
+
 譯文上屏抽樣的接手複核：[R972目標](../goal/R972-sampling.md)，[025結果與清理限制](025-ui-localization-coverage.md#r972-sampling-takeover)。
 驗收後工作區清理與紙頁來源復核：[R973目標](../goal/R973-workspace-cleanup-paper-evidence.md)、[025來源與限制](025-ui-localization-coverage.md#r973-paper-source-recovery)。
 
