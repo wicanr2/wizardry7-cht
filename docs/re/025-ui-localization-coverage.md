@@ -1706,3 +1706,58 @@ SHA-256 `b3c137ae1ea74986fcd012ade6df797b156533215a06729219b76d89a4e936a9`；mti
 JSON／Markdown SHA-256：`07272b1b8d6d0505e64ed6e30529c27d351e6c831006982d88cd6a04fab3cccd`／
 `65de50022464ef217d8e5dd239d25688ece151e3ce5d5ee5824f40553a87ab74`。
 本輪結束RE，不追改名建構端、人物DB或共用runtime；022保持DRAFT，下一個實作為已定位的退格輸入缺口。
+
+## R993 姓名輸入退格鍵（2026-10-09）
+
+<a id="r993-backspace-input"></a>
+
+入口[R993](../goal/R993-backspace-stdin.md)、[035 DRAFT](../spec/035-backspace-input.md)、[#46](https://github.com/wicanr2/wizardry7-cht/issues/46)。
+沿R992已證缺口，不新增原版記憶體讀取或寫入。私人原型main恰增五行Backspace JustPressed→既有鎖內append byte08，
+F1早退、原IRQ1及owner的Type／錄放type路徑保持。原型source獨立FINAL 0／0／0完整採認，九來源及兩報告／binary共12項身份核同。
+JSON／Markdown SHA-256：`e16990babb3a269d4ab9a8f392bc3d60c4431309bbbf5a7f5c4042e6b9b759fa`／
+`6d9157db155a3d21cf9ce7d1deae6403386684d658945735b8c30978a3fe4416`。
+原型Go1.24.13、93來源及binary d6fe340c…沿固定工具重建，source清單逐項size／SHA核同。
+
+倚天3倍正常改名以R992合法THESUSR保存copy2為起點，先在F1開啟時按住／放開退格及Q。
+關F1實圖姓名仍THESUSR，正常首退格顯示THESUS，再逐字至空欄；空欄額外退格後仍空。
+逐鍵輸入ROWTEST，Return結束編輯後按原版確定，人物名牌與重新開ADD之新名、白底選取及取消均已目視。
+全程無創角、新遊戲、防拷、戰鬥或SAVE；原版／初始保存唯讀，只由原版正常改名寫入本輪scratch。
+頁尾Stop後續玩、正常關窗0。完整wire為4,441事件／2,190快照，末490.2M、962,345 bytes，SHA-256
+`b5ee4abd64ff6d5a91ab8edd15c4843f8829a85a2bd079b87543af0e88e1fb2d`。
+只對本次已知正常路線計數：type byte08共8、Q0；IRQ1 0Eh／8Eh各8、Q掃描碼0。
+安全結果在`workplace/r993/prototype-input-safe.json`，F1 ack與所有畫面只留本機。
+正常玩家FINAL、獨立READY閘門及正式接線／原版控制見下段。
+
+正常玩家FINAL已完整採認，六來源／報告SHA、13checkpoint及兩F1 ack核同；JSON／Markdown為
+`0e9293dbe9bff926762eea039f9fe693e5c4fc41107bdcb5c133194a68a07bea`／
+`946bc5b0b743498b07e59f8853e8a96d71998cd709866e11e65e4f73158c98c9`。
+035獨立證據與契約FINAL 0／0／0完整回讀，24項身份核同後採認READY，報告SHA及實作界限見035。
+正式main只增五行，public重建93來源及binary與原型逐bytes相同；正式binary仍D6，完整前端身份不含檔名或mtime。
+因此本次正常倚天錄製與同D6重播按READY契約納入正式範圍，來源身份證據在`formal-build/public-prototype-identity.json`。
+正式cmd回歸2.356秒通過，initconfig及recording為有效快取；沒有為此重跑不變來源或額外擴測。
+
+原API有／無覆繪各2,190發布的原版六類摘要及完整781,910-byte trace全同，SHA-256
+`df22e708cd127bd3ae367263273c385d1f53966055de04634d697cd3b51d3824`。
+正常／raw／translated／同D6重播四PCFILE bytes／mode同`b3e95d390e9a5f44e330729b22c00ad98148d3723e4d1ac5f3675fc7f056a269`，
+mtime各趟正常改名重寫；四SAVEGAME bytes／mode／mtime保持。原APIrunner沿既有R991來源，replay Update早退於實體鍵盤處理前，
+所以上述對照以完整已錄輸入派送；不把舊runner稱正式binary相容重播。安全結果在`prototype-control-safe.json`。
+正式Unifont正常一次退格ROWTEST→ROWTES，T復原後原版確定，直接返回角色選單，依實圖省略多餘Return。
+ADD的新名及其餘五列中文、白底選取及取消已量；3,167事件／1,574快照、末367M，700,405 bytes，
+wire SHA-256 `97b47764dcb8a3639649bd0e27cced0092123b89efaf0bbfe2032d296dbef785`。
+Stop後續玩、關窗0，同正式D6重播0；正常FINAL完整採認，六來源／報告及九圖核同。
+JSON／Markdown：`6bb5a860b7e64078c728c9d08f11e86930c82b0e32b85eecbc7f5792d8d61310`／
+`3f6a1b8f0896d5ba79930fe92e95729b90c1075c23a24410408735cb3f3d7841`。
+Unifont各原API有／無覆繪1,574發布及561,382-byte trace全同，SHA-256
+`5cb385371fb06c2f7b1ed7e615691aba50bb68ac3a27dddb49b907c64944e2d1`；四份PCFILE及SAVEGAME全部bytes／mode／mtime保持。
+兩份不同正常輸入各自比較，合計3,764對發布，不把兩組不同輸入稱同狀態互拍。安全結果`final-control-safe.json`。
+
+為補姓名墨點保持，開啟既有R991唯讀frame helper，不改runner或wire，兩份抽樣trace仍與既有控制全bytes同。
+按控制器command4實際姓名框開啟及原版確定區間選圖，倚天七個、Unifont兩個唯一Step；
+原DOS姓名域`[150,210)×[175,181)`整數3倍後29,160個RGB像素與衍生HD相同，差異0。
+主驗直接展開原indexed／palette，以ImageMagick解HD；獨立代理另以Pillow NEAREST3重建，沒有用被測checker輸出當期望。
+這些是衍生HD姓名域抽樣，不代替兩份已採認正常GUI，也不稱live Draw全圖比對。安全結果`name-pixel-safe.json`。
+
+最終獨立FINAL 0／0／0完整回讀採認，75項來源／結果／36影格／wire／binary身份核同，035只增已量Linux姓名路線限定CONFORMED。
+JSON／Markdown SHA及未量限制見035；36影格合併指紋
+`c2353c70fd19033282d930c1fc0ae78b239dcbbef2d59f0d3d3641d2711229ce`。
+新姓名職業碼仍英文，022通用辨識及其他中文化／平台交付保持未完成；本修補未修改SDK、譯文或字型。

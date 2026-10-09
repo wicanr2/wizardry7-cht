@@ -1956,3 +1956,49 @@ R433未追蹤保持，正式程式與SDK未改。下一實作為#46退格輸入�
 安全回讀收據在workplace/r992/result-comment-receipts.json；#46新議題全文回讀另有獨立收據。
 本輪goal及研究入口已索引，git diff檢查通過，未收原版、字型、code或完整輸入。
 整體中文化尚未完成，目標保持active，不縮為本輪來源補證；後續先完成#46與名單正式顯示閘門。
+
+## 2026-10-09 R993 姓名輸入退格鍵
+
+上一輪完成正常新名、原API控制、正式重播與獨立採認並推送，屬實際進展。
+本輪沿#46及目前狀態表，載入規格先行、中文顯示隔離及既有復古RE技能；不重開R992共用印字研究。
+已建goal及035 DRAFT並同時索引，遠端#46保持OPEN，開工留言6075185460全文286字／5個LF與原稿相同。
+私人副本只複製程式與錄放建置器，不複製text資料；只新增退格JustPressed到DOS字元佇列的五行，正式程式保持。
+沿固定Go1.24.13既有image及建置器，93份實際來源size／SHA逐一核同，原型binary
+d6fe340c924cef40a33798998d2d5086ef23ca45a5ee7a6740b17c2a989c4cd0，15,972,120 bytes。
+原型只供DRAFT正常測試，ASCII08的原版刪字與空欄尚待實測；獨立source FINAL採認前不執行原版。
+初始保存沿R992合法THESUSR進度唯讀copy2，控制器與新原版自然保存只寫workplace/r993；完整輸入與圖像只留本機。
+
+原型source FINAL 0／0／0完整回讀，九source／兩報告／binary共12項身份核同後才正常執行。
+正常F1下退格與Q各150ms後放開，關F1姓名THESUSR保持；首退格刪為THESUS，逐字至空，空欄額外退格仍空。
+逐鍵ROWTEST、Return及原版確定後，人物名牌及重開ADD的新名／選取／取消均已量，Stop續玩與關窗0。
+完整962,345-byte wire為4,441事件／2,190快照、末490.2M，SHA b5ee4abd64ff6d5a91ab8edd15c4843f8829a85a2bd079b87543af0e88e1fb2d。
+已知正常路線的type byte08共8、Q0、scan0E／8E各8，F1兩ack為true；安全計數另存，不列payload。
+正常玩家FINAL已完整採認，六source／報告SHA、13checkpoint及兩F1 ack核同。
+
+同D6原型重播0；既有R991原API runner的有／無覆繪各2,190發布、781,910-byte trace全bytes同，
+SHA df22e708cd127bd3ae367263273c385d1f53966055de04634d697cd3b51d3824。
+原API依完整事件派送，replay的Update在鍵盤處理前早退；這是原API控制，不冒稱舊binary正式相容重播。
+正常／raw／translated／replay四PCFILE bytes／mode同b3e95d390e9a5f44e330729b22c00ad98148d3723e4d1ac5f3675fc7f056a269，
+mtime各趟正常重寫；四SAVEGAME bytes／mode／mtime保持。保存只SHA/stat，保留合法ROWTEST，不撤銷原版改名。
+035已補confirmed正常證據，獨立READY審查進行中，正式main仍未修改。後續正式來源及D6身份、回歸與Unifont驗收另記。
+
+035 READY獨立核對已完成，報告收尾曾停滯；主代理中止該generation後要求只落已核有限報告，沒有放寬閘門或新增RE。
+完整READY FINAL 0／0／0回讀、七source／13圖／兩報告／wire／binary共24項身份核同後採認。
+正式main才新增已審五行，與原型全bytes同；固定建置器僅來源清單檔可寫，其餘source及原版唯讀。
+public重建93項來源清單與原型全同、兩binary逐bytes同D6，15,972,120 bytes；035依READY契約採入同binary正常倚天收據。
+Program身份不含frontend檔名或mtime，沒有修改任何wire／檔頭或複製原版資料來迎合設定。
+正式cmd回歸2.356秒通過，initconfig及recording為有效快取；Source清單檔改寫後內容保持，SDK未改。
+Unifont正常短路線已啟動，以合法ROWTEST保存copy2，僅退格末T後正常T復原，正式新錄製及後續控制另記。
+
+正式Unifont短路線完成3,167事件／1,574快照／末367M，byte08與scan0E／8E各1，正常Stop續玩及關窗0。
+同名原版確定直接回角色選單，依實圖省略多餘Return，再ADD選取及取消；兩保存檔全部metadata保持。
+正常FINAL全文與六來源／報告SHA及九圖核同後採認；同正式D6重播0，原API有／無覆繪各1,574發布全trace同5cb38537…。
+兩組各自完整對照共3,764對，不作不同正常輸入間互拍。原版、初始保存及完整wire均未改寫。
+
+為補姓名墨點抽樣，僅開既有R991 frame helper，兩條sample仍同既有完整trace；未改helper或原預期。
+按command4=rename-entry及原版確定的實際輸入區間選九個唯一Step，姓名域29,160 RGB pixels差異0。
+主驗用原indexed／palette展開與ImageMagick解PNG；獨立代理另用Pillow NEAREST3，期望不來自被測checker。
+此為衍生HD姓名域，正常GUI另列，不冒稱live Draw全圖驗收。完整原圖只留本機。
+最終獨立FINAL 0／0／0已完整回讀，75項來源／結果／影格／wire／binary身份核同後035標已量Linux路線限定CONFORMED。
+正式Src、93 manifest與D6仍相同；新姓名職業碼及022通用辨識尚待，整體中文化目標保持。
+Git／Issue與最終清理收尾另記；R433未追蹤保持，不收原版、font或完整輸入。

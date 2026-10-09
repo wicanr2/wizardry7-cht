@@ -746,6 +746,11 @@ func (g *game) Update() error {
 		g.sh.stdin = append(g.sh.stdin, '\r')
 		g.sh.mu.Unlock()
 	}
+	if inpututil.IsKeyJustPressed(ebiten.KeyBackspace) {
+		g.sh.mu.Lock()
+		g.sh.stdin = append(g.sh.stdin, '\b')
+		g.sh.mu.Unlock()
+	}
 	if footer {
 		return nil
 	}
