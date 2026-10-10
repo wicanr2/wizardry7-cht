@@ -130,3 +130,18 @@ HP／ST區間在已核HP入口6f5d、font0、6,93前保存完整離屏，結束�
 R966獨立規格審查阻擋0／文字應改3／建議1，主代理於FINAL完整回讀兩報告及SHA。三項文字應改已補置中整數公式、HP／ST合法並存例外及背景證據投影範圍，沒有技術或產品分支改變；依AGENTS第3節採認READY。JSON SHA `12b019140d03f2a58ede70f7e6b73bdcf38fe057086ccb83e400ff45faebf9cb`、Markdown SHA `5609ab66cf7187169a4833263eed6d922678e116a96dca01f0d27a0eba45097a`。建議的source_background assert留待下次重生工具，不為此重跑已足夠收據。
 
 R966限定驗收：12程序／84快照，70組修前／修後完整RAM SHA、Regs、Mouse、indexed／palette相同；另56組修後中英控制及28張舊3倍HD保持。四頁2倍HD1,024,000像素及Draw31格120,112局部像素相符，批准域外0。真正Unifont2倍GUI12次正常點擊、26Draw、13組同Step F1，男女四幀138原字模與1,024,000完整Draw像素相符，其他22幀無整頁事件；退出0，持久PCFILE保持。獨立來源、結果及修前補審皆0／0／0，主代理於FINAL完整回讀兩格式及SHA採認。結果JSON／MD SHA `42f12884e9119c0222689aabf19caae619f14cd4a7f60991eff8a3cc8c9b87cf`／`a1597041ca67d0bbd9daa93e6f0efc2c3313f2f37547650ffdece5d4125600d7`；修前補審 `5da5daab8d83950426fa4be32a46475712514e23631fbd46ecb0414256e618b3`／`c4b3f47032bb3426c8eccc97be0403d70a5baceb6f1ea2f23531a9df89c00a54`。細節見[研究R966](../re/025-ui-localization-coverage.md#r966-profile-reflow)。其他人物／長數值／背景相位、防禦、冷START／存讀、音訊、正式錄放、十一組、TSV及封包仍未完成，不擴大本節CONFORMED範圍。
+
+## R1002 創角早期M覆繪增補 READY
+
+正常創角選男性後仍顯示M，進入既有完整人物頁才顯示男。本增補沿已定性別譯文及原生字模補齊這個來源，不改原版資料、輸入、條件或保存。入口[R1002](../goal/R1002-names-profile-context.md)，證據見[研究025 P6](../re/025-ui-localization-coverage.md#p6-程式與擴大字格背景)。只放行已量M，F及其他來源仍未量；本節未READY前不寫正式實作。
+
+1. 新路由只接受精確runtime `0110:3877`、near返回`0110:9595`、字碼M、font0及driver游標90,6，倍率硬限2／3。新讀取先核SP≤65530及完整offset／物理界線，沿`heldRead`取得自有副本；不得在守門前讀StackWord。再核9592三bytes為`E8 E2 A2`，driver沿0110:2de7指標及0163四byte簽章動態驗證。失配保留原文並有限記原因，不用測試Step作正式條件。
+2. 字模沿既有profile-sex兩鍵原生15／16資源，完整兩鍵、漢字、dy0、同高、位元界及非空守門沿034。M固定取男，不因翻譯map有F就放行新caller的F。入口完整before須64000bytes，八背景點及值沿本輪confirmed表與034一致；一般／複合pending交錯、巢狀及壞資源拒絕。
+3. 沿既有性別pending保存新來源的SS、SP、entryStep、driver／buffer及自有before。每個真3877重入先清新來源pending，且在既有兩來源的入口處理之前完成，避免吞掉6c42／6159。既有NUL清pending同樣涵蓋新來源；不清別來源的有效pending。新9595返回只消費自己的pending，其他返回不得提前完成。
+4. 返回先核精確CS:IP、同SS、SP+2、步數不倒退且≤1M、同已驗driver／buffer、游標96,6及完整after。全64000差分須非空，只落90,6起6×6且after全為色1；其餘背景不得變。任何失配清新來源pending及舊新來源事件，回原文，不拼接代次。
+5. 使用既有sex事件及原版palette[1]，原筆畫還原只取實際差分，完整88,4起8×8作上屏守門及撤除。原版Indexed／RAM／離屏不改；其他區域改寫、新來源失配及換頁後不得復活舊字。新事件沿originRet分開，不參與6c42的整頁重排或改動既有兩來源。
+6. HD與真正Draw共用既有完整原生男字及位移：d=max(字高−6×倍率,0)，中文位置為90×倍率−d、6×倍率−d。2倍倚天177,9／Unifont176,8，3倍270,18。完整字格落在放大後8×8內，不碰96,6的連字號；不縮字、不裁字。clone保持來源及自有事件像素／字模，Draw不讀Oracle或可變pending。
+7. 有意義負測覆蓋錯CS別名／SP及讀前拒絕、其他caller／F／font／座標／倍率／資源／背景／簽章、NUL或字元插入、錯SS／SP／時距／driver／buffer、域外或錯色差分、零差分與撤除不復活；既有024／034與全部cmd/wiz7回歸保持。測試通過只證內部契約，不升格正常路線。
+8. 同R1002合法完整輸入，修前／修後及無覆繪原API兩字型兩倍率核1786原版摘要、保存及限定性別域；獨立由原版差分、8×8背景與原始字型重建期望。另以新正常GUI到早期M上屏，核HD／Draw位置與無裁字、原版後續畫面重畫／既有性別來源接手時撤除、正常收尾及保存保持。未量F、取消／保存新角色或其他背景如實保留，不以私人API代替正式錄放相容或正常GUI，不重做已足夠音訊／錄放矩陣。
+
+八條獨立0／0／0完整讀回採認READY。JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`、Markdown SHA `ddf9a69de6acdc7b164cdc3d2bd50f2fe4bf2da3761dbd63b961b701817b338f`。審查時DRAFT精確輸入SHA `f63404f35f84fc577ed61376a73608e0bf0ebf4635f0edd12d5c41955ea479d8`只留本機`workplace/r1002/spec024-creation-draft-input.md`。正式實作、來源複核及正常GUI驗收仍待，不擴大既有CONFORMED或F範圍。

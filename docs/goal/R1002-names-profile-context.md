@@ -51,7 +51,7 @@ Docker離線、UID1000、限資源、硬截止與清理沿專案規則。原版�
 
 上述工具只在既有離線GUI容器內執行，遵守專案UID／資源／逾時與掛載規則。完整輸入、原版資料與窄像素收據只留本機；缺本機前置檔就停止，不用代用品。
 
-## P6 新9595來源補證 DRAFT
+## P6 新9595來源補證 READY
 
 R1已量新caller，只補正式路由缺的來源及背景，不新增遊戲輸入。P1至P5與R1收據保持，以下須另經獨立READY及來源審查才執行新私人R2。
 
@@ -60,3 +60,16 @@ R1已量新caller，只補正式路由缺的來源及背景，不新增遊戲輸
 3. 沿原P3已取得的自有64000-byte before／after，不新增畫格讀取。額外輸出88,4起8×8各64bytes及八背景點，只有該一對新9595樣本可輸出；其餘P3仍只6×6。返回仍核同SS／SP+2／near ret／1M與96,6、同driver／buffer才接受P6，失配保持R1原事件並有限記原因，不推正式路由。
 4. P4的事件／hook／樣本上限、固定JSON／0600／INVALID及有界Close保持。R2從未改正式96來源重建，同R2 binary的開／關兩組重播同完整wire，1786六欄及保存相同；另核trace等於R1基準。R1及兩組結果保留不覆寫，不藉新抽樣重擲、直接進入或延長原版執行。
 5. code以runtime `0110:9515`基址記錄，交給既有IDA9.4隔離工具鏈只解這128bytes，原址／operand不改名，證據等級分清。足以定義窄M路由後就停止，不研究整段創角。9595的F未量不放行；正式024增補仍另走DRAFT→獨立READY→實作→正常GUI及原版對照。
+
+P6五條獨立0／0／0完整採認READY。JSON SHA `0951843e98a6555899ae7111bd3cdad5efeb609fec21f81a89dbfedba1c5bc9e`、Markdown SHA `2eb69d55deecc24e11ac72192bb6c69f6cfe8b9cc4c80a948ecd7ac8b1c901b2`。只放行私人補證實作，來源複核前不執行。
+
+R2私人98來源SHA `dacf77a144c8d0d540fb8ced0e9a06ca2e2974ff00740416a72c79d8e36d7ce1`，binary SHA `a28ed568d3155db15fb6f8129fc9eaef1c53b4b995dfd5d303ba7c96b85174af`、16181256bytes。相對R1只有私人observer編譯來源不同；來源複核0／0／0完整採認，JSON SHA `63d2acb119f3b38b93bd54f3ac6e326af361544f53c7eb9c870194add557901e`，才開始指定on／off兩組。原R1結果保持，正式程式及路由未改。
+
+P6兩組退出0，1786摘要／保存與R1基準全同，舊事件保持，僅新增一次source_extension。104項獨立驗收完整採認，JSON SHA `a0bd717aba2fac36498658ba02c58d920f7d3f0c8161ae6385219448253030df`。code128及8×8／八點補證已足，IDA9.4解碼與證據等級見研究025，不再擴讀創角。正式[024窄M增補](../spec/024-character-review-output.md#r1002-創角早期m覆繪增補-ready)獨立八條0／0／0已採READY，JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`；尚未實作。下一輪直接依READY實作及驗收，不再擴讀或重跑來源矩陣。
+
+P6工具沿上述R1本機前置檔，另需本機`probe-extension-review.json`及0951843e…5bc9e身份：
+
+- [P6觀察器](../../tools/re/character_creation_probe.go)與[純建置產生器](../../tools/re/prepare_character_creation_probe.py)，完整複製至新輸出目錄`context_probe.go`後使用`--out`；原96正式／SDK來源仍須相同。
+- 沿原[執行器](../../tools/re/run_character_context.py)，環境指定上述R2 binary／SHA及全新空白輸出，不改完整wire。
+- [R2核心比較器](../../tools/re/check_character_creation_core.py)先核兩組，再由[P6比較器](../../tools/re/check_character_creation.py)核R1原事件、唯一補證與8×8／code；後者以O_EXCL0600派生本機`ida-source/creation-code.bin/.json`，重跑用新輸出，不覆寫。
+- [IDA片段腳本](../../tools/re/ida_character_creation.py)只讀派生128byte及其metadata，對一次性DB輸出`ida-creation-source.json`。沿已驗非root IDA9.4 image及最小探針契約，原片段唯讀，DB及輸出另寫。確定call錨點與其餘候選邊界分列，不解整個函式。

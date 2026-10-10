@@ -1954,3 +1954,15 @@ MAGE已量底部位置沒有晚寫缺陷，這次驗其正常字形位置，不�
 開／關同一私人binary、完整輸入與起點均退出0，1786發布原版Step／Ticks／RAM／Regs／indexed／palette及完整trace bytes全同，SHA `bc95b65d4f308b136f4236993ee97db7f57ebb25d43df622d0697a2a421fc1af`；保存size／SHA／mode／mtime保持。9595為本正常M路線的新印字來源，等級confirmed；尚未讀此caller程式、8×8背景或實測同caller的F，不能據此放行新正式路由。既有024／034、一般訊息與性別資源保持。動態獨立複核另記。
 
 最終動態獨立110項0失敗完整讀回採認，JSON SHA `96ea1e9ebb8e6ba79a663e08c38e2478ac800b428f70f94fc4c61b539d39016b`、Markdown SHA `7211eb9e6f8bb8d549e554eaad5bfd9e86e9ce92514f0ea1743f0d6ca78e92d5`。獨立核兩側實際保存、兩個M入口返回／36byte窄差分、六事件及四工具逐bytes身份；全frame域外數依已審probe統計，沒有由6×6輸出重建域外。兩次純建置manifest／binary全同；新9595來源用途限制保持。
+
+### P6 程式與擴大字格背景
+
+P6契約與R2來源各獨立0／0／0採READY才執行。R2的98來源SHA `dacf77a144c8d0d540fb8ced0e9a06ca2e2974ff00740416a72c79d8e36d7ce1`、binary SHA `a28ed568d3155db15fb6f8129fc9eaef1c53b4b995dfd5d303ba7c96b85174af`。同R2 on／off兩組退出0，1786六欄、保存metadata及完整trace仍等R1；原事件物件保持，只增加一筆source_extension及summary計數。獨立104項0失敗完整採認，JSON SHA `a0bd717aba2fac36498658ba02c58d920f7d3f0c8161ae6385219448253030df`、Markdown SHA `a5f3611a607e52194916264e422c54572b2e6f93cff2c509ad195e8b3ec99a81`。
+
+已量9595同一對before／after的88,4起8×8背景，只有原6×6內13點變色1；擴大區其餘像素保持。八點88,4／92,4／95,4／88,7／89,9／88,11／91,5／95,5前後為115／116／115／117／115／115／13／14，與034背景相同，等級confirmed於此M樣本。source_extension事件SHA `22edc4f82f8e34eaa592c4b5dd8842fad2fad044444a41051bbca45da7d43195`，code及metadata派生檔以O_EXCL0600保存，本機原檔保持。
+
+已讀runtime `0110:9515`起128bytes至9595前，SHA `52cb7f13b532177bf66e56dbcb5388ecee2a72fe92db6b78ff2d51ec09e107ef`。`0110:9592`的`E8 E2 A2`由實際取樣簽章及IDA9.4錨點共同確認為near call `0110:3877`，返回9595，等級confirmed。IDA使用既有py312-v1映像4ac62de8…a06ab、同UID最小探針先通過，輸出SHA `20ec11dfaeaf87a96ae7417f099e10807d3e03da504847e3370532ee97781430`。IDA raw blob錨點EA125與runtime9592分欄，原operand `near ptr 0A362h`只屬blob位址空間，不當runtime目標。
+
+其餘線性項目只作候選邊界。runtime956c後候選指令包含`lea ax,[bp-52h]`、`imul word ptr [bp+4]`乘248h、讀`[bx+5E2Ch]`、加8Ch、9582 near call0582，以及958c取`[bp-52h]`首byte／font0／9592印字，和既有024／034性別資料流及已量M ABI吻合，等級強推論。沒有執行單步覆蓋全部指令，不把整段創角或F升為confirmed。
+
+M的caller、程式簽章、完整印字差分及擴大背景已足以定義窄覆繪，停止擴讀code或研究創角規則。正式024增補另審；F及其他caller／背景仍待，不以來源證據當正式中文畫面完成。

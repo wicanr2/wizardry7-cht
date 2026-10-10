@@ -2301,3 +2301,17 @@ R1001目標已建立並索引，#18起始留言6090058246。正常controller、P
 四已審研究工具逐bytes保存並掛goal入口；從保存constructor及觀察器純重建98來源SHA232ad6ee…80ea與binary22c6逐位元同，沒有新增原版執行。完整wire、保存、字模及窄像素只留本機。動態獨立驗收及最後推送另記，正式Go／SDK／譯文保持。
 
 最終動態獨立110項0失敗完整讀回採認，JSON SHA `96ea1e9ebb8e6ba79a663e08c38e2478ac800b428f70f94fc4c61b539d39016b`、Markdown SHA `7211eb9e6f8bb8d549e554eaad5bfd9e86e9ce92514f0ea1743f0d6ca78e92d5`。除R1正常來源診斷外，P6另擬9595的128bytes程式及8×8背景補證DRAFT待審，尚未實作／執行。載入IDA9.4官方工具入口後，優先locked-v1 image查無；現存本專案已用py312-v1 image為4ac62de8…a06ab，待同UID最小輸出探針，不因缺優先tag重建映像或退回host。
+
+來源f5c1411已推送私人main，#22留言6091203364及#24留言6091203881各426字元／9個LF，全文回讀同原稿，兩Issue維持OPEN。安全收據`workplace/r1002/github-readback-r1.json`；R433保持未追蹤，整樹root-owned與誤建.md目錄0、自有容器清空。
+
+P6五條獨立0／0／0完整採認READY，JSON SHA `0951843e98a6555899ae7111bd3cdad5efeb609fec21f81a89dbfedba1c5bc9e`，才開始私人R2實作／純建置。IDA py312-v1同UID最小自製兩byte輸入探針已出非空JSON，kernel9.4、輸入SHA及1000擁有權相符；沒有讀原版code或由image名稱猜可用。
+
+R2純建置98來源dacf77a1…7ce1、binarya28ed568…74af；相對R1只有observer編譯來源不同，main／原API及已審runner逐bytes保持。P6來源複核0／0／0完整採認，JSON SHA `63d2acb119f3b38b93bd54f3ac6e326af361544f53c7eb9c870194add557901e`後才從全新scratch開始兩組。比較器執行前補實際事件SHA、固定R1 trace、extension緊接返回及派生code檔O_EXCL0600；舊R1收據不覆寫。
+
+R2兩組完成0，1786原版摘要及保存與R1全同，原事件保持只加一次補證。104項獨立驗收完整採認，JSON SHA `a0bd717aba2fac36498658ba02c58d920f7d3f0c8161ae6385219448253030df`。9595的8×8只有13點變色1、八背景點前後同034；runtime9515起128bytes SHA52cb7f13…07ef。IDA9.4輸出20ec11df…1430核輸入相符及末call錨點；其他線性候選只強推論，raw blob與runtime位址分列。這些已足定義窄M路由，停止擴讀創角。正式024增補已DRAFT獨立審查中，尚未改正式Go／SDK或F路由。
+
+P6觀察器／產生器、兩比較器及IDA腳本逐bytes保存並掛goal入口；R1工具及所有舊收據保持。保存constructor的純重建另核，不因來源診斷通過宣稱正式中文字、取消或新角色保存已完成。
+
+保存P6 constructor純建置完成0，98來源manifest及binary逐位元等已驗R2，不新增原版執行。024索引同步既有兩倍重排限定驗收與新創角M DRAFT，避免沿用過時「2倍性別未完成」摘要；正式路由未改。
+
+正式024窄M增補八條獨立0／0／0完整讀回採認READY，JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`、Markdown SHA `ddf9a69de6acdc7b164cdc3d2bd50f2fe4bf2da3761dbd63b961b701817b338f`。精確DRAFT輸入f63404f3…79d8已先保留本機，轉READY同步goal錨點及索引；五保存工具獨立byteidentity保持。R1002來源與規格工作已足，下一輪直接正式實作／來源複核／正常GUI及原版保持，不再重跑來源矩陣；F及其他未量路線維持限制。
