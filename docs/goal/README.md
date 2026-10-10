@@ -1,5 +1,7 @@
 # 專案目標
 
+創角早期M正式覆繪：[R1003](R1003-creation-sex-wiring.md)。
+
 怪物名字與角色頁情境：[R1002](R1002-names-profile-context.md)。
 
 有聲冷LOAD及世界正常操作：[R1001](R1001-normal-audio-world.md)。

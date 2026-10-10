@@ -1966,3 +1966,15 @@ P6契約與R2來源各獨立0／0／0採READY才執行。R2的98來源SHA `dacf7
 其餘線性項目只作候選邊界。runtime956c後候選指令包含`lea ax,[bp-52h]`、`imul word ptr [bp+4]`乘248h、讀`[bx+5E2Ch]`、加8Ch、9582 near call0582，以及958c取`[bp-52h]`首byte／font0／9592印字，和既有024／034性別資料流及已量M ABI吻合，等級強推論。沒有執行單步覆蓋全部指令，不把整段創角或F升為confirmed。
 
 M的caller、程式簽章、完整印字差分及擴大背景已足以定義窄覆繪，停止擴讀code或研究創角規則。正式024增補另審；F及其他caller／背景仍待，不以來源證據當正式中文畫面完成。
+
+## R1003-creation-sex-wiring
+
+2026-10-10，沿[R1003](../goal/R1003-creation-sex-wiring.md)與024 READY八條，正式接入M9595。來源97項18c9d3bb…579d、binary631926ca…4c99，新增M限定入口及返回守門、原生字位移與自有clone；原版記憶體／規則／資料／保存／英文鍵不改，F未放行。
+
+十組每1786發布原版六欄摘要與R1002基準bc95b65d…c1af逐bytes同，20保存metadata保持；50對真正Draw／HD、獨立原字型及原M13點重建共41,603,328 RGB像素0差，來源格與palette／RAM／Regs逐publication綁trace。八張早期新M完整canvas符合期望，後12對old／new全圖同、沒有過期9595。原字型SHA沿R1002固定兩來源，沒有取候選G作oracle或縮字。
+
+四正常雙字型雙倍率從創角M到頭像接手，主代理逐張看過；12張early PNG／4992 ROI像素獨立0差，實際非字背景及舊英文專屬點全核。普通PNG不冒稱同pub／同RAM，頭像頁不套early性別ROI；完整錄製、正式Reader／close0及保存保持。新Uni3同binary正式-replay完成3627事件／1800發布／435.4M、真成功訊號及退出0，保存與wire身份保持。
+
+獨立矩陣JSON／MD SHA `a4c96a0fbb9f9f08232fb247a134ffa34bb7d8b7452777a9737841d1fde0769e`／`e6412b83ae777842a44a3fc36010727caf2f5268ab564165576bc065ddab95fd`；普通GUI／重播獨立最後兩gate為`c631e52c22fb121cc17d9f1410a3af3ddb510606450a7c54992640447d0e33fb`／`92d1892b703ac20558b1102f36160036899cf86d69a3875474cd756d8ffcfb7b`，主代理完整採認。正式接入後回歸349 pass／22舊skip及乾淨build全同已驗候選，六工具保存版純重建99觀測source與binary全同。
+
+早期兩份idle正常收尾只列M顯示；一次力量18／bonus1再點click no_response使錄製失效，保留partial，不判F1產品bug、不採200ms猜修。正常後續點智力欄可切箭頭，配點／接手完成。兩倍一般屬性標籤重疊是另一創角／頭像頁缺口，#28留言6092121590已登記，不重開R966已驗人物頁。024只本M路線限定CONFORMED，其他性別／caller／背景／取消／新人保存／平台及全案保持限制。

@@ -144,4 +144,16 @@ R966限定驗收：12程序／84快照，70組修前／修後完整RAM SHA、Reg
 7. 有意義負測覆蓋錯CS別名／SP及讀前拒絕、其他caller／F／font／座標／倍率／資源／背景／簽章、NUL或字元插入、錯SS／SP／時距／driver／buffer、域外或錯色差分、零差分與撤除不復活；既有024／034與全部cmd/wiz7回歸保持。測試通過只證內部契約，不升格正常路線。
 8. 同R1002合法完整輸入，修前／修後及無覆繪原API兩字型兩倍率核1786原版摘要、保存及限定性別域；獨立由原版差分、8×8背景與原始字型重建期望。另以新正常GUI到早期M上屏，核HD／Draw位置與無裁字、原版後續畫面重畫／既有性別來源接手時撤除、正常收尾及保存保持。未量F、取消／保存新角色或其他背景如實保留，不以私人API代替正式錄放相容或正常GUI，不重做已足夠音訊／錄放矩陣。
 
-八條獨立0／0／0完整讀回採認READY。JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`、Markdown SHA `ddf9a69de6acdc7b164cdc3d2bd50f2fe4bf2da3761dbd63b961b701817b338f`。審查時DRAFT精確輸入SHA `f63404f35f84fc577ed61376a73608e0bf0ebf4635f0edd12d5c41955ea479d8`只留本機`workplace/r1002/spec024-creation-draft-input.md`。正式實作、來源複核及正常GUI驗收仍待，不擴大既有CONFORMED或F範圍。
+八條獨立0／0／0完整讀回採認READY。JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`、Markdown SHA `ddf9a69de6acdc7b164cdc3d2bd50f2fe4bf2da3761dbd63b961b701817b338f`。審查時DRAFT精確輸入SHA `f63404f35f84fc577ed61376a73608e0bf0ebf4635f0edd12d5c41955ea479d8`只留本機`workplace/r1002/spec024-creation-draft-input.md`。正式限定驗收見下節，不擴大既有CONFORMED或F範圍。
+
+### R1003 限定CONFORMED
+
+2026-10-10，新增creation來源、必要入口仲裁／pending身份／原生位移／clone及負測。97正式來源SHA `18c9d3bbcbb5f1e4164f18597f63e65edd6c02fd6253c74b77024bf01299579d`，binary SHA `631926caa447010014ff70dada2dc56179a010eaa6fd5573394084b511484c99`、16118120bytes。候選與正式接入後完整cmd/wiz7皆349測試通過／22明列舊opt-in skip，套件通過；來源獨立0／0／0採認。
+
+修前／修後各兩字型兩倍率與兩無覆繪控制共十組，每1786原版Step／Ticks／RAM／Regs／indexed／palette及完整trace全同，20份實際保存metadata保持。五個既存publication各組輸出50對HD／Draw，550項及41,603,328 RGB像素符合原M13點與固定原字型的獨立期望；早期8張整圖及域外0差，後續12對修前／修後全圖相同且沒有舊9595事件。無覆繪控制資格實際核Shown空／comp原圖／palette放大。沒有拿普通PNG當同publication。
+
+正常雙字型雙倍率四組，早期男及頭像接手均實看，12張早期GUI／4992 RGB像素與獨立原字型／原背景0差，無舊M殘墨；完整錄製／close0／保存保持，四正式Reader接受。新Uni3同6319的正式嚴格重播完成3627事件／1800發布／末435.4M，成功字串與退出0、保存及binary／wire保持，無私人API。另兩個只M上屏的idle收尾及一份click no_response partial保留，不列成功接手。
+
+矩陣及普通GUI／重播獨立三gate均0／0／0完整採認，JSON SHA `a4c96a0fbb9f9f08232fb247a134ffa34bb7d8b7452777a9737841d1fde0769e`及`c631e52c22fb121cc17d9f1410a3af3ddb510606450a7c54992640447d0e33fb`。正式六檔接入後回歸及乾淨建置逐位元同已驗候選，保存工具純重建亦同已驗觀測版。細節、工具與失敗分類見[R1003](../goal/R1003-creation-sex-wiring.md)及[研究025](../re/025-ui-localization-coverage.md#r1003-creation-sex-wiring)。
+
+只將本節已量M9595／背景／兩字型兩倍率／正常Human男性路線列為限定CONFORMED。F、其他caller／背景、取消／保存新人物、二倍一般創角／頭像頁屬性重疊及平台／全案交付不升格；原版、譯名、字型資源與錄放schema保持。

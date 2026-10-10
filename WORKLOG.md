@@ -2317,3 +2317,25 @@ P6觀察器／產生器、兩比較器及IDA腳本逐bytes保存並掛goal入口
 正式024窄M增補八條獨立0／0／0完整讀回採認READY，JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`、Markdown SHA `ddf9a69de6acdc7b164cdc3d2bd50f2fe4bf2da3761dbd63b961b701817b338f`。精確DRAFT輸入f63404f3…79d8已先保留本機，轉READY同步goal錨點及索引；五保存工具獨立byteidentity保持。R1002來源與規格工作已足，下一輪直接正式實作／來源複核／正常GUI及原版保持，不再重跑來源矩陣；F及其他未量路線維持限制。
 
 P6及READY規格來源3e056da已推送私人main，#22留言6091421785為279字元／5個LF，全文回讀同原稿，Issue保持OPEN；安全收據`workplace/r1002/github-readback-p6.json`。五工具入口以R1000既有索引作正對照核過，舊DRAFT錨點0，正式c7da binary保持。自有容器清空、整樹root-owned及誤建.md目錄0，R433未追蹤保持。整體Goal仍進行中，沒有新正式M畫面或發行完成聲明。
+
+## 2026-10-10 R1003 創角早期M正式接線
+
+上一輪來源與規格是進展。本輪從75cbcd6核當前工作樹與遠端#22 OPEN，沿顯示／語意隔離入口及文件職責，建立並索引goal，#22起始留言6091450276。直接依024 READY八條建立私人候選，不再做來源考古。新增creation_sex與負測、必要入口仲裁／共用pending／原生位移／clone；97來源18c9d3bb…579d、binary631926ca…4c99。完整cmd/wiz7為349 pass／22舊opt-in skip，新來源48 pass事件及既有world7 pass；候選來源獨立0／0／0完整採認後才跑正常GUI，JSON SHA `3e12f07b7876cf5d286195a3ca57ed416b0d20139842092d2013662f532c4d64`。
+
+私人畫面V1至V5契約審查只剩HD helper吞錯誤的文字應改，已明列全部檔後驗、固定INVALID／停採／保留失敗組，採READY。產生器初兩次為錨點及receipt目錄前置條件錯誤，原版未執行；核工具契約後用新目錄乾淨純建置，保留失敗嘗試。擷取R1來源審查擋下publish前舊Panel及逾時收據，R2修正再補trace OSError不重讀；R3獨立0／0／0完整採認，JSON SHA `8340cddf6f37da53b9f7bc772cf9a7b086f58116cb092bfe041956e4c1d5972b`。修前98來源e2422194…198d／binary6ff7da29…f6f9，修後99來源77c48be3…3388／binaryd29168b1…3c04才執行；來源與舊觀測版本不覆寫。
+
+正常控制器獨立0／0／0採認後，以正式候選6319、不含私人API／hook跑新普通鍵鼠與錄製。第一Uni3及倚天3皆完成Male中文、正常配點、頭像接手、Stop續玩及WMclose0，保存metadata保持。第一兩個2倍會話在根代理寫checker期間達120秒idle正常收尾，只採M上屏、不採接手。Uni2首次補接手第七次STR click回no_response並先於最後關窗使錄製失效，保留partial／exit2；第六次STR18／bonus1、第七次無變化及footer失敗，cap因果只強推論，不推未量規則。partial失效後不再更新panel，F1實際是否開啟未知；200ms F1原型未審／未run／未採猜修，正式錄放契約不改。窄audit最終JSON SHA `1c10bab3a5f4355976c724505fbe7d2e2db794fa988280401d1dae51bd987f8f`。
+
+後續兩倍沿原R1普通控制器逐步看實圖，STR18即停；點智力名稱120,43會切換箭頭，Down／Tab沒有觀察到切欄。新Uni2與倚天2均完成頭像接手／完整錄製／close0及保存保持，四成功wire見goal；所有先前idle／partial保留。主代理實看四組早期男／接手，沒有把正常錄製當同狀態像素或正式重播通過。
+
+獨立原字型資料循字型路由載倚天索引入口；固定Unifont原檔由既有拯救地球輸入目錄精確定位，SHA7b182454…e574保持，沒有下載或替代字型。Checker初審兩阻擋補每frame A000／palette／RAM綁固定trace，以及oldHD批准8×8確為原M底圖；修後三倍五組275項／28,802,304 RGB像素符合獨立期望，原版每1786摘要及保存同R1002。兩倍五組及最終獨立採認仍待，正式Go未接入。
+
+實圖另見兩倍創角／頭像選擇頁的一般屬性標籤重疊，另沿#22／#28處理，不重開R966已驗完整世界人物頁，也不稱此次M修補完成整頁排版。純正式Reader已接受新Uni3完整3627事件／1800發布／末435.4M；指定同6319的正式-replay工具已備，尚待實跑。全案及平台／交付保持未完成。
+
+十組控制全部完成0，每1786原版摘要／保存同R1002。完整checker R2兩項frame綁trace／oldHD8×8基準修正獨立0／0／0採認，最後550項及41,603,328 RGB像素符合獨立期望；結果943ae90b…ca45。正常四成功組12張early PNG／4992 ROI像素量測0差，背景及英文專屬墨點差異0；量測工具不自評candidate且頭像圖只核身份，交另一審查者採認。
+
+四新完整wire均通過正式rc.Load Reader，不讀或公開header／輸入。正式重播包裝原M1缺kill-after，已補雙硬截止並獨立0／0／0採認才跑指定Uni3同6319重播，3627事件／1800發布／435.4M、真成功字串及退出0、保存／source／binary／wire保持，結果50ef7b68…1eb7。保存六研究工具及goal入口，constructor相對檔名保持；從保存版純重建99來源／d291 binary完全相同，未新跑原版。#28新增排版缺口留言6092121590全文回讀189字元／3LF同原稿，收據layout-gap-readback.json。最終獨立結果採認與正式接入尚待。
+
+最終獨立矩陣a4c96a0f…769e及普通GUI／strict c631e52c…e33fb兩報告均0／0／0完整讀回採認，原版17,860 rows／實際保存／50HD-Draw／原字型全圖與正常4992 ROI／Reader／真重播成功訊號全部過。只在審查查build目錄時有工具路徑假設錯誤，核心矩陣已過，分類為審查工具問題，不重跑產品。根代理另逐張看四正常早期／頭像圖及四控制Draw，二倍一般屬性重疊另#28保持。
+
+三gate齊後才逐bytes接入六正式Go，UID/GID前後核1000。正式完整cmd回歸371 run／349 test pass／22舊opt-in skip／package pass，無FAIL；乾淨97來源18c9d3bb…579d及binary631926ca…4c99、16118120bytes全同已驗候選。promotion-result.json PASS，024本已量M9595路線限定CONFORMED；CONTEXT現行binary改R1003，舊c7da／5d6及wire保留不覆寫、不承諾跨版本重播。其餘未量F／caller／背景、兩倍一般排版、平台與全案交付仍未完成，推送及最後清理另記。

@@ -1294,6 +1294,12 @@ func main() {
 		}
 	})
 	o.OnCall(oracle.Addr{Seg: 0x0110, Off: 0x3877}, func(o *oracle.Oracle) {
+		evMu.Lock()
+		handled := ov.enterCreationSex(o)
+		evMu.Unlock()
+		if handled {
+			return
+		}
 		r := o.Regs()
 		ret := oracle.Addr{Seg: r.CS, Off: o.StackWord(0)}
 		if ret == worldSexReturn {
@@ -1329,6 +1335,11 @@ func main() {
 			ov.enterProfileSex(ret, r.SP, o.StackWord(2), o.StackWord(1), x, y, offscreen(o))
 		}
 	})
+	o.OnCall(creationSexReturn, func(o *oracle.Oracle) {
+		evMu.Lock()
+		defer evMu.Unlock()
+		ov.returnCreationSex(o)
+	})
 	o.OnCall(worldSexReturn, func(o *oracle.Oracle) {
 		evMu.Lock()
 		defer evMu.Unlock()
@@ -1351,10 +1362,13 @@ func main() {
 		}
 	})
 	o.OnCall(entry, func(o *oracle.Oracle) {
+		r0 := o.Regs()
+		if !heldAt(r0, 0x3895) {
+			return
+		}
 		evMu.Lock()
 		ov.clearProfileSex("一般字串插入")
 		evMu.Unlock()
-		r0 := o.Regs()
 		if r0.SP > 65530 {
 			evMu.Lock()
 			ov.retireRosterAt(int(o.Word(oracle.Far(0x740c, 0x0297))))
@@ -2102,6 +2116,11 @@ func cloneVisualEvents(in []*textEv) []*textEv {
 	out := make([]*textEv, 0, len(in))
 	for _, e := range in {
 		v := &textEv{originRet: e.originRet, sex: e.sex, popupClip: e.popupClip, s: e.s, x0: e.x0, y0: e.y0, dy: e.dy, fg: e.fg, fgRGB: e.fgRGB}
+		if e.sex && e.originRet == creationSexReturn {
+			v.bx, v.by, v.bw, v.bh = e.bx, e.by, e.bw, e.bh
+			v.before = append([]uint8(nil), e.before...)
+			v.after = append([]uint8(nil), e.after...)
+		}
 		if e.profile != nil {
 			v.profile = e.profile.visualCopy()
 		}

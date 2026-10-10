@@ -106,17 +106,24 @@ func loadProfileSex(xlate string, trans map[string]entry) map[string]rosterEntry
 }
 
 type pendingProfileSex struct {
-	s      string
-	sp     uint16
-	ret    oracle.Addr
-	x, y   int
-	before []byte
-	g      [][]uint16
+	s              string
+	sp             uint16
+	ret            oracle.Addr
+	x, y           int
+	before         []byte
+	g              [][]uint16
+	ss             uint16
+	entryStep      uint64
+	driver, buffer uint16
 }
 
 func (ov *overlay) clearProfileSex(reason string) {
 	if ov.sexPending != nil {
-		ov.sexPending = nil
+		if ov.sexPending.ret == creationSexReturn {
+			ov.clearCreationSex()
+		} else {
+			ov.sexPending = nil
+		}
 		log.Printf("性別缺譯：%s", reason)
 	}
 }
@@ -164,7 +171,7 @@ func (ov *overlay) returnProfileSex(sp uint16, x, y int, after []byte, pal [256]
 	if p == nil {
 		return
 	}
-	if (p.ret != profileSexReturn && p.ret != worldSexReturn) || sp != p.sp+2 || x != 96 || y != 6 ||
+	if (p.ret != profileSexReturn && p.ret != worldSexReturn && p.ret != creationSexReturn) || sp != p.sp+2 || x != 96 || y != 6 ||
 		len(p.before) != 64000 || len(after) != 64000 {
 		log.Print("性別缺譯：返回或離屏不符")
 		return
@@ -186,7 +193,7 @@ func (ov *overlay) returnProfileSex(sp uint16, x, y int, after []byte, pal [256]
 		return
 	}
 	bx, by, bw, bh := p.x, p.y, 6, 6
-	if p.ret == worldSexReturn {
+	if p.ret == worldSexReturn || p.ret == creationSexReturn {
 		bx, by, bw, bh = 88, 4, 8, 8
 	}
 	e := &textEv{originRet: p.ret, s: p.s, x0: p.x, y0: p.y, bx: bx, by: by, bw: bw, bh: bh,

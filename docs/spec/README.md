@@ -29,7 +29,7 @@
 | [021](021-character-dialog-labels.md) | 新增角色確定與取消按鈕內排版（READY；R925雙字型兩倍率及正常取消驗收通過，防禦分支僅單測） |
 | [022](022-character-roster-text.md) | 名單性別職業碼（R994兩owner、First0、count6..1及新姓名3倍雙字型限定CONFORMED；R995逗號姓名底行限定CONFORMED，其他未量及2倍仍待） |
 | [023](023-character-menu-labels.md) | 角色選單六按鈕中文置中（READY；R932雙字型兩倍率及正常離開通過，防禦分支僅單測） |
-| [024](024-character-review-output.md) | 人物檢視性別、選人按鈕與兩倍整頁重排（READY，已量路線限定CONFORMED；R1002創角M增補READY、待實作） |
+| [024](024-character-review-output.md) | 人物檢視性別、選人按鈕與兩倍整頁重排（READY，已量路線限定CONFORMED；R1003創角M9595兩字型兩倍率限定CONFORMED，其他限制保持） |
 | [025](025-intro-picture-labels.md) | 六張片頭圖片呈獻字樣（READY；周邊紋理補底已接正式前端，雙字型兩倍率及正常GUI限定驗收通過，未知過渡仍待） |
 | [026](026-battle-control-labels.md) | 七個戰鬥控制的中文按鈕內排版（READY；正式接線與雙字型兩倍率固定HD通過，GUI／操作／撤除待驗） |
 | [027](027-reprint-persistence.md) | 同文重印的覆繪持續性，狀態依正文與R968收據 |

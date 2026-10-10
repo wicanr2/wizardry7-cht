@@ -10,6 +10,7 @@ var recordingSourcePaths = []string{
 	"cmd/wiz7/character_menu_labels.go",
 	"cmd/wiz7/clearance_hint.go",
 	"cmd/wiz7/compound.go",
+	"cmd/wiz7/creation_sex.go",
 	"cmd/wiz7/dialog_labels.go",
 	"cmd/wiz7/flow.go",
 	"cmd/wiz7/held_item_cursor.go",

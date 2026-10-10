@@ -68,7 +68,7 @@ func (ov *overlay) clearWorldSex() {
 	}
 }
 func worldSexShift(e *textEv, k int) int {
-	if e.sex && e.originRet == worldSexReturn && len(e.g) == 1 && (k == 2 || k == 3) {
+	if e.sex && (e.originRet == worldSexReturn || e.originRet == creationSexReturn) && len(e.g) == 1 && (k == 2 || k == 3) {
 		return max(0, len(e.g[0])-6*k)
 	}
 	return 0
