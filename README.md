@@ -29,14 +29,20 @@ F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
 本機倚天與可散布Unifont字型已有兩倍率畫面與F1操作驗收，見[字型證據](docs/re/018-distributable-font.md)。
 片頭六張圖片的「呈獻」已支援兩套字型與2／3倍正常顯示，見[圖片覆繪規格](docs/spec/025-intro-picture-labels.md)。
 圖片文字以周邊紋理近似補底，其他圖片文字及按鈕仍在驗收；新增家族須依[字型說明](font/README.md)重建資源。
-尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移及三平台發行包。
-原版存檔已接入獨立持久可寫層，Linux正常保存與重新啟動載入已驗，原生平台及封包仍待，見[存檔規格](docs/spec/014-original-save-storage.md)。
+尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移；三平台本機完整版與推廣片已有交付入口，公開發行包尚未建立。
+原版存檔已接入獨立持久可寫層，Linux正常保存與重新啟動載入已驗，Windows／macOS原生存讀檔仍待，見[存檔規格](docs/spec/014-original-save-storage.md)。
 開場故事與迷宮旁白使用訊息譯文表並依原版分頁覆繪；資料表中有譯文不代表所有玩家畫面都已中文化。
 完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
 
 ## 開發與本機執行
 
-目前提供開發入口，尚無完成驗收的正式下載包。
+本機交付版本為 `v.1.0.0-20261010`，含遊戲的四個封包在
+`dist-all/v.1.0.0-20261010/full-local/`，分為Linux x64、Windows x64、macOS Intel與Apple Silicon。
+約70秒的實機有聲推廣片在同版本的`promo/`，大小與SHA-256見版本根的`SHA256SUMS.json`。
+Linux包已驗正常載入／保存／重啟載入；Windows已驗Wine主選單與正常退出，macOS原生啟動尚待實機。
+這些含原版的交付物只留本機，不隨Git散布；重建及驗收入口見[本機交付契約](docs/goal/R1006-full-local-release-promo.md)。
+
+以下為開發入口。
 需要 Docker、本機 `worktrees/dosgolem`、使用者自備原版與字型，以及專案既有的
 `wizardry7-go-ebiten`工具鏈映像檔與鎖版離線模組快取。下列入口已驗固定依賴準備，
 尚未完成全新環境的工具鏈建置驗收；映像檔來源見[Dockerfile](tools/docker/go-ebiten.Dockerfile)。

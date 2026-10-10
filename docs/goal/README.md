@@ -1,5 +1,7 @@
 # 專案目標
 
+1.0.0本機完整版與推廣影片：[R1006](R1006-full-local-release-promo.md)。
+
 早期創角屬性來源補證：[R1005](R1005-creation-attribute-sources.md)。
 
 兩倍創角屬性排版：[R1004](R1004-creation-attribute-layout.md)。

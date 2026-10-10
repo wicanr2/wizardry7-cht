@@ -2359,3 +2359,23 @@ workplace/r1004/layout-facts.json核Python3.11.2／Pillow9.4.0、兩來源SHA、
 從008ce17建立並索引早期創角參數補證DRAFT，#28起始留言6092521968；精確草稿SHA6055b63a…8d40及現行97來源基線保存於workplace/r1005。契約只重用既有compoundInput，不增加原版記憶體讀取。獨立審查尚在進行時，使用者暫停整體Goal；已中斷審查並核自有容器清空。沒有實作觀察器、執行原版或變更正式程式，規格保持DRAFT。
 
 使用者隨後要求先commit／push，再打包含遊戲的1.0.0本機完整版及推廣影片。本次先提交上述草稿與索引；排版提問及原中文化Goal的暫停狀態不由打包工作代為解除。發行輸出依既有版號與dist-all契約，原版資料及完整版不進Git或公開發行。
+
+## 2026-10-10 R1006 1.0.0本機完整版與推廣影片
+
+使用者要求先commit／push，再打包含遊戲的1.0.0完整版與錄製推廣影片。先行a82a936已推送私人main；建立#47及goal並掛索引，原Goal保持暫停。載入版號、dist-all、影片與原音源路由、Windows UTF-8封包規則及既有驗收技能。版號採Asia/Taipei的v.1.0.0-20261010，本機及遠端無tag；本輪不建立公開Release或推tag。七條本機包裝契約獨立0／0／0完整採認READY，JSON8b04fa4b…56fb1。
+
+原版248檔5,414,248bytes逐檔等自備ZIP，原ZIP SHA2174fd96…5571。6份正式Unifont顯示資源、Unifont COPYING／OFL／README、ARPHIC及程式／SDK／Go依賴授權均核來源。從乾淨私人來源各建四目標，正式Go／SDK／字型／文本保持。Linux97來源18c9d3bb…579d、binary631926ca…4c99逐bytes等已驗版；Windows97／binary4186feb3…dfc7；macOS Intel97／1b510f47…6ca2與arm64 97／4a02b2db…cfcb。Mac僅系統相依，Intel無簽章load command、arm64有；只作結構事實，未作原生啟動聲明。
+
+既有osxcross缺Python，建立有明確版本的補充image1aa0f82b…9370，從兩個本機Docker base COPY完整Python runtime到/opt/python，保留Go1.24.13與SDK15.5，無host runtime掛載；Dockerfile逐bytes保存並掛goal。Windows首次bash -lc重設PATH造成純工具失敗，改bash -c後同副本乾淨重跑，失敗log保留。四包各275檔，封包／新解壓核對／錄影來源均獨立0／0／0採認後執行；新ZIP逐檔／架構／授權／版本／UTF-8檢查通過，原版與所有資源不散布。
+
+Linux實際從fresh ZIP包內start.sh正常有聲執行，沿R990合法保存副本載入、移動、人物裝備、長劍選取／移動／放回、F1及正常SAVE、WMclose0；另正常重開LOAD與WMclose0。新SAVE02fad846…b88f不同初始0d1083ae…b84c，冷LOAD實際保存size／SHA／mode／mtime保持，PCFILE保持原值。正常世界viewport177408點恢復0差，對初態反對照141156差；兩整張保存／冷LOAD PNG皆a932406c…77e3。只稱正常GUI與-save-dir覆寫玩家鏈，不稱RAM同狀態或原生預設路徑已驗。包248原版逐檔保持。
+
+Windows包以Wine9／OpenGL、固定兩核心與GOMAXPROCS2／LP_NUM_THREADS2實看960×600六個中文毛筆鍵，包內--version正確、WMclose0／2.027秒、275檔及ZIP保持、LocalAppData目錄建立。R1程序EAGAIN、R2私人工具DISPLAY錯誤均保留；R3原helper多要求PCFILE預先實體copy而FAIL，按014與正式按寫開複製契約另採認既有主選單／退出，沒有覆寫raw FAIL、補檔或重跑。Windows SAVE／音訊／角色頁及native未量；macOS僅fresh ZIP、Mach-O／系統相依／launcher版本，native仍待。
+
+本輪實錄menu5.1秒、world120.02秒，後者到FFmpeg自限，不能冒稱手動停止恰為120秒末。保留原片，從world取0至22秒探索及85至119秒人物／裝備，原音同步剪輯；防拷段不進素材。R1／R2合成的pthread_create資源失敗保留，重查路由後每輸入decoder1／filter2，在相同CPU2／2GiB／pids96下R3成功編碼；R3影音69.800／69.357未過原0.15秒閘門。R4聲道協商失敗保留；R5明示stereo、44100及有界片尾補靜音／淡出，未放寬驗收。根代理已完整讀回所有來源delta審查。
+
+R5成片69.800秒視訊／69.821995秒音訊、H2641280×720／30fps／AAC44100雙聲道，3,559,549bytes，SHA6c55496d…f6c9。技術音量mean−11.6／max−2.2dB、長靜音與blackdetect0；freeze區段為字卡、主選單、站立及人物閱讀停留，保留log不宣稱全程動態。根代理實看contact sheet、片頭／人物／片尾完整抽樣及原錄影人物／保存／冷LOAD畫面；字幕在game域外，OS游標仍為實錄可見部分。只採影音技術與視覺，不稱人耳聆聽。原版OPL音訊、字型及所有影片／截圖只留本機。
+
+5交付物清單已寫版本根SHA256SUMS.json，SHA28374d8b…39ad；安全輸入／輸出metadata逐bytes保存到tools/re並掛goal，未含原版／字型／音訊bytes。封包器增加--inventory及受版控預設，內容等本輪已用鏡像，不為來源路徑改動重打包。README與CONTEXT補本機入口及原生平台限制。最後獨立產物採認、來源提交／推送、#47全文回讀與清理另記。
+
+最後獨立產物採認0／0／0完整讀回，JSON SHA77df091626760dcb9c294447fb94b790a193f835cc7ec794ae823b3c0c1af7c6、MD bfae88b6b7d553a66fa7b3672f28b13ebc77f8d80a23ed2127eaaf8f0eeabf9a。另獨立fresh解壓1100檔、388來源記錄及SDK實檔、原ZIP與248原始資料保持，R5全解碼2094幀與八張獨立抽樣通過；四個最終game crop對原片RGB平均差1.14至2.57只支持有損實錄內容一致，不稱像素parity。兩份採認報告逐bytes複製到版本smoke，R1006限定本機交付CONFORMED，沒有解除原生、人耳或全案限制。全工作樹find無root-owned／誤建.md目錄，正式Go／SDK／文本／字型Git差異0，自有容器清空，R433未追蹤保持。來源與安全metadata逐檔stage，原版／字型／影片均保持Git忽略。

@@ -1,0 +1,52 @@
+{
+  "schema": "wizardry7-cht-local-release/1",
+  "version": "v.1.0.0-20261010",
+  "timezone": "Asia/Taipei",
+  "local_only": true,
+  "artifacts": [
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.0-20261010-full-local-linux-amd64.zip",
+      "target": "linux-amd64",
+      "size": 12941162,
+      "sha256": "abe1c1589b41baf281831f23b53c6f03db00c26b623b3bd95b20541285332607",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.0-20261010-full-local-macos-amd64.zip",
+      "target": "darwin-amd64",
+      "size": 13531489,
+      "sha256": "cbd3a64271b3ba93300a4b7ee467c722dd8eb7252d9d86a9bd316284c205c869",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.0-20261010-full-local-macos-arm64.zip",
+      "target": "darwin-arm64",
+      "size": 12902145,
+      "sha256": "bf49cc85ea4426e3779c81fd4e0c9b373e0d0328be2d4b2e24af4c9accf3bf61",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.0-20261010-full-local-windows-amd64.zip",
+      "target": "windows-amd64",
+      "size": 13288961,
+      "sha256": "43d9da445147deb8fd0f1bd1d018879892a2fbb3a9568a4df82685610d705e89",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "promo/wizardry7-cht-v.1.0.0-20261010-promo.mp4",
+      "size": 3559549,
+      "sha256": "6c55496d96b0226daa2acf51eb76c9538918f9ceb764158e81c835e3aa29f6c9",
+      "rights": "original gameplay/audio; local-only"
+    }
+  ],
+  "validation": {
+    "linux-amd64": "normal packaged LOAD/SAVE/coldLOAD/WMclose0; 177408 viewport pixels restored exactly; save-dir override route",
+    "windows-amd64": "Wine9 OpenGL main menu/WMclose0 and default data-directory creation; native/audio/save-load untested",
+    "darwin-amd64": "Mach-O/static dependencies/fresh ZIP/launcher version; native untested",
+    "darwin-arm64": "Mach-O/static dependencies/signature command/fresh ZIP/launcher version; native untested",
+    "movie": "H2641280x720/30fps+AAC44100stereo; actual newly recorded GUI/OPL; technical and sample visual checks",
+    "human_listening_confirmed": false
+  },
+  "movie_duration": 69.822,
+  "remaining_localization": "full text/endings/TSV/cheats/2x-creation layout remain outside this packaging milestone"
+}
