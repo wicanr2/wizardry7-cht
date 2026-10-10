@@ -2379,3 +2379,5 @@ R5成片69.800秒視訊／69.821995秒音訊、H2641280×720／30fps／AAC44100�
 5交付物清單已寫版本根SHA256SUMS.json，SHA28374d8b…39ad；安全輸入／輸出metadata逐bytes保存到tools/re並掛goal，未含原版／字型／音訊bytes。封包器增加--inventory及受版控預設，內容等本輪已用鏡像，不為來源路徑改動重打包。README與CONTEXT補本機入口及原生平台限制。最後獨立產物採認、來源提交／推送、#47全文回讀與清理另記。
 
 最後獨立產物採認0／0／0完整讀回，JSON SHA77df091626760dcb9c294447fb94b790a193f835cc7ec794ae823b3c0c1af7c6、MD bfae88b6b7d553a66fa7b3672f28b13ebc77f8d80a23ed2127eaaf8f0eeabf9a。另獨立fresh解壓1100檔、388來源記錄及SDK實檔、原ZIP與248原始資料保持，R5全解碼2094幀與八張獨立抽樣通過；四個最終game crop對原片RGB平均差1.14至2.57只支持有損實錄內容一致，不稱像素parity。兩份採認報告逐bytes複製到版本smoke，R1006限定本機交付CONFORMED，沒有解除原生、人耳或全案限制。全工作樹find無root-owned／誤建.md目錄，正式Go／SDK／文本／字型Git差異0，自有容器清空，R433未追蹤保持。來源與安全metadata逐檔stage，原版／字型／影片均保持Git忽略。
+
+交付來源104cc8b已推送私人main。#47結果留言6093303754為846字元／10個LF，全文回讀同原稿，議題已CLOSED；安全收據workplace/r1006/github-readback.json，正文SHA28b26eb0…3280。本次只關閉打包／影片議題，其他中文化議題及原Goal暫停保持。回讀容器亦已清理，沒有上傳原版、封包、字型或影片，也沒有建立tag／Release。
