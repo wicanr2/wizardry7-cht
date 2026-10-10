@@ -1,5 +1,7 @@
 # 專案目標
 
+兩倍創角屬性排版：[R1004](R1004-creation-attribute-layout.md)。
+
 創角早期M正式覆繪：[R1003](R1003-creation-sex-wiring.md)。
 
 怪物名字與角色頁情境：[R1002](R1002-names-profile-context.md)。
