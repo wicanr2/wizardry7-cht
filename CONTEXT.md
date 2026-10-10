@@ -8,6 +8,8 @@
 R1006交付來源104cc8b已推送私人main，#47結果全文回讀相符且已CLOSED；安全收據workplace/r1006/github-readback.json。含遊戲的四ZIP及影片只留本機，未建公開tag／Release。
 R1007四項要求已完成：README故事背景、遊戲與中文化介紹、DOSBox音訊比對修正及完整NPC事件。必要珍妮特顯示修補另建`v.1.0.1-20261010`，四個本機完整版與158秒影片在`dist-all/`，原1.0.0五項產物及manifest保持。見[R1007](docs/goal/R1007-story-features-audio-dialogue.md)與[安全輸出摘要](tools/re/story_release_outputs.json)。原中文化Goal仍暫停。
 
+R1008依使用者要求重寫README故事、首頁介紹與現況文字，加入六張已驗收的中文實機圖；來源與雜湊見[截圖清單](tools/re/readme_gallery_sources.json)，範圍見[R1008](docs/goal/R1008-readme-story-gallery.md)。98個遊戲來源及兩版十項交付保持。既有包內README仍為R1007快照，重建舊包使用2783ee4固定來源，不改其故事雜湊或manifest。
+
 | 範圍 | 目前真相 | 下一個必要驗收 |
 |---|---|---|
 | 故事、NPC與交付R1007 | README完整故事及158秒介紹片完成。珍妮特八段正常中文、末句、結束／SAVE／冷LOAD及同f70正式重播通過；2456原版發布及Draw域外0差，367發布只在NPC帶內有差。四新包各275檔含248原版與故事；Linux正常路線、Windows Wine主選單／關窗、Mac兩架構結構已核。片頭去DC與13接點通過，影片獨立0／0／0 | 038本次Linux／Unifont／3倍事件限定CONFORMED。基線退出碼未留存，只採完整發布資料，新側退出0；不補跑舊側。Windows／macOS原生、人耳、其他NPC及全案未量。原Goal保持暫停，不重開本輪已足矩陣 |

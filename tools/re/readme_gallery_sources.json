@@ -1,0 +1,120 @@
+{
+  "schema": "wizardry7-cht-readme-gallery/1",
+  "scope": "Localized runtime screenshots selected at the user request. Images contain original game artwork; no raw game files or font binaries are copied into Git.",
+  "screenshots": [
+    {
+      "path": "docs/screenshots/main-menu-zh-TW.png",
+      "source": "workplace/r1007/story/platform-smoke/wine-run-r4/before-close.png",
+      "sha256": "e829458c8a96993c5313f8c799112dd9db9961eaa5a76ebc2c2fc3f59dc2db34",
+      "size": 68303,
+      "width": 960,
+      "height": 600,
+      "scenario": "主選單六個毛筆中文按鈕",
+      "capture_kind": "GUI screenshot",
+      "source_version": "v.1.0.1-20261010",
+      "source_binary_sha256": "de428cb81fcf7c5e45bb66993c671e459f05b64c36d59a2567da5ed66e1e3d7c",
+      "font": "GNU Unifont 17.0.05; main menu uses AR PL UKai TW",
+      "evidence": [
+        "docs/goal/R1007-story-features-audio-dialogue.md",
+        "docs/spec/028-approved-ui-fonts.md"
+      ],
+      "pixels_modified": false
+    },
+    {
+      "path": "docs/screenshots/forest-party-zh-TW.png",
+      "source": "workplace/r1007/npc/normal-record-r1/gui/world-before.png",
+      "sha256": "8f765c08b3e98206f8bc3d923b75bf1210b69d91164ec772e6662e776b488f4b",
+      "size": 54323,
+      "width": 960,
+      "height": 600,
+      "scenario": "正常LOAD後的六人隊伍與森林探索",
+      "capture_kind": "GUI screenshot",
+      "source_version": "v.1.0.1-20261010",
+      "source_binary_sha256": "f70fd83a9d4bcdbdaee920b2e52579ce9e8c0fc25a8d089c6339ba90059e414e",
+      "font": "GNU Unifont 17.0.05; main menu uses AR PL UKai TW",
+      "evidence": [
+        "docs/spec/036-party-class-short.md",
+        "docs/goal/R1007-story-features-audio-dialogue.md"
+      ],
+      "pixels_modified": false
+    },
+    {
+      "path": "docs/screenshots/janette-dialogue-zh-TW.png",
+      "source": "workplace/r1007/npc/normal-record-r1/pages/page-06.png",
+      "sha256": "f08f7cc96c814e362ec420eac61b340115a63f87926cc7e6ea768b3c9448e2ce",
+      "size": 887977,
+      "width": 960,
+      "height": 600,
+      "scenario": "珍妮特事件第六段完整中文對白",
+      "capture_kind": "frame from normal GUI recording at 40 seconds",
+      "source_version": "v.1.0.1-20261010",
+      "source_binary_sha256": "f70fd83a9d4bcdbdaee920b2e52579ce9e8c0fc25a8d089c6339ba90059e414e",
+      "font": "GNU Unifont 17.0.05; main menu uses AR PL UKai TW",
+      "evidence": [
+        "docs/spec/038-janette-event-text.md"
+      ],
+      "pixels_modified": false
+    },
+    {
+      "path": "docs/screenshots/janette-departure-zh-TW.png",
+      "source": "workplace/r1007/npc/normal-record-r1/pages/page-08.png",
+      "sha256": "0205320c62f893a53652b787cbc81ae363e1c9665f8fb4473fabab733147b5f2",
+      "size": 879851,
+      "width": 960,
+      "height": 600,
+      "scenario": "珍妮特事件第八段完整離場旁白",
+      "capture_kind": "frame from normal GUI recording at 51 seconds",
+      "source_version": "v.1.0.1-20261010",
+      "source_binary_sha256": "f70fd83a9d4bcdbdaee920b2e52579ce9e8c0fc25a8d089c6339ba90059e414e",
+      "font": "GNU Unifont 17.0.05; main menu uses AR PL UKai TW",
+      "evidence": [
+        "docs/spec/038-janette-event-text.md"
+      ],
+      "pixels_modified": false
+    },
+    {
+      "path": "docs/screenshots/character-equipment-zh-TW.png",
+      "source": "workplace/r1006/capture/gui/move-longsword.png",
+      "sha256": "0df9f9d60778b1a16d94f8553f1d20f56f9d76c21fa7c35524f6788d1f123d06",
+      "size": 42819,
+      "width": 960,
+      "height": 600,
+      "scenario": "人物屬性、裝備與手持長劍中文名稱",
+      "capture_kind": "GUI screenshot",
+      "source_version": "v.1.0.0-20261010",
+      "source_binary_sha256": "631926caa447010014ff70dada2dc56179a010eaa6fd5573394084b511484c99",
+      "font": "GNU Unifont 17.0.05; main menu uses AR PL UKai TW",
+      "evidence": [
+        "docs/goal/R1006-full-local-release-promo.md",
+        "docs/spec/037-held-item-cursor.md"
+      ],
+      "pixels_modified": false
+    },
+    {
+      "path": "docs/screenshots/help-zh-TW.png",
+      "source": "workplace/r1006/capture/gui/world-help-f1.png",
+      "sha256": "80a342d5facb13e2539faeab5391434eac16247196dfe73847bef6c6c9ee1e11",
+      "size": 56534,
+      "width": 960,
+      "height": 600,
+      "scenario": "F1中文說明與快捷鍵",
+      "capture_kind": "GUI screenshot",
+      "source_version": "v.1.0.0-20261010",
+      "source_binary_sha256": "631926caa447010014ff70dada2dc56179a010eaa6fd5573394084b511484c99",
+      "font": "GNU Unifont 17.0.05; main menu uses AR PL UKai TW",
+      "evidence": [
+        "docs/goal/R1006-full-local-release-promo.md",
+        "docs/spec/013-input-recording.md"
+      ],
+      "pixels_modified": false
+    }
+  ],
+  "excludes": [
+    "manual clearance",
+    "player input receipts",
+    "English comparison",
+    "unaccepted prototypes"
+  ],
+  "game_unchanged": true,
+  "existing_deliveries_unchanged": true
+}
