@@ -2315,3 +2315,5 @@ P6觀察器／產生器、兩比較器及IDA腳本逐bytes保存並掛goal入口
 保存P6 constructor純建置完成0，98來源manifest及binary逐位元等已驗R2，不新增原版執行。024索引同步既有兩倍重排限定驗收與新創角M DRAFT，避免沿用過時「2倍性別未完成」摘要；正式路由未改。
 
 正式024窄M增補八條獨立0／0／0完整讀回採認READY，JSON SHA `65cb5b5124ff14c52799ced5862ab35c2d689b9aad3da341499060fb121c7986`、Markdown SHA `ddf9a69de6acdc7b164cdc3d2bd50f2fe4bf2da3761dbd63b961b701817b338f`。精確DRAFT輸入f63404f3…79d8已先保留本機，轉READY同步goal錨點及索引；五保存工具獨立byteidentity保持。R1002來源與規格工作已足，下一輪直接正式實作／來源複核／正常GUI及原版保持，不再重跑來源矩陣；F及其他未量路線維持限制。
+
+P6及READY規格來源3e056da已推送私人main，#22留言6091421785為279字元／5個LF，全文回讀同原稿，Issue保持OPEN；安全收據`workplace/r1002/github-readback-p6.json`。五工具入口以R1000既有索引作正對照核過，舊DRAFT錨點0，正式c7da binary保持。自有容器清空、整樹root-owned及誤建.md目錄0，R433未追蹤保持。整體Goal仍進行中，沒有新正式M畫面或發行完成聲明。

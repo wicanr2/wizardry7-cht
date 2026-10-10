@@ -47,4 +47,5 @@ R998來源e00e5cb已推送私人main，#17正文及#17／#28結果全文回讀�
 穩定操作與Docker入口見[README](README.md)，字型重建見[font/README](font/README.md)。
 
 R1000已補齊長劍bitmap來源、空第二NUL、正常移動／放回及正式覆繪限定驗收，結果見037與研究021。#22／#28保持OPEN、#17保持CLOSED；下一步回其餘中文覆蓋及交付，不重開已完成來源或錄放矩陣。
+R1002來源及READY增補3e056da已推送私人main，#22／#24進度全文回讀相同且OPEN；P6最後收據為`workplace/r1002/github-readback-p6.json`。下一輪直接實作024新9595的M路由及正常畫面驗收，正式版本仍為上述c7da，不再做來源考古。
 歷史過程與已推翻結論只依[WORKLOG](WORKLOG.md)及[研究索引](docs/re/README.md)回查；本檔只保留目前真相，不以歷史候選重新開工。
