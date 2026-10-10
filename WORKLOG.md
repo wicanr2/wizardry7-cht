@@ -2351,3 +2351,5 @@ P6及READY規格來源3e056da已推送私人main，#22留言6091421785為279字�
 workplace/r1004/layout-facts.json核Python3.11.2／Pillow9.4.0、兩來源SHA、實際筆畫交集及正式binary6319保持；prototype-r2/report.json記生成器SHA5210cce5…f1e9、HTML c30d2326…f201、兩PNG SHA與未知閘門。主代理實看Unifont示意；尚未接線或執行原版。已向使用者展示原型並詢問排版及移位箭頭的輸入對應，待定案；其餘來源tuple、背景、更新／撤除與實際命中仍須最小補證及獨立READY審查。正式Go／SDK／譯文／原字型／原版／保存及錄放schema不改，沒有重開R966或R1003矩陣。
 
 主代理另看倚天示意，兩後端原生筆畫均可辨讀；生成器、HTML及兩PNG全部SHA重核相符。工具／goal索引以R1000既有入口作正對照通過，正式程式／文本／字型Git差異0，diff-check通過。整樹root-owned及誤建.md目錄0，自有R1004容器清空，R433未追蹤保持。原型與量測屬實際進展，正式排版／輸入對應仍待使用者回答，整體Goal保持進行中。
+
+來源25fd184已推送私人main，#28留言6092478918的480字元／7個LF全文回讀同原稿，Issue維持OPEN；安全收據workplace/r1004/github-readback.json，正文SHA11a62d6d…1fa1。回讀容器已清理。排版定案待答時可先整理既存早期創角印字證據及最小補證契約，但不得把輸入映射接進正式路徑。
