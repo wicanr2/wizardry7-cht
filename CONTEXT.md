@@ -6,9 +6,11 @@
 遠端GitHub Issue於本日核對，是唯一可執行工作清單。原版Archives素材只留本機。
 原中文化Goal依使用者指示暫停。R1006只處理隨後明示要求的commit／push、本機1.0.0完整版與推廣影片，不替R1004排版定案或恢復R1005補證。
 R1006交付來源104cc8b已推送私人main，#47結果全文回讀相符且已CLOSED；安全收據workplace/r1006/github-readback.json。含遊戲的四ZIP及影片只留本機，未建公開tag／Release。
+R1007四項要求已完成：README故事背景、遊戲與中文化介紹、DOSBox音訊比對修正及完整NPC事件。必要珍妮特顯示修補另建`v.1.0.1-20261010`，四個本機完整版與158秒影片在`dist-all/`，原1.0.0五項產物及manifest保持。見[R1007](docs/goal/R1007-story-features-audio-dialogue.md)與[安全輸出摘要](tools/re/story_release_outputs.json)。原中文化Goal仍暫停。
 
 | 範圍 | 目前真相 | 下一個必要驗收 |
 |---|---|---|
+| 故事、NPC與交付R1007 | README完整故事及158秒介紹片完成。珍妮特八段正常中文、末句、結束／SAVE／冷LOAD及同f70正式重播通過；2456原版發布及Draw域外0差，367發布只在NPC帶內有差。四新包各275檔含248原版與故事；Linux正常路線、Windows Wine主選單／關窗、Mac兩架構結構已核。片頭去DC與13接點通過，影片獨立0／0／0 | 038本次Linux／Unifont／3倍事件限定CONFORMED。基線退出碼未留存，只採完整發布資料，新側退出0；不補跑舊側。Windows／macOS原生、人耳、其他NPC及全案未量。原Goal保持暫停，不重開本輪已足矩陣 |
 | 本機完整版與影片R1006 | a82a936先行commit／push完成。`dist-all/v.1.0.0-20261010/`已有三平台四ZIP，各275檔含248原版；Linux乾淨重建仍97／6319，包內正常SAVE／冷LOAD與177408 viewport0差，兩次WMclose0；Windows Wine主選單／close0及275檔保持，Mac兩架構結構／相依已核。69.822秒實錄剪輯片、字幕及影音技術檢查完成，5交付物SHA已保存，最後獨立0／0／0完整採認 | [R1006](docs/goal/R1006-full-local-release-promo.md)本機交付範圍完成；macOS與Windows原生、Windows音訊／存讀及人耳仍未量。完整版只指含遊戲，不代表全案中文化完成；原Goal仍暫停 |
 | 手持物品名稱R1000 | 正式R3完成長劍／皮胸甲來源至游標覆繪。雙字型雙倍率6604對原版發布及保存保持，24圖8677項通過，原圖19920點／RGB129480點與Draw／HD全圖0差。真GUI選取移動放回及既有第三列8892點保留通過；新3408事件／1686發布正式錄製及同c7da版本重播0 | [037](docs/spec/037-held-item-cursor.md)本次兩物品路線限定CONFORMED；其他物品、slot／caller／平台及十一組未量情境保持，回#22／#24其他中文覆蓋 |
 | 輸入錄放R998 | R4新正常及三次同觀測binary正式重播全0；每1501發布，6004 PNG／1537024000像素及4503對原版摘要／panel／身份全0差，保存保持。最後獨立0／0／0、26身份及PNG manifest採認，M2錄放要求完成，#17已CLOSED。R3失配保留，正式Go及原嚴格核對器保持 | 接續#22／#24正常遊玩與剩餘文字情境，其餘平台及交付門檻保持；不重開充分錄放或故障矩陣 |
@@ -33,9 +35,9 @@ R1006交付來源104cc8b已推送私人main，#47結果全文回讀相符且已C
 | 其他正式功能與交付 | #35／#36／#28尚未收尾；本機四封包已有R1006，Windows／macOS原生玩家路線及公開交付仍待 | 依各Issue與READY規格完成正式功能與原生平台驗收，不以本機打包關閉其他門檻 |
 | adapter與版控答案表 | #29位置待定；#26依使用者維持擱置 | 新提示不讀整表、不提交答案，不擴張兩項決策 |
 
-目前正式錄放執行檔為`workplace/r1003/promoted-build/wiz7-formal`，SHA-256
-`631926caa447010014ff70dada2dc56179a010eaa6fd5573394084b511484c99`，16118120B，97實源SHA-256
-`18c9d3bbcbb5f1e4164f18597f63e65edd6c02fd6253c74b77024bf01299579d`；正式接入後測試通過，乾淨建置與已驗候選逐位元相同。原c7da、5d6及各自wire保留不覆寫，不承諾跨binary正式重播。
+目前正式錄放執行檔為`workplace/r1007/story/platform/linux-amd64/build/wiz7`，SHA-256
+`f70fd83a9d4bcdbdaee920b2e52579ce9e8c0fc25a8d089c6339ba90059e414e`，16157048B，98實源SHA-256
+`d77ddac0f2b4b1e8e10091bfef6c3da0c5c4a8856e7f20265b5c3a78c35f516c`；正式接入、正常事件、同態及同版錄放已驗，四平台乾淨建置身份見本輪輸入清單。原6319、c7da、5d6及各自wire保留不覆寫，不承諾跨binary正式重播。
 資源為`workplace/r995/party-assets/{eten,unifont}/xlate.json`及同目錄三附屬家族；flow沿R983，help沿R979。
 R2 owner／HD、R3快照四行修補及新Uni2真GUI分列，未稱舊兩3倍GUI等於全部R3來源；完整限制見[R995](docs/goal/R995-full-party-ui.md)、[036](docs/spec/036-party-class-short.md#r995-限定驗收)。
 自有容器與擁有權異常0，R433保持未追蹤；全案、其他正常條件及正式交付仍未完成。

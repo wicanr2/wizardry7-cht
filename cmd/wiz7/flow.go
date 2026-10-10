@@ -30,6 +30,14 @@ var flowSites = map[oracle.Addr]flowSite{
 
 var storySite = oracle.Addr{Seg: 0x0110, Off: 0xBE0C}
 
+// NPC只共用排版及文字帶幾何，不加入一般流文／故事的入口仲裁。
+func flowGeometry(site oracle.Addr) flowSite {
+	if site == npcTextSite {
+		return npcTextGeometry
+	}
+	return flowSites[site]
+}
+
 func (s flowSite) cols(k, gs int) int { return max(1, s.width*k/(flowGlyphPitch*gs)) }
 
 func (fd *flowData) size() int {
@@ -471,6 +479,7 @@ func (fd *flowData) glyphOf(r rune) []uint16 { return fd.Glyphs[string(r)] }
 // flowPage 是引擎印出的一頁流動文字（R2）：至多 4 個片段。
 type flowPage struct {
 	site      oracle.Addr
+	npc       bool // spec038：整個after精確發布，不採006部分墨點比對
 	readAfter uint64
 	words     []string
 	frags     int       // 已進入的有效片段數
@@ -506,7 +515,7 @@ func (pg *flowPage) retranslate(fd *flowData, reads []flowRead, step uint64) {
 	}
 	pg.rowsOK = false
 	if pg.res.Zh != "" {
-		rows := flowLayout(pg.res.Zh, fd.cols(flowSites[pg.site], flowK, flowGS(flowK, flowHdf)))
+		rows := flowLayout(pg.res.Zh, fd.cols(flowGeometry(pg.site), flowK, flowGS(flowK, flowHdf)))
 		pg.rowsOK = len(rows) <= flowMaxRows
 		if !pg.rowsOK {
 			pg.res.Status = "超列"
@@ -517,7 +526,7 @@ func (pg *flowPage) retranslate(fd *flowData, reads []flowRead, step uint64) {
 
 // bandStatic 檢查 A000 的文字帶（游標框之外）與最後片段返回時的離屏帶快照，在頁所有事件的筆畫像素之外逐像素相等。
 func (pg *flowPage) bandStatic(a []uint8, inCursor func(x, y int) bool) bool {
-	site := flowSites[pg.site]
+	site := flowGeometry(pg.site)
 	if len(pg.band) != (site.x1-site.x0+1)*(flowBandY1-flowBandY0+1) {
 		return false
 	}
@@ -659,7 +668,7 @@ func (g *game) drawFlow(dst *ebiten.Image, views []flowView) {
 		g.flowImgs = map[string]*ebiten.Image{}
 	}
 	for _, v := range views {
-		rows := flowLayout(v.Zh, g.flow.cols(flowSites[v.Site], g.scale, flowGS(g.scale, hd)))
+		rows := flowLayout(v.Zh, g.flow.cols(flowGeometry(v.Site), g.scale, flowGS(g.scale, hd)))
 		if len(rows) > flowMaxRows {
 			continue
 		}
@@ -706,7 +715,7 @@ func (fd *flowData) flowHD(img *image.RGBA, pages []*flowPage, k int) []flowJSON
 	gs := flowGS(k, 1)
 	for _, pg := range pages {
 		v := pg.view()
-		rows := flowLayout(v.Zh, fd.cols(flowSites[v.Site], k, gs))
+		rows := flowLayout(v.Zh, fd.cols(flowGeometry(v.Site), k, gs))
 		if len(rows) > flowMaxRows {
 			continue
 		}

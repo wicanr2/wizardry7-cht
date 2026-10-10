@@ -210,6 +210,7 @@ type pendingPrint struct {
 	seq    int // 流動文字片段序號
 	roster *rosterRow
 	party  *pendingPartyClass
+	npc    *pendingNPC // spec038：當前已辨識的NPC行
 }
 
 // overlay 保存事件與統計；呼叫端持有 evMu。
@@ -224,6 +225,7 @@ type overlay struct {
 	pend              *pendingPrint
 	compound          *compoundPair                   // spec012：至多一件待配對物品
 	flow              *flowData                       // flow.json（nil＝流動文字關閉）
+	npc               *npcFlow                        // spec038：限定八段的正文與重畫
 	page              *flowPage                       // 目前的頁（流動文字呼叫點）
 	pages             []*flowPage                     // 尚未被丟棄的頁
 	fragSeq           int                             // 流動文字片段的序號（1 起，與 log「流文 片段」同序）
@@ -281,6 +283,7 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 	}
 	if after == nil || p.before == nil {
 		ov.noseg++
+		ov.rejectNPC(p, "無離屏")
 		if p.page != nil {
 			p.page.fail("無離屏", o.Steps())
 		}
@@ -296,6 +299,10 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 	}
 	if x1 < 0 {
 		ov.empty++
+		if p.npc != nil {
+			ov.finishNPC(p, nil, after, o.Palette()[flowFg], o.Steps())
+			return
+		}
 		if p.page != nil {
 			p.page.fail("無差異", o.Steps())
 		}
@@ -322,6 +329,15 @@ func (ov *overlay) finish(o *oracle.Oracle) {
 		}
 	}
 	e.fgRGB = o.Palette()[e.fg] // 返回 hook 當下的調色盤（R2.4）
+	if p.npc != nil {
+		if ov.finishNPC(p, e, after, o.Palette()[flowFg], o.Steps()) {
+			return
+		}
+		// 新家族拒絕時保留原本一般譯文，不能吞掉既有NPC中文。
+		if len(p.g) == 0 {
+			return
+		}
+	}
 	if pg := p.page; pg != nil {
 		// spec 006 R2 片段閘門：字型 2、筆畫色 0x55、離屏差異框中心 x 在 159–161
 		if pg.failed {
@@ -415,7 +431,7 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 		if e.party != nil {
 			match = match && e.partyNameMatches(a, inCursor)
 		}
-		if e.page != nil {
+		if e.page != nil && !e.page.npc {
 			match = e.pageMatch(a, inCursor)
 		}
 		e.match = match
@@ -486,24 +502,34 @@ func (ov *overlay) compose(o *oracle.Oracle) ([]uint8, []*textEv, []*flowPage) {
 			continue // 丟棄頁；仍存活的事件是無效事件，隨 A000 改變被刪除
 		}
 		keptPages = append(keptPages, pg)
-		if pg.res.Zh == "" || !pg.rowsOK || pg.frags == 0 || len(pg.evs) != pg.frags || step-pg.lastStep < flowQuiet {
-			continue
-		}
-		all := true
-		for _, e := range pg.evs {
-			if !e.match {
-				all = false
+		if pg.npc {
+			if ok, reason := pg.npcReady(a, step, inCursor); !ok {
+				ov.npc.note(reason)
+				continue
 			}
-		}
-		if !all {
-			continue
-		}
-		if !pg.bandStatic(a, inCursor) {
-			if !pg.bandLog {
-				pg.bandLog = true
-				log.Printf("流文 帶不符 %d 段落=%d", step, pg.res.Para)
+			for _, e := range pg.evs {
+				e.fgRGB = o.Palette()[flowFg]
 			}
-			continue
+		} else {
+			if pg.res.Zh == "" || !pg.rowsOK || pg.frags == 0 || len(pg.evs) != pg.frags || step-pg.lastStep < flowQuiet {
+				continue
+			}
+			all := true
+			for _, e := range pg.evs {
+				if !e.match {
+					all = false
+				}
+			}
+			if !all {
+				continue
+			}
+			if !pg.bandStatic(a, inCursor) {
+				if !pg.bandLog {
+					pg.bandLog = true
+					log.Printf("流文 帶不符 %d 段落=%d", step, pg.res.Para)
+				}
+				continue
+			}
 		}
 		for _, e := range pg.evs {
 			restore(e)
@@ -1184,6 +1210,7 @@ func main() {
 		ov.flow = loadFlow(*flowPath)
 		ov.picture = loadIntroPicture(*xlatePath, trans)
 	}
+	ov.npc = newNPCFlow(ov.flow)
 	ov.picture.paper = paperData
 	if *scale != 2 && *scale != 3 {
 		log.Print("片頭圖片缺譯：互動倍率未支援，保留原圖")
@@ -1410,6 +1437,26 @@ func main() {
 			arm(ret)
 			return
 		}
+		if npcCaller(ret) {
+			raw := o.Bytes(oracle.Far(ds, off), min(64, 65536-int(off)))
+			evMu.Lock()
+			p := ov.npcEntry(raw, off, r0.SP, in.Font, ret, in.X, in.Y)
+			if p != nil {
+				key, _ := normalizeKey(p.s)
+				if ent, ok := trans[key]; ok {
+					p.g, p.dy = ent.G, ent.Dy
+				}
+				if b := offscreen(o); b != nil {
+					p.before = append([]byte(nil), b...)
+				}
+				ov.pend = p
+			}
+			evMu.Unlock()
+			if p != nil {
+				arm(ret)
+				return
+			}
+		}
 		if _, flow := flowSites[ret]; flow {
 			raw := o.Bytes(oracle.Addr{Seg: ds, Off: off}, 64)
 			if ret == storySite {
@@ -1424,6 +1471,7 @@ func main() {
 			}
 			if ov.pend != nil {
 				ov.nested++ // 防禦性：E2 實測未見巢狀
+				ov.rejectNPC(ov.pend, "巢狀印字")
 				if ov.pend.page != nil {
 					ov.pend.page.fail("巢狀", o.Steps())
 				}
@@ -1545,6 +1593,7 @@ func main() {
 		if ov.pend != nil {
 			// 防禦性：E2 實測未見巢狀（R2.5）
 			ov.nested++
+			ov.rejectNPC(ov.pend, "巢狀印字")
 			log.Printf("巢狀印字：捨棄未返回的 %q", ov.pend.s)
 			if ov.pend.page != nil {
 				ov.pend.page.fail("巢狀", o.Steps())

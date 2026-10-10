@@ -27,6 +27,8 @@ def main():
     ap.add_argument("--dist", type=Path, required=True)
     ap.add_argument("--font", type=Path, required=True)
     ap.add_argument("--inventory", type=Path)
+    ap.add_argument("--build-root", type=Path,
+                    help="各target的source/build目錄；新修訂必須明示")
     ap.add_argument("--version", required=True)
     ap.add_argument("--target", choices=("linux-amd64", "windows-amd64", "darwin-amd64", "darwin-arm64"), required=True)
     a = ap.parse_args()
@@ -36,13 +38,36 @@ def main():
     platform, arch = target.split("-")
     inventory = json.loads((a.inventory or repo / "tools/re/full_local_inputs.json").read_text())
     assert inventory["version"] == a.version
-    build = repo / "workplace/r1006/platform" / target / "build"
+    build_root = a.build_root or repo / "workplace/r1006/platform"
+    build = build_root / target / "build"
     identity = json.loads((build / "build-result.json").read_text())
     binary = build / ("wiz7.exe" if platform == "windows" else "wiz7")
     assert identity["goos"] == platform and identity["goarch"] == arch
     assert sha(binary) == identity["binary_sha256"]
-    if target == "linux-amd64":
+    accepted = inventory.get("accepted_builds", {})
+    if a.version != "v.1.0.0-20261010":
+        assert a.build_root is not None and target in accepted
+    if target in accepted:
+        assert identity == accepted[target], "build differs from accepted release identity"
+    elif target == "linux-amd64":
         assert sha(binary) == "631926caa447010014ff70dada2dc56179a010eaa6fd5573394084b511484c99"
+    source_receipt = (build / "build-source-inputs.json").read_bytes()
+    assert source_receipt.endswith(b"\n")
+    assert hashlib.sha256(source_receipt[:-1]).hexdigest() == identity["source_sha256"]
+    source_rows = json.loads(source_receipt)
+    assert len(source_rows) == identity["source_count"]
+    assert len({row["path"] for row in source_rows}) == len(source_rows)
+    for row in source_rows:
+        relative = PurePosixPath(row["path"])
+        assert not relative.is_absolute() and ".." not in relative.parts
+        if relative.parts[0] == "sdk":
+            source = repo / "worktrees/dosgolem" / Path(*relative.parts[1:])
+        else:
+            source = build_root / target / "source" / Path(*relative.parts)
+            if row["path"] != "cmd/wiz7/recording_source_paths.go":
+                assert sha(repo / Path(*relative.parts)) == row["sha256"]
+        assert source.is_file() and not source.is_symlink()
+        assert source.stat().st_size == row["size"] and sha(source) == row["sha256"]
     root = a.dist / a.version
     root.mkdir(exist_ok=True)
     assert root.stat().st_uid == 1000
@@ -134,6 +159,16 @@ Windows以Wine輔助驗收，不等同Windows真機；macOS原生啟動仍待實
 程式與中文化：RRSAL-1.0。字型及第三方元件見licenses。
 原版遊戲、美術與音樂的權利屬各自權利人。
 """
+    story_sha = inventory.get("story_background_sha256")
+    if story_sha:
+        project_readme = (repo / "README.md").read_text(encoding="utf-8")
+        begin = project_readme.index("## 故事背景\n")
+        end = project_readme.find("\n## ", begin+1)
+        story = project_readme[begin:end+1 if end >= 0 else len(project_readme)]
+        assert hashlib.sha256(story.encode()).hexdigest() == story_sha
+        # 保留外部來源連結；包內沒有開發文件，移除其相對連結語法。
+        story = re.sub(r"\[([^\]]+)\]\((?!https?://)[^)]+\)", r"\1", story)
+        readme += "\n" + story.replace("## 故事背景", "故事背景", 1)
     data = readme.replace("\n", "\r\n").encode("utf-8-sig") if platform == "windows" else readme.encode()
     (tree / "README.txt").write_bytes(data)
     (tree / "licenses/THIRD-PARTY.txt").write_text(

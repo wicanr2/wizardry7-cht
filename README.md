@@ -6,6 +6,22 @@
 
 玩家須自備合法的原版遊戲。可散布發行包不提供原版程式、資料、美術、音樂、手冊或防拷答案。
 
+## 故事背景
+
+《巫術7》的冒險承接《巫術6：Bane of the Cosmic Forge》。前作追尋的「宇宙鍛爐」（Cosmic Forge）其實是一支魔法筆，能改寫時間、空間與命運。當這支筆失落，原本受到掩藏的行星也失去屏障。一艘意外偏離航路的太空船發現了它，消息隨即傳遍星際。那顆不在星圖上的世界，被認為就是傳說中失落的嘉迪亞（Guardia）。[官方故事介紹](https://wizardry.info/en/product/game/wizardry-7-crusaders-of-the-dark-savant/)、[官方商店的前作介紹](https://www.gog.com/en/game/wizardry_6_7)。
+
+嘉迪亞的傳說與豐贊（Phoonzang）有關。這位藝術家與科學天才發現了宇宙與生命的重大秘密，卻擔心它落入野心家手中。他將成果封存在球形神器「星界統領」（Astral Dominae）之內，藏在嘉迪亞，並把通往藏所的地圖拆散。對外來者而言，尋找神器也意味著理解這個世界留下的文明、信仰與線索。[原版背景故事轉錄](https://www.tk421.net/wizardry/wiz7story.shtml)。
+
+行星重見天日後，爭奪秘密的勢力相繼到來。軍事力量強大的恩帕尼（Umpani）與掌握廣大交易網絡的特蘭格（T'Rang）互為競爭者；乘著黑船穿行星際的黑暗賢者（Dark Savant），則為自己的目的追尋星界統領。他身邊還有戰士薇·多米娜（Vi Domina），據說是豐贊的後裔，可能掌握開啟秘密的關鍵。她與黑暗賢者的關係，也成為冒險中的疑問。[原版背景故事轉錄](https://www.tk421.net/wizardry/wiz7story.shtml)。
+
+嘉迪亞也有自己的居民、組織與傳說。外來勢力眼中的寶藏，對當地居民可能有完全不同的意義。玩家踏上這片土地時，面對的是森林、城鎮、地下迷宮與古老遺跡，也是一張由不同立場構成的人際網絡。誰值得相信、哪些線索相互呼應，都要在旅途中逐步判斷。[官方故事介紹](https://wizardry.info/en/product/game/wizardry-7-crusaders-of-the-dark-savant/)、[原版背景故事轉錄](https://www.tk421.net/wizardry/wiz7story.shtml)。
+
+玩家可以匯入六代的角色，也可以重新組成冒險隊伍；原作提供不同的開局。隊伍在第一人稱視角下逐格探索，透過回合制戰鬥、技能、魔法與裝備應付危險，再從對話、謎題與探索取得下一條線索。這段旅程把劍與魔法帶進陌生的星際世界，讓角色培養與追查宇宙秘密成為同一場冒險。[原作遊戲介紹](https://store.steampowered.com/app/245430/Wizardry_7_Crusaders_of_the_Dark_Savant/)、[官方商店介紹](https://www.gog.com/en/game/wizardry_6_7)。
+
+尋找神器的也不只有玩家。其他冒險者同樣追逐線索，遇見的人會受隊伍先前行動影響。與某個人物交惡，可能連帶改變其同伴的態度；眼前看似單純的委託，也可能牽動更大的勢力關係。因此，冒險除了打倒敵人，也需要記住對話、理解各方動機，並決定自己的隊伍要如何參與這場爭奪。[官方商店介紹](https://www.gog.com/en/game/wizardry_6_7)、[原作遊戲介紹](https://store.steampowered.com/app/245430/Wizardry_7_Crusaders_of_the_Dark_Savant/)。
+
+上述中文專名沿用[專案譯名表](docs/names.md)，並非宣稱原作已有這套官方中文譯名。背景介紹以開場設定為範圍，實際故事由遊戲中的事件與選擇展開。
+
 ## 遊戲與中文化方式
 
 《巫術7》是第一人稱迷宮角色扮演遊戲：建立隊伍、探索、對話、戰鬥與培養角色。
@@ -32,15 +48,17 @@ F1 開啟說明，F2 開關自動地圖，預設畫布為 960×600（3×）。
 尚未完成全遊戲文字路徑與結局驗收、正式 TSV 遷移；三平台本機完整版與推廣片已有交付入口，公開發行包尚未建立。
 原版存檔已接入獨立持久可寫層，Linux正常保存與重新啟動載入已驗，Windows／macOS原生存讀檔仍待，見[存檔規格](docs/spec/014-original-save-storage.md)。
 開場故事與迷宮旁白使用訊息譯文表並依原版分頁覆繪；資料表中有譯文不代表所有玩家畫面都已中文化。
+珍妮特登場事件的八段中文、離場及存讀檔已通過正常路線驗收，見[事件規格](docs/spec/038-janette-event-text.md)。
 完整狀態、證據範圍與限制見 [CONTEXT.md](CONTEXT.md)，待辦以 [GitHub Issue](https://github.com/wicanr2/wizardry7-cht/issues) 為準。
 
 ## 開發與本機執行
 
-本機交付版本為 `v.1.0.0-20261010`，含遊戲的四個封包在
-`dist-all/v.1.0.0-20261010/full-local/`，分為Linux x64、Windows x64、macOS Intel與Apple Silicon。
-約70秒的實機有聲推廣片在同版本的`promo/`，大小與SHA-256見版本根的`SHA256SUMS.json`。
+本機交付版本為 `v.1.0.1-20261010`，含遊戲的四個封包在
+`dist-all/v.1.0.1-20261010/full-local/`，分為Linux x64、Windows x64、macOS Intel與Apple Silicon。
+2分38秒的有聲推廣片在同版本的`promo/`，包含遊戲與中文化介紹、珍妮特八段完整事件及結束畫面。
+大小與SHA-256見版本根的`SHA256SUMS.json`；原1.0.0交付保留。
 Linux包已驗正常載入／保存／重啟載入；Windows已驗Wine主選單與正常退出，macOS原生啟動尚待實機。
-這些含原版的交付物只留本機，不隨Git散布；重建及驗收入口見[本機交付契約](docs/goal/R1006-full-local-release-promo.md)。
+這些含原版的交付物只留本機，不隨Git散布；重建及驗收入口見[本次交付](docs/goal/R1007-story-features-audio-dialogue.md)。
 
 以下為開發入口。
 需要 Docker、本機 `worktrees/dosgolem`、使用者自備原版與字型，以及專案既有的

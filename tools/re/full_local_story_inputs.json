@@ -1,0 +1,1355 @@
+{
+  "version": "v.1.0.1-20261010",
+  "timezone": "Asia/Taipei",
+  "original_zip_sha256": "2174fd964a524edf25e1d700358285de8815106f0864a21526493ef00e4a5571",
+  "original_file_count": 248,
+  "original_bytes": 5414248,
+  "original_files": [
+    {
+      "path": "BASEDATA.VGA",
+      "size": 5888,
+      "sha256": "ff2380c38e76fd09dafdcdbddb1d6cf0b6a037d2eb56cf0889f58ac60770451c"
+    },
+    {
+      "path": "CAVEDATA.VGA",
+      "size": 23816,
+      "sha256": "5d37c58db1e24b699797dd64eda641dafb6bd92948cbdbc5f6fdc21d4f7165f6"
+    },
+    {
+      "path": "CDSBOOT.TXT",
+      "size": 2175,
+      "sha256": "107aeb44263bbcd1415e6bcae8f59f2c5f2690535dd8ff38a93237ec6aff980e"
+    },
+    {
+      "path": "DISK.HDR",
+      "size": 780,
+      "sha256": "cbe6ed70d536d98a726faceed921ad5baf52d12e353e08d47f80e09cd3a2db75"
+    },
+    {
+      "path": "DS.EXE",
+      "size": 69206,
+      "sha256": "14a94f85cb4ef4df08566ed165dddc88c363aa816360c6509b84f079866a43db"
+    },
+    {
+      "path": "DSAVANT.BAT",
+      "size": 3800,
+      "sha256": "421824ff01ae3f0d58c536de3446545cf025aef4ad896936bc63954e4e9595c8"
+    },
+    {
+      "path": "EGA.DRV",
+      "size": 20842,
+      "sha256": "9d6eb16557db9084945ad40b4c6c2758dcb276a2e4d15f2d006b07d48c0d2280"
+    },
+    {
+      "path": "MAINSCRN.VGA",
+      "size": 64000,
+      "sha256": "5e3deae9dc28a85e5cf14b23303490ad7b477612047ee58c14f0cb4f1beec52a"
+    },
+    {
+      "path": "MASTER.HDR",
+      "size": 82,
+      "sha256": "cba7972390ec89969115815195f5065b0de02f220af48f85807e83b98c192150"
+    },
+    {
+      "path": "MAZEDATA.VGA",
+      "size": 95802,
+      "sha256": "af2f15381dbcf2d1595a8c3d496a2e70f7f9e778fa490ad2e0433e4e0eb52091"
+    },
+    {
+      "path": "MISC.HDR",
+      "size": 1024,
+      "sha256": "4f198318d0366fa569140935643544642d04478db336565fea61b30defd4ba5e"
+    },
+    {
+      "path": "MON00.PIC",
+      "size": 10404,
+      "sha256": "b8aa3733394e9e326210ecbaf87d2e5962cb1dfd19b287c4d25bb2eea91be419"
+    },
+    {
+      "path": "MON01.PIC",
+      "size": 2370,
+      "sha256": "9fbe175757cf048f1e339ac16f3eac51fb8dd4ee810b786428fefe7a2de09066"
+    },
+    {
+      "path": "MON02.PIC",
+      "size": 9184,
+      "sha256": "9902ad3e9797c4afd715b7212151f251e8b2e74b54a5d16439b900f7b8257897"
+    },
+    {
+      "path": "MON03.PIC",
+      "size": 11688,
+      "sha256": "1d27e133efc9e9a378ac6b1811f691fd1a4b58a6acd4618d371e84e54bd81b31"
+    },
+    {
+      "path": "MON04.PIC",
+      "size": 5908,
+      "sha256": "a21f0555ccb4dcc72d66bf41fad3810339c279782115027bb779de838d7e7404"
+    },
+    {
+      "path": "MON05.PIC",
+      "size": 7526,
+      "sha256": "c297113d00448a41e3d027fcb4764cefc97e6c7261adbcb829719ad086836326"
+    },
+    {
+      "path": "MON06.PIC",
+      "size": 7020,
+      "sha256": "36ee5e344573eaacc837c42d38c12ff154da2389c88be92d451c0c377fd4b5cc"
+    },
+    {
+      "path": "MON07.PIC",
+      "size": 1602,
+      "sha256": "0e4c351fb83cb6ef599c9bf1921709d05da4c8c3b8bb3e922433cb9b6d535bfb"
+    },
+    {
+      "path": "MON08.PIC",
+      "size": 11420,
+      "sha256": "f5f0fc1a5eb9f1149cfbcdb248ed01adc454a50a854c5741523cabc81cc5dfea"
+    },
+    {
+      "path": "MON09.PIC",
+      "size": 29224,
+      "sha256": "2c4ee671f818fb9320bf97c6463be4d9e2deeb8cbe4092e84368680a864ee112"
+    },
+    {
+      "path": "MON10.PIC",
+      "size": 8030,
+      "sha256": "fd20f0d85393d28b6af247d082251bad8b4f0db276a787206f7f39952e6a05e2"
+    },
+    {
+      "path": "MON11.PIC",
+      "size": 1656,
+      "sha256": "265e3b1f9de41aeaf40f51bb0f0a4a060e7e0d75305836fb759894106c4020e7"
+    },
+    {
+      "path": "MON12.PIC",
+      "size": 5306,
+      "sha256": "26f899f7acee3465d0accb5b85794e38c8e5f4aeea064060d200a6ce3f6afc94"
+    },
+    {
+      "path": "MON13.PIC",
+      "size": 4678,
+      "sha256": "4f73dbdfc9cf28930f0eae44d2bb6f758c0368e553456ee3f852da43dd5ae2e4"
+    },
+    {
+      "path": "MON14.PIC",
+      "size": 4580,
+      "sha256": "e568c8e10fb7b0215c951f0c5d585d038c6eff1d1a946d68b94503e3a00f9df7"
+    },
+    {
+      "path": "MON15.PIC",
+      "size": 10458,
+      "sha256": "4f1fb583a476cba2cb7549650b8f359cc50498636b50fab3094be39825df3ca9"
+    },
+    {
+      "path": "MON16.PIC",
+      "size": 2066,
+      "sha256": "0ecca995791dcab97a4e598fb8faf7699b851ac50907bb50e697cec5e0ba6ed8"
+    },
+    {
+      "path": "MON17.PIC",
+      "size": 3930,
+      "sha256": "ed592f96eaa5d6bdf8093f718f983ac4d707d35d8d57e4efe1769bcbd60a0521"
+    },
+    {
+      "path": "MON18.PIC",
+      "size": 31818,
+      "sha256": "43872084368fca3ab7671f8048117e3b309e454d911e32b18d0ac95ae4352855"
+    },
+    {
+      "path": "MON19.PIC",
+      "size": 33048,
+      "sha256": "224459b6ca427a57b1760bd72b9dc00ee8144db4d24ef88f689741eda13cc363"
+    },
+    {
+      "path": "MON20.PIC",
+      "size": 21044,
+      "sha256": "c6fedcf3c560704f7a539b37c4632eeaf1899d1421b2c878ba51638d2aa9d1c0"
+    },
+    {
+      "path": "MON21.PIC",
+      "size": 25990,
+      "sha256": "5c2b045a8d5ce921f5a95cca70cbb1a1c667e41f2b9b9370b1c6a4bda85969d1"
+    },
+    {
+      "path": "MON22.PIC",
+      "size": 21610,
+      "sha256": "bc93f434c6a2a5cfbb9b42f3ed95f78b75b026ebf715f7158fd68789bae4d353"
+    },
+    {
+      "path": "MON23.PIC",
+      "size": 19058,
+      "sha256": "ae4f289b4bcda4ab8e74a4ca41bd7aaa794a30a347b9f70d745e0108000fb317"
+    },
+    {
+      "path": "MON24.PIC",
+      "size": 21044,
+      "sha256": "4cc6a230e16ab6b41677fbe59d28827d7ac4f3247a030ade19c1e9ea0206005e"
+    },
+    {
+      "path": "MON25.PIC",
+      "size": 36314,
+      "sha256": "d4a1f942a12ef690730f48f8d30b7d8779884af37fa1dc93714b85c6a5e3d3c2"
+    },
+    {
+      "path": "MON26.PIC",
+      "size": 23742,
+      "sha256": "4d1ceb963c50db8d5406e73e441b493131fea35f679a2baba29a0827b9aaf0ef"
+    },
+    {
+      "path": "MON27.PIC",
+      "size": 22406,
+      "sha256": "9a7b3148e6ad1229bdef948b3bada448397b295d137c85ea1b9e9b0bc4cad2b4"
+    },
+    {
+      "path": "MON28.PIC",
+      "size": 24916,
+      "sha256": "eeb8bfd1a8dcaa198b772fc6346fbb011f7e94ed48b389f1f8f2a3fe3a60948c"
+    },
+    {
+      "path": "MON29.PIC",
+      "size": 23060,
+      "sha256": "07818e264357ec4402a68c9dd6d2fda74d51f64511b7a381bbfdadc2186892f9"
+    },
+    {
+      "path": "MON30.PIC",
+      "size": 29202,
+      "sha256": "07cd3e510a84cc4f0036df8833bd33f18baef166a426d7212f1c7680bf8f09d5"
+    },
+    {
+      "path": "MON31.PIC",
+      "size": 18858,
+      "sha256": "aeaf21a70aaaad27b9ecb6abccd217a9669c2d649857eab222c7d9aa16a16a6d"
+    },
+    {
+      "path": "MON32.PIC",
+      "size": 36254,
+      "sha256": "843339ded2db039ae3b422e866243a488f704523994c3b3b3b425909f2cbab30"
+    },
+    {
+      "path": "MON33.PIC",
+      "size": 7086,
+      "sha256": "a46d1d320446448b26f98441c9b657ba30936f58b993546e4c0da7512d77f647"
+    },
+    {
+      "path": "MON34.PIC",
+      "size": 7724,
+      "sha256": "82d2938d5c819430e9cbbd34ee0f1a9f1cd24a88fcdaddcff66fcaeb66835c4f"
+    },
+    {
+      "path": "MON35.PIC",
+      "size": 24048,
+      "sha256": "b24d76ce6451e1504409d9aeaadbe85fc953f8dce2b0cbfe6a5e89cdb581d6f0"
+    },
+    {
+      "path": "MON36.PIC",
+      "size": 7638,
+      "sha256": "7a7fcfcfd26e0b187884c8ed61bf10cb7a490bb7f2032a313b57ac429acc457a"
+    },
+    {
+      "path": "MON37.PIC",
+      "size": 27316,
+      "sha256": "2cd21ac2e2f659ed4c21f4330a249b68c781e9a9b945337e50ef397903ed76d1"
+    },
+    {
+      "path": "MON38.PIC",
+      "size": 22794,
+      "sha256": "ecff36710ed575b115aad2eb4909ec6c297834c492874e5acc272624d7de87a6"
+    },
+    {
+      "path": "MON39.PIC",
+      "size": 42670,
+      "sha256": "aaee93d82565cdb9aaa81a823f8725bfabe28bf84f3a859c233c2e977b408796"
+    },
+    {
+      "path": "MON40.PIC",
+      "size": 21438,
+      "sha256": "770ada2235c6e08c3257f0d3fb2936472856b9dd3eaf6aed5d24da51b569325c"
+    },
+    {
+      "path": "MON41.PIC",
+      "size": 36578,
+      "sha256": "6ce535a04f26d439da1fa0517343bd9b6df24f58b9328331332b59623759b99b"
+    },
+    {
+      "path": "MON42.PIC",
+      "size": 23510,
+      "sha256": "7047719b61d4a4187df426cd48c17499ef3e0981812d9ef43876df8109c19b16"
+    },
+    {
+      "path": "MON43.PIC",
+      "size": 22098,
+      "sha256": "21703990056dc508b7163a275ff2b73e7ddcc485d468d5f6709056a8f77be69c"
+    },
+    {
+      "path": "MON44.PIC",
+      "size": 12800,
+      "sha256": "cdc94dad81694777273bcaf0d9bf28dbcf4b88ee92a897f5cad3d9b795f3333c"
+    },
+    {
+      "path": "MON45.PIC",
+      "size": 2916,
+      "sha256": "d63201009f63a8e3270e16560a548ce252587e67cf0f13a8ed8ec1fbd6220be2"
+    },
+    {
+      "path": "MON46.PIC",
+      "size": 31704,
+      "sha256": "1524576b5174f08ba2283126d09b4f592d8907ec622772b14268451d070a81e8"
+    },
+    {
+      "path": "MON47.PIC",
+      "size": 14150,
+      "sha256": "c93a7825d67eee70cdf05b37d19926316db758bc977f62d2ddf53cee18644b3e"
+    },
+    {
+      "path": "MON48.PIC",
+      "size": 9346,
+      "sha256": "51dc9660e037604650b619748680e8d49e7692ddf5bd760ac8b4676e7f2e3834"
+    },
+    {
+      "path": "MON49.PIC",
+      "size": 7150,
+      "sha256": "b10a8fb0615f1dc0eb6205dce53ff855419c9acc7a977b15c37be1f639bb3e68"
+    },
+    {
+      "path": "MON50.PIC",
+      "size": 6010,
+      "sha256": "42d8178db178d2f92ceaf04d77b5020c053e1148c323eedb0613a0af6b5eeb6d"
+    },
+    {
+      "path": "MON51.PIC",
+      "size": 22666,
+      "sha256": "cb296523dc29b73f6ffd66892554b11aa932c3a491148bdcacba45ab3a3cc3c4"
+    },
+    {
+      "path": "MON52.PIC",
+      "size": 5178,
+      "sha256": "c2353642c62b3a99f54f2a45fb10a65d7f97d6344d0e4504c7ccc8bdaa0654a3"
+    },
+    {
+      "path": "MON53.PIC",
+      "size": 43982,
+      "sha256": "de45e94ab0dd53a1e3227a46db6d770b69875ed21f196025ab14dfcdc4cd2d20"
+    },
+    {
+      "path": "MON54.PIC",
+      "size": 4642,
+      "sha256": "a4866cdbb718f7b0a547f260cdc1141543118b07c52d4be9af08afe0d29a07ee"
+    },
+    {
+      "path": "MON55.PIC",
+      "size": 8078,
+      "sha256": "1e8153b2df79ed3fba5b36a0dc540f2733a555966a8d8c209b82bd1e28593111"
+    },
+    {
+      "path": "MON56.PIC",
+      "size": 558,
+      "sha256": "2aee148f51075853a239e51249f92c99acac4086423ecac962c85abcd24e7c5d"
+    },
+    {
+      "path": "MON57.PIC",
+      "size": 1218,
+      "sha256": "a808cb08b034d1d5a86ae47a92aac862723d0c8760d12f5af91be7707e75343b"
+    },
+    {
+      "path": "MON58.PIC",
+      "size": 760,
+      "sha256": "11ffba591bf2863ee194cba9cc70154ff562ab8462f26329a80506cb04ad506b"
+    },
+    {
+      "path": "MON59.PIC",
+      "size": 7738,
+      "sha256": "4eaf2fe70744081cae7cdbc9ff64436b57e69652c78f0b978e05fa8e26c41f35"
+    },
+    {
+      "path": "MON60.PIC",
+      "size": 117820,
+      "sha256": "ad299595ac2bb31318bd00182db920d78e2dad630b973bf9199b55611cfc9e06"
+    },
+    {
+      "path": "MON61.PIC",
+      "size": 139662,
+      "sha256": "ab6705f244df4ff910192203cebfbcfc53100ea574239c08a02f432566a7bd40"
+    },
+    {
+      "path": "MON62.PIC",
+      "size": 36208,
+      "sha256": "1ce02ef1b2437de2c4a664d80916ccbf5f8b354ce49f73717ad05c5e7e6f31cb"
+    },
+    {
+      "path": "MON63.PIC",
+      "size": 15604,
+      "sha256": "22dc1cda38cdbbf8162817637042cbde46e406e08420fa7b1aeb27dd718d8c21"
+    },
+    {
+      "path": "MON64.PIC",
+      "size": 16946,
+      "sha256": "62c07ac688ef9f5bb229b57af4c30b975faef1e896326ae61bcacc71b598685f"
+    },
+    {
+      "path": "MON65.PIC",
+      "size": 31674,
+      "sha256": "061d56e0b620602e599a45b8113a365e826734080720d82f7fb6be991f65cf0a"
+    },
+    {
+      "path": "MON66.PIC",
+      "size": 33994,
+      "sha256": "0c5aabe96a548c108be6c391fc828967339c209f9ac18926cd879fbdd543b452"
+    },
+    {
+      "path": "MON67.PIC",
+      "size": 16066,
+      "sha256": "1ae373f419d37c224fcd994b716acb1bdcb64abb21c398cf8582bae9915ff2b5"
+    },
+    {
+      "path": "MON68.PIC",
+      "size": 2916,
+      "sha256": "e6798a9da561ccf543cbc08381df9d8ce6c87f7291000a1282f64fd75b5a0953"
+    },
+    {
+      "path": "MON69.PIC",
+      "size": 19424,
+      "sha256": "6cc9d8bdad0549cfa85ed366743b13e5d3bd84c57d11d14e5b282537246db368"
+    },
+    {
+      "path": "MON70.PIC",
+      "size": 7514,
+      "sha256": "022553457b64f63d0d474ef7d2e1074d88f0be41bc7a033b8c7b50c79d0f8bc1"
+    },
+    {
+      "path": "MON71.PIC",
+      "size": 40874,
+      "sha256": "571edbef60103221926be7b0a211369ca6b24bdae68418aa5985d1a3197ca4a6"
+    },
+    {
+      "path": "MON72.PIC",
+      "size": 26950,
+      "sha256": "c2c75caf62048368a989bd26779f6adc941405ee3447e7d4b2c7e7042f162c86"
+    },
+    {
+      "path": "MON73.PIC",
+      "size": 45198,
+      "sha256": "1218fc56fb36e428740f11725c806abd97663d3506bd8a94aa9c0b1872b11d51"
+    },
+    {
+      "path": "MON74.PIC",
+      "size": 25148,
+      "sha256": "18172498bb06589be208eaade6647e701b29d3b09837affffe5615939972738f"
+    },
+    {
+      "path": "MON75.PIC",
+      "size": 4250,
+      "sha256": "560b16abadeb113c9dcbd90f4ea3feb7200f1c774c6b701e3ef76af2be274bd8"
+    },
+    {
+      "path": "MON76.PIC",
+      "size": 7920,
+      "sha256": "84e77e381b3d05756d583c2654a99c05e8b10988cd4b6121ffecb5a01e1b2c57"
+    },
+    {
+      "path": "MON77.PIC",
+      "size": 38412,
+      "sha256": "4986c68ac308d61079d34a151ee31ea16ce4477786b363e3a9b39b24865482d5"
+    },
+    {
+      "path": "MON78.PIC",
+      "size": 15182,
+      "sha256": "e36f047510125fabc98853ffec392bd2a41ff81cb84abe6f67c633687d602dc9"
+    },
+    {
+      "path": "MON79.PIC",
+      "size": 47856,
+      "sha256": "e60f39e35875fc809ba15613a1c53449e65ff98626f71b43a850db64da322e85"
+    },
+    {
+      "path": "MON80.PIC",
+      "size": 37352,
+      "sha256": "8f5af955323ca92ecb940c2c018f6e45cd156ff89067000e2ee5cd0c4cc185c5"
+    },
+    {
+      "path": "MON81.PIC",
+      "size": 30432,
+      "sha256": "188f2f170733b8ae88b1df51afc9638125e60ddb19ac8803ab927fc8b32fd0d3"
+    },
+    {
+      "path": "MON82.PIC",
+      "size": 2654,
+      "sha256": "a7569e2e009db3fe8e990177fc5bd779e2be065589edb960ff218c01630765c8"
+    },
+    {
+      "path": "MON83.PIC",
+      "size": 16334,
+      "sha256": "a72257916731720a7e71f1089842c221df473dda628c5f29eab72dc0f101a61b"
+    },
+    {
+      "path": "MON84.PIC",
+      "size": 20764,
+      "sha256": "beaaf2d9384c958a9141b02e7011e4b53d4b5c600909a49b5816956f21db2937"
+    },
+    {
+      "path": "MOSLOWIZ.COM",
+      "size": 2807,
+      "sha256": "c948ff555d582a1dd7f6654d686bb9f30b77bbf6a2ebda0021adab89401682fc"
+    },
+    {
+      "path": "MO_INFO.TXT",
+      "size": 3374,
+      "sha256": "7f5c2fad67f35f0be06878bc779c13bdc3cb4b316fd4dc2a7f1f3e7cc80e33b3"
+    },
+    {
+      "path": "MSG.DBS",
+      "size": 262144,
+      "sha256": "9869b63ac45e546fc9ac5cac8602d158a533dde92067299d178ff52fe926225d"
+    },
+    {
+      "path": "MSG.HDR",
+      "size": 11774,
+      "sha256": "c2a5a662d1d27f6f9cc03b7aeedd74344def09c1f647e293c0330366c76883c2"
+    },
+    {
+      "path": "NEWGAME.DBS",
+      "size": 10720,
+      "sha256": "add00865dc998067755e60429778400dd0f6b1032ef04e82439016eb553814d5"
+    },
+    {
+      "path": "OCAVDATA.VGA",
+      "size": 53009,
+      "sha256": "581b320a1d82acd1f0b29677272ccb527a8121a949476ffc72c79dead9fe4e8e"
+    },
+    {
+      "path": "OTWNDATA.VGA",
+      "size": 34169,
+      "sha256": "d3fec0a7a710f43c49d8415d2fc7f6111da602a569dcaf1eeb330aa7432f0009"
+    },
+    {
+      "path": "PALETTE.DEF",
+      "size": 768,
+      "sha256": "da606d09a861a342196dad049013f6df975a27606f8d940cb559b8e248132062"
+    },
+    {
+      "path": "PCFILE.DBS",
+      "size": 9368,
+      "sha256": "24d94441e5b32e7abbcbffa9dad972b41544da6a7bb06096b967281f639d9c1b"
+    },
+    {
+      "path": "PCVWSCRN.VGA",
+      "size": 64000,
+      "sha256": "698cab47c79c92cb592bfa02868374017f15bb93886a75ce8d50307d2bb84ace"
+    },
+    {
+      "path": "PKZIP.EXE",
+      "size": 34296,
+      "sha256": "a894c098eb56fbc23060d0a07ea986e6d75d9e2de4275e039f11d5345689a0e6"
+    },
+    {
+      "path": "PLAY.BAT",
+      "size": 3788,
+      "sha256": "7f94547ca208ce7af60b8ed607c719b4284df3b304f1137ae865ac6a216d26c0"
+    },
+    {
+      "path": "PLAY.DRV",
+      "size": 6972,
+      "sha256": "e101ac7cc1d172c142cbfe1576fa5d8d05ac2fb26c249bfcd1815d39602af4b6"
+    },
+    {
+      "path": "PORTDATA.VGA",
+      "size": 25740,
+      "sha256": "fe15a8991b9cb9f14defc514a587cb1af9b67d597cb4fb96c99c6c03a6cba086"
+    },
+    {
+      "path": "SCENARIO.DBS",
+      "size": 368320,
+      "sha256": "b2cb0722122724d35d379bb10250d0eec51238d9b147c36be12177ef3d2462f6"
+    },
+    {
+      "path": "SCENARIO.HDR",
+      "size": 844,
+      "sha256": "a4ac9d6a94bf2b2da23cf3381942295d99c9fb54f3537cd18256fe212e61b240"
+    },
+    {
+      "path": "SCORE00.CSF",
+      "size": 11234,
+      "sha256": "7d99e6dc55adf7d78b76174f31dc2745fe8086f3046219c5526086fee5d181b7"
+    },
+    {
+      "path": "SCORE00.PBA",
+      "size": 86,
+      "sha256": "9ea21651ac7171b93dace2684ce4a507538c2b0927ce9a3be1cc5536507bb606"
+    },
+    {
+      "path": "SCORE00.PBL",
+      "size": 256,
+      "sha256": "84479acbd9f3afe84bebc5afd86d7e2479451579fa410d881cbda6628e6231c6"
+    },
+    {
+      "path": "SCORE01.CSF",
+      "size": 9823,
+      "sha256": "1efdaa542d26ec0ea0079b61b89f290859688bdb1b2eb9a731cab9aef14499da"
+    },
+    {
+      "path": "SCORE01.PBA",
+      "size": 97,
+      "sha256": "cbf8e45dcaac2ef70044e6e326e377b34ce3ea7f0142674ee8808f1c5b65089f"
+    },
+    {
+      "path": "SCORE01.PBL",
+      "size": 256,
+      "sha256": "d4056aeb534f692a821af2063a364ac5b19d0bf8a1d88744d9f0097093319819"
+    },
+    {
+      "path": "SCORE02.CSF",
+      "size": 11159,
+      "sha256": "f018e4f739612434ed61eb6b08301deaaaed945e938aa51a41d0dbd19d9c3f05"
+    },
+    {
+      "path": "SCORE02.PBA",
+      "size": 86,
+      "sha256": "43a258e56b00b5599693727b5c33a835848fec2ac36028a2bf53338873536b9d"
+    },
+    {
+      "path": "SCORE02.PBL",
+      "size": 256,
+      "sha256": "e757a0b8d84134bba4e5738bb7adc013065e1e85e370e41572e30f5e50659e96"
+    },
+    {
+      "path": "SCORE03.CSF",
+      "size": 612,
+      "sha256": "cb354fc09b6d817deef95c808fd005d0a84f3a06419d53fcf39c469d6b2c6533"
+    },
+    {
+      "path": "SCORE03.PBA",
+      "size": 86,
+      "sha256": "2a9f8b5ebb1bd405bf1147250df6c40b38bb8d73bbd35eccdfc77a05f1104190"
+    },
+    {
+      "path": "SCORE03.PBL",
+      "size": 256,
+      "sha256": "f54134164b0630829e040debb7884154da10bcf34711f4b94dfadd314e19ad24"
+    },
+    {
+      "path": "SCORE04.CSF",
+      "size": 4533,
+      "sha256": "f0705e7cf378563411b285653b934107eca8a168456a58ff0c7ea54c25410588"
+    },
+    {
+      "path": "SCORE04.PBA",
+      "size": 108,
+      "sha256": "236f73c2e71efcf009752d30e1c2ac0dd5170677a1b71fc24db582ea9bdbf88a"
+    },
+    {
+      "path": "SCORE04.PBL",
+      "size": 256,
+      "sha256": "7db20303fb30cf0d34579f16e7965ccfe33a10022d22fa1cc4421d820c5fb7a0"
+    },
+    {
+      "path": "SCORE05.CSF",
+      "size": 17975,
+      "sha256": "9fe1a9d2f7c1a1158f4f7b4caa8f6e3308eef417bb8d2394ffe5a1ea8defedc2"
+    },
+    {
+      "path": "SCORE05.PBA",
+      "size": 86,
+      "sha256": "7d8d291756dea14d0a2e50cc77866f6947a1291d6508e6ebb294494293087499"
+    },
+    {
+      "path": "SCORE05.PBL",
+      "size": 256,
+      "sha256": "e757a0b8d84134bba4e5738bb7adc013065e1e85e370e41572e30f5e50659e96"
+    },
+    {
+      "path": "SETUP.EXE.LNK",
+      "size": 322,
+      "sha256": "6e97a156e85576b3d44c7dbdc781ad1f03fb32a82a9d2cb01a29c278e0b28389"
+    },
+    {
+      "path": "SOUND00.SND",
+      "size": 1302,
+      "sha256": "bbe943b42a85164751d178fe46711bfa6e29a8fa5b6b7fb6c3baab6a5bd12fe0"
+    },
+    {
+      "path": "SOUND01.SND",
+      "size": 4000,
+      "sha256": "d285996c8ce09fde0d9188c0022cba0778fb808d1fd23612916f34bb4c6b1e72"
+    },
+    {
+      "path": "SOUND02.SND",
+      "size": 2128,
+      "sha256": "b9ad5b205d22ba8211a0d095dcc0f58934cf01a5d4693c34ef307f4312c13a39"
+    },
+    {
+      "path": "SOUND04.SND",
+      "size": 1858,
+      "sha256": "47e741c136d494780434ae08bcfb0728f87975aeb61de762d5ce4134086ae14e"
+    },
+    {
+      "path": "SOUND05.SND",
+      "size": 4453,
+      "sha256": "189c4b3857238c3501a9fafd5af3495ca1513bc8b36e8f5193f5d352106d0183"
+    },
+    {
+      "path": "SOUND06.SND",
+      "size": 2684,
+      "sha256": "65beca10132fad143a74eb82113137928b0b18ee172a1ff0358e3ffa56a66c24"
+    },
+    {
+      "path": "SOUND07.SND",
+      "size": 4275,
+      "sha256": "fcaaddeabf2398e72cc536487001d6f87ed8c984a45cd2f3cd5cdcb8e6400d04"
+    },
+    {
+      "path": "SOUND08.SND",
+      "size": 3454,
+      "sha256": "b9c5b6aeca654514ff5855013258a78f10009a9be214dd173360518cd16e925b"
+    },
+    {
+      "path": "SOUND10.SND",
+      "size": 11728,
+      "sha256": "ed57163c28e869a65210c6c5601699255fe1871f3b481d369b0f1dc95d270153"
+    },
+    {
+      "path": "SOUND11.SND",
+      "size": 5995,
+      "sha256": "015913366be321cd1f982ea4c4613cb9d2e16639ff4f80044f6a6db68b54845a"
+    },
+    {
+      "path": "SOUND12.SND",
+      "size": 8280,
+      "sha256": "2b7ce928f92d0325e8ddc1c08615dbcc25d037a4cb68307a28e92d03deebbcd4"
+    },
+    {
+      "path": "SOUND13.SND",
+      "size": 13436,
+      "sha256": "958bbde7146f43722b1443c0a36273bfc6cd34bc7a0565dcbeb73e739d9eca99"
+    },
+    {
+      "path": "SOUND14.SND",
+      "size": 22653,
+      "sha256": "4da18cec2bff4768d357bd6e48220f49f946fa0fb4c89ad19803de618abd983c"
+    },
+    {
+      "path": "SOUND15.SND",
+      "size": 5337,
+      "sha256": "6d21fe80b191610c79c28b4a86158ecd0efbf1eaef2aabba192535f3b0e36928"
+    },
+    {
+      "path": "SOUND16.SND",
+      "size": 7877,
+      "sha256": "90dcf99ef88f025975707605a2f63a1f9bd4f9491ee6cf132ea5bf3d72888111"
+    },
+    {
+      "path": "SOUND17.SND",
+      "size": 6106,
+      "sha256": "88701a65a992e0dff2e7ea9d510bfe386bd116591e6b39fe3e142bd0b7f073e8"
+    },
+    {
+      "path": "SOUND18.SND",
+      "size": 6279,
+      "sha256": "f6bf5290fd04327dbde11b679f272489ff328d291e05ebf7d8c9bf7cd1cad444"
+    },
+    {
+      "path": "SOUND19.SND",
+      "size": 4791,
+      "sha256": "76068f9ed8d46fa6e63ba54195f522e7bf666265a0f5d199df1d02abe70ea755"
+    },
+    {
+      "path": "SOUND20.SND",
+      "size": 5208,
+      "sha256": "02fa2475c3fe7476d83b32131a4e360db14269f4b845396b745335e3e7bd47a8"
+    },
+    {
+      "path": "SOUND21.SND",
+      "size": 3071,
+      "sha256": "ea0ab65d0816ad48b9b7e6cdb94625985d5df94c1fedab90eb33aeb147d39b52"
+    },
+    {
+      "path": "SOUND22.SND",
+      "size": 5338,
+      "sha256": "d3248b9a824647879c6a3c28b0a8e4ef14a7b0be6b039ab24855b3264d6d6842"
+    },
+    {
+      "path": "SOUND23.SND",
+      "size": 7107,
+      "sha256": "2f78a03877986754339182a8f5a2fe9fcd6e015eaa58ee247f14b30e2cba565b"
+    },
+    {
+      "path": "SOUND24.SND",
+      "size": 10167,
+      "sha256": "874ab4c1980fe47ddc8adb137ed2ad16ea6e56749975c6e5ed38ae0ab6c0c9f3"
+    },
+    {
+      "path": "SOUND25.SND",
+      "size": 7847,
+      "sha256": "3739ae60f429e64b2c666acf93e4a57de855bb9907bb153897abf9b711256e18"
+    },
+    {
+      "path": "SOUND26.SND",
+      "size": 6298,
+      "sha256": "039a9dfb5d4afe52341830798c42a3e73b158f49f7b15a6fb95804ebaa1c3ea4"
+    },
+    {
+      "path": "SOUND27.SND",
+      "size": 15651,
+      "sha256": "1bdebaf98009e1df11143772ad190187906c326d25c7db2b8388f5c8c93cffb7"
+    },
+    {
+      "path": "SOUND28.SND",
+      "size": 12778,
+      "sha256": "43d0e68e6291a95976fb19cc8b43806a84e4720a0ff67364cdf26b0d7bdec3a7"
+    },
+    {
+      "path": "SOUND29.SND",
+      "size": 9484,
+      "sha256": "1dba85aeafa83fd4a61d5d13928c4a380d70636e5836bf39a087f8d180733181"
+    },
+    {
+      "path": "SOUND30.SND",
+      "size": 18328,
+      "sha256": "19645562c8e04241fce2c16a128ed482fdfb43a29062740a7c6863d0500c633f"
+    },
+    {
+      "path": "SOUND31.SND",
+      "size": 15761,
+      "sha256": "f9bb63dcd9485e951cb3ce6efd37f67c535e62e3526be73deb87b8a160f76e2c"
+    },
+    {
+      "path": "SOUND32.SND",
+      "size": 18561,
+      "sha256": "a99d6c27aacb2c5f6c8a5e408d454ed6be799aee316e9a2854a337da881200f5"
+    },
+    {
+      "path": "SOUND33.SND",
+      "size": 17838,
+      "sha256": "d8bbaa4071cd278944cf42b49b9062828be494f607205803d536573ff281c381"
+    },
+    {
+      "path": "SOUND34.SND",
+      "size": 14936,
+      "sha256": "d4fa1bb60cb759214e9bf5734869887cf2d22ce26d9a1efe515533e46299368d"
+    },
+    {
+      "path": "SOUND35.SND",
+      "size": 13417,
+      "sha256": "fbb74beffd4e07ee23acbfa5e924185e345d3420580c4c0eab4d7e4e9b8721aa"
+    },
+    {
+      "path": "SOUND36.SND",
+      "size": 14113,
+      "sha256": "2f164995480f80923e93dc1b6e6cbf5be69141f3ee557ff8170971bab1b85a88"
+    },
+    {
+      "path": "SOUND37.SND",
+      "size": 14481,
+      "sha256": "7aa6f24cb92e682a0e73dc028870217255d77c3c62a8ae4212e52affee4c328f"
+    },
+    {
+      "path": "SOUND38.SND",
+      "size": 15002,
+      "sha256": "8c92e32a1d1540437cbaf09ebd87a6275e8de86387d6f240b6612519feea87b0"
+    },
+    {
+      "path": "SOUND39.SND",
+      "size": 14343,
+      "sha256": "70167a29086659b38039c3f3c5e30513976f2cd573a35eaa3e994fa08f37cade"
+    },
+    {
+      "path": "SOUND40.SND",
+      "size": 14634,
+      "sha256": "2ad72f7f6f66db749d3ab0cb988f0b45317c1bf10a1f50bc9bea707ef9d49639"
+    },
+    {
+      "path": "SOUND41.SND",
+      "size": 14429,
+      "sha256": "a67e1abb2a263c56a038ca46219d9432c2d42b9affb065773ed857fff01c0f09"
+    },
+    {
+      "path": "SOUND42.SND",
+      "size": 15002,
+      "sha256": "6fbfebc7ec97a1419f266154f2f312990ab879193193d1380d52270b50e7ab38"
+    },
+    {
+      "path": "SOUND43.SND",
+      "size": 15002,
+      "sha256": "75b7528700091611d1826191a7909725ce2fa0ae6eeb8a67e2f91a9fd8d39443"
+    },
+    {
+      "path": "SOUND44.SND",
+      "size": 15002,
+      "sha256": "9dbbe072947a2508e17b3e6f9aeb07694df3d6ff293f267fe477ea528ab94c31"
+    },
+    {
+      "path": "SOUND45.SND",
+      "size": 15001,
+      "sha256": "40e076ec7a69b3f877cccdcf25b033b0e7abe35ebc16e6616444a1e9adb74b4e"
+    },
+    {
+      "path": "SOUND46.SND",
+      "size": 14998,
+      "sha256": "46b0d34bf34c13092641f4b557c4170840aad4d0b5e240e814d63e4cadac44f0"
+    },
+    {
+      "path": "SOUND47.SND",
+      "size": 15002,
+      "sha256": "84b473be67e4722a190ab92eee5a7e1a03f083b95c87a6e312eac75f98f8397e"
+    },
+    {
+      "path": "SOUND48.SND",
+      "size": 19829,
+      "sha256": "225f979633c83143940f65424a4a1d016117cec9f85e92855fa281086203a2c3"
+    },
+    {
+      "path": "SOUND49.SND",
+      "size": 17378,
+      "sha256": "f1cffcc6c2a0b65037704bf89d1bf158898503a2f0ffedafbc2fee7c68784e66"
+    },
+    {
+      "path": "SOUND50.SND",
+      "size": 15697,
+      "sha256": "abadc8d76c981acbc5428d4fa50fcc722179380e94306a2db1a81caf10e40f93"
+    },
+    {
+      "path": "SOUND51.SND",
+      "size": 15002,
+      "sha256": "54dc09bc1e7638829438a554312110a1bd2fc7e75ef399e1d24c37784b7b7d62"
+    },
+    {
+      "path": "SOUND52.SND",
+      "size": 19065,
+      "sha256": "173cec165a516890252f708232b8cad25b50bc73ace98792119a8c4c991593a6"
+    },
+    {
+      "path": "SOUND53.SND",
+      "size": 14259,
+      "sha256": "52bdd9ed198253c0f6ee89e391457c277b5303db5d6236ec2f2d4aa1b0e54dbf"
+    },
+    {
+      "path": "SOUND54.SND",
+      "size": 16180,
+      "sha256": "526832d78ec14dbbd006bacbf9888a93f76d8ec15afc96259526dcf2b1d78cf9"
+    },
+    {
+      "path": "SOUND55.SND",
+      "size": 18116,
+      "sha256": "79c0e9453f46564cb0d43781c2732690cf67e06b4921d9cabb4f30f3421d6c72"
+    },
+    {
+      "path": "SOUND56.SND",
+      "size": 22057,
+      "sha256": "c765f3caf7ded74eae0d32330f65179eee2d7a38ced2431a0b7a390b3b84422f"
+    },
+    {
+      "path": "SOUND57.SND",
+      "size": 22681,
+      "sha256": "9cf2468e3d3bf39b03a4a60fe667c756c8e4897afa5e79255a7c03f460dfe2bc"
+    },
+    {
+      "path": "SOUND58.SND",
+      "size": 21521,
+      "sha256": "f22cc115e1c031838aaf77e8799b50a85bf6f031e7e6ba36bd9421b80ac36994"
+    },
+    {
+      "path": "SOUND59.SND",
+      "size": 14956,
+      "sha256": "78710728c41ed35744b028fcfa55620446b21c585c9e3e2973aab3e0a89406aa"
+    },
+    {
+      "path": "SOUND60.SND",
+      "size": 21993,
+      "sha256": "a57925b78050fff4849b3a840a8beb053f646b3a25e679b6e030bfb94d7c6a73"
+    },
+    {
+      "path": "SOUND61.SND",
+      "size": 20915,
+      "sha256": "975fdf37704333c49083cc4cb3af8c41ea4808cecbcae012a0b127efe8d1e68e"
+    },
+    {
+      "path": "SOUND62.SND",
+      "size": 18569,
+      "sha256": "65270da55cbee32916c2c5b9b046e03bb95cd26749d02b72bb0ed1bb029a49a9"
+    },
+    {
+      "path": "SOUND63.SND",
+      "size": 16323,
+      "sha256": "57d93b18a02f06127e14396665d6c61863236d77ed71e72f62223ea91032f932"
+    },
+    {
+      "path": "STARSCRN.VGA",
+      "size": 64000,
+      "sha256": "fd1dcdee67699ce056f3aebe81d3ed7d479069baff2fe8a3456a0e3f53703df3"
+    },
+    {
+      "path": "TILEDATA.VGA",
+      "size": 16351,
+      "sha256": "9dcf0ccbd19178a789d4fb587685705809297e207feedf282abb8b41999c8469"
+    },
+    {
+      "path": "TIT1SCRN.VGA",
+      "size": 64000,
+      "sha256": "dce7e994991f4ae880b859c132fd4f2ba1190dee1b79ef642480f1a21fb67efd"
+    },
+    {
+      "path": "TIT2SCRN.VGA",
+      "size": 64000,
+      "sha256": "f0280f0997a5ab64036ca643b347b6af29f245f67a9e0463441588f281413c45"
+    },
+    {
+      "path": "TOWNDATA.VGA",
+      "size": 81640,
+      "sha256": "3fe84287dde8c002ad23acdb67ee109d79220db8759ca48cbbd0f97c9338cc2c"
+    },
+    {
+      "path": "TREEDATA.VGA",
+      "size": 116645,
+      "sha256": "78db189d8a9a72067ccf26ee138f0570d9161adeea4c2e9859b6fee2c9730dc4"
+    },
+    {
+      "path": "VBASE.OVR",
+      "size": 38171,
+      "sha256": "7919a6eddd0f7b65905ad4ab3a301604cccb8bf0f213ebebc190d5d1227104d6"
+    },
+    {
+      "path": "VBFONT0.VGA",
+      "size": 1040,
+      "sha256": "937eda16ebf61f28506122c465cd3a3e112aa001cf0c37644b001bb0cbc35ae3"
+    },
+    {
+      "path": "VBFONT1.VGA",
+      "size": 560,
+      "sha256": "c3e940965761c23a37ee5636f45c0b0eeb88f0f105e0cacaa5441bf2960fed1f"
+    },
+    {
+      "path": "VBFONT2.VGA",
+      "size": 7440,
+      "sha256": "d14b958cc908711ff0e27a3baf58bb97102a8a11c6fd3c5be5c1583c58a29b41"
+    },
+    {
+      "path": "VBFONT3.VGA",
+      "size": 784,
+      "sha256": "c8c6457453d320f187999f270e00a2d4c1ae33fcb86615605fb8623ee6bd412b"
+    },
+    {
+      "path": "VCFONT1.VGA",
+      "size": 18704,
+      "sha256": "02c689edf7f5a77d5f340e29a7462562993a8d4f54ffdc5e617323737f61f823"
+    },
+    {
+      "path": "VCFONT2.VGA",
+      "size": 1244,
+      "sha256": "c4e4e7fbe986f013f8cf2cd2d8f85f15f1eca2a2b0a0e1cdf2c69933d4d5b24f"
+    },
+    {
+      "path": "VCFONT3.VGA",
+      "size": 3584,
+      "sha256": "fad75fed0cc1408c5982b56f7cc004b7d99f7ee47b60381e90ba6bd428531d6c"
+    },
+    {
+      "path": "VCPORT0.VGA",
+      "size": 4952,
+      "sha256": "db2755002f1eb180afdfc43eb9c4dbb3b785e74fadc967589a923007d4a1f502"
+    },
+    {
+      "path": "VDOPT.OVR",
+      "size": 18253,
+      "sha256": "0170e78e2766216ce3b20f631377423c655654b2c017096c57900bde3cd973f8"
+    },
+    {
+      "path": "VGA.DRV",
+      "size": 18616,
+      "sha256": "f064349ce5dc694b26ed58615262d1bad893e59971bf259c0a74bdea9ee27a70"
+    },
+    {
+      "path": "VIDEO01.PIC",
+      "size": 23318,
+      "sha256": "102d3b9350db13f5e374c5c601209a37602600e83b5513ed4fe3fc81fe463daf"
+    },
+    {
+      "path": "VIDEO02.PIC",
+      "size": 55422,
+      "sha256": "710af81426da708f579d1d3408eee943f13b2dbde47beac08bb04d011dab7ed6"
+    },
+    {
+      "path": "VIDEO03.PIC",
+      "size": 10946,
+      "sha256": "398fbcbb6e75ae94e39ca0cf58382c10b95414779aac60c2be134085b8c71eb5"
+    },
+    {
+      "path": "VIDEO04.PIC",
+      "size": 16948,
+      "sha256": "39b27ad1e55e67b7000b71f70521eb5e8358c638ead7f58e1f0fbb8105c72b1d"
+    },
+    {
+      "path": "VIDEO05.PIC",
+      "size": 54556,
+      "sha256": "27a3bf48f82df9c27807ae5e5d3b85c765a084837559d8280926e135db642a3b"
+    },
+    {
+      "path": "VIDEO06.PIC",
+      "size": 13694,
+      "sha256": "ec9e6405f78c96c48a1fc57bc2903a423bd87dde2ce2e328190eecb154072d44"
+    },
+    {
+      "path": "VIDEO07.PIC",
+      "size": 57346,
+      "sha256": "673af25f119aeb83610068a183c5501b92564eba3b53a133f977214e773c74c1"
+    },
+    {
+      "path": "VIDEO08.PIC",
+      "size": 2370,
+      "sha256": "8eea914fbaf380771cfa7abb8b25504520faf13f57818780e66b058f476396aa"
+    },
+    {
+      "path": "VIDEO09.PIC",
+      "size": 45222,
+      "sha256": "55490d0e680cbd74ef2f7ae90ada28d4ebddc3feec11abae157b5866625546ff"
+    },
+    {
+      "path": "VIDEO10.PIC",
+      "size": 23868,
+      "sha256": "b91e0e6932010c38a85d165c8b412bf9ecc18b9d9c56881f8295a2e2d0036685"
+    },
+    {
+      "path": "VIDEO12.PIC",
+      "size": 38758,
+      "sha256": "9574d2c7bad8da771839e748b0788e2accd9d2fc90634c0d96337fdd0b191a54"
+    },
+    {
+      "path": "VIDEO13.PIC",
+      "size": 54230,
+      "sha256": "8d40f1db49b456f7e9b57a9ada3c63d3eeb20b8dd3411d5bca9d33a87dd21c59"
+    },
+    {
+      "path": "VIDEO14.PIC",
+      "size": 22648,
+      "sha256": "259c64ab1a66fc51b0df9076c1294b7989cc8f1cb5250a20b0605e5fc92175fb"
+    },
+    {
+      "path": "VIDEO15.PIC",
+      "size": 31428,
+      "sha256": "424634edff5bb71aa08e98a08c72950a8b9356b639c3787765fcc10cc7569de8"
+    },
+    {
+      "path": "VIDSCN01.VGA",
+      "size": 64000,
+      "sha256": "bff1c94c523c7e989ceec3a6fe78eb6e6f4db3dd57ee09bce9bc9608ab4c35fd"
+    },
+    {
+      "path": "VIDSCN02.VGA",
+      "size": 64000,
+      "sha256": "fa6e803e6130b5c91d36aba65c7904dec285f38feb0c514415f7249849738bc3"
+    },
+    {
+      "path": "VIDSCN03.VGA",
+      "size": 64000,
+      "sha256": "21585eb446f76611ff40d6905c7ee9ace7bc38833a1c91a3f8f43e5a27523c2c"
+    },
+    {
+      "path": "VIDSCN04.VGA",
+      "size": 64000,
+      "sha256": "6fcd31547702af8b1ec54956f6737abf5a314d89a72b0f308112f2d9fdbb77cc"
+    },
+    {
+      "path": "VIDSCN05.VGA",
+      "size": 64000,
+      "sha256": "9dcafe1fc0b65b39e41a0247cac29a778e46c92e2906a8c6fba880122f90981a"
+    },
+    {
+      "path": "VINIT.OVR",
+      "size": 5943,
+      "sha256": "c1dfd28e8e616070028ac7bd87b5aea5b85d6b6c80224a8a88bbe1774d415e67"
+    },
+    {
+      "path": "VINSTALL.EXE",
+      "size": 24596,
+      "sha256": "42205983d0f8d94b3d9768f6f1e74d16469048435b05acf59edfe2923858976a"
+    },
+    {
+      "path": "VMAZE.OVR",
+      "size": 44392,
+      "sha256": "887fe601d8d8bc16c44eccd83555355e4947c671b9360a478952873c5bf1abf6"
+    },
+    {
+      "path": "VMELE.OVR",
+      "size": 14225,
+      "sha256": "79bbcc667dc833cced3ff8e92b1bf8cc448659bb1d43166f3e770ce83e02b800"
+    },
+    {
+      "path": "VMEXE.OVR",
+      "size": 42345,
+      "sha256": "05655199184e4f499237e03e27a32726e2f22f4d387bbd1317df6af0bbe6cdb0"
+    },
+    {
+      "path": "VMEXT.OVR",
+      "size": 21313,
+      "sha256": "252536e7d9ec4d33a315945b6e17faaa98960ee02b5377afac7ad66490a6587f"
+    },
+    {
+      "path": "VMNPC.OVR",
+      "size": 44921,
+      "sha256": "02d7ca64e7207b71578f83c89d2dfe7519d5e25d4b2decd4681a6706b56b974d"
+    },
+    {
+      "path": "VMPNTR0.VGA",
+      "size": 482,
+      "sha256": "5a685bc6803bebd95cc0cf92ec1f35e5804adc2c1fb49ffc99c24bf92f87fa61"
+    },
+    {
+      "path": "VMPNTR1.VGA",
+      "size": 128,
+      "sha256": "bb63f17772ba6352c57d6e07077054dcc6eaa61d02f30e992363fea2f6f3c8d9"
+    },
+    {
+      "path": "VMPNTR2.VGA",
+      "size": 482,
+      "sha256": "aa83a684b51b2e74d52ac174eb8532befdff05a2f46cb6e109e177c2b84de6ab"
+    },
+    {
+      "path": "VPCLV.OVR",
+      "size": 22560,
+      "sha256": "429374f8c7c564d9e26a4050c241a4002dc5c73ea57f45610cb83f0866a235e2"
+    },
+    {
+      "path": "VPCMK.OVR",
+      "size": 29885,
+      "sha256": "dd1bcb9a54943163237ff48644c021ea202c36c15858fd7fd71520a5f871d28b"
+    },
+    {
+      "path": "VPCVW.OVR",
+      "size": 39820,
+      "sha256": "8dc7006599844bfd33ae60e11b59f7cedf47d649d84669fdf2546ed15779224d"
+    },
+    {
+      "path": "VPOPS.OVR",
+      "size": 20249,
+      "sha256": "f129f939aee779edb4fe5ce7f798532e631577a2a411b83ccc1c105cad19b4e8"
+    },
+    {
+      "path": "VPORT00.VGA",
+      "size": 2074,
+      "sha256": "d9231a861857c66f468c7394905f17c0e5a1e943cbe8b41ea2e997bd27e9d677"
+    },
+    {
+      "path": "VTREA.OVR",
+      "size": 39575,
+      "sha256": "01cc4d590b3d351a91de40ca2b6da3b91c6a01354639f9a70630ce13234e40a1"
+    },
+    {
+      "path": "WATRDATA.VGA",
+      "size": 14881,
+      "sha256": "628ceda052e94039a300215770e8239ded093864c5f30ac4a3d0218756653fd4"
+    },
+    {
+      "path": "WIZARDRY.BAT",
+      "size": 3081,
+      "sha256": "5649be99fcfe525fc700755f19af1a22bc715ed7a36560f052804e9b000a9ffa"
+    },
+    {
+      "path": "WIZARDRY7.PIF",
+      "size": 967,
+      "sha256": "b8ad9df5ab5d5cd982f54fb8b51f3867c3861993340cc9ee6abb12e2f657f79e"
+    }
+  ],
+  "assets": [
+    {
+      "source": "workplace/r995/party-assets/unifont/xlate.json",
+      "size": 7124562,
+      "sha256": "5077c30fcab5fee407a7cf802d52587f251e2930ac5921403b82edc7996a29d8"
+    },
+    {
+      "source": "workplace/r995/party-assets/unifont/roster.json",
+      "size": 8930,
+      "sha256": "fbec9a58db51ce6d022e08c0d04a4977ac68adfcb39a0cace5658bfd6ba53925"
+    },
+    {
+      "source": "workplace/r995/party-assets/unifont/profile-sex.json",
+      "size": 398,
+      "sha256": "a3e25c801752367ee7e0e69d222f08123ebce60a7dad33f02c0e9f3e83629d39"
+    },
+    {
+      "source": "workplace/r995/party-assets/unifont/intro-picture.json",
+      "size": 379,
+      "sha256": "4157d5b32ca4b5634fd965c9b01d44043d0b8113870c75d44ae1914eb4d542f3"
+    },
+    {
+      "source": "workplace/r983/final/unifont/flow.json",
+      "size": 1832107,
+      "sha256": "8922ccfd4267f056d41d386b828d73cc1324c2123b7a8fdbb876664f6ca906fd"
+    },
+    {
+      "source": "workplace/r979/unifont/help.json",
+      "size": 55263,
+      "sha256": "5a83c4c3d614cd3fa4c3884417234bfd424e3a31ba1ec8085e5123ea2ac09182"
+    },
+    {
+      "source": "workplace/r976/menu/font-copyright.txt",
+      "size": 8133,
+      "sha256": "1f11c4a22865e1289f4694dad56b3561790a4b7341a511ddcd0edddcc3b95a46"
+    },
+    {
+      "source": "LICENSE",
+      "size": 21328,
+      "sha256": "db8f911014ef5400d4d423a2b1d77192b7ae1994d941979a37c499949084198d"
+    }
+  ],
+  "unifont_licenses": [
+    {
+      "source": "/font/unifont-17.0.05/COPYING",
+      "size": 48441,
+      "sha256": "cd2785c2b8e0a01d203560265b2d2d47cdb1401d2707d25918ac5531bcdba947"
+    },
+    {
+      "source": "/font/unifont-17.0.05/OFL-1.1.txt",
+      "size": 4340,
+      "sha256": "869692af094c57fb7258c57fe26820c759319603321d0ffeb278de3651763ded"
+    },
+    {
+      "source": "/font/unifont-17.0.05/README",
+      "size": 29677,
+      "sha256": "0c35716b811d92631b60c92c1ab6a650e5da486f82896c1e87aaef931eb9336a"
+    }
+  ],
+  "story_background_sha256": "95d85f18593d37324d9fb1374ab30ecb4535831d8b365759118dc1298ff6459d",
+  "accepted_builds": {
+    "linux-amd64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "linux",
+      "goarch": "amd64",
+      "source_count": 98,
+      "source_sha256": "d77ddac0f2b4b1e8e10091bfef6c3da0c5c4a8856e7f20265b5c3a78c35f516c",
+      "binary_sha256": "f70fd83a9d4bcdbdaee920b2e52579ce9e8c0fc25a8d089c6339ba90059e414e",
+      "binary_size": 16157048,
+      "sources": "build-source-inputs.json"
+    },
+    "windows-amd64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "windows",
+      "goarch": "amd64",
+      "source_count": 98,
+      "source_sha256": "6ca3ad4069f098d1543273ac701bc80d99c2c5fa7fbcecd4c6f088a1674df8d8",
+      "binary_sha256": "de428cb81fcf7c5e45bb66993c671e459f05b64c36d59a2567da5ed66e1e3d7c",
+      "binary_size": 16581120,
+      "sources": "build-source-inputs.json"
+    },
+    "darwin-amd64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "darwin",
+      "goarch": "amd64",
+      "source_count": 98,
+      "source_sha256": "350f24136efa9a5bbf3c92bf81a081a5f246949c81d474b5bdf03592444c8594",
+      "binary_sha256": "5bc39f3b2579a9254d99c731345f2b5ebbb20f1d6b6ab0dc7e0b33770c82adeb",
+      "binary_size": 16593024,
+      "sources": "build-source-inputs.json"
+    },
+    "darwin-arm64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "darwin",
+      "goarch": "arm64",
+      "source_count": 98,
+      "source_sha256": "350f24136efa9a5bbf3c92bf81a081a5f246949c81d474b5bdf03592444c8594",
+      "binary_sha256": "7ef43828766f6575fe95d41b1437a2f1ac7086687d97784cc241436568c4b92b",
+      "binary_size": 15689074,
+      "sources": "build-source-inputs.json"
+    }
+  }
+}

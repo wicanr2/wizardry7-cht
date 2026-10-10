@@ -1,0 +1,126 @@
+{
+  "version": "v.1.0.1-20261010",
+  "local_only": true,
+  "status": "ACTUAL_EIGHT_PAGE_GUI_SELECTED_RENDER_PENDING",
+  "music": {
+    "path": "workplace/r1007/audio/title-bgm-95.wav",
+    "sha256": "0e00173afc868e458dbbb4fc4c644e641da2e2638ffcf50ad79b3f48558293e9",
+    "gain": 1
+  },
+  "segments": [
+    {
+      "id": "title",
+      "kind": "card",
+      "duration": 4,
+      "audio": "music",
+      "copy": "title"
+    },
+    {
+      "id": "story",
+      "kind": "card",
+      "duration": 9,
+      "audio": "music",
+      "copy": "story"
+    },
+    {
+      "id": "factions",
+      "kind": "card",
+      "duration": 9,
+      "audio": "music",
+      "copy": "factions"
+    },
+    {
+      "id": "gameplay",
+      "kind": "card",
+      "duration": 9,
+      "audio": "music",
+      "copy": "gameplay"
+    },
+    {
+      "id": "menu-intro",
+      "kind": "card",
+      "duration": 7,
+      "audio": "music",
+      "copy": "menu"
+    },
+    {
+      "id": "menu",
+      "kind": "video",
+      "duration": 5,
+      "audio": "music",
+      "start": 0,
+      "path": "workplace/r1006/capture/menu.mkv",
+      "sha256": "90c1d5c4a3de8537c3a7ba402d2eaf38850928efa14f2a12ba22eeff3b88c1eb"
+    },
+    {
+      "id": "explore",
+      "kind": "video",
+      "duration": 10,
+      "audio": "music",
+      "start": 0,
+      "path": "workplace/r1006/promo-selected/world.mkv",
+      "sha256": "4c79a7eed3d00a5831429cee892ee29aa2ce747c87570f45caafcc33b03a34c4"
+    },
+    {
+      "id": "equipment-intro",
+      "kind": "card",
+      "duration": 7,
+      "audio": "music",
+      "copy": "equipment"
+    },
+    {
+      "id": "equipment",
+      "kind": "video",
+      "duration": 14,
+      "audio": "music",
+      "start": 28,
+      "path": "workplace/r1006/promo-selected/world.mkv",
+      "sha256": "4c79a7eed3d00a5831429cee892ee29aa2ce747c87570f45caafcc33b03a34c4"
+    },
+    {
+      "id": "help-intro",
+      "kind": "card",
+      "duration": 6,
+      "audio": "music",
+      "copy": "help"
+    },
+    {
+      "id": "help",
+      "kind": "still",
+      "duration": 7,
+      "audio": "music",
+      "start": 0,
+      "path": "workplace/r1006/capture/gui/world-help-f1.png",
+      "sha256": "80a342d5facb13e2539faeab5391434eac16247196dfe73847bef6c6c9ee1e11"
+    },
+    {
+      "id": "dialogue",
+      "kind": "card",
+      "duration": 6,
+      "audio": "music",
+      "copy": "dialogue"
+    },
+    {
+      "id": "npc",
+      "kind": "video",
+      "duration": 59,
+      "audio": "source",
+      "start": 0,
+      "gain": 1,
+      "copy": "dialogue",
+      "path": "workplace/r1007/npc/normal-record-r1/world.mkv",
+      "sha256": "84dee6c28be85e21fc010634b4db6cd188b29521c1ac7d6caa661c5f25fc39f7"
+    },
+    {
+      "id": "end",
+      "kind": "card",
+      "duration": 6,
+      "audio": "music",
+      "copy": "end"
+    }
+  ],
+  "npc_receipt": {
+    "path": "workplace/r1007/render/npc-accepted-receipt.json",
+    "sha256": "c57710b70fadd1f3a132a3b29cec1e79493631d0107befc113c9eac2629dd382"
+  }
+}

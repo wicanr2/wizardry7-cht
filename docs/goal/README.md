@@ -1,5 +1,7 @@
 # 專案目標
 
+故事／中文化介紹、音訊比對與完整NPC對話影片：[R1007](R1007-story-features-audio-dialogue.md)。
+
 1.0.0本機完整版與推廣影片：[R1006](R1006-full-local-release-promo.md)。
 
 早期創角屬性來源補證：[R1005](R1005-creation-attribute-sources.md)。

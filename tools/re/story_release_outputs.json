@@ -1,0 +1,170 @@
+{
+  "schema": "wizardry7-cht-local-release/1",
+  "version": "v.1.0.1-20261010",
+  "timezone": "Asia/Taipei",
+  "local_only": true,
+  "artifacts": [
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.1-20261010-full-local-linux-amd64.zip",
+      "target": "linux-amd64",
+      "size": 12966195,
+      "sha256": "2646b1037b379ddf2891ec3852097655b26c9a189208069257c53da76eadf88a",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.1-20261010-full-local-windows-amd64.zip",
+      "target": "windows-amd64",
+      "size": 13313029,
+      "sha256": "bccd37c6ecd137e9e3f058f90a84401383b086106bf4619ac2aba29b1050a018",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.1-20261010-full-local-macos-amd64.zip",
+      "target": "darwin-amd64",
+      "size": 13558405,
+      "sha256": "cb1b888d2a92263d5683f7b41eb5e03471ce0603812ffd0f7884e42e9af544f0",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "full-local/wizardry7-cht-v.1.0.1-20261010-full-local-macos-arm64.zip",
+      "target": "darwin-arm64",
+      "size": 12925878,
+      "sha256": "d6746d50402848bca78bb30f2d389ebfe2b40db0a77294e37b700be235fc4e3b",
+      "rights": "contains original game; local-only"
+    },
+    {
+      "path": "promo/wizardry7-cht-v.1.0.1-20261010-promo-story-features.mp4",
+      "size": 6549155,
+      "sha256": "a4abe465772368b641f3d85ee2725ef714aa142f2df01dfddb154a9d75431b85",
+      "rights": "original gameplay/audio; local-only"
+    }
+  ],
+  "movie_duration": 158,
+  "validation": {
+    "linux-amd64": "normal packaged NPC eight paragraphs/SAVE/coldLOAD/close0; 174240 viewport pixels restored; production strict replay and 2456 original-state/private API comparisons pass",
+    "windows-amd64": "Wine9 OpenGL six-button menu/WMclose0; 275 files unchanged; native/audio/save-load untested",
+    "darwin-amd64": "Mach-O x86-64/system dependencies/fresh ZIP/story/launcher version; native untested",
+    "darwin-arm64": "Mach-O arm64/system dependencies/fresh ZIP/story/launcher version; native untested",
+    "movie": "H2641280x720/30fps/4740 frames+AAC44100 stereo/158s; full decode/black frames/captions/all eight NPC paragraphs/source bounds/audio DC/junctions and independent visual review pass",
+    "human_listening_confirmed": false
+  },
+  "remaining_localization": "full text/endings/TSV/cheats/2x-creation layout remain outside this release",
+  "original_state_comparison": {
+    "publications": 2456,
+    "scope": "publication data comparison; baseline exit status unrecorded",
+    "baseline_exit_status_recorded": false,
+    "baseline_exit_code": null,
+    "new_control_exit_code": 0
+  },
+  "previous_delivery_preserved": "v.1.0.0-20261010",
+  "input_inventory_sha256": "2a8ddeb606b0dc550c86bd31aaa0b9817e21f52007bba4133bce7765691897d7",
+  "promo_input_sha256": "94510e5418cf9409102ef0a0e9d98c0374ff170a4a37075ca242d01668dd457d",
+  "accepted_builds": {
+    "linux-amd64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "linux",
+      "goarch": "amd64",
+      "source_count": 98,
+      "source_sha256": "d77ddac0f2b4b1e8e10091bfef6c3da0c5c4a8856e7f20265b5c3a78c35f516c",
+      "binary_sha256": "f70fd83a9d4bcdbdaee920b2e52579ce9e8c0fc25a8d089c6339ba90059e414e",
+      "binary_size": 16157048,
+      "sources": "build-source-inputs.json"
+    },
+    "windows-amd64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "windows",
+      "goarch": "amd64",
+      "source_count": 98,
+      "source_sha256": "6ca3ad4069f098d1543273ac701bc80d99c2c5fa7fbcecd4c6f088a1674df8d8",
+      "binary_sha256": "de428cb81fcf7c5e45bb66993c671e459f05b64c36d59a2567da5ed66e1e3d7c",
+      "binary_size": 16581120,
+      "sources": "build-source-inputs.json"
+    },
+    "darwin-amd64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "darwin",
+      "goarch": "amd64",
+      "source_count": 98,
+      "source_sha256": "350f24136efa9a5bbf3c92bf81a081a5f246949c81d474b5bdf03592444c8594",
+      "binary_sha256": "5bc39f3b2579a9254d99c731345f2b5ebbb20f1d6b6ab0dc7e0b33770c82adeb",
+      "binary_size": 16593024,
+      "sources": "build-source-inputs.json"
+    },
+    "darwin-arm64": {
+      "schema": "wiz7-recording-build/1",
+      "go_version": "go1.24.13",
+      "goos": "darwin",
+      "goarch": "arm64",
+      "source_count": 98,
+      "source_sha256": "350f24136efa9a5bbf3c92bf81a081a5f246949c81d474b5bdf03592444c8594",
+      "binary_sha256": "7ef43828766f6575fe95d41b1437a2f1ac7086687d97784cc241436568c4b92b",
+      "binary_size": 15689074,
+      "sources": "build-source-inputs.json"
+    }
+  },
+  "evidence": [
+    {
+      "path": "workplace/r1007/review/control-tools-r1/run-r3/result.json",
+      "sha256": "82f2922923234eadf1c5e0a6842012aafa09d35300e18e6b7d1c46b32489aef8",
+      "size": 2314
+    },
+    {
+      "path": "workplace/r1007/story/platform-smoke/smoke-result-final.json",
+      "sha256": "f454c9b2220c391ff540f3c38d546b0db1ef304b62b739783611f0c5f9a64c4d",
+      "size": 6821
+    },
+    {
+      "path": "workplace/r1007/render/qa-r1/movie-visual-technical.json",
+      "sha256": "79c7c0deee9bad945f372a10040b96eeb7d2aece6588bddbb4f9b6c92cc78d19",
+      "size": 10094
+    },
+    {
+      "path": "workplace/r1007/audio/movie-qa-v101-r1/audio-qa.json",
+      "sha256": "c3a8d9e49cba19ba9b9fd451a2970f7bc94fff423b3becc8ba78dda6c8bb5b6b",
+      "size": 56718
+    },
+    {
+      "path": "workplace/r1007/npc/final-movie-review/review.json",
+      "sha256": "0f86a5f4b56277a24559048a10373e29bf7053c229937fb0aca0b9d77d23198a",
+      "size": 8659
+    },
+    {
+      "path": "workplace/r1007/audio/movie-qa-v101-r1/audio-qa-duration-note.json",
+      "sha256": "d5eb9140f0b8750afba9b50d2a9a2e579d952d48fdc4118afe4740af604318e4",
+      "size": 1111
+    },
+    {
+      "path": "workplace/r1007/npc/normal-validation-summary.json",
+      "sha256": "fbc31976b52c6fedddb9fefc5b2b67b676b4bc3f4202758ff7a14a124e9d5998",
+      "size": 7880
+    },
+    {
+      "path": "workplace/r1007/story/reader-result.json",
+      "sha256": "e8dbfc8c9eb76af4f9d526fab4bb9133be954db386d9846f2815440d45042eb2",
+      "size": 616
+    },
+    {
+      "path": "workplace/r1007/review/npc-implementation-source-review.json",
+      "sha256": "ba972be94b72ac7a43f262f89c6d109ae6c2c774a318d2eb483f6ee28efca0b8",
+      "size": 4011
+    },
+    {
+      "path": "workplace/r1007/review/npc-normal-recording-source-review.json",
+      "sha256": "9b715409b6624ce6dcc9b7698fdedfc367d494d5a1646c6d4122447d4fcbc69e",
+      "size": 3741
+    },
+    {
+      "path": "dist-all/v.1.0.1-20261010/smoke/four-package-story-check.json",
+      "sha256": "d76bf5ecc7eacc3e4f43a7df1c9ff75fe744b605c5b1942633fa99e11be82f7c",
+      "size": 2358
+    },
+    {
+      "path": "workplace/r1007/story/platform/cross-build-check.json",
+      "sha256": "d448e2cdb6fc363c50c84a5114cee5646f006432325a16dc891d161703057190",
+      "size": 4862
+    }
+  ]
+}
