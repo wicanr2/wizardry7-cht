@@ -1,5 +1,7 @@
 # 專案目標
 
+早期創角屬性來源補證：[R1005](R1005-creation-attribute-sources.md)。
+
 兩倍創角屬性排版：[R1004](R1004-creation-attribute-layout.md)。
 
 創角早期M正式覆繪：[R1003](R1003-creation-sex-wiring.md)。
